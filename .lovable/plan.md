@@ -1,159 +1,172 @@
-# UI/UX Audit & De-Templating Plan
-## "Cochrane Drywall & Insulation — from polished template to signature site"
+## Goal
 
-I navigated the live preview at 1440px and 390px across `/`, `/drywall-repair`, `/gallery`, plus reviewed the source for `Hero`, `HeroImage`, `ServiceCard`, `ProcessSteps`, `SectionTitle`, `CTABand`, `BeforeAfterPair`, `Logo`, `TrustBar`, `Navigation`, and `Index.tsx`. Below is what reads as **template-grade** today, followed by a phased rebuild plan.
+Turn this project into the **Cochrane Master Builders master template**: one canonical codebase you remix in Lovable for each new contracting trade (drywall, roofing, plumbing, electrical, etc. — ~100 sites), where every site looks, feels, and ranks like part of one parent brand.
 
----
-
-## 🔍 Part 1 — Audit: 15 things that make the site feel cheap / template-y
-
-### A. The hero is the biggest tell (4 issues stacked)
-1. **The hero image is invisible on mobile.** `HeroImage.tsx` uses a `from-bone via-bone/85 to-bone/40` gradient at `opacity={38}` with no responsive override. On a 390px viewport the 8-col copy area covers 100% of the image, so the photo is completely washed out — the hero looks like a white wall. **Tell**: phones see a stock-template body of text on cream.
-2. **Two competing headlines** in the hero. The left says *"Finally get that wall handled."* and the right column repeats *"Finally Get That Wall Handled."* in title-case as a sidebar quote. It's not a system — it's the same line twice in two different cases. **Tell**: feels auto-generated.
-3. **Eyebrow is meaningless.** `COCHRANE, ALBERTA` sits above every hero. It's a location stamp, not an eyebrow. Real editorial eyebrows answer "what category am I about to read?" (e.g., *Repair · Cochrane · 24h photo-quote*). **Tell**: vacuous tracker text.
-4. **No visual anchor / no proof.** Hero has zero numbers, zero logos, zero before/after teaser, zero photo of actual work, zero motion. It's all text and a single CTA. World-class tradesman sites (e.g., agency-built finishing brands) show a tile of recent work *inside* the hero so the reader sees "they actually do this" within 1.5 seconds.
-
-### B. Components are wireframes painted cream (5 issues)
-5. **ServiceCard is a generic outlined rectangle.** `border border-seam bg-paper p-8` + bold heading + lead + arrow link. There are 4 of these in a row. They could be on any contractor, SaaS, or law-firm template. No image preview, no scope chip, no price band, no signature mark.
-6. **ProcessSteps is the canonical "4 numbered cards in a row" pattern.** A muted `01 02 03 04` with a paragraph each. Every Lovable / Webflow / Squarespace template uses this exact composition. There is no spatial story (no arrow, no connector line, no progressive imagery, no horizontal scroll on mobile, no per-step illustration).
-7. **CTABand is a flat forest rectangle.** Single bg color, headline, body, two buttons. The pattern shows up identically on at least three sections. It needs differentiation by depth/role: in-context CTA vs. final CTA vs. service-specific CTA.
-8. **BeforeAfterPair is two side-by-side photos with corner pills.** This is the most common template in the trades. Real proof systems use a *slider* (drag handle), or a *crossfade on hover*, or a *staged reveal*. As built, it's two thumbnails with little "Before"/"After" tags — generic.
-9. **TrustBar is `Check · text · Check · text` ad infinitum.** Lucide check + grey label, four times, centered, on a paper strip between sections. Every Bootstrap/Tailwind starter has this exact bar.
-
-### C. Page rhythm is a metronome (3 issues)
-10. **Section pattern repeats 9 times.** Every section is: `eyebrow → display headline → optional lede → grid of equal cards`. There is no variation in alignment (everything is left-aligned), no asymmetry, no full-bleed editorial moment, no inset narrative block, no number-led big-stat moment. Scrolling feels like the same beat played 9 times.
-11. **All paragraphs are the same width and weight.** `text-graphite` body + `text-body-lg` lede across the entire site. No drop cap (the CSS for `.drop-cap` exists in `index.css` but isn't applied anywhere). No editorial pull-quote that *isn't* on a blurred backdrop. No hierarchy of paragraph styles.
-12. **Vertical rhythm has no breathing room differential.** Every section is `section-y` (`clamp(3rem, 9vw, 7.5rem)`). World-class editorial sites *modulate* — a hero gets 12rem, a fact strip gets 3rem, the closing CTA gets 16rem. As built, the page is a stack of equal slabs.
-
-### D. Motion, micro-interactions & navigation (3 issues)
-13. **No signature interaction.** The brand promise is "damaged → smooth/clean," but nothing on the site demonstrates that gesture. There is no seam-disappearing reveal, no trowel-arc cursor, no "before paint → after paint" hover on a service card, no animated trowel mark in the logo on first load. The motion philosophy doc describes all of this; none of it ships.
-14. **Desktop nav wraps.** At 1440px, "Drywall Repair", "Pricing & Process", "Favourite Things" all wrap to two lines. The nav looks like it's having a stress test. With 9 visible top-level items + a CTA, that's too many for the column. Either reduce items, group under a Services dropdown, or shrink the type — but a wrapping nav is the #1 template tell on any contractor site.
-15. **The "Back to top" button teleports to the footer.** I clicked it from the gallery and the page jumped past the grid straight to the footer. It's a real bug — `BackToTop` likely scrolls to a `#bottom` anchor or the wrong target, possibly because Lenis is intercepting `window.scrollTo({ top: 0 })`. This single bug undoes all the polish.
-
-### E. Brand identity micro-issues (bonus)
-- **Logo cuts off "& Insulation" below sm.** On every phone, the brand reads *"Cochrane Drywall · Masters"*. The legal name is missing from the visible mark on the most-used viewport.
-- **The CTA *button* says "Get a Quote" in the navbar but "Send Photos for a Quote" everywhere else.** Three different phrasings exist for the same action: *Get a Quote · Send Photos for a Quote · Request Repair Pricing*. Pick one and let it be the brand verb.
-- **Navigation underline is `story-link` with no actual underline visible** — the hover is so subtle it disappears against the bone backdrop.
-- **Footer sign-off "Damage out. Comfort in." is huge but shrinks to nothing at 1440px** because it's not using `clamp()` — looks tiny at desktop.
-- **Bottom-of-CTA vs. footer have no separator** — the green CTA band runs straight into the cream footer with no breathing room. The handoff feels glued together.
+Everything reusable lives **in the codebase** (not the database) so it travels automatically with every remix. The Supabase database stays focused on actual app data (bookings, emails) — same as today.
 
 ---
 
-## 🛠 Part 2 — The 6-Phase Rebuild
+## What you get when this plan ships
 
-The principle: **stop using the brand color as the only differentiator.** Every cheap template is a palette change away from another cheap template. Premium comes from **system, signature, asymmetry, and proof.**
-
----
-
-### **Phase 1 — Hero rebuild ("the 1.5 second test")** — `Hero.tsx`, `HeroImage.tsx`, `Index.tsx`
-
-**Goal:** A reader on any device should see *the wall, the work, and the next step* before the second second.
-
-1. **Replace flat 60/40 grid** with a 3-zone editorial layout:
-   - Left (60%): eyebrow → headline → lede → CTAs.
-   - Right (40%): a stacked **proof column** with one real before/after thumbnail (drag-revealable on desktop, tap-to-flip on mobile), a tiny scope chip ("Repair · Cochrane · 1 visit"), and a 3-line micro-testimonial ("Patched in an afternoon. Couldn't find the seam after." — *Lisa, Cochrane*).
-2. **Mobile rule for the hero photo:** the bone overlay is currently the same on every viewport. Switch the gradient to `from-bone via-bone/95 to-bone/65` on `<md` AND clip the photo to a 4:5 frame *below* the headline so the image actually appears on phones. Above-the-fold should always show *some* of the wall.
-3. **Replace location-stamp eyebrow** with a contextual eyebrow per page. Home: `Cochrane · 24-hour photo-quote`. Repair: `Drywall Repair · Single-visit jobs welcome`. Etc.
-4. **Kill the duplicate sidebar quote.** Replace it with the proof column from #1.
-5. **Add a single signature motion:** a 1.2s seam-line that draws across under the headline on mount (`animate-line-grow-center` already exists in `index.css` — wire it).
-6. **Remove the `paper-grain` overlay on the hero** at mobile widths — at 5% opacity over a bone wash it's invisible noise that just costs paint time.
+1. A `master/` folder in the repo that holds every Cochrane Master Builders asset, persona, playbook, SEO list, and rule.
+2. A single `trade.config.ts` you edit per remix — name, palette accents, services, contact email — and the whole site re-themes.
+3. An AI-generated trade logo (PNG) wordmarked from the master Cochrane Master Builders mark, dropped into `/public/`.
+4. A `/remix` admin route inside the site that shows the live remix checklist, brand audit, and "what's still drywall" warnings.
+5. A persona library already rewritten in Cochrane Master Builders voice, ready for the AI to use on any new trade.
+6. A shared 100-area service-area SEO module that auto-renders on every site.
+7. A backlink-network config so every sister site cross-links for SEO.
+8. All booking forms route to one shared master email address.
 
 ---
 
-### **Phase 2 — Replace the four template components with signature ones**
+## Architecture
 
-#### 2a. `ServiceCard` → `ServicePanel`
-- Make it a **horizontal editorial slat** on desktop (image left 40%, copy right 60%) and a vertical card on mobile.
-- Add a tiny inline image (we have the asset library — pull `editorial-mud-bucket`, `editorial-corner-bead`, `editorial-paint-swatch`, `editorial-vapor-barrier` for the four services).
-- On hover (desktop), the image **sharpens** from a 4px blur to 0px in 600ms — literal "out-of-focus → in-focus" motion that mirrors the brand promise.
-- Add a `scope chip` ("Half-day · Single visit · One coat") under the title — the same data as `planningRanges` but treated as a typographic tag.
+```text
+src/
+├── master/                          ← NEW — Cochrane Master Builders source of truth
+│   ├── brand/
+│   │   ├── identity.ts              parent-brand identity (mission, voice, do/don't)
+│   │   ├── style-guide.ts           master color/type/spacing rules (parent of trade.config)
+│   │   ├── logo.svg                 master CMB logo
+│   │   └── brand-docs.md            uploaded business plan, brand bible (markdown)
+│   ├── personas/                    rewritten versions of the 19 persona files for CMB
+│   ├── seo/
+│   │   ├── service-areas.ts         100+ areas (Cochrane, Calgary, Airdrie, Bragg Creek...)
+│   │   ├── seo-playbook.md          per-page SEO best practices
+│   │   └── backlink-network.ts      list of all sister sites for cross-linking
+│   ├── playbooks/
+│   │   ├── REMIX_PLAYBOOK.md        step-by-step remix guide
+│   │   ├── BRAND_AUDIT.md           how to verify the site reflects CMB
+│   │   ├── AI_IMAGE_RULES.md        no faces, no people, ultra-realistic
+│   │   └── COPY_GUIDE.md            voice, story, words to avoid
+│   └── checklist.ts                 typed remix checklist (drives /remix UI)
+│
+├── config/
+│   └── trade.config.ts              ← the ONE file you edit per remix
+│
+└── pages/
+    ├── ServiceAreas.tsx             auto-renders from master/seo/service-areas.ts
+    └── Remix.tsx                    NEW — internal /remix dashboard (checklist + audits)
 
-#### 2b. `ProcessSteps` → `ProcessLadder`
-- Drop the 4-equal-cards grid. Replace with a **vertical ladder** on desktop where each step has its own row: large numeral on the left (90px Cormorant, forest at 30%), title + description center, small editorial photo on the right (we have all 6 `editorial-*` assets).
-- Connect the steps with a **1px forest line** that animates draw-in as you scroll.
-- On mobile: convert to a snap-x carousel (one step per swipe) — touch-first interaction, not a tall stack.
-
-#### 2c. `CTABand` → 3 differentiated CTA roles
-- `CTAWhisper` — inline thin band with a single underlined link, used between mid-page sections.
-- `CTABand` (kept) — green slab, used only **once** per page, near the end.
-- `CTAFinale` — full-bleed dark forest with a **giant pull-quote**, eyebrow, two CTAs, and a subtle parallax of `bg-blur-basement-progression`. Used as the page closer instead of repeating the green band.
-
-#### 2d. `BeforeAfterPair` → `BeforeAfterReveal`
-- Add a **drag-handle slider** (use `@radix-ui/react-slider` or a simple pointer-event implementation). The handle is a 1px hairline + a tiny forest dot at the seam — mirrors the logo's "mastery dot" mark.
-- Mobile: tap the image to swap before↔after with a 400ms crossfade.
-- Add a "scope tag" beneath each pair (`Knob hole · 1 hour · Single visit · Cochrane SW`) so the proof reads as a case study, not a thumbnail.
-
-#### 2e. `TrustBar` → `TrustLedger`
-- Replace check-marks-in-a-row with a **3-column ledger** style: each column has a small numeral (`24h`, `100%`, `~1`) above an eyebrow (`Photo-quote turnaround`, `Cochrane homes`, `Visit per repair`) above a one-line context. Same trust signals, but reads like a stat sheet, not a footer pill row.
-
----
-
-### **Phase 3 — Page rhythm: break the metronome**
-
-1. **Vary section padding by *role*** instead of using `section-y` everywhere:
-   - `section-hero` → `pt-clamp(6rem, 18vw, 14rem) pb-clamp(4rem, 12vw, 9rem)`
-   - `section-narrative` → `py-clamp(5rem, 12vw, 10rem)`
-   - `section-fact` → `py-clamp(2.5rem, 6vw, 4.5rem)` (tight, factual)
-   - `section-finale` → `pt-clamp(6rem, 14vw, 11rem) pb-clamp(8rem, 18vw, 14rem)` (big arrival)
-   Add these as utility classes in `index.css`.
-
-2. **Introduce 3 new layout primitives** alongside the existing `container mx-auto px-6`:
-   - **`<EditorialSpread>`** — asymmetric 12-col with a 5-col offset block (image-left, copy-right or vice versa). Used 1–2 times per page, never side-by-side.
-   - **`<NarrativeColumn>`** — single 60ch column with optional `.drop-cap` on the first paragraph. Used for the "Why us" / "About" sections so the reader gets a moment of *reading* instead of *scanning*.
-   - **`<StatRow>`** — 3 large numerals across the page width with hairline rules between them. Used for "in last 12 months" type claims.
-
-3. **Apply `.drop-cap`** to the first paragraph of `About.tsx` and the "Why us" block on `Index.tsx`. The CSS is already there; it's never applied.
-
-4. **Add page transitions specific to the brand:** instead of `PageTransition`'s opacity-fade, use a 600ms **horizontal seam wipe** (a 1px forest line that sweeps from left to right then dissolves the new page in beneath it). Reuses the seam-as-signature motif.
+supabase/functions/
+└── generate-trade-logo/             NEW — calls Lovable AI to render the trade-specific logo
+```
 
 ---
 
-### **Phase 4 — Signature interactions (the "only this brand does this" moments)**
+## Phased build
 
-1. **Trowel-arc cursor on `/` and `/drywall-repair`** (desktop only): a tiny SVG arc that follows the cursor with a 120ms lag. Disappears over text/buttons. Echoes the logo and feels like a master's hand near the wall.
-2. **Service-card "smooth on hover":** card image starts at `filter: blur(4px) contrast(0.9)` and resolves to `blur(0)` over 600ms on hover. Literal "rough → finished" demonstration — embodies the brand promise.
-3. **Hero seam-draw:** 1px forest line draws under the headline on mount (already have keyframes — wire it).
-4. **FAQ open animation:** when a FAQ item opens, the answer paragraph reveals top-to-bottom *behind* a thin clip-path mask (200ms) instead of the default Radix accordion height transition. Subtle but mirrors "mud feathering out."
-5. **Scroll-progress hairline** at the very top of the viewport (1px, forest, 12% opacity) instead of `BackToTop`'s round button. Uses `useScroll` from framer-motion and feels like the seam being drawn as you read.
-6. **"Mastery dot" on the logo:** the small forest dot in the trowel mark gets a `breathe` animation (2.4s, opacity 1 → 0.6 → 1). Already have `animate-pulse-dot` keyframes.
+### Phase 1 — Master folder scaffolding (no behavior change yet)
+- Create `src/master/` with empty typed files for brand, style-guide, personas, seo, playbooks, checklist.
+- Move existing `src/config/personas/*` → copy as starting points into `src/master/personas/` (keep originals for now to avoid breaking imports; we migrate in Phase 4).
+- Add `src/master/README.md` explaining the layout and the "edit here once, inherits everywhere" rule.
+
+### Phase 2 — Upload intake
+You upload these to chat (one batch is fine):
+- Cochrane Master Builders brand identity docs (PDF/DOCX)
+- Business plan + website plan + spreadsheet
+- Master logo (SVG preferred, PNG ok)
+- Style guide doc
+- Persona/personality prompts you want customized
+- Service-area list (CSV or doc)
+- SEO best-practices doc
+- Brand audit checklist
+
+I parse them with `document--parse_document` and embed the canonical content into `src/master/brand/brand-docs.md`, `src/master/brand/style-guide.ts`, `src/master/seo/service-areas.ts`, etc. Nothing goes to the database — pure code.
+
+### Phase 3 — Trade-logo generator (AI)
+- New edge function `generate-trade-logo` that calls Lovable AI image model (`google/gemini-3-pro-image-preview`) with:
+  - Reference image: master CMB logo (sent as `image_url`)
+  - Prompt: "Recreate this exact logo style, swap the wordmark to '<TRADE NAME>'. Same colors, weight, spacing, lockup. Keep identical mark. Transparent background, vector-clean."
+- A `/remix` page button **"Generate logo for this trade"** runs it, previews the PNG, and saves to `public/logo.png` + `public/og-image.png`.
+- One click per remix. No manual asset work.
+
+### Phase 4 — `trade.config.ts` v2
+Slim it down so a remix only touches:
+- `identity.name`, `identity.shortName`, `identity.trade`
+- `palette.accent` (one HSL — most colors stay master-bone/charcoal/forest)
+- `services` array (name, slug, summary, range)
+- `contact.email` (defaults to master CMB email if omitted)
+- `seo.title` / `seo.description`
+
+Everything else (typography, motion, base palette, voice, fear-dispel, persona references) inherits from `src/master/`.
+
+### Phase 5 — Service-area SEO module
+- `src/master/seo/service-areas.ts` exports a typed list: `{ slug, name, region, lat, lng, neighborhoods[], population, distanceFromCochrane }`.
+- `src/pages/ServiceAreas.tsx` auto-renders an index + one SEO page per area (`/areas/calgary`, `/areas/airdrie`, …) with:
+  - LocalBusiness JSON-LD per area
+  - Trade-specific H1 ("Drywall in Airdrie")
+  - Internal links to 5 nearby areas + 5 sister sites (from backlink-network.ts)
+- Dropped into every remixed site automatically via routing in `App.tsx`.
+
+### Phase 6 — Backlink network
+- `src/master/seo/backlink-network.ts` is a flat list: `{ trade, url, anchor, blurb }`.
+- A `<SisterSites />` component picks 5 most-relevant entries (by trade adjacency rules in code) and renders in the footer + on every service-area page.
+- When you add a new remix, append one line — every other site picks it up on next deploy.
+
+### Phase 7 — Booking → shared master email
+- `trade.config.ts` defaults `contact.email` to `MASTER.email` from `src/master/brand/identity.ts`.
+- The existing `send-transactional-email` flow stays; we just centralize the inbox + add the trade name to the subject line so you can triage 100 sites from one inbox.
+
+### Phase 8 — `/remix` dashboard (internal page)
+A non-public route (`/remix`, gated by a simple env-flag check) that shows:
+- **Checklist** (typed in `src/master/checklist.ts`) with items: wireframe matches, palette swapped, copy unique, brand audit passed, AI images generated (no faces / no people / ultra-real), perf budget green, navigation lean, service is bespoke, sister-site backlinks present.
+- **Live diffs**: scans the codebase for any leftover "Cochrane Drywall" / "drywall" / old palette HSL values not present in `master/` and lists them as warnings. (Pure client-side regex over imported config — no DB.)
+- **One-click logo regenerate** (Phase 3 button).
+- **Style-guide preview** (re-uses `/style-guide`).
+
+### Phase 9 — Playbooks (markdown, in repo)
+`src/master/playbooks/` holds:
+- `REMIX_PLAYBOOK.md` — exact steps to remix in <30 min
+- `BRAND_AUDIT.md` — how to verify CMB feel
+- `AI_IMAGE_RULES.md` — no faces, no people, ultra-realistic, prompt patterns, model recommendations
+- `COPY_GUIDE.md` — voice, story rules, words to avoid (inherits from `master/brand/identity.ts`)
+- `SEO_PLAYBOOK.md` — per-page SEO checklist + how the area network ranks
+- `PERFORMANCE_PLAYBOOK.md` — image sizes, lazy-load rules, Lighthouse budget
+
+These are linked from the `/remix` dashboard so you read them in-app.
 
 ---
 
-### **Phase 5 — Navigation, brand mark, and chrome**
+## Things I noticed missing from your list (item 10 and beyond)
 
-1. **Reduce desktop nav from 9 items to 6**. Group all four services under a single `Services ▾` flyout. Final desktop nav: `Services ▾ · Pricing & Process · Gallery · Reviews · About · [Get a Quote]`.
-2. **Fix the wrapping items:** even after grouping, set the nav row to `flex-nowrap` and use a smaller type scale (13px) at 1024–1280px so nothing wraps.
-3. **Logo mobile rule:** show "Cochrane Drywall & Insulation" stacked on two lines on mobile (small type, two-line lockup) so the legal name is never truncated. Right now the brand name disappears below `sm`.
-4. **Unify the CTA verb sitewide.** Pick one — recommend `Send Photos for a Quote` (matches the actual flow). Replace `Get a Quote` and `Request Repair Pricing` everywhere.
-5. **Add a 1px seam between `<CTABand>` and `<Footer>`** — currently they're glued. Use the existing `.seam-rule-fade` utility.
-6. **Fix `BackToTop`** to use Lenis's `lenis.scrollTo(0, { duration: 1.2 })` instead of `window.scrollTo`. Today's bug: it teleports to the footer.
-7. **Footer sign-off "Damage out. Comfort in."** → wrap with `clamp(2.25rem, 6vw, 5.5rem)` so it scales with the viewport instead of looking tiny on desktop.
+Things worth adding now while we're designing the system:
 
----
-
-### **Phase 6 — Proof system & content density**
-
-A drywall brand has to *prove* the work. Right now the proof is buried.
-
-1. **Hero proof tile** (covered in Phase 1): one before/after preview lives *in* the hero on desktop.
-2. **`/gallery` filter row → editorial chip strip.** Today it's a row of pill buttons. Treat each filter as an italic Cormorant word with a hairline underline on the active one (`Repair · Patch + Paint · Garage · Basement`). More magazine, less SaaS.
-3. **Add `<CaseStudyStrip>` to home and each service page** — a single horizontal scroll-snap row of 3 micro case studies (60-word story + small after photo + 1 stat). Pulls from a new `src/config/case-studies.ts` data file.
-4. **Replace the `BRAND_IDENTITY.pillars.cleanRepairs` pseudo-quote** on the home page (currently in a centered blockquote) with a real-attribution testimonial. If we don't have one yet, structure the data file (`src/config/reviews.ts` already exists) and pull from it instead of brand copy talking to itself.
-5. **Add a `<NumberFact>` row** on the home page between "Why us" and the final CTA: `~1 visit · 24h reply · 0% upsell pressure`. Editorial numerals (Cormorant, 96px), thin forest rules between, no boxes.
+10. **Per-trade Google Business Profile + schema config** — every site should ship with `LocalBusiness` JSON-LD that auto-generates from `trade.config.ts` (name, area, phone). Already partly there; we formalize.
+11. **Robots.txt + sitemap.xml generators** that read from the service-area list so every remix has a complete sitemap on day one.
+12. **Open Graph image auto-generation** (same edge function as the logo, different prompt) so every remix has a unique branded OG image.
+13. **Analytics + lead-source tagging** — the booking payload should carry `siteSlug` so when 100 sites hit one inbox, you know which one converted.
+14. **Honeypot + rate-limiting on the booking form** — when you have 100 public sites, spam multiplies. Easy add.
+15. **A "trade taxonomy"** in `master/` (`trades.ts`) — defines all 100+ planned trades with slug, parent category, adjacent trades. The backlink-network and "related services" widgets read from this. One source of truth for what sites exist.
+16. **Favicon + PWA icons auto-generated** from the trade logo PNG (same generator).
+17. **Versioning the master** — `src/master/VERSION.ts` holds a semver. Each remix records which master version it was forked from in `trade.config.ts`, so you can see which sites are stale when CMB branding evolves.
+18. **A `master/migrations/` folder** with markdown notes per master-version bump ("v2.0: new tagline, swap any site still on v1").
+19. **Image-content guardrail** in `/remix` — scans `src/assets/` filenames + alt text for words like "person", "face", "team", "smiling" and flags them, enforcing your AI image rules.
+20. **Reviews abstraction** — `master/brand/reviews.ts` holds the parent CMB Google reviews; each site can show parent-brand reviews + its own trade-specific ones for instant social proof on day one.
 
 ---
 
-## 📐 Implementation order & estimated impact
+## What you do, what I do
 
-| Phase | What lands | Tells removed | Suggested order |
-|---|---|---|---|
-| 1 | Hero rebuild + proof tile + mobile photo fix | #1, #2, #3, #4 | **First — biggest visible delta** |
-| 5 | Nav fix + logo fix + CTA verb + back-to-top fix | #14, #15, brand micro-issues | **Second — fixes obvious bugs** |
-| 2 | Signature components (ServicePanel, ProcessLadder, CTAFinale, BeforeAfterReveal, TrustLedger) | #5, #6, #7, #8, #9 | Third — highest craft uplift |
-| 3 | Page rhythm primitives + drop-cap + section roles | #10, #11, #12 | Fourth |
-| 4 | Signature motion (cursor arc, service smooth-on-hover, scroll hairline) | #13 | Fifth |
-| 6 | Proof system (case studies, real reviews, number facts) | trust deficit | Sixth |
+**You upload (Phase 2):** brand docs, business plan, master logo, style guide, persona prompts, service area list, SEO doc, audit checklist.
 
-Total deliverables: **3 new layout primitives**, **6 rebuilt or new components**, **5 signature motions**, **1 nav restructure**, **1 hero rebuild**, **1 page-rhythm utility set**, **1 case-study data layer**, **3 critical bug fixes**.
+**I do everything else:** parse them, embed into `master/`, build the generator, wire the `/remix` dashboard, write the playbooks, slim `trade.config.ts`, set up service-area routing, backlink network, shared booking inbox.
 
-Once approved, I will begin with **Phase 1 (Hero) + the three critical bugs from Phase 5** (back-to-top teleport, logo truncation, nav wrapping) so the first commit lands the most visible improvement and removes the most embarrassing tells in a single pass.
+**Per-remix going forward (~15–30 min):** edit `trade.config.ts`, click "Generate logo" in `/remix`, run through the checklist, deploy.
+
+---
+
+## Order of execution once approved
+
+1. Confirm Phase 1 scaffold and architecture
+2. You upload all the docs (Phase 2)
+3. I parse + embed everything into `src/master/`
+4. Build trade-logo edge function + `/remix` dashboard
+5. Slim `trade.config.ts` and migrate personas/style-guide to inherit from `master/`
+6. Build service-area SEO module + sitemap/robots generators
+7. Build backlink network + sister-sites component
+8. Wire shared booking inbox + lead-source tagging
+9. Write the playbooks
+10. Run a full pass on this site as the "drywall remix" to prove the template works
+
+Ready to start with Phase 1 scaffolding when you approve. Then upload your docs and I'll embed them.
