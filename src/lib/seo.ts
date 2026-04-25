@@ -12,7 +12,7 @@ interface PageMeta {
 
 const BASE_URL = "https://cochranedrywall.ca";
 
-export function setPageMeta({ title, description, path, ogImage = "/og-image.jpg" }: PageMeta) {
+export function setPageMeta({ title, description, path, ogImage = "/og-image-cmb.png" }: PageMeta) {
   // Title
   document.title = title;
 
