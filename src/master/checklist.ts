@@ -11,6 +11,7 @@ export type CheckId =
   | "palette-swapped"
   | "logo-generated"
   | "master-logo-rendering"
+  | "master-logo-colorway-set"
   | "copy-unique"
   | "story-rewritten"
   | "brand-audit-passed"
@@ -47,6 +48,7 @@ export const REMIX_CHECKLIST: CheckItem[] = [
   { id: "favicon-generated", group: "setup", automated: true, label: "Favicon + PWA icons generated", description: "Derived from the trade logo." },
   { id: "og-image-generated", group: "setup", automated: true, label: "OG / social image generated", description: "16:9 branded share image." },
   { id: "master-logo-rendering", group: "setup", automated: true, label: "Master CMB logo rendering in nav + footer", description: "<MasterLogo slot='nav'> and slot='footer' resolve to a master file or per-trade override (see LOGO_USAGE.md)." },
+  { id: "master-logo-colorway-set", group: "setup", automated: true, label: "Logo colorway chosen", description: "TRADE.identity.logoColorway is one of: black | navy | white. Verify contrast against nav, footer, hero, and OG surfaces." },
 
   // Brand
   { id: "palette-swapped", group: "brand", automated: true, playbook: "BRAND_AUDIT", label: "Palette accent swapped", description: "One accent only. No leftover drywall accent values." },
