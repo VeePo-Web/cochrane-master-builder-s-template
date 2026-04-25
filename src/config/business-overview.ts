@@ -1,0 +1,248 @@
+/**
+ * CALEM WOOD — Fantasy-Style Internal Creative Brief
+ * 
+ * DECISION-MAKING REFERENCE ONLY. Does not render anything.
+ * This file encodes the full strategic understanding of the business
+ * so that every UI/UX, copy, and design decision is informed by
+ * founder intent, audience insight, and brand opportunity.
+ * 
+ * Category: Mobile Auto Detailing — Calgary, Alberta
+ */
+
+export const BUSINESS_OVERVIEW = {
+
+  // ═══════════════════════════════════════════════════════════════════
+  // 1. BUSINESS SNAPSHOT
+  // ═══════════════════════════════════════════════════════════════════
+  snapshot: {
+    description: "Calem Wood is building a mobile detailing business in Calgary focused on restoring vehicles that have been heavily used, neglected, or simply not maintained to a high standard over time.",
+    currentOffer: "A full car detail for approximately $100, with gas and travel included anywhere in Calgary.",
+    serviceIncludes: [
+      "Interior shampooing and extraction using a dirt extractor",
+      "Deep cleaning beyond surface-level tidiness — addressing embedded grime, stains, debris, and odor-causing buildup",
+      "Exterior detailing and paint restoration for visual recovery",
+    ],
+    serviceModel: "Fully mobile across Calgary — removing the biggest friction point in traditional detailing: inconvenience.",
+    travelPolicy: "Travel and gas are included, reinforcing a straightforward, customer-friendly offer.",
+    priceSignal: "~$100 for a full detail — strong value positioning for customers who want a meaningful reset without entering a luxury price bracket",
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
+  // 2. CORE OPPORTUNITY
+  // ═══════════════════════════════════════════════════════════════════
+  coreOpportunity: {
+    statement: "Own the space between practical convenience and high-satisfaction transformation.",
+    insight: "Many car cleaning services compete on generic promises: quality, fast service, attention to detail. Calem's advantage is more emotionally resonant — serving the customer who has let their car go too far, feels the friction of fixing it themselves, and wants someone else to come in and completely reset the situation.",
+    narrativeShift: [
+      "Not just 'we detail cars' → 'we bring your car back'",
+      "Not just 'mobile convenience' → 'we remove the effort and deliver the payoff'",
+      "Not just 'cleaning' → 'restoration to a standard you can feel proud of again'",
+    ],
+    deeperValue: "The deeper value is not labor. It is renewal.",
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
+  // 3. BRAND ESSENCE
+  // ═══════════════════════════════════════════════════════════════════
+  brandEssence: {
+    working: "A convenient, high-satisfaction mobile detailing service that restores neglected vehicles and gives owners the feeling of getting their car back.",
+    oneSentence: "Calem Wood brings dirty, heavily used vehicles back to life through mobile detailing that feels easy to book and deeply satisfying to experience.",
+    emotionalTerritory: ["relief", "reset", "pride", "freshness", "satisfaction", "transformation"],
+    functionalTerritory: ["mobile service", "deep interior extraction", "exterior improvement", "paint restoration", "all-Calgary coverage", "straightforward value"],
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
+  // 4. AUDIENCE
+  // ═══════════════════════════════════════════════════════════════════
+  audience: {
+    primary: "Vehicle owners in Calgary whose cars have become visibly dirty, cluttered, stained, worn-down, or unpleasant to be in, and who want a professional to restore the vehicle rather than doing it themselves.",
+    highFitSegments: [
+      { name: "Busy professionals", description: "Care about their car but do not have the time, energy, or tools to clean it properly." },
+      { name: "Parents / family vehicle owners", description: "Cars that accumulate mess fast and are difficult to keep on top of." },
+      { name: "Owners of neglected vehicles", description: "People who have put off cleaning for months or longer and now want a major reset." },
+      { name: "Tradespeople / work vehicle owners", description: "Cars or trucks that see heavy daily use and build up dirt fast." },
+      { name: "Pre-sale / refresh customers", description: "People who want to restore presentation and perceived value before selling." },
+    ],
+    mindsetInsight: "This customer is not lazy or careless. More often, they are overwhelmed, busy, or have deprioritized the vehicle. They still care. They still want the car to feel good again. The brand should speak to them with relief and possibility, not judgment.",
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
+  // 5. IDEAL CUSTOMER ARCHETYPE: "DIRTY DANIEL"
+  // ═══════════════════════════════════════════════════════════════════
+  archetype: {
+    name: "Dirty Daniel",
+    description: "A customer whose vehicle has not been properly cleaned in a year or more, and who now wants the sensory and visual satisfaction of a near factory-new feel.",
+    truthsRevealed: [
+      "The business is not just for maintenance customers — it may be strongest with problem-state customers whose vehicles need dramatic recovery.",
+      "The emotional driver is strong — the customer wants more than cleanliness, they want the reward of stepping into a car that feels transformed.",
+      "This type of customer values results over process — they don't care about detailing jargon, they care about the outcome: make my car feel new again.",
+    ],
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
+  // 6. JOBS TO BE DONE
+  // ═══════════════════════════════════════════════════════════════════
+  jobsToBeDone: {
+    functional: [
+      "Clean a vehicle that has become difficult to manage",
+      "Remove dirt, stains, buildup, and odor from the interior",
+      "Improve exterior appearance and paint condition",
+      "Save time by having someone come directly to the customer",
+      "Restore the vehicle without the customer needing equipment or effort",
+    ],
+    emotional: [
+      "Feel proud of the car again",
+      "Remove the low-level guilt of driving a neglected vehicle",
+      "Experience the satisfaction of a complete reset",
+      "Make the car feel fresher, cleaner, and more enjoyable to use",
+      "Reduce overwhelm by handing off a problem that has been put off",
+    ],
+    social: [
+      "Feel less embarrassed driving others around",
+      "Improve the appearance of a personal or work vehicle",
+      "Present the car better to family, clients, or buyers",
+    ],
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
+  // 7. PAIN POINTS THE BUSINESS SOLVES
+  // ═══════════════════════════════════════════════════════════════════
+  painPoints: [
+    "The car has gotten too dirty to realistically fix with a quick clean",
+    "The owner has delayed dealing with it for too long",
+    "Cleaning it properly feels time-consuming and annoying",
+    "The car no longer feels good to sit in, drive, or show",
+    "The owner wants the reward of a clean car but not the effort required to get there",
+    "Traditional detailing feels inconvenient — requires travel, scheduling logistics, and time away from the day",
+  ],
+
+  // ═══════════════════════════════════════════════════════════════════
+  // 8. VALUE PROPOSITION
+  // ═══════════════════════════════════════════════════════════════════
+  valueProposition: {
+    current: "A mobile detailing service in Calgary that restores dirty vehicles to a cleaner, fresher, more factory-like condition for an accessible price, with travel included.",
+    stronger: "Calem Wood delivers convenient, high-impact mobile car detailing for Calgary drivers who want their vehicle deeply restored without sacrificing their own time. By combining all-city mobility, deep interior extraction, and exterior restoration, the service transforms neglected cars into spaces that feel clean, fresh, and worth driving again.",
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
+  // 9. BRAND PILLARS
+  // ═══════════════════════════════════════════════════════════════════
+  brandPillars: {
+    convenience: "The service comes to the customer, anywhere in Calgary, with gas and travel included. This removes friction and makes the offer easy to understand.",
+    transformation: "This is not positioned as a quick touch-up. The strongest promise is a visible and sensory before-and-after result.",
+    restoration: "The phrase 'factory quality' points to a return-to-standard mindset. The brand is about bringing something back, not just tidying it up.",
+    satisfaction: "The emotional payoff is central. The brand should lean into how good it feels when the job is done.",
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
+  // 10. DIFFERENTIATION POTENTIAL
+  // ═══════════════════════════════════════════════════════════════════
+  differentiationPotential: [
+    { angle: "Mobile without compromise", description: "Not just convenient, but capable of real results." },
+    { angle: "Factory-feel restoration", description: "A stronger emotional outcome than 'clean'." },
+    { angle: "Made for neglected cars", description: "A compelling niche if Calem is comfortable owning it." },
+    { angle: "Affordable transformation", description: "A notable position if the ~$100 detail remains core." },
+    { angle: "Local, direct, hardworking service", description: "A strong personality advantage if the brand stays authentic and grounded." },
+  ],
+
+  // ═══════════════════════════════════════════════════════════════════
+  // 11. PRICING SIGNALS
+  // ═══════════════════════════════════════════════════════════════════
+  pricingSignals: {
+    currentUnderstanding: "About $100 for a full detail, travel and gas included.",
+    questionsToResolve: [
+      "Is $100 the starting price or the average service price?",
+      "Is this one package or one of multiple tiers?",
+      "Does vehicle size affect pricing?",
+      "Does condition affect pricing?",
+      "Is paint restoration included every time?",
+      "Are there add-ons?",
+      "Is this supposed to feel budget-friendly, value-driven, or surprisingly premium for the price?",
+    ],
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
+  // 12. SERVICE FRAMING
+  // ═══════════════════════════════════════════════════════════════════
+  serviceFraming: {
+    current: "A full car detail, delivered mobile across Calgary, including interior shampooing, extraction, and paint restoration, aimed at getting a vehicle back toward factory condition.",
+    recommended: [
+      "Deep interior reset",
+      "Factory-fresh feeling",
+      "Revived exterior appearance",
+      "Satisfaction of a full transformation",
+      "Convenience without hidden friction",
+    ],
+    principle: "Rather than describing the service only by tasks, frame it by outcomes. The customer should quickly understand both what gets done and how their life feels better after.",
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
+  // 13. BRAND PERSONALITY
+  // ═══════════════════════════════════════════════════════════════════
+  brandPersonality: {
+    traits: ["hardworking", "honest", "local", "satisfying", "restorative", "straightforward", "confident", "no-nonsense"],
+    personalitySpectrum: [
+      "Blue-collar and practical",
+      "Modern and clean",
+      "Premium and elevated",
+      "Bold and transformation-led",
+    ],
+    insight: "The mention of stamped business cards hints at something tactile, grassroots, and personal rather than sleek luxury. The brand does not necessarily need to feel high-end in a polished, elite sense. It may be more compelling if it feels real, dependable, and obsessed with results.",
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
+  // 14. WEBSITE MESSAGING DIRECTION
+  // ═══════════════════════════════════════════════════════════════════
+  websiteMessagingDirection: {
+    coreQuestionsToAnswer: [
+      "What does Calem do?",
+      "Who is it for?",
+      "What kind of transformation can people expect?",
+      "Why is mobile a better experience?",
+      "Why trust him with the job?",
+      "How much does it cost?",
+      "How do I book?",
+    ],
+    emotionalHooks: [
+      "Get your car back.",
+      "Restore the factory-fresh feel.",
+      "We bring the detail to you.",
+      "From neglected to refreshed.",
+      "A full reset for your vehicle.",
+    ],
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
+  // 15. STRATEGIC TENSIONS TO RESOLVE
+  // ═══════════════════════════════════════════════════════════════════
+  strategicTensions: [
+    { tension: "Broad vs Niche", question: "Does Calem want to serve everyone with a car, or own a specific use case?" },
+    { tension: "Affordable vs Premium", question: "Is the business winning on price accessibility, or does it want to evolve toward a higher-end offer?" },
+    { tension: "Cleaning vs Restoration", question: "Is this mostly maintenance detailing, or deeper recovery work?" },
+    { tension: "Convenience vs Craft", question: "Is the lead hook that the service comes to you, or that the result is exceptional?" },
+    { tension: "Personal Brand vs Business Brand", question: "Is this 'Calem Wood' as an individual operator, or the early version of a broader branded company?" },
+  ],
+
+  // ═══════════════════════════════════════════════════════════════════
+  // 16. CREATIVE OPPORTUNITY
+  // ═══════════════════════════════════════════════════════════════════
+  creativeOpportunity: {
+    coreHumanTruth: "The vehicle is more than a vehicle. It is a daily environment. A reflection of personal standards. A space people spend time in. When it feels dirty, stale, or neglected, it quietly drags on the experience of everyday life. When it is restored, the lift is immediate.",
+    brandStory: "The strongest narrative is not about soap, extraction tools, or even detailing technique. It is about bringing something back to life that the owner had stopped feeling good about.",
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
+  // 17. FOUNDER INTENT TO EXTRACT (via questionnaire)
+  // ═══════════════════════════════════════════════════════════════════
+  founderIntentToExtract: [
+    { category: "Vision", question: "What kind of business Calem wants this to become over time." },
+    { category: "Mission", question: "Why this work matters to him and what result he wants to create for customers." },
+    { category: "Positioning", question: "What he wants to be known for in the market." },
+    { category: "Audience", question: "Who his best-fit customers really are." },
+    { category: "Service Logic", question: "What is included, how he thinks about quality, and where the value comes from." },
+    { category: "Brand Personality", question: "How he wants the business to feel visually and verbally." },
+    { category: "Customer Outcome", question: "What customers should think, feel, and say after the service." },
+    { category: "Website Goal", question: "Whether the website's main purpose is credibility, local lead generation, direct bookings, showcasing before/afters, premium perception, or all of the above." },
+  ],
+
+} as const;

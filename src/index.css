@@ -1,0 +1,350 @@
+/* Cochrane Drywall & Insulation — Light editorial theme (bone + forest)
+   Fonts loaded via <link> in index.html for non-blocking render.
+   All tokens derive from src/config/trade.config.ts → TRADE.palette.light. */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@layer base {
+  :root {
+    /* ── Surfaces ──────────────────────────────────────────────── */
+    --background: 36 22% 95%;        /* bone — warm fresh paint */
+    --foreground: 25 8% 25%;         /* charcoal — primary text */
+
+    --card: 0 0% 100%;               /* paper */
+    --card-foreground: 25 8% 25%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 8% 25%;
+
+    /* ── Brand ────────────────────────────────────────────────── */
+    --primary: 178 14% 28%;          /* forest #3E5352 */
+    --primary-foreground: 36 22% 97%;
+
+    --secondary: 36 14% 88%;         /* seam */
+    --secondary-foreground: 25 8% 25%;
+
+    --muted: 36 14% 92%;
+    --muted-foreground: 25 6% 45%;
+
+    --accent: 24 38% 52%;            /* clay — sparingly */
+    --accent-foreground: 36 22% 97%;
+
+    --destructive: 0 62% 48%;
+    --destructive-foreground: 36 22% 97%;
+
+    --border: 36 14% 88%;            /* seam hairlines */
+    --input: 36 14% 88%;
+    --ring: 178 14% 28%;             /* forest focus */
+
+    --radius: 0.25rem;               /* deliberately tighter — editorial, not bubbly */
+
+    /* ── Extended tokens (absolute, not theme-relative) ───────── */
+    --bone: 36 22% 95%;
+    --paper: 0 0% 100%;
+    --seam: 36 14% 88%;
+    --charcoal: 25 8% 25%;
+    --graphite: 25 6% 38%;
+    --mist: 25 6% 55%;
+    --forest: 178 14% 28%;
+    --forest-deep: 178 16% 22%;
+    --clay: 24 38% 52%;
+    --sage: 95 14% 64%;
+
+    --success: 142 38% 38%;
+    --warning: 38 78% 50%;
+    --danger: 0 62% 48%;
+
+    /* Sidebar (kept for shadcn; bone-tuned) */
+    --sidebar-background: 36 22% 97%;
+    --sidebar-foreground: 25 8% 25%;
+    --sidebar-primary: 178 14% 28%;
+    --sidebar-primary-foreground: 36 22% 97%;
+    --sidebar-accent: 36 14% 92%;
+    --sidebar-accent-foreground: 25 8% 25%;
+    --sidebar-border: 36 14% 88%;
+    --sidebar-ring: 178 14% 28%;
+  }
+
+  .dark {
+    /* Opt-in dark mirror (rarely used) */
+    --background: 25 8% 10%;
+    --foreground: 36 22% 95%;
+    --card: 25 8% 14%;
+    --card-foreground: 36 22% 95%;
+    --popover: 25 8% 14%;
+    --popover-foreground: 36 22% 95%;
+    --primary: 178 18% 50%;
+    --primary-foreground: 25 8% 10%;
+    --secondary: 25 8% 22%;
+    --secondary-foreground: 36 14% 78%;
+    --muted: 25 8% 18%;
+    --muted-foreground: 36 8% 60%;
+    --accent: 24 42% 58%;
+    --accent-foreground: 25 8% 10%;
+    --destructive: 0 68% 60%;
+    --destructive-foreground: 36 22% 97%;
+    --border: 25 8% 22%;
+    --input: 25 8% 22%;
+    --ring: 178 18% 50%;
+
+    --bone: 25 8% 10%;
+    --paper: 25 8% 14%;
+    --seam: 25 8% 22%;
+    --charcoal: 36 22% 95%;
+    --graphite: 36 14% 78%;
+    --mist: 36 8% 60%;
+    --forest: 178 18% 50%;
+    --forest-deep: 178 22% 60%;
+    --clay: 24 42% 58%;
+    --sage: 95 18% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-padding-top: 5rem; /* sticky-nav-aware anchor jumps */
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.65;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: -0.015em;
+    font-weight: 500;
+    text-wrap: balance;
+    color: hsl(var(--charcoal));
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: hsl(var(--forest) / 0.18);
+    color: hsl(var(--charcoal));
+  }
+}
+
+@layer utilities {
+  /* ── Typography utilities ───────────────────────────────────── */
+  .font-display {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+  }
+
+  .font-body {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .font-eyebrow {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    line-height: 1.5;
+    color: hsl(var(--forest));
+  }
+
+  /* Editorial drop cap */
+  .drop-cap::first-letter {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(3em, 4em, 5em);
+    line-height: 0.85;
+    float: left;
+    margin-right: 0.08em;
+    margin-top: 0.08em;
+    color: hsl(var(--forest));
+  }
+  @media (max-width: 767px) {
+    .drop-cap::first-letter {
+      font-size: 3em;
+      line-height: 0.9;
+      margin-right: 0.06em;
+    }
+  }
+
+  /* Thin editorial rule */
+  .editorial-rule {
+    width: 3rem;
+    height: 1px;
+    background: hsl(var(--forest));
+    border: none;
+    margin: 0;
+    opacity: 0.7;
+  }
+
+  /* Section seam — thin horizontal line in the brand "drywall seam" color */
+  .seam-rule {
+    width: 100%;
+    height: 1px;
+    background: hsl(var(--seam));
+    border: none;
+  }
+
+  /* Gradient seam — softer transition */
+  .seam-rule-fade {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--seam)), transparent);
+    border: none;
+  }
+
+  /* Container — comfortable editorial measure */
+  .container-prose {
+    max-width: 68ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Section padding rhythm — tighter floor on mobile, identical max on desktop */
+  .section-y {
+    padding-top: clamp(3rem, 9vw, 7.5rem);
+    padding-bottom: clamp(3rem, 9vw, 7.5rem);
+  }
+
+  .section-y-tight {
+    padding-top: clamp(2.25rem, 6vw, 5rem);
+    padding-bottom: clamp(2.25rem, 6vw, 5rem);
+  }
+
+  /* Mobile-only: respect notch/home-indicator for sticky elements */
+  .safe-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  /* Mobile-only hairline used to break long stacked sections cleanly on phones */
+  .mobile-hairline {
+    border: 0;
+  }
+  @media (max-width: 767px) {
+    .mobile-hairline {
+      border-bottom: 1px solid hsl(var(--seam));
+    }
+  }
+
+  /* Hide scrollbars on horizontally-snapped mobile filter rows */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Forest CTA glow on hover */
+  .cta-forest:hover {
+    box-shadow: 0 6px 24px hsl(var(--forest) / 0.18);
+  }
+
+  /* Underline that grows from the left on hover (story link) */
+  .story-link {
+    position: relative;
+    display: inline-block;
+  }
+  .story-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .story-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  /* ── Booking modal motion primitives ───────────────────────── */
+  @keyframes line-grow-x {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+  .animate-line-grow {
+    transform-origin: left center;
+    animation: line-grow-x 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .animate-line-grow-center {
+    transform-origin: center;
+    animation: line-grow-x 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes brand-rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-brand-rise {
+    opacity: 0;
+    animation: brand-rise 700ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.55; transform: scale(0.85); }
+  }
+  .animate-pulse-dot {
+    animation: pulse-dot 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Subtle paper texture for hero/feature sections */
+  .paper-grain {
+    position: relative;
+  }
+  .paper-grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+    mix-blend-mode: multiply;
+  }
+}
+
+/* Anchor scroll offset for sticky nav */
+[id] {
+  scroll-margin-top: 6rem;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
