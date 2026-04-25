@@ -1,56 +1,60 @@
 ## What you uploaded
 
-The full **navy colorway** package — 10 PNGs matching the black set 1:1:
+The full **white colorway** package — 10 PNGs matching the black + navy sets 1:1:
 
-- `cmb-full-logo-ground-navy-{hero, large, medium, small}.png`
-- `cmb-full-logo-ground-navy-nav-{small, medium, large}.png`
-- `cmb-full-logo-ground-navy-footer-{small, medium, large}.png`
+- `cmb-full-logo-ground-white-{hero, large, medium, small}.png`
+- `cmb-full-logo-ground-white-nav-{small, medium, large}.png`
+- `cmb-full-logo-ground-white-footer-{small, medium, large}.png`
 
-I'm in plan mode this turn (read-only), so I can't copy binaries or edit code yet. Approving this plan switches to build mode and I'll execute it in a single pass.
+Note: previews look blank because these are white-on-transparent — the alpha channel carries the artwork. They'll render correctly on dark surfaces (asphalt, hero photos, loading splash).
+
+I'm in plan mode this turn (read-only), so binaries can't be copied yet. Approving switches to build mode and I'll execute in one pass — same flow that worked for the navy set.
 
 ## What I'll do once approved
 
-### 1. Embed the 10 navy binaries
-
-Copy each upload into `src/master/assets/logo/` with a `cmb-navy-` prefix so they sit next to the black set without colliding:
+### 1. Embed the 10 white binaries
 
 | Upload | → Destination |
 |---|---|
-| `cmb-full-logo-ground-navy-hero.png` | `src/master/assets/logo/cmb-navy-hero.png` |
-| `cmb-full-logo-ground-navy-large.png` | `src/master/assets/logo/cmb-navy-large.png` |
-| `cmb-full-logo-ground-navy-medium.png` | `src/master/assets/logo/cmb-navy-medium.png` |
-| `cmb-full-logo-ground-navy-small.png` | `src/master/assets/logo/cmb-navy-small.png` |
-| `cmb-full-logo-ground-navy-nav-large.png` | `src/master/assets/logo/cmb-navy-nav-large.png` |
-| `cmb-full-logo-ground-navy-nav-medium.png` | `src/master/assets/logo/cmb-navy-nav-medium.png` |
-| `cmb-full-logo-ground-navy-nav-small.png` | `src/master/assets/logo/cmb-navy-nav-small.png` |
-| `cmb-full-logo-ground-navy-footer-large.png` | `src/master/assets/logo/cmb-navy-footer-large.png` |
-| `cmb-full-logo-ground-navy-footer-medium.png` | `src/master/assets/logo/cmb-navy-footer-medium.png` |
-| `cmb-full-logo-ground-navy-footer-small.png` | `src/master/assets/logo/cmb-navy-footer-small.png` |
+| `cmb-full-logo-ground-white-hero.png` | `src/master/assets/logo/cmb-white-hero.png` |
+| `cmb-full-logo-ground-white-large.png` | `src/master/assets/logo/cmb-white-large.png` |
+| `cmb-full-logo-ground-white-medium.png` | `src/master/assets/logo/cmb-white-medium.png` |
+| `cmb-full-logo-ground-white-small.png` | `src/master/assets/logo/cmb-white-small.png` |
+| `cmb-full-logo-ground-white-nav-large.png` | `src/master/assets/logo/cmb-white-nav-large.png` |
+| `cmb-full-logo-ground-white-nav-medium.png` | `src/master/assets/logo/cmb-white-nav-medium.png` |
+| `cmb-full-logo-ground-white-nav-small.png` | `src/master/assets/logo/cmb-white-nav-small.png` |
+| `cmb-full-logo-ground-white-footer-large.png` | `src/master/assets/logo/cmb-white-footer-large.png` |
+| `cmb-full-logo-ground-white-footer-medium.png` | `src/master/assets/logo/cmb-white-footer-medium.png` |
+| `cmb-full-logo-ground-white-footer-small.png` | `src/master/assets/logo/cmb-white-footer-small.png` |
 
-### 2. Flip the registry from aliases to real imports
+### 2. Flip white aliases → real imports
 
-In `src/master/brand/logo-registry.ts`, replace the 10 `const cmbNavy* = cmbBlack*` aliases (lines 38–50) with real Vite `import` statements pointing at the new files. The `MASTER_LOGOS.navy` block stays unchanged because it already references the right variable names — only the imports change.
+In `src/master/brand/logo-registry.ts`, replace the 10 `const cmbWhite* = cmbBlack*` aliases (lines 52–64) with real Vite imports. `MASTER_LOGOS.white` already references the right variable names — only the imports change.
 
-### 3. Mark navy as `ready`
+### 3. Mark white as `ready`
 
-In the same file, expand `COLORWAY_STATUS` to a 3-state enum (`"ready" | "uploaded-pending-embed" | "pending"`) and set `navy: "ready"`. White stays `"pending"` until you upload that set.
+Set `COLORWAY_STATUS.white = "ready"`. All three colorways (`black`, `navy`, `white`) will then be live.
 
-### 4. Update the slot map doc
+### 4. Refresh slot map doc
 
-Add a "Colorway file inventory" section to `src/master/brand/LOGO_SLOT_MAP.md` showing the per-colorway file path for every slot — black ✅, navy ✅, white ⏳ — so any remixer can see at a glance which colorways are live.
+Update `LOGO_SLOT_MAP.md`'s "Colorway file inventory" — flip the White column from ⏳ to ✅ and remove the "aliased to black" note.
 
 ### 5. Type-check
 
-Run `tsc --noEmit` to confirm nothing broke. The build should be clean because the variable names in `MASTER_LOGOS` are unchanged — only their backing source swapped from black-alias to navy-real.
+Run `tsc --noEmit` to confirm clean build.
 
 ## What this unlocks
 
-- Any trade can set `TRADE.identity.logoColorway = "navy"` in `trade.config.ts` and the entire site (nav, footer, hero, loading, modal, about, 404, email) instantly switches to navy.
-- The dashboard's `master-logo-binaries-embedded` checklist row will pass for both black and navy.
-- White stays aliased to black until that set is uploaded — no breakage.
+With white live, `recommendedColorwayForSlot()` finally serves the **correct** asset for dark/image surfaces:
+
+- **Hero** (image surface) → real white logo (was: black logo on photo, low contrast)
+- **Loading splash** (asphalt dark) → real white logo (was: black on dark, near-invisible)
+- **Any future dark section** (testimonials on graphite, footer-on-asphalt variants) → real white
+
+This is the colorway that fixes the most actual rendering bugs, since hero + loading have been forcing `colorway="white"` but receiving a black-aliased file.
 
 ## Files touched
 
-- **Created (10):** all `src/master/assets/logo/cmb-navy-*.png`
+- **Created (10):** `src/master/assets/logo/cmb-white-*.png`
 - **Edited (2):** `src/master/brand/logo-registry.ts`, `src/master/brand/LOGO_SLOT_MAP.md`
-- **Untouched:** `MasterLogo.tsx`, `Navigation.tsx`, `Footer.tsx`, `trade.config.ts`, `index.html`, `seo.ts`, `checklist.ts` — already wired correctly.
+- **Untouched:** components, trade.config, checklist — already wired correctly.
