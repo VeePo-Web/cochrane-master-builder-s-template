@@ -59,12 +59,34 @@ import cmbWhiteNavLg from "../assets/logo/cmb-white-nav-large.png";
 import cmbWhiteNavMd from "../assets/logo/cmb-white-nav-medium.png";
 import cmbWhiteNavSm from "../assets/logo/cmb-white-nav-small.png";
 
+// ── Emblem family (square, no wordmark) ────────────────────────────────────
+// Black colorway — ✅ embedded (6 sizes). Navy + white alias to black until
+// their dedicated emblem packages land. Same alias-then-flip pattern used
+// during the full-lockup rollout.
+import cmbEmblemBlack100 from "../assets/logo/cmb-emblem-black-100.png";
+import cmbEmblemBlack200 from "../assets/logo/cmb-emblem-black-200.png";
+import cmbEmblemBlack400 from "../assets/logo/cmb-emblem-black-400.png";
+import cmbEmblemBlack800 from "../assets/logo/cmb-emblem-black-800.png";
+import cmbEmblemBlack1200 from "../assets/logo/cmb-emblem-black-1200.png";
+import cmbEmblemBlack2400 from "../assets/logo/cmb-emblem-black-2400.png";
+
 export type LogoColorway = "black" | "navy" | "white";
+export type EmblemSize = 100 | 200 | 400 | 800 | 1200 | 2400;
 
 /**
  * Per-colorway file map. Same shape across colorways — the remixer can swap
  * colorways without touching component code.
  */
+/** Square emblem-only files keyed by edge length in px. */
+const EMBLEM_BLACK = {
+  100: cmbEmblemBlack100,
+  200: cmbEmblemBlack200,
+  400: cmbEmblemBlack400,
+  800: cmbEmblemBlack800,
+  1200: cmbEmblemBlack1200,
+  2400: cmbEmblemBlack2400,
+} as const;
+
 export const MASTER_LOGOS = {
   black: {
     nav: { sm: cmbBlackNavSm, md: cmbBlackNavMd, lg: cmbBlackNavLg },
@@ -73,6 +95,7 @@ export const MASTER_LOGOS = {
     large: cmbBlackLarge,
     medium: cmbBlackMedium,
     small: cmbBlackSmall,
+    emblem: EMBLEM_BLACK,
   },
   navy: {
     nav: { sm: cmbNavyNavSm, md: cmbNavyNavMd, lg: cmbNavyNavLg },
@@ -81,6 +104,8 @@ export const MASTER_LOGOS = {
     large: cmbNavyLarge,
     medium: cmbNavyMedium,
     small: cmbNavySmall,
+    // Emblem aliased to black until the navy emblem package lands.
+    emblem: EMBLEM_BLACK,
   },
   white: {
     nav: { sm: cmbWhiteNavSm, md: cmbWhiteNavMd, lg: cmbWhiteNavLg },
@@ -89,8 +114,19 @@ export const MASTER_LOGOS = {
     large: cmbWhiteLarge,
     medium: cmbWhiteMedium,
     small: cmbWhiteSmall,
+    // Emblem aliased to black until the white emblem package lands.
+    emblem: EMBLEM_BLACK,
   },
 } as const;
+
+/** Per-colorway readiness for the emblem family specifically. */
+export const EMBLEM_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
+  black: "ready",
+  navy: "aliased",
+  white: "aliased",
+};
+
+export const EMBLEM_SIZES: EmblemSize[] = [100, 200, 400, 800, 1200, 2400];
 
 /** Which colorways have *real* uploaded assets.
  *  All three colorways are now embedded and live.
@@ -129,6 +165,14 @@ export const LOGO_USAGE_MAP = {
   email: { file: "/og-image-cmb.png", maxWidthPx: 280, surface: "light" as const, note: "Hosted via /public so email clients can fetch it." },
   og: { file: "/og-image-cmb.png", surface: "image" as const, note: "Open Graph + Twitter share image." },
   favicon: { file: "/favicon-cmb.png", surface: "any" as const, note: "Crawler / browser tab favicon." },
+
+  // ── Emblem family (square 1:1, no wordmark) ──
+  emblemFavicon:   { file: "cmb-emblem-black-100.png",  maxHeightPx: 32,   surface: "any"   as const, note: "Browser tab / list bullet / chat avatar — 32–48px display." },
+  emblemAvatar:    { file: "cmb-emblem-black-200.png",  maxHeightPx: 64,   surface: "any"   as const, note: "Nav-collapsed mark / mobile avatar / retina favicon." },
+  emblemInline:    { file: "cmb-emblem-black-400.png",  maxHeightPx: 128,  surface: "light" as const, note: "Inline body badges, card crests, OG icon." },
+  emblemAccent:    { file: "cmb-emblem-black-800.png",  maxHeightPx: 240,  surface: "any"   as const, note: "Hero accent, section divider monogram, scroll-back-to-top." },
+  emblemWatermark: { file: "cmb-emblem-black-1200.png", maxHeightPx: 480,  surface: "image" as const, note: "Full-page watermark, splash crest, og-square." },
+  emblemPrint:     { file: "cmb-emblem-black-2400.png", maxHeightPx: 1200, surface: "any"   as const, note: "Print master / billboard / 5K hero crest. Lazy-load only." },
 } as const;
 
 export type LogoSlot = keyof typeof LOGO_USAGE_MAP;
