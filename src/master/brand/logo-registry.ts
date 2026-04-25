@@ -47,19 +47,17 @@ import cmbNavyNavLg from "../assets/logo/cmb-navy-nav-large.png";
 import cmbNavyNavMd from "../assets/logo/cmb-navy-nav-medium.png";
 import cmbNavyNavSm from "../assets/logo/cmb-navy-nav-small.png";
 
-// ── White colorway (TODO: assets pending upload) ───────────────────────────
-// When uploaded, swap each alias to a real import:
-//   import cmbWhiteHero from "../assets/logo/cmb-white-hero.png";
-const cmbWhiteHero = cmbBlackHero;
-const cmbWhiteLarge = cmbBlackLarge;
-const cmbWhiteMedium = cmbBlackMedium;
-const cmbWhiteSmall = cmbBlackSmall;
-const cmbWhiteFooterLg = cmbBlackFooterLg;
-const cmbWhiteFooterMd = cmbBlackFooterMd;
-const cmbWhiteFooterSm = cmbBlackFooterSm;
-const cmbWhiteNavLg = cmbBlackNavLg;
-const cmbWhiteNavMd = cmbBlackNavMd;
-const cmbWhiteNavSm = cmbBlackNavSm;
+// ── White colorway (✅ embedded) ───────────────────────────────────────────
+import cmbWhiteHero from "../assets/logo/cmb-white-hero.png";
+import cmbWhiteLarge from "../assets/logo/cmb-white-large.png";
+import cmbWhiteMedium from "../assets/logo/cmb-white-medium.png";
+import cmbWhiteSmall from "../assets/logo/cmb-white-small.png";
+import cmbWhiteFooterLg from "../assets/logo/cmb-white-footer-large.png";
+import cmbWhiteFooterMd from "../assets/logo/cmb-white-footer-medium.png";
+import cmbWhiteFooterSm from "../assets/logo/cmb-white-footer-small.png";
+import cmbWhiteNavLg from "../assets/logo/cmb-white-nav-large.png";
+import cmbWhiteNavMd from "../assets/logo/cmb-white-nav-medium.png";
+import cmbWhiteNavSm from "../assets/logo/cmb-white-nav-small.png";
 
 export type LogoColorway = "black" | "navy" | "white";
 
@@ -94,14 +92,13 @@ export const MASTER_LOGOS = {
   },
 } as const;
 
-/** Which colorways have *real* uploaded assets (vs aliasing to black).
- *  - "ready"   → real PNGs imported, safe to ship
- *  - "pending" → no artwork yet; aliases to black
+/** Which colorways have *real* uploaded assets.
+ *  All three colorways are now embedded and live.
  */
 export const COLORWAY_STATUS: Record<LogoColorway, "ready" | "pending"> = {
   black: "ready",
   navy: "ready",
-  white: "pending", // upload PNGs to embed
+  white: "ready",
 };
 
 /**
