@@ -12,6 +12,8 @@ export type CheckId =
   | "logo-generated"
   | "master-logo-rendering"
   | "master-logo-colorway-set"
+  | "master-logo-binaries-embedded"
+  | "master-logo-slot-map-followed"
   | "copy-unique"
   | "story-rewritten"
   | "brand-audit-passed"
@@ -49,6 +51,8 @@ export const REMIX_CHECKLIST: CheckItem[] = [
   { id: "og-image-generated", group: "setup", automated: true, label: "OG / social image generated", description: "16:9 branded share image." },
   { id: "master-logo-rendering", group: "setup", automated: true, label: "Master CMB logo rendering in nav + footer", description: "<MasterLogo slot='nav'> and slot='footer' resolve to a master file or per-trade override (see LOGO_USAGE.md)." },
   { id: "master-logo-colorway-set", group: "setup", automated: true, label: "Logo colorway chosen", description: "TRADE.identity.logoColorway is one of: black | navy | white. Verify contrast against nav, footer, hero, and OG surfaces." },
+  { id: "master-logo-binaries-embedded", group: "setup", automated: true, label: "Master logo binaries embedded (chosen colorway)", description: "Real PNGs in /src/master/assets/logo/ for the active colorway — no aliases. Black is ✅; navy + white are pending re-upload (see COLORWAY_STATUS)." },
+  { id: "master-logo-slot-map-followed", group: "setup", automated: false, label: "New logo surfaces follow the slot map", description: "Any new component using a logo is added to LOGO_SLOT_MAP.md and rendered via <MasterLogo slot=\"...\"/> — never <img src=\".../cmb-...png\"> direct." },
 
   // Brand
   { id: "palette-swapped", group: "brand", automated: true, playbook: "BRAND_AUDIT", label: "Palette accent swapped", description: "One accent only. No leftover drywall accent values." },

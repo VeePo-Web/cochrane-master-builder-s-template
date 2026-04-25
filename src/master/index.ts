@@ -16,6 +16,8 @@ export {
   recommendedColorwayForSlot,
 } from "./brand/logo-registry";
 export type { LogoSlot, LogoColorway } from "./brand/logo-registry";
+// Slot map documentation lives at ./brand/LOGO_SLOT_MAP.md — read before
+// adding any new surface that renders the logo.
 export { TRADES, getTrade, getSisterSites } from "./trades";
 export type { TradeEntry } from "./trades";
 export { SERVICE_AREAS, getNearestAreas } from "./seo/service-areas";
