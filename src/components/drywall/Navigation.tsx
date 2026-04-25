@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
 import { Menu, X } from "lucide-react";
-import Logo from "./Logo";
+import { MasterLogo } from "@/master";
 import { SITE_STRUCTURE } from "@/config";
 
 interface NavigationProps {
@@ -60,7 +60,9 @@ const Navigation = ({ onBookClick }: NavigationProps) => {
         }`}
       >
         <nav className="container mx-auto flex h-20 items-center justify-between px-6">
-          <Logo />
+          <Link to="/" aria-label="Cochrane Master Builders — home" className="inline-flex items-center">
+            <MasterLogo slot="nav" />
+          </Link>
 
           <ul className="hidden items-center gap-8 lg:flex">
             {desktopNav.slice(1).map((item) => {

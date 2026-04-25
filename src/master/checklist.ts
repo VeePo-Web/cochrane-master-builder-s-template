@@ -10,6 +10,7 @@ export type CheckId =
   | "trade-config-edited"
   | "palette-swapped"
   | "logo-generated"
+  | "master-logo-rendering"
   | "copy-unique"
   | "story-rewritten"
   | "brand-audit-passed"
@@ -45,6 +46,7 @@ export const REMIX_CHECKLIST: CheckItem[] = [
   { id: "logo-generated", group: "setup", automated: true, playbook: "REMIX_PLAYBOOK", label: "Trade logo generated", description: "AI-generated wordmark from the master CMB logo, saved to /public/." },
   { id: "favicon-generated", group: "setup", automated: true, label: "Favicon + PWA icons generated", description: "Derived from the trade logo." },
   { id: "og-image-generated", group: "setup", automated: true, label: "OG / social image generated", description: "16:9 branded share image." },
+  { id: "master-logo-rendering", group: "setup", automated: true, label: "Master CMB logo rendering in nav + footer", description: "<MasterLogo slot='nav'> and slot='footer' resolve to a master file or per-trade override (see LOGO_USAGE.md)." },
 
   // Brand
   { id: "palette-swapped", group: "brand", automated: true, playbook: "BRAND_AUDIT", label: "Palette accent swapped", description: "One accent only. No leftover drywall accent values." },
