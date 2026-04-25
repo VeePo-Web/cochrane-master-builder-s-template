@@ -1,54 +1,54 @@
 ## What you uploaded
 
-The **navy emblem package** — same 6-size ladder as the black emblems, in the navy colorway:
+The **white emblem package** — final 6 sizes that complete the colorway matrix:
 
-| Upload | Pixel size | Maps to |
+| Upload | Pixel size | Maps to (white) |
 |---|---|---|
-| `cmb-emblem-navy-100.png` | 100×100 | `emblemFavicon` (navy) |
-| `cmb-emblem-navy-200.png` | 200×200 | `emblemAvatar` (navy) |
-| `cmb-emblem-navy-400.png` | 400×400 | `emblemInline` (navy) |
-| `cmb-emblem-navy-800.png` | 800×800 | `emblemAccent` (navy) |
-| `cmb-emblem-navy-1200.png` | 1200×1200 | `emblemWatermark` (navy) |
-| `cmb-emblem-navy-2400.png` | 2400×2400 | `emblemPrint` (navy) |
+| `cmb-emblem-white-100.png` | 100×100 | `emblemFavicon` |
+| `cmb-emblem-white-200.png` | 200×200 | `emblemAvatar` |
+| `cmb-emblem-white-400.png` | 400×400 | `emblemInline` |
+| `cmb-emblem-white-800.png` | 800×800 | `emblemAccent` |
+| `cmb-emblem-white-1200.png` | 1200×1200 | `emblemWatermark` |
+| `cmb-emblem-white-2400.png` | 2400×2400 | `emblemPrint` |
 
-The slot map for the emblem family is already finalized — these 6 files just **fill in the navy column** that's currently aliased to black. Same as the lockup rollout: alias-then-flip pattern.
+These are white-on-transparent — they appear blank in chat preview because they're rendering against a white message background, but they're real assets with alpha. White emblems are the **forced default for dark and image surfaces** (loading splash, hero watermark) regardless of the trade's primary colorway, so this is the highest-impact piece of the matrix.
 
 ## What I'll do once approved
 
-### 1. Embed the 6 navy emblem binaries
+### 1. Embed the 6 white emblem binaries
 
-Copy each upload to `src/master/assets/logo/`:
-- `cmb-emblem-navy-{100,200,400,800,1200,2400}.png`
+Copy each to `src/master/assets/logo/cmb-emblem-white-{100,200,400,800,1200,2400}.png`.
 
-### 2. Flip the navy alias to real imports
+### 2. Flip the white alias to real imports
 
 In `src/master/brand/logo-registry.ts`:
-- Add 6 imports: `cmbEmblemNavy100` … `cmbEmblemNavy2400`.
-- Build an `EMBLEM_NAVY` map mirroring `EMBLEM_BLACK`.
-- Replace `MASTER_LOGOS.navy.emblem = EMBLEM_BLACK` with `EMBLEM_NAVY`.
-- Update `EMBLEM_STATUS.navy` from `"aliased"` → `"ready"`.
-- White emblem stays aliased to black until that package arrives.
+- Add 6 imports: `cmbEmblemWhite100` … `cmbEmblemWhite2400`.
+- Build an `EMBLEM_WHITE` map mirroring `EMBLEM_BLACK` / `EMBLEM_NAVY`.
+- Replace `MASTER_LOGOS.white.emblem = EMBLEM_BLACK` (alias) with `EMBLEM_WHITE`.
+- Update `EMBLEM_STATUS.white` from `"aliased"` → `"ready"`.
 
 ### 3. Refresh the slot map
 
-In `src/master/brand/LOGO_SLOT_MAP.md`, update the **Colorway readiness** table for the emblem family — navy column now shows real `cmb-emblem-navy-*.png` filenames with ✅; white stays aliased.
+In `src/master/brand/LOGO_SLOT_MAP.md`, update the emblem **Colorway readiness** table — white column shows real `cmb-emblem-white-*.png` filenames with ✅. Strip the "white aliased" callout below the table since the matrix is complete.
 
 ### 4. Type-check
 
-Run `tsc --noEmit` to confirm the build is clean.
+Run `tsc --noEmit` to confirm clean build.
 
-## Where the navy emblem will appear
+## Where the white emblem will appear
 
-Anywhere already calling `<MasterLogo slot="emblem" size={…} />` while the trade is on the navy colorway, or any explicit per-instance `colorway="navy"` override. No component code changes — the swap happens entirely through the registry.
+`recommendedColorwayForSlot()` already routes white automatically for:
+- **dark** surface slots (loading splash)
+- **image** surface slots (hero watermark, `emblemWatermark`)
 
-Specifically, the navy emblem will surface on **light/cream backgrounds** when `TRADE.identity.logoColorway = "navy"` — softer than black on warm paper, same architectural read.
+…so any existing `<MasterLogo slot="emblem" size={…} />` rendered on those surfaces will pick up the real white asset the moment this lands. Plus any explicit `<MasterLogo … colorway="white" />` overrides.
 
 ## Files touched
 
-- **Created (6):** `src/master/assets/logo/cmb-emblem-navy-{100,200,400,800,1200,2400}.png`
+- **Created (6):** `src/master/assets/logo/cmb-emblem-white-{100,200,400,800,1200,2400}.png`
 - **Edited (2):** `src/master/brand/logo-registry.ts`, `src/master/brand/LOGO_SLOT_MAP.md`
-- **Untouched:** components, trade.config, MasterLogo.tsx — zero risk to existing surfaces.
+- **Untouched:** components, MasterLogo, trade.config, checklist — zero risk.
 
-## Asks for next round
+## Result
 
-When ready, upload the **emblem white** package (same 6 sizes) and I'll finish the colorway matrix.
+After this lands, **all three colorways × both families (lockup + emblem) are fully embedded** with real PNGs — no aliases anywhere in `MASTER_LOGOS`. Brand backend is complete.
