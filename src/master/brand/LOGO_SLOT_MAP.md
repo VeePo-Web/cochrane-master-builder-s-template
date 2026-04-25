@@ -124,19 +124,17 @@ favicons, avatars, watermarks, scroll-back buttons, print headers.
 
 ### Colorway readiness
 
-| Variant | Black ✅                       | Navy ✅                       | White                      |
-|---------|--------------------------------|-------------------------------|----------------------------|
-| 100     | `cmb-emblem-black-100.png`     | `cmb-emblem-navy-100.png`     | aliased → black            |
-| 200     | `cmb-emblem-black-200.png`     | `cmb-emblem-navy-200.png`     | aliased → black            |
-| 400     | `cmb-emblem-black-400.png`     | `cmb-emblem-navy-400.png`     | aliased → black            |
-| 800     | `cmb-emblem-black-800.png`     | `cmb-emblem-navy-800.png`     | aliased → black            |
-| 1200    | `cmb-emblem-black-1200.png`    | `cmb-emblem-navy-1200.png`    | aliased → black            |
-| 2400    | `cmb-emblem-black-2400.png`    | `cmb-emblem-navy-2400.png`    | aliased → black            |
+| Variant | Black ✅                       | Navy ✅                       | White ✅                       |
+|---------|--------------------------------|-------------------------------|--------------------------------|
+| 100     | `cmb-emblem-black-100.png`     | `cmb-emblem-navy-100.png`     | `cmb-emblem-white-100.png`     |
+| 200     | `cmb-emblem-black-200.png`     | `cmb-emblem-navy-200.png`     | `cmb-emblem-white-200.png`     |
+| 400     | `cmb-emblem-black-400.png`     | `cmb-emblem-navy-400.png`     | `cmb-emblem-white-400.png`     |
+| 800     | `cmb-emblem-black-800.png`     | `cmb-emblem-navy-800.png`     | `cmb-emblem-white-800.png`     |
+| 1200    | `cmb-emblem-black-1200.png`    | `cmb-emblem-navy-1200.png`    | `cmb-emblem-white-1200.png`    |
+| 2400    | `cmb-emblem-black-2400.png`    | `cmb-emblem-navy-2400.png`    | `cmb-emblem-white-2400.png`    |
 
-When the white emblem package arrives, the alias in
-`logo-registry.ts → MASTER_LOGOS.white.emblem` flips to real imports and
-`EMBLEM_STATUS.white` updates from `"aliased"` → `"ready"`. **No component
-code changes.**
+All three colorways × six sizes are now embedded. `EMBLEM_STATUS` reports
+`ready` for every colorway and `MASTER_LOGOS` contains zero aliases.
 
 ### Render API
 
