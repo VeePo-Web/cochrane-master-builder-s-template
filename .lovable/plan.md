@@ -1,60 +1,84 @@
 ## What you uploaded
 
-The full **white colorway** package — 10 PNGs matching the black + navy sets 1:1:
+The **emblem-only mark** (no "Master Builders / Cochrane" wordmark) — black colorway, 6 responsive sizes:
 
-- `cmb-full-logo-ground-white-{hero, large, medium, small}.png`
-- `cmb-full-logo-ground-white-nav-{small, medium, large}.png`
-- `cmb-full-logo-ground-white-footer-{small, medium, large}.png`
+| Upload | Source size | Use case |
+|---|---|---|
+| `cmb-emblem-black-100.png` | 100×100 | favicon, list bullets, chat avatar |
+| `cmb-emblem-black-200.png` | 200×200 | nav-collapsed, mobile avatar, retina favicon |
+| `cmb-emblem-black-400.png` | 400×400 | inline body badges, card crests, OG icon |
+| `cmb-emblem-black-800.png` | 800×800 | hero accent, section dividers, print thumbnail |
+| `cmb-emblem-black-1200.png` | 1200×1200 | full-page watermark, splash crest, og-square |
+| `cmb-emblem-black-2400.png` | 2400×2400 | print master, billboard, 5K hero crest |
 
-Note: previews look blank because these are white-on-transparent — the alpha channel carries the artwork. They'll render correctly on dark surfaces (asphalt, hero photos, loading splash).
-
-I'm in plan mode this turn (read-only), so binaries can't be copied yet. Approving switches to build mode and I'll execute in one pass — same flow that worked for the navy set.
+The emblem is a **separate asset family** from the existing full lockup (same lockup just had nav/footer/hero/large/medium/small). It needs its own slot tree because the cropping, aspect ratio (1:1 square), and usage rules are different.
 
 ## What I'll do once approved
 
-### 1. Embed the 10 white binaries
+### 1. Embed the 6 emblem binaries
+
+Copy each upload into `src/master/assets/logo/`:
 
 | Upload | → Destination |
 |---|---|
-| `cmb-full-logo-ground-white-hero.png` | `src/master/assets/logo/cmb-white-hero.png` |
-| `cmb-full-logo-ground-white-large.png` | `src/master/assets/logo/cmb-white-large.png` |
-| `cmb-full-logo-ground-white-medium.png` | `src/master/assets/logo/cmb-white-medium.png` |
-| `cmb-full-logo-ground-white-small.png` | `src/master/assets/logo/cmb-white-small.png` |
-| `cmb-full-logo-ground-white-nav-large.png` | `src/master/assets/logo/cmb-white-nav-large.png` |
-| `cmb-full-logo-ground-white-nav-medium.png` | `src/master/assets/logo/cmb-white-nav-medium.png` |
-| `cmb-full-logo-ground-white-nav-small.png` | `src/master/assets/logo/cmb-white-nav-small.png` |
-| `cmb-full-logo-ground-white-footer-large.png` | `src/master/assets/logo/cmb-white-footer-large.png` |
-| `cmb-full-logo-ground-white-footer-medium.png` | `src/master/assets/logo/cmb-white-footer-medium.png` |
-| `cmb-full-logo-ground-white-footer-small.png` | `src/master/assets/logo/cmb-white-footer-small.png` |
+| `cmb-emblem-black-100.png` | `src/master/assets/logo/cmb-emblem-black-100.png` |
+| `cmb-emblem-black-200.png` | `src/master/assets/logo/cmb-emblem-black-200.png` |
+| `cmb-emblem-black-400.png` | `src/master/assets/logo/cmb-emblem-black-400.png` |
+| `cmb-emblem-black-800.png` | `src/master/assets/logo/cmb-emblem-black-800.png` |
+| `cmb-emblem-black-1200.png` | `src/master/assets/logo/cmb-emblem-black-1200.png` |
+| `cmb-emblem-black-2400.png` | `src/master/assets/logo/cmb-emblem-black-2400.png` |
 
-### 2. Flip white aliases → real imports
+### 2. Extend the registry with an `emblem` family
 
-In `src/master/brand/logo-registry.ts`, replace the 10 `const cmbWhite* = cmbBlack*` aliases (lines 52–64) with real Vite imports. `MASTER_LOGOS.white` already references the right variable names — only the imports change.
+In `src/master/brand/logo-registry.ts`:
 
-### 3. Mark white as `ready`
+- Import all 6 emblem PNGs.
+- Add `emblem: { 100, 200, 400, 800, 1200, 2400 }` to each colorway in `MASTER_LOGOS`. Black gets real imports; navy and white **alias to black** for now (same pattern we used during the rollout) until those emblem packages land.
+- Add an `EMBLEM_STATUS` record so the dashboard reflects which emblem colorways are real vs aliased.
+- Extend `LOGO_USAGE_MAP` with new emblem slots:
+  - `emblemFavicon` (`100`) — surface: any
+  - `emblemAvatar` (`200`) — surface: any
+  - `emblemInline` (`400`) — surface: light
+  - `emblemAccent` (`800`) — surface: any
+  - `emblemWatermark` (`1200`) — surface: image
+  - `emblemPrint` (`2400`) — surface: any (print/export only)
 
-Set `COLORWAY_STATUS.white = "ready"`. All three colorways (`black`, `navy`, `white`) will then be live.
+### 3. Extend `<MasterLogo>` with an emblem slot
 
-### 4. Refresh slot map doc
+Add a new `slot="emblem"` API with a `size` prop:
 
-Update `LOGO_SLOT_MAP.md`'s "Colorway file inventory" — flip the White column from ⏳ to ✅ and remove the "aliased to black" note.
+```tsx
+<MasterLogo slot="emblem" size={400} />
+<MasterLogo slot="emblem" size={1200} colorway="white" />
+```
 
-### 5. Type-check
+Internally uses native `<img srcset>` so the browser auto-picks the right resolution at the right DPR — single tag, no media queries needed for square assets. Adds matching CLS box (1:1 width=height).
 
-Run `tsc --noEmit` to confirm clean build.
+### 4. Document the slot map
 
-## What this unlocks
+Update `src/master/brand/LOGO_SLOT_MAP.md` with a new "Emblem family" section showing:
+- Which surfaces use the emblem vs the full lockup (rule of thumb: **lockup** = first impression, **emblem** = repeat appearance).
+- The 6 sizes mapped to recommended use cases (table above).
+- Colorway readiness (black ✅, navy ⏳, white ⏳).
 
-With white live, `recommendedColorwayForSlot()` finally serves the **correct** asset for dark/image surfaces:
+### 5. Update the master checklist
 
-- **Hero** (image surface) → real white logo (was: black logo on photo, low contrast)
-- **Loading splash** (asphalt dark) → real white logo (was: black on dark, near-invisible)
-- **Any future dark section** (testimonials on graphite, footer-on-asphalt variants) → real white
+Add `master-emblem-binaries-embedded` to `src/master/checklist.ts` so the remix QA flow validates the emblem family is wired.
 
-This is the colorway that fixes the most actual rendering bugs, since hero + loading have been forcing `colorway="white"` but receiving a black-aliased file.
+### 6. Type-check
+
+Run `tsc --noEmit` to confirm the build is clean.
+
+## Where the emblem will actually appear
+
+I'm **not** going to silently replace any existing lockup with the emblem — that's a brand-strategy decision. What I will do is make the emblem **available** through the same `<MasterLogo>` primitive so future surfaces (loading dot, scroll-progress indicator, scroll-back-to-top, footer copyright bullet, social-share avatar, print headers) can use it with one line of code.
 
 ## Files touched
 
-- **Created (10):** `src/master/assets/logo/cmb-white-*.png`
-- **Edited (2):** `src/master/brand/logo-registry.ts`, `src/master/brand/LOGO_SLOT_MAP.md`
-- **Untouched:** components, trade.config, checklist — already wired correctly.
+- **Created (6):** `src/master/assets/logo/cmb-emblem-black-{100,200,400,800,1200,2400}.png`
+- **Edited (4):** `logo-registry.ts`, `MasterLogo.tsx`, `LOGO_SLOT_MAP.md`, `checklist.ts`
+- **Untouched:** components, trade.config — no breakage to existing surfaces.
+
+## Asks for next round (optional)
+
+When ready, upload the **emblem navy** and **emblem white** packages (same 6 sizes each) and I'll flip the aliases the same way we did for the full lockup.
