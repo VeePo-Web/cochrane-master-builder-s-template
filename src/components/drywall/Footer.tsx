@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Logo from "./Logo";
+import { MasterLogo } from "@/master";
 import { SITE_STRUCTURE, BUSINESS, TRADE } from "@/config";
 
 interface FooterProps {
@@ -20,7 +20,9 @@ const Footer = ({ onBookClick }: FooterProps) => {
       <div className="container mx-auto px-6 pt-20 pb-12">
         <div className="grid gap-12 md:grid-cols-12 max-md:gap-0 max-md:divide-y max-md:divide-seam md:max-lg:grid-cols-2">
           <div className="md:col-span-5 max-md:pb-8">
-            <Logo />
+            <Link to="/" aria-label="Cochrane Master Builders — home" className="inline-flex">
+              <MasterLogo slot="footer" />
+            </Link>
             <p className="mt-6 max-w-md text-graphite">
               Practical residential interior finishing for Cochrane homeowners. Drywall, paint, and insulation — small jobs welcome.
             </p>
