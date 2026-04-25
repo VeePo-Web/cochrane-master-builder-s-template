@@ -1,67 +1,56 @@
-## What you uploaded vs what's already in place
+## What you uploaded
 
-You re-uploaded the **black colorway** (10 PNGs). The registry, `<MasterLogo>` component, trade config flag, and 3-colorway architecture are already wired from the previous turns — black is marked `ready`, navy + white are `pending` and currently alias to black so the build stays green.
+The full **navy colorway** package — 10 PNGs matching the black set 1:1:
 
-What still needs to happen for the black set to be **fully** embedded (vs partially placeholdered):
+- `cmb-full-logo-ground-navy-{hero, large, medium, small}.png`
+- `cmb-full-logo-ground-navy-nav-{small, medium, large}.png`
+- `cmb-full-logo-ground-navy-footer-{small, medium, large}.png`
 
-| File on disk | Status today | Action |
-|---|---|---|
-| `cmb-hero.png` (471 KB) | real | keep |
-| `cmb-large.png` (310 KB) | real | keep |
-| `cmb-medium.png` (152 KB) | real | keep |
-| `cmb-nav-{lg,md,sm}.png` | real | keep |
-| `cmb-footer-{lg,md}.png` | real | keep |
-| `cmb-footer-small.png` | placeholder (44 KB shared hash) | **overwrite from upload** |
-| `cmb-small.png` | placeholder (same 44 KB hash as footer-large) | **overwrite from upload** |
-| `public/favicon-cmb.png` | placeholder (44 KB) | **overwrite from `cmb-nav-small`** (square crop) |
-| `public/og-image-cmb.png` | placeholder (44 KB) | **overwrite from `cmb-large`** (1200×630-ish hero card) |
+I'm in plan mode this turn (read-only), so I can't copy binaries or edit code yet. Approving this plan switches to build mode and I'll execute it in a single pass.
 
-Navy + white binaries are not in this upload, so they stay aliased to black and `COLORWAY_STATUS` keeps `pending` for those two — no code changes needed for them this round.
+## What I'll do once approved
 
-## The slot map (what goes where, when)
+### 1. Embed the 10 navy binaries
 
-This is the new document you asked for — `src/master/brand/LOGO_SLOT_MAP.md` — a single canonical reference for every place a logo appears across any remixed trade site:
+Copy each upload into `src/master/assets/logo/` with a `cmb-navy-` prefix so they sit next to the black set without colliding:
 
-| Slot | File served | Component / Surface | Trigger / When | Surface tone | Default colorway |
-|---|---|---|---|---|---|
-| `nav` (mobile) | `cmb-nav-small.png` | `Navigation.tsx` top bar | viewport `<640px`, always visible | light (paper) | trade colorway (black for CMB) |
-| `nav` (tablet) | `cmb-nav-medium.png` | `Navigation.tsx` | `640–1023px` | light | trade colorway |
-| `nav` (desktop) | `cmb-nav-large.png` | `Navigation.tsx` | `≥1024px` | light | trade colorway |
-| `footer` (mobile) | `cmb-footer-small.png` | `Footer.tsx` brand monument | `<768px` | light | trade colorway |
-| `footer` (tablet) | `cmb-footer-medium.png` | `Footer.tsx` | `768–1023px` | light | trade colorway |
-| `footer` (desktop) | `cmb-footer-large.png` | `Footer.tsx` | `≥1024px` | light | trade colorway |
-| `hero` | `cmb-hero.png` | Hero watermark / brand reveal | first paint, eager-loaded | image (photo bg) | white (forced) |
-| `loading` | `cmb-small.png` | 5-phase entry sequence | app boot, splash | dark | white (forced) |
-| `bookingModal` | `cmb-medium.png` | Booking modal left rail | when modal opens (lg+) | light (bone) | trade colorway |
-| `about` | `cmb-large.png` | About page brand monument | About route | light | trade colorway |
-| `notFound` | `cmb-medium.png` | 404 page | router fallback | light | trade colorway |
-| `email` | `/og-image-cmb.png` | Transactional email header | quote/booking confirmations | light | trade colorway |
-| `og` | `/og-image-cmb.png` | `<meta property="og:image">` | social share | image | (whichever is baked into og file) |
-| `favicon` | `/favicon-cmb.png` | `<link rel="icon">` | browser tab, bookmarks | any | (whichever is baked into favicon) |
+| Upload | → Destination |
+|---|---|
+| `cmb-full-logo-ground-navy-hero.png` | `src/master/assets/logo/cmb-navy-hero.png` |
+| `cmb-full-logo-ground-navy-large.png` | `src/master/assets/logo/cmb-navy-large.png` |
+| `cmb-full-logo-ground-navy-medium.png` | `src/master/assets/logo/cmb-navy-medium.png` |
+| `cmb-full-logo-ground-navy-small.png` | `src/master/assets/logo/cmb-navy-small.png` |
+| `cmb-full-logo-ground-navy-nav-large.png` | `src/master/assets/logo/cmb-navy-nav-large.png` |
+| `cmb-full-logo-ground-navy-nav-medium.png` | `src/master/assets/logo/cmb-navy-nav-medium.png` |
+| `cmb-full-logo-ground-navy-nav-small.png` | `src/master/assets/logo/cmb-navy-nav-small.png` |
+| `cmb-full-logo-ground-navy-footer-large.png` | `src/master/assets/logo/cmb-navy-footer-large.png` |
+| `cmb-full-logo-ground-navy-footer-medium.png` | `src/master/assets/logo/cmb-navy-footer-medium.png` |
+| `cmb-full-logo-ground-navy-footer-small.png` | `src/master/assets/logo/cmb-navy-footer-small.png` |
 
-Plus a "decision tree" diagram inside the doc for picking colorway from surface tone.
+### 2. Flip the registry from aliases to real imports
 
-## Files to change
+In `src/master/brand/logo-registry.ts`, replace the 10 `const cmbNavy* = cmbBlack*` aliases (lines 38–50) with real Vite `import` statements pointing at the new files. The `MASTER_LOGOS.navy` block stays unchanged because it already references the right variable names — only the imports change.
 
-1. **Overwrite 4 placeholder binaries** with the real uploaded artwork:
-   - `src/master/assets/logo/cmb-small.png` ← `cmb-full-logo-ground-black-small.png`
-   - `src/master/assets/logo/cmb-footer-small.png` ← `cmb-full-logo-ground-black-footer-small.png`
-   - `public/favicon-cmb.png` ← `cmb-full-logo-ground-black-nav-small.png` (square crop reads best at 32px)
-   - `public/og-image-cmb.png` ← `cmb-full-logo-ground-black-large.png` (1200-ish wide, white bg, social-safe)
+### 3. Mark navy as `ready`
 
-2. **Re-copy the 6 already-on-disk files** from the upload to guarantee they match the canonical master (the current bytes on disk came from the same earlier upload, but doing a clean overwrite removes any drift):
-   - `cmb-hero.png`, `cmb-large.png`, `cmb-medium.png`, `cmb-nav-{lg,md,sm}.png`, `cmb-footer-{lg,md}.png`
+In the same file, expand `COLORWAY_STATUS` to a 3-state enum (`"ready" | "uploaded-pending-embed" | "pending"`) and set `navy: "ready"`. White stays `"pending"` until you upload that set.
 
-3. **Create `src/master/brand/LOGO_SLOT_MAP.md`** — the canonical slot-by-slot map above, with the colorway decision tree and per-slot perf notes (eager vs lazy, width/height for CLS, max bytes budget).
+### 4. Update the slot map doc
 
-4. **Update `src/master/checklist.ts`** — flip the "embed real black PNGs" checklist row to ✅ and add a new row that points at `LOGO_SLOT_MAP.md` as the single reference for new remixes.
+Add a "Colorway file inventory" section to `src/master/brand/LOGO_SLOT_MAP.md` showing the per-colorway file path for every slot — black ✅, navy ✅, white ⏳ — so any remixer can see at a glance which colorways are live.
 
-5. **Update `src/master/index.ts`** — re-export `LOGO_USAGE_MAP`, `LogoSlot`, and `recommendedColorwayForSlot` so remixers can consume the map programmatically (e.g. for a debug/inventory screen) without reaching into `brand/`.
+### 5. Type-check
 
-6. **No changes to** `logo-registry.ts`, `MasterLogo.tsx`, `trade.config.ts`, `Navigation.tsx`, `Footer.tsx`, `index.html`, `seo.ts` — they already reference the right slots; swapping the binaries is enough for them to pick up the real artwork automatically.
+Run `tsc --noEmit` to confirm nothing broke. The build should be clean because the variable names in `MASTER_LOGOS` are unchanged — only their backing source swapped from black-alias to navy-real.
 
-## After this lands
+## What this unlocks
 
-- Black colorway is 100% real artwork end-to-end — nav, footer, hero, loading, modal, about, 404, email, OG, favicon.
-- Navy + white colorways stay aliased to black (`COLORWAY_STATUS.pending`) and will swap in instantly when you re-upload them — no other file changes needed.
-- Every future remix has one document (`LOGO_SLOT_MAP.md`) that tells them exactly which file shows up where, when, and in which colorway.
+- Any trade can set `TRADE.identity.logoColorway = "navy"` in `trade.config.ts` and the entire site (nav, footer, hero, loading, modal, about, 404, email) instantly switches to navy.
+- The dashboard's `master-logo-binaries-embedded` checklist row will pass for both black and navy.
+- White stays aliased to black until that set is uploaded — no breakage.
+
+## Files touched
+
+- **Created (10):** all `src/master/assets/logo/cmb-navy-*.png`
+- **Edited (2):** `src/master/brand/logo-registry.ts`, `src/master/brand/LOGO_SLOT_MAP.md`
+- **Untouched:** `MasterLogo.tsx`, `Navigation.tsx`, `Footer.tsx`, `trade.config.ts`, `index.html`, `seo.ts`, `checklist.ts` — already wired correctly.

@@ -35,19 +35,17 @@ import cmbBlackNavLg from "../assets/logo/cmb-nav-large.png";
 import cmbBlackNavMd from "../assets/logo/cmb-nav-medium.png";
 import cmbBlackNavSm from "../assets/logo/cmb-nav-small.png";
 
-// ── Navy colorway (TODO: assets pending upload) ────────────────────────────
-// When uploaded, swap each alias to a real import:
-//   import cmbNavyHero from "../assets/logo/cmb-navy-hero.png";
-const cmbNavyHero = cmbBlackHero;
-const cmbNavyLarge = cmbBlackLarge;
-const cmbNavyMedium = cmbBlackMedium;
-const cmbNavySmall = cmbBlackSmall;
-const cmbNavyFooterLg = cmbBlackFooterLg;
-const cmbNavyFooterMd = cmbBlackFooterMd;
-const cmbNavyFooterSm = cmbBlackFooterSm;
-const cmbNavyNavLg = cmbBlackNavLg;
-const cmbNavyNavMd = cmbBlackNavMd;
-const cmbNavyNavSm = cmbBlackNavSm;
+// ── Navy colorway (✅ embedded) ────────────────────────────────────────────
+import cmbNavyHero from "../assets/logo/cmb-navy-hero.png";
+import cmbNavyLarge from "../assets/logo/cmb-navy-large.png";
+import cmbNavyMedium from "../assets/logo/cmb-navy-medium.png";
+import cmbNavySmall from "../assets/logo/cmb-navy-small.png";
+import cmbNavyFooterLg from "../assets/logo/cmb-navy-footer-large.png";
+import cmbNavyFooterMd from "../assets/logo/cmb-navy-footer-medium.png";
+import cmbNavyFooterSm from "../assets/logo/cmb-navy-footer-small.png";
+import cmbNavyNavLg from "../assets/logo/cmb-navy-nav-large.png";
+import cmbNavyNavMd from "../assets/logo/cmb-navy-nav-medium.png";
+import cmbNavyNavSm from "../assets/logo/cmb-navy-nav-small.png";
 
 // ── White colorway (TODO: assets pending upload) ───────────────────────────
 // When uploaded, swap each alias to a real import:
@@ -96,11 +94,14 @@ export const MASTER_LOGOS = {
   },
 } as const;
 
-/** Which colorways have *real* uploaded assets (vs aliasing to black). */
+/** Which colorways have *real* uploaded assets (vs aliasing to black).
+ *  - "ready"   → real PNGs imported, safe to ship
+ *  - "pending" → no artwork yet; aliases to black
+ */
 export const COLORWAY_STATUS: Record<LogoColorway, "ready" | "pending"> = {
   black: "ready",
-  navy: "pending", // re-upload PNGs to embed
-  white: "pending", // re-upload PNGs to embed
+  navy: "ready",
+  white: "pending", // upload PNGs to embed
 };
 
 /**
