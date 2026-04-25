@@ -32,6 +32,30 @@ needs a logo, add the slot here first, then to `LOGO_USAGE_MAP` in
 
 ---
 
+## Colorway file inventory
+
+Per-colorway file paths the registry imports from. Black + navy are fully
+embedded. White still pending upload (aliases to black at runtime).
+
+| Slot variant   | Black ✅                  | Navy ✅                        | White ⏳ (aliased to black) |
+|----------------|---------------------------|--------------------------------|------------------------------|
+| nav small      | `cmb-nav-small.png`       | `cmb-navy-nav-small.png`       | `cmb-white-nav-small.png`    |
+| nav medium     | `cmb-nav-medium.png`      | `cmb-navy-nav-medium.png`      | `cmb-white-nav-medium.png`   |
+| nav large      | `cmb-nav-large.png`       | `cmb-navy-nav-large.png`       | `cmb-white-nav-large.png`    |
+| footer small   | `cmb-footer-small.png`    | `cmb-navy-footer-small.png`    | `cmb-white-footer-small.png` |
+| footer medium  | `cmb-footer-medium.png`   | `cmb-navy-footer-medium.png`   | `cmb-white-footer-medium.png`|
+| footer large   | `cmb-footer-large.png`    | `cmb-navy-footer-large.png`    | `cmb-white-footer-large.png` |
+| hero           | `cmb-hero.png`            | `cmb-navy-hero.png`            | `cmb-white-hero.png`         |
+| large          | `cmb-large.png`           | `cmb-navy-large.png`           | `cmb-white-large.png`        |
+| medium         | `cmb-medium.png`          | `cmb-navy-medium.png`          | `cmb-white-medium.png`       |
+| small          | `cmb-small.png`           | `cmb-navy-small.png`           | `cmb-white-small.png`        |
+
+To activate navy site-wide: set `TRADE.identity.logoColorway = "navy"` in
+`src/config/trade.config.ts`. Every slot (nav, footer, hero, loading, modal,
+about, 404, email) flips in one shot via `<MasterLogo>`.
+
+---
+
 ## Colorway decision tree
 
 ```text
