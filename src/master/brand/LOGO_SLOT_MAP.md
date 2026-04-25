@@ -124,18 +124,19 @@ favicons, avatars, watermarks, scroll-back buttons, print headers.
 
 ### Colorway readiness
 
-| Variant | Black ✅                       | Navy                       | White                      |
-|---------|--------------------------------|----------------------------|----------------------------|
-| 100     | `cmb-emblem-black-100.png`     | aliased → black            | aliased → black            |
-| 200     | `cmb-emblem-black-200.png`     | aliased → black            | aliased → black            |
-| 400     | `cmb-emblem-black-400.png`     | aliased → black            | aliased → black            |
-| 800     | `cmb-emblem-black-800.png`     | aliased → black            | aliased → black            |
-| 1200    | `cmb-emblem-black-1200.png`    | aliased → black            | aliased → black            |
-| 2400    | `cmb-emblem-black-2400.png`    | aliased → black            | aliased → black            |
+| Variant | Black ✅                       | Navy ✅                       | White                      |
+|---------|--------------------------------|-------------------------------|----------------------------|
+| 100     | `cmb-emblem-black-100.png`     | `cmb-emblem-navy-100.png`     | aliased → black            |
+| 200     | `cmb-emblem-black-200.png`     | `cmb-emblem-navy-200.png`     | aliased → black            |
+| 400     | `cmb-emblem-black-400.png`     | `cmb-emblem-navy-400.png`     | aliased → black            |
+| 800     | `cmb-emblem-black-800.png`     | `cmb-emblem-navy-800.png`     | aliased → black            |
+| 1200    | `cmb-emblem-black-1200.png`    | `cmb-emblem-navy-1200.png`    | aliased → black            |
+| 2400    | `cmb-emblem-black-2400.png`    | `cmb-emblem-navy-2400.png`    | aliased → black            |
 
-When the navy and white emblem packages arrive, the aliases in
-`logo-registry.ts → MASTER_LOGOS.{navy,white}.emblem` flip to real imports
-and `EMBLEM_STATUS` updates accordingly. **No component code changes.**
+When the white emblem package arrives, the alias in
+`logo-registry.ts → MASTER_LOGOS.white.emblem` flips to real imports and
+`EMBLEM_STATUS.white` updates from `"aliased"` → `"ready"`. **No component
+code changes.**
 
 ### Render API
 
