@@ -60,8 +60,7 @@ import cmbWhiteNavMd from "../assets/logo/cmb-white-nav-medium.png";
 import cmbWhiteNavSm from "../assets/logo/cmb-white-nav-small.png";
 
 // ── Emblem family (square, no wordmark) ────────────────────────────────────
-// Black + navy colorways — ✅ embedded (6 sizes each). White still aliases to
-// black until its dedicated emblem package lands.
+// All three colorways ✅ embedded (6 sizes each). Matrix complete.
 import cmbEmblemBlack100 from "../assets/logo/cmb-emblem-black-100.png";
 import cmbEmblemBlack200 from "../assets/logo/cmb-emblem-black-200.png";
 import cmbEmblemBlack400 from "../assets/logo/cmb-emblem-black-400.png";
@@ -75,6 +74,13 @@ import cmbEmblemNavy400 from "../assets/logo/cmb-emblem-navy-400.png";
 import cmbEmblemNavy800 from "../assets/logo/cmb-emblem-navy-800.png";
 import cmbEmblemNavy1200 from "../assets/logo/cmb-emblem-navy-1200.png";
 import cmbEmblemNavy2400 from "../assets/logo/cmb-emblem-navy-2400.png";
+
+import cmbEmblemWhite100 from "../assets/logo/cmb-emblem-white-100.png";
+import cmbEmblemWhite200 from "../assets/logo/cmb-emblem-white-200.png";
+import cmbEmblemWhite400 from "../assets/logo/cmb-emblem-white-400.png";
+import cmbEmblemWhite800 from "../assets/logo/cmb-emblem-white-800.png";
+import cmbEmblemWhite1200 from "../assets/logo/cmb-emblem-white-1200.png";
+import cmbEmblemWhite2400 from "../assets/logo/cmb-emblem-white-2400.png";
 
 export type LogoColorway = "black" | "navy" | "white";
 export type EmblemSize = 100 | 200 | 400 | 800 | 1200 | 2400;
@@ -100,6 +106,15 @@ const EMBLEM_NAVY = {
   800: cmbEmblemNavy800,
   1200: cmbEmblemNavy1200,
   2400: cmbEmblemNavy2400,
+} as const;
+
+const EMBLEM_WHITE = {
+  100: cmbEmblemWhite100,
+  200: cmbEmblemWhite200,
+  400: cmbEmblemWhite400,
+  800: cmbEmblemWhite800,
+  1200: cmbEmblemWhite1200,
+  2400: cmbEmblemWhite2400,
 } as const;
 
 export const MASTER_LOGOS = {
@@ -129,8 +144,8 @@ export const MASTER_LOGOS = {
     large: cmbWhiteLarge,
     medium: cmbWhiteMedium,
     small: cmbWhiteSmall,
-    // Emblem aliased to black until the white emblem package lands.
-    emblem: EMBLEM_BLACK,
+    // White emblem ✅ embedded.
+    emblem: EMBLEM_WHITE,
   },
 } as const;
 
@@ -138,7 +153,7 @@ export const MASTER_LOGOS = {
 export const EMBLEM_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
   black: "ready",
   navy: "ready",
-  white: "aliased",
+  white: "ready",
 };
 
 export const EMBLEM_SIZES: EmblemSize[] = [100, 200, 400, 800, 1200, 2400];
