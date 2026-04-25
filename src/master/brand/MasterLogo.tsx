@@ -20,13 +20,15 @@ import {
   MASTER_LOGOS,
   recommendedColorwayForSlot,
   type LogoColorway,
+  type EmblemSize,
 } from "./logo-registry";
 import { MASTER } from "./identity";
 import { TRADE } from "@/config/trade.config";
 
 type ResponsiveSlot = "nav" | "footer";
 type SingleSlot = "hero" | "large" | "medium" | "small" | "loading";
-export type MasterLogoSlot = ResponsiveSlot | SingleSlot;
+type EmblemSlot = "emblem";
+export type MasterLogoSlot = ResponsiveSlot | SingleSlot | EmblemSlot;
 
 interface MasterLogoProps {
   slot: MasterLogoSlot;
@@ -40,6 +42,9 @@ interface MasterLogoProps {
   loading?: "eager" | "lazy";
   /** Optional click handler (e.g. nav lockup wrapping a Link) */
   onClick?: () => void;
+  /** Emblem-only: pick which px-edge file to start from. Browser still
+   * picks the right DPR via srcset. Defaults to 400. */
+  size?: EmblemSize;
 }
 
 const ALT_DEFAULT = MASTER.brandName; // "Cochrane Master Builders"
@@ -52,6 +57,7 @@ const SLOT_HEIGHT: Record<MasterLogoSlot, string> = {
   medium: "h-auto w-full max-w-sm",
   small: "h-auto w-32",
   loading: "h-auto w-28",
+  emblem: "h-auto w-auto",
 };
 
 /** Read the trade's chosen colorway with a safe fallback. */
@@ -66,6 +72,7 @@ const MasterLogo = ({
   alt = ALT_DEFAULT,
   loading,
   onClick,
+  size = 400,
 }: MasterLogoProps) => {
   const sizing = SLOT_HEIGHT[slot];
   const eager = loading ?? (slot === "nav" || slot === "loading" ? "eager" : "lazy");
@@ -75,6 +82,42 @@ const MasterLogo = ({
   const resolvedColorway: LogoColorway =
     colorway ?? recommendedColorwayForSlot(slot as never, tradeColorway);
   const set = MASTER_LOGOS[resolvedColorway];
+
+  // Emblem (square, no wordmark) — uses srcset so the browser picks the
+  // best DPR variant. `size` selects the base file; the larger files are
+  // offered as 2x/3x descriptors for crisp retina rendering.
+  if (slot === "emblem") {
+    const emblem = set.emblem;
+    const base = emblem[size];
+    // Build a srcset that offers the chosen size as 1x and the next-up
+    // sizes as 2x/3x where available.
+    const ladder: EmblemSize[] = [100, 200, 400, 800, 1200, 2400];
+    const idx = ladder.indexOf(size);
+    const x2 = ladder[idx + 1];
+    const x3 = ladder[idx + 2];
+    const srcSet = [
+      `${base} 1x`,
+      x2 ? `${emblem[x2]} 2x` : null,
+      x3 ? `${emblem[x3]} 3x` : null,
+    ]
+      .filter(Boolean)
+      .join(", ");
+    return (
+      <img
+        src={base}
+        srcSet={srcSet}
+        alt={alt}
+        className={`${sizing} object-contain ${className}`}
+        loading={eager}
+        // @ts-expect-error - non-standard but supported attr
+        fetchpriority={fetchPriority}
+        decoding="async"
+        width={size}
+        height={size}
+        onClick={onClick}
+      />
+    );
+  }
 
   // Responsive slots use <picture> with <source media> queries
   if (slot === "nav") {
