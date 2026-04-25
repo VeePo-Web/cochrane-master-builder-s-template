@@ -8,8 +8,14 @@
 export { MASTER } from "./brand/identity";
 export { MASTER_STYLE } from "./brand/style-guide";
 export { default as MasterLogo } from "./brand/MasterLogo";
-export { MASTER_LOGOS, LOGO_USAGE_MAP } from "./brand/logo-registry";
-export type { LogoSlot } from "./brand/logo-registry";
+export type { MasterLogoSlot } from "./brand/MasterLogo";
+export {
+  MASTER_LOGOS,
+  LOGO_USAGE_MAP,
+  COLORWAY_STATUS,
+  recommendedColorwayForSlot,
+} from "./brand/logo-registry";
+export type { LogoSlot, LogoColorway } from "./brand/logo-registry";
 export { TRADES, getTrade, getSisterSites } from "./trades";
 export type { TradeEntry } from "./trades";
 export { SERVICE_AREAS, getNearestAreas } from "./seo/service-areas";

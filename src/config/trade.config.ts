@@ -69,6 +69,12 @@ export const TRADE = {
       coordinates: { lat: 51.1894, lng: -114.4669 },
     },
     founded: 2024,
+    /**
+     * Master CMB logo colorway for this remix. One of: "black" | "navy" | "white".
+     * Per-surface overrides via <MasterLogo colorway="..." /> still apply.
+     * See src/master/brand/LOGO_USAGE.md for the recommendation table.
+     */
+    logoColorway: "black" as const,
   },
 
   // ── Contact ────────────────────────────────────────────────────────────
