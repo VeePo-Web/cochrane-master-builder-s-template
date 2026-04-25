@@ -60,15 +60,21 @@ import cmbWhiteNavMd from "../assets/logo/cmb-white-nav-medium.png";
 import cmbWhiteNavSm from "../assets/logo/cmb-white-nav-small.png";
 
 // ── Emblem family (square, no wordmark) ────────────────────────────────────
-// Black colorway — ✅ embedded (6 sizes). Navy + white alias to black until
-// their dedicated emblem packages land. Same alias-then-flip pattern used
-// during the full-lockup rollout.
+// Black + navy colorways — ✅ embedded (6 sizes each). White still aliases to
+// black until its dedicated emblem package lands.
 import cmbEmblemBlack100 from "../assets/logo/cmb-emblem-black-100.png";
 import cmbEmblemBlack200 from "../assets/logo/cmb-emblem-black-200.png";
 import cmbEmblemBlack400 from "../assets/logo/cmb-emblem-black-400.png";
 import cmbEmblemBlack800 from "../assets/logo/cmb-emblem-black-800.png";
 import cmbEmblemBlack1200 from "../assets/logo/cmb-emblem-black-1200.png";
 import cmbEmblemBlack2400 from "../assets/logo/cmb-emblem-black-2400.png";
+
+import cmbEmblemNavy100 from "../assets/logo/cmb-emblem-navy-100.png";
+import cmbEmblemNavy200 from "../assets/logo/cmb-emblem-navy-200.png";
+import cmbEmblemNavy400 from "../assets/logo/cmb-emblem-navy-400.png";
+import cmbEmblemNavy800 from "../assets/logo/cmb-emblem-navy-800.png";
+import cmbEmblemNavy1200 from "../assets/logo/cmb-emblem-navy-1200.png";
+import cmbEmblemNavy2400 from "../assets/logo/cmb-emblem-navy-2400.png";
 
 export type LogoColorway = "black" | "navy" | "white";
 export type EmblemSize = 100 | 200 | 400 | 800 | 1200 | 2400;
@@ -85,6 +91,15 @@ const EMBLEM_BLACK = {
   800: cmbEmblemBlack800,
   1200: cmbEmblemBlack1200,
   2400: cmbEmblemBlack2400,
+} as const;
+
+const EMBLEM_NAVY = {
+  100: cmbEmblemNavy100,
+  200: cmbEmblemNavy200,
+  400: cmbEmblemNavy400,
+  800: cmbEmblemNavy800,
+  1200: cmbEmblemNavy1200,
+  2400: cmbEmblemNavy2400,
 } as const;
 
 export const MASTER_LOGOS = {
@@ -104,8 +119,8 @@ export const MASTER_LOGOS = {
     large: cmbNavyLarge,
     medium: cmbNavyMedium,
     small: cmbNavySmall,
-    // Emblem aliased to black until the navy emblem package lands.
-    emblem: EMBLEM_BLACK,
+    // Navy emblem ✅ embedded.
+    emblem: EMBLEM_NAVY,
   },
   white: {
     nav: { sm: cmbWhiteNavSm, md: cmbWhiteNavMd, lg: cmbWhiteNavLg },
@@ -122,7 +137,7 @@ export const MASTER_LOGOS = {
 /** Per-colorway readiness for the emblem family specifically. */
 export const EMBLEM_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
   black: "ready",
-  navy: "aliased",
+  navy: "ready",
   white: "aliased",
 };
 

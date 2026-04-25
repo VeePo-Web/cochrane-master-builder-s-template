@@ -1,84 +1,54 @@
 ## What you uploaded
 
-The **emblem-only mark** (no "Master Builders / Cochrane" wordmark) — black colorway, 6 responsive sizes:
+The **navy emblem package** — same 6-size ladder as the black emblems, in the navy colorway:
 
-| Upload | Source size | Use case |
+| Upload | Pixel size | Maps to |
 |---|---|---|
-| `cmb-emblem-black-100.png` | 100×100 | favicon, list bullets, chat avatar |
-| `cmb-emblem-black-200.png` | 200×200 | nav-collapsed, mobile avatar, retina favicon |
-| `cmb-emblem-black-400.png` | 400×400 | inline body badges, card crests, OG icon |
-| `cmb-emblem-black-800.png` | 800×800 | hero accent, section dividers, print thumbnail |
-| `cmb-emblem-black-1200.png` | 1200×1200 | full-page watermark, splash crest, og-square |
-| `cmb-emblem-black-2400.png` | 2400×2400 | print master, billboard, 5K hero crest |
+| `cmb-emblem-navy-100.png` | 100×100 | `emblemFavicon` (navy) |
+| `cmb-emblem-navy-200.png` | 200×200 | `emblemAvatar` (navy) |
+| `cmb-emblem-navy-400.png` | 400×400 | `emblemInline` (navy) |
+| `cmb-emblem-navy-800.png` | 800×800 | `emblemAccent` (navy) |
+| `cmb-emblem-navy-1200.png` | 1200×1200 | `emblemWatermark` (navy) |
+| `cmb-emblem-navy-2400.png` | 2400×2400 | `emblemPrint` (navy) |
 
-The emblem is a **separate asset family** from the existing full lockup (same lockup just had nav/footer/hero/large/medium/small). It needs its own slot tree because the cropping, aspect ratio (1:1 square), and usage rules are different.
+The slot map for the emblem family is already finalized — these 6 files just **fill in the navy column** that's currently aliased to black. Same as the lockup rollout: alias-then-flip pattern.
 
 ## What I'll do once approved
 
-### 1. Embed the 6 emblem binaries
+### 1. Embed the 6 navy emblem binaries
 
-Copy each upload into `src/master/assets/logo/`:
+Copy each upload to `src/master/assets/logo/`:
+- `cmb-emblem-navy-{100,200,400,800,1200,2400}.png`
 
-| Upload | → Destination |
-|---|---|
-| `cmb-emblem-black-100.png` | `src/master/assets/logo/cmb-emblem-black-100.png` |
-| `cmb-emblem-black-200.png` | `src/master/assets/logo/cmb-emblem-black-200.png` |
-| `cmb-emblem-black-400.png` | `src/master/assets/logo/cmb-emblem-black-400.png` |
-| `cmb-emblem-black-800.png` | `src/master/assets/logo/cmb-emblem-black-800.png` |
-| `cmb-emblem-black-1200.png` | `src/master/assets/logo/cmb-emblem-black-1200.png` |
-| `cmb-emblem-black-2400.png` | `src/master/assets/logo/cmb-emblem-black-2400.png` |
-
-### 2. Extend the registry with an `emblem` family
+### 2. Flip the navy alias to real imports
 
 In `src/master/brand/logo-registry.ts`:
+- Add 6 imports: `cmbEmblemNavy100` … `cmbEmblemNavy2400`.
+- Build an `EMBLEM_NAVY` map mirroring `EMBLEM_BLACK`.
+- Replace `MASTER_LOGOS.navy.emblem = EMBLEM_BLACK` with `EMBLEM_NAVY`.
+- Update `EMBLEM_STATUS.navy` from `"aliased"` → `"ready"`.
+- White emblem stays aliased to black until that package arrives.
 
-- Import all 6 emblem PNGs.
-- Add `emblem: { 100, 200, 400, 800, 1200, 2400 }` to each colorway in `MASTER_LOGOS`. Black gets real imports; navy and white **alias to black** for now (same pattern we used during the rollout) until those emblem packages land.
-- Add an `EMBLEM_STATUS` record so the dashboard reflects which emblem colorways are real vs aliased.
-- Extend `LOGO_USAGE_MAP` with new emblem slots:
-  - `emblemFavicon` (`100`) — surface: any
-  - `emblemAvatar` (`200`) — surface: any
-  - `emblemInline` (`400`) — surface: light
-  - `emblemAccent` (`800`) — surface: any
-  - `emblemWatermark` (`1200`) — surface: image
-  - `emblemPrint` (`2400`) — surface: any (print/export only)
+### 3. Refresh the slot map
 
-### 3. Extend `<MasterLogo>` with an emblem slot
+In `src/master/brand/LOGO_SLOT_MAP.md`, update the **Colorway readiness** table for the emblem family — navy column now shows real `cmb-emblem-navy-*.png` filenames with ✅; white stays aliased.
 
-Add a new `slot="emblem"` API with a `size` prop:
-
-```tsx
-<MasterLogo slot="emblem" size={400} />
-<MasterLogo slot="emblem" size={1200} colorway="white" />
-```
-
-Internally uses native `<img srcset>` so the browser auto-picks the right resolution at the right DPR — single tag, no media queries needed for square assets. Adds matching CLS box (1:1 width=height).
-
-### 4. Document the slot map
-
-Update `src/master/brand/LOGO_SLOT_MAP.md` with a new "Emblem family" section showing:
-- Which surfaces use the emblem vs the full lockup (rule of thumb: **lockup** = first impression, **emblem** = repeat appearance).
-- The 6 sizes mapped to recommended use cases (table above).
-- Colorway readiness (black ✅, navy ⏳, white ⏳).
-
-### 5. Update the master checklist
-
-Add `master-emblem-binaries-embedded` to `src/master/checklist.ts` so the remix QA flow validates the emblem family is wired.
-
-### 6. Type-check
+### 4. Type-check
 
 Run `tsc --noEmit` to confirm the build is clean.
 
-## Where the emblem will actually appear
+## Where the navy emblem will appear
 
-I'm **not** going to silently replace any existing lockup with the emblem — that's a brand-strategy decision. What I will do is make the emblem **available** through the same `<MasterLogo>` primitive so future surfaces (loading dot, scroll-progress indicator, scroll-back-to-top, footer copyright bullet, social-share avatar, print headers) can use it with one line of code.
+Anywhere already calling `<MasterLogo slot="emblem" size={…} />` while the trade is on the navy colorway, or any explicit per-instance `colorway="navy"` override. No component code changes — the swap happens entirely through the registry.
+
+Specifically, the navy emblem will surface on **light/cream backgrounds** when `TRADE.identity.logoColorway = "navy"` — softer than black on warm paper, same architectural read.
 
 ## Files touched
 
-- **Created (6):** `src/master/assets/logo/cmb-emblem-black-{100,200,400,800,1200,2400}.png`
-- **Edited (4):** `logo-registry.ts`, `MasterLogo.tsx`, `LOGO_SLOT_MAP.md`, `checklist.ts`
-- **Untouched:** components, trade.config — no breakage to existing surfaces.
+- **Created (6):** `src/master/assets/logo/cmb-emblem-navy-{100,200,400,800,1200,2400}.png`
+- **Edited (2):** `src/master/brand/logo-registry.ts`, `src/master/brand/LOGO_SLOT_MAP.md`
+- **Untouched:** components, trade.config, MasterLogo.tsx — zero risk to existing surfaces.
 
-## Asks for next round (optional)
+## Asks for next round
 
-When ready, upload the **emblem navy** and **emblem white** packages (same 6 sizes each) and I'll flip the aliases the same way we did for the full lockup.
+When ready, upload the **emblem white** package (same 6 sizes) and I'll finish the colorway matrix.
