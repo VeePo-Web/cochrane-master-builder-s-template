@@ -103,6 +103,57 @@ are uploaded — see `COLORWAY_STATUS` in `logo-registry.ts`.
 
 ---
 
+## Emblem family (square 1:1, no wordmark)
+
+The **emblem** is a separate asset family from the full lockup. Where the
+lockup says *who we are*, the emblem is the **repeat-appearance crest** —
+favicons, avatars, watermarks, scroll-back buttons, print headers.
+
+> **Rule of thumb:** lockup = first impression. Emblem = every time after.
+
+### Sizes & recommended use
+
+| Size (px) | Slot key          | Use case                                                  | Surface | Loading |
+|-----------|-------------------|-----------------------------------------------------------|---------|---------|
+| 100       | `emblemFavicon`   | Browser tab, list bullets, chat avatar (32–48px display)  | any     | eager   |
+| 200       | `emblemAvatar`    | Nav-collapsed mark, mobile avatar, retina favicon         | any     | eager   |
+| 400       | `emblemInline`    | Inline body badges, card crests, OG icon                  | light   | lazy    |
+| 800       | `emblemAccent`    | Hero accent, section divider monogram, scroll-back-to-top | any     | lazy    |
+| 1200      | `emblemWatermark` | Full-page watermark, splash crest, og-square (1200×1200)  | image   | lazy    |
+| 2400      | `emblemPrint`     | Print master, billboard, 5K hero crest                    | any     | lazy    |
+
+### Colorway readiness
+
+| Variant | Black ✅                       | Navy                       | White                      |
+|---------|--------------------------------|----------------------------|----------------------------|
+| 100     | `cmb-emblem-black-100.png`     | aliased → black            | aliased → black            |
+| 200     | `cmb-emblem-black-200.png`     | aliased → black            | aliased → black            |
+| 400     | `cmb-emblem-black-400.png`     | aliased → black            | aliased → black            |
+| 800     | `cmb-emblem-black-800.png`     | aliased → black            | aliased → black            |
+| 1200    | `cmb-emblem-black-1200.png`    | aliased → black            | aliased → black            |
+| 2400    | `cmb-emblem-black-2400.png`    | aliased → black            | aliased → black            |
+
+When the navy and white emblem packages arrive, the aliases in
+`logo-registry.ts → MASTER_LOGOS.{navy,white}.emblem` flip to real imports
+and `EMBLEM_STATUS` updates accordingly. **No component code changes.**
+
+### Render API
+
+```tsx
+import MasterLogo from "@/master/brand/MasterLogo";
+
+// Browser auto-picks DPR via srcset; size is the 1x base file
+<MasterLogo slot="emblem" size={100}  />          // favicon-style
+<MasterLogo slot="emblem" size={400}  />          // inline crest
+<MasterLogo slot="emblem" size={1200} colorway="white" /> // dark watermark
+```
+
+The `size` prop selects the 1x source; the next two ladder steps are
+attached as `2x` / `3x` srcset descriptors so retina screens stay sharp
+without downloading the 2400 master on every device.
+
+---
+
 ## Perf budget per slot
 
 | Slot          | Max bytes | Why                                         |
