@@ -83,8 +83,7 @@ import cmbEmblemWhite1200 from "../assets/logo/cmb-emblem-white-1200.png";
 import cmbEmblemWhite2400 from "../assets/logo/cmb-emblem-white-2400.png";
 
 // ── Tiles family (exploded/deconstructed mark — 3 separated panels) ────────
-// Black ✅ + Navy ✅ embedded. White aliases to black until that
-// package lands — flip the alias below in one line when it arrives.
+// All three colorways ✅ embedded (6 sizes each). Matrix complete.
 import cmbTilesBlack100 from "../assets/logo/cmb-tiles-black-100.png";
 import cmbTilesBlack200 from "../assets/logo/cmb-tiles-black-200.png";
 import cmbTilesBlack400 from "../assets/logo/cmb-tiles-black-400.png";
@@ -98,6 +97,13 @@ import cmbTilesNavy400 from "../assets/logo/cmb-tiles-navy-400.png";
 import cmbTilesNavy800 from "../assets/logo/cmb-tiles-navy-800.png";
 import cmbTilesNavy1200 from "../assets/logo/cmb-tiles-navy-1200.png";
 import cmbTilesNavy2400 from "../assets/logo/cmb-tiles-navy-2400.png";
+
+import cmbTilesWhite100 from "../assets/logo/cmb-tiles-white-100.png";
+import cmbTilesWhite200 from "../assets/logo/cmb-tiles-white-200.png";
+import cmbTilesWhite400 from "../assets/logo/cmb-tiles-white-400.png";
+import cmbTilesWhite800 from "../assets/logo/cmb-tiles-white-800.png";
+import cmbTilesWhite1200 from "../assets/logo/cmb-tiles-white-1200.png";
+import cmbTilesWhite2400 from "../assets/logo/cmb-tiles-white-2400.png";
 
 export type LogoColorway = "black" | "navy" | "white";
 export type EmblemSize = 100 | 200 | 400 | 800 | 1200 | 2400;
