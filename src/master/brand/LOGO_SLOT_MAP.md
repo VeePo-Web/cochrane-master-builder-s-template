@@ -433,19 +433,52 @@ match instead of scaling, so the diamond stays sharp on every chrome.
 | 180   | `apple-touch-icon.png` (also `favicon-180.png`) | iPhone home-screen (Safari iOS)             | iOS springboard  |
 | 192   | `android-chrome-192x192.png` (also `favicon-192.png`) | Android home, PWA install prompt      | Android launcher |
 | 256   | `favicon-256.png`                               | Hero browser-chrome, OG-square fallback     | premium chrome   |
-| 512   | `android-chrome-512x512.png`                    | PWA splash, maskable adaptive icon source   | PWA runtime      |
+| 512   | `android-chrome-512x512.png` (also `favicon-512.png`) | PWA splash, maskable adaptive icon source, dark hero | PWA runtime |
 |  —    | `site.webmanifest`                              | PWA install metadata, theme + bg color      | browser chrome   |
 
-> **Why dual filenames at 180 and 192?** The spec-named files
-> (`apple-touch-icon.png`, `android-chrome-192x192.png`) are what iOS and
-> Android crawlers look for by convention. The `favicon-{size}.png`
-> versions ship the same bytes under the unified ladder name so any
-> consumer that prefers that pattern can find them. Both names point at
-> the same MB-diamond — pick whichever the consumer expects.
+> **Why dual filenames at 180, 192, and 512?** The spec-named files
+> (`apple-touch-icon.png`, `android-chrome-192x192.png`,
+> `android-chrome-512x512.png`) are what iOS and Android crawlers look for
+> by convention. The `favicon-{size}.png` versions ship the same bytes
+> under the unified ladder name so any consumer that prefers that pattern
+> can find them. Both names point at the same MB-diamond — pick whichever
+> the consumer expects.
+
+### Dark-mode reverse colorway (white MB-diamond)
+
+A second 6-rung ladder in the white reverse colorway, served via
+`prefers-color-scheme: dark` media queries. Modern browsers (Safari 15+,
+Chrome 91+, Firefox 109+) ask the OS at request time which appearance is
+active and pick the matching `<link>` automatically. Browsers without
+media-query support ignore the `media` attribute and fall back to the
+navy default — graceful degradation, no JS required.
+
+| Size | File                        | Renders in                                  | Density tier     |
+|------|-----------------------------|---------------------------------------------|------------------|
+| 32   | `favicon-white-32.png`      | Dark-mode desktop tab @ retina              | tab              |
+| 64   | `favicon-white-64.png`      | Dark-mode hi-DPI laptop tab                 | tab              |
+| 128  | `favicon-white-128.png`     | Dark-mode generic OS chrome                 | OS chrome        |
+| 192  | `favicon-white-192.png`     | Dark-mode Android home / install prompt     | Android launcher |
+| 256  | `favicon-white-256.png`     | Dark-mode hero favicon, dark email headers  | premium chrome   |
+| 512  | `favicon-white-512.png`     | Dark splash, dark transactional templates   | hero             |
+
+**Beyond browser chrome**, the white ladder also serves as the source
+artwork for any **dark-surface chrome-style mark** outside the browser:
+- Transactional email headers with navy / asphalt backgrounds (use the
+  256 or 512 inline as the email's brand mark)
+- In-product dark splashes / modals that need a chrome-style diamond
+  rather than the full lockup
+- Dark social-share OG renders
+
+> **Component-system rule still applies:** in React code, render the
+> dark-surface diamond via `<MasterLogo slot="emblem" colorway="white" />`
+> when possible — the white favicon ladder exists for the
+> `<link>`/email/static contexts where the component system can't reach.
 
 ### Wired in `index.html`
 
 ```html
+<!-- Default colorway: navy MB-diamond -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <link rel="icon" type="image/png" sizes="16x16"   href="/favicon-16.png" />
 <link rel="icon" type="image/png" sizes="32x32"   href="/favicon-32.png" />
@@ -455,10 +488,20 @@ match instead of scaling, so the diamond stays sharp on every chrome.
 <link rel="icon" type="image/png" sizes="128x128" href="/favicon-128.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="256x256" href="/favicon-256.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
 <link rel="apple-touch-icon" sizes="152x152" href="/favicon-152.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <meta name="msapplication-TileImage" content="/favicon-144.png" />
-<meta name="msapplication-TileColor" content="#1a2438" />
+<meta name="msapplication-TileColor" content="#1F2F4D" />
+
+<!-- Dark-mode reverse colorway: white MB-diamond -->
+<link rel="icon" type="image/png" sizes="32x32"   href="/favicon-white-32.png"  media="(prefers-color-scheme: dark)" />
+<link rel="icon" type="image/png" sizes="64x64"   href="/favicon-white-64.png"  media="(prefers-color-scheme: dark)" />
+<link rel="icon" type="image/png" sizes="128x128" href="/favicon-white-128.png" media="(prefers-color-scheme: dark)" />
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-white-192.png" media="(prefers-color-scheme: dark)" />
+<link rel="icon" type="image/png" sizes="256x256" href="/favicon-white-256.png" media="(prefers-color-scheme: dark)" />
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-white-512.png" media="(prefers-color-scheme: dark)" />
+
 <link rel="manifest" href="/site.webmanifest" />
 ```
 
@@ -466,11 +509,18 @@ The `msapplication-TileImage` + `TileColor` pair makes Windows pinned-site
 tiles render the navy MB-diamond on a navy field — no generic letter
 placeholder.
 
+### Theme color
+
+`<meta name="theme-color" content="#1F2F4D">` (navy) tints the iOS Safari
+status-bar and Android Chrome address-bar to the brand navy — the chrome
+becomes part of the brand surface instead of a neutral border. Matches
+the manifest's `theme_color`.
+
 ### Manifest identity (`site.webmanifest`)
 
 - `name`: "Cochrane Master Builders" · `short_name`: "CMB"
-- `theme_color`: `#F2EDE4` (paper — matches existing `<meta name="theme-color">`)
-- `background_color`: `#1a2438` (navy — matches the MB-diamond field)
+- `theme_color`: `#1F2F4D` (navy — matches `<meta name="theme-color">` and `msapplication-TileColor`)
+- `background_color`: `#FFFFFF` (white — splash background while the app boots)
 - `display`: `standalone` · `start_url`: `/` · `scope`: `/`
 - Icons declared at 96, 128, 144, 152, 192, 256, 512 with `purpose: "any"`;
   512 is also exposed as `purpose: "maskable"` for adaptive Android icons.
@@ -486,8 +536,9 @@ placeholder.
 `/public/favicon-cmb.png` and `/public/og-image-cmb.png` remain in place;
 the slot-map's `favicon` and `og` rows above still reference them as
 transactional email + social-share fallbacks. Migrate those to the new
-MB-diamond pack (likely using `favicon-256.png` for email and a fresh
-1200×630 OG render) in a separate pass.
+MB-diamond pack (likely using `favicon-256.png` or `favicon-white-256.png`
+for email depending on template surface, and a fresh 1200×630 OG render)
+in a separate pass.
 
 ---
 
