@@ -162,8 +162,15 @@ const TILES_NAVY = {
   2400: cmbTilesNavy2400,
 } as const;
 
-// White tiles still aliased to black until that package lands.
-const TILES_WHITE = TILES_BLACK;
+// White tiles ✅ embedded as a real map.
+const TILES_WHITE = {
+  100: cmbTilesWhite100,
+  200: cmbTilesWhite200,
+  400: cmbTilesWhite400,
+  800: cmbTilesWhite800,
+  1200: cmbTilesWhite1200,
+  2400: cmbTilesWhite2400,
+} as const;
 
 export const MASTER_LOGOS = {
   black: {
