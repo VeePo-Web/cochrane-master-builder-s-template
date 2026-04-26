@@ -34,13 +34,15 @@ type EmblemSlot = "emblem";
 type TilesSlot = "tiles";
 type MonogramSlot = "monogram";
 type WordmarkSlot = "wordmark";
+type WordmarkGroundSlot = "wordmarkGround";
 export type MasterLogoSlot =
   | ResponsiveSlot
   | SingleSlot
   | EmblemSlot
   | TilesSlot
   | MonogramSlot
-  | WordmarkSlot;
+  | WordmarkSlot
+  | WordmarkGroundSlot;
 
 interface MasterLogoProps {
   slot: MasterLogoSlot;
@@ -54,9 +56,10 @@ interface MasterLogoProps {
   loading?: "eager" | "lazy";
   /** Optional click handler (e.g. nav lockup wrapping a Link) */
   onClick?: () => void;
-  /** Emblem-only / Tiles-only / Monogram-only / Wordmark-only: pick which
-   * px-edge file to start from. Browser still picks the right DPR via srcset.
-   * Defaults: 400 for emblem/tiles, 128 for monogram, 400 for wordmark. */
+  /** Emblem-only / Tiles-only / Monogram-only / Wordmark-only / WordmarkGround-only:
+   * pick which px-edge file to start from. Browser still picks the right DPR
+   * via srcset. Defaults: 400 for emblem/tiles/wordmark/wordmarkGround,
+   * 128 for monogram. */
   size?: EmblemSize | TileSize | MonogramSize | WordmarkSize;
 }
 
@@ -74,6 +77,7 @@ const SLOT_HEIGHT: Record<MasterLogoSlot, string> = {
   tiles: "h-auto w-auto",
   monogram: "h-auto w-auto",
   wordmark: "h-auto w-auto",
+  wordmarkGround: "h-auto w-auto",
 };
 
 /** Read the trade's chosen colorway with a safe fallback. */
@@ -239,6 +243,44 @@ const MasterLogo = ({
         fetchpriority={fetchPriority}
         decoding="async"
         width={wmSize}
+        height={intrinsicHeight}
+        onClick={onClick}
+      />
+    );
+  }
+
+  // Wordmark Ground (drafted plumb-line + base rule). Same size ladder as
+  // plain wordmark, but ~3.5:1 aspect because the plumb adds vertical room.
+  if (slot === "wordmarkGround") {
+    const ground = set.wordmarkGround;
+    const ladder: WordmarkSize[] = [200, 400, 800, 1200, 2400];
+    const wgSize: WordmarkSize = (ladder as readonly number[]).includes(size as number)
+      ? (size as WordmarkSize)
+      : 400;
+    const base = ground[wgSize];
+    const idx = ladder.indexOf(wgSize);
+    const x2 = ladder[idx + 1];
+    const x3 = ladder[idx + 2];
+    const srcSet = [
+      `${base} 1x`,
+      x2 ? `${ground[x2]} 2x` : null,
+      x3 ? `${ground[x3]} 3x` : null,
+    ]
+      .filter(Boolean)
+      .join(", ");
+    // Intrinsic ~3.5:1 aspect — drafting marks add height vs the plain wordmark.
+    const intrinsicHeight = Math.round(wgSize / 3.5);
+    return (
+      <img
+        src={base}
+        srcSet={srcSet}
+        alt={alt}
+        className={`${sizing} object-contain ${className}`}
+        loading={eager}
+        // @ts-expect-error - non-standard but supported attr
+        fetchpriority={fetchPriority}
+        decoding="async"
+        width={wgSize}
         height={intrinsicHeight}
         onClick={onClick}
       />

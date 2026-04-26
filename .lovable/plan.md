@@ -1,25 +1,41 @@
-# Logo package integration — round 6 (final colorway sweep)
+# Logo package integration — round 7
 
-Two packages in this drop, both for the **wordmark family**:
+A new wordmark **variant** has arrived: the **"ground" wordmark** — the same MASTER BUILDERS / COCHRANE typography, but framed by a vertical plumb-line on the left and a horizontal base rule beneath ("grounded" by drafting/architect marks). This reads as **architectural / specification-grade** where the plain wordmark reads as **editorial type**.
 
-1. **Wordmark — navy** (5 sizes: 200 / 400 / 800 / 1200 / 2400)
-2. **Wordmark — white** (5 sizes: 200 / 400 / 800 / 1200 / 2400)
+Two packages this round:
+1. **Wordmark Ground — black** (5 sizes: 200 / 400 / 800 / 1200 / 2400)
+2. **Wordmark Ground — navy** (5 sizes: 200 / 400 / 800 / 1200 / 2400)
 
-After this round the registry contains **zero aliases across all five families × three colorways**. The full matrix is real binaries.
+White ground variant is not yet provided — will alias to black until it lands (same staging pattern as previous rounds).
 
 ---
 
-## Final state of the brand system
+## Why a separate variant (not a replacement)
 
-| Family   | Black | Navy | White |
-|----------|-------|------|-------|
-| Lockup   | ✅    | ✅   | ✅    |
-| Emblem   | ✅    | ✅   | ✅    |
-| Tiles    | ✅    | ✅   | ✅    |
-| Monogram | ✅    | ✅   | ✅    |
-| Wordmark | ✅    | ✅ (this round) | ✅ (this round) |
+The plain wordmark and the ground wordmark are **siblings**, not versions of the same thing:
 
-Total: **5 families × 3 colorways = 15 packages, all live.**
+| Variant | Voice | Aspect | Use when |
+|---|---|---|---|
+| `wordmark` (plain) | Editorial / typographic | ~5:1 | Inline body, breadcrumbs, eyebrows above an H2, document mastheads. Sits *with* surrounding text. |
+| `wordmarkGround` (this round) | Architectural / spec-grade / drafted | ~3.5:1 (plumb line adds height) | **Standalone** brand statements where the mark needs to feel anchored and authored — chapter openers, hero brand bands, certificate headers, project plate, capability deck cover. |
+
+If the plain wordmark is the brand's **printed name**, the ground wordmark is the brand's **drafted signature on a blueprint title block**. They live side-by-side; the slot determines which one the page calls.
+
+---
+
+## Wordmark Ground slot map (new)
+
+Five dedicated slots, mirroring the plain-wordmark size ladder so consumers can swap variants 1:1 by changing the slot key:
+
+| Size (px) | Slot key                  | Use case                                                               | Surface | Loading |
+|-----------|---------------------------|------------------------------------------------------------------------|---------|---------|
+| 200       | `wordmarkGroundInline`    | Specification stamp inline in a spec sheet, drawing-set legend         | light   | lazy    |
+| 400       | `wordmarkGroundChapter`   | Chapter / case-study opener title block (above a long-form section)    | light   | lazy    |
+| 800       | `wordmarkGroundPlate`     | Project nameplate, "stamped by" plate on warranty/handoff documents    | light   | lazy    |
+| 1200      | `wordmarkGroundBand`      | Hero brand band on About / Capabilities — anchors a wide section       | any     | lazy    |
+| 2400      | `wordmarkGroundCover`     | Capabilities deck / proposal PDF cover, large-format presentation      | any     | lazy    |
+
+The plumb + base rule are part of the artwork — consumers must not crop them, so the component sets a slightly taller CLS box than the plain wordmark (~3.5:1 instead of ~5:1).
 
 ---
 
@@ -27,28 +43,34 @@ Total: **5 families × 3 colorways = 15 packages, all live.**
 
 ### Asset embedding (10 new files)
 Copy uploads into `src/master/assets/logo/`:
-- `cmb-wordmark-navy-{200,400,800,1200,2400}.png` — 5 files
-- `cmb-wordmark-white-{200,400,800,1200,2400}.png` — 5 files
+- `cmb-wordmark-ground-black-{200,400,800,1200,2400}.png`
+- `cmb-wordmark-ground-navy-{200,400,800,1200,2400}.png`
 
 ### `src/master/brand/logo-registry.ts`
-- Import the 10 new wordmark PNGs (5 navy, 5 white).
-- Replace `WORDMARK_NAVY = WORDMARK_BLACK` alias with a real map.
-- Replace `WORDMARK_WHITE = WORDMARK_BLACK` alias with a real map.
-- Update `MASTER_LOGOS.navy.wordmark` and `MASTER_LOGOS.white.wordmark` comments to reflect ✅ embedded.
-- Set `WORDMARK_STATUS.navy = "ready"` and `WORDMARK_STATUS.white = "ready"`.
+- Import the 10 new ground wordmark PNGs.
+- Add `WORDMARK_GROUND_BLACK` and `WORDMARK_GROUND_NAVY` maps. `WORDMARK_GROUND_WHITE` aliases to black until provided.
+- Reuse the existing `WordmarkSize` type (same ladder) — keeps the size contract aligned between plain and ground variants.
+- Add `wordmarkGround` key to all three colorways inside `MASTER_LOGOS`.
+- Add `WORDMARK_GROUND_STATUS` (`black: ready`, `navy: ready`, `white: aliased`).
+- Append five `wordmarkGround*` entries to `LOGO_USAGE_MAP` per the table above.
+
+### `src/master/brand/MasterLogo.tsx`
+- Extend `MasterLogoSlot` union with `"wordmarkGround"`.
+- Add `SLOT_HEIGHT.wordmarkGround = "h-auto w-auto"`.
+- Add a `wordmarkGround` render branch mirroring the plain-wordmark srcset ladder. CLS box uses `width={size}` and `height={Math.round(size / 3.5)}` to reserve the taller drafted aspect ratio.
 
 ### `src/master/brand/LOGO_SLOT_MAP.md`
-- Flip the navy + white columns in the wordmark colorway-readiness table from ⏳ aliased to ✅ ready, listing the real filenames.
-- Update the closing prose: `WORDMARK_STATUS` reports `ready` for all three colorways; matrix is fully complete; dark-surface wordmarks now serve real white assets instead of falling back to black.
+- Append a new **"Wordmark Ground variant"** subsection under the wordmark family. Includes the slot table, colorway readiness, when-to-pick-which decision rule (plain vs ground), and render API.
 
 ### `src/master/checklist.ts`
-- Update the `master-wordmark-binaries-embedded` description: navy + white now ✅ alongside black; matrix complete.
+- Add `"master-wordmark-ground-binaries-embedded"` to the `CheckId` union and as a `REMIX_CHECKLIST` item (group `setup`, automated, references `WORDMARK_GROUND_STATUS`).
 
 ### Verification
-- TypeScript build green (`npx tsc --noEmit`).
-- Spot-check `MASTER_LOGOS.white.wordmark[1200]` resolves to the real white file.
+- `npx tsc --noEmit` clean.
+- Spot-check `MASTER_LOGOS.navy.wordmarkGround[1200]` resolves to the navy ground file.
 
 ---
 
 ## Out of scope (intentionally deferred)
-Surface adoption — actually dropping `<MasterLogo slot="wordmark">` into pages (About eyebrow, document headers, footer brand band, etc.). This round only embeds and maps. Surface placements will be a deliberate follow-up so we can review each insertion against the editorial direction.
+- White ground variant — aliased to black until uploaded.
+- Surface adoption — actually placing `<MasterLogo slot="wordmarkGround">` into pages (chapter openers, project plates, deck cover). This round only embeds and maps, same as previous rounds.

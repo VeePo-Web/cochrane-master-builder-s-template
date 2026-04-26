@@ -149,6 +149,24 @@ import cmbWordmarkWhite800 from "../assets/logo/cmb-wordmark-white-800.png";
 import cmbWordmarkWhite1200 from "../assets/logo/cmb-wordmark-white-1200.png";
 import cmbWordmarkWhite2400 from "../assets/logo/cmb-wordmark-white-2400.png";
 
+// ── Wordmark Ground variant (drafted: plumb-line + base rule) ─────────────
+// Sibling to the plain wordmark — same typography, but framed by architect's
+// drafting marks so it reads as spec-grade / authored. Use for standalone
+// brand statements (chapter openers, project plates, deck covers) where the
+// mark needs to feel anchored. Black ✅ + Navy ✅ embedded; white aliases
+// to black until that package lands.
+import cmbWordmarkGroundBlack200 from "../assets/logo/cmb-wordmark-ground-black-200.png";
+import cmbWordmarkGroundBlack400 from "../assets/logo/cmb-wordmark-ground-black-400.png";
+import cmbWordmarkGroundBlack800 from "../assets/logo/cmb-wordmark-ground-black-800.png";
+import cmbWordmarkGroundBlack1200 from "../assets/logo/cmb-wordmark-ground-black-1200.png";
+import cmbWordmarkGroundBlack2400 from "../assets/logo/cmb-wordmark-ground-black-2400.png";
+
+import cmbWordmarkGroundNavy200 from "../assets/logo/cmb-wordmark-ground-navy-200.png";
+import cmbWordmarkGroundNavy400 from "../assets/logo/cmb-wordmark-ground-navy-400.png";
+import cmbWordmarkGroundNavy800 from "../assets/logo/cmb-wordmark-ground-navy-800.png";
+import cmbWordmarkGroundNavy1200 from "../assets/logo/cmb-wordmark-ground-navy-1200.png";
+import cmbWordmarkGroundNavy2400 from "../assets/logo/cmb-wordmark-ground-navy-2400.png";
+
 export type LogoColorway = "black" | "navy" | "white";
 export type EmblemSize = 100 | 200 | 400 | 800 | 1200 | 2400;
 /** Tiles share the emblem size ladder — single source of truth. */
@@ -273,6 +291,26 @@ const WORDMARK_WHITE = {
   2400: cmbWordmarkWhite2400,
 } as const;
 
+/** Wordmark Ground variant (drafted plumb + base rule) keyed by edge length. */
+const WORDMARK_GROUND_BLACK = {
+  200: cmbWordmarkGroundBlack200,
+  400: cmbWordmarkGroundBlack400,
+  800: cmbWordmarkGroundBlack800,
+  1200: cmbWordmarkGroundBlack1200,
+  2400: cmbWordmarkGroundBlack2400,
+} as const;
+
+const WORDMARK_GROUND_NAVY = {
+  200: cmbWordmarkGroundNavy200,
+  400: cmbWordmarkGroundNavy400,
+  800: cmbWordmarkGroundNavy800,
+  1200: cmbWordmarkGroundNavy1200,
+  2400: cmbWordmarkGroundNavy2400,
+} as const;
+
+// White ground wordmark aliased to black until that package lands.
+const WORDMARK_GROUND_WHITE = WORDMARK_GROUND_BLACK;
+
 export const MASTER_LOGOS = {
   black: {
     nav: { sm: cmbBlackNavSm, md: cmbBlackNavMd, lg: cmbBlackNavLg },
@@ -285,6 +323,7 @@ export const MASTER_LOGOS = {
     tiles: TILES_BLACK,
     monogram: MONOGRAM_BLACK,
     wordmark: WORDMARK_BLACK,
+    wordmarkGround: WORDMARK_GROUND_BLACK,
   },
   navy: {
     nav: { sm: cmbNavyNavSm, md: cmbNavyNavMd, lg: cmbNavyNavLg },
@@ -301,6 +340,8 @@ export const MASTER_LOGOS = {
     monogram: MONOGRAM_NAVY,
     // Navy wordmark ✅ embedded.
     wordmark: WORDMARK_NAVY,
+    // Navy ground wordmark ✅ embedded.
+    wordmarkGround: WORDMARK_GROUND_NAVY,
   },
   white: {
     nav: { sm: cmbWhiteNavSm, md: cmbWhiteNavMd, lg: cmbWhiteNavLg },
@@ -317,6 +358,8 @@ export const MASTER_LOGOS = {
     monogram: MONOGRAM_WHITE,
     // White wordmark ✅ embedded.
     wordmark: WORDMARK_WHITE,
+    // White ground wordmark aliased to black until that package lands.
+    wordmarkGround: WORDMARK_GROUND_WHITE,
   },
 } as const;
 
@@ -346,6 +389,13 @@ export const WORDMARK_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
   black: "ready",
   navy: "ready",
   white: "ready",
+};
+
+/** Per-colorway readiness for the wordmark "ground" variant specifically. */
+export const WORDMARK_GROUND_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
+  black: "ready",
+  navy: "ready",
+  white: "aliased",
 };
 
 export const EMBLEM_SIZES: EmblemSize[] = [100, 200, 400, 800, 1200, 2400];
@@ -432,6 +482,19 @@ export const LOGO_USAGE_MAP = {
   wordmarkDocument:  { file: "cmb-wordmark-black-800.png",  maxHeightPx: 96,  surface: "light" as const, note: "Document/PDF header, quote letter masthead, press kit page header." },
   wordmarkBanner:    { file: "cmb-wordmark-black-1200.png", maxHeightPx: 160, surface: "any"   as const, note: "Wide hero strip alternative, cinema-bar caption, full-width brand band." },
   wordmarkPrint:     { file: "cmb-wordmark-black-2400.png", maxHeightPx: 320, surface: "any"   as const, note: "Print master, large-format banner, billboard wordmark. Lazy-load only." },
+
+  // ── Wordmark Ground variant (drafted plumb-line + base rule) ──
+  // Sibling to the plain wordmark — same typography, but framed by an
+  // architect's plumb-line and base rule. Reads as spec-grade / authored.
+  // Use for STANDALONE brand statements where the mark needs to feel
+  // anchored: chapter openers, project plates, deck covers, certificate
+  // headers. Use plain `wordmark*` instead when sitting *with* surrounding
+  // text (inline, eyebrow, breadcrumb).
+  wordmarkGroundInline:  { file: "cmb-wordmark-ground-black-200.png",  maxHeightPx: 32,  surface: "light" as const, note: "Specification stamp inline in a spec sheet or drawing-set legend." },
+  wordmarkGroundChapter: { file: "cmb-wordmark-ground-black-400.png",  maxHeightPx: 72,  surface: "light" as const, note: "Chapter / case-study opener title block above a long-form section." },
+  wordmarkGroundPlate:   { file: "cmb-wordmark-ground-black-800.png",  maxHeightPx: 128, surface: "light" as const, note: "Project nameplate, 'stamped by' plate on warranty / handoff documents." },
+  wordmarkGroundBand:    { file: "cmb-wordmark-ground-black-1200.png", maxHeightPx: 200, surface: "any"   as const, note: "Hero brand band on About / Capabilities pages — anchors a wide section." },
+  wordmarkGroundCover:   { file: "cmb-wordmark-ground-black-2400.png", maxHeightPx: 400, surface: "any"   as const, note: "Capabilities deck / proposal PDF cover, large-format presentation." },
 } as const;
 
 export type LogoSlot = keyof typeof LOGO_USAGE_MAP;
