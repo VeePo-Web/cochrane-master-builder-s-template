@@ -126,7 +126,7 @@ const DecisionSearch = () => {
     let filters: Record<string, unknown> | undefined;
     if (useStructured) {
       const v = validateDecisionInput(structuredCandidate);
-      if (!v.ok) {
+      if (v.ok === false) {
         setFieldErrors(v.errors);
         toast.error("Fix the highlighted fields before searching.");
         return;
