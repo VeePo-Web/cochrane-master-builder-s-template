@@ -482,6 +482,19 @@ export const LOGO_USAGE_MAP = {
   wordmarkDocument:  { file: "cmb-wordmark-black-800.png",  maxHeightPx: 96,  surface: "light" as const, note: "Document/PDF header, quote letter masthead, press kit page header." },
   wordmarkBanner:    { file: "cmb-wordmark-black-1200.png", maxHeightPx: 160, surface: "any"   as const, note: "Wide hero strip alternative, cinema-bar caption, full-width brand band." },
   wordmarkPrint:     { file: "cmb-wordmark-black-2400.png", maxHeightPx: 320, surface: "any"   as const, note: "Print master, large-format banner, billboard wordmark. Lazy-load only." },
+
+  // ── Wordmark Ground variant (drafted plumb-line + base rule) ──
+  // Sibling to the plain wordmark — same typography, but framed by an
+  // architect's plumb-line and base rule. Reads as spec-grade / authored.
+  // Use for STANDALONE brand statements where the mark needs to feel
+  // anchored: chapter openers, project plates, deck covers, certificate
+  // headers. Use plain `wordmark*` instead when sitting *with* surrounding
+  // text (inline, eyebrow, breadcrumb).
+  wordmarkGroundInline:  { file: "cmb-wordmark-ground-black-200.png",  maxHeightPx: 32,  surface: "light" as const, note: "Specification stamp inline in a spec sheet or drawing-set legend." },
+  wordmarkGroundChapter: { file: "cmb-wordmark-ground-black-400.png",  maxHeightPx: 72,  surface: "light" as const, note: "Chapter / case-study opener title block above a long-form section." },
+  wordmarkGroundPlate:   { file: "cmb-wordmark-ground-black-800.png",  maxHeightPx: 128, surface: "light" as const, note: "Project nameplate, 'stamped by' plate on warranty / handoff documents." },
+  wordmarkGroundBand:    { file: "cmb-wordmark-ground-black-1200.png", maxHeightPx: 200, surface: "any"   as const, note: "Hero brand band on About / Capabilities pages — anchors a wide section." },
+  wordmarkGroundCover:   { file: "cmb-wordmark-ground-black-2400.png", maxHeightPx: 400, surface: "any"   as const, note: "Capabilities deck / proposal PDF cover, large-format presentation." },
 } as const;
 
 export type LogoSlot = keyof typeof LOGO_USAGE_MAP;
