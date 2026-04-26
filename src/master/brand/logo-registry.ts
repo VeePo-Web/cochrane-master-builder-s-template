@@ -173,6 +173,16 @@ import cmbWordmarkGroundWhite800 from "../assets/logo/cmb-wordmark-ground-white-
 import cmbWordmarkGroundWhite1200 from "../assets/logo/cmb-wordmark-ground-white-1200.png";
 import cmbWordmarkGroundWhite2400 from "../assets/logo/cmb-wordmark-ground-white-2400.png";
 
+// ── Showcase boards (in-context renders for /brand + press kit) ────────────
+// High-res demonstration plates showing the lockup + emblem on each surface
+// tone. NOT for production UI — these are designed to be downloaded by
+// journalists, partners, fabrication vendors, and shown on the brand-kit page.
+import cmbBoardLockupOnWhite from "../assets/logo/boards/cmb-board-lockup-on-white.png";
+import cmbBoardLockupOnBlack from "../assets/logo/boards/cmb-board-lockup-on-black.png";
+import cmbBoardLockupOnNavy from "../assets/logo/boards/cmb-board-lockup-on-navy.png";
+import cmbBoardEmblemOnBlack from "../assets/logo/boards/cmb-board-emblem-on-black.png";
+import cmbBoardEmblemOnNavy from "../assets/logo/boards/cmb-board-emblem-on-navy.png";
+
 export type LogoColorway = "black" | "navy" | "white";
 export type EmblemSize = 100 | 200 | 400 | 800 | 1200 | 2400;
 /** Tiles share the emblem size ladder — single source of truth. */
