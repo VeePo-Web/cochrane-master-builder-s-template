@@ -475,6 +475,7 @@ export interface CompactRoute {
   oneLine: string;
   triggers: string[];
   categories: DecisionCategory[];
+  guardRails: GuardRailId[];
 }
 
 export function toCompactRegistry(): CompactRoute[] {
@@ -484,6 +485,7 @@ export function toCompactRegistry(): CompactRoute[] {
     oneLine: r.oneLine,
     triggers: r.triggers,
     categories: r.categories,
+    guardRails: r.guardRails,
   }));
 }
 
