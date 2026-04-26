@@ -34,13 +34,15 @@ type EmblemSlot = "emblem";
 type TilesSlot = "tiles";
 type MonogramSlot = "monogram";
 type WordmarkSlot = "wordmark";
+type WordmarkGroundSlot = "wordmarkGround";
 export type MasterLogoSlot =
   | ResponsiveSlot
   | SingleSlot
   | EmblemSlot
   | TilesSlot
   | MonogramSlot
-  | WordmarkSlot;
+  | WordmarkSlot
+  | WordmarkGroundSlot;
 
 interface MasterLogoProps {
   slot: MasterLogoSlot;
@@ -54,9 +56,10 @@ interface MasterLogoProps {
   loading?: "eager" | "lazy";
   /** Optional click handler (e.g. nav lockup wrapping a Link) */
   onClick?: () => void;
-  /** Emblem-only / Tiles-only / Monogram-only / Wordmark-only: pick which
-   * px-edge file to start from. Browser still picks the right DPR via srcset.
-   * Defaults: 400 for emblem/tiles, 128 for monogram, 400 for wordmark. */
+  /** Emblem-only / Tiles-only / Monogram-only / Wordmark-only / WordmarkGround-only:
+   * pick which px-edge file to start from. Browser still picks the right DPR
+   * via srcset. Defaults: 400 for emblem/tiles/wordmark/wordmarkGround,
+   * 128 for monogram. */
   size?: EmblemSize | TileSize | MonogramSize | WordmarkSize;
 }
 
@@ -74,6 +77,7 @@ const SLOT_HEIGHT: Record<MasterLogoSlot, string> = {
   tiles: "h-auto w-auto",
   monogram: "h-auto w-auto",
   wordmark: "h-auto w-auto",
+  wordmarkGround: "h-auto w-auto",
 };
 
 /** Read the trade's chosen colorway with a safe fallback. */
