@@ -17,6 +17,14 @@ import {
   type DecisionCategory,
   type DecisionRoute,
 } from "./decision-index";
+import {
+  AUDIENCE_HINTS,
+  CHANNEL_HINTS,
+  CONSTRAINT_HINTS,
+  PAGE_SECTION_HINTS,
+  type DecisionInput,
+} from "./decision-input";
+import type { GuardRailId } from "../guardrails";
 
 export const AI_FALLBACK_THRESHOLD = 0.35;
 
