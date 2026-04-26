@@ -188,7 +188,16 @@ export const EMBLEM_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
   white: "ready",
 };
 
+/** Per-colorway readiness for the tiles family specifically. */
+export const TILES_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
+  black: "ready",
+  navy: "aliased",
+  white: "aliased",
+};
+
 export const EMBLEM_SIZES: EmblemSize[] = [100, 200, 400, 800, 1200, 2400];
+/** Tiles share the emblem size ladder. */
+export const TILE_SIZES: TileSize[] = [100, 200, 400, 800, 1200, 2400];
 
 /** Which colorways have *real* uploaded assets.
  *  All three colorways are now embedded and live.
