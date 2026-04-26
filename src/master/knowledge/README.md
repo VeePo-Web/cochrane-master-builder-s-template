@@ -1,0 +1,82 @@
+# Knowledge Backend — Source-of-Truth Intelligence Layer
+
+This folder is the **backend intelligence layer** for the project. The documents inside are
+read by AI assistants (Lovable, Claude Code, etc.) to filter and improve their judgment when
+making design, UX, copy, motion, conversion, and architectural decisions.
+
+**These documents are never rendered to end users.** They exist to shape the *reasoning* behind
+every front-end and content decision so that outputs feel bespoke, premium, brand-aligned, and
+strategically intelligent — at fantasy.co / Apple UX / FROG-tier quality.
+
+---
+
+## Hard rules
+
+1. **Source documents are immutable.** Never edit, summarize, "clean up", reformat, or rewrite
+   any file inside `source-documents/`. Embed verbatim. If a source doc contains content that
+   feels off-context, the adaptation lives in the partner doc, never in the source.
+2. **Source documents are not partner documents.** Source = raw uploaded intelligence.
+   Partner = a separate interpretation/usage layer (lives under `partner-documents/` once
+   created). The two trees mirror each other.
+3. **Embedding a doc never changes the front end.** Embedding is a backend-only operation.
+   Visual/UX changes happen in later, explicit work.
+4. **One brand per brand folder.** Brand-specific docs go under
+   `source-documents/brands/<brand-slug>/...`. Cross-brand frameworks (generic personas,
+   experience prompts, design philosophies) go under the top-level category folders.
+5. **Every embedded doc is registered.** Add an entry to `INDEX.md` in the same change.
+
+---
+
+## Folder layout
+
+```text
+knowledge/
+├── README.md          ← this file
+├── INDEX.md           ← master registry of every embedded document
+└── source-documents/
+    ├── personas/              ← cross-brand ICP / persona prompts
+    ├── experience-prompts/    ← expert-level "you are a 50yr fantasy.co designer" prompts
+    ├── brand-identity/        ← cross-brand identity / voice frameworks
+    ├── ui-ux/                 ← UI/UX system thinking
+    ├── components/            ← buttons, cards, modals, hover states, etc.
+    ├── animations/            ← motion, easing, micro-interaction philosophy
+    ├── navigation/            ← nav bar, IA, wayfinding
+    ├── footer/                ← footer architecture and content
+    ├── forms/                 ← form UX, validation, submission flows
+    ├── messaging/             ← copy strategy, tone, voice
+    ├── conversion/            ← CRO, conversion psychology
+    ├── strategy/              ← cross-brand strategy
+    └── brands/
+        └── <brand-slug>/      ← brand-specific intelligence (mirrors categories as needed)
+```
+
+`partner-documents/` will be added later and will mirror this exact tree.
+
+---
+
+## How AI assistants should consult this folder
+
+When asked to design, build, restyle, write, or refine anything:
+
+1. **Identify the topic** of the request (e.g. nav, footer, button, hero, form, persona, copy,
+   motion, SEO, conversion).
+2. **Identify the brand context** (which sub-service / brand the request applies to).
+3. **Look up matching docs** in `INDEX.md` — first brand-scoped, then global category.
+4. **Read the relevant source docs** in full (or the relevant section) before deciding.
+5. **Filter all decisions through that intelligence**: tone, hierarchy, motion, layout,
+   density, conversion structure, persona empathy, SEO posture.
+6. **Never copy source content into the front end.** Use it to shape *judgment*, not to render.
+
+---
+
+## Adding a new document (workflow)
+
+1. Save the file into the correct `source-documents/` subfolder. Do not rename it unless the
+   original filename is ambiguous; if you do rename, keep the original name in the index entry.
+2. Add a row to `INDEX.md` with: path, brand, category, format, partner-doc status (`pending`
+   until a partner doc exists), and a one-line label derived from the filename.
+3. (Later, when greenlit) write a partner document in the mirrored
+   `partner-documents/<same-path>/<same-name>.md` explaining: what the doc is for, what
+   decisions it should guide, when to consult it, how it interacts with brand identity, and
+   practical usage examples.
+4. Keep the source byte-identical to the upload.
