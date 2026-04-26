@@ -318,7 +318,10 @@ export type CheckId =
   | "launch-error-monitoring-installed"
   | "launch-review-request-flow-armed"
   | "launch-content-cadence-plan"
-  | "launch-first-30-day-checkin";
+  | "launch-first-30-day-checkin"
+  // ── Phase 0.5 — Guard Rails Armed ─────────────────────────────────────
+  | "guardrails-acknowledged"
+  | "guardrails-coverage-map-generated";
 
 export interface CheckItem {
   id: CheckId;
