@@ -31,6 +31,7 @@ const Terms = lazy(() => import("./pages/Terms"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Brand = lazy(() => import("./pages/Brand"));
 const Knowledge = lazy(() => import("./pages/Knowledge"));
+const Preflight = lazy(() => import("./pages/Preflight"));
 
 const queryClient = new QueryClient();
 
@@ -57,6 +58,7 @@ const AnimatedRoutes = ({ onBookClick }: { onBookClick: BookingClickHandler }) =
           <Route path="/terms" element={<PageTransition><Terms onBookClick={onBookClick} /></PageTransition>} />
           <Route path="/brand" element={<PageTransition><Brand /></PageTransition>} />
           <Route path="/knowledge" element={<PageTransition><Knowledge /></PageTransition>} />
+          <Route path="/knowledge/preflight" element={<PageTransition><Preflight /></PageTransition>} />
           <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
         </Routes>
       </Suspense>
