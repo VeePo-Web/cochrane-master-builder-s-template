@@ -173,6 +173,16 @@ import cmbWordmarkGroundWhite800 from "../assets/logo/cmb-wordmark-ground-white-
 import cmbWordmarkGroundWhite1200 from "../assets/logo/cmb-wordmark-ground-white-1200.png";
 import cmbWordmarkGroundWhite2400 from "../assets/logo/cmb-wordmark-ground-white-2400.png";
 
+// ── Showcase boards (in-context renders for /brand + press kit) ────────────
+// High-res demonstration plates showing the lockup + emblem on each surface
+// tone. NOT for production UI — these are designed to be downloaded by
+// journalists, partners, fabrication vendors, and shown on the brand-kit page.
+import cmbBoardLockupOnWhite from "../assets/logo/boards/cmb-board-lockup-on-white.png";
+import cmbBoardLockupOnBlack from "../assets/logo/boards/cmb-board-lockup-on-black.png";
+import cmbBoardLockupOnNavy from "../assets/logo/boards/cmb-board-lockup-on-navy.png";
+import cmbBoardEmblemOnBlack from "../assets/logo/boards/cmb-board-emblem-on-black.png";
+import cmbBoardEmblemOnNavy from "../assets/logo/boards/cmb-board-emblem-on-navy.png";
+
 export type LogoColorway = "black" | "navy" | "white";
 export type EmblemSize = 100 | 200 | 400 | 800 | 1200 | 2400;
 /** Tiles share the emblem size ladder — single source of truth. */
@@ -529,3 +539,34 @@ export function recommendedColorwayForSlot(
   // light surface
   return tradeColorway === "white" ? "black" : tradeColorway;
 }
+
+/**
+ * Showcase boards — in-context demonstration renders for the brand-kit page,
+ * press kit, and any "see the mark in context" surface. NOT for production
+ * UI components (those use `<MasterLogo>` against the bundled lockup family).
+ *
+ * Each board is a high-resolution (1920–2048px) plate showing the lockup or
+ * emblem on a specific surface tone. Designed to be downloaded by journalists,
+ * partners, fabrication vendors, etc.
+ */
+export const MASTER_BOARDS = {
+  lockupOnWhite: cmbBoardLockupOnWhite,
+  lockupOnBlack: cmbBoardLockupOnBlack,
+  lockupOnNavy: cmbBoardLockupOnNavy,
+  emblemOnBlack: cmbBoardEmblemOnBlack,
+  emblemOnNavy: cmbBoardEmblemOnNavy,
+} as const;
+
+export type MasterBoardId = keyof typeof MASTER_BOARDS;
+
+/** Human-readable metadata for the boards (used by /brand page). */
+export const MASTER_BOARDS_META: Record<
+  MasterBoardId,
+  { label: string; surface: "light" | "dark" | "navy"; family: "lockup" | "emblem" }
+> = {
+  lockupOnWhite: { label: "Lockup on white", surface: "light", family: "lockup" },
+  lockupOnBlack: { label: "Lockup on black", surface: "dark", family: "lockup" },
+  lockupOnNavy: { label: "Lockup on navy", surface: "navy", family: "lockup" },
+  emblemOnBlack: { label: "Emblem on black", surface: "dark", family: "emblem" },
+  emblemOnNavy: { label: "Emblem on navy", surface: "navy", family: "emblem" },
+};

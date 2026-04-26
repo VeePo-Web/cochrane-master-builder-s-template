@@ -577,9 +577,13 @@ const ogAlt = getShareAsset("og", "transparent");
 
 ## Cross-references
 
+- **Brand bible (start here):** [`BRAND_BIBLE.md`](./BRAND_BIBLE.md)
+- Brand-kit page: [`/brand`](../../pages/Brand.tsx) — internal showcase + downloads
 - Component: [`MasterLogo.tsx`](./MasterLogo.tsx)
-- Registry: [`logo-registry.ts`](./logo-registry.ts)
+- Registry: [`logo-registry.ts`](./logo-registry.ts) — includes `MASTER_BOARDS`
 - Share pack: [`share-pack.ts`](./share-pack.ts)
 - Usage rules: [`LOGO_USAGE.md`](./LOGO_USAGE.md)
 - Brand identity: [`identity.ts`](./identity.ts)
+- Source archive: [`../assets/logo/source/`](../assets/logo/source/)
+- Showcase boards: [`../assets/logo/boards/`](../assets/logo/boards/)
 - Remix checklist: [`../checklist.ts`](../checklist.ts)

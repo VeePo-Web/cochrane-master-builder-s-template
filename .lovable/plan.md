@@ -1,135 +1,113 @@
 ## What you uploaded
 
-**A complete social-share / OG card pack — 10 files, 5 sizes × 2 backgrounds (transparent + navy).** Each file pairs the Master Builders Cochrane lockup with a canvas sized to a specific social platform's first-render box.
+**The canonical brand bible plus the master source artwork and showcase boards.** This is the foundation document everyone (you, me, future contractors, designers) should reference. Three groups:
 
-| Aspect | Sizes | Files | Primary surface |
-|---|---|---|---|
-| **OG card** | 1200×630 | `og-1200x630-{transparent,navybg}` | Open Graph / Twitter `summary_large_image` / Facebook / LinkedIn share preview |
-| **Twitter banner** | 1200×600 | `twitter-1200x600-{transparent,navybg}` | Twitter card alternative ratio, generic 2:1 share image |
-| **LinkedIn banner** | 1584×396 | `linkedin-banner-1584x396-{transparent,navybg}` | LinkedIn company-page cover banner |
-| **Instagram square** | 1080×1080 | `instagram-1080x1080-{transparent,navybg}` | Instagram feed post, Facebook square share, generic 1:1 social |
-| **Profile avatar** | 400×400 | `profile-400x400-{transparent,navybg}` | Twitter / Instagram / LinkedIn profile photo, generic round avatar |
+| Group | Files | Purpose |
+|---|---|---|
+| **1. Brand bible** | `README.md` (170 lines) | Official rules: folder layout, color hex (`#1F2F4D`), size variants, file-naming convention, clear-space + minimum size, do's / don'ts |
+| **2. Source artwork** | `MB_Master_Logo_1_cleaned.png` (no-ground lockup — primary), `MB_Master_Logo_2_original.png` (with-ground lockup — vertical post + horizontal base rule under wordmark) | The two master compositions all derived assets are cropped from. Archive-grade. |
+| **3. Showcase boards** | `full-logo-on-{white,black,navy}` + `emblem-on-{black,navy}` (1920–2048px square renders) | High-res in-context renders. Use case: brand-kit page on the site, designer download links, social campaign hero plates. |
 
-The dual treatment (transparent + navy-on-white) lets every consumer pick the right one for its rendering context — share crawlers + LinkedIn want pre-baked backgrounds; in-app composers and white-themed templates want the transparent version.
-
-This pack closes a real gap. The site currently references `og-image-cmb.png` (the prior Cochrane Drywall lockup) for both `og:image` and `twitter:image` — outdated branding showing in every social share preview.
+The **bulk of what the brand bible describes is already embedded** from prior passes — the full lockup matrix (3 colorways × full size ladder), emblem family (×3), tiles (×3), monogram (×3), wordmark (×3), wordmark-ground (×3), favicon + PWA pack (13-rung navy + 6-rung white), social share pack (5 platforms × 2 bgs), site.webmanifest, theme-color, and the typed `<MasterLogo>` registry/component system. **What's missing is the brand bible itself** (no canonical reference doc lives in the repo) and **a brand-kit surface** that exposes these assets to anyone who needs them.
 
 ---
 
 ## Plan
 
-### 1. Embed the share pack in `/public/share/`
+### 1. Embed the brand bible as the canonical reference
 
-Group the 10 files in their own subdirectory to keep `/public/` flat. Filenames preserve the platform-and-size pattern so the right file is obvious from the path:
+Drop the README into `src/master/brand/BRAND_BIBLE.md` as the **single source of truth**. Adapt it to reflect what's actually true in *this* repo:
 
-```
-public/share/
-  og-1200x630-navybg.jpg
-  og-1200x630-transparent.png
-  twitter-1200x600-navybg.jpg
-  twitter-1200x600-transparent.png
-  linkedin-1584x396-navybg.jpg
-  linkedin-1584x396-transparent.png
-  instagram-1080x1080-navybg.jpg
-  instagram-1080x1080-transparent.png
-  profile-400x400-navybg.jpg
-  profile-400x400-transparent.png
-```
+- Replace the README's "📁 Folder Structure" section (which describes the source-package's `01-…/02-…` flat layout) with our actual layout: `src/master/assets/logo/` (bundled lockup + emblem + tiles + monogram + wordmark families), `public/` (favicon ladder + PWA), `public/share/` (social pack), all read through `<MasterLogo>` and `share-pack.ts`.
+- Keep the brand bible's color block, size-variant ladders, naming convention, clear-space rules, minimum-size rules, and don'ts **verbatim** — these are the rules.
+- Replace the README's example HTML snippets (which point at unbundled `/img/cmb-…` paths) with the actual import patterns: `<MasterLogo slot="nav" />`, `getShareAsset("og")`, etc.
+- Cross-link to existing docs: `LOGO_SLOT_MAP.md`, `LOGO_USAGE.md`, `share-pack.ts`, `identity.ts`.
 
-(Trim the verbose `linkedin-banner-` / `instagram-` redundancy from filenames since the directory already says "share" and the dimensions are unambiguous.)
+The result: one file a designer / developer / AI-agent can read top-to-bottom and have the complete brand contract.
 
-### 2. Wire OG + Twitter share previews to the new pack
+### 2. Archive the master source artwork
 
-In `index.html`, replace the legacy `og-image-cmb.png` references with the new MB navy-bg OG card. The navy version is the right pick for share crawlers — they render previews on white-ish chrome (Facebook, Slack, LinkedIn, iMessage), so the navy background gives the diamond + wordmark a contained "card" treatment instead of floating on the recipient's UI.
+Drop both originals into `src/master/assets/logo/source/` (new subfolder):
+- `cmb-source-lockup-no-ground.png` ← `MB_Master_Logo_1_cleaned.png`
+- `cmb-source-lockup-with-ground.png` ← `MB_Master_Logo_2_original.png`
 
-```html
-<meta property="og:image" content="/share/og-1200x630-navybg.jpg" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:type" content="image/jpeg" />
-<meta property="og:image:alt" content="Cochrane Master Builders" />
+Add a tiny `source/README.md` explaining: these are the master compositions all cropped/recolored exports derive from — never edit, never ship to `<img>`, only re-derive from these.
 
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="/share/og-1200x630-navybg.jpg" />
-<meta name="twitter:image:alt" content="Cochrane Master Builders" />
-```
+### 3. Embed the showcase boards (high-res context renders)
 
-Keep the legacy `og-image-cmb.png` in `/public/` for now (in case any external link previews are still cached) — we deprecate in a future cleanup pass.
+Drop the 5 board renders into `src/master/assets/logo/boards/`:
+- `cmb-board-lockup-on-white.png`
+- `cmb-board-lockup-on-black.png`
+- `cmb-board-lockup-on-navy.png`
+- `cmb-board-emblem-on-black.png`
+- `cmb-board-emblem-on-navy.png`
 
-### 3. Create a typed share-asset registry (component-side)
+Wire them into the registry as a new `boards` family under each colorway-context — surfaced via a new typed export `MASTER_BOARDS` in `logo-registry.ts`. These power downstream surfaces (brand-kit page, press-kit download links, internal style references) without anyone hardcoding paths.
 
-Add `src/master/brand/share-pack.ts` — small, tree-shakeable registry mirroring the philosophy of `logo-registry.ts`. Surfaces inside the React app (e.g. share buttons, dynamic OG tags on per-page Helmet, future PR card generation) read from this registry instead of hardcoding `/share/...` paths:
+### 4. Surface the showcase boards on `/brand`
 
-```ts
-export type SharePlatform = "og" | "twitter" | "linkedin" | "instagram" | "profile";
-export type ShareBackground = "transparent" | "navybg";
+Add a lightweight `/brand` route — **internal brand-kit page** that renders:
+- The brand bible (rendered MD with the rules)
+- The 5 showcase boards in a gallery (with download buttons)
+- The 4 logo-family variants showing each colorway (lockup, emblem, tiles, monogram, wordmark, wordmark-ground)
+- The share-pack assets with platform labels
+- Color tokens (navy `#1F2F4D` + white + black) with hex, copy-to-clipboard
+- Clear-space + minimum-size demonstration tile
+- Don'ts grid (use the rules from the bible)
 
-export const SHARE_PACK = {
-  og:        { transparent: "/share/og-1200x630-transparent.png",        navybg: "/share/og-1200x630-navybg.jpg",        w: 1200, h: 630  },
-  twitter:   { transparent: "/share/twitter-1200x600-transparent.png",   navybg: "/share/twitter-1200x600-navybg.jpg",   w: 1200, h: 600  },
-  linkedin:  { transparent: "/share/linkedin-1584x396-transparent.png",  navybg: "/share/linkedin-1584x396-navybg.jpg",  w: 1584, h: 396  },
-  instagram: { transparent: "/share/instagram-1080x1080-transparent.png", navybg: "/share/instagram-1080x1080-navybg.jpg", w: 1080, h: 1080 },
-  profile:   { transparent: "/share/profile-400x400-transparent.png",    navybg: "/share/profile-400x400-navybg.jpg",    w: 400,  h: 400  },
-} as const;
+This is the "give this URL to a contractor / designer / journalist" surface. Not linked from the public nav — accessible by direct URL only.
 
-/** Recommended background per surface. Share crawlers + dark-themed UIs → navybg.
- *  In-product white surfaces / brand kit downloads → transparent. */
-export const recommendedShareBackground = (platform: SharePlatform): ShareBackground => "navybg";
-```
+### 5. Per-asset map (the "where it would go when" the user asked for)
 
-These are flat `/public/` paths (not Vite imports) because OG meta tags need root-relative URLs that crawlers can fetch directly.
+Append a **"Master file → Surface map"** section to `BRAND_BIBLE.md` documenting where each new file lands:
 
-### 4. New "Social share & profile pack" section in `LOGO_SLOT_MAP.md`
-
-Document the full per-file map so anyone authoring a campaign knows exactly which file to grab:
-
-| File | Dimensions | Consumer | When to use |
+| New file | Lives at | Rendered by | When |
 |---|---|---|---|
-| `og-1200x630-navybg.jpg` | 1200×630 | Facebook, Slack, iMessage, LinkedIn link previews, default OG/Twitter | **Default share preview.** Wired to `og:image` + `twitter:image`. |
-| `og-1200x630-transparent.png` | 1200×630 | Email signatures, downloadable brand kit, layered comp | When the recipient surface is already navy/dark and pre-baked bg would clash. |
-| `twitter-1200x600-navybg.jpg` | 1200×600 | Twitter alternate aspect, generic 2:1 share | Twitter cards that prefer 2:1, or any share UI requesting 2:1. |
-| `twitter-1200x600-transparent.png` | 1200×600 | Composable banners | When designer needs to drop on a custom backdrop. |
-| `linkedin-1584x396-navybg.jpg` | 1584×396 | LinkedIn company-page cover | Upload as the page banner / hero. |
-| `linkedin-1584x396-transparent.png` | 1584×396 | LinkedIn drafts on custom hero compositions | Designer overlay use only. |
-| `instagram-1080x1080-navybg.jpg` | 1080×1080 | Instagram feed post, Facebook square, generic 1:1 social | Default 1:1 social post. |
-| `instagram-1080x1080-transparent.png` | 1080×1080 | IG carousels / Stories with custom backdrops | When other slides set the surface color. |
-| `profile-400x400-navybg.jpg` | 400×400 | Twitter / IG / LinkedIn / GitHub profile photo | Set as profile pic everywhere. Will round-crop cleanly. |
-| `profile-400x400-transparent.png` | 400×400 | Brand kit, embed badges, dark-mode avatars | Use behind a custom backdrop or where transparency is required. |
-
-Plus a decision rule:
-> **Default to `-navybg` for any external surface** (share previews, profile photos, banners). Reach for `-transparent` only when you control the destination background or the consumer composites onto its own surface.
-
-### 5. Deprecate the legacy OG file from the slot map
-
-The existing top-of-document slot table has rows for `email` and `og` both pointing at `/og-image-cmb.png`. Update both rows:
-- `og` → `/share/og-1200x630-navybg.jpg`
-- `email` → leave for now with a footnote that it'll migrate to `favicon-256.png` (light surfaces) or `favicon-white-256.png` (dark surfaces) in the email-template pass.
+| `README.md` | `src/master/brand/BRAND_BIBLE.md` | `/brand` page (markdown render) | Single source of truth for all brand decisions |
+| `MB_Master_Logo_1_cleaned.png` | `src/master/assets/logo/source/cmb-source-lockup-no-ground.png` | Archive-only; never bundled into UI | Master file for re-deriving any future no-ground crop |
+| `MB_Master_Logo_2_original.png` | `src/master/assets/logo/source/cmb-source-lockup-with-ground.png` | Archive-only; never bundled into UI | Master file for re-deriving any future with-ground crop |
+| `full-logo-on-white.png` | `src/master/assets/logo/boards/cmb-board-lockup-on-white.png` | `/brand` showcase grid + press-kit download | "Logo on light backgrounds" demonstration |
+| `full-logo-on-black.png` | `src/master/assets/logo/boards/cmb-board-lockup-on-black.png` | `/brand` showcase grid + press-kit download | "Logo on dark backgrounds" demonstration |
+| `full-logo-on-navy.png` | `src/master/assets/logo/boards/cmb-board-lockup-on-navy.png` | `/brand` showcase grid + press-kit download | "Logo on brand-navy backgrounds" demonstration |
+| `emblem-on-black.png` | `src/master/assets/logo/boards/cmb-board-emblem-on-black.png` | `/brand` showcase grid + press-kit download | "Emblem on dark backgrounds" demonstration |
+| `emblem-on-navy.png` | `src/master/assets/logo/boards/cmb-board-emblem-on-navy.png` | `/brand` showcase grid + press-kit download | "Emblem on brand-navy backgrounds" demonstration |
 
 ### 6. Checklist updates
 
-Two checks updated:
-- `og-image-generated` → broaden description to "Master Builders OG card embedded; replaces legacy Cochrane Drywall art. Multi-platform share pack lives in `/public/share/`."
-- Add a new check: `master-share-pack-embedded` — covers all 10 files + the `share-pack.ts` registry + slot-map documentation.
+Two new items in `src/master/checklist.ts`:
+- `master-brand-bible-embedded` — canonical brand contract lives at `BRAND_BIBLE.md`, surfaces on `/brand`
+- `master-brand-kit-page-live` — `/brand` route renders all logo families + boards + color tokens + rules
+- `master-source-artwork-archived` — originals archived to `assets/logo/source/`, never `<img>`'d
+
+Also: drop the `full-logo-on-navy.jpg` (JPG sibling) since the PNG is higher quality — using the PNG only.
 
 ---
 
 ## Files touched
 
-**Created (binaries):** 10 files in `public/share/`
+**Created (binaries):**
+- `src/master/assets/logo/source/cmb-source-lockup-no-ground.png`
+- `src/master/assets/logo/source/cmb-source-lockup-with-ground.png`
+- `src/master/assets/logo/boards/cmb-board-lockup-on-{white,black,navy}.png`
+- `src/master/assets/logo/boards/cmb-board-emblem-on-{black,navy}.png`
 
-**Created (code):**
-- `src/master/brand/share-pack.ts` — typed registry
+**Created (code/docs):**
+- `src/master/brand/BRAND_BIBLE.md` — adapted brand bible (master reference)
+- `src/master/assets/logo/source/README.md` — archive guard
+- `src/pages/Brand.tsx` — `/brand` brand-kit page
+- New `MASTER_BOARDS` export in `logo-registry.ts`
 
 **Edited:**
-- `index.html` — `og:image`/`twitter:image` repointed to new navy OG card + width/height/alt meta added
-- `src/master/brand/LOGO_SLOT_MAP.md` — top-table `og` row updated; new "Social share & profile pack" section appended
-- `src/master/checklist.ts` — broadened `og-image-generated`, new `master-share-pack-embedded`
+- `src/master/brand/logo-registry.ts` — add boards imports + `MASTER_BOARDS` export
+- `src/App.tsx` — register `/brand` route
+- `src/master/checklist.ts` — 3 new checks
+- `src/master/brand/LOGO_SLOT_MAP.md` — link to BRAND_BIBLE + brand-kit page
 
 ---
 
 ## Why this matters
 
-1. **Share previews stop showing legacy branding.** Right now every Facebook/LinkedIn/Slack/iMessage share renders the prior Cochrane Drywall lockup. After this, the navy MB-diamond + wordmark shows everywhere a link is pasted.
-2. **Profile coverage on every social platform.** A single 400×400 pre-baked navy avatar means Twitter, IG, LinkedIn, GitHub, Substack, etc. all get the canonical mark — no per-platform improvisation.
-3. **Component-system parity.** Following the `logo-registry.ts` pattern with `share-pack.ts` means future per-page dynamic OG tags (e.g. via React Helmet) read from the same source of truth, with one knob to flip background treatment.
-4. **Documented decision tree.** The slot map's new section makes it impossible to grab the wrong file — every consumer + when-to-use is explicit.
+1. **The brand bible has no home today.** Rules like "navy = `#1F2F4D`", "clear space = height of M in MASTER", "minimum 150px wide", "don't recolor outside the palette" are scattered across slot-map / usage docs / your own messages. Embedding `BRAND_BIBLE.md` gives one canonical place future-you (and any contractor) reads first.
+2. **Source artwork preservation.** If we ever need to re-export a new variant (e.g. the with-ground full lockup as a footer asset), having the cleaned originals checked in means we don't go hunting through chat history.
+3. **`/brand` becomes a power surface.** A single URL you can give to a journalist, a partner, a fabrication vendor, or a sister-site agency — they get the bible, the boards, the colors, and downloadable assets without any back-and-forth.
+4. **The 5 showcase boards become real assets.** They're high-res hero plates — exactly what a `/brand` press-kit needs for "see the mark in context" demonstrations. Right now they'd just sit in chat history.
