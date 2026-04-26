@@ -46,6 +46,7 @@ export type ChecklistOwner =
 /** Phases run in order. Don't start phase N until N-1 is green. */
 export type ChecklistPhase =
   | "0-plan-first"
+  | "0.5-guardrails-armed"
   | "1-intake"
   | "2-brand"
   | "3-ia"
@@ -68,7 +69,8 @@ export type ChecklistPlaybook =
   | "IA_WIREFRAME_GUIDE"
   | "LEGAL_TRUST_GUIDE"
   | "PLAN_FIRST_DISCIPLINE"
-  | "MOTION_AND_CRAFT";
+  | "MOTION_AND_CRAFT"
+  | "GUARD_RAILS";
 
 /** Legacy grouping (kept for any existing UI consumers). */
 export type ChecklistGroupLegacy = "setup" | "brand" | "content" | "seo" | "quality";
@@ -316,7 +318,10 @@ export type CheckId =
   | "launch-error-monitoring-installed"
   | "launch-review-request-flow-armed"
   | "launch-content-cadence-plan"
-  | "launch-first-30-day-checkin";
+  | "launch-first-30-day-checkin"
+  // ── Phase 0.5 — Guard Rails Armed ─────────────────────────────────────
+  | "guardrails-acknowledged"
+  | "guardrails-coverage-map-generated";
 
 export interface CheckItem {
   id: CheckId;
@@ -361,10 +366,19 @@ export interface CheckItem {
    * Defaults to `"standard"` when omitted.
    */
   planDepth?: "deep" | "standard";
+  /**
+   * Guard rails this item helps satisfy. Each entry is a `GuardRailId` from
+   * `src/master/guardrails.ts`. Used to compute coverage — every guard rail
+   * should have at least one enforcing item. Stored as `string[]` here to
+   * avoid a circular import; `guardrails.ts` is the source of truth.
+   * See `playbooks/GUARD_RAILS.md`.
+   */
+  guardRails?: string[];
 }
 
 export const CHECKLIST_PHASES = [
   "0-plan-first",
+  "0.5-guardrails-armed",
   "1-intake",
   "2-brand",
   "3-ia",
@@ -385,6 +399,11 @@ export const CHECKLIST_PHASE_META: Record<
     title: "Plan-First Discipline",
     goal: "Read the brand stack, pin craft benchmarks, and produce a deep plan BEFORE writing code.",
     gate: "Brand bible + identity + relevant personas read; deep plan written for every planDepth:'deep' item; benchmarks pinned.",
+  },
+  "0.5-guardrails-armed": {
+    title: "Guard Rails Armed",
+    goal: "Acknowledge the 18 non-negotiable laws and produce a per-trade coverage map BEFORE intake. The constitution must be loaded before work begins.",
+    gate: "GUARD_RAILS.md read in full; per-trade guardrails-coverage.md committed; getUnenforcedGuardRails() returns [].",
   },
   "1-intake": {
     title: "Intake & Trade Foundation",
@@ -1901,6 +1920,51 @@ export const REMIX_CHECKLIST: CheckItem[] = [
     description:
       "Calendar event 30 days post-launch: review CWV trend, GSC coverage, conversion rate, top 10 search queries, top 10 entry pages. Adjust content + meta based on what's actually being searched.",
   },
+
+  // ════════════════════════════════════════════════════════════════════
+  // PHASE 0.5 — GUARD RAILS ARMED
+  // The constitution must be loaded BEFORE intake.
+  // See `src/master/guardrails.ts` and `playbooks/GUARD_RAILS.md`.
+  // ════════════════════════════════════════════════════════════════════
+  {
+    id: "guardrails-acknowledged",
+    phase: "0.5-guardrails-armed", tier: "P0", owner: "human", group: "setup",
+    playbook: "GUARD_RAILS",
+    label: "Guard rails read & acknowledged",
+    description:
+      "Operator reads `src/master/playbooks/GUARD_RAILS.md` in full and confirms in writing (commit message or remix dashboard) that the 18 non-negotiable laws are understood and accepted for THIS remix. No exceptions. No waivers. Without this acknowledgement, every downstream phase risks shipping a guard-rail violation.",
+    inputsNeeded: ["Operator confirmation (commit message or dashboard checkbox)"],
+    guardRails: [
+      "gr-bespoke-brand-derivation",
+      "gr-bespoke-style-guide-live",
+      "gr-zero-sister-fingerprints",
+      "gr-master-logo-slot-map",
+      "gr-areas-we-serve-excellence",
+      "gr-page-meta-jsonld-unique",
+      "gr-crawl-hygiene",
+      "gr-local-trust-schema",
+      "gr-performance-budget-mobile",
+      "gr-modern-image-pipeline",
+      "gr-wcag-aa",
+      "gr-booking-one-tap",
+      "gr-real-business-signals",
+      "gr-legal-pages-bespoke",
+      "gr-motion-system-pinned",
+      "gr-anti-paraphrase-readability",
+      "gr-plan-first-deep-items",
+      "gr-prelaunch-walk-postlaunch-monitor",
+    ],
+  },
+  {
+    id: "guardrails-coverage-map-generated",
+    phase: "0.5-guardrails-armed", tier: "P0", owner: "ai-plan", group: "setup",
+    playbook: "GUARD_RAILS",
+    automated: true,
+    label: "Per-trade guard-rail coverage map generated",
+    description:
+      "Run the `getGuardRailCoverage()` and `getUnenforcedGuardRails()` helpers from `src/master/guardrails.ts` and commit the result as `guardrails-coverage.md` for THIS trade. The map MUST show every guard rail with at least one enforcing checklist item. If `getUnenforcedGuardRails()` returns anything other than `[]`, the checklist itself is broken and must be fixed before continuing — no remix work proceeds until coverage is complete.",
+    inputsNeeded: [],
+  },
 ];
 
 export const CHECKLIST_GROUPS = ["setup", "brand", "content", "seo", "quality"] as const;
@@ -1915,11 +1979,19 @@ export const getChecklistByTier = (tier: ChecklistTier) =>
 export const getChecklistByOwner = (owner: ChecklistOwner) =>
   REMIX_CHECKLIST.filter((c) => c.owner === owner);
 
+/**
+ * Items that help satisfy a given guard rail. Pass a `GuardRailId` from
+ * `src/master/guardrails.ts`. Useful for building per-trade coverage reports.
+ */
+export const getChecklistByGuardRail = (guardRailId: string) =>
+  REMIX_CHECKLIST.filter((c) => c.guardRails?.includes(guardRailId) ?? false);
+
 /** Counts for dashboard headers. */
 export const checklistStats = () => {
   const byPhase: Record<ChecklistPhase, number> = {
-    "0-plan-first": 0, "1-intake": 0, "2-brand": 0, "3-ia": 0, "4-copy": 0, "5-visual": 0,
-    "5b-motion": 0, "6-seo": 0, "7-conversion": 0, "8-legal": 0, "9-launch": 0,
+    "0-plan-first": 0, "0.5-guardrails-armed": 0, "1-intake": 0, "2-brand": 0, "3-ia": 0,
+    "4-copy": 0, "5-visual": 0, "5b-motion": 0, "6-seo": 0, "7-conversion": 0, "8-legal": 0,
+    "9-launch": 0,
   };
   const byTier: Record<ChecklistTier, number> = { P0: 0, P1: 0, P2: 0 };
   for (const c of REMIX_CHECKLIST) {

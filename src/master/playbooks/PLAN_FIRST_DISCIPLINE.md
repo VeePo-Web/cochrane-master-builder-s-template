@@ -10,7 +10,7 @@ Without this, the agent skips ahead, ignores the brand identity stack, and ships
 
 ## The deep-plan template
 
-Every `planDepth: "deep"` checklist item produces a plan with these 11 sections, in this order:
+Every `planDepth: "deep"` checklist item produces a plan with these **12 sections**, in this order:
 
 1. **Goal** — one sentence. What does done look like?
 2. **Brand truth refs** — every file the agent read before drafting (BRAND_BIBLE.md, brand-identity-northstar.ts, persona files, trade.config.ts, business.ts, reviews.ts). Quote the lines that matter.
@@ -23,6 +23,7 @@ Every `planDepth: "deep"` checklist item produces a plan with these 11 sections,
 9. **Success criteria** — measurable. ("Hero LCP <2.5s on iPhone 12, contrast 4.5:1+ on every text, motion at 60fps in DevTools throttle")
 10. **Risks** — what could go wrong, how to detect early.
 11. **Verification** — how the agent will prove it's done (Lighthouse, screenshot, manual walkthrough, codebase scan).
+12. **Guard Rail Compliance Statement** — list every guard rail this plan touches (by `GuardRailId` from `src/master/guardrails.ts`). For each, state in one sentence how this plan satisfies it (or moves the site closer to satisfying it). If this plan touches no guard rails, justify why a deep plan is even warranted. **A deep plan without this section is incomplete and must not be executed.** See `playbooks/GUARD_RAILS.md`.
 
 ## Brand sources — load order
 
@@ -100,6 +101,13 @@ Pin these and reference at least two on every visual/motion deep plan:
 **10. Risks** — AVIF unsupported on old Safari → JPG fallback. Font flash → `font-display: swap` + preload.
 
 **11. Verification** — Lighthouse mobile run, screenshot at 390px + 1440px, manual walkthrough on iPhone, codebase grep for the alt text.
+
+**12. Guard Rail Compliance**
+- `gr-bespoke-style-guide-live` — hero uses this trade's accent, type pair, and motion tokens (not master tokens).
+- `gr-modern-image-pipeline` — AVIF, sized for 1440px max, explicit width/height, descriptive trade-specific alt text.
+- `gr-performance-budget-mobile` — image budget ≤250KB, `fetchpriority="high"`, no CLS via reserved aspect-ratio.
+- `gr-wcag-aa` — gradient overlay verified ≥7:1 on headline; reduced-motion fallback fades in without clip-path or parallax.
+- `gr-motion-system-pinned` — uses `--ease-entry` and `--dur-hero` from the brand motion tokens, not magic numbers.
 
 ---
 
