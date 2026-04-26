@@ -10,7 +10,7 @@ Without this, the agent skips ahead, ignores the brand identity stack, and ships
 
 ## The deep-plan template
 
-Every `planDepth: "deep"` checklist item produces a plan with these 11 sections, in this order:
+Every `planDepth: "deep"` checklist item produces a plan with these **12 sections**, in this order:
 
 1. **Goal** — one sentence. What does done look like?
 2. **Brand truth refs** — every file the agent read before drafting (BRAND_BIBLE.md, brand-identity-northstar.ts, persona files, trade.config.ts, business.ts, reviews.ts). Quote the lines that matter.
@@ -23,6 +23,7 @@ Every `planDepth: "deep"` checklist item produces a plan with these 11 sections,
 9. **Success criteria** — measurable. ("Hero LCP <2.5s on iPhone 12, contrast 4.5:1+ on every text, motion at 60fps in DevTools throttle")
 10. **Risks** — what could go wrong, how to detect early.
 11. **Verification** — how the agent will prove it's done (Lighthouse, screenshot, manual walkthrough, codebase scan).
+12. **Guard Rail Compliance Statement** — list every guard rail this plan touches (by `GuardRailId` from `src/master/guardrails.ts`). For each, state in one sentence how this plan satisfies it (or moves the site closer to satisfying it). If this plan touches no guard rails, justify why a deep plan is even warranted. **A deep plan without this section is incomplete and must not be executed.** See `playbooks/GUARD_RAILS.md`.
 
 ## Brand sources — load order
 
