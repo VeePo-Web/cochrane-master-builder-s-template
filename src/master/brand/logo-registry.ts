@@ -153,6 +153,7 @@ export const MASTER_LOGOS = {
     medium: cmbBlackMedium,
     small: cmbBlackSmall,
     emblem: EMBLEM_BLACK,
+    tiles: TILES_BLACK,
   },
   navy: {
     nav: { sm: cmbNavyNavSm, md: cmbNavyNavMd, lg: cmbNavyNavLg },
@@ -163,6 +164,8 @@ export const MASTER_LOGOS = {
     small: cmbNavySmall,
     // Navy emblem ✅ embedded.
     emblem: EMBLEM_NAVY,
+    // Navy tiles aliased to black until that package lands.
+    tiles: TILES_NAVY,
   },
   white: {
     nav: { sm: cmbWhiteNavSm, md: cmbWhiteNavMd, lg: cmbWhiteNavLg },
@@ -173,6 +176,8 @@ export const MASTER_LOGOS = {
     small: cmbWhiteSmall,
     // White emblem ✅ embedded.
     emblem: EMBLEM_WHITE,
+    // White tiles aliased to black until that package lands.
+    tiles: TILES_WHITE,
   },
 } as const;
 
