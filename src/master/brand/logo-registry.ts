@@ -334,6 +334,15 @@ export const LOGO_USAGE_MAP = {
   tilesProcess:     { file: "cmb-tiles-black-800.png",  maxHeightPx: 240,  surface: "light" as const, note: "Process / craft pages — one tile per step, animated assembly." },
   tilesLoadingHero: { file: "cmb-tiles-black-1200.png", maxHeightPx: 480,  surface: "dark"  as const, note: "Loading splash final reveal — tiles fly in and lock into position." },
   tilesWatermark:   { file: "cmb-tiles-black-2400.png", maxHeightPx: 1200, surface: "image" as const, note: "Full-page background watermark on premium pages at 6–10% opacity." },
+
+  // ── Monogram family (handwritten "MB" signature mark) ──
+  // The human hand. Use for closing moments, signatures, certificates,
+  // intimate/personal contexts. Wrong for nav, hero, splash.
+  monogramFavicon:     { file: "cmb-mb-monogram-black-64.png",   maxHeightPx: 32,  surface: "any"   as const, note: "Alt favicon for founder-mode / personal pages." },
+  monogramSignature:   { file: "cmb-mb-monogram-black-128.png",  maxHeightPx: 48,  surface: "light" as const, note: "Email signature footer, quote letter, contract sign-off." },
+  monogramSealAccent:  { file: "cmb-mb-monogram-black-256.png",  maxHeightPx: 96,  surface: "light" as const, note: "About-page founder card, story-section seal, testimonial attribution." },
+  monogramCertificate: { file: "cmb-mb-monogram-black-512.png",  maxHeightPx: 192, surface: "light" as const, note: "Warranty / completion certificate seal, project handoff documents." },
+  monogramWatermark:   { file: "cmb-mb-monogram-black-1024.png", maxHeightPx: 512, surface: "image" as const, note: "Premium project case-study watermark — low opacity, signed-work aesthetic." },
 } as const;
 
 export type LogoSlot = keyof typeof LOGO_USAGE_MAP;
