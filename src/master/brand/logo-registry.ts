@@ -204,7 +204,7 @@ export const MASTER_LOGOS = {
     small: cmbWhiteSmall,
     // White emblem ✅ embedded.
     emblem: EMBLEM_WHITE,
-    // White tiles aliased to black until that package lands.
+    // White tiles ✅ embedded.
     tiles: TILES_WHITE,
   },
 } as const;
