@@ -190,6 +190,26 @@ const TILES_WHITE = {
   2400: cmbTilesWhite2400,
 } as const;
 
+/** Square handwritten "MB" monogram files keyed by edge length in px. */
+const MONOGRAM_BLACK = {
+  64: cmbMbMonoBlack64,
+  128: cmbMbMonoBlack128,
+  256: cmbMbMonoBlack256,
+  512: cmbMbMonoBlack512,
+  1024: cmbMbMonoBlack1024,
+} as const;
+
+const MONOGRAM_NAVY = {
+  64: cmbMbMonoNavy64,
+  128: cmbMbMonoNavy128,
+  256: cmbMbMonoNavy256,
+  512: cmbMbMonoNavy512,
+  1024: cmbMbMonoNavy1024,
+} as const;
+
+// White monogram still aliased to black until that package lands.
+const MONOGRAM_WHITE = MONOGRAM_BLACK;
+
 export const MASTER_LOGOS = {
   black: {
     nav: { sm: cmbBlackNavSm, md: cmbBlackNavMd, lg: cmbBlackNavLg },
@@ -200,6 +220,7 @@ export const MASTER_LOGOS = {
     small: cmbBlackSmall,
     emblem: EMBLEM_BLACK,
     tiles: TILES_BLACK,
+    monogram: MONOGRAM_BLACK,
   },
   navy: {
     nav: { sm: cmbNavyNavSm, md: cmbNavyNavMd, lg: cmbNavyNavLg },
@@ -212,6 +233,8 @@ export const MASTER_LOGOS = {
     emblem: EMBLEM_NAVY,
     // Navy tiles ✅ embedded.
     tiles: TILES_NAVY,
+    // Navy monogram ✅ embedded.
+    monogram: MONOGRAM_NAVY,
   },
   white: {
     nav: { sm: cmbWhiteNavSm, md: cmbWhiteNavMd, lg: cmbWhiteNavLg },
@@ -224,6 +247,8 @@ export const MASTER_LOGOS = {
     emblem: EMBLEM_WHITE,
     // White tiles ✅ embedded.
     tiles: TILES_WHITE,
+    // White monogram aliased to black until that package lands.
+    monogram: MONOGRAM_WHITE,
   },
 } as const;
 
