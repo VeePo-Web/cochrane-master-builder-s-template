@@ -207,6 +207,44 @@ const MasterLogo = ({
     );
   }
 
+  // Wordmark (pure typography, no emblem). ~5:1 aspect ratio. Same srcset
+  // ladder strategy as emblem/tiles/monogram so retina screens stay crisp.
+  if (slot === "wordmark") {
+    const wordmark = set.wordmark;
+    const ladder: WordmarkSize[] = [200, 400, 800, 1200, 2400];
+    const wmSize: WordmarkSize = (ladder as readonly number[]).includes(size as number)
+      ? (size as WordmarkSize)
+      : 400;
+    const base = wordmark[wmSize];
+    const idx = ladder.indexOf(wmSize);
+    const x2 = ladder[idx + 1];
+    const x3 = ladder[idx + 2];
+    const srcSet = [
+      `${base} 1x`,
+      x2 ? `${wordmark[x2]} 2x` : null,
+      x3 ? `${wordmark[x3]} 3x` : null,
+    ]
+      .filter(Boolean)
+      .join(", ");
+    // Intrinsic ~5:1 aspect — width:height roughly 5:1. Set CLS box accordingly.
+    const intrinsicHeight = Math.round(wmSize / 5);
+    return (
+      <img
+        src={base}
+        srcSet={srcSet}
+        alt={alt}
+        className={`${sizing} object-contain ${className}`}
+        loading={eager}
+        // @ts-expect-error - non-standard but supported attr
+        fetchpriority={fetchPriority}
+        decoding="async"
+        width={wmSize}
+        height={intrinsicHeight}
+        onClick={onClick}
+      />
+    );
+  }
+
   // Responsive slots use <picture> with <source media> queries
   if (slot === "nav") {
     return (
