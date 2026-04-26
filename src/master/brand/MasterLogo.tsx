@@ -21,6 +21,7 @@ import {
   recommendedColorwayForSlot,
   type LogoColorway,
   type EmblemSize,
+  type TileSize,
 } from "./logo-registry";
 import { MASTER } from "./identity";
 import { TRADE } from "@/config/trade.config";
@@ -28,7 +29,8 @@ import { TRADE } from "@/config/trade.config";
 type ResponsiveSlot = "nav" | "footer";
 type SingleSlot = "hero" | "large" | "medium" | "small" | "loading";
 type EmblemSlot = "emblem";
-export type MasterLogoSlot = ResponsiveSlot | SingleSlot | EmblemSlot;
+type TilesSlot = "tiles";
+export type MasterLogoSlot = ResponsiveSlot | SingleSlot | EmblemSlot | TilesSlot;
 
 interface MasterLogoProps {
   slot: MasterLogoSlot;
@@ -42,9 +44,9 @@ interface MasterLogoProps {
   loading?: "eager" | "lazy";
   /** Optional click handler (e.g. nav lockup wrapping a Link) */
   onClick?: () => void;
-  /** Emblem-only: pick which px-edge file to start from. Browser still
-   * picks the right DPR via srcset. Defaults to 400. */
-  size?: EmblemSize;
+  /** Emblem-only / Tiles-only: pick which px-edge file to start from. Browser
+   * still picks the right DPR via srcset. Defaults to 400. */
+  size?: EmblemSize | TileSize;
 }
 
 const ALT_DEFAULT = MASTER.brandName; // "Cochrane Master Builders"
@@ -58,6 +60,7 @@ const SLOT_HEIGHT: Record<MasterLogoSlot, string> = {
   small: "h-auto w-32",
   loading: "h-auto w-28",
   emblem: "h-auto w-auto",
+  tiles: "h-auto w-auto",
 };
 
 /** Read the trade's chosen colorway with a safe fallback. */
@@ -99,6 +102,39 @@ const MasterLogo = ({
       `${base} 1x`,
       x2 ? `${emblem[x2]} 2x` : null,
       x3 ? `${emblem[x3]} 3x` : null,
+    ]
+      .filter(Boolean)
+      .join(", ");
+    return (
+      <img
+        src={base}
+        srcSet={srcSet}
+        alt={alt}
+        className={`${sizing} object-contain ${className}`}
+        loading={eager}
+        // @ts-expect-error - non-standard but supported attr
+        fetchpriority={fetchPriority}
+        decoding="async"
+        width={size}
+        height={size}
+        onClick={onClick}
+      />
+    );
+  }
+
+  // Tiles (exploded mark — three separated panels). Same srcset ladder as
+  // emblem so retina screens stay crisp without eager-fetching the 2400.
+  if (slot === "tiles") {
+    const tiles = set.tiles;
+    const base = tiles[size];
+    const ladder: TileSize[] = [100, 200, 400, 800, 1200, 2400];
+    const idx = ladder.indexOf(size);
+    const x2 = ladder[idx + 1];
+    const x3 = ladder[idx + 2];
+    const srcSet = [
+      `${base} 1x`,
+      x2 ? `${tiles[x2]} 2x` : null,
+      x3 ? `${tiles[x3]} 3x` : null,
     ]
       .filter(Boolean)
       .join(", ");

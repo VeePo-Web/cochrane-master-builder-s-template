@@ -82,8 +82,20 @@ import cmbEmblemWhite800 from "../assets/logo/cmb-emblem-white-800.png";
 import cmbEmblemWhite1200 from "../assets/logo/cmb-emblem-white-1200.png";
 import cmbEmblemWhite2400 from "../assets/logo/cmb-emblem-white-2400.png";
 
+// ── Tiles family (exploded/deconstructed mark — 3 separated panels) ────────
+// Black ✅ embedded (6 sizes). Navy + white alias to black until those
+// packages land — flip the aliases below in one line when they arrive.
+import cmbTilesBlack100 from "../assets/logo/cmb-tiles-black-100.png";
+import cmbTilesBlack200 from "../assets/logo/cmb-tiles-black-200.png";
+import cmbTilesBlack400 from "../assets/logo/cmb-tiles-black-400.png";
+import cmbTilesBlack800 from "../assets/logo/cmb-tiles-black-800.png";
+import cmbTilesBlack1200 from "../assets/logo/cmb-tiles-black-1200.png";
+import cmbTilesBlack2400 from "../assets/logo/cmb-tiles-black-2400.png";
+
 export type LogoColorway = "black" | "navy" | "white";
 export type EmblemSize = 100 | 200 | 400 | 800 | 1200 | 2400;
+/** Tiles share the emblem size ladder — single source of truth. */
+export type TileSize = EmblemSize;
 
 /**
  * Per-colorway file map. Same shape across colorways — the remixer can swap
@@ -117,6 +129,21 @@ const EMBLEM_WHITE = {
   2400: cmbEmblemWhite2400,
 } as const;
 
+/** Square exploded/tiled-emblem files keyed by edge length in px. */
+const TILES_BLACK = {
+  100: cmbTilesBlack100,
+  200: cmbTilesBlack200,
+  400: cmbTilesBlack400,
+  800: cmbTilesBlack800,
+  1200: cmbTilesBlack1200,
+  2400: cmbTilesBlack2400,
+} as const;
+
+// Aliases: navy + white tiles fall back to black until those packages land.
+// When real assets arrive, replace these two lines with their own maps.
+const TILES_NAVY = TILES_BLACK;
+const TILES_WHITE = TILES_BLACK;
+
 export const MASTER_LOGOS = {
   black: {
     nav: { sm: cmbBlackNavSm, md: cmbBlackNavMd, lg: cmbBlackNavLg },
@@ -126,6 +153,7 @@ export const MASTER_LOGOS = {
     medium: cmbBlackMedium,
     small: cmbBlackSmall,
     emblem: EMBLEM_BLACK,
+    tiles: TILES_BLACK,
   },
   navy: {
     nav: { sm: cmbNavyNavSm, md: cmbNavyNavMd, lg: cmbNavyNavLg },
@@ -136,6 +164,8 @@ export const MASTER_LOGOS = {
     small: cmbNavySmall,
     // Navy emblem ✅ embedded.
     emblem: EMBLEM_NAVY,
+    // Navy tiles aliased to black until that package lands.
+    tiles: TILES_NAVY,
   },
   white: {
     nav: { sm: cmbWhiteNavSm, md: cmbWhiteNavMd, lg: cmbWhiteNavLg },
@@ -146,6 +176,8 @@ export const MASTER_LOGOS = {
     small: cmbWhiteSmall,
     // White emblem ✅ embedded.
     emblem: EMBLEM_WHITE,
+    // White tiles aliased to black until that package lands.
+    tiles: TILES_WHITE,
   },
 } as const;
 
@@ -156,7 +188,16 @@ export const EMBLEM_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
   white: "ready",
 };
 
+/** Per-colorway readiness for the tiles family specifically. */
+export const TILES_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
+  black: "ready",
+  navy: "aliased",
+  white: "aliased",
+};
+
 export const EMBLEM_SIZES: EmblemSize[] = [100, 200, 400, 800, 1200, 2400];
+/** Tiles share the emblem size ladder. */
+export const TILE_SIZES: TileSize[] = [100, 200, 400, 800, 1200, 2400];
 
 /** Which colorways have *real* uploaded assets.
  *  All three colorways are now embedded and live.
@@ -203,6 +244,16 @@ export const LOGO_USAGE_MAP = {
   emblemAccent:    { file: "cmb-emblem-black-800.png",  maxHeightPx: 240,  surface: "any"   as const, note: "Hero accent, section divider monogram, scroll-back-to-top." },
   emblemWatermark: { file: "cmb-emblem-black-1200.png", maxHeightPx: 480,  surface: "image" as const, note: "Full-page watermark, splash crest, og-square." },
   emblemPrint:     { file: "cmb-emblem-black-2400.png", maxHeightPx: 1200, surface: "any"   as const, note: "Print master / billboard / 5K hero crest. Lazy-load only." },
+
+  // ── Tiles family (exploded mark — three separated panels) ──
+  // The kinetic identity. Use when the brand should feel built/assembled,
+  // especially with motion. Distinct from emblem (solid crest) and lockup.
+  tilesFavicon:     { file: "cmb-tiles-black-100.png",  maxHeightPx: 32,   surface: "any"   as const, note: "Alt favicon for staging/construction-mode environments." },
+  tilesAvatar:      { file: "cmb-tiles-black-200.png",  maxHeightPx: 64,   surface: "any"   as const, note: "Team / social avatar where the kinetic look beats the solid crest." },
+  tilesAccent:      { file: "cmb-tiles-black-400.png",  maxHeightPx: 128,  surface: "any"   as const, note: "Section divider mark; can animate the three panels in sequence." },
+  tilesProcess:     { file: "cmb-tiles-black-800.png",  maxHeightPx: 240,  surface: "light" as const, note: "Process / craft pages — one tile per step, animated assembly." },
+  tilesLoadingHero: { file: "cmb-tiles-black-1200.png", maxHeightPx: 480,  surface: "dark"  as const, note: "Loading splash final reveal — tiles fly in and lock into position." },
+  tilesWatermark:   { file: "cmb-tiles-black-2400.png", maxHeightPx: 1200, surface: "image" as const, note: "Full-page background watermark on premium pages at 6–10% opacity." },
 } as const;
 
 export type LogoSlot = keyof typeof LOGO_USAGE_MAP;

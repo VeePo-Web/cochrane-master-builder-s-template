@@ -153,6 +153,64 @@ without downloading the 2400 master on every device.
 
 ---
 
+## Tiles family (exploded / deconstructed mark)
+
+The **tiles** are the third asset family — three separated diamond panels
+(top-left, top-right, bottom V-notch) with a glossy ribbed metallic
+texture. Where the lockup says *who we are* and the emblem is the
+*repeat-appearance crest*, the tiles are the **kinetic identity** —
+the mark in motion, the mark assembling itself, the mark as architecture.
+
+> **When to use which:**
+> - **Lockup** → first impression, nav, footer, marketing hero
+> - **Emblem** → favicon, avatar, watermark, scroll-back, repeat appearances
+> - **Tiles** → motion sequences, process storytelling, splash reveals,
+>   premium watermarks where the kinetic look beats the solid crest
+
+### Sizes & recommended use
+
+| Size (px) | Slot key            | Use case                                                            | Surface | Loading |
+|-----------|---------------------|---------------------------------------------------------------------|---------|---------|
+| 100       | `tilesFavicon`      | Alt favicon for staging / construction-mode environments            | any     | eager   |
+| 200       | `tilesAvatar`       | Team / social avatar where the kinetic look beats the solid crest   | any     | eager   |
+| 400       | `tilesAccent`       | Section divider mark — three panels can animate in sequence         | any     | lazy    |
+| 800       | `tilesProcess`      | Process / craft pages — one tile per step, animated assembly        | light   | lazy    |
+| 1200      | `tilesLoadingHero`  | Loading splash final reveal — tiles fly in and lock into position   | dark    | eager   |
+| 2400      | `tilesWatermark`    | Full-page background watermark on premium pages at 6–10% opacity    | image   | lazy    |
+
+### Colorway readiness
+
+| Variant | Black ✅                       | Navy ⏳ (aliased)              | White ⏳ (aliased)             |
+|---------|--------------------------------|--------------------------------|--------------------------------|
+| 100     | `cmb-tiles-black-100.png`      | → black                        | → black                        |
+| 200     | `cmb-tiles-black-200.png`      | → black                        | → black                        |
+| 400     | `cmb-tiles-black-400.png`      | → black                        | → black                        |
+| 800     | `cmb-tiles-black-800.png`      | → black                        | → black                        |
+| 1200    | `cmb-tiles-black-1200.png`     | → black                        | → black                        |
+| 2400    | `cmb-tiles-black-2400.png`     | → black                        | → black                        |
+
+`TILES_STATUS` reports `ready` for black and `aliased` for navy + white.
+When the navy / white tile packages arrive, swap two lines in
+`logo-registry.ts` (`TILES_NAVY = …`, `TILES_WHITE = …`) and every site
+flips automatically.
+
+### Render API
+
+```tsx
+import MasterLogo from "@/master/brand/MasterLogo";
+
+<MasterLogo slot="tiles" size={400}  />                       // accent / divider
+<MasterLogo slot="tiles" size={800}  />                       // process step
+<MasterLogo slot="tiles" size={1200} colorway="white" />      // splash / dark
+<MasterLogo slot="tiles" size={2400} className="opacity-10" />// watermark
+```
+
+The `size` prop selects the 1x source; the registry attaches the next
+two ladder steps as `2x` / `3x` srcset descriptors. Same DPR strategy
+as the emblem family.
+
+---
+
 ## Perf budget per slot
 
 | Slot          | Max bytes | Why                                         |
