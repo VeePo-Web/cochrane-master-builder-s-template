@@ -106,9 +106,8 @@ import cmbTilesWhite1200 from "../assets/logo/cmb-tiles-white-1200.png";
 import cmbTilesWhite2400 from "../assets/logo/cmb-tiles-white-2400.png";
 
 // ── Monogram family (handwritten "MB" signature mark) ──────────────────────
-// Black ✅ + Navy ✅ embedded. White aliases to black until that
-// package lands. Different size ladder than emblem/tiles — capped at 1024
-// because the monogram is never a hero asset (it's a signature).
+// All three colorways ✅ embedded. Different size ladder than emblem/tiles —
+// capped at 1024 because the monogram is never a hero asset (it's a signature).
 import cmbMbMonoBlack64 from "../assets/logo/cmb-mb-monogram-black-64.png";
 import cmbMbMonoBlack128 from "../assets/logo/cmb-mb-monogram-black-128.png";
 import cmbMbMonoBlack256 from "../assets/logo/cmb-mb-monogram-black-256.png";
@@ -121,12 +120,32 @@ import cmbMbMonoNavy256 from "../assets/logo/cmb-mb-monogram-navy-256.png";
 import cmbMbMonoNavy512 from "../assets/logo/cmb-mb-monogram-navy-512.png";
 import cmbMbMonoNavy1024 from "../assets/logo/cmb-mb-monogram-navy-1024.png";
 
+import cmbMbMonoWhite64 from "../assets/logo/cmb-mb-monogram-white-64.png";
+import cmbMbMonoWhite128 from "../assets/logo/cmb-mb-monogram-white-128.png";
+import cmbMbMonoWhite256 from "../assets/logo/cmb-mb-monogram-white-256.png";
+import cmbMbMonoWhite512 from "../assets/logo/cmb-mb-monogram-white-512.png";
+import cmbMbMonoWhite1024 from "../assets/logo/cmb-mb-monogram-white-1024.png";
+
+// ── Wordmark family (pure typography — "MASTER BUILDERS / COCHRANE") ───────
+// The fifth asset family. Lockup = wordmark + emblem stacked; the wordmark
+// alone removes the emblem so it can sit in horizontal rails (≥3:1 aspect)
+// without dominating. Editorial type voice — section eyebrows, doc headers,
+// press kit, breadcrumb chips. Black ✅ embedded; navy + white alias to
+// black until those packages land.
+import cmbWordmarkBlack200 from "../assets/logo/cmb-wordmark-black-200.png";
+import cmbWordmarkBlack400 from "../assets/logo/cmb-wordmark-black-400.png";
+import cmbWordmarkBlack800 from "../assets/logo/cmb-wordmark-black-800.png";
+import cmbWordmarkBlack1200 from "../assets/logo/cmb-wordmark-black-1200.png";
+import cmbWordmarkBlack2400 from "../assets/logo/cmb-wordmark-black-2400.png";
+
 export type LogoColorway = "black" | "navy" | "white";
 export type EmblemSize = 100 | 200 | 400 | 800 | 1200 | 2400;
 /** Tiles share the emblem size ladder — single source of truth. */
 export type TileSize = EmblemSize;
 /** Monogram has its own ladder — capped at 1024; never a hero asset. */
 export type MonogramSize = 64 | 128 | 256 | 512 | 1024;
+/** Wordmark has its own ladder — starts at 200 (sub-200 reads as visual noise). */
+export type WordmarkSize = 200 | 400 | 800 | 1200 | 2400;
 
 /**
  * Per-colorway file map. Same shape across colorways — the remixer can swap
@@ -207,8 +226,27 @@ const MONOGRAM_NAVY = {
   1024: cmbMbMonoNavy1024,
 } as const;
 
-// White monogram still aliased to black until that package lands.
-const MONOGRAM_WHITE = MONOGRAM_BLACK;
+// White monogram ✅ embedded as a real map.
+const MONOGRAM_WHITE = {
+  64: cmbMbMonoWhite64,
+  128: cmbMbMonoWhite128,
+  256: cmbMbMonoWhite256,
+  512: cmbMbMonoWhite512,
+  1024: cmbMbMonoWhite1024,
+} as const;
+
+/** Wordmark-only files (pure type, no emblem) keyed by edge length in px. */
+const WORDMARK_BLACK = {
+  200: cmbWordmarkBlack200,
+  400: cmbWordmarkBlack400,
+  800: cmbWordmarkBlack800,
+  1200: cmbWordmarkBlack1200,
+  2400: cmbWordmarkBlack2400,
+} as const;
+
+// Navy + white wordmark aliased to black until those packages land.
+const WORDMARK_NAVY = WORDMARK_BLACK;
+const WORDMARK_WHITE = WORDMARK_BLACK;
 
 export const MASTER_LOGOS = {
   black: {
