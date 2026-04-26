@@ -539,3 +539,34 @@ export function recommendedColorwayForSlot(
   // light surface
   return tradeColorway === "white" ? "black" : tradeColorway;
 }
+
+/**
+ * Showcase boards — in-context demonstration renders for the brand-kit page,
+ * press kit, and any "see the mark in context" surface. NOT for production
+ * UI components (those use `<MasterLogo>` against the bundled lockup family).
+ *
+ * Each board is a high-resolution (1920–2048px) plate showing the lockup or
+ * emblem on a specific surface tone. Designed to be downloaded by journalists,
+ * partners, fabrication vendors, etc.
+ */
+export const MASTER_BOARDS = {
+  lockupOnWhite: cmbBoardLockupOnWhite,
+  lockupOnBlack: cmbBoardLockupOnBlack,
+  lockupOnNavy: cmbBoardLockupOnNavy,
+  emblemOnBlack: cmbBoardEmblemOnBlack,
+  emblemOnNavy: cmbBoardEmblemOnNavy,
+} as const;
+
+export type MasterBoardId = keyof typeof MASTER_BOARDS;
+
+/** Human-readable metadata for the boards (used by /brand page). */
+export const MASTER_BOARDS_META: Record<
+  MasterBoardId,
+  { label: string; surface: "light" | "dark" | "navy"; family: "lockup" | "emblem" }
+> = {
+  lockupOnWhite: { label: "Lockup on white", surface: "light", family: "lockup" },
+  lockupOnBlack: { label: "Lockup on black", surface: "dark", family: "lockup" },
+  lockupOnNavy: { label: "Lockup on navy", surface: "navy", family: "lockup" },
+  emblemOnBlack: { label: "Emblem on black", surface: "dark", family: "emblem" },
+  emblemOnNavy: { label: "Emblem on navy", surface: "navy", family: "emblem" },
+};
