@@ -344,8 +344,8 @@ export const MONOGRAM_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
 /** Per-colorway readiness for the wordmark family specifically. */
 export const WORDMARK_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
   black: "ready",
-  navy: "aliased",
-  white: "aliased",
+  navy: "ready",
+  white: "ready",
 };
 
 export const EMBLEM_SIZES: EmblemSize[] = [100, 200, 400, 800, 1200, 2400];
