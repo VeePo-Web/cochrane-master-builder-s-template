@@ -332,6 +332,11 @@ export const CHECKLIST_PHASE_META: Record<
     goal: "Photography ultra-realistic, no faces/people, every slot filled with trade-specific imagery.",
     gate: "Every image swapped, alt-texted, weight-audited, modern format.",
   },
+  "5b-motion": {
+    title: "Motion & Interaction Craft (FROG-level)",
+    goal: "Apple-grade restraint, Linear-grade easing, FROG-grade tactility — what users FEEL, not just see.",
+    gate: "Easing system pinned, every signature motion has a reduced-motion fallback, 60fps on mid-tier mobile.",
+  },
   "6-seo": {
     title: "SEO Depth",
     goal: "Search is the moat. Every page indexable, schema-rich, locally relevant.",
