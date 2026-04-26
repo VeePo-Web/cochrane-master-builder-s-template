@@ -95,3 +95,24 @@ The first stop for any design / copy / UX / SEO / brand / persona / conversion d
 [`DECISION_ROUTER.md`](./DECISION_ROUTER.md). It maps decision shapes to the partner docs
 that govern them, which in turn point at the source docs to actually read. Never improvise
 without naming a source.
+
+---
+
+## Searchable Index (programmatic equivalent)
+
+For programmatic / queryable lookup of "what rules apply to this decision", use:
+
+- **Registry**: [`decision-index.ts`](./decision-index.ts) — one typed `DecisionRoute`
+  per partner doc, with categories, trigger phrases, and guard-rail linkage.
+- **Scorer**: [`decision-search.ts`](./decision-search.ts) — pure deterministic
+  keyword + category matcher. Returns lean results (route + score + matched
+  triggers + reason). No external deps.
+- **CLI**: `bun scripts/decisions.ts "<query>" [--category seo] [--limit 10]`
+  — prints ranked routes to stdout. Useful inside agent loops and pre-commit checks.
+- **UI**: `/knowledge` (internal route, not in nav, `noindex`) — same scorer plus
+  an "Ask AI" button that calls the `decision-search-ai` edge function for a
+  semantic fallback when keyword score is below `0.35`. The AI is registry-bounded
+  via tool calling and can never invent route ids.
+
+The registry is the single source of truth for both surfaces. Any new partner
+doc must append a `DecisionRoute` entry to keep the index complete.
