@@ -259,6 +259,7 @@ export const MASTER_LOGOS = {
     emblem: EMBLEM_BLACK,
     tiles: TILES_BLACK,
     monogram: MONOGRAM_BLACK,
+    wordmark: WORDMARK_BLACK,
   },
   navy: {
     nav: { sm: cmbNavyNavSm, md: cmbNavyNavMd, lg: cmbNavyNavLg },
@@ -273,6 +274,8 @@ export const MASTER_LOGOS = {
     tiles: TILES_NAVY,
     // Navy monogram ✅ embedded.
     monogram: MONOGRAM_NAVY,
+    // Navy wordmark aliased to black until that package lands.
+    wordmark: WORDMARK_NAVY,
   },
   white: {
     nav: { sm: cmbWhiteNavSm, md: cmbWhiteNavMd, lg: cmbWhiteNavLg },
@@ -285,8 +288,10 @@ export const MASTER_LOGOS = {
     emblem: EMBLEM_WHITE,
     // White tiles ✅ embedded.
     tiles: TILES_WHITE,
-    // White monogram aliased to black until that package lands.
+    // White monogram ✅ embedded.
     monogram: MONOGRAM_WHITE,
+    // White wordmark aliased to black until that package lands.
+    wordmark: WORDMARK_WHITE,
   },
 } as const;
 
@@ -308,6 +313,13 @@ export const TILES_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
 export const MONOGRAM_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
   black: "ready",
   navy: "ready",
+  white: "ready",
+};
+
+/** Per-colorway readiness for the wordmark family specifically. */
+export const WORDMARK_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
+  black: "ready",
+  navy: "aliased",
   white: "aliased",
 };
 
@@ -316,6 +328,8 @@ export const EMBLEM_SIZES: EmblemSize[] = [100, 200, 400, 800, 1200, 2400];
 export const TILE_SIZES: TileSize[] = [100, 200, 400, 800, 1200, 2400];
 /** Monogram has its own ladder — no hero size. */
 export const MONOGRAM_SIZES: MonogramSize[] = [64, 128, 256, 512, 1024];
+/** Wordmark has its own ladder — starts at 200; ~5:1 aspect ratio. */
+export const WORDMARK_SIZES: WordmarkSize[] = [200, 400, 800, 1200, 2400];
 
 /** Which colorways have *real* uploaded assets.
  *  All three colorways are now embedded and live.
@@ -381,6 +395,18 @@ export const LOGO_USAGE_MAP = {
   monogramSealAccent:  { file: "cmb-mb-monogram-black-256.png",  maxHeightPx: 96,  surface: "light" as const, note: "About-page founder card, story-section seal, testimonial attribution." },
   monogramCertificate: { file: "cmb-mb-monogram-black-512.png",  maxHeightPx: 192, surface: "light" as const, note: "Warranty / completion certificate seal, project handoff documents." },
   monogramWatermark:   { file: "cmb-mb-monogram-black-1024.png", maxHeightPx: 512, surface: "image" as const, note: "Premium project case-study watermark — low opacity, signed-work aesthetic." },
+
+  // ── Wordmark family (pure typography — "MASTER BUILDERS / COCHRANE") ──
+  // Editorial type voice. Lockup = wordmark + emblem stacked; the wordmark
+  // alone removes the emblem so it can sit in horizontal rails (≥3:1 aspect)
+  // without the crest dominating. Use for section eyebrows, doc headers,
+  // press kits, breadcrumb chips. Wrong for nav (lockup wins) or favicon
+  // (emblem wins).
+  wordmarkInline:    { file: "cmb-wordmark-black-200.png",  maxHeightPx: 24,  surface: "light" as const, note: "Inline body wordmark, byline strip, breadcrumb brand chip." },
+  wordmarkSection:   { file: "cmb-wordmark-black-400.png",  maxHeightPx: 56,  surface: "light" as const, note: "Section eyebrow above an H2, editorial divider label, modal header." },
+  wordmarkDocument:  { file: "cmb-wordmark-black-800.png",  maxHeightPx: 96,  surface: "light" as const, note: "Document/PDF header, quote letter masthead, press kit page header." },
+  wordmarkBanner:    { file: "cmb-wordmark-black-1200.png", maxHeightPx: 160, surface: "any"   as const, note: "Wide hero strip alternative, cinema-bar caption, full-width brand band." },
+  wordmarkPrint:     { file: "cmb-wordmark-black-2400.png", maxHeightPx: 320, surface: "any"   as const, note: "Print master, large-format banner, billboard wordmark. Lazy-load only." },
 } as const;
 
 export type LogoSlot = keyof typeof LOGO_USAGE_MAP;
