@@ -100,19 +100,25 @@ async function getDefaultReader(cwd: string): Promise<Reader> {
 
   async function walk(dir: string, exts: string[] | undefined): Promise<string[]> {
     const out: string[] = [];
-    let entries: Awaited<ReturnType<typeof fs.readdir>>;
+    let entries: string[];
     try {
-      entries = await fs.readdir(dir, { withFileTypes: true });
+      entries = await fs.readdir(dir);
     } catch {
       return out;
     }
-    for (const entry of entries) {
-      if (entry.name === "node_modules" || entry.name === "dist" || entry.name.startsWith(".")) continue;
-      const full = path.join(dir, entry.name);
-      if (entry.isDirectory()) {
+    for (const name of entries) {
+      if (name === "node_modules" || name === "dist" || name.startsWith(".")) continue;
+      const full = path.join(dir, name);
+      let stat: Awaited<ReturnType<typeof fs.stat>>;
+      try {
+        stat = await fs.stat(full);
+      } catch {
+        continue;
+      }
+      if (stat.isDirectory()) {
         out.push(...(await walk(full, exts)));
-      } else if (entry.isFile()) {
-        if (!exts || exts.some((e) => entry.name.endsWith(e))) out.push(full);
+      } else if (stat.isFile()) {
+        if (!exts || exts.some((e) => name.endsWith(e))) out.push(full);
       }
     }
     return out;
