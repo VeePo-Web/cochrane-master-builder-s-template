@@ -255,9 +255,23 @@ const WORDMARK_BLACK = {
   2400: cmbWordmarkBlack2400,
 } as const;
 
-// Navy + white wordmark aliased to black until those packages land.
-const WORDMARK_NAVY = WORDMARK_BLACK;
-const WORDMARK_WHITE = WORDMARK_BLACK;
+// Navy wordmark ✅ embedded as a real map.
+const WORDMARK_NAVY = {
+  200: cmbWordmarkNavy200,
+  400: cmbWordmarkNavy400,
+  800: cmbWordmarkNavy800,
+  1200: cmbWordmarkNavy1200,
+  2400: cmbWordmarkNavy2400,
+} as const;
+
+// White wordmark ✅ embedded as a real map.
+const WORDMARK_WHITE = {
+  200: cmbWordmarkWhite200,
+  400: cmbWordmarkWhite400,
+  800: cmbWordmarkWhite800,
+  1200: cmbWordmarkWhite1200,
+  2400: cmbWordmarkWhite2400,
+} as const;
 
 export const MASTER_LOGOS = {
   black: {
@@ -285,7 +299,7 @@ export const MASTER_LOGOS = {
     tiles: TILES_NAVY,
     // Navy monogram ✅ embedded.
     monogram: MONOGRAM_NAVY,
-    // Navy wordmark aliased to black until that package lands.
+    // Navy wordmark ✅ embedded.
     wordmark: WORDMARK_NAVY,
   },
   white: {
@@ -301,7 +315,7 @@ export const MASTER_LOGOS = {
     tiles: TILES_WHITE,
     // White monogram ✅ embedded.
     monogram: MONOGRAM_WHITE,
-    // White wordmark aliased to black until that package lands.
+    // White wordmark ✅ embedded.
     wordmark: WORDMARK_WHITE,
   },
 } as const;
