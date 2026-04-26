@@ -1,10 +1,11 @@
 import { useMemo, useState } from "react";
-import { Search, Sparkles, ExternalLink, Loader2 } from "lucide-react";
+import { Search, Sparkles, ExternalLink, Loader2, SlidersHorizontal, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
@@ -14,9 +15,11 @@ import {
 } from "@/components/ui/select";
 import {
   searchDecisions,
+  searchDecisionsStructured,
   topScore,
   AI_FALLBACK_THRESHOLD,
   type MatchResult,
+  type CompiledQuery,
 } from "@/master/knowledge/decision-search";
 import {
   CATEGORY_LABELS,
@@ -25,6 +28,22 @@ import {
   type DecisionCategory,
   type DecisionRoute,
 } from "@/master/knowledge/decision-index";
+import {
+  AUDIENCES,
+  AUDIENCE_LABELS,
+  CHANNELS,
+  CHANNEL_LABELS,
+  CONSTRAINTS,
+  CONSTRAINT_LABELS,
+  PAGE_SECTIONS,
+  PAGE_SECTION_LABELS,
+  hasStructuredFilters,
+  validateDecisionInput,
+  type Audience,
+  type Channel,
+  type Constraint,
+  type PageSection,
+} from "@/master/knowledge/decision-input";
 
 interface AiMatch {
   route: DecisionRoute;
@@ -34,32 +53,104 @@ interface AiMatch {
 
 const CATEGORY_KEYS = Object.keys(CATEGORY_LABELS) as DecisionCategory[];
 
+const NONE = "__none__";
+
 const DecisionSearch = () => {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<DecisionCategory | "all">("all");
   const [aiResults, setAiResults] = useState<AiMatch[] | null>(null);
   const [aiLoading, setAiLoading] = useState(false);
+  const [refineOpen, setRefineOpen] = useState(false);
+  const [section, setSection] = useState<PageSection | "">("");
+  const [channel, setChannel] = useState<Channel | "">("");
+  const [audience, setAudience] = useState<Audience[]>([]);
+  const [constraints, setConstraints] = useState<Constraint[]>([]);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
-  const results = useMemo<MatchResult[]>(() => {
-    if (!query.trim()) return [];
-    return searchDecisions(query, {
+  const structuredCandidate = useMemo(() => {
+    return {
+      goal: query.trim(),
+      pageSection: section || undefined,
+      audience: audience.length ? audience : undefined,
+      channel: channel || undefined,
       category: category === "all" ? undefined : category,
-      limit: 10,
-    });
-  }, [query, category]);
+      constraints: constraints.length ? constraints : undefined,
+    };
+  }, [query, section, channel, audience, category, constraints]);
+
+  const useStructured = hasStructuredFilters(structuredCandidate);
+
+  const { results, compiled } = useMemo<{
+    results: MatchResult[];
+    compiled?: CompiledQuery;
+  }>(() => {
+    if (!query.trim()) return { results: [] };
+    if (useStructured) {
+      const v = validateDecisionInput(structuredCandidate);
+      if (!v.ok) {
+        return { results: [] };
+      }
+      const r = searchDecisionsStructured(v.value, { limit: 10 });
+      return { results: r.results, compiled: r.compiled };
+    }
+    return {
+      results: searchDecisions(query, {
+        category: category === "all" ? undefined : category,
+        limit: 10,
+      }),
+    };
+  }, [query, useStructured, structuredCandidate, category]);
 
   const top = topScore(results);
   const showAiHint = query.trim().length > 0 && top < AI_FALLBACK_THRESHOLD;
 
+  const toggleAudience = (a: Audience) => {
+    setAudience((cur) => (cur.includes(a) ? cur.filter((x) => x !== a) : [...cur, a]));
+    setAiResults(null);
+  };
+  const toggleConstraint = (c: Constraint) => {
+    setConstraints((cur) => (cur.includes(c) ? cur.filter((x) => x !== c) : [...cur, c]));
+    setAiResults(null);
+  };
+  const clearStructured = () => {
+    setSection("");
+    setChannel("");
+    setAudience([]);
+    setConstraints([]);
+    setFieldErrors({});
+    setAiResults(null);
+  };
+
   const runAi = async () => {
     if (!query.trim()) return;
+    let filters: Record<string, unknown> | undefined;
+    if (useStructured) {
+      const v = validateDecisionInput(structuredCandidate);
+      if (!v.ok) {
+        setFieldErrors(v.errors);
+        toast.error("Fix the highlighted fields before searching.");
+        return;
+      }
+      setFieldErrors({});
+      filters = {
+        pageSection: v.value.pageSection,
+        audience: v.value.audience,
+        channel: v.value.channel,
+        category: v.value.category,
+        constraints: v.value.constraints,
+        excludeIds: v.value.excludeIds,
+      };
+    }
     setAiLoading(true);
     setAiResults(null);
     try {
-      const { data, error } = await supabase.functions.invoke(
-        "decision-search-ai",
-        { body: { query, registry: toCompactRegistry() } },
-      );
+      const { data, error } = await supabase.functions.invoke("decision-search-ai", {
+        body: {
+          query,
+          registry: toCompactRegistry(),
+          filters,
+        },
+      });
       if (error) {
         const status = (error as { context?: { status?: number } }).context?.status;
         if (status === 429) toast.error("Rate limited — try again in a moment.");
@@ -91,12 +182,10 @@ const DecisionSearch = () => {
   return (
     <div className="mx-auto max-w-4xl px-6 py-12">
       <header className="mb-8">
-        <h1 className="text-3xl font-semibold text-foreground">
-          Decision Index
-        </h1>
+        <h1 className="text-3xl font-semibold text-foreground">Decision Index</h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Search across partner-doc rule books. Returns lean routes — open the
-          partner doc to read the rules.
+          Search across partner-doc rule books. Add structured filters to deterministically
+          narrow the candidate set before scoring.
         </p>
       </header>
 
@@ -109,8 +198,9 @@ const DecisionSearch = () => {
               setQuery(e.target.value);
               setAiResults(null);
             }}
-            placeholder="e.g. hero copy for mothers, areas we serve schema, sister site for plumbing"
+            placeholder="Goal — e.g. hero copy for mothers, areas we serve schema"
             className="pl-9"
+            aria-invalid={Boolean(fieldErrors.goal)}
           />
         </div>
         <Select
@@ -144,6 +234,156 @@ const DecisionSearch = () => {
         </Button>
       </div>
 
+      {fieldErrors.goal && (
+        <p className="mt-2 text-xs text-destructive">{fieldErrors.goal}</p>
+      )}
+
+      {/* Refine toggle */}
+      <div className="mt-4 flex items-center gap-3">
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => setRefineOpen((o) => !o)}
+          className="text-xs text-muted-foreground hover:text-foreground"
+        >
+          <SlidersHorizontal className="mr-2 h-3.5 w-3.5" />
+          Refine {useStructured && <span className="ml-1 text-foreground">· active</span>}
+        </Button>
+        {useStructured && (
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={clearStructured}
+            className="text-xs text-muted-foreground hover:text-foreground"
+          >
+            <X className="mr-1 h-3 w-3" /> Clear filters
+          </Button>
+        )}
+      </div>
+
+      {refineOpen && (
+        <div className="mt-3 rounded-lg border border-border bg-card p-5">
+          <div className="grid gap-5 sm:grid-cols-2">
+            <div>
+              <Label className="text-xs uppercase tracking-wider text-muted-foreground">
+                Page section
+              </Label>
+              <Select
+                value={section || NONE}
+                onValueChange={(v) => {
+                  setSection(v === NONE ? "" : (v as PageSection));
+                  setAiResults(null);
+                }}
+              >
+                <SelectTrigger className="mt-2">
+                  <SelectValue placeholder="Any section" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value={NONE}>Any section</SelectItem>
+                  {PAGE_SECTIONS.map((s) => (
+                    <SelectItem key={s} value={s}>
+                      {PAGE_SECTION_LABELS[s]}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div>
+              <Label className="text-xs uppercase tracking-wider text-muted-foreground">
+                Channel
+              </Label>
+              <Select
+                value={channel || NONE}
+                onValueChange={(v) => {
+                  setChannel(v === NONE ? "" : (v as Channel));
+                  setAiResults(null);
+                }}
+              >
+                <SelectTrigger className="mt-2">
+                  <SelectValue placeholder="Any channel" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value={NONE}>Any channel</SelectItem>
+                  {CHANNELS.map((c) => (
+                    <SelectItem key={c} value={c}>
+                      {CHANNEL_LABELS[c]}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+
+          <div className="mt-5">
+            <Label className="text-xs uppercase tracking-wider text-muted-foreground">
+              Audience
+            </Label>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {AUDIENCES.map((a) => {
+                const active = audience.includes(a);
+                return (
+                  <button
+                    key={a}
+                    type="button"
+                    onClick={() => toggleAudience(a)}
+                    className={`rounded-full border px-3 py-1 text-xs transition-colors ${
+                      active
+                        ? "border-foreground bg-foreground text-background"
+                        : "border-border text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {AUDIENCE_LABELS[a]}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="mt-5">
+            <Label className="text-xs uppercase tracking-wider text-muted-foreground">
+              Constraints
+            </Label>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {CONSTRAINTS.map((c) => {
+                const active = constraints.includes(c);
+                return (
+                  <button
+                    key={c}
+                    type="button"
+                    onClick={() => toggleConstraint(c)}
+                    className={`rounded-full border px-3 py-1 text-xs transition-colors ${
+                      active
+                        ? "border-foreground bg-foreground text-background"
+                        : "border-border text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {CONSTRAINT_LABELS[c]}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Compiled summary */}
+      {compiled && (
+        <div className="mt-4 rounded-md border border-dashed border-border bg-muted/30 px-3 py-2 text-[11px] text-muted-foreground">
+          <span className="font-medium text-foreground">Compiled query:</span>{" "}
+          {compiled.category && <span>category={compiled.category} · </span>}
+          {compiled.requiredRails.length > 0 && (
+            <span>required rails [{compiled.requiredRails.join(", ")}] · </span>
+          )}
+          {compiled.boostRails.length > 0 && (
+            <span>boost rails [{compiled.boostRails.join(", ")}] · </span>
+          )}
+          <span>
+            text length {compiled.text.length} chars
+          </span>
+        </div>
+      )}
+
       {showAiHint && (
         <p className="mt-3 text-xs text-muted-foreground">
           Keyword match is weak (top score {top.toFixed(2)}). Try
@@ -155,7 +395,7 @@ const DecisionSearch = () => {
       {results.length > 0 && (
         <section className="mt-10">
           <h2 className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Keyword matches
+            {useStructured ? "Structured matches" : "Keyword matches"}
           </h2>
           <ul className="space-y-3">
             {results.map((r) => (
@@ -199,8 +439,10 @@ const DecisionSearch = () => {
 
       {query.trim() && results.length === 0 && !aiResults && !aiLoading && (
         <p className="mt-10 text-sm text-muted-foreground">
-          No keyword matches. Click <span className="text-foreground">Ask AI</span>{" "}
-          for a semantic search.
+          {useStructured
+            ? "No routes match these filters. Loosen a constraint or clear filters."
+            : "No keyword matches."}{" "}
+          Click <span className="text-foreground">Ask AI</span> for a semantic search.
         </p>
       )}
     </div>
