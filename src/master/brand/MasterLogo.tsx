@@ -249,6 +249,44 @@ const MasterLogo = ({
     );
   }
 
+  // Wordmark Ground (drafted plumb-line + base rule). Same size ladder as
+  // plain wordmark, but ~3.5:1 aspect because the plumb adds vertical room.
+  if (slot === "wordmarkGround") {
+    const ground = set.wordmarkGround;
+    const ladder: WordmarkSize[] = [200, 400, 800, 1200, 2400];
+    const wgSize: WordmarkSize = (ladder as readonly number[]).includes(size as number)
+      ? (size as WordmarkSize)
+      : 400;
+    const base = ground[wgSize];
+    const idx = ladder.indexOf(wgSize);
+    const x2 = ladder[idx + 1];
+    const x3 = ladder[idx + 2];
+    const srcSet = [
+      `${base} 1x`,
+      x2 ? `${ground[x2]} 2x` : null,
+      x3 ? `${ground[x3]} 3x` : null,
+    ]
+      .filter(Boolean)
+      .join(", ");
+    // Intrinsic ~3.5:1 aspect — drafting marks add height vs the plain wordmark.
+    const intrinsicHeight = Math.round(wgSize / 3.5);
+    return (
+      <img
+        src={base}
+        srcSet={srcSet}
+        alt={alt}
+        className={`${sizing} object-contain ${className}`}
+        loading={eager}
+        // @ts-expect-error - non-standard but supported attr
+        fetchpriority={fetchPriority}
+        decoding="async"
+        width={wgSize}
+        height={intrinsicHeight}
+        onClick={onClick}
+      />
+    );
+  }
+
   // Responsive slots use <picture> with <source media> queries
   if (slot === "nav") {
     return (
