@@ -1937,8 +1937,9 @@ export const getChecklistByOwner = (owner: ChecklistOwner) =>
 /** Counts for dashboard headers. */
 export const checklistStats = () => {
   const byPhase: Record<ChecklistPhase, number> = {
-    "0-plan-first": 0, "1-intake": 0, "2-brand": 0, "3-ia": 0, "4-copy": 0, "5-visual": 0,
-    "5b-motion": 0, "6-seo": 0, "7-conversion": 0, "8-legal": 0, "9-launch": 0,
+    "0-plan-first": 0, "0.5-guardrails-armed": 0, "1-intake": 0, "2-brand": 0, "3-ia": 0,
+    "4-copy": 0, "5-visual": 0, "5b-motion": 0, "6-seo": 0, "7-conversion": 0, "8-legal": 0,
+    "9-launch": 0,
   };
   const byTier: Record<ChecklistTier, number> = { P0: 0, P1: 0, P2: 0 };
   for (const c of REMIX_CHECKLIST) {
