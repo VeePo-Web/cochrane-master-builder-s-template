@@ -176,3 +176,97 @@ export function searchDecisions(
 export function topScore(results: MatchResult[]): number {
   return results[0]?.score ?? 0;
 }
+
+// ───────────────────────────────────────────────────────────────────────────
+// Structured input → compiled query
+// ───────────────────────────────────────────────────────────────────────────
+
+export interface CompiledQuery {
+  /** Synthesized free-text passed to the existing keyword scorer. */
+  text: string;
+  /** Hard category pre-filter (from input.category). */
+  category?: DecisionCategory;
+  /** Soft boost: routes touching these guard rails get a score nudge. */
+  boostRails: GuardRailId[];
+  /** Hard filter: route MUST cover every rail listed here. */
+  requiredRails: GuardRailId[];
+  /** Routes excluded outright. */
+  excludeIds: Set<string>;
+}
+
+function uniq<T>(arr: T[]): T[] {
+  return Array.from(new Set(arr));
+}
+
+export function compileQuery(input: DecisionInput): CompiledQuery {
+  const phrases: string[] = [input.goal];
+  const boostRails: GuardRailId[] = [];
+  const requiredRails: GuardRailId[] = [];
+
+  const collect = (hint?: { phrases: string[]; boostRails: GuardRailId[]; requireRails?: GuardRailId[] }) => {
+    if (!hint) return;
+    phrases.push(...hint.phrases);
+    boostRails.push(...hint.boostRails);
+    if (hint.requireRails) requiredRails.push(...hint.requireRails);
+  };
+
+  if (input.pageSection) collect(PAGE_SECTION_HINTS[input.pageSection]);
+  if (input.channel) collect(CHANNEL_HINTS[input.channel]);
+  for (const a of input.audience ?? []) collect(AUDIENCE_HINTS[a]);
+  for (const c of input.constraints ?? []) collect(CONSTRAINT_HINTS[c]);
+
+  return {
+    text: phrases.join(" · "),
+    category: input.category,
+    boostRails: uniq(boostRails),
+    requiredRails: uniq(requiredRails),
+    excludeIds: new Set(input.excludeIds ?? []),
+  };
+}
+
+export interface StructuredSearchOptions {
+  limit?: number;
+  minScore?: number;
+}
+
+export function searchDecisionsStructured(
+  input: DecisionInput,
+  opts: StructuredSearchOptions = {},
+): { compiled: CompiledQuery; results: MatchResult[] } {
+  const { limit = 10, minScore = 0 } = opts;
+  const compiled = compileQuery(input);
+  const qTokens = tokenize(compiled.text);
+
+  // 1. Pre-filter the candidate pool.
+  const pool = DECISION_INDEX.filter((r) => {
+    if (compiled.excludeIds.has(r.id)) return false;
+    if (compiled.category && !r.categories.includes(compiled.category)) return false;
+    if (compiled.requiredRails.length > 0) {
+      const railSet = new Set(r.guardRails);
+      for (const req of compiled.requiredRails) {
+        if (!railSet.has(req)) return false;
+      }
+    }
+    return true;
+  });
+
+  // 2. Score with the existing keyword scorer + boost-rail nudge.
+  const results: MatchResult[] = pool
+    .map((route) => {
+      const base = scoreRoute(route, compiled.text, qTokens);
+      const railSet = new Set(route.guardRails);
+      const boostHits = compiled.boostRails.filter((g) => railSet.has(g));
+      // Each boost hit adds +1 to the raw score (pre-normalized 0..1 ceiling).
+      const boostedRaw = base.score + boostHits.length / 12;
+      const score = Math.min(1, boostedRaw);
+      const reason = boostHits.length
+        ? `${base.reason} · +${boostHits.length} guard-rail boost`
+        : base.reason;
+      return { route, ...base, score, reason };
+    })
+    .filter((r) => r.score >= minScore && r.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit);
+
+  return { compiled, results };
+}
