@@ -29,6 +29,7 @@ const ThankYou = lazy(() => import("./pages/ThankYou"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const Brand = lazy(() => import("./pages/Brand"));
 
 const queryClient = new QueryClient();
 
@@ -53,6 +54,7 @@ const AnimatedRoutes = ({ onBookClick }: { onBookClick: BookingClickHandler }) =
           <Route path="/thank-you" element={<PageTransition><ThankYou /></PageTransition>} />
           <Route path="/privacy" element={<PageTransition><Privacy onBookClick={onBookClick} /></PageTransition>} />
           <Route path="/terms" element={<PageTransition><Terms onBookClick={onBookClick} /></PageTransition>} />
+          <Route path="/brand" element={<PageTransition><Brand /></PageTransition>} />
           <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
         </Routes>
       </Suspense>

@@ -115,11 +115,6 @@ const Brand = () => {
   return (
     <>
       {/* document.title + meta robots set in effect above */}
-      <Helmet>
-        <title>Brand Kit — Cochrane Master Builders</title>
-        <meta name="description" content="The canonical brand bible for Cochrane Master Builders: marks, colors, sizes, clear space, and downloadable showcase boards." />
-        <meta name="robots" content="noindex, follow" />
-      </Helmet>
 
       <div className="min-h-screen bg-[#0a0a0a] text-white">
         {/* Hero */}
