@@ -127,16 +127,27 @@ import cmbMbMonoWhite512 from "../assets/logo/cmb-mb-monogram-white-512.png";
 import cmbMbMonoWhite1024 from "../assets/logo/cmb-mb-monogram-white-1024.png";
 
 // ── Wordmark family (pure typography — "MASTER BUILDERS / COCHRANE") ───────
-// The fifth asset family. Lockup = wordmark + emblem stacked; the wordmark
-// alone removes the emblem so it can sit in horizontal rails (≥3:1 aspect)
-// without dominating. Editorial type voice — section eyebrows, doc headers,
-// press kit, breadcrumb chips. Black ✅ embedded; navy + white alias to
-// black until those packages land.
+// All three colorways ✅ embedded. Lockup = wordmark + emblem stacked; the
+// wordmark alone removes the emblem so it can sit in horizontal rails
+// (≥3:1 aspect) without dominating. Editorial type voice — section
+// eyebrows, doc headers, press kit, breadcrumb chips.
 import cmbWordmarkBlack200 from "../assets/logo/cmb-wordmark-black-200.png";
 import cmbWordmarkBlack400 from "../assets/logo/cmb-wordmark-black-400.png";
 import cmbWordmarkBlack800 from "../assets/logo/cmb-wordmark-black-800.png";
 import cmbWordmarkBlack1200 from "../assets/logo/cmb-wordmark-black-1200.png";
 import cmbWordmarkBlack2400 from "../assets/logo/cmb-wordmark-black-2400.png";
+
+import cmbWordmarkNavy200 from "../assets/logo/cmb-wordmark-navy-200.png";
+import cmbWordmarkNavy400 from "../assets/logo/cmb-wordmark-navy-400.png";
+import cmbWordmarkNavy800 from "../assets/logo/cmb-wordmark-navy-800.png";
+import cmbWordmarkNavy1200 from "../assets/logo/cmb-wordmark-navy-1200.png";
+import cmbWordmarkNavy2400 from "../assets/logo/cmb-wordmark-navy-2400.png";
+
+import cmbWordmarkWhite200 from "../assets/logo/cmb-wordmark-white-200.png";
+import cmbWordmarkWhite400 from "../assets/logo/cmb-wordmark-white-400.png";
+import cmbWordmarkWhite800 from "../assets/logo/cmb-wordmark-white-800.png";
+import cmbWordmarkWhite1200 from "../assets/logo/cmb-wordmark-white-1200.png";
+import cmbWordmarkWhite2400 from "../assets/logo/cmb-wordmark-white-2400.png";
 
 export type LogoColorway = "black" | "navy" | "white";
 export type EmblemSize = 100 | 200 | 400 | 800 | 1200 | 2400;
