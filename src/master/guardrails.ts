@@ -451,7 +451,7 @@ export const GUARD_RAILS: GuardRail[] = [
       "Every deep item has a saved plan referencing brand sources + benchmarks + guard rails",
       "PR / commit history shows plan committed before implementation",
     ],
-    enforcedBy: [],
+    enforcedBy: ["guardrails-acknowledged"],
     blocking: true,
   },
   {
