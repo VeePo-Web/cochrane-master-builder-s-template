@@ -413,34 +413,67 @@ and lockup families which live in component code.
 > referenced by `<link>` tags — **never** through `<MasterLogo>`. Component
 > code uses the registry; the browser handshake uses these flat files.
 
-### File map
+### Full file ladder
 
-| File                           | Slot                  | Renders in                                 | Surface          |
-|--------------------------------|-----------------------|--------------------------------------------|------------------|
-| `favicon.ico`                  | classic favicon       | Legacy IE/Edge, Windows pinned tabs        | browser chrome   |
-| `favicon-16.png`               | sharp 16px tab        | Modern desktop tabs at 100% zoom           | browser chrome   |
-| `apple-touch-icon.png` (180²)  | iOS home screen       | "Add to Home Screen" on Safari iOS         | iOS springboard  |
-| `android-chrome-192x192.png`   | Android install       | PWA install prompt, Android app drawer     | Android launcher |
-| `android-chrome-512x512.png`   | PWA splash / maskable | Splash screen, adaptive icon source        | PWA runtime      |
-| `site.webmanifest`             | PWA identity          | Install prompt metadata, theme colors      | browser chrome   |
+13 native sizes covering every modern browser, OS, and PWA spec. Each row
+is a real PNG at its declared size — the user agent picks the closest
+match instead of scaling, so the diamond stays sharp on every chrome.
+
+| Size  | File                                            | Renders in                                  | Density tier     |
+|-------|-------------------------------------------------|---------------------------------------------|------------------|
+| ICO   | `favicon.ico`                                   | Legacy IE/Edge, Windows pinned tabs         | universal        |
+| 16    | `favicon-16.png`                                | Desktop tab @ 100% zoom                     | tab              |
+| 32    | `favicon-32.png`                                | Desktop tab @ retina                        | tab              |
+| 48    | `favicon-48.png`                                | Windows taskbar, classic pinned             | OS chrome        |
+| 64    | `favicon-64.png`                                | Hi-DPI laptop tab, dock thumbnail           | tab              |
+| 96    | `favicon-96.png`                                | Android low-density home, README crest      | mobile chrome    |
+| 128   | `favicon-128.png`                               | Chrome Web Store, generic medium            | OS chrome        |
+| 144   | `favicon-144.png`                               | Windows Metro / IE11 pinned tile            | OS tile          |
+| 152   | `favicon-152.png`                               | iPad home-screen (older iOS)                | iOS springboard  |
+| 180   | `apple-touch-icon.png` (also `favicon-180.png`) | iPhone home-screen (Safari iOS)             | iOS springboard  |
+| 192   | `android-chrome-192x192.png` (also `favicon-192.png`) | Android home, PWA install prompt      | Android launcher |
+| 256   | `favicon-256.png`                               | Hero browser-chrome, OG-square fallback     | premium chrome   |
+| 512   | `android-chrome-512x512.png`                    | PWA splash, maskable adaptive icon source   | PWA runtime      |
+|  —    | `site.webmanifest`                              | PWA install metadata, theme + bg color      | browser chrome   |
+
+> **Why dual filenames at 180 and 192?** The spec-named files
+> (`apple-touch-icon.png`, `android-chrome-192x192.png`) are what iOS and
+> Android crawlers look for by convention. The `favicon-{size}.png`
+> versions ship the same bytes under the unified ladder name so any
+> consumer that prefers that pattern can find them. Both names point at
+> the same MB-diamond — pick whichever the consumer expects.
 
 ### Wired in `index.html`
 
 ```html
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="16x16"   href="/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32"   href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48"   href="/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="64x64"   href="/favicon-64.png" />
+<link rel="icon" type="image/png" sizes="96x96"   href="/favicon-96.png" />
+<link rel="icon" type="image/png" sizes="128x128" href="/favicon-128.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="256x256" href="/favicon-256.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/favicon-152.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<meta name="msapplication-TileImage" content="/favicon-144.png" />
+<meta name="msapplication-TileColor" content="#1a2438" />
 <link rel="manifest" href="/site.webmanifest" />
 ```
+
+The `msapplication-TileImage` + `TileColor` pair makes Windows pinned-site
+tiles render the navy MB-diamond on a navy field — no generic letter
+placeholder.
 
 ### Manifest identity (`site.webmanifest`)
 
 - `name`: "Cochrane Master Builders" · `short_name`: "CMB"
 - `theme_color`: `#F2EDE4` (paper — matches existing `<meta name="theme-color">`)
-- `background_color`: `#1a2438` (navy — matches the new MB-diamond)
+- `background_color`: `#1a2438` (navy — matches the MB-diamond field)
 - `display`: `standalone` · `start_url`: `/` · `scope`: `/`
-- Icons: 192 + 512 with `purpose: "any"`; 512 also exposed as `purpose: "maskable"` for adaptive Android icons.
+- Icons declared at 96, 128, 144, 152, 192, 256, 512 with `purpose: "any"`;
+  512 is also exposed as `purpose: "maskable"` for adaptive Android icons.
 
 > **No service worker.** This pack delivers installability and crisp
 > browser chrome without registering a service worker — avoiding the
@@ -448,22 +481,17 @@ and lockup families which live in component code.
 > cause inside Lovable's preview iframe. Add a SW only if true offline
 > support becomes a requirement.
 
-### Legacy file
+### Legacy files
 
 `/public/favicon-cmb.png` and `/public/og-image-cmb.png` remain in place;
-the slot-map's `favicon` and `og` rows still reference them as transactional
-email + social-share fallbacks. Migrate those to the new MB-diamond pack
-in a separate pass.
+the slot-map's `favicon` and `og` rows above still reference them as
+transactional email + social-share fallbacks. Migrate those to the new
+MB-diamond pack (likely using `favicon-256.png` for email and a fresh
+1200×630 OG render) in a separate pass.
 
 ---
 
 ## Cross-references
-
-- Component: [`MasterLogo.tsx`](./MasterLogo.tsx)
-- Registry: [`logo-registry.ts`](./logo-registry.ts)
-- Usage rules: [`LOGO_USAGE.md`](./LOGO_USAGE.md)
-- Brand identity: [`identity.ts`](./identity.ts)
-- Remix checklist: [`../checklist.ts`](../checklist.ts)
 
 - Component: [`MasterLogo.tsx`](./MasterLogo.tsx)
 - Registry: [`logo-registry.ts`](./logo-registry.ts)
