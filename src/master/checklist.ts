@@ -55,6 +55,7 @@ export const REMIX_CHECKLIST: CheckItem[] = [
   { id: "master-logo-colorway-set", group: "setup", automated: true, label: "Logo colorway chosen", description: "TRADE.identity.logoColorway is one of: black | navy | white. Verify contrast against nav, footer, hero, and OG surfaces." },
   { id: "master-logo-binaries-embedded", group: "setup", automated: true, label: "Master logo binaries embedded (chosen colorway)", description: "Real PNGs in /src/master/assets/logo/ for the active colorway — no aliases. Black, navy, and white full lockups are all ✅." },
   { id: "master-emblem-binaries-embedded", group: "setup", automated: true, label: "Master emblem binaries embedded", description: "Square emblem-only PNGs (100/200/400/800/1200/2400) wired through <MasterLogo slot='emblem' size={…}>. Black ✅; navy + white aliased to black until those packages land (see EMBLEM_STATUS)." },
+  { id: "master-tiles-binaries-embedded", group: "setup", automated: true, label: "Master tiles binaries embedded", description: "Exploded/tiled emblem PNGs (100/200/400/800/1200/2400) wired through <MasterLogo slot='tiles' size={…}>. Black ✅; navy + white aliased to black until those packages land (see TILES_STATUS)." },
   { id: "master-logo-slot-map-followed", group: "setup", automated: false, label: "New logo surfaces follow the slot map", description: "Any new component using a logo is added to LOGO_SLOT_MAP.md and rendered via <MasterLogo slot=\"...\"/> — never <img src=\".../cmb-...png\"> direct." },
 
   // Brand
