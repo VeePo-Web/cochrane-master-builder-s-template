@@ -29,8 +29,8 @@ the brand-specific layers below. P0 within their topical area.
 | File | Format | Status | One-line label |
 |------|--------|--------|----------------|
 | `source-documents/experience-prompts/seo-virtuoso-persona.source.md` | Markdown (verbatim DOCX) | partnered | 50-year SEO virtuoso persona + 15 core principles + "what not to do" checklist + GEO/AI-search methodology + 5-step working process |
-| `source-documents/experience-prompts/master-design-persona-fantasy.source.md` | Markdown (verbatim DOCX) | source-only | Fantasy.co-level master design persona |
-| `source-documents/experience-prompts/anti-gravity-opening-engineer.source.md` | Markdown (verbatim DOCX) | source-only | Anti-gravity opening / cinematic intro engineer persona |
+| `source-documents/experience-prompts/master-design-persona-fantasy.source.md` | Markdown (verbatim DOCX) | partnered | Fantasy.co-level master design persona |
+| `source-documents/experience-prompts/anti-gravity-opening-engineer.source.md` | Markdown (verbatim DOCX) | partnered | Anti-gravity opening / cinematic intro engineer persona |
 
 ---
 
