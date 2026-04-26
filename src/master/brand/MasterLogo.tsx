@@ -136,9 +136,12 @@ const MasterLogo = ({
   // emblem so retina screens stay crisp without eager-fetching the 2400.
   if (slot === "tiles") {
     const tiles = set.tiles;
-    const base = tiles[size];
     const ladder: TileSize[] = [100, 200, 400, 800, 1200, 2400];
-    const idx = ladder.indexOf(size);
+    const tileSize: TileSize = (ladder as readonly number[]).includes(size as number)
+      ? (size as TileSize)
+      : 400;
+    const base = tiles[tileSize];
+    const idx = ladder.indexOf(tileSize);
     const x2 = ladder[idx + 1];
     const x3 = ladder[idx + 2];
     const srcSet = [
@@ -158,8 +161,43 @@ const MasterLogo = ({
         // @ts-expect-error - non-standard but supported attr
         fetchpriority={fetchPriority}
         decoding="async"
-        width={size}
-        height={size}
+        width={tileSize}
+        height={tileSize}
+        onClick={onClick}
+      />
+    );
+  }
+
+  // Monogram (handwritten "MB" signature). Own size ladder — capped at 1024.
+  if (slot === "monogram") {
+    const monogram = set.monogram;
+    const ladder: MonogramSize[] = [64, 128, 256, 512, 1024];
+    const monoSize: MonogramSize = (ladder as readonly number[]).includes(size as number)
+      ? (size as MonogramSize)
+      : 128;
+    const base = monogram[monoSize];
+    const idx = ladder.indexOf(monoSize);
+    const x2 = ladder[idx + 1];
+    const x3 = ladder[idx + 2];
+    const srcSet = [
+      `${base} 1x`,
+      x2 ? `${monogram[x2]} 2x` : null,
+      x3 ? `${monogram[x3]} 3x` : null,
+    ]
+      .filter(Boolean)
+      .join(", ");
+    return (
+      <img
+        src={base}
+        srcSet={srcSet}
+        alt={alt}
+        className={`${sizing} object-contain ${className}`}
+        loading={eager}
+        // @ts-expect-error - non-standard but supported attr
+        fetchpriority={fetchPriority}
+        decoding="async"
+        width={monoSize}
+        height={monoSize}
         onClick={onClick}
       />
     );
