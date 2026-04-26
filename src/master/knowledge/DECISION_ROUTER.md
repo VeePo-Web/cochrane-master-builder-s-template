@@ -1,6 +1,8 @@
 # Decision Router — How to Find the Right Source Document for Any Decision
 
 > **Programmatic equivalent:** `decision-index.ts` (typed registry) + `decision-search.ts` (keyword scorer) power the `bun scripts/decisions.ts "<query>"` CLI and the `/knowledge` UI route, with an AI fallback via `supabase/functions/decision-search-ai`. Use those for queryable lookup; this file remains the human-readable map.
+>
+> **Build-time enforcement:** `bun preflight` runs every guard rail on each build (auto-invoked by the `prebuild` hook) and links every failure back to the partner docs in this router. See `/knowledge/preflight` for the dashboard.
 
 This file is the **first stop** for any AI assistant facing a design, copy, UX, SEO, brand, persona, conversion, or strategy decision on a Cochrane Master Builders (CMB) site or any sister-trade remix.
 
