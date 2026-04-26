@@ -1,5 +1,7 @@
 // Decision Search AI fallback — registry-bounded, structured output.
 // Called only when the keyword scorer returns weak results.
+// Now accepts an optional `filters` block so AI matches honour the same
+// hard constraints used by the structured router on the client.
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -13,11 +15,69 @@ interface CompactRoute {
   oneLine: string;
   triggers: string[];
   categories: string[];
+  // Optional fields the client may send for filter-aware matching.
+  guardRails?: string[];
+}
+
+interface Filters {
+  pageSection?: string;
+  audience?: string[];
+  channel?: string;
+  category?: string;
+  constraints?: string[];
+  excludeIds?: string[];
 }
 
 interface RequestBody {
   query: string;
   registry: CompactRoute[];
+  filters?: Filters;
+}
+
+// Mirror of the structured router's hard-required guard rails per enum value.
+// Keep in sync with `src/master/knowledge/decision-input.ts`.
+const REQUIRED_RAILS: Record<string, string[]> = {
+  // page sections
+  "service-area-page": ["gr-areas-we-serve-excellence"],
+  legal: ["gr-legal-pages-bespoke"],
+  "style-guide": ["gr-bespoke-style-guide-live"],
+  "meta-seo": ["gr-page-meta-jsonld-unique"],
+  // constraints
+  "wcag-aa": ["gr-wcag-aa"],
+  "motion-restraint": ["gr-motion-system-pinned"],
+  "no-sister-fingerprints": ["gr-zero-sister-fingerprints"],
+  "local-trust-required": ["gr-real-business-signals"],
+  "legal-bespoke": ["gr-legal-pages-bespoke"],
+};
+
+function applyFilters(registry: CompactRoute[], filters?: Filters): {
+  filtered: CompactRoute[];
+  required: string[];
+} {
+  if (!filters) return { filtered: registry, required: [] };
+
+  const exclude = new Set(filters.excludeIds ?? []);
+  const required: string[] = [];
+  if (filters.pageSection && REQUIRED_RAILS[filters.pageSection]) {
+    required.push(...REQUIRED_RAILS[filters.pageSection]);
+  }
+  for (const c of filters.constraints ?? []) {
+    if (REQUIRED_RAILS[c]) required.push(...REQUIRED_RAILS[c]);
+  }
+  const requiredSet = new Set(required);
+
+  const filtered = registry.filter((r) => {
+    if (exclude.has(r.id)) return false;
+    if (filters.category && !r.categories.includes(filters.category)) return false;
+    if (requiredSet.size > 0) {
+      const rails = new Set(r.guardRails ?? []);
+      for (const req of requiredSet) {
+        if (!rails.has(req)) return false;
+      }
+    }
+    return true;
+  });
+  return { filtered, required: Array.from(requiredSet) };
 }
 
 Deno.serve(async (req: Request) => {
@@ -29,6 +89,7 @@ Deno.serve(async (req: Request) => {
     const body = (await req.json()) as Partial<RequestBody>;
     const query = (body.query ?? "").toString().trim();
     const registry = Array.isArray(body.registry) ? body.registry : [];
+    const filters = body.filters;
 
     if (!query || registry.length === 0) {
       return new Response(
@@ -45,25 +106,44 @@ Deno.serve(async (req: Request) => {
       );
     }
 
-    const validIds = new Set(registry.map((r) => r.id));
+    const { filtered, required } = applyFilters(registry, filters);
+    const validIds = new Set(filtered.map((r) => r.id));
+
+    if (filtered.length === 0) {
+      return new Response(JSON.stringify({ matches: [] }), {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    const filterSummary: string[] = [];
+    if (filters?.pageSection) filterSummary.push(`pageSection=${filters.pageSection}`);
+    if (filters?.channel) filterSummary.push(`channel=${filters.channel}`);
+    if (filters?.audience?.length) filterSummary.push(`audience=[${filters.audience.join(",")}]`);
+    if (filters?.category) filterSummary.push(`category=${filters.category}`);
+    if (filters?.constraints?.length)
+      filterSummary.push(`constraints=[${filters.constraints.join(",")}]`);
+    if (required.length) filterSummary.push(`requiredRails=[${required.join(",")}]`);
 
     const systemPrompt = [
       "You are a routing engine for a knowledge index of partner-doc rule books.",
-      "You will receive a USER QUERY and a REGISTRY of routes. Each route has an id, title, oneLine summary, trigger phrases, and categories.",
+      "You will receive a USER QUERY, optional FILTERS, and a REGISTRY of routes.",
+      "Each route has an id, title, oneLine summary, trigger phrases, categories, and guardRails.",
       "Return the most relevant routes for the query, ranked by relevance.",
       "RULES:",
       "1. ONLY return ids that exist in the registry. Never invent ids.",
       "2. Return at most 5 routes.",
       "3. score is 0..1 — be strict; only the strongest match should approach 1.",
-      "4. reason is one short sentence (≤14 words) explaining why this route fits the query.",
-      "5. If the query is ambiguous, prefer routes whose triggers contain the query's nouns.",
+      "4. reason is one short sentence (≤14 words) explaining why this route fits the query and filters.",
+      "5. Honour all filters; never recommend a route excluded by them.",
+      "6. If the query is ambiguous, prefer routes whose triggers contain the query's nouns.",
     ].join("\n");
 
     const userPrompt = [
       `USER QUERY: ${query}`,
+      filterSummary.length ? `FILTERS: ${filterSummary.join("; ")}` : "FILTERS: (none)",
       "",
       "REGISTRY:",
-      JSON.stringify(registry, null, 2),
+      JSON.stringify(filtered, null, 2),
     ].join("\n");
 
     const aiResp = await fetch(
