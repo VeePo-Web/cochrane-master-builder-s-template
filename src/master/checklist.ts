@@ -302,6 +302,11 @@ export const CHECKLIST_PHASE_META: Record<
   ChecklistPhase,
   { title: string; goal: string; gate: string }
 > = {
+  "0-plan-first": {
+    title: "Plan-First Discipline",
+    goal: "Read the brand stack, pin craft benchmarks, and produce a deep plan BEFORE writing code.",
+    gate: "Brand bible + identity + relevant personas read; deep plan written for every planDepth:'deep' item; benchmarks pinned.",
+  },
   "1-intake": {
     title: "Intake & Trade Foundation",
     goal: "Capture everything bespoke about THIS trade before touching code.",
