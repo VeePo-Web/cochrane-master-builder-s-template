@@ -102,6 +102,13 @@ Pin these and reference at least two on every visual/motion deep plan:
 
 **11. Verification** — Lighthouse mobile run, screenshot at 390px + 1440px, manual walkthrough on iPhone, codebase grep for the alt text.
 
+**12. Guard Rail Compliance**
+- `gr-bespoke-style-guide-live` — hero uses this trade's accent, type pair, and motion tokens (not master tokens).
+- `gr-modern-image-pipeline` — AVIF, sized for 1440px max, explicit width/height, descriptive trade-specific alt text.
+- `gr-performance-budget-mobile` — image budget ≤250KB, `fetchpriority="high"`, no CLS via reserved aspect-ratio.
+- `gr-wcag-aa` — gradient overlay verified ≥7:1 on headline; reduced-motion fallback fades in without clip-path or parallax.
+- `gr-motion-system-pinned` — uses `--ease-entry` and `--dur-hero` from the brand motion tokens, not magic numbers.
+
 ---
 
 ## When to skip the deep plan
