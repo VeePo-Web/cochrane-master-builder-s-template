@@ -1,99 +1,81 @@
-# Plan — Decision-Routing Partner Documents
+# Plan — Deepen the 10 Partner Docs Into Full Decision Rule Books
 
 ## Goal
 
-For every source document already embedded under `src/master/knowledge/source-documents/brands/cochrane-master-builders/`, create a matching **partner document** that does NOT contain or rewrite the source content. Each partner doc is a **decision-routing map**: a checklist of decision-types (triggers) that, when recognized, point the AI to that specific source document as the filter.
+Take each of the 10 existing `.partner.md` files (one per Cochrane source document) and expand them in place from lean route maps into **full decision rule books**. After this pass, opening any partner doc gives the AI everything it needs to recognize a decision, route to the right source, AND know the rules / anti-patterns / worked examples that govern that decision — without ever rewriting source content.
 
-Plus a top-level `DECISION_ROUTER.md` so when the AI faces ANY decision it can scan one file, find the trigger that matches, and be routed to the right source doc(s).
+## Hard constraints (unchanged)
 
-**Hard constraints (per user):**
-- Do NOT alter, summarize, or rewrite any file under `source-documents/`.
-- Do NOT create supporting/derivative documents beyond the routing layer.
-- Backend-only — no front-end changes.
+- Source docs under `source-documents/` stay byte-immutable. Never opened for write.
+- Partner docs never reproduce source content. They route, rule, and exemplify — they do not paraphrase the source's actual material (positioning text, tagline candidates, persona quotes, keyword lists, etc.). When in doubt, the rule says "open the source and read section X" instead of restating it.
+- Backend-only. No app code, no components, no configs touched.
+- `DECISION_ROUTER.md` stays the master index; it does not need to change unless a new decision shape emerges from the deepening (then we append rows).
 
-## Folder layout (new)
+## New 12-section template (replaces current 7-section one)
 
-Mirrors the existing source tree exactly, as already promised in `knowledge/README.md`:
+Every partner doc gets restructured to:
 
-```text
-src/master/knowledge/
-├── DECISION_ROUTER.md                       ← new master router
-└── partner-documents/                       ← new tree
-    └── brands/cochrane-master-builders/
-        ├── strategy/
-        │   ├── 1.0_..._Strategic_Business_SEO_UX_Report.partner.md
-        │   ├── 1.2_..._Strategic_Business_SEO_UX_Report_1.partner.md
-        │   └── 1.3_..._Backend_Strategy_Design_SEO_Legacy_Report_1.partner.md
-        ├── seo-research/
-        │   └── 1.1_..._Market_Competitor_AI_SEO_Research_Report_1.partner.md
-        ├── brand-identity/
-        │   ├── 1.2.1_..._Family_Legacy_Standard_1.partner.md
-        │   └── 1.2.2_..._Foundations_For_Generations_After_Us_Report.partner.md
-        ├── ux-design/
-        │   └── 1.3.1_..._Bespoke_Traditional_UX_Design_Phase_Report.partner.md
-        └── personas-icp/
-            ├── 1.4.1_..._Subcontractor_ICP_UX_Report.partner.md
-            ├── 1.4.2_..._Mothers_ICP_UX_Report.partner.md
-            └── 1.4.3_..._Grandfathers_ICP_UX_Report.partner.md
-```
+1. **Source pointer** — (kept as-is)
+2. **What this document is** — (kept as-is, tightened)
+3. **Decision triggers** — expanded with concrete phrasing the AI can pattern-match against ("matches if the request contains: hero copy, headline, tagline, h1, sub-hero, promise, pitch, …")
+4. **Decision types this doc DOES NOT govern** — (kept as-is, sharpened)
+5. **How to read the source** — (kept) plus a "fast lookup" table mapping common triggers → which section/page of the source to read first
+6. **Routing precedence** — (kept) plus a conflict-resolution example
+7. **Cross-links** — (kept)
+8. **Rules — non-negotiables this doc enforces** — numbered laws derived from the source's spirit, written as imperatives ("Never … Always … Prefer … Avoid …"). 6–14 per doc depending on scope. Each rule names the source section it traces back to.
+9. **Anti-patterns** — concrete examples of what failure looks like for this decision domain (templated phrasing, generic stock images, density mistakes, persona mismatches). 4–8 per doc.
+10. **Worked example** — one realistic decision walked end-to-end: trigger recognized → source section consulted → rules applied → output decision. Shows the AI exactly how to use this doc.
+11. **AI prompts to run against the source** — 3–6 ready-made prompts the AI can use with `document--parse_document` output to extract exactly what it needs (e.g. "List every tone word and its forbidden synonym", "Extract the top 5 objections and their sanctioned answers"). Saves re-discovering the right question every time.
+12. **Linkage to guard rails** — list which `GuardRailId`s from `src/master/guardrails.ts` this doc helps satisfy, and how. This stitches the partner-doc layer into the existing constitution layer.
 
-Filename rule: `<exact-source-stem>.partner.md`. The `.partner.md` suffix makes the relationship unambiguous and grep-friendly.
+## Per-doc scope (keeps each one focused)
 
-## Partner document template
+| Partner doc | Rule-set focus | Approx rule count |
+|---|---|---|
+| `strategy/1.0` | Constitutional positioning, on-mission/off-mission test | 8 rules, 4 anti-patterns |
+| `strategy/1.2` | Iterated positioning, pricing transparency posture, differentiation | 10 rules, 5 anti-patterns |
+| `strategy/1.3` | Multi-trade backend, sister-site network, what inherits vs. what stays bespoke | 12 rules, 6 anti-patterns |
+| `seo-research/1.1` | Keyword selection, meta structure, Areas-We-Serve depth, AI-search visibility, schema density | 14 rules, 8 anti-patterns |
+| `brand-identity/1.2.1` | Voice register, family-language guardrails, palette derivation, type philosophy | 12 rules, 6 anti-patterns |
+| `brand-identity/1.2.2` | Tagline cadence rules, mission phrasing, hero promise patterns | 10 rules, 6 anti-patterns |
+| `ux-design/1.3.1` | Layout density, hierarchy, mobile defaults, footer arch, trust placement, form structure | 14 rules, 8 anti-patterns |
+| `personas-icp/1.4.1` | Subcontractor B2B copy register, partner-portal UX, vendor-form rules | 10 rules, 5 anti-patterns |
+| `personas-icp/1.4.2` | Mother-persona empathy, scheduling/safety/pricing transparency, trust selection | 12 rules, 6 anti-patterns |
+| `personas-icp/1.4.3` | Grandfather-persona empathy, accessibility upshifts, motion restraint, plainspoken register | 12 rules, 6 anti-patterns |
 
-Every partner doc follows the same 7-section template so the AI can parse them uniformly:
+Total new content: ~110 rules + ~60 anti-patterns + 10 worked examples + ~40 ready-made AI prompts.
 
-1. **Source pointer** — relative path to the source doc, brand, category, format, version.
-2. **What this document is** — one-paragraph orientation (no source content reproduced; only what kind of intelligence the source holds).
-3. **Decision triggers — when to consult this doc** — bulleted list of recognizable decision shapes. Each trigger is a phrase the AI can match against a request, e.g. "deciding hero copy for a service page", "choosing color contrast for headlines on photography", "writing meta titles for an Areas-We-Serve page", "designing the subcontractor onboarding form".
-4. **Decision types this doc DOES NOT govern** — explicit out-of-scope list so the AI doesn't over-route.
-5. **How to read it** — which section/page to jump to first for the most common triggers (e.g. "for tone questions, start at the voice section"). For binary files (PDF/DOCX), include the instruction to use `document--parse_document` first.
-6. **Routing precedence** — when this doc conflicts with another, which wins. Default rules: brand-identity wins on voice/visual; strategy wins on positioning; SEO research wins on keywords/areas; persona docs win on audience empathy; UX design wins on layout/flow.
-7. **Cross-links** — sibling partner docs to consult alongside this one for the same decision.
+## Authoring discipline (so we don't violate the no-rewrite rule)
 
-## DECISION_ROUTER.md (master index)
+For every rule and worked example, I will:
+- Phrase rules as **imperatives the AI follows** ("Always X; never Y"), not as **content extracted from the source**.
+- Cite source sections by *name/topic* ("see the voice register section"), not by quoting source prose.
+- Use generic / illustrative copy in worked examples (e.g. "a hero for `/services/custom-home`"), never paste candidate taglines or persona quotes that live in the source.
+- Anti-patterns describe failures in the AI's own outputs, not source content.
 
-A single top-level routing table. Two sections:
+## What changes vs. what stays
 
-- **By decision type** — alphabetized list of decision shapes (e.g. "Areas-We-Serve page structure", "Brand voice on a hero", "Color palette derivation", "Form copy for trade-vendor onboarding", "Mother-persona empathy in copy", "Trust signals on legal pages") → list of partner docs to consult, in order.
-- **By source doc** — link to every `.partner.md` with its one-line label (mirrors the existing `INDEX.md` rows).
+Stays identical:
+- All 10 source docs (untouched).
+- `DECISION_ROUTER.md` content (router still works; new sections in partner docs only deepen the destination, not the routing).
+- README.md workflow (still partner doc + router entry).
+- Guard rails, checklist, playbooks, brand bible, configs — none touched.
 
-The router does NOT replace `INDEX.md`; `INDEX.md` stays the registry of *what's embedded*, the router governs *what to consult when*.
-
-## Per-document trigger drafts (so the user can sanity-check coverage now)
-
-| Source doc | Primary decision triggers it owns |
-|---|---|
-| `1.0` Strategic Business SEO UX (top-level) | overall positioning, what business CMB is in, North Star, big-picture site purpose |
-| `1.2` Strategic Business SEO UX (v1.2) | iterated positioning + revised SEO/UX direction; use when 1.0 and 1.2 disagree → 1.2 wins |
-| `1.3` Backend Strategy / Design / SEO / Legacy | backend taxonomy, multi-trade architecture decisions, legacy framing, sister-site strategy |
-| `1.1` Market + Competitor + AI SEO Research | keyword choices, competitor framing, AI-search visibility, Areas-We-Serve seed list, SERP intent |
-| `1.2.1` Family Legacy Standard | brand voice on legacy/heritage, family-language guardrails, generational tone words |
-| `1.2.2` Foundations For Generations After Us | tagline derivations, mission-statement copy, "promise to the next generation" framing |
-| `1.3.1` Bespoke Traditional UX Design Phase | layout density, traditional/editorial UX pattern selection, when to choose restraint over flash |
-| `1.4.1` Subcontractor ICP + UX | trade-vendor onboarding flows, B2B copy, partner-portal decisions, subcontractor empathy |
-| `1.4.2` Mothers ICP + UX | family-buyer empathy, safety language, scheduling sensitivity, home-as-sanctuary copy |
-| `1.4.3` Grandfathers ICP + UX | legacy-buyer empathy, plainspoken copy, trust signals weighted toward longevity, large-tap targets |
-
-## Files to create (count: 11)
-
-- `src/master/knowledge/DECISION_ROUTER.md`
-- 9 × `*.partner.md` files mirroring each source doc above
-- A short note appended to `src/master/knowledge/README.md` pointing to `DECISION_ROUTER.md` and explaining the partner-doc convention (the README already promised `partner-documents/` would mirror the source tree — this satisfies that promise).
-
-## Files NOT touched
-
-- Anything under `source-documents/` — untouched, byte-identical.
-- `INDEX.md` — left as the embedding registry (no schema change needed for this round).
-- All app code, configs, components, personas, playbooks, guard rails, checklist.
+Changes:
+- All 10 `.partner.md` files rewritten in place using the 12-section template.
+- README.md updated in one spot to mention the new 12-section template (so future partner docs follow it).
 
 ## Verification after build
 
-- `find src/master/knowledge/partner-documents -name "*.partner.md" | wc -l` → expect `9`.
-- Each partner doc references its exact source path (grep test).
-- `DECISION_ROUTER.md` links every partner doc at least once.
-- No diff inside `source-documents/`.
+- `find src/master/knowledge/partner-documents -name "*.partner.md" | wc -l` → still `10`.
+- `grep -L "## 8. Rules" src/master/knowledge/partner-documents/**/*.partner.md` → expect empty (every doc has the new sections).
+- `grep -L "## 12. Linkage to guard rails" …` → expect empty.
+- Source tree byte-identical: `find src/master/knowledge/source-documents -type f -newer /tmp/marker` → expect empty after touching a marker first.
+- Spot-check 2 docs end-to-end for a worked example that doesn't paraphrase source content.
 
-## Open question (will ask after approval if needed)
+## Out of scope (call out so we don't drift)
 
-If the user later wants the trigger keywords machine-readable (so a future tool could auto-route), we can add a YAML frontmatter block per partner doc in a follow-up pass. Not in scope for this round to keep the docs human-readable and uncluttered.
+- No changes to checklists or guard rails.
+- No new partner docs for the empty category folders (animations/, components/, etc.) — those wait until a source doc lands there.
+- No machine-readable frontmatter yet (still keeping docs human-readable; can add YAML triggers later if you want auto-routing tooling).
+- No edits to existing playbooks under `src/master/playbooks/`.
