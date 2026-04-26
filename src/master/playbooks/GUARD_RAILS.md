@@ -1,6 +1,8 @@
 # GUARD RAILS — The Constitution Above The Checklist
 
 > **Read this first.** Before any plan, any phase, any line of code on a remix, the AI agent and the operator both acknowledge these laws. If the agent skips this file, the work is invalid.
+>
+> **Build-time enforcement:** `bun preflight` (auto-invoked by the `prebuild` hook in `package.json`) runs every guard rail in `src/master/guardrails.ts` and prints a categorized report. Each failure links to the partner-doc routes that govern it via `src/master/knowledge/guardrail-routes.ts`. Dashboard at `/knowledge/preflight`. Run `bun preflight --strict` in CI to halt the build on any failure.
 
 The remix checklist (`src/master/checklist.ts`) describes WHAT to do. The guard rails describe what MUST be true before a site is allowed to ship. They are non-negotiable, immutable, and ALWAYS apply, on every trade site, every time. **If a guard rail fails, the site does not launch.**
 
