@@ -104,6 +104,61 @@ If precedence still doesn't resolve it, surface the conflict in your plan (per `
 
 ---
 
+## Structured input
+
+Free-text alone is fuzzy. The strict schema in `src/master/knowledge/decision-input.ts` lets you pin the routing dimensions explicitly:
+
+| Field | Type | Notes |
+|---|---|---|
+| `goal` | string (3–240) | **Required.** Free-text intent, joined with synthesized phrases from the other fields. |
+| `pageSection` | enum | `home-hero` · `home-body` · `service-page` · `service-area-page` · `about` · `legal` · `partners-vendors` · `footer` · `forms-booking` · `style-guide` · `blog-faq` · `meta-seo` |
+| `audience` | enum[] | `mothers` · `grandfathers` · `subcontractors` · `general-homeowner` · `b2b-vendor` · `ai-search-crawler` |
+| `channel` | enum | `web-desktop` · `web-mobile` · `email` · `print-collateral` · `voice-search` · `ai-overview` |
+| `category` | enum | One of the existing `DecisionCategory` values. Hard pre-filter. |
+| `constraints` | enum[] | `wcag-aa` · `motion-restraint` · `no-sister-fingerprints` · `bespoke-only` · `pricing-transparency` · `local-trust-required` · `phone-cta-priority` · `legal-bespoke` |
+| `excludeIds` | string[] | Route ids the caller has already rejected. |
+
+**Compilation:** `compileQuery(input)` turns the schema into `{ text, category, boostRails, requiredRails, excludeIds }`. The router then:
+
+1. Pre-filters `DECISION_INDEX` by `category`, `requiredRails`, and `excludeIds`.
+2. Runs the keyword scorer against the synthesized `text`.
+3. Adds a small score nudge per `boostRails` hit on each route.
+
+Hard rails are derived from the enum values themselves — for example `pageSection: "service-area-page"` *requires* `gr-areas-we-serve-excellence`, and `constraints: ["wcag-aa"]` *requires* `gr-wcag-aa`. A route that doesn't cover those rails is removed from the candidate set before scoring.
+
+### Worked examples
+
+**UI** — open `/knowledge`, type goal, click **Refine**, pick filters. The "Compiled query" strip shows what the router actually applied.
+
+**CLI**
+```bash
+bun scripts/decisions.ts "hero copy for a 9pm phone read" \
+  --section home-hero \
+  --audience mothers \
+  --channel web-mobile \
+  --constraint wcag-aa
+```
+
+**Programmatic**
+```ts
+import { validateDecisionInput } from "@/master/knowledge/decision-input";
+import { searchDecisionsStructured } from "@/master/knowledge/decision-search";
+
+const v = validateDecisionInput({
+  goal: "service area page meta",
+  pageSection: "service-area-page",
+  channel: "ai-overview",
+  constraints: ["local-trust-required"],
+});
+if (v.ok) {
+  const { results } = searchDecisionsStructured(v.value);
+}
+```
+
+When NO structured field is set, the router falls back to the original free-text `searchDecisions(query)` path — fully backward compatible.
+
+---
+
 ## What this router does NOT do
 
 - It does not contain source content. To actually read intelligence, open the source doc the partner doc points to.
