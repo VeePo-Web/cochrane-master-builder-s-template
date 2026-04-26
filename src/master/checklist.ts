@@ -378,6 +378,7 @@ export interface CheckItem {
 
 export const CHECKLIST_PHASES = [
   "0-plan-first",
+  "0.5-guardrails-armed",
   "1-intake",
   "2-brand",
   "3-ia",
@@ -398,6 +399,11 @@ export const CHECKLIST_PHASE_META: Record<
     title: "Plan-First Discipline",
     goal: "Read the brand stack, pin craft benchmarks, and produce a deep plan BEFORE writing code.",
     gate: "Brand bible + identity + relevant personas read; deep plan written for every planDepth:'deep' item; benchmarks pinned.",
+  },
+  "0.5-guardrails-armed": {
+    title: "Guard Rails Armed",
+    goal: "Acknowledge the 18 non-negotiable laws and produce a per-trade coverage map BEFORE intake. The constitution must be loaded before work begins.",
+    gate: "GUARD_RAILS.md read in full; per-trade guardrails-coverage.md committed; getUnenforcedGuardRails() returns [].",
   },
   "1-intake": {
     title: "Intake & Trade Foundation",
