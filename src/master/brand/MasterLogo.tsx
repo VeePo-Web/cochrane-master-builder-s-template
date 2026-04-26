@@ -22,6 +22,7 @@ import {
   type LogoColorway,
   type EmblemSize,
   type TileSize,
+  type MonogramSize,
 } from "./logo-registry";
 import { MASTER } from "./identity";
 import { TRADE } from "@/config/trade.config";
@@ -30,7 +31,13 @@ type ResponsiveSlot = "nav" | "footer";
 type SingleSlot = "hero" | "large" | "medium" | "small" | "loading";
 type EmblemSlot = "emblem";
 type TilesSlot = "tiles";
-export type MasterLogoSlot = ResponsiveSlot | SingleSlot | EmblemSlot | TilesSlot;
+type MonogramSlot = "monogram";
+export type MasterLogoSlot =
+  | ResponsiveSlot
+  | SingleSlot
+  | EmblemSlot
+  | TilesSlot
+  | MonogramSlot;
 
 interface MasterLogoProps {
   slot: MasterLogoSlot;
