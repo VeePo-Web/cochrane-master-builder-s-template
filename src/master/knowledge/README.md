@@ -104,15 +104,23 @@ For programmatic / queryable lookup of "what rules apply to this decision", use:
 
 - **Registry**: [`decision-index.ts`](./decision-index.ts) — one typed `DecisionRoute`
   per partner doc, with categories, trigger phrases, and guard-rail linkage.
+- **Input schema**: [`decision-input.ts`](./decision-input.ts) — strict Zod schema
+  for `goal`, `pageSection`, `audience[]`, `channel`, `category`, `constraints[]`,
+  `excludeIds[]`. Each enum value carries hints that compile to required guard
+  rails, soft category boosts, and trigger phrases. Use this when free-text alone
+  is too fuzzy.
 - **Scorer**: [`decision-search.ts`](./decision-search.ts) — pure deterministic
-  keyword + category matcher. Returns lean results (route + score + matched
-  triggers + reason). No external deps.
+  keyword + category matcher. Exposes `searchDecisions(query)` (free-text) and
+  `searchDecisionsStructured(input)` (schema-driven, hard-filtered).
 - **CLI**: `bun scripts/decisions.ts "<query>" [--category seo] [--limit 10]`
-  — prints ranked routes to stdout. Useful inside agent loops and pre-commit checks.
+  with optional structured flags `--section`, `--audience`, `--channel`,
+  `--constraint`, `--exclude` — auto-switches to the structured router when any
+  structured flag is set.
 - **UI**: `/knowledge` (internal route, not in nav, `noindex`) — same scorer plus
-  an "Ask AI" button that calls the `decision-search-ai` edge function for a
-  semantic fallback when keyword score is below `0.35`. The AI is registry-bounded
-  via tool calling and can never invent route ids.
+  a **Refine** panel exposing the strict schema, and an "Ask AI" button that calls
+  the `decision-search-ai` edge function for a semantic fallback when keyword
+  score is below `0.35`. The AI receives the same filters and is registry-bounded
+  via tool calling, so it can never invent route ids or violate hard constraints.
 
 The registry is the single source of truth for both surfaces. Any new partner
 doc must append a `DecisionRoute` entry to keep the index complete.
