@@ -244,6 +244,16 @@ export const LOGO_USAGE_MAP = {
   emblemAccent:    { file: "cmb-emblem-black-800.png",  maxHeightPx: 240,  surface: "any"   as const, note: "Hero accent, section divider monogram, scroll-back-to-top." },
   emblemWatermark: { file: "cmb-emblem-black-1200.png", maxHeightPx: 480,  surface: "image" as const, note: "Full-page watermark, splash crest, og-square." },
   emblemPrint:     { file: "cmb-emblem-black-2400.png", maxHeightPx: 1200, surface: "any"   as const, note: "Print master / billboard / 5K hero crest. Lazy-load only." },
+
+  // ── Tiles family (exploded mark — three separated panels) ──
+  // The kinetic identity. Use when the brand should feel built/assembled,
+  // especially with motion. Distinct from emblem (solid crest) and lockup.
+  tilesFavicon:     { file: "cmb-tiles-black-100.png",  maxHeightPx: 32,   surface: "any"   as const, note: "Alt favicon for staging/construction-mode environments." },
+  tilesAvatar:      { file: "cmb-tiles-black-200.png",  maxHeightPx: 64,   surface: "any"   as const, note: "Team / social avatar where the kinetic look beats the solid crest." },
+  tilesAccent:      { file: "cmb-tiles-black-400.png",  maxHeightPx: 128,  surface: "any"   as const, note: "Section divider mark; can animate the three panels in sequence." },
+  tilesProcess:     { file: "cmb-tiles-black-800.png",  maxHeightPx: 240,  surface: "light" as const, note: "Process / craft pages — one tile per step, animated assembly." },
+  tilesLoadingHero: { file: "cmb-tiles-black-1200.png", maxHeightPx: 480,  surface: "dark"  as const, note: "Loading splash final reveal — tiles fly in and lock into position." },
+  tilesWatermark:   { file: "cmb-tiles-black-2400.png", maxHeightPx: 1200, surface: "image" as const, note: "Full-page background watermark on premium pages at 6–10% opacity." },
 } as const;
 
 export type LogoSlot = keyof typeof LOGO_USAGE_MAP;
