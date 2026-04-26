@@ -75,11 +75,14 @@ When asked to design, build, restyle, write, or refine anything:
    original filename is ambiguous; if you do rename, keep the original name in the index entry.
 2. Add a row to `INDEX.md` with: path, brand, category, format, partner-doc status (`pending`
    until a partner doc exists), and a one-line label derived from the filename.
-3. Write a **decision-routing partner document** in the mirrored
-   `partner-documents/<same-path>/<same-stem>.partner.md`. Partner docs are routing maps,
-   NOT rewrites of the source — they tell the AI *when* to consult the source, *what* it
-   does and does not govern, and *which sibling docs* to consult alongside. Follow the
-   7-section template used by every existing partner doc.
+3. Write a **decision rule book** partner document in the mirrored
+   `partner-documents/<same-path>/<same-stem>.partner.md`. Partner docs are routing +
+   rules + worked examples, NEVER rewrites of source content. Follow the 12-section
+   template used by every existing partner doc: (1) source pointer, (2) what it is,
+   (3) decision triggers, (4) what it does NOT govern, (5) how to read the source,
+   (6) routing precedence, (7) cross-links, (8) rules, (9) anti-patterns,
+   (10) worked example, (11) AI prompts to run against the source, (12) linkage to
+   guard rails (`src/master/guardrails.ts`).
 4. Add the new partner doc to `DECISION_ROUTER.md` under both the **By decision type** table
    (for any new decision shapes it owns) and the **By source doc** index.
 5. Keep the source byte-identical to the upload.
