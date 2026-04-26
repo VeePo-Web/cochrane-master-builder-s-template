@@ -180,18 +180,19 @@ the mark in motion, the mark assembling itself, the mark as architecture.
 
 ### Colorway readiness
 
-| Variant | Black ✅                       | Navy ✅                        | White ⏳ (aliased)             |
+| Variant | Black ✅                       | Navy ✅                        | White ✅                       |
 |---------|--------------------------------|--------------------------------|--------------------------------|
-| 100     | `cmb-tiles-black-100.png`      | `cmb-tiles-navy-100.png`       | → black                        |
-| 200     | `cmb-tiles-black-200.png`      | `cmb-tiles-navy-200.png`       | → black                        |
-| 400     | `cmb-tiles-black-400.png`      | `cmb-tiles-navy-400.png`       | → black                        |
-| 800     | `cmb-tiles-black-800.png`      | `cmb-tiles-navy-800.png`       | → black                        |
-| 1200    | `cmb-tiles-black-1200.png`     | `cmb-tiles-navy-1200.png`      | → black                        |
-| 2400    | `cmb-tiles-black-2400.png`     | `cmb-tiles-navy-2400.png`      | → black                        |
+| 100     | `cmb-tiles-black-100.png`      | `cmb-tiles-navy-100.png`       | `cmb-tiles-white-100.png`      |
+| 200     | `cmb-tiles-black-200.png`      | `cmb-tiles-navy-200.png`       | `cmb-tiles-white-200.png`      |
+| 400     | `cmb-tiles-black-400.png`      | `cmb-tiles-navy-400.png`       | `cmb-tiles-white-400.png`      |
+| 800     | `cmb-tiles-black-800.png`      | `cmb-tiles-navy-800.png`       | `cmb-tiles-white-800.png`      |
+| 1200    | `cmb-tiles-black-1200.png`     | `cmb-tiles-navy-1200.png`      | `cmb-tiles-white-1200.png`     |
+| 2400    | `cmb-tiles-black-2400.png`     | `cmb-tiles-navy-2400.png`      | `cmb-tiles-white-2400.png`     |
 
-`TILES_STATUS` reports `ready` for black + navy and `aliased` for white.
-When the white tile package arrives, swap one line in
-`logo-registry.ts` (`TILES_WHITE = …`) and every site flips automatically.
+All three colorways × six sizes are now embedded. `TILES_STATUS` reports
+`ready` for every colorway and `MASTER_LOGOS` contains zero aliases.
+The kinetic identity reveal on the dark splash and any image-surface
+watermark now serves the correct white file for contrast.
 
 ### Render API
 
