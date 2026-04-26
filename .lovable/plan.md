@@ -1,127 +1,114 @@
 ## What you uploaded
 
-**Favicon ladder — 9 PNGs of the navy MB-diamond, sized for every browser-chrome surface the spec calls for.**
+**Three groups in this round:**
 
-| File | Primary use |
-|---|---|
-| `favicon-32.png` | Modern desktop browser tab (retina) |
-| `favicon-48.png` | Windows taskbar / classic Win pinned site |
-| `favicon-64.png` | Browser tab on hi-DPI laptop |
-| `favicon-96.png` | Android home-screen (legacy / low-density) |
-| `favicon-128.png` | Chrome Web Store, generic medium chrome |
-| `favicon-144.png` | Windows Metro / IE11 pinned tile |
-| `favicon-152.png` | iPad home-screen (older iOS) |
-| `favicon-180.png` | iPhone home-screen (modern iOS Safari) — **already embedded as `apple-touch-icon.png`** |
-| `favicon-192.png` | Android Chrome PWA install — **already embedded as `android-chrome-192x192.png`** |
-| `favicon-256.png` | Hero browser-chrome / large favicon, OG-square fallback |
+### A. Navy MB-diamond at 512 (`favicon-512.png`)
+The master-resolution navy diamond — same artwork as `android-chrome-512x512.png` but under the unified `favicon-{size}.png` ladder name. Closes the navy ladder at the top end so every rung from 16 → 512 is reachable under both spec-named and ladder-named filenames.
 
-The 16px and 512px ends of the ladder are already in `/public/` from the last round. This upload fills in **everything in between** — meaning every modern browser, OS, and PWA spec gets an exact-size native asset instead of having to scale from a neighbour.
+### B. White MB-diamond ladder (6 PNGs)
+The **reverse colorway** of the browser-chrome mark — white diamond, transparent background. New asset class. Sizes: `favicon-white-32/64/128/192/256/512.png`.
+
+This is the dark-surface counterpart to the navy favicon set. Use cases:
+- Dark-mode browser tab icons (via `<link rel="icon" media="(prefers-color-scheme: dark)">`)
+- Dark email headers (transactional templates with navy/asphalt backgrounds)
+- Social share cards on dark OG backgrounds
+- In-product dark surfaces that need a chrome-style diamond mark (loading splash, dark modals)
+
+### C. Replacement `site.webmanifest`
+A simpler manifest you've authored — strips description/scope/start_url, drops to 192+512 only, switches `theme_color` to navy `#1F2F4D` and `background_color` to white. **This conflicts with the current setup in two ways** (see decision below).
 
 ---
 
 ## Plan
 
-### 1. Embed the full ladder in `/public/`
+### 1. Embed the navy 512 ladder file
 
-Copy all 9 files to `public/` using their existing names:
-- `public/favicon-32.png`, `favicon-48.png`, `favicon-64.png`, `favicon-96.png`, `favicon-128.png`, `favicon-144.png`, `favicon-152.png`, `favicon-180.png`, `favicon-192.png`, `favicon-256.png`
+- Copy `favicon-512.png` → `public/favicon-512.png`
+- Add to `index.html` `<link>` block:
+  ```html
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
+  ```
+- The existing `android-chrome-512x512.png` stays as-is (PWA spec name); both filenames now serve the same 512 master, matching the dual-name pattern at 180 and 192.
 
-The 180 and 192 uploads are **identical content** to the existing `apple-touch-icon.png` and `android-chrome-192x192.png` — keep both naming conventions live so:
-- The spec-correct `apple-touch-icon.png` / `android-chrome-192x192.png` remain wired (what iOS / Android crawlers expect)
-- The `favicon-180.png` / `favicon-192.png` versions are reachable via the unified `favicon-{size}.png` ladder for any consumer that prefers that pattern
+### 2. Embed the white MB-diamond ladder
 
-### 2. Wire the new sizes into `index.html`
+- Copy 6 files to `public/`:
+  - `favicon-white-32.png`, `favicon-white-64.png`, `favicon-white-128.png`, `favicon-white-192.png`, `favicon-white-256.png`, `favicon-white-512.png`
+- **Wire dark-mode chrome detection** in `index.html` using prefers-color-scheme media queries — modern browsers (Safari 15+, Chrome 91+, Firefox 109+) honor this and serve the white diamond on dark UA chrome, navy on light:
+  ```html
+  <link rel="icon" type="image/png" sizes="32x32"  href="/favicon-32.png"        media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/png" sizes="32x32"  href="/favicon-white-32.png"  media="(prefers-color-scheme: dark)" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-white-192.png"      media="(prefers-color-scheme: dark)" />
+  ```
+  Plus a fallback navy `<link rel="icon">` without `media` for browsers that don't support the query (so they get the navy default).
 
-Expand the `<link>` block to declare every size explicitly. Browsers pick the closest match without scaling:
+### 3. Decision: replacement `site.webmanifest`
 
+Your uploaded manifest differs from the current one in three ways:
+
+| Field | Current | Your upload | Recommendation |
+|---|---|---|---|
+| `description`, `start_url`, `scope` | present | removed | **Keep current** — `start_url`/`scope` are required for proper PWA install behavior; without them the manifest fails Lighthouse PWA checks. |
+| `icons` array | 8 entries (96/128/144/152/192/256/512 + maskable) | 2 entries (192/512) | **Keep current** — the extra mid-range entries help adaptive launchers pick the optimal size. |
+| `theme_color` / `background_color` | `#F2EDE4` / `#1a2438` (paper / navy) | `#1F2F4D` / `#FFFFFF` (navy / white) | **Adopt your values** — they match the new browser-chrome direction (navy address bar on light surfaces). |
+
+**Net change**: keep the structural richness of the current manifest, but flip `theme_color` to your navy `#1F2F4D` and `background_color` to white `#FFFFFF`. Also update the matching `<meta name="theme-color">` in `index.html` (currently `#F2EDE4`) to `#1F2F4D` so the address bar / splash background match.
+
+> If you'd rather drop straight to your minimal manifest (e.g. you're intentionally avoiding the install prompt), say the word and I'll swap it 1:1 — but the loss of `start_url`/`scope` will degrade installability.
+
+### 4. Document both new families in `LOGO_SLOT_MAP.md`
+
+Update the "Browser chrome & PWA pack" section to:
+
+- Add `favicon-512.png` to the ladder table (alongside `android-chrome-512x512.png`, both serving the 512 master)
+- Add a **new sub-section** "Dark-mode reverse colorway" documenting the white ladder:
+
+| Size | File | Renders in | Tier |
+|---|---|---|---|
+| 32  | `favicon-white-32.png`  | Dark-mode desktop tab @ retina  | tab |
+| 64  | `favicon-white-64.png`  | Dark-mode hi-DPI laptop tab     | tab |
+| 128 | `favicon-white-128.png` | Dark-mode generic OS chrome     | OS chrome |
+| 192 | `favicon-white-192.png` | Dark-mode Android home / install | mobile |
+| 256 | `favicon-white-256.png` | Dark-mode hero favicon, dark OG | premium |
+| 512 | `favicon-white-512.png` | Dark email/template headers, dark splash | hero |
+
+With a callout explaining the `prefers-color-scheme` mechanism: browser asks the OS at request time which appearance is active, picks the matching `<link>`. No JS required. Falls back gracefully to navy on browsers without media query support.
+
+### 5. Update theme color
+
+In `index.html`, change:
 ```html
-<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
-<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png" />
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
-<link rel="icon" type="image/png" sizes="128x128" href="/favicon-128.png" />
-<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
-<link rel="icon" type="image/png" sizes="256x256" href="/favicon-256.png" />
-<link rel="apple-touch-icon" sizes="152x152" href="/favicon-152.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<meta name="msapplication-TileImage" content="/favicon-144.png" />
-<meta name="msapplication-TileColor" content="#1a2438" />
-<link rel="manifest" href="/site.webmanifest" />
+<meta name="theme-color" content="#F2EDE4" />
 ```
-
-Notes:
-- `apple-touch-icon` declared at both 152 (iPad) and 180 (iPhone) — iOS picks the matching one
-- `msapplication-TileImage` + `TileColor` makes Windows pinned-site tiles render the navy MB-diamond on a navy background
-- The 192 entry stays pointed at the spec-named `android-chrome-192x192.png` (PWA crawlers look for that exact filename)
-
-### 3. Extend the manifest with the mid-range icons
-
-Update `public/site.webmanifest` to include 96, 128, 144, 152, 192, 256, 512 entries so the install prompt and adaptive launcher pick the optimal size on every device class:
-
-```json
-"icons": [
-  { "src": "/favicon-96.png",  "sizes": "96x96",   "type": "image/png", "purpose": "any" },
-  { "src": "/favicon-128.png", "sizes": "128x128", "type": "image/png", "purpose": "any" },
-  { "src": "/favicon-144.png", "sizes": "144x144", "type": "image/png", "purpose": "any" },
-  { "src": "/favicon-152.png", "sizes": "152x152", "type": "image/png", "purpose": "any" },
-  { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-  { "src": "/favicon-256.png", "sizes": "256x256", "type": "image/png", "purpose": "any" },
-  { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-  { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
-]
+to:
+```html
+<meta name="theme-color" content="#1F2F4D" />
 ```
+This colors the iOS Safari status-bar tint and Android Chrome address-bar background to navy — coherent with the new MB-diamond identity. (Current paper color was inherited from the prior brand stage.)
 
-### 4. Document the full ladder in `LOGO_SLOT_MAP.md`
+### 6. Checklist
 
-Replace the existing 6-row "Browser chrome & PWA pack" file map with the **complete 13-file ladder**, organized by surface:
-
-| Size  | File                              | Surface / consumer                          | Density tier     |
-|-------|-----------------------------------|---------------------------------------------|------------------|
-| ICO   | `favicon.ico`                     | Legacy IE/Edge, Windows pinned tabs         | universal        |
-| 16    | `favicon-16.png`                  | Desktop tab @ 100% zoom                     | tab              |
-| 32    | `favicon-32.png`                  | Desktop tab @ retina                        | tab              |
-| 48    | `favicon-48.png`                  | Windows taskbar, classic pinned             | OS chrome        |
-| 64    | `favicon-64.png`                  | Hi-DPI laptop tab, dock thumbnail           | tab              |
-| 96    | `favicon-96.png`                  | Android low-density home, GH README crest   | mobile chrome    |
-| 128   | `favicon-128.png`                 | Chrome Web Store, generic medium            | OS chrome        |
-| 144   | `favicon-144.png`                 | Windows Metro / IE11 pinned tile            | OS tile          |
-| 152   | `favicon-152.png`                 | iPad home-screen (older iOS)                | iOS springboard  |
-| 180   | `apple-touch-icon.png` / `favicon-180.png` | iPhone home-screen (Safari iOS)    | iOS springboard  |
-| 192   | `android-chrome-192x192.png` / `favicon-192.png` | Android home, PWA install     | Android launcher |
-| 256   | `favicon-256.png`                 | Hero favicon, OG-square fallback            | premium chrome   |
-| 512   | `android-chrome-512x512.png`      | PWA splash, maskable adaptive icon source   | PWA runtime      |
-
-Plus a callout that 180 and 192 ship under **both** filenames intentionally — spec-named files for crawlers that look for them by convention, ladder-named files for consumers that prefer the unified pattern.
-
-### 5. Checklist
-
-The existing `master-favicon-pwa-pack-embedded` check stays as-is — broaden its description to cover the full 13-file ladder + manifest + tile metadata.
+The existing `master-favicon-pwa-pack-embedded` check stays — broaden its description to cover the white ladder + dark-mode wiring + theme color update.
 
 ---
 
 ## Files touched
 
 **Created (binaries):**
-- `public/favicon-32.png` · `favicon-48.png` · `favicon-64.png` · `favicon-96.png` · `favicon-128.png` · `favicon-144.png` · `favicon-152.png` · `favicon-180.png` · `favicon-192.png` · `favicon-256.png`
+- `public/favicon-512.png`
+- `public/favicon-white-32.png` · `favicon-white-64.png` · `favicon-white-128.png` · `favicon-white-192.png` · `favicon-white-256.png` · `favicon-white-512.png`
 
 **Edited:**
-- `index.html` — expanded `<link rel="icon">` block + Windows tile metadata
-- `public/site.webmanifest` — extended icons array
-- `src/master/brand/LOGO_SLOT_MAP.md` — full 13-file ladder table
+- `index.html` — add 512 link, dark-mode `<link media="...">` pairs, switch `theme-color` to `#1F2F4D`
+- `public/site.webmanifest` — flip `theme_color`/`background_color` to your values; keep structural richness
+- `src/master/brand/LOGO_SLOT_MAP.md` — extend ladder, add "Dark-mode reverse colorway" sub-section
 - `src/master/checklist.ts` — broadened description
 
 ---
 
 ## Why this matters
 
-A single favicon scaled by the browser looks soft on every tier except its native size. With the full ladder embedded:
-- **Desktop tabs** render the diamond crisp at 16, 32, and 64
-- **Windows pinned tiles** show the diamond on a navy field instead of a generic letter
-- **iPad and iPhone home-screens** each get a native size (152 / 180) — no scaling artifacts
-- **Android launchers** pick 96 / 192 / 512 by density — small launcher uses the small file
-- **PWA install** has a proper maskable 512 source for adaptive icons
-- **OG / share contexts** can fall back to the 256 if needed
-
-This is the production-grade browser-chrome footprint.
+1. **Dark-mode parity.** Modern OSes ask the browser to pick a tab icon that matches the user's appearance preference. Until now the navy diamond got rendered on dark Safari/Chrome chrome where it competes with the dark UI. The white reverse fixes that — same mark, correct contrast, automatically chosen.
+2. **Coherent navy address bar.** Switching `theme-color` and the manifest `theme_color` to `#1F2F4D` means iOS/Android chrome wraps the site in navy instead of paper — the address bar becomes part of the brand surface instead of a neutral border.
+3. **Closed ladder.** With `favicon-512.png` added, every rung 16 → 512 in the navy ladder has a unified-name PNG matching the spec-named PNG. No naming conventions left dangling.
