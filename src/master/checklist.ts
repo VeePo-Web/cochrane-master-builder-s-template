@@ -1920,6 +1920,51 @@ export const REMIX_CHECKLIST: CheckItem[] = [
     description:
       "Calendar event 30 days post-launch: review CWV trend, GSC coverage, conversion rate, top 10 search queries, top 10 entry pages. Adjust content + meta based on what's actually being searched.",
   },
+
+  // ════════════════════════════════════════════════════════════════════
+  // PHASE 0.5 — GUARD RAILS ARMED
+  // The constitution must be loaded BEFORE intake.
+  // See `src/master/guardrails.ts` and `playbooks/GUARD_RAILS.md`.
+  // ════════════════════════════════════════════════════════════════════
+  {
+    id: "guardrails-acknowledged",
+    phase: "0.5-guardrails-armed", tier: "P0", owner: "human", group: "setup",
+    playbook: "GUARD_RAILS",
+    label: "Guard rails read & acknowledged",
+    description:
+      "Operator reads `src/master/playbooks/GUARD_RAILS.md` in full and confirms in writing (commit message or remix dashboard) that the 18 non-negotiable laws are understood and accepted for THIS remix. No exceptions. No waivers. Without this acknowledgement, every downstream phase risks shipping a guard-rail violation.",
+    inputsNeeded: ["Operator confirmation (commit message or dashboard checkbox)"],
+    guardRails: [
+      "gr-bespoke-brand-derivation",
+      "gr-bespoke-style-guide-live",
+      "gr-zero-sister-fingerprints",
+      "gr-master-logo-slot-map",
+      "gr-areas-we-serve-excellence",
+      "gr-page-meta-jsonld-unique",
+      "gr-crawl-hygiene",
+      "gr-local-trust-schema",
+      "gr-performance-budget-mobile",
+      "gr-modern-image-pipeline",
+      "gr-wcag-aa",
+      "gr-booking-one-tap",
+      "gr-real-business-signals",
+      "gr-legal-pages-bespoke",
+      "gr-motion-system-pinned",
+      "gr-anti-paraphrase-readability",
+      "gr-plan-first-deep-items",
+      "gr-prelaunch-walk-postlaunch-monitor",
+    ],
+  },
+  {
+    id: "guardrails-coverage-map-generated",
+    phase: "0.5-guardrails-armed", tier: "P0", owner: "ai-plan", group: "setup",
+    playbook: "GUARD_RAILS",
+    automated: true,
+    label: "Per-trade guard-rail coverage map generated",
+    description:
+      "Run the `getGuardRailCoverage()` and `getUnenforcedGuardRails()` helpers from `src/master/guardrails.ts` and commit the result as `guardrails-coverage.md` for THIS trade. The map MUST show every guard rail with at least one enforcing checklist item. If `getUnenforcedGuardRails()` returns anything other than `[]`, the checklist itself is broken and must be fixed before continuing — no remix work proceeds until coverage is complete.",
+    inputsNeeded: [],
+  },
 ];
 
 export const CHECKLIST_GROUPS = ["setup", "brand", "content", "seo", "quality"] as const;
