@@ -237,7 +237,86 @@ export type CheckId =
   | "qa-sister-network-rerendered"
   | "qa-prelaunch-human-walkthrough"
   | "qa-postlaunch-search-console-submit"
-  | "qa-postlaunch-cwv-monitor-7-days";
+  | "qa-postlaunch-cwv-monitor-7-days"
+
+  // ── Phase 0: Plan-First Discipline ───────────────────────────────────
+  | "plan-read-brand-bible"
+  | "plan-read-brand-identity-northstar"
+  | "plan-load-relevant-personas"
+  | "plan-read-trade-config"
+  | "plan-read-business-overview"
+  | "plan-read-reviews-and-fear-dispel"
+  | "plan-deep-plan-before-execution"
+  | "plan-craft-benchmarks-pinned"
+  | "plan-easing-system-pinned"
+
+  // ── Phase 2 additions ────────────────────────────────────────────────
+  | "brand-identity-docs-pulled-into-trade"
+  | "brand-northstar-tagline-aligned"
+  | "brand-style-guide-tokens-respected"
+  | "brand-design-plan-honored"
+
+  // ── Phase 3 additions ────────────────────────────────────────────────
+  | "ia-content-model-defined"
+  | "ia-empty-state-and-loading-state-map"
+  | "ia-error-state-map"
+  | "ia-thumb-zone-audit"
+  | "ia-z-pattern-and-f-pattern-audit"
+
+  // ── Phase 4 additions ────────────────────────────────────────────────
+  | "copy-testimonials-real-with-name-city"
+  | "copy-fear-dispel-block-applied"
+  | "copy-discovery-framework-followed"
+  | "copy-power-words-from-northstar"
+  | "copy-ideal-customer-voice-applied"
+
+  // ── Phase 5 additions (Fantasy.co / Apple-grade visual) ──────────────
+  | "visual-editorial-rhythm-applied"
+  | "visual-apple-grade-hero-treatment"
+  | "visual-fantasy-co-grade-detail-pass"
+  | "visual-cinematic-image-reveals"
+  | "visual-parallax-coverage-correct"
+  | "visual-typographic-rhythm-locked"
+  | "visual-color-temperature-consistency"
+  | "visual-asymmetric-grid-where-warranted"
+
+  // ── Phase 5b: Motion & Interaction Craft (FROG-level) ────────────────
+  | "motion-philosophy-doc-written"
+  | "motion-easing-system-tokens-defined"
+  | "motion-page-transition-implemented"
+  | "motion-hover-microinteractions"
+  | "motion-scroll-choreography"
+  | "motion-cursor-aware-effects"
+  | "motion-loading-sequence-bespoke"
+  | "motion-form-submission-signature"
+  | "motion-prefers-reduced-motion-fallbacks"
+  | "motion-button-tactile-feedback"
+  | "motion-modal-entry-and-exit"
+  | "motion-frame-budget-respected"
+  | "motion-link-and-card-interactions"
+  | "motion-focus-states-considered"
+
+  // ── Phase 6 additions ────────────────────────────────────────────────
+  | "seo-image-sitemap-generated"
+  | "seo-hreflang-if-multilingual"
+  | "seo-soft-404-monitor-set-up"
+
+  // ── Phase 7 additions ────────────────────────────────────────────────
+  | "conv-multi-step-form-progress-indicator"
+  | "conv-trust-elements-near-cta"
+  | "conv-sms-fallback-considered"
+  | "conv-callback-promise-rendered"
+
+  // ── Phase 8 additions ────────────────────────────────────────────────
+  | "legal-real-testimonials-with-permission"
+  | "legal-photo-permission-trail"
+
+  // ── Phase 9 additions ────────────────────────────────────────────────
+  | "launch-uptime-monitor-configured"
+  | "launch-error-monitoring-installed"
+  | "launch-review-request-flow-armed"
+  | "launch-content-cadence-plan"
+  | "launch-first-30-day-checkin";
 
 export interface CheckItem {
   id: CheckId;
