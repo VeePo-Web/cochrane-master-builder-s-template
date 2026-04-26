@@ -401,7 +401,69 @@ size before adding compression — never just compress harder.
 
 ---
 
+## Browser chrome & PWA pack
+
+A separate concern from the React `<MasterLogo>` system. These flat files
+live in `/public/` and are referenced from `index.html` via `<link>` tags
+or by the user-agent itself. They use the **navy MB-diamond** (drafted
+texture) — the canonical browser-chrome mark — distinct from the wordmark
+and lockup families which live in component code.
+
+> **Decision rule:** browser-chrome icons live in `/public/` and are
+> referenced by `<link>` tags — **never** through `<MasterLogo>`. Component
+> code uses the registry; the browser handshake uses these flat files.
+
+### File map
+
+| File                           | Slot                  | Renders in                                 | Surface          |
+|--------------------------------|-----------------------|--------------------------------------------|------------------|
+| `favicon.ico`                  | classic favicon       | Legacy IE/Edge, Windows pinned tabs        | browser chrome   |
+| `favicon-16.png`               | sharp 16px tab        | Modern desktop tabs at 100% zoom           | browser chrome   |
+| `apple-touch-icon.png` (180²)  | iOS home screen       | "Add to Home Screen" on Safari iOS         | iOS springboard  |
+| `android-chrome-192x192.png`   | Android install       | PWA install prompt, Android app drawer     | Android launcher |
+| `android-chrome-512x512.png`   | PWA splash / maskable | Splash screen, adaptive icon source        | PWA runtime      |
+| `site.webmanifest`             | PWA identity          | Install prompt metadata, theme colors      | browser chrome   |
+
+### Wired in `index.html`
+
+```html
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+```
+
+### Manifest identity (`site.webmanifest`)
+
+- `name`: "Cochrane Master Builders" · `short_name`: "CMB"
+- `theme_color`: `#F2EDE4` (paper — matches existing `<meta name="theme-color">`)
+- `background_color`: `#1a2438` (navy — matches the new MB-diamond)
+- `display`: `standalone` · `start_url`: `/` · `scope`: `/`
+- Icons: 192 + 512 with `purpose: "any"`; 512 also exposed as `purpose: "maskable"` for adaptive Android icons.
+
+> **No service worker.** This pack delivers installability and crisp
+> browser chrome without registering a service worker — avoiding the
+> stale-content and navigation-interference issues that service workers
+> cause inside Lovable's preview iframe. Add a SW only if true offline
+> support becomes a requirement.
+
+### Legacy file
+
+`/public/favicon-cmb.png` and `/public/og-image-cmb.png` remain in place;
+the slot-map's `favicon` and `og` rows still reference them as transactional
+email + social-share fallbacks. Migrate those to the new MB-diamond pack
+in a separate pass.
+
+---
+
 ## Cross-references
+
+- Component: [`MasterLogo.tsx`](./MasterLogo.tsx)
+- Registry: [`logo-registry.ts`](./logo-registry.ts)
+- Usage rules: [`LOGO_USAGE.md`](./LOGO_USAGE.md)
+- Brand identity: [`identity.ts`](./identity.ts)
+- Remix checklist: [`../checklist.ts`](../checklist.ts)
 
 - Component: [`MasterLogo.tsx`](./MasterLogo.tsx)
 - Registry: [`logo-registry.ts`](./logo-registry.ts)
