@@ -10,6 +10,17 @@ to the current request, then read those source documents in full before making d
 
 ---
 
+## Governance (read first) (`governance/`)
+
+Top-level meta documents that govern how every other source + partner document
+is embedded, stored, and consulted. P0 — foundational.
+
+| File | Format | Status | One-line label |
+|------|--------|--------|----------------|
+| `source-documents/governance/knowledge-system-charter.source.md` | Markdown (verbatim DOCX) | partnered | Master charter: dual-layer rule, folder taxonomy, immutability, partner template, conflict rule, fantasy.co quality bar |
+
+---
+
 ## Cochrane Master Builders Corp. (`brands/cochrane-master-builders/`)
 
 Brand slug: `cochrane-master-builders`
