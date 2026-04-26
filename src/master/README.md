@@ -26,17 +26,40 @@ src/master/
 │   └── backlink-network.ts  ← list of all sister sites, for cross-linking
 │
 ├── playbooks/
-│   ├── REMIX_PLAYBOOK.md    ← step-by-step remix guide (~20 min target)
-│   ├── BRAND_AUDIT.md       ← how to verify a remix reflects CMB
-│   ├── AI_IMAGE_RULES.md    ← no faces, no people, ultra-realistic, prompt patterns
-│   ├── COPY_GUIDE.md        ← voice, story rules, words to avoid
-│   ├── SEO_PLAYBOOK.md      ← per-page SEO checklist
+│   ├── REMIX_PLAYBOOK.md       ← step-by-step remix guide
+│   ├── INTAKE_BRIEF.md         ← Phase 1 — what to gather before remix starts
+│   ├── IA_WIREFRAME_GUIDE.md   ← Phase 3 — sitemap, page templates, nav rules
+│   ├── BRAND_AUDIT.md          ← how to verify a remix reflects CMB
+│   ├── AI_IMAGE_RULES.md       ← no faces, no people, ultra-realistic, prompt patterns
+│   ├── COPY_GUIDE.md           ← voice, anti-paraphrase, per-page word counts, AIDA
+│   ├── SEO_PLAYBOOK.md         ← keyword maps, JSON-LD per page type, area network, NAP, GBP
+│   ├── LEGAL_TRUST_GUIDE.md    ← Phase 8 — privacy, terms, warranty, license/insurance render
 │   └── PERFORMANCE_PLAYBOOK.md
 │
 ├── trades.ts                ← taxonomy of every planned trade (slug, category, adjacencies)
-├── checklist.ts             ← typed remix checklist (drives /remix dashboard UI)
+├── checklist.ts             ← typed remix checklist — 9 phases, P0/P1/P2 tiers (see below)
 └── VERSION.ts               ← semver of the master brand; remixes record what they forked from
 ```
+
+## How the remix checklist works
+
+`src/master/checklist.ts` is the **definitive roadmap** for every remix. It is NOT an automated test runner — it's a typed, phased, tiered plan that Lovable / Claude reads to generate deep, in-depth implementation plans for each step.
+
+**Nine phases, run in order:**
+
+1. **Intake & Trade Foundation** — gather every input before touching code (`INTAKE_BRIEF.md`)
+2. **Brand & Identity Bespoking** — zero leftover sister-site fingerprints (`BRAND_AUDIT.md`)
+3. **Information Architecture & Wireframes** — structure first (`IA_WIREFRAME_GUIDE.md`)
+4. **Copy & Storytelling** — every word bespoke (`COPY_GUIDE.md`)
+5. **Visual Craft & AI Imagery** — no faces, no people (`AI_IMAGE_RULES.md`)
+6. **SEO Depth** — the moat (`SEO_PLAYBOOK.md`)
+7. **Conversion, Forms & Booking** — < 60s mobile time-to-book
+8. **Legal, Trust & Compliance** — real numbers, real pages (`LEGAL_TRUST_GUIDE.md`)
+9. **Quality Gate, Analytics & Launch** — pre + post-launch (`PERFORMANCE_PLAYBOOK.md`)
+
+Each item is tagged: **Tier** (`P0`/`P1`/`P2`), **Owner** (`ai-plan`/`human`/`hybrid`), **Playbook** (linked deep-dive), **Inputs needed** (assets the operator must hand over). For each item, the AI agent reads the description + linked playbook + inputs, then generates an in-depth plan, then executes it. The operator confirms each item before moving on. **All P0 items must be green to ship.**
+
+Helpers: `getChecklistByPhase()`, `getChecklistByTier()`, `getChecklistByOwner()`, `checklistStats()`.
 
 ## How a remix works
 
