@@ -1979,6 +1979,13 @@ export const getChecklistByTier = (tier: ChecklistTier) =>
 export const getChecklistByOwner = (owner: ChecklistOwner) =>
   REMIX_CHECKLIST.filter((c) => c.owner === owner);
 
+/**
+ * Items that help satisfy a given guard rail. Pass a `GuardRailId` from
+ * `src/master/guardrails.ts`. Useful for building per-trade coverage reports.
+ */
+export const getChecklistByGuardRail = (guardRailId: string) =>
+  REMIX_CHECKLIST.filter((c) => c.guardRails?.includes(guardRailId) ?? false);
+
 /** Counts for dashboard headers. */
 export const checklistStats = () => {
   const byPhase: Record<ChecklistPhase, number> = {
