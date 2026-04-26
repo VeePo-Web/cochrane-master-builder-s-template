@@ -1,76 +1,108 @@
-# Logo package integration — round 7
+## What you uploaded
 
-A new wordmark **variant** has arrived: the **"ground" wordmark** — the same MASTER BUILDERS / COCHRANE typography, but framed by a vertical plumb-line on the left and a horizontal base rule beneath ("grounded" by drafting/architect marks). This reads as **architectural / specification-grade** where the plain wordmark reads as **editorial type**.
+**Group A — Wordmark Ground / White (5 PNGs)**
+The missing reverse colorway for the drafted wordmark variant. Closes the last alias in the entire 5-family matrix.
+- `cmb-wordmark-ground-white-200/400/800/1200/2400.png`
 
-Two packages this round:
-1. **Wordmark Ground — black** (5 sizes: 200 / 400 / 800 / 1200 / 2400)
-2. **Wordmark Ground — navy** (5 sizes: 200 / 400 / 800 / 1200 / 2400)
-
-White ground variant is not yet provided — will alias to black until it lands (same staging pattern as previous rounds).
+**Group B — MB-diamond favicon / PWA icon pack (5 files)**
+A brand-new asset class: the navy MB-diamond emblem (drafted texture) sized for browser chrome and installable PWA contexts. Distinct from the existing wordmark/lockup/emblem PNG families — these are root-public files referenced by `<link>` tags and the web manifest, not by React components.
+- `favicon.ico` — multi-res classic favicon (legacy browsers, Windows pinned tabs)
+- `favicon-16.png` — 16×16 sharp tab icon
+- `apple-touch-icon.png` — 180×180 iOS home-screen icon
+- `android-chrome-192x192.png` — Android home-screen / PWA install
+- `android-chrome-512x512.png` — PWA splash + maskable source
 
 ---
 
-## Why a separate variant (not a replacement)
+## Plan
 
-The plain wordmark and the ground wordmark are **siblings**, not versions of the same thing:
+### 1. Wordmark-Ground White — finalize the matrix
 
-| Variant | Voice | Aspect | Use when |
+- **Embed** 5 PNGs at `src/master/assets/logo/cmb-wordmark-ground-white-{200,400,800,1200,2400}.png`.
+- **Registry** (`src/master/brand/logo-registry.ts`):
+  - Add 5 imports for `cmbWordmarkGroundWhite*`.
+  - Replace the `WORDMARK_GROUND_WHITE = WORDMARK_GROUND_BLACK` alias with a real map.
+  - Flip `WORDMARK_GROUND_STATUS.white` from `"aliased"` → `"ready"`.
+- **Slot map** (`LOGO_SLOT_MAP.md`): update the wordmark-ground readiness row + remove the "white aliases to black" caveat.
+- **Checklist** (`src/master/checklist.ts`): mark `master-wordmark-ground-white-binaries-embedded` complete.
+
+Net effect: every cell in the 5-family × 3-colorway matrix is now a real binary. **Zero aliases anywhere.**
+
+### 2. Favicon / PWA pack — replace the legacy single-file favicon
+
+The current site references one flat `/favicon-cmb.png` (the old CMB lockup) for both `rel="icon"` and `rel="apple-touch-icon"`. The new MB-diamond pack is a proper multi-resolution navy-on-transparent system that will render crisply at every chrome size and unlocks PWA install.
+
+- **Copy** all 5 files to `/public/`:
+  - `public/favicon.ico`
+  - `public/favicon-16.png`
+  - `public/apple-touch-icon.png` (180×180)
+  - `public/android-chrome-192x192.png`
+  - `public/android-chrome-512x512.png`
+- **Wire `index.html`** with the proper full link block:
+  ```html
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  ```
+- **Add a `public/site.webmanifest`** that declares the PWA identity:
+  - `name`: "Cochrane Master Builders"
+  - `short_name`: "CMB"
+  - `icons`: 192 + 512 entries (any + maskable purposes)
+  - `theme_color`: `#F2EDE4` (matches existing meta)
+  - `background_color`: `#1a2438` (navy, matches the new mark)
+  - `display`: `standalone`
+- **Keep `favicon-cmb.png`** in `public/` for now — it's still referenced by the email/og fallback paths in the slot map. We'll deprecate it in a separate pass once those references migrate.
+
+### 3. Slot-map documentation — add a new section
+
+Append a new section to `src/master/brand/LOGO_SLOT_MAP.md`:
+
+**"Browser chrome & PWA pack"** — documents the `/public/` favicon set as a separate concern from the React `<MasterLogo>` system. Includes a per-file usage table:
+
+| File | Slot | Renders in | Surface |
 |---|---|---|---|
-| `wordmark` (plain) | Editorial / typographic | ~5:1 | Inline body, breadcrumbs, eyebrows above an H2, document mastheads. Sits *with* surrounding text. |
-| `wordmarkGround` (this round) | Architectural / spec-grade / drafted | ~3.5:1 (plumb line adds height) | **Standalone** brand statements where the mark needs to feel anchored and authored — chapter openers, hero brand bands, certificate headers, project plate, capability deck cover. |
+| `favicon.ico` | classic favicon | Legacy IE/Edge, Windows pinned tabs | browser chrome |
+| `favicon-16.png` | sharp 16px tab | Modern desktop tabs at 100% zoom | browser chrome |
+| `apple-touch-icon.png` | iOS home screen | "Add to Home Screen" on Safari iOS | iOS springboard |
+| `android-chrome-192x192.png` | Android install | PWA install prompt, app drawer icon | Android launcher |
+| `android-chrome-512x512.png` | PWA splash / maskable | Splash screen, adaptive icon source | PWA runtime |
+| `site.webmanifest` | PWA identity | Install prompt metadata | browser chrome |
 
-If the plain wordmark is the brand's **printed name**, the ground wordmark is the brand's **drafted signature on a blueprint title block**. They live side-by-side; the slot determines which one the page calls.
+Plus a "decision rule" callout:
+> Browser-chrome icons live in `/public/` and are referenced by `<link>` tags — **never** through `<MasterLogo>`. Component code uses the registry; the browser handshake uses these flat files.
 
----
+### 4. Checklist — add new check
 
-## Wordmark Ground slot map (new)
-
-Five dedicated slots, mirroring the plain-wordmark size ladder so consumers can swap variants 1:1 by changing the slot key:
-
-| Size (px) | Slot key                  | Use case                                                               | Surface | Loading |
-|-----------|---------------------------|------------------------------------------------------------------------|---------|---------|
-| 200       | `wordmarkGroundInline`    | Specification stamp inline in a spec sheet, drawing-set legend         | light   | lazy    |
-| 400       | `wordmarkGroundChapter`   | Chapter / case-study opener title block (above a long-form section)    | light   | lazy    |
-| 800       | `wordmarkGroundPlate`     | Project nameplate, "stamped by" plate on warranty/handoff documents    | light   | lazy    |
-| 1200      | `wordmarkGroundBand`      | Hero brand band on About / Capabilities — anchors a wide section       | any     | lazy    |
-| 2400      | `wordmarkGroundCover`     | Capabilities deck / proposal PDF cover, large-format presentation      | any     | lazy    |
-
-The plumb + base rule are part of the artwork — consumers must not crop them, so the component sets a slightly taller CLS box than the plain wordmark (~3.5:1 instead of ~5:1).
+Add `master-favicon-pwa-pack-embedded` to `src/master/checklist.ts` covering the 5 files + manifest + index.html wiring.
 
 ---
 
-## Technical changes
+## Files touched
 
-### Asset embedding (10 new files)
-Copy uploads into `src/master/assets/logo/`:
-- `cmb-wordmark-ground-black-{200,400,800,1200,2400}.png`
-- `cmb-wordmark-ground-navy-{200,400,800,1200,2400}.png`
+**Created (binaries):**
+- `src/master/assets/logo/cmb-wordmark-ground-white-{200,400,800,1200,2400}.png` (5)
+- `public/favicon.ico`
+- `public/favicon-16.png`
+- `public/apple-touch-icon.png`
+- `public/android-chrome-192x192.png`
+- `public/android-chrome-512x512.png`
 
-### `src/master/brand/logo-registry.ts`
-- Import the 10 new ground wordmark PNGs.
-- Add `WORDMARK_GROUND_BLACK` and `WORDMARK_GROUND_NAVY` maps. `WORDMARK_GROUND_WHITE` aliases to black until provided.
-- Reuse the existing `WordmarkSize` type (same ladder) — keeps the size contract aligned between plain and ground variants.
-- Add `wordmarkGround` key to all three colorways inside `MASTER_LOGOS`.
-- Add `WORDMARK_GROUND_STATUS` (`black: ready`, `navy: ready`, `white: aliased`).
-- Append five `wordmarkGround*` entries to `LOGO_USAGE_MAP` per the table above.
+**Created (config):**
+- `public/site.webmanifest`
 
-### `src/master/brand/MasterLogo.tsx`
-- Extend `MasterLogoSlot` union with `"wordmarkGround"`.
-- Add `SLOT_HEIGHT.wordmarkGround = "h-auto w-auto"`.
-- Add a `wordmarkGround` render branch mirroring the plain-wordmark srcset ladder. CLS box uses `width={size}` and `height={Math.round(size / 3.5)}` to reserve the taller drafted aspect ratio.
-
-### `src/master/brand/LOGO_SLOT_MAP.md`
-- Append a new **"Wordmark Ground variant"** subsection under the wordmark family. Includes the slot table, colorway readiness, when-to-pick-which decision rule (plain vs ground), and render API.
-
-### `src/master/checklist.ts`
-- Add `"master-wordmark-ground-binaries-embedded"` to the `CheckId` union and as a `REMIX_CHECKLIST` item (group `setup`, automated, references `WORDMARK_GROUND_STATUS`).
-
-### Verification
-- `npx tsc --noEmit` clean.
-- Spot-check `MASTER_LOGOS.navy.wordmarkGround[1200]` resolves to the navy ground file.
+**Edited:**
+- `index.html` — replace 2-line favicon block with proper 5-link + manifest block
+- `src/master/brand/logo-registry.ts` — wordmark-ground white real imports
+- `src/master/brand/LOGO_SLOT_MAP.md` — wordmark-ground readiness + new "Browser chrome & PWA pack" section
+- `src/master/checklist.ts` — two new checks complete
+- `.lovable/plan.md` — log the integration
 
 ---
 
-## Out of scope (intentionally deferred)
-- White ground variant — aliased to black until uploaded.
-- Surface adoption — actually placing `<MasterLogo slot="wordmarkGround">` into pages (chapter openers, project plates, deck cover). This round only embeds and maps, same as previous rounds.
+## Why this matters
+
+1. **Matrix-complete brand system.** After this, `MASTER_LOGOS` contains zero aliases. Any future remix can flip `logoColorway` to `white` and every surface — including the drafted wordmark — serves an authentic reverse asset.
+2. **Real browser identity.** The current single-PNG favicon is a stopgap. The new pack gives the site a proper crisp tab icon, an iOS home-screen icon, and PWA install capability — all using the navy MB-diamond as the canonical browser-chrome mark.
+3. **Clean separation of concerns.** Component logos go through `<MasterLogo>` + registry. Browser-chrome icons live in `/public/` and are referenced by `<link>` tags. The slot map now documents both systems explicitly so future contributors don't conflate them.
