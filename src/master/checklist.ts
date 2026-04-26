@@ -46,6 +46,7 @@ export type ChecklistOwner =
 /** Phases run in order. Don't start phase N until N-1 is green. */
 export type ChecklistPhase =
   | "0-plan-first"
+  | "0.5-guardrails-armed"
   | "1-intake"
   | "2-brand"
   | "3-ia"
@@ -68,7 +69,8 @@ export type ChecklistPlaybook =
   | "IA_WIREFRAME_GUIDE"
   | "LEGAL_TRUST_GUIDE"
   | "PLAN_FIRST_DISCIPLINE"
-  | "MOTION_AND_CRAFT";
+  | "MOTION_AND_CRAFT"
+  | "GUARD_RAILS";
 
 /** Legacy grouping (kept for any existing UI consumers). */
 export type ChecklistGroupLegacy = "setup" | "brand" | "content" | "seo" | "quality";
