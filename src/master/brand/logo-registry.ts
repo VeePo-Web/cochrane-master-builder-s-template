@@ -82,8 +82,20 @@ import cmbEmblemWhite800 from "../assets/logo/cmb-emblem-white-800.png";
 import cmbEmblemWhite1200 from "../assets/logo/cmb-emblem-white-1200.png";
 import cmbEmblemWhite2400 from "../assets/logo/cmb-emblem-white-2400.png";
 
+// ── Tiles family (exploded/deconstructed mark — 3 separated panels) ────────
+// Black ✅ embedded (6 sizes). Navy + white alias to black until those
+// packages land — flip the aliases below in one line when they arrive.
+import cmbTilesBlack100 from "../assets/logo/cmb-tiles-black-100.png";
+import cmbTilesBlack200 from "../assets/logo/cmb-tiles-black-200.png";
+import cmbTilesBlack400 from "../assets/logo/cmb-tiles-black-400.png";
+import cmbTilesBlack800 from "../assets/logo/cmb-tiles-black-800.png";
+import cmbTilesBlack1200 from "../assets/logo/cmb-tiles-black-1200.png";
+import cmbTilesBlack2400 from "../assets/logo/cmb-tiles-black-2400.png";
+
 export type LogoColorway = "black" | "navy" | "white";
 export type EmblemSize = 100 | 200 | 400 | 800 | 1200 | 2400;
+/** Tiles share the emblem size ladder — single source of truth. */
+export type TileSize = EmblemSize;
 
 /**
  * Per-colorway file map. Same shape across colorways — the remixer can swap
