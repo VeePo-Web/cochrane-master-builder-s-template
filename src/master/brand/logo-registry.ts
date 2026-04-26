@@ -149,6 +149,24 @@ import cmbWordmarkWhite800 from "../assets/logo/cmb-wordmark-white-800.png";
 import cmbWordmarkWhite1200 from "../assets/logo/cmb-wordmark-white-1200.png";
 import cmbWordmarkWhite2400 from "../assets/logo/cmb-wordmark-white-2400.png";
 
+// ── Wordmark Ground variant (drafted: plumb-line + base rule) ─────────────
+// Sibling to the plain wordmark — same typography, but framed by architect's
+// drafting marks so it reads as spec-grade / authored. Use for standalone
+// brand statements (chapter openers, project plates, deck covers) where the
+// mark needs to feel anchored. Black ✅ + Navy ✅ embedded; white aliases
+// to black until that package lands.
+import cmbWordmarkGroundBlack200 from "../assets/logo/cmb-wordmark-ground-black-200.png";
+import cmbWordmarkGroundBlack400 from "../assets/logo/cmb-wordmark-ground-black-400.png";
+import cmbWordmarkGroundBlack800 from "../assets/logo/cmb-wordmark-ground-black-800.png";
+import cmbWordmarkGroundBlack1200 from "../assets/logo/cmb-wordmark-ground-black-1200.png";
+import cmbWordmarkGroundBlack2400 from "../assets/logo/cmb-wordmark-ground-black-2400.png";
+
+import cmbWordmarkGroundNavy200 from "../assets/logo/cmb-wordmark-ground-navy-200.png";
+import cmbWordmarkGroundNavy400 from "../assets/logo/cmb-wordmark-ground-navy-400.png";
+import cmbWordmarkGroundNavy800 from "../assets/logo/cmb-wordmark-ground-navy-800.png";
+import cmbWordmarkGroundNavy1200 from "../assets/logo/cmb-wordmark-ground-navy-1200.png";
+import cmbWordmarkGroundNavy2400 from "../assets/logo/cmb-wordmark-ground-navy-2400.png";
+
 export type LogoColorway = "black" | "navy" | "white";
 export type EmblemSize = 100 | 200 | 400 | 800 | 1200 | 2400;
 /** Tiles share the emblem size ladder — single source of truth. */
