@@ -211,6 +211,57 @@ as the emblem family.
 
 ---
 
+## Monogram family (handwritten "MB" signature)
+
+The fourth asset family. Where the lockup is the formal identity, the
+emblem is the repeat-appearance crest, and the tiles are the kinetic
+identity, the **monogram is the human hand** — "signed personally by
+the master builder." Use for closing moments, signatures, certificates,
+intimate contexts. Never for nav, hero, or splash.
+
+> **Four-family decision rule:**
+> - **Lockup** → first impression / formal identity (nav, footer, hero)
+> - **Emblem** → repeat-appearance crest (favicon, avatar, watermark)
+> - **Tiles**  → kinetic / built-from-pieces (motion, splash, process)
+> - **Monogram** → the human hand (signatures, certificates, founder)
+
+### Sizes & recommended use
+
+| Size (px) | Slot key              | Use case                                                            | Surface | Loading |
+|-----------|-----------------------|---------------------------------------------------------------------|---------|---------|
+| 64        | `monogramFavicon`     | Alt favicon for founder-mode / personal pages                       | any     | eager   |
+| 128       | `monogramSignature`   | Email signature footer, quote letter, contract sign-off             | light   | lazy    |
+| 256       | `monogramSealAccent`  | About-page founder card, story seal, testimonial attribution        | light   | lazy    |
+| 512       | `monogramCertificate` | Warranty / completion certificate seal, project handoff             | light   | lazy    |
+| 1024      | `monogramWatermark`   | Premium project case-study watermark (low opacity, signed-work)     | image   | lazy    |
+
+### Colorway readiness
+
+| Variant | Black ✅                          | Navy ✅                          | White ⏳ (aliased)               |
+|---------|-----------------------------------|----------------------------------|----------------------------------|
+| 64      | `cmb-mb-monogram-black-64.png`    | `cmb-mb-monogram-navy-64.png`    | → black                          |
+| 128     | `cmb-mb-monogram-black-128.png`   | `cmb-mb-monogram-navy-128.png`   | → black                          |
+| 256     | `cmb-mb-monogram-black-256.png`   | `cmb-mb-monogram-navy-256.png`   | → black                          |
+| 512     | `cmb-mb-monogram-black-512.png`   | `cmb-mb-monogram-navy-512.png`   | → black                          |
+| 1024    | `cmb-mb-monogram-black-1024.png`  | `cmb-mb-monogram-navy-1024.png`  | → black                          |
+
+`MONOGRAM_STATUS` reports `ready` for black + navy and `aliased` for white.
+The monogram has its own size ladder (no 2400) — it is never a hero asset.
+
+### Render API
+
+```tsx
+import MasterLogo from "@/master/brand/MasterLogo";
+
+<MasterLogo slot="monogram" size={64}   />                    // founder favicon
+<MasterLogo slot="monogram" size={128}  />                    // email signature
+<MasterLogo slot="monogram" size={256}  />                    // about-page seal
+<MasterLogo slot="monogram" size={512}  />                    // certificate seal
+<MasterLogo slot="monogram" size={1024} className="opacity-10" /> // watermark
+```
+
+---
+
 ## Perf budget per slot
 
 | Slot          | Max bytes | Why                                         |

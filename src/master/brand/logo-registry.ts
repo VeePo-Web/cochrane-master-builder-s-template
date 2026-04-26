@@ -105,10 +105,28 @@ import cmbTilesWhite800 from "../assets/logo/cmb-tiles-white-800.png";
 import cmbTilesWhite1200 from "../assets/logo/cmb-tiles-white-1200.png";
 import cmbTilesWhite2400 from "../assets/logo/cmb-tiles-white-2400.png";
 
+// ── Monogram family (handwritten "MB" signature mark) ──────────────────────
+// Black ✅ + Navy ✅ embedded. White aliases to black until that
+// package lands. Different size ladder than emblem/tiles — capped at 1024
+// because the monogram is never a hero asset (it's a signature).
+import cmbMbMonoBlack64 from "../assets/logo/cmb-mb-monogram-black-64.png";
+import cmbMbMonoBlack128 from "../assets/logo/cmb-mb-monogram-black-128.png";
+import cmbMbMonoBlack256 from "../assets/logo/cmb-mb-monogram-black-256.png";
+import cmbMbMonoBlack512 from "../assets/logo/cmb-mb-monogram-black-512.png";
+import cmbMbMonoBlack1024 from "../assets/logo/cmb-mb-monogram-black-1024.png";
+
+import cmbMbMonoNavy64 from "../assets/logo/cmb-mb-monogram-navy-64.png";
+import cmbMbMonoNavy128 from "../assets/logo/cmb-mb-monogram-navy-128.png";
+import cmbMbMonoNavy256 from "../assets/logo/cmb-mb-monogram-navy-256.png";
+import cmbMbMonoNavy512 from "../assets/logo/cmb-mb-monogram-navy-512.png";
+import cmbMbMonoNavy1024 from "../assets/logo/cmb-mb-monogram-navy-1024.png";
+
 export type LogoColorway = "black" | "navy" | "white";
 export type EmblemSize = 100 | 200 | 400 | 800 | 1200 | 2400;
 /** Tiles share the emblem size ladder — single source of truth. */
 export type TileSize = EmblemSize;
+/** Monogram has its own ladder — capped at 1024; never a hero asset. */
+export type MonogramSize = 64 | 128 | 256 | 512 | 1024;
 
 /**
  * Per-colorway file map. Same shape across colorways — the remixer can swap
@@ -172,6 +190,26 @@ const TILES_WHITE = {
   2400: cmbTilesWhite2400,
 } as const;
 
+/** Square handwritten "MB" monogram files keyed by edge length in px. */
+const MONOGRAM_BLACK = {
+  64: cmbMbMonoBlack64,
+  128: cmbMbMonoBlack128,
+  256: cmbMbMonoBlack256,
+  512: cmbMbMonoBlack512,
+  1024: cmbMbMonoBlack1024,
+} as const;
+
+const MONOGRAM_NAVY = {
+  64: cmbMbMonoNavy64,
+  128: cmbMbMonoNavy128,
+  256: cmbMbMonoNavy256,
+  512: cmbMbMonoNavy512,
+  1024: cmbMbMonoNavy1024,
+} as const;
+
+// White monogram still aliased to black until that package lands.
+const MONOGRAM_WHITE = MONOGRAM_BLACK;
+
 export const MASTER_LOGOS = {
   black: {
     nav: { sm: cmbBlackNavSm, md: cmbBlackNavMd, lg: cmbBlackNavLg },
@@ -182,6 +220,7 @@ export const MASTER_LOGOS = {
     small: cmbBlackSmall,
     emblem: EMBLEM_BLACK,
     tiles: TILES_BLACK,
+    monogram: MONOGRAM_BLACK,
   },
   navy: {
     nav: { sm: cmbNavyNavSm, md: cmbNavyNavMd, lg: cmbNavyNavLg },
@@ -194,6 +233,8 @@ export const MASTER_LOGOS = {
     emblem: EMBLEM_NAVY,
     // Navy tiles ✅ embedded.
     tiles: TILES_NAVY,
+    // Navy monogram ✅ embedded.
+    monogram: MONOGRAM_NAVY,
   },
   white: {
     nav: { sm: cmbWhiteNavSm, md: cmbWhiteNavMd, lg: cmbWhiteNavLg },
@@ -206,6 +247,8 @@ export const MASTER_LOGOS = {
     emblem: EMBLEM_WHITE,
     // White tiles ✅ embedded.
     tiles: TILES_WHITE,
+    // White monogram aliased to black until that package lands.
+    monogram: MONOGRAM_WHITE,
   },
 } as const;
 
@@ -223,9 +266,18 @@ export const TILES_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
   white: "ready",
 };
 
+/** Per-colorway readiness for the monogram family specifically. */
+export const MONOGRAM_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
+  black: "ready",
+  navy: "ready",
+  white: "aliased",
+};
+
 export const EMBLEM_SIZES: EmblemSize[] = [100, 200, 400, 800, 1200, 2400];
 /** Tiles share the emblem size ladder. */
 export const TILE_SIZES: TileSize[] = [100, 200, 400, 800, 1200, 2400];
+/** Monogram has its own ladder — no hero size. */
+export const MONOGRAM_SIZES: MonogramSize[] = [64, 128, 256, 512, 1024];
 
 /** Which colorways have *real* uploaded assets.
  *  All three colorways are now embedded and live.
@@ -282,6 +334,15 @@ export const LOGO_USAGE_MAP = {
   tilesProcess:     { file: "cmb-tiles-black-800.png",  maxHeightPx: 240,  surface: "light" as const, note: "Process / craft pages — one tile per step, animated assembly." },
   tilesLoadingHero: { file: "cmb-tiles-black-1200.png", maxHeightPx: 480,  surface: "dark"  as const, note: "Loading splash final reveal — tiles fly in and lock into position." },
   tilesWatermark:   { file: "cmb-tiles-black-2400.png", maxHeightPx: 1200, surface: "image" as const, note: "Full-page background watermark on premium pages at 6–10% opacity." },
+
+  // ── Monogram family (handwritten "MB" signature mark) ──
+  // The human hand. Use for closing moments, signatures, certificates,
+  // intimate/personal contexts. Wrong for nav, hero, splash.
+  monogramFavicon:     { file: "cmb-mb-monogram-black-64.png",   maxHeightPx: 32,  surface: "any"   as const, note: "Alt favicon for founder-mode / personal pages." },
+  monogramSignature:   { file: "cmb-mb-monogram-black-128.png",  maxHeightPx: 48,  surface: "light" as const, note: "Email signature footer, quote letter, contract sign-off." },
+  monogramSealAccent:  { file: "cmb-mb-monogram-black-256.png",  maxHeightPx: 96,  surface: "light" as const, note: "About-page founder card, story-section seal, testimonial attribution." },
+  monogramCertificate: { file: "cmb-mb-monogram-black-512.png",  maxHeightPx: 192, surface: "light" as const, note: "Warranty / completion certificate seal, project handoff documents." },
+  monogramWatermark:   { file: "cmb-mb-monogram-black-1024.png", maxHeightPx: 512, surface: "image" as const, note: "Premium project case-study watermark — low opacity, signed-work aesthetic." },
 } as const;
 
 export type LogoSlot = keyof typeof LOGO_USAGE_MAP;

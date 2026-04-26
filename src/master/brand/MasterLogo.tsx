@@ -22,6 +22,7 @@ import {
   type LogoColorway,
   type EmblemSize,
   type TileSize,
+  type MonogramSize,
 } from "./logo-registry";
 import { MASTER } from "./identity";
 import { TRADE } from "@/config/trade.config";
@@ -30,7 +31,13 @@ type ResponsiveSlot = "nav" | "footer";
 type SingleSlot = "hero" | "large" | "medium" | "small" | "loading";
 type EmblemSlot = "emblem";
 type TilesSlot = "tiles";
-export type MasterLogoSlot = ResponsiveSlot | SingleSlot | EmblemSlot | TilesSlot;
+type MonogramSlot = "monogram";
+export type MasterLogoSlot =
+  | ResponsiveSlot
+  | SingleSlot
+  | EmblemSlot
+  | TilesSlot
+  | MonogramSlot;
 
 interface MasterLogoProps {
   slot: MasterLogoSlot;
@@ -44,9 +51,10 @@ interface MasterLogoProps {
   loading?: "eager" | "lazy";
   /** Optional click handler (e.g. nav lockup wrapping a Link) */
   onClick?: () => void;
-  /** Emblem-only / Tiles-only: pick which px-edge file to start from. Browser
-   * still picks the right DPR via srcset. Defaults to 400. */
-  size?: EmblemSize | TileSize;
+  /** Emblem-only / Tiles-only / Monogram-only: pick which px-edge file to
+   * start from. Browser still picks the right DPR via srcset. Defaults to 400
+   * (or 128 for monogram). */
+  size?: EmblemSize | TileSize | MonogramSize;
 }
 
 const ALT_DEFAULT = MASTER.brandName; // "Cochrane Master Builders"
@@ -61,6 +69,7 @@ const SLOT_HEIGHT: Record<MasterLogoSlot, string> = {
   loading: "h-auto w-28",
   emblem: "h-auto w-auto",
   tiles: "h-auto w-auto",
+  monogram: "h-auto w-auto",
 };
 
 /** Read the trade's chosen colorway with a safe fallback. */
@@ -91,11 +100,12 @@ const MasterLogo = ({
   // offered as 2x/3x descriptors for crisp retina rendering.
   if (slot === "emblem") {
     const emblem = set.emblem;
-    const base = emblem[size];
-    // Build a srcset that offers the chosen size as 1x and the next-up
-    // sizes as 2x/3x where available.
     const ladder: EmblemSize[] = [100, 200, 400, 800, 1200, 2400];
-    const idx = ladder.indexOf(size);
+    const emblemSize: EmblemSize = (ladder as readonly number[]).includes(size as number)
+      ? (size as EmblemSize)
+      : 400;
+    const base = emblem[emblemSize];
+    const idx = ladder.indexOf(emblemSize);
     const x2 = ladder[idx + 1];
     const x3 = ladder[idx + 2];
     const srcSet = [
@@ -115,8 +125,8 @@ const MasterLogo = ({
         // @ts-expect-error - non-standard but supported attr
         fetchpriority={fetchPriority}
         decoding="async"
-        width={size}
-        height={size}
+        width={emblemSize}
+        height={emblemSize}
         onClick={onClick}
       />
     );
@@ -126,9 +136,12 @@ const MasterLogo = ({
   // emblem so retina screens stay crisp without eager-fetching the 2400.
   if (slot === "tiles") {
     const tiles = set.tiles;
-    const base = tiles[size];
     const ladder: TileSize[] = [100, 200, 400, 800, 1200, 2400];
-    const idx = ladder.indexOf(size);
+    const tileSize: TileSize = (ladder as readonly number[]).includes(size as number)
+      ? (size as TileSize)
+      : 400;
+    const base = tiles[tileSize];
+    const idx = ladder.indexOf(tileSize);
     const x2 = ladder[idx + 1];
     const x3 = ladder[idx + 2];
     const srcSet = [
@@ -148,8 +161,43 @@ const MasterLogo = ({
         // @ts-expect-error - non-standard but supported attr
         fetchpriority={fetchPriority}
         decoding="async"
-        width={size}
-        height={size}
+        width={tileSize}
+        height={tileSize}
+        onClick={onClick}
+      />
+    );
+  }
+
+  // Monogram (handwritten "MB" signature). Own size ladder — capped at 1024.
+  if (slot === "monogram") {
+    const monogram = set.monogram;
+    const ladder: MonogramSize[] = [64, 128, 256, 512, 1024];
+    const monoSize: MonogramSize = (ladder as readonly number[]).includes(size as number)
+      ? (size as MonogramSize)
+      : 128;
+    const base = monogram[monoSize];
+    const idx = ladder.indexOf(monoSize);
+    const x2 = ladder[idx + 1];
+    const x3 = ladder[idx + 2];
+    const srcSet = [
+      `${base} 1x`,
+      x2 ? `${monogram[x2]} 2x` : null,
+      x3 ? `${monogram[x3]} 3x` : null,
+    ]
+      .filter(Boolean)
+      .join(", ");
+    return (
+      <img
+        src={base}
+        srcSet={srcSet}
+        alt={alt}
+        className={`${sizing} object-contain ${className}`}
+        loading={eager}
+        // @ts-expect-error - non-standard but supported attr
+        fetchpriority={fetchPriority}
+        decoding="async"
+        width={monoSize}
+        height={monoSize}
         onClick={onClick}
       />
     );
