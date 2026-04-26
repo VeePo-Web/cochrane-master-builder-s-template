@@ -122,6 +122,39 @@ const MasterLogo = ({
     );
   }
 
+  // Tiles (exploded mark — three separated panels). Same srcset ladder as
+  // emblem so retina screens stay crisp without eager-fetching the 2400.
+  if (slot === "tiles") {
+    const tiles = set.tiles;
+    const base = tiles[size];
+    const ladder: TileSize[] = [100, 200, 400, 800, 1200, 2400];
+    const idx = ladder.indexOf(size);
+    const x2 = ladder[idx + 1];
+    const x3 = ladder[idx + 2];
+    const srcSet = [
+      `${base} 1x`,
+      x2 ? `${tiles[x2]} 2x` : null,
+      x3 ? `${tiles[x3]} 3x` : null,
+    ]
+      .filter(Boolean)
+      .join(", ");
+    return (
+      <img
+        src={base}
+        srcSet={srcSet}
+        alt={alt}
+        className={`${sizing} object-contain ${className}`}
+        loading={eager}
+        // @ts-expect-error - non-standard but supported attr
+        fetchpriority={fetchPriority}
+        decoding="async"
+        width={size}
+        height={size}
+        onClick={onClick}
+      />
+    );
+  }
+
   // Responsive slots use <picture> with <source media> queries
   if (slot === "nav") {
     return (
