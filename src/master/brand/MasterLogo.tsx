@@ -100,11 +100,12 @@ const MasterLogo = ({
   // offered as 2x/3x descriptors for crisp retina rendering.
   if (slot === "emblem") {
     const emblem = set.emblem;
-    const base = emblem[size];
-    // Build a srcset that offers the chosen size as 1x and the next-up
-    // sizes as 2x/3x where available.
     const ladder: EmblemSize[] = [100, 200, 400, 800, 1200, 2400];
-    const idx = ladder.indexOf(size);
+    const emblemSize: EmblemSize = (ladder as readonly number[]).includes(size as number)
+      ? (size as EmblemSize)
+      : 400;
+    const base = emblem[emblemSize];
+    const idx = ladder.indexOf(emblemSize);
     const x2 = ladder[idx + 1];
     const x3 = ladder[idx + 2];
     const srcSet = [
@@ -124,8 +125,8 @@ const MasterLogo = ({
         // @ts-expect-error - non-standard but supported attr
         fetchpriority={fetchPriority}
         decoding="async"
-        width={size}
-        height={size}
+        width={emblemSize}
+        height={emblemSize}
         onClick={onClick}
       />
     );
