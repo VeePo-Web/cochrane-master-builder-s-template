@@ -291,6 +291,26 @@ const WORDMARK_WHITE = {
   2400: cmbWordmarkWhite2400,
 } as const;
 
+/** Wordmark Ground variant (drafted plumb + base rule) keyed by edge length. */
+const WORDMARK_GROUND_BLACK = {
+  200: cmbWordmarkGroundBlack200,
+  400: cmbWordmarkGroundBlack400,
+  800: cmbWordmarkGroundBlack800,
+  1200: cmbWordmarkGroundBlack1200,
+  2400: cmbWordmarkGroundBlack2400,
+} as const;
+
+const WORDMARK_GROUND_NAVY = {
+  200: cmbWordmarkGroundNavy200,
+  400: cmbWordmarkGroundNavy400,
+  800: cmbWordmarkGroundNavy800,
+  1200: cmbWordmarkGroundNavy1200,
+  2400: cmbWordmarkGroundNavy2400,
+} as const;
+
+// White ground wordmark aliased to black until that package lands.
+const WORDMARK_GROUND_WHITE = WORDMARK_GROUND_BLACK;
+
 export const MASTER_LOGOS = {
   black: {
     nav: { sm: cmbBlackNavSm, md: cmbBlackNavMd, lg: cmbBlackNavLg },
@@ -303,6 +323,7 @@ export const MASTER_LOGOS = {
     tiles: TILES_BLACK,
     monogram: MONOGRAM_BLACK,
     wordmark: WORDMARK_BLACK,
+    wordmarkGround: WORDMARK_GROUND_BLACK,
   },
   navy: {
     nav: { sm: cmbNavyNavSm, md: cmbNavyNavMd, lg: cmbNavyNavLg },
@@ -319,6 +340,8 @@ export const MASTER_LOGOS = {
     monogram: MONOGRAM_NAVY,
     // Navy wordmark ✅ embedded.
     wordmark: WORDMARK_NAVY,
+    // Navy ground wordmark ✅ embedded.
+    wordmarkGround: WORDMARK_GROUND_NAVY,
   },
   white: {
     nav: { sm: cmbWhiteNavSm, md: cmbWhiteNavMd, lg: cmbWhiteNavLg },
@@ -335,6 +358,8 @@ export const MASTER_LOGOS = {
     monogram: MONOGRAM_WHITE,
     // White wordmark ✅ embedded.
     wordmark: WORDMARK_WHITE,
+    // White ground wordmark aliased to black until that package lands.
+    wordmarkGround: WORDMARK_GROUND_WHITE,
   },
 } as const;
 
