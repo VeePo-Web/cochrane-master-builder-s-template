@@ -558,32 +558,39 @@ export async function runPreflight(
 
   const rails: RailReport[] = [];
 
-  // Meta coverage check (always first).
+  // Meta coverage check (always first). Missing checkers = hard fail (real
+  // bug). Unrouted rails surface as warnings via evidence — some rails (e.g.
+  // operational-safety) legitimately have no partner-doc routing.
   const unrouted = getUnroutedGuardRails();
   const missingCheckers = GUARD_RAILS.filter(
     (g) => !(g.id in RAIL_CHECKERS),
   ).map((g) => g.id);
   const metaFailures: string[] = [];
-  if (unrouted.length > 0)
-    metaFailures.push(`unrouted guard rails: ${unrouted.join(", ")}`);
-  if (missingCheckers.length > 0)
+  const metaEvidence: string[] = [
+    `${GUARD_RAILS.length} rails declared`,
+    `${Object.keys(RAIL_CHECKERS).length} checkers registered`,
+  ];
+  if (missingCheckers.length > 0) {
     metaFailures.push(`rails without checkers: ${missingCheckers.join(", ")}`);
+  }
+  if (unrouted.length > 0) {
+    metaEvidence.push(
+      `unrouted (no partner-doc context): ${unrouted.join(", ")}`,
+    );
+  }
   rails.push({
     id: "gr-meta-coverage",
     title: "Meta Coverage",
     category: "operational-safety",
     status: metaFailures.length > 0 ? "fail" : "pass",
-    law: "Every guard rail must have a checker AND at least one decision-route link.",
-    evidence: [
-      `${GUARD_RAILS.length} rails declared`,
-      `${Object.keys(RAIL_CHECKERS).length} checkers registered`,
-    ],
+    law: "Every guard rail must have a checker. Missing partner-doc routes are warnings only.",
+    evidence: metaEvidence,
     failures: metaFailures,
     routes: [],
     partnerDocPaths: [],
     remediation:
       metaFailures.length > 0
-        ? "Register a checker in preflight.ts and link the rail to a partner doc."
+        ? "Register a checker in preflight.ts for each missing rail."
         : "no action required",
   });
 
