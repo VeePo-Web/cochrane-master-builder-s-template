@@ -391,6 +391,13 @@ export const WORDMARK_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
   white: "ready",
 };
 
+/** Per-colorway readiness for the wordmark "ground" variant specifically. */
+export const WORDMARK_GROUND_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
+  black: "ready",
+  navy: "ready",
+  white: "aliased",
+};
+
 export const EMBLEM_SIZES: EmblemSize[] = [100, 200, 400, 800, 1200, 2400];
 /** Tiles share the emblem size ladder. */
 export const TILE_SIZES: TileSize[] = [100, 200, 400, 800, 1200, 2400];
