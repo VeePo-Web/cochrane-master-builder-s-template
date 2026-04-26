@@ -366,6 +366,14 @@ export interface CheckItem {
    * Defaults to `"standard"` when omitted.
    */
   planDepth?: "deep" | "standard";
+  /**
+   * Guard rails this item helps satisfy. Each entry is a `GuardRailId` from
+   * `src/master/guardrails.ts`. Used to compute coverage — every guard rail
+   * should have at least one enforcing item. Stored as `string[]` here to
+   * avoid a circular import; `guardrails.ts` is the source of truth.
+   * See `playbooks/GUARD_RAILS.md`.
+   */
+  guardRails?: string[];
 }
 
 export const CHECKLIST_PHASES = [
