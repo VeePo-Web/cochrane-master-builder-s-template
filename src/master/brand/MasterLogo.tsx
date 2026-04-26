@@ -44,9 +44,9 @@ interface MasterLogoProps {
   loading?: "eager" | "lazy";
   /** Optional click handler (e.g. nav lockup wrapping a Link) */
   onClick?: () => void;
-  /** Emblem-only: pick which px-edge file to start from. Browser still
-   * picks the right DPR via srcset. Defaults to 400. */
-  size?: EmblemSize;
+  /** Emblem-only / Tiles-only: pick which px-edge file to start from. Browser
+   * still picks the right DPR via srcset. Defaults to 400. */
+  size?: EmblemSize | TileSize;
 }
 
 const ALT_DEFAULT = MASTER.brandName; // "Cochrane Master Builders"
