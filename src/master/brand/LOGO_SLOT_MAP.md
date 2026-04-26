@@ -219,11 +219,12 @@ identity, the **monogram is the human hand** — "signed personally by
 the master builder." Use for closing moments, signatures, certificates,
 intimate contexts. Never for nav, hero, or splash.
 
-> **Four-family decision rule:**
-> - **Lockup** → first impression / formal identity (nav, footer, hero)
-> - **Emblem** → repeat-appearance crest (favicon, avatar, watermark)
-> - **Tiles**  → kinetic / built-from-pieces (motion, splash, process)
+> **Five-family decision rule:**
+> - **Lockup**   → first impression / formal identity (nav, footer, hero)
+> - **Emblem**   → repeat-appearance crest (favicon, avatar, watermark)
+> - **Tiles**    → kinetic / built-from-pieces (motion, splash, process)
 > - **Monogram** → the human hand (signatures, certificates, founder)
+> - **Wordmark** → editorial type voice (eyebrows, doc headers, horizontal rails)
 
 ### Sizes & recommended use
 
@@ -237,16 +238,17 @@ intimate contexts. Never for nav, hero, or splash.
 
 ### Colorway readiness
 
-| Variant | Black ✅                          | Navy ✅                          | White ⏳ (aliased)               |
-|---------|-----------------------------------|----------------------------------|----------------------------------|
-| 64      | `cmb-mb-monogram-black-64.png`    | `cmb-mb-monogram-navy-64.png`    | → black                          |
-| 128     | `cmb-mb-monogram-black-128.png`   | `cmb-mb-monogram-navy-128.png`   | → black                          |
-| 256     | `cmb-mb-monogram-black-256.png`   | `cmb-mb-monogram-navy-256.png`   | → black                          |
-| 512     | `cmb-mb-monogram-black-512.png`   | `cmb-mb-monogram-navy-512.png`   | → black                          |
-| 1024    | `cmb-mb-monogram-black-1024.png`  | `cmb-mb-monogram-navy-1024.png`  | → black                          |
+| Variant | Black ✅                          | Navy ✅                          | White ✅                          |
+|---------|-----------------------------------|----------------------------------|-----------------------------------|
+| 64      | `cmb-mb-monogram-black-64.png`    | `cmb-mb-monogram-navy-64.png`    | `cmb-mb-monogram-white-64.png`    |
+| 128     | `cmb-mb-monogram-black-128.png`   | `cmb-mb-monogram-navy-128.png`   | `cmb-mb-monogram-white-128.png`   |
+| 256     | `cmb-mb-monogram-black-256.png`   | `cmb-mb-monogram-navy-256.png`   | `cmb-mb-monogram-white-256.png`   |
+| 512     | `cmb-mb-monogram-black-512.png`   | `cmb-mb-monogram-navy-512.png`   | `cmb-mb-monogram-white-512.png`   |
+| 1024    | `cmb-mb-monogram-black-1024.png`  | `cmb-mb-monogram-navy-1024.png`  | `cmb-mb-monogram-white-1024.png`  |
 
-`MONOGRAM_STATUS` reports `ready` for black + navy and `aliased` for white.
-The monogram has its own size ladder (no 2400) — it is never a hero asset.
+`MONOGRAM_STATUS` reports `ready` for all three colorways. The monogram
+has its own size ladder (no 2400) — it is never a hero asset. The white
+monogram is the dark-surface variant for image / dark watermarks.
 
 ### Render API
 
@@ -259,6 +261,61 @@ import MasterLogo from "@/master/brand/MasterLogo";
 <MasterLogo slot="monogram" size={512}  />                    // certificate seal
 <MasterLogo slot="monogram" size={1024} className="opacity-10" /> // watermark
 ```
+
+---
+
+## Wordmark family (pure typography, no emblem)
+
+The fifth and final asset family. Pure type — "MASTER BUILDERS" stacked
+above "— COCHRANE —" with hairline rule. Where the **lockup** stacks the
+emblem above this same wordmark, the **wordmark alone** strips the crest
+so it can sit in horizontal rails (≥3:1 aspect) without the emblem
+dominating. The editorial type voice.
+
+> **When to reach for the wordmark vs. the lockup:**
+> - **Lockup** → vertical/square containers, first impression, marketing
+> - **Wordmark** → horizontal/inline contexts where the emblem would crowd:
+>   section eyebrows, document headers, breadcrumb chips, press kit pages,
+>   cinema-bar captions, full-width brand bands.
+
+### Sizes & recommended use
+
+| Size (px) | Slot key            | Use case                                                            | Surface | Loading |
+|-----------|---------------------|---------------------------------------------------------------------|---------|---------|
+| 200       | `wordmarkInline`    | Inline body wordmark, byline strip, breadcrumb brand chip           | light   | lazy    |
+| 400       | `wordmarkSection`   | Section eyebrow above an H2, editorial divider label, modal header  | light   | lazy    |
+| 800       | `wordmarkDocument`  | Document/PDF header, quote letter masthead, press kit page header   | light   | lazy    |
+| 1200      | `wordmarkBanner`    | Wide hero strip alternative, cinema-bar caption, full-width band    | any     | lazy    |
+| 2400      | `wordmarkPrint`     | Print master, large-format banner, billboard wordmark               | any     | lazy    |
+
+### Colorway readiness
+
+| Variant | Black ✅                          | Navy ⏳ (aliased) | White ⏳ (aliased) |
+|---------|-----------------------------------|--------------------|---------------------|
+| 200     | `cmb-wordmark-black-200.png`      | → black            | → black             |
+| 400     | `cmb-wordmark-black-400.png`      | → black            | → black             |
+| 800     | `cmb-wordmark-black-800.png`      | → black            | → black             |
+| 1200    | `cmb-wordmark-black-1200.png`     | → black            | → black             |
+| 2400    | `cmb-wordmark-black-2400.png`     | → black            | → black             |
+
+`WORDMARK_STATUS` reports `ready` for black; navy + white alias to black
+until those packages land — same staging pattern used for the tile family.
+
+### Render API
+
+```tsx
+import MasterLogo from "@/master/brand/MasterLogo";
+
+<MasterLogo slot="wordmark" size={200}  />                    // breadcrumb chip
+<MasterLogo slot="wordmark" size={400}  />                    // section eyebrow
+<MasterLogo slot="wordmark" size={800}  />                    // document header
+<MasterLogo slot="wordmark" size={1200} className="w-full" /> // brand band
+<MasterLogo slot="wordmark" size={2400} />                    // print master
+```
+
+The component sets `width={size}` and `height={Math.round(size/5)}` on
+the `<img>` so the ~5:1 aspect ratio of the file is reserved before
+the bytes arrive — zero CLS.
 
 ---
 

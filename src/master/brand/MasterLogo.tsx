@@ -23,6 +23,7 @@ import {
   type EmblemSize,
   type TileSize,
   type MonogramSize,
+  type WordmarkSize,
 } from "./logo-registry";
 import { MASTER } from "./identity";
 import { TRADE } from "@/config/trade.config";
@@ -32,12 +33,14 @@ type SingleSlot = "hero" | "large" | "medium" | "small" | "loading";
 type EmblemSlot = "emblem";
 type TilesSlot = "tiles";
 type MonogramSlot = "monogram";
+type WordmarkSlot = "wordmark";
 export type MasterLogoSlot =
   | ResponsiveSlot
   | SingleSlot
   | EmblemSlot
   | TilesSlot
-  | MonogramSlot;
+  | MonogramSlot
+  | WordmarkSlot;
 
 interface MasterLogoProps {
   slot: MasterLogoSlot;
@@ -51,10 +54,10 @@ interface MasterLogoProps {
   loading?: "eager" | "lazy";
   /** Optional click handler (e.g. nav lockup wrapping a Link) */
   onClick?: () => void;
-  /** Emblem-only / Tiles-only / Monogram-only: pick which px-edge file to
-   * start from. Browser still picks the right DPR via srcset. Defaults to 400
-   * (or 128 for monogram). */
-  size?: EmblemSize | TileSize | MonogramSize;
+  /** Emblem-only / Tiles-only / Monogram-only / Wordmark-only: pick which
+   * px-edge file to start from. Browser still picks the right DPR via srcset.
+   * Defaults: 400 for emblem/tiles, 128 for monogram, 400 for wordmark. */
+  size?: EmblemSize | TileSize | MonogramSize | WordmarkSize;
 }
 
 const ALT_DEFAULT = MASTER.brandName; // "Cochrane Master Builders"
@@ -70,6 +73,7 @@ const SLOT_HEIGHT: Record<MasterLogoSlot, string> = {
   emblem: "h-auto w-auto",
   tiles: "h-auto w-auto",
   monogram: "h-auto w-auto",
+  wordmark: "h-auto w-auto",
 };
 
 /** Read the trade's chosen colorway with a safe fallback. */
@@ -198,6 +202,44 @@ const MasterLogo = ({
         decoding="async"
         width={monoSize}
         height={monoSize}
+        onClick={onClick}
+      />
+    );
+  }
+
+  // Wordmark (pure typography, no emblem). ~5:1 aspect ratio. Same srcset
+  // ladder strategy as emblem/tiles/monogram so retina screens stay crisp.
+  if (slot === "wordmark") {
+    const wordmark = set.wordmark;
+    const ladder: WordmarkSize[] = [200, 400, 800, 1200, 2400];
+    const wmSize: WordmarkSize = (ladder as readonly number[]).includes(size as number)
+      ? (size as WordmarkSize)
+      : 400;
+    const base = wordmark[wmSize];
+    const idx = ladder.indexOf(wmSize);
+    const x2 = ladder[idx + 1];
+    const x3 = ladder[idx + 2];
+    const srcSet = [
+      `${base} 1x`,
+      x2 ? `${wordmark[x2]} 2x` : null,
+      x3 ? `${wordmark[x3]} 3x` : null,
+    ]
+      .filter(Boolean)
+      .join(", ");
+    // Intrinsic ~5:1 aspect — width:height roughly 5:1. Set CLS box accordingly.
+    const intrinsicHeight = Math.round(wmSize / 5);
+    return (
+      <img
+        src={base}
+        srcSet={srcSet}
+        alt={alt}
+        className={`${sizing} object-contain ${className}`}
+        loading={eager}
+        // @ts-expect-error - non-standard but supported attr
+        fetchpriority={fetchPriority}
+        decoding="async"
+        width={wmSize}
+        height={intrinsicHeight}
         onClick={onClick}
       />
     );

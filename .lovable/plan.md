@@ -1,66 +1,87 @@
-## What you uploaded — fourth asset family: MB monogram
+# Logo package integration — round 5
 
-A handwritten **MB** signature mark — flowing script with the `M` and `B` interlocked. Two colorways uploaded together (black + navy), 5 sizes each. White will land later; until then it aliases to black, same pattern as before.
+Two packages in this drop:
 
-| Colorway | Sizes | Files |
+1. **White MB monogram** (5 sizes: 64 / 128 / 256 / 512 / 1024) — completes the monogram colorway matrix. Removes the last alias in the registry.
+2. **Wordmark — black** (5 sizes: 200 / 400 / 800 / 1200 / 2400) — a brand-new **fifth asset family**: pure typography ("MASTER BUILDERS / COCHRANE" with hairline rule). Distinct role from lockup (lockup = wordmark + emblem stacked); the wordmark alone is for editorial / horizontal contexts where the emblem would crowd or compete.
+
+After this round the brand system has five families:
+**Lockup · Emblem · Tiles · Monogram · Wordmark.**
+
+---
+
+## The five-family decision rule (final)
+
+| Family | Voice | When |
 |---|---|---|
-| Black ✅ | 64, 128, 256, 512, 1024 | `cmb-mb-monogram-black-{64,128,256,512,1024}.png` |
-| Navy ✅  | 64, 128, 256, 512, 1024 | `cmb-mb-monogram-navy-{64,128,256,512,1024}.png` |
-| White ⏳ | aliased to black until uploaded |
+| Lockup | Formal first impression | Nav, footer, hero, marketing |
+| Emblem | Repeat-appearance crest | Favicon, avatar, watermark, scroll-back |
+| Tiles | Kinetic / built-from-pieces | Splash reveals, process motion, premium watermarks |
+| Monogram | The human hand | Signatures, certificates, founder moments |
+| **Wordmark** | **Editorial type voice** | **Section eyebrows, doc headers, press kit, horizontal rails, where the emblem would crowd** |
 
-Different size ladder than emblem/tiles (no 2400) because the monogram is **never** a hero asset — it's a signature, used small. Capping at 1024 keeps the registry honest.
+---
 
-## Why it's its own family (not just another emblem variant)
+## Wordmark slot map (new)
 
-Three families already have clear personalities:
+Five dedicated slots, each tied to the size that prints sharpest at its display height:
 
-- **Lockup** = first impression / formal identity
-- **Emblem** = solid crest / repeat appearance
-- **Tiles** = kinetic / built-from-pieces
+| Size (px) | Slot key | Use case | Surface | Loading |
+|---|---|---|---|---|
+| 200  | `wordmarkInline`     | Inline body wordmark, byline strip, breadcrumb brand chip | light | lazy |
+| 400  | `wordmarkSection`    | Section eyebrow above an H2, editorial divider label, modal header | light | lazy |
+| 800  | `wordmarkDocument`   | Document/PDF header, quote letter masthead, press kit page header | light | lazy |
+| 1200 | `wordmarkBanner`     | Wide hero strip alternative, cinema-bar caption, full-width brand band | any | lazy |
+| 2400 | `wordmarkPrint`      | Print master, large-format banner, billboard wordmark | any | lazy |
 
-The **monogram** adds a fourth voice the other three can't carry: **the human hand**. It says "signed personally by the master builder." That's a different rhetorical job — perfect for closing moments, signatures, certificates, intimate contexts. Wrong for nav, wrong for hero, wrong for splash. This is why it gets its own slot map.
+Why a separate family (not just `large`/`medium` of the lockup): the existing `large` / `medium` / `hero` files are the **stacked lockup** (emblem above wordmark). The wordmark-only file removes the emblem so it can sit in horizontal rails (≥3:1 aspect) without dominating. Different shape, different role.
 
-## Slot map — where it goes when
+---
 
-| Slot key            | Default size | Use case                                                                     | Surface | Loading |
-|---------------------|--------------|------------------------------------------------------------------------------|---------|---------|
-| `monogramFavicon`   | 64           | Alt favicon for "founder mode" / personal pages                              | any     | eager   |
-| `monogramSignature` | 128          | Email signature footer, quote letter, contract sign-off (`— Master Builder`) | light   | lazy    |
-| `monogramSealAccent`| 256          | About-page founder card, story-section seal, testimonial quote attribution   | light   | lazy    |
-| `monogramCertificate`| 512         | Warranty / completion certificate seal, project handoff documents            | light   | lazy    |
-| `monogramWatermark` | 1024         | Premium project case-study watermark (low opacity, signed-work aesthetic)    | image   | lazy    |
+## Monogram update
 
-Surface logic stays as-is: `dark` and `image` slots auto-pick white (which currently aliases to black until that package arrives), so `monogramWatermark` will pop correctly the moment the white binaries land — no code change needed.
+`MONOGRAM_STATUS.white` flips from `"aliased"` → `"ready"`. White monogram is wired to its own files instead of pointing at black. `MASTER_LOGOS` reaches **zero aliases** across all five families.
 
-## Files I'll create / edit
+---
 
-### Create (10 binaries)
-`src/master/assets/logo/cmb-mb-monogram-{black,navy}-{64,128,256,512,1024}.png`
+## Technical changes
 
-### Edit `src/master/brand/logo-registry.ts`
-- 10 monogram imports (5 black + 5 navy).
-- New `MonogramSize = 64 | 128 | 256 | 512 | 1024` type (own ladder, no 2400).
-- `MONOGRAM_BLACK`, `MONOGRAM_NAVY` real maps; `MONOGRAM_WHITE = MONOGRAM_BLACK` alias.
-- Add `monogram: MONOGRAM_*` to each colorway in `MASTER_LOGOS`.
-- Add `MONOGRAM_STATUS: Record<LogoColorway, "ready" | "aliased">` → black ready, navy ready, white aliased.
-- Add `MONOGRAM_SIZES` export.
-- Add 5 `monogram*` slot entries to `LOGO_USAGE_MAP` with surface tones from the table.
+### Asset embedding (10 new files)
+Copy uploads into `src/master/assets/logo/`:
+- `cmb-mb-monogram-white-{64,128,256,512,1024}.png` — 5 files
+- `cmb-wordmark-black-{200,400,800,1200,2400}.png` — 5 files
 
-### Edit `src/master/brand/MasterLogo.tsx`
-- Add `"monogram"` to `MasterLogoSlot` union.
-- Add `MonogramSize` to the `size` prop type union.
-- Add `monogram: "h-auto w-auto"` to `SLOT_HEIGHT`.
-- Add a `slot === "monogram"` branch — same srcset 1x/2x/3x ladder pattern as emblem and tiles, walking the monogram size ladder.
+### `src/master/brand/logo-registry.ts`
+- Import 5 white monogram PNGs; replace `MONOGRAM_WHITE = MONOGRAM_BLACK` alias with a real map.
+- Import 5 black wordmark PNGs.
+- Add `WordmarkSize` type (`200 | 400 | 800 | 1200 | 2400`) and `WORDMARK_SIZES` export.
+- Add `WORDMARK_BLACK` map; `WORDMARK_NAVY` and `WORDMARK_WHITE` alias to black until those packages land.
+- Add `wordmark` key to all three colorways inside `MASTER_LOGOS`.
+- Add `WORDMARK_STATUS` (`black: ready`, `navy: aliased`, `white: aliased`).
+- Set `MONOGRAM_STATUS.white = "ready"`.
+- Append five `wordmark*` entries to `LOGO_USAGE_MAP` per the table above.
 
-### Edit `src/master/brand/LOGO_SLOT_MAP.md`
-- Append a "Monogram family (handwritten signature)" section: when-to-use blurb, sizes table, colorway readiness matrix, render API examples, and the updated 4-family decision rule (lockup vs emblem vs tiles vs monogram).
+### `src/master/brand/MasterLogo.tsx`
+- Extend `MasterLogoSlot` union with `"wordmark"`.
+- Extend the `size` prop type with `WordmarkSize`.
+- Add `SLOT_HEIGHT.wordmark = "h-auto w-auto"` (consumers control width).
+- Add a `wordmark` branch mirroring the emblem/tiles srcset ladder (1x/2x/3x descriptors). `width` / `height` attributes use the file's natural ~5:1 aspect (size × size/5 rounded) to prevent CLS — actual computed via the bundled file's intrinsic ratio: set `width={size}` and `height={Math.round(size / 5)}`.
 
-### Edit `src/master/checklist.ts`
-- Add `master-monogram-binaries-embedded` check ID and entry.
+### `src/master/brand/LOGO_SLOT_MAP.md`
+- Flip the white monogram column from ⏳ aliased → ✅ ready in the monogram table.
+- Append a new **"Wordmark family"** section with the slot table, render API, and decision-rule callouts. Update the top-of-file decision rule to list five families.
 
-### Validation
-- `tsc --noEmit` clean.
+### `src/master/checklist.ts`
+- Add `"master-wordmark-binaries-embedded"` to the `CheckId` union.
+- Append the matching `CheckItem` to `REMIX_CHECKLIST` (group `setup`, automated, references `WORDMARK_STATUS`).
+- Update the `master-monogram-binaries-embedded` description: white now ✅ alongside black + navy.
 
-## Result
+### Verification
+- TypeScript build green (`npx tsc -b --noEmit` via the existing build path).
+- Spot-check that `MASTER_LOGOS.white.monogram[1024]` resolves to the white file and that `MASTER_LOGOS.black.wordmark[800]` resolves.
 
-`<MasterLogo slot="monogram" size={128} />` works anywhere after this. Trade colorway routing applies automatically — black/navy serve real files, white silently routes to black until that package arrives, and the founder/signature/certificate/watermark surfaces have a dedicated mark with the right voice.
+---
+
+## Out of scope (intentionally deferred)
+- Navy + white wordmark binaries — will alias to black until those packages land, identical pattern to how navy/white tiles were staged.
+- Adopting `<MasterLogo slot="wordmark">` inside existing pages. This round only embeds and maps; surface adoption (e.g. dropping `wordmarkSection` into the About page eyebrow or `wordmarkDocument` into the booking confirmation PDF) is a follow-up so we can review placements deliberately.
