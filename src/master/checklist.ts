@@ -1353,11 +1353,555 @@ export const REMIX_CHECKLIST: CheckItem[] = [
   { id: "navigation-lean", phase: "3-ia", tier: "P0", owner: "human", group: "quality", label: "Navigation is lean", description: "Top nav has ≤6 items; mobile menu is fast." },
   { id: "perf-budget-green", phase: "9-launch", tier: "P0", owner: "ai-plan", group: "quality", automated: true, playbook: "PERFORMANCE_PLAYBOOK", label: "Performance budget green", description: "Lighthouse mobile ≥ 90; LCP < 2.5s; CLS < 0.1." },
   { id: "booking-routes-to-master-email", phase: "7-conversion", tier: "P0", owner: "ai-plan", group: "quality", automated: true, label: "Booking routes to master email", description: "Form submissions reach the central CMB inbox with siteSlug tag." },
-];
 
-// ───────────────────────────────────────────────────────────────────────────
-// HELPERS
-// ───────────────────────────────────────────────────────────────────────────
+  // ════════════════════════════════════════════════════════════════════
+  // PHASE 0 — PLAN-FIRST DISCIPLINE (forces every later item to plan deep)
+  // ════════════════════════════════════════════════════════════════════
+  {
+    id: "plan-read-brand-bible",
+    phase: "0-plan-first", tier: "P0", owner: "ai-plan", group: "setup",
+    playbook: "PLAN_FIRST_DISCIPLINE",
+    brandSources: ["src/master/brand/BRAND_BIBLE.md"],
+    label: "Brand bible read end-to-end",
+    description:
+      "Before ANY work in any phase, the agent reads BRAND_BIBLE.md from top to bottom. This is the canonical contract: hex codes, clear-space, do/don'ts, mark families, surface map. Quote the relevant section in every plan.",
+  },
+  {
+    id: "plan-read-brand-identity-northstar",
+    phase: "0-plan-first", tier: "P0", owner: "ai-plan", group: "setup",
+    playbook: "PLAN_FIRST_DISCIPLINE",
+    brandSources: ["src/config/brand-identity.ts", "src/config/brand-identity-northstar.ts"],
+    label: "Brand identity + northstar read",
+    description:
+      "Read brand-identity.ts (voice, taglines, mission) and brand-identity-northstar.ts (power words, banned words, character traits). Every copy decision references these.",
+  },
+  {
+    id: "plan-load-relevant-personas",
+    phase: "0-plan-first", tier: "P0", owner: "ai-plan", group: "setup",
+    playbook: "PLAN_FIRST_DISCIPLINE",
+    brandSources: ["src/config/personas/index.ts"],
+    label: "Phase-relevant personas loaded",
+    description:
+      "Per phase, load required personas (see PLAN_FIRST_DISCIPLINE.md persona load map). Phase 4 → narrative-copywriter + strategic-narrative + seo-faq + ideal-customer. Phase 5 → master-visual + image-seo. Phase 5b → scroll-motion + master-visual. Phase 6 → seo-expert + seo-faq + image-seo. If a required persona is missing, stop and flag.",
+  },
+  {
+    id: "plan-read-trade-config",
+    phase: "0-plan-first", tier: "P0", owner: "ai-plan", group: "setup",
+    playbook: "PLAN_FIRST_DISCIPLINE",
+    brandSources: ["src/config/trade.config.ts"],
+    label: "Current trade.config read",
+    description:
+      "Identity, palette, services, voice arrays, contact, location — the per-trade truth. Every plan grounds in these.",
+  },
+  {
+    id: "plan-read-business-overview",
+    phase: "0-plan-first", tier: "P0", owner: "ai-plan", group: "setup",
+    playbook: "PLAN_FIRST_DISCIPLINE",
+    brandSources: ["src/config/business.ts", "src/config/business-overview.ts"],
+    label: "Business + overview read",
+    description:
+      "What the business actually does, who it serves, how it makes money. Prevents copy that overpromises or misrepresents.",
+  },
+  {
+    id: "plan-read-reviews-and-fear-dispel",
+    phase: "0-plan-first", tier: "P0", owner: "ai-plan", group: "setup",
+    playbook: "PLAN_FIRST_DISCIPLINE",
+    brandSources: ["src/config/reviews.ts", "src/config/fear-dispel.ts", "src/config/discovery-questionnaire.ts"],
+    label: "Reviews + fear-dispel + discovery read",
+    description:
+      "Real customer language (reviews.ts), top objections + how we answer them (fear-dispel.ts), what we already learned about this trade (discovery-questionnaire.ts). Drives Phase 4 copy that lands.",
+  },
+  {
+    id: "plan-deep-plan-before-execution",
+    phase: "0-plan-first", tier: "P0", owner: "ai-plan", group: "setup",
+    planDepth: "deep",
+    playbook: "PLAN_FIRST_DISCIPLINE",
+    label: "11-section deep plan written before code",
+    description:
+      "For every item with planDepth: 'deep', the agent writes the 11-section plan from PLAN_FIRST_DISCIPLINE.md (Goal · Brand truth refs · Craft benchmarks · IA · Content · Visual & motion · A11y · Performance · Success criteria · Risks · Verification) BEFORE touching code. The plan is the deliverable; execution is mechanical after it.",
+  },
+  {
+    id: "plan-craft-benchmarks-pinned",
+    phase: "0-plan-first", tier: "P0", owner: "ai-plan", group: "setup",
+    playbook: "MOTION_AND_CRAFT",
+    craftBenchmarks: [
+      "apple.com/airpods-pro",
+      "apple.com/iphone-15-pro",
+      "fantasy.co",
+      "linear.app",
+      "stripe.com/payments",
+      "christophergawryletz.com",
+      "frog.co",
+    ],
+    label: "Craft benchmarks pinned per page",
+    description:
+      "For every visual or motion deep plan, pin 2–3 benchmark URLs. Note specifically what we're emulating from each (e.g. 'Apple iPhone 15 Pro hero — negative space ratio + scroll choreography'). No mood-board vagueness.",
+  },
+  {
+    id: "plan-easing-system-pinned",
+    phase: "0-plan-first", tier: "P0", owner: "ai-plan", group: "setup",
+    playbook: "MOTION_AND_CRAFT",
+    label: "Site-wide easing system pinned in CSS",
+    description:
+      "--ease-entry, --ease-exit, --ease-inout, --ease-spring, --ease-linear declared in src/index.css (per MOTION_AND_CRAFT.md). All component motion references these tokens. Hand-typed cubic-bezier in components = audit fail.",
+  },
+
+  // ════════════════════════════════════════════════════════════════════
+  // PHASE 2 ADDITIONS — pull from existing brand stack
+  // ════════════════════════════════════════════════════════════════════
+  {
+    id: "brand-identity-docs-pulled-into-trade",
+    phase: "2-brand", tier: "P0", owner: "ai-plan", group: "brand",
+    playbook: "BRAND_AUDIT",
+    brandSources: ["src/config/brand-identity.ts", "src/master/brand/BRAND_BIBLE.md"],
+    label: "Every trade.config field traceable to a brand source",
+    description:
+      "Audit: every value in trade.config.ts (tagline, voice traits, do/don't lists, mission) cites a line in brand-identity.ts or BRAND_BIBLE.md. No improvised values. Inline comments above each block linking the source.",
+  },
+  {
+    id: "brand-northstar-tagline-aligned",
+    phase: "2-brand", tier: "P0", owner: "ai-plan", group: "brand",
+    playbook: "BRAND_AUDIT",
+    brandSources: ["src/config/brand-identity-northstar.ts"],
+    label: "Tagline pulled from northstar candidates",
+    description:
+      "TRADE.identity.tagline must equal one of brand-identity-northstar.ts taglineCandidates. Adding a new candidate requires updating northstar first, then trade.config.",
+  },
+  {
+    id: "brand-style-guide-tokens-respected",
+    phase: "2-brand", tier: "P0", owner: "ai-plan", group: "brand", automated: true,
+    playbook: "BRAND_AUDIT",
+    brandSources: ["src/config/style-guide.ts", "src/config/design-plan.ts"],
+    label: "Tokens come from style-guide.ts, not hand-typed",
+    description:
+      "Audit components for hand-typed colors / spacing / radius. Everything threads through style-guide.ts → trade.config.ts → CSS variables. Hand-typed values fail the audit (rg for hex codes outside config/).",
+  },
+  {
+    id: "brand-design-plan-honored",
+    phase: "2-brand", tier: "P0", owner: "ai-plan", group: "brand",
+    playbook: "BRAND_AUDIT",
+    brandSources: ["src/config/design-plan.ts", "src/config/design-preferences.ts"],
+    label: "design-plan + design-preferences honored",
+    description:
+      "Layout density, type scale choices, motion philosophy in design-plan.ts and design-preferences.ts are reflected in components. Deviations documented in the deep plan.",
+  },
+
+  // ════════════════════════════════════════════════════════════════════
+  // PHASE 3 ADDITIONS — IA gaps
+  // ════════════════════════════════════════════════════════════════════
+  {
+    id: "ia-content-model-defined",
+    phase: "3-ia", tier: "P0", owner: "ai-plan", group: "setup",
+    playbook: "IA_WIREFRAME_GUIDE",
+    planDepth: "deep",
+    label: "Content model defined per page",
+    description:
+      "Every page typed: entities (Service, Area, FAQ, Testimonial, Project, Founder), fields, relations. Lives in src/master/seo/content-model.<trade>.md. Prevents 'what data does this page actually have?' confusion mid-Phase 4.",
+  },
+  {
+    id: "ia-empty-state-and-loading-state-map",
+    phase: "3-ia", tier: "P0", owner: "ai-plan", group: "setup",
+    playbook: "IA_WIREFRAME_GUIDE",
+    craftBenchmarks: ["linear.app", "stripe.com"],
+    label: "Empty + loading states designed",
+    description:
+      "Every async or list surface gets a designed empty state (not a blank gap) and a designed loading state (skeleton, shimmer, or progressive). No spinners on a brand site without a reason.",
+  },
+  {
+    id: "ia-error-state-map",
+    phase: "3-ia", tier: "P0", owner: "ai-plan", group: "setup",
+    playbook: "IA_WIREFRAME_GUIDE",
+    label: "Error states designed (network, validation, 404, 500)",
+    description:
+      "Every potential error surface mapped: form field errors, network drop on submit, 404 page, 500 page, image load failure. All on-brand, all with a clear next step.",
+  },
+  {
+    id: "ia-thumb-zone-audit",
+    phase: "3-ia", tier: "P0", owner: "human", group: "quality",
+    playbook: "IA_WIREFRAME_GUIDE",
+    craftBenchmarks: ["apple.com (HIG)", "frog.co"],
+    label: "Mobile thumb-zone audit",
+    description:
+      "Primary CTAs sit in the bottom-third thumb-zone on mobile (Apple HIG / FROG mobile rule). Sticky bottom CTA on long pages. Tap targets ≥44×44px. Test on a real phone with one hand.",
+  },
+  {
+    id: "ia-z-pattern-and-f-pattern-audit",
+    phase: "3-ia", tier: "P1", owner: "ai-plan", group: "setup",
+    playbook: "IA_WIREFRAME_GUIDE",
+    label: "Visual scan-path audit (Z / F pattern)",
+    description:
+      "Hero & landing sections respect Z-pattern (eye sweeps top-left → top-right → bottom-left → bottom-right). Long-form sections respect F-pattern. Primary value prop lands at one of those anchors.",
+  },
+
+  // ════════════════════════════════════════════════════════════════════
+  // PHASE 4 ADDITIONS — pull from voice/objection/persona stack
+  // ════════════════════════════════════════════════════════════════════
+  {
+    id: "copy-testimonials-real-with-name-city",
+    phase: "4-copy", tier: "P0", owner: "ai-plan", group: "content",
+    playbook: "COPY_GUIDE",
+    brandSources: ["src/config/reviews.ts"],
+    label: "Testimonials pulled from reviews.ts (never invented)",
+    description:
+      "Every testimonial on the site is a real entry from reviews.ts with name + city + service. If reviews.ts is empty for a service, ship the page WITHOUT a testimonial rather than fake one. Permission tracked in Phase 8.",
+  },
+  {
+    id: "copy-fear-dispel-block-applied",
+    phase: "4-copy", tier: "P0", owner: "ai-plan", group: "content",
+    playbook: "COPY_GUIDE",
+    brandSources: ["src/config/fear-dispel.ts"],
+    label: "Fear-dispel block addresses top 5 objections",
+    description:
+      "Home + service pages render a block answering the top 5 objections from fear-dispel.ts. Each objection gets a 1-sentence reframe + a proof point. This is the 'so what' antidote.",
+  },
+  {
+    id: "copy-discovery-framework-followed",
+    phase: "4-copy", tier: "P0", owner: "ai-plan", group: "content",
+    playbook: "COPY_GUIDE",
+    brandSources: ["src/config/personas/discovery-framework.ts"],
+    label: "Story arc matches discovery framework",
+    description:
+      "Page narrative follows the discovery-framework persona: pain → reframe → proof → path → promise. Audit each long-form page against this arc.",
+  },
+  {
+    id: "copy-power-words-from-northstar",
+    phase: "4-copy", tier: "P1", owner: "ai-plan", group: "content", automated: true,
+    playbook: "COPY_GUIDE",
+    brandSources: ["src/config/brand-identity-northstar.ts"],
+    label: "Power-word usage audit",
+    description:
+      "Headlines + CTAs use the power words from brand-identity-northstar.ts. Banned words from the same file get zero hits in a repo scan.",
+  },
+  {
+    id: "copy-ideal-customer-voice-applied",
+    phase: "4-copy", tier: "P0", owner: "ai-plan", group: "content",
+    playbook: "COPY_GUIDE",
+    brandSources: ["src/config/personas/ideal-customer.ts"],
+    label: "Copy speaks to ideal customer (not 'everyone')",
+    description:
+      "Read every page out loud as if speaking to the ideal-customer persona. Anything that doesn't land — re-write. 'Everyone' is nobody.",
+  },
+
+  // ════════════════════════════════════════════════════════════════════
+  // PHASE 5 ADDITIONS — Apple/Fantasy.co craft
+  // ════════════════════════════════════════════════════════════════════
+  {
+    id: "visual-editorial-rhythm-applied",
+    phase: "5-visual", tier: "P0", owner: "ai-plan", group: "content",
+    playbook: "AI_IMAGE_RULES",
+    craftBenchmarks: ["fantasy.co", "christophergawryletz.com"],
+    label: "Editorial rhythm applied (varied density)",
+    description:
+      "Section heights vary (40–55vh dividers per master memory). Padding is generous (up to py-48). Density varies — quiet sections breathe, dense sections earn it. Avoids template-grade uniform-card-grid feel.",
+  },
+  {
+    id: "visual-apple-grade-hero-treatment",
+    phase: "5-visual", tier: "P0", owner: "ai-plan", group: "content",
+    planDepth: "deep",
+    playbook: "AI_IMAGE_RULES",
+    craftBenchmarks: ["apple.com/iphone-15-pro", "apple.com/airpods-pro"],
+    brandSources: ["src/config/personas/master-visual.ts"],
+    label: "Apple-grade hero treatment",
+    description:
+      "Hero spec: macro detail, controlled lighting, single subject, premium negative space (60/40 image/copy ratio mobile, 50/50 desktop). Type leads with restraint. No carousel, no autoplay video. Reference: Apple product pages.",
+  },
+  {
+    id: "visual-fantasy-co-grade-detail-pass",
+    phase: "5-visual", tier: "P1", owner: "ai-plan", group: "content",
+    playbook: "AI_IMAGE_RULES",
+    craftBenchmarks: ["fantasy.co", "christophergawryletz.com"],
+    label: "Fantasy.co-grade detail pass",
+    description:
+      "Visual edge refinement: gradient overlays soften hard image edges, premium type pairings (Space Grotesk display + Jost body per memory), asymmetric grids where warranted, micro-typography (small caps, oldstyle figures, optical sizing).",
+  },
+  {
+    id: "visual-cinematic-image-reveals",
+    phase: "5-visual", tier: "P0", owner: "ai-plan", group: "content",
+    playbook: "MOTION_AND_CRAFT",
+    label: "Cinematic image reveals (clip-path bottom-to-top)",
+    description:
+      "Hero + section images use bottom-to-top clip-path reveal (per master motion memory) on enter. 900ms with --ease-entry. Reduced-motion fallback: instant fade. Triggered at 15% in viewport, once only.",
+  },
+  {
+    id: "visual-parallax-coverage-correct",
+    phase: "5-visual", tier: "P0", owner: "ai-plan", group: "content", automated: true,
+    playbook: "PERFORMANCE_PLAYBOOK",
+    label: "Parallax sections sized 130% with -15% top offset",
+    description:
+      "Per parallax-coverage memory: parallax images are 130% height with -15% top offset to prevent edge-reveal during scroll. Audit every parallax slot.",
+  },
+  {
+    id: "visual-typographic-rhythm-locked",
+    phase: "5-visual", tier: "P0", owner: "ai-plan", group: "content",
+    playbook: "AI_IMAGE_RULES",
+    craftBenchmarks: ["apple.com", "christophergawryletz.com"],
+    label: "Typographic rhythm locked",
+    description:
+      "Headline scale (modular, e.g. 1.25 ratio), body leading 1.55–1.7, measure 60–75ch on long-form. Master pair: Space Grotesk display + Jost body. No hand-typed font sizes — all from style-guide.ts scale.",
+  },
+  {
+    id: "visual-color-temperature-consistency",
+    phase: "5-visual", tier: "P1", owner: "ai-plan", group: "content",
+    playbook: "AI_IMAGE_RULES",
+    label: "Color temperature consistency across imagery",
+    description:
+      "Per-trade palette (warm | cool | neutral from Phase 1) stays consistent across hero, service, gallery, before/after. Mixed temperatures read as stock-photo soup.",
+  },
+  {
+    id: "visual-asymmetric-grid-where-warranted",
+    phase: "5-visual", tier: "P2", owner: "ai-plan", group: "content",
+    playbook: "AI_IMAGE_RULES",
+    craftBenchmarks: ["fantasy.co"],
+    label: "Asymmetric grid in editorial sections",
+    description:
+      "Where appropriate (gallery, before/after, story page), break the 12-col grid with deliberate asymmetry. Avoids Bootstrap-card-deck feel.",
+  },
+
+  // ════════════════════════════════════════════════════════════════════
+  // PHASE 5b — MOTION & INTERACTION CRAFT (FROG-level)
+  // ════════════════════════════════════════════════════════════════════
+  {
+    id: "motion-philosophy-doc-written",
+    phase: "5b-motion", tier: "P0", owner: "ai-plan", group: "brand",
+    playbook: "MOTION_AND_CRAFT",
+    brandSources: ["src/config/personas/scroll-motion.ts", "src/config/personas/master-visual.ts"],
+    label: "Per-trade motion philosophy doc",
+    description:
+      "1-pager covering: motion principles (light reveals material, restraint, tactility, choreography), durations, stagger timings, signature moments. Lives at src/master/brand/<trade>/motion.md. Every Phase 5b plan references it.",
+  },
+  {
+    id: "motion-easing-system-tokens-defined",
+    phase: "5b-motion", tier: "P0", owner: "ai-plan", group: "brand", automated: true,
+    playbook: "MOTION_AND_CRAFT",
+    label: "Easing tokens declared in CSS",
+    description:
+      "--ease-entry, --ease-exit, --ease-inout, --ease-spring, --ease-linear declared in src/index.css per MOTION_AND_CRAFT.md. Audit components for hand-typed cubic-bezier — must be zero hits.",
+  },
+  {
+    id: "motion-page-transition-implemented",
+    phase: "5b-motion", tier: "P0", owner: "ai-plan", group: "quality",
+    playbook: "MOTION_AND_CRAFT",
+    craftBenchmarks: ["linear.app", "fantasy.co"],
+    label: "Signature page transition implemented",
+    description:
+      "Master cloth-wipe transition (per existing memory). 700ms entry / 600ms exit. Reduced-motion fallback: instant cross-fade.",
+  },
+  {
+    id: "motion-hover-microinteractions",
+    phase: "5b-motion", tier: "P0", owner: "ai-plan", group: "quality",
+    playbook: "MOTION_AND_CRAFT",
+    craftBenchmarks: ["linear.app", "stripe.com", "frog.co"],
+    label: "Considered hover on every interactive surface",
+    description:
+      "Buttons lift + shimmer (180ms). Links underline-grow (300ms). Cards lift + image Ken Burns (600ms). No default browser hovers anywhere.",
+  },
+  {
+    id: "motion-scroll-choreography",
+    phase: "5b-motion", tier: "P0", owner: "ai-plan", group: "quality",
+    playbook: "MOTION_AND_CRAFT",
+    craftBenchmarks: ["apple.com/iphone-15-pro"],
+    label: "Scroll choreography (staggered reveals)",
+    description:
+      "Section children stagger in (60–120ms). Hero text staggers headline → sub → CTA (120ms). Card grids stagger 60ms, cap at 8. Once-only.",
+  },
+  {
+    id: "motion-cursor-aware-effects",
+    phase: "5b-motion", tier: "P1", owner: "ai-plan", group: "quality",
+    playbook: "MOTION_AND_CRAFT",
+    craftBenchmarks: ["fantasy.co", "linear.app"],
+    label: "Cursor-aware effects on hero",
+    description:
+      "Hero 'showroom spotlight' radial gradient follows cursor (per existing memory). Subtle parallax on hero image (3–5%). Desktop only. Reduced-motion: disabled.",
+  },
+  {
+    id: "motion-loading-sequence-bespoke",
+    phase: "5b-motion", tier: "P0", owner: "ai-plan", group: "quality",
+    playbook: "MOTION_AND_CRAFT",
+    label: "5-phase loading sequence",
+    description:
+      "Per loading-sequence memory: enter → hold → suspend → exit → done. Total <1.6s. The 'suspend' phase is the signature — don't skip.",
+  },
+  {
+    id: "motion-form-submission-signature",
+    phase: "5b-motion", tier: "P0", owner: "ai-plan", group: "quality",
+    playbook: "MOTION_AND_CRAFT",
+    label: "Booking submission has signature animation",
+    description:
+      "Signature animation on submit (e.g. dirt-to-clean particles per master memory). Never a generic spinner. Reduced-motion: simple checkmark + copy.",
+  },
+  {
+    id: "motion-prefers-reduced-motion-fallbacks",
+    phase: "5b-motion", tier: "P0", owner: "ai-plan", group: "quality", automated: true,
+    playbook: "MOTION_AND_CRAFT",
+    label: "Reduced-motion fallback for every signature",
+    description:
+      "Global @media (prefers-reduced-motion: reduce) + per-signature opt-out. Apple a11y bar: no animation that can't be opted out of.",
+  },
+  {
+    id: "motion-button-tactile-feedback",
+    phase: "5b-motion", tier: "P0", owner: "ai-plan", group: "quality",
+    playbook: "MOTION_AND_CRAFT",
+    craftBenchmarks: ["frog.co", "stripe.com"],
+    label: "Buttons feel pressed (active state)",
+    description:
+      "Active state: transform: scale(.97), 120ms. Touch active visible within 50ms. Optional navigator.vibrate(8) on critical CTAs. No 'dead' buttons.",
+  },
+  {
+    id: "motion-modal-entry-and-exit",
+    phase: "5b-motion", tier: "P0", owner: "ai-plan", group: "quality",
+    playbook: "MOTION_AND_CRAFT",
+    craftBenchmarks: ["linear.app"],
+    label: "Booking modal entry/exit per spec",
+    description:
+      "Scrim fades 200ms; modal scales .96 → 1 + slides 8px → 0 + fades, 360ms --ease-spring. Focus moves to first input. Escape closes. Backdrop closes. Focus returns to trigger. Step indicator (4 dots) per booking-modal memory.",
+  },
+  {
+    id: "motion-frame-budget-respected",
+    phase: "5b-motion", tier: "P0", owner: "ai-plan", group: "quality", automated: true,
+    playbook: "MOTION_AND_CRAFT",
+    label: "60fps on mid-tier mobile",
+    description:
+      "Animate transform/opacity/filter only. Audit components for animated width/height/top/left — must be zero. DevTools Performance tab shows green frames during interaction.",
+  },
+  {
+    id: "motion-link-and-card-interactions",
+    phase: "5b-motion", tier: "P1", owner: "ai-plan", group: "quality",
+    playbook: "MOTION_AND_CRAFT",
+    label: "Link + card interactions match master pattern",
+    description:
+      "Links: story-link underline scale from origin-bottom-left, 300ms. Cards: lift 4px + shadow + image Ken Burns 1.04 over 600ms.",
+  },
+  {
+    id: "motion-focus-states-considered",
+    phase: "5b-motion", tier: "P0", owner: "ai-plan", group: "quality", automated: true,
+    playbook: "MOTION_AND_CRAFT",
+    label: "Focus states considered, not default",
+    description:
+      "Every interactive surface: 2px ring offset 2px, brand accent color, instant. No relying on browser default outline. Tab through every page — focus visible at every stop.",
+  },
+
+  // ════════════════════════════════════════════════════════════════════
+  // PHASE 6 ADDITIONS
+  // ════════════════════════════════════════════════════════════════════
+  {
+    id: "seo-image-sitemap-generated",
+    phase: "6-seo", tier: "P1", owner: "ai-plan", group: "seo", automated: true,
+    playbook: "SEO_PLAYBOOK",
+    label: "Image sitemap for galleries + before/afters",
+    description:
+      "Generate sitemap-images.xml referenced from sitemap.xml index. Helps Google Image discover gallery + before/after work.",
+  },
+  {
+    id: "seo-hreflang-if-multilingual",
+    phase: "6-seo", tier: "P2", owner: "ai-plan", group: "seo",
+    playbook: "SEO_PLAYBOOK",
+    label: "hreflang declared if multilingual",
+    description:
+      "Skip if EN-only. If FR/EN added later, declare hreflang on every page in both languages + x-default.",
+  },
+  {
+    id: "seo-soft-404-monitor-set-up",
+    phase: "6-seo", tier: "P1", owner: "human", group: "seo",
+    playbook: "SEO_PLAYBOOK",
+    label: "Soft-404 + index-coverage monitoring",
+    description:
+      "Search Console → Pages report watched weekly for soft-404s, redirects, indexing issues.",
+  },
+
+  // ════════════════════════════════════════════════════════════════════
+  // PHASE 7 ADDITIONS — interaction craft
+  // ════════════════════════════════════════════════════════════════════
+  {
+    id: "conv-multi-step-form-progress-indicator",
+    phase: "7-conversion", tier: "P0", owner: "ai-plan", group: "quality",
+    playbook: "MOTION_AND_CRAFT",
+    label: "Booking modal step indicator (4 dots)",
+    description:
+      "Per booking-modal memory: 4-step dot indicator. Current step pulses; completed steps fill in. Reduces 'how much more?' anxiety.",
+  },
+  {
+    id: "conv-trust-elements-near-cta",
+    phase: "7-conversion", tier: "P0", owner: "ai-plan", group: "quality",
+    craftBenchmarks: ["stripe.com/payments"],
+    label: "Trust elements within 200px of every primary CTA",
+    description:
+      "License #, insurance, years in business, warranty mention, or testimonial within 200px of every primary CTA. Reduces last-second hesitation.",
+  },
+  {
+    id: "conv-sms-fallback-considered",
+    phase: "7-conversion", tier: "P1", owner: "human", group: "quality",
+    label: "SMS option for mobile-first leads",
+    description:
+      "Consider sms: link or 'text us' option on mobile. Many trade customers prefer text. Skip if backend can't handle inbound SMS.",
+  },
+  {
+    id: "conv-callback-promise-rendered",
+    phase: "7-conversion", tier: "P0", owner: "ai-plan", group: "content",
+    label: "Concrete callback promise near form",
+    description:
+      "'We'll call within 4 business hours' (or whatever Phase 1 says). Concrete, not 'we'll get back to you soon'.",
+  },
+
+  // ════════════════════════════════════════════════════════════════════
+  // PHASE 8 ADDITIONS
+  // ════════════════════════════════════════════════════════════════════
+  {
+    id: "legal-real-testimonials-with-permission",
+    phase: "8-legal", tier: "P0", owner: "human", group: "quality",
+    playbook: "LEGAL_TRUST_GUIDE",
+    label: "Testimonial-permission trail documented",
+    description:
+      "Every testimonial in reviews.ts has documented permission (email/text screenshot) to use name + city. Stored with the operator, not on the site.",
+  },
+  {
+    id: "legal-photo-permission-trail",
+    phase: "8-legal", tier: "P0", owner: "human", group: "quality",
+    playbook: "LEGAL_TRUST_GUIDE",
+    label: "Photo-permission trail (customer homes)",
+    description:
+      "Every real photo of a customer's home/property has documented permission. Especially important for before/after pairs.",
+  },
+
+  // ════════════════════════════════════════════════════════════════════
+  // PHASE 9 ADDITIONS — post-launch growth
+  // ════════════════════════════════════════════════════════════════════
+  {
+    id: "launch-uptime-monitor-configured",
+    phase: "9-launch", tier: "P0", owner: "human", group: "quality",
+    label: "Uptime monitor (Pingdom / UptimeRobot)",
+    description:
+      "5-min interval ping on / and /contact. SMS + email alerts to operator. Free tier is enough.",
+  },
+  {
+    id: "launch-error-monitoring-installed",
+    phase: "9-launch", tier: "P1", owner: "ai-plan", group: "quality",
+    label: "Runtime error monitoring (Sentry or similar)",
+    description:
+      "Sentry or equivalent installed. Source maps uploaded. Slack/email alert on first occurrence of new errors.",
+  },
+  {
+    id: "launch-review-request-flow-armed",
+    phase: "9-launch", tier: "P0", owner: "human", group: "quality",
+    label: "Post-job review request flow armed",
+    description:
+      "Automated email/SMS goes out 3 days after job completion asking for a Google review. Drives the GBP signal that compounds local SEO.",
+  },
+  {
+    id: "launch-content-cadence-plan",
+    phase: "9-launch", tier: "P1", owner: "human", group: "content",
+    playbook: "SEO_PLAYBOOK",
+    label: "Monthly content cadence + first 3 topics drafted",
+    description:
+      "Monthly blog / case-study cadence documented. First 3 topics drafted (titles + outlines) before launch so momentum doesn't stall.",
+  },
+  {
+    id: "launch-first-30-day-checkin",
+    phase: "9-launch", tier: "P0", owner: "human", group: "quality",
+    label: "30-day post-launch review scheduled",
+    description:
+      "Calendar event 30 days post-launch: review CWV trend, GSC coverage, conversion rate, top 10 search queries, top 10 entry pages. Adjust content + meta based on what's actually being searched.",
+  },
+];
 
 export const CHECKLIST_GROUPS = ["setup", "brand", "content", "seo", "quality"] as const;
 export type ChecklistGroup = typeof CHECKLIST_GROUPS[number];
