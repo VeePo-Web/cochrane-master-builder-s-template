@@ -1,108 +1,127 @@
 ## What you uploaded
 
-**Group A — Wordmark Ground / White (5 PNGs)**
-The missing reverse colorway for the drafted wordmark variant. Closes the last alias in the entire 5-family matrix.
-- `cmb-wordmark-ground-white-200/400/800/1200/2400.png`
+**Favicon ladder — 9 PNGs of the navy MB-diamond, sized for every browser-chrome surface the spec calls for.**
 
-**Group B — MB-diamond favicon / PWA icon pack (5 files)**
-A brand-new asset class: the navy MB-diamond emblem (drafted texture) sized for browser chrome and installable PWA contexts. Distinct from the existing wordmark/lockup/emblem PNG families — these are root-public files referenced by `<link>` tags and the web manifest, not by React components.
-- `favicon.ico` — multi-res classic favicon (legacy browsers, Windows pinned tabs)
-- `favicon-16.png` — 16×16 sharp tab icon
-- `apple-touch-icon.png` — 180×180 iOS home-screen icon
-- `android-chrome-192x192.png` — Android home-screen / PWA install
-- `android-chrome-512x512.png` — PWA splash + maskable source
+| File | Primary use |
+|---|---|
+| `favicon-32.png` | Modern desktop browser tab (retina) |
+| `favicon-48.png` | Windows taskbar / classic Win pinned site |
+| `favicon-64.png` | Browser tab on hi-DPI laptop |
+| `favicon-96.png` | Android home-screen (legacy / low-density) |
+| `favicon-128.png` | Chrome Web Store, generic medium chrome |
+| `favicon-144.png` | Windows Metro / IE11 pinned tile |
+| `favicon-152.png` | iPad home-screen (older iOS) |
+| `favicon-180.png` | iPhone home-screen (modern iOS Safari) — **already embedded as `apple-touch-icon.png`** |
+| `favicon-192.png` | Android Chrome PWA install — **already embedded as `android-chrome-192x192.png`** |
+| `favicon-256.png` | Hero browser-chrome / large favicon, OG-square fallback |
+
+The 16px and 512px ends of the ladder are already in `/public/` from the last round. This upload fills in **everything in between** — meaning every modern browser, OS, and PWA spec gets an exact-size native asset instead of having to scale from a neighbour.
 
 ---
 
 ## Plan
 
-### 1. Wordmark-Ground White — finalize the matrix
+### 1. Embed the full ladder in `/public/`
 
-- **Embed** 5 PNGs at `src/master/assets/logo/cmb-wordmark-ground-white-{200,400,800,1200,2400}.png`.
-- **Registry** (`src/master/brand/logo-registry.ts`):
-  - Add 5 imports for `cmbWordmarkGroundWhite*`.
-  - Replace the `WORDMARK_GROUND_WHITE = WORDMARK_GROUND_BLACK` alias with a real map.
-  - Flip `WORDMARK_GROUND_STATUS.white` from `"aliased"` → `"ready"`.
-- **Slot map** (`LOGO_SLOT_MAP.md`): update the wordmark-ground readiness row + remove the "white aliases to black" caveat.
-- **Checklist** (`src/master/checklist.ts`): mark `master-wordmark-ground-white-binaries-embedded` complete.
+Copy all 9 files to `public/` using their existing names:
+- `public/favicon-32.png`, `favicon-48.png`, `favicon-64.png`, `favicon-96.png`, `favicon-128.png`, `favicon-144.png`, `favicon-152.png`, `favicon-180.png`, `favicon-192.png`, `favicon-256.png`
 
-Net effect: every cell in the 5-family × 3-colorway matrix is now a real binary. **Zero aliases anywhere.**
+The 180 and 192 uploads are **identical content** to the existing `apple-touch-icon.png` and `android-chrome-192x192.png` — keep both naming conventions live so:
+- The spec-correct `apple-touch-icon.png` / `android-chrome-192x192.png` remain wired (what iOS / Android crawlers expect)
+- The `favicon-180.png` / `favicon-192.png` versions are reachable via the unified `favicon-{size}.png` ladder for any consumer that prefers that pattern
 
-### 2. Favicon / PWA pack — replace the legacy single-file favicon
+### 2. Wire the new sizes into `index.html`
 
-The current site references one flat `/favicon-cmb.png` (the old CMB lockup) for both `rel="icon"` and `rel="apple-touch-icon"`. The new MB-diamond pack is a proper multi-resolution navy-on-transparent system that will render crisply at every chrome size and unlocks PWA install.
+Expand the `<link>` block to declare every size explicitly. Browsers pick the closest match without scaling:
 
-- **Copy** all 5 files to `/public/`:
-  - `public/favicon.ico`
-  - `public/favicon-16.png`
-  - `public/apple-touch-icon.png` (180×180)
-  - `public/android-chrome-192x192.png`
-  - `public/android-chrome-512x512.png`
-- **Wire `index.html`** with the proper full link block:
-  ```html
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  ```
-- **Add a `public/site.webmanifest`** that declares the PWA identity:
-  - `name`: "Cochrane Master Builders"
-  - `short_name`: "CMB"
-  - `icons`: 192 + 512 entries (any + maskable purposes)
-  - `theme_color`: `#F2EDE4` (matches existing meta)
-  - `background_color`: `#1a2438` (navy, matches the new mark)
-  - `display`: `standalone`
-- **Keep `favicon-cmb.png`** in `public/` for now — it's still referenced by the email/og fallback paths in the slot map. We'll deprecate it in a separate pass once those references migrate.
+```html
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
+<link rel="icon" type="image/png" sizes="128x128" href="/favicon-128.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="256x256" href="/favicon-256.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/favicon-152.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<meta name="msapplication-TileImage" content="/favicon-144.png" />
+<meta name="msapplication-TileColor" content="#1a2438" />
+<link rel="manifest" href="/site.webmanifest" />
+```
 
-### 3. Slot-map documentation — add a new section
+Notes:
+- `apple-touch-icon` declared at both 152 (iPad) and 180 (iPhone) — iOS picks the matching one
+- `msapplication-TileImage` + `TileColor` makes Windows pinned-site tiles render the navy MB-diamond on a navy background
+- The 192 entry stays pointed at the spec-named `android-chrome-192x192.png` (PWA crawlers look for that exact filename)
 
-Append a new section to `src/master/brand/LOGO_SLOT_MAP.md`:
+### 3. Extend the manifest with the mid-range icons
 
-**"Browser chrome & PWA pack"** — documents the `/public/` favicon set as a separate concern from the React `<MasterLogo>` system. Includes a per-file usage table:
+Update `public/site.webmanifest` to include 96, 128, 144, 152, 192, 256, 512 entries so the install prompt and adaptive launcher pick the optimal size on every device class:
 
-| File | Slot | Renders in | Surface |
-|---|---|---|---|
-| `favicon.ico` | classic favicon | Legacy IE/Edge, Windows pinned tabs | browser chrome |
-| `favicon-16.png` | sharp 16px tab | Modern desktop tabs at 100% zoom | browser chrome |
-| `apple-touch-icon.png` | iOS home screen | "Add to Home Screen" on Safari iOS | iOS springboard |
-| `android-chrome-192x192.png` | Android install | PWA install prompt, app drawer icon | Android launcher |
-| `android-chrome-512x512.png` | PWA splash / maskable | Splash screen, adaptive icon source | PWA runtime |
-| `site.webmanifest` | PWA identity | Install prompt metadata | browser chrome |
+```json
+"icons": [
+  { "src": "/favicon-96.png",  "sizes": "96x96",   "type": "image/png", "purpose": "any" },
+  { "src": "/favicon-128.png", "sizes": "128x128", "type": "image/png", "purpose": "any" },
+  { "src": "/favicon-144.png", "sizes": "144x144", "type": "image/png", "purpose": "any" },
+  { "src": "/favicon-152.png", "sizes": "152x152", "type": "image/png", "purpose": "any" },
+  { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+  { "src": "/favicon-256.png", "sizes": "256x256", "type": "image/png", "purpose": "any" },
+  { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+  { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+]
+```
 
-Plus a "decision rule" callout:
-> Browser-chrome icons live in `/public/` and are referenced by `<link>` tags — **never** through `<MasterLogo>`. Component code uses the registry; the browser handshake uses these flat files.
+### 4. Document the full ladder in `LOGO_SLOT_MAP.md`
 
-### 4. Checklist — add new check
+Replace the existing 6-row "Browser chrome & PWA pack" file map with the **complete 13-file ladder**, organized by surface:
 
-Add `master-favicon-pwa-pack-embedded` to `src/master/checklist.ts` covering the 5 files + manifest + index.html wiring.
+| Size  | File                              | Surface / consumer                          | Density tier     |
+|-------|-----------------------------------|---------------------------------------------|------------------|
+| ICO   | `favicon.ico`                     | Legacy IE/Edge, Windows pinned tabs         | universal        |
+| 16    | `favicon-16.png`                  | Desktop tab @ 100% zoom                     | tab              |
+| 32    | `favicon-32.png`                  | Desktop tab @ retina                        | tab              |
+| 48    | `favicon-48.png`                  | Windows taskbar, classic pinned             | OS chrome        |
+| 64    | `favicon-64.png`                  | Hi-DPI laptop tab, dock thumbnail           | tab              |
+| 96    | `favicon-96.png`                  | Android low-density home, GH README crest   | mobile chrome    |
+| 128   | `favicon-128.png`                 | Chrome Web Store, generic medium            | OS chrome        |
+| 144   | `favicon-144.png`                 | Windows Metro / IE11 pinned tile            | OS tile          |
+| 152   | `favicon-152.png`                 | iPad home-screen (older iOS)                | iOS springboard  |
+| 180   | `apple-touch-icon.png` / `favicon-180.png` | iPhone home-screen (Safari iOS)    | iOS springboard  |
+| 192   | `android-chrome-192x192.png` / `favicon-192.png` | Android home, PWA install     | Android launcher |
+| 256   | `favicon-256.png`                 | Hero favicon, OG-square fallback            | premium chrome   |
+| 512   | `android-chrome-512x512.png`      | PWA splash, maskable adaptive icon source   | PWA runtime      |
+
+Plus a callout that 180 and 192 ship under **both** filenames intentionally — spec-named files for crawlers that look for them by convention, ladder-named files for consumers that prefer the unified pattern.
+
+### 5. Checklist
+
+The existing `master-favicon-pwa-pack-embedded` check stays as-is — broaden its description to cover the full 13-file ladder + manifest + tile metadata.
 
 ---
 
 ## Files touched
 
 **Created (binaries):**
-- `src/master/assets/logo/cmb-wordmark-ground-white-{200,400,800,1200,2400}.png` (5)
-- `public/favicon.ico`
-- `public/favicon-16.png`
-- `public/apple-touch-icon.png`
-- `public/android-chrome-192x192.png`
-- `public/android-chrome-512x512.png`
-
-**Created (config):**
-- `public/site.webmanifest`
+- `public/favicon-32.png` · `favicon-48.png` · `favicon-64.png` · `favicon-96.png` · `favicon-128.png` · `favicon-144.png` · `favicon-152.png` · `favicon-180.png` · `favicon-192.png` · `favicon-256.png`
 
 **Edited:**
-- `index.html` — replace 2-line favicon block with proper 5-link + manifest block
-- `src/master/brand/logo-registry.ts` — wordmark-ground white real imports
-- `src/master/brand/LOGO_SLOT_MAP.md` — wordmark-ground readiness + new "Browser chrome & PWA pack" section
-- `src/master/checklist.ts` — two new checks complete
-- `.lovable/plan.md` — log the integration
+- `index.html` — expanded `<link rel="icon">` block + Windows tile metadata
+- `public/site.webmanifest` — extended icons array
+- `src/master/brand/LOGO_SLOT_MAP.md` — full 13-file ladder table
+- `src/master/checklist.ts` — broadened description
 
 ---
 
 ## Why this matters
 
-1. **Matrix-complete brand system.** After this, `MASTER_LOGOS` contains zero aliases. Any future remix can flip `logoColorway` to `white` and every surface — including the drafted wordmark — serves an authentic reverse asset.
-2. **Real browser identity.** The current single-PNG favicon is a stopgap. The new pack gives the site a proper crisp tab icon, an iOS home-screen icon, and PWA install capability — all using the navy MB-diamond as the canonical browser-chrome mark.
-3. **Clean separation of concerns.** Component logos go through `<MasterLogo>` + registry. Browser-chrome icons live in `/public/` and are referenced by `<link>` tags. The slot map now documents both systems explicitly so future contributors don't conflate them.
+A single favicon scaled by the browser looks soft on every tier except its native size. With the full ladder embedded:
+- **Desktop tabs** render the diamond crisp at 16, 32, and 64
+- **Windows pinned tiles** show the diamond on a navy field instead of a generic letter
+- **iPad and iPhone home-screens** each get a native size (152 / 180) — no scaling artifacts
+- **Android launchers** pick 96 / 192 / 512 by density — small launcher uses the small file
+- **PWA install** has a proper maskable 512 source for adaptive icons
+- **OG / share contexts** can fall back to the 256 if needed
+
+This is the production-grade browser-chrome footprint.
