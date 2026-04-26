@@ -220,7 +220,7 @@ export const EMBLEM_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
 export const TILES_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
   black: "ready",
   navy: "ready",
-  white: "aliased",
+  white: "ready",
 };
 
 export const EMBLEM_SIZES: EmblemSize[] = [100, 200, 400, 800, 1200, 2400];
