@@ -180,19 +180,18 @@ the mark in motion, the mark assembling itself, the mark as architecture.
 
 ### Colorway readiness
 
-| Variant | Black ✅                       | Navy ⏳ (aliased)              | White ⏳ (aliased)             |
+| Variant | Black ✅                       | Navy ✅                        | White ⏳ (aliased)             |
 |---------|--------------------------------|--------------------------------|--------------------------------|
-| 100     | `cmb-tiles-black-100.png`      | → black                        | → black                        |
-| 200     | `cmb-tiles-black-200.png`      | → black                        | → black                        |
-| 400     | `cmb-tiles-black-400.png`      | → black                        | → black                        |
-| 800     | `cmb-tiles-black-800.png`      | → black                        | → black                        |
-| 1200    | `cmb-tiles-black-1200.png`     | → black                        | → black                        |
-| 2400    | `cmb-tiles-black-2400.png`     | → black                        | → black                        |
+| 100     | `cmb-tiles-black-100.png`      | `cmb-tiles-navy-100.png`       | → black                        |
+| 200     | `cmb-tiles-black-200.png`      | `cmb-tiles-navy-200.png`       | → black                        |
+| 400     | `cmb-tiles-black-400.png`      | `cmb-tiles-navy-400.png`       | → black                        |
+| 800     | `cmb-tiles-black-800.png`      | `cmb-tiles-navy-800.png`       | → black                        |
+| 1200    | `cmb-tiles-black-1200.png`     | `cmb-tiles-navy-1200.png`      | → black                        |
+| 2400    | `cmb-tiles-black-2400.png`     | `cmb-tiles-navy-2400.png`      | → black                        |
 
-`TILES_STATUS` reports `ready` for black and `aliased` for navy + white.
-When the navy / white tile packages arrive, swap two lines in
-`logo-registry.ts` (`TILES_NAVY = …`, `TILES_WHITE = …`) and every site
-flips automatically.
+`TILES_STATUS` reports `ready` for black + navy and `aliased` for white.
+When the white tile package arrives, swap one line in
+`logo-registry.ts` (`TILES_WHITE = …`) and every site flips automatically.
 
 ### Render API
 

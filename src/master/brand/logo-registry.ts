@@ -83,14 +83,21 @@ import cmbEmblemWhite1200 from "../assets/logo/cmb-emblem-white-1200.png";
 import cmbEmblemWhite2400 from "../assets/logo/cmb-emblem-white-2400.png";
 
 // ── Tiles family (exploded/deconstructed mark — 3 separated panels) ────────
-// Black ✅ embedded (6 sizes). Navy + white alias to black until those
-// packages land — flip the aliases below in one line when they arrive.
+// Black ✅ + Navy ✅ embedded. White aliases to black until that
+// package lands — flip the alias below in one line when it arrives.
 import cmbTilesBlack100 from "../assets/logo/cmb-tiles-black-100.png";
 import cmbTilesBlack200 from "../assets/logo/cmb-tiles-black-200.png";
 import cmbTilesBlack400 from "../assets/logo/cmb-tiles-black-400.png";
 import cmbTilesBlack800 from "../assets/logo/cmb-tiles-black-800.png";
 import cmbTilesBlack1200 from "../assets/logo/cmb-tiles-black-1200.png";
 import cmbTilesBlack2400 from "../assets/logo/cmb-tiles-black-2400.png";
+
+import cmbTilesNavy100 from "../assets/logo/cmb-tiles-navy-100.png";
+import cmbTilesNavy200 from "../assets/logo/cmb-tiles-navy-200.png";
+import cmbTilesNavy400 from "../assets/logo/cmb-tiles-navy-400.png";
+import cmbTilesNavy800 from "../assets/logo/cmb-tiles-navy-800.png";
+import cmbTilesNavy1200 from "../assets/logo/cmb-tiles-navy-1200.png";
+import cmbTilesNavy2400 from "../assets/logo/cmb-tiles-navy-2400.png";
 
 export type LogoColorway = "black" | "navy" | "white";
 export type EmblemSize = 100 | 200 | 400 | 800 | 1200 | 2400;
@@ -139,9 +146,17 @@ const TILES_BLACK = {
   2400: cmbTilesBlack2400,
 } as const;
 
-// Aliases: navy + white tiles fall back to black until those packages land.
-// When real assets arrive, replace these two lines with their own maps.
-const TILES_NAVY = TILES_BLACK;
+// Navy tiles ✅ embedded as a real map.
+const TILES_NAVY = {
+  100: cmbTilesNavy100,
+  200: cmbTilesNavy200,
+  400: cmbTilesNavy400,
+  800: cmbTilesNavy800,
+  1200: cmbTilesNavy1200,
+  2400: cmbTilesNavy2400,
+} as const;
+
+// White tiles still aliased to black until that package lands.
 const TILES_WHITE = TILES_BLACK;
 
 export const MASTER_LOGOS = {
@@ -164,7 +179,7 @@ export const MASTER_LOGOS = {
     small: cmbNavySmall,
     // Navy emblem ✅ embedded.
     emblem: EMBLEM_NAVY,
-    // Navy tiles aliased to black until that package lands.
+    // Navy tiles ✅ embedded.
     tiles: TILES_NAVY,
   },
   white: {
@@ -191,7 +206,7 @@ export const EMBLEM_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
 /** Per-colorway readiness for the tiles family specifically. */
 export const TILES_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
   black: "ready",
-  navy: "aliased",
+  navy: "ready",
   white: "aliased",
 };
 
