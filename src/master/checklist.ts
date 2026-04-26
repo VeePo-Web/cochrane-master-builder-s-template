@@ -262,14 +262,36 @@ export interface CheckItem {
    * file presence). Currently informational only — no auto-runner is wired.
    */
   automated?: boolean;
+  /**
+   * Brand-truth source files the AI MUST read before drafting a plan for this
+   * item. Paths are relative to the repo root. Forces every plan to inherit
+   * from the existing brand stack rather than improvise.
+   * See PLAN_FIRST_DISCIPLINE.md for the canonical load order.
+   */
+  brandSources?: string[];
+  /**
+   * External craft benchmarks the AI should study before drafting visual or
+   * motion plans. Pinned URLs (Apple, Fantasy.co, Linear, FROG, Stripe,
+   * Christopher Gawryletz). See MOTION_AND_CRAFT.md for the full library.
+   */
+  craftBenchmarks?: string[];
+  /**
+   * `"deep"` — the AI must produce the 11-section deep plan from
+   * PLAN_FIRST_DISCIPLINE.md before writing any code.
+   * `"standard"` — a paragraph-level plan referencing brand sources is enough.
+   * Defaults to `"standard"` when omitted.
+   */
+  planDepth?: "deep" | "standard";
 }
 
 export const CHECKLIST_PHASES = [
+  "0-plan-first",
   "1-intake",
   "2-brand",
   "3-ia",
   "4-copy",
   "5-visual",
+  "5b-motion",
   "6-seo",
   "7-conversion",
   "8-legal",
