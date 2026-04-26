@@ -290,16 +290,19 @@ dominating. The editorial type voice.
 
 ### Colorway readiness
 
-| Variant | Black ✅                          | Navy ⏳ (aliased) | White ⏳ (aliased) |
-|---------|-----------------------------------|--------------------|---------------------|
-| 200     | `cmb-wordmark-black-200.png`      | → black            | → black             |
-| 400     | `cmb-wordmark-black-400.png`      | → black            | → black             |
-| 800     | `cmb-wordmark-black-800.png`      | → black            | → black             |
-| 1200    | `cmb-wordmark-black-1200.png`     | → black            | → black             |
-| 2400    | `cmb-wordmark-black-2400.png`     | → black            | → black             |
+| Variant | Black ✅                          | Navy ✅                           | White ✅                          |
+|---------|-----------------------------------|-----------------------------------|-----------------------------------|
+| 200     | `cmb-wordmark-black-200.png`      | `cmb-wordmark-navy-200.png`       | `cmb-wordmark-white-200.png`      |
+| 400     | `cmb-wordmark-black-400.png`      | `cmb-wordmark-navy-400.png`       | `cmb-wordmark-white-400.png`      |
+| 800     | `cmb-wordmark-black-800.png`      | `cmb-wordmark-navy-800.png`       | `cmb-wordmark-white-800.png`      |
+| 1200    | `cmb-wordmark-black-1200.png`     | `cmb-wordmark-navy-1200.png`      | `cmb-wordmark-white-1200.png`     |
+| 2400    | `cmb-wordmark-black-2400.png`     | `cmb-wordmark-navy-2400.png`      | `cmb-wordmark-white-2400.png`     |
 
-`WORDMARK_STATUS` reports `ready` for black; navy + white alias to black
-until those packages land — same staging pattern used for the tile family.
+`WORDMARK_STATUS` reports `ready` for all three colorways. Matrix is fully
+complete — dark-surface wordmarks now serve real white assets instead of
+falling back to black. With this round, **every cell in the
+five-family × three-colorway matrix is a real binary; the registry
+contains zero aliases.**
 
 ### Render API
 
