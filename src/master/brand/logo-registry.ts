@@ -206,7 +206,7 @@ export const EMBLEM_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
 /** Per-colorway readiness for the tiles family specifically. */
 export const TILES_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
   black: "ready",
-  navy: "aliased",
+  navy: "ready",
   white: "aliased",
 };
 
