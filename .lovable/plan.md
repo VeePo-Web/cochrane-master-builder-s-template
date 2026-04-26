@@ -1,148 +1,134 @@
 ## Goal
 
-Turn `src/master/checklist.ts` into the **definitive remix roadmap** for every Masters sub-service site (Drywall, Roofing, Plumbing, Electrical, …). Each item is a *plan-able task* — descriptive enough that Lovable / Claude can read the item and generate a deep, in-depth implementation plan from it. No automated runners; this is a guided source-of-truth.
+Patch four gaps in `src/master/checklist.ts` so every remix is forced to:
 
-Outcome: when a remix is finished, walking this list end-to-end guarantees a fully bespoke, SEO-strong, conversion-tuned, legally-clean Masters site — never a re-skinned template.
+1. **Always pull from the brand identity docs** — no improvising voice/colors/personas
+2. **Always generate in-depth plans** before executing any item
+3. **Hit world-class craft**: Apple-grade UX, Fantasy.co-grade visual & editorial, FROG-level micro-interactions
+4. **Cover the gaps the current list is missing** (motion, interaction craft, accessibility-of-motion, content modeling, testimonials, trust artifacts, post-launch growth)
 
-## Structure
+No phases removed. New phase **0 (Plan-First Discipline)** prepended + new items inserted into existing phases. New playbooks where needed.
 
-The checklist becomes **9 phases**, executed in order. Each item is tagged:
-- **Tier**: `P0` (must ship), `P1` (should ship), `P2` (polish)
-- **Owner**: `human` (taste, content, legal) or `ai-plan` (Lovable/Claude generates the plan & executes)
-- **Playbook**: link to the deep-dive doc (existing or new) that the AI consults when generating the plan
-- **Inputs needed**: the specific assets/info the operator must hand over before the AI can plan this item
+## Brand sources the checklist must reference
 
-### Phase 1 — Intake & Trade Foundation (P0)
-Capture everything bespoke about THIS trade before touching code.
-- Trade master brief uploaded (name, slug, category, founding story, USPs, pricing model, scope of work, what they refuse to do)
-- Service catalogue uploaded (every service, sub-service, scope, typical price band, lead time, materials)
-- Service-area master spreadsheet uploaded (every city/town/neighborhood served, with priority ranking)
-- Sister-site backlink map confirmed (which other Masters sites link here, anchor-text plan)
-- Trade-specific compliance docs collected (license #, WCB/insurance, certifications, warranty terms)
-- Founder bio + real photos of *work* (no people) collected
-- Competitor audit: 3 best-in-class sites for this trade, screenshots + what they do well
-- Color/theme direction chosen (accent HSL, hero mood, photography palette) — overrides master defaults only where justified
+The remix already has a deep stack of brand-truth docs that the current checklist never explicitly forces the AI to read:
 
-### Phase 2 — Brand & Identity Bespoking (P0)
-Every visible brand decision matched to THIS trade — no leftover drywall fingerprints.
-- `trade.config.ts` fully edited (identity, contact, services, palette accent, SEO title/desc, voice arrays)
-- Logo colorway chosen against this trade's hero/nav surfaces and verified at `/brand`
-- Per-trade logo override generated *if* the master CMB lockup needs trade-specific sub-wordmark (e.g. "Cochrane Roofing")
-- Favicon + PWA pack regenerated/verified for the chosen colorway
-- Share pack (OG, Twitter, LinkedIn, IG, Profile) regenerated with trade name in the card
-- Voice & tone document written for this trade (5 do's, 5 don'ts, sample paragraph)
-- Zero leftover references scan: rg the repo for the previous trade's name, services, pricing, and city-specific quirks → all 0
-- `/style-guide` walked: contrast matrix all-green on every accent
+- `src/master/brand/BRAND_BIBLE.md`
+- `src/config/brand-identity.ts` + `brand-identity-northstar.ts`
+- `src/config/style-guide.ts`, `design-plan.ts`, `design-preferences.ts`
+- `src/config/personas/*` (19 persona files: brand-identity-architect, master-visual, scroll-motion, narrative-copywriter, nav-architect, footer-architect, ui-footer, image-seo, seo-expert, performance-engineer, responsive-mobile, strategic-narrative, ideal-customer, market-research, fear-dispel, discovery-framework, etc.)
+- `src/config/business.ts`, `business-overview.ts`, `reviews.ts`, `discovery-questionnaire.ts`
 
-### Phase 3 — Information Architecture & Wireframes (P0)
-Pages and structure designed for THIS trade before any copy is written.
-- Sitemap drafted (home, services index, one page per service, areas index, one page per area cluster, about, story, process, gallery, FAQ, contact, legal pages)
-- Wireframe per page approved (sketch or low-fi) — section order, hero pattern, trust block, CTA placement
-- Navigation IA finalized (≤6 top items, mobile drawer order, footer columns)
-- Booking funnel entry-point map (every CTA on every page → booking modal, pre-filled service if applicable)
-- URL/slug map locked (clean, keyword-aware, no /page-2 patterns)
+Every plan-able item gets a new **`brandSources`** field listing which of these the AI must read before drafting its plan.
 
-### Phase 4 — Copy & Storytelling (P0 / P1)
-Every word bespoke. Zero paraphrasing between sister sites — Google penalizes it.
-- Founder/origin story written from scratch (≥250 words, this trade's pain points, this trade's wins)
-- Home hero copy (headline, sub, primary CTA) — bespoke, not template-mad-libs
-- "Problems we solve" block (5–8 trade-specific homeowner pain points)
-- "Why us" block (3–5 differentiators that are TRUE for this trade, with proof)
-- Process/method copy (3–6 stage walkthrough specific to this trade's workflow)
-- Per-service page copy: scope, what's included, what's not, materials, timeline, price band, FAQ × 5, CTA
-- About page copy (team, values, license/insurance, warranty)
-- FAQ master list (≥20 Q&A) — sourced from real customer questions for this trade
-- Service-area page copy template + per-cluster intro paragraphs (no duplicate content across areas)
-- Microcopy pass (form labels, button text, empty states, success states, 404)
-- Legal copy: privacy policy, terms of service, cookie notice (if analytics), warranty terms
-- Sales-copy pass (P1): every CTA scored against AIDA, every section against "so what?"
+## Schema additions to `CheckItem`
 
-### Phase 5 — Visual Craft & AI Imagery (P0)
-- Hero image set generated (3–5 candidates, picked one) — ultra-realistic, no faces, no people, trade-specific subject matter
-- Service-page hero per service (one each)
-- Process/method imagery (one per stage)
-- Before/after pair per service (real if possible; AI if not, clearly marked)
-- Ambient backdrop / parallax dividers per major section
-- Gallery: ≥12 finished-work shots
-- OG card hero swapped to trade-specific imagery
-- Image weight audit: every image <300KB, served as WebP/AVIF where possible
-- Alt-text pass: every image has descriptive alt, no `alt=""` except decorative
-- Filename audit: no `image1.png` / `hero-final-FINAL.jpg` — all kebab-case descriptive
+```ts
+brandSources?: string[];      // file paths the AI MUST read before planning this item
+craftBenchmarks?: string[];   // e.g. ["apple.com/airpods-pro", "fantasy.co", "linear.app", "frog.co"]
+planDepth?: "deep" | "standard"; // "deep" forces the AI to produce a multi-section plan before touching code
+```
 
-### Phase 6 — SEO Depth (P0 — this is the section that needs the most depth)
-Plans generated here must be exhaustive — search is the moat.
-- **Keyword research**: top 10 head terms + 30 long-tails per service, mapped to pages
-- **Per-page SEO**: unique `<title>` (≤60 char), unique meta description (≤155 char), single H1, semantic H2/H3 outline
-- **Canonical URLs** set on every page; trailing-slash policy consistent
-- **JSON-LD schema** per page type:
-  - Home: `Organization` + `LocalBusiness` + `WebSite` + `BreadcrumbList`
-  - Service pages: `Service` + `BreadcrumbList` + `FAQPage`
-  - Area pages: `LocalBusiness` (with `areaServed`) + `BreadcrumbList`
-  - About: `AboutPage`
-  - FAQ: `FAQPage`
-- **Service-area pages**: every area from the master spreadsheet has its own page, unique intro, local landmarks/neighborhoods, embedded map, LocalBusiness schema with correct `areaServed`
-- **Internal linking plan**: every service ↔ every relevant area, cross-link every service to 2 sibling services
-- **Sister-site cross-linking**: footer + body widget per the master spreadsheet plan — agreed anchor text, not "click here"
-- **External backlink targets**: 10 local directories (Yelp, Google Business, BBB, HomeStars, trade-specific dirs) — submission checklist
-- **Sitemap.xml**: every page + every area page included, lastmod accurate, submitted to Google Search Console
-- **robots.txt**: sane defaults, sitemap referenced
-- **OG / Twitter cards** verified per-page (not just home)
-- **Local SEO**: NAP (Name/Address/Phone) consistent across site + every directory; embedded Google Map on contact + area pages
-- **Google Business Profile** claimed/verified with category, services, photos, hours
-- **Search Console** + **Bing Webmaster** verified
-- **Page-speed-as-SEO**: LCP <2.5s, INP <200ms, CLS <0.1 on mobile (this is also P0 for ranking)
-- **E-E-A-T signals**: license #, insurance #, years in business, real address, real phone, founder bio with photo of WORK (not face), warranty page
+Existing items get backfilled where it matters most (Phase 4 copy, Phase 5 visual, Phase 7 conversion).
 
-### Phase 7 — Conversion, Forms & Booking (P0)
-- Booking modal opens from every documented CTA (audit list)
-- Form fields minimized to true must-haves; service pre-fills when launched from a service page
-- Phone link (`tel:`) on every page, large tap target on mobile
-- Email submission lands in master inbox tagged with `siteSlug`
-- Success state copy bespoke and reassuring
-- Spam protection (honeypot or hCaptcha) live
-- Form analytics events fire on open / start / submit / success
-- "Book in 60 seconds" promise honored (time the flow on real mobile)
+## New phase 0 — Plan-First Discipline (P0, prepended)
 
-### Phase 8 — Legal, Trust & Compliance (P0)
-- Privacy policy reflects actual data collected and processors used (Lovable Cloud, analytics, email)
-- Terms of service drafted for this trade's scope (warranty, change orders, payment terms)
-- Cookie notice (if analytics or marketing pixels)
-- License #, insurance #, WCB # rendered in footer + about page
-- Real business address, real local phone (no virtual numbers if avoidable), business hours
-- Warranty page with specifics (years, what's covered, what's not, claim process)
-- Accessibility statement (WCAG AA target, contact for issues)
+Forces the agent to plan before doing, every time.
 
-### Phase 9 — Quality Gate, Analytics & Launch (P0 / P1)
-- WCAG AA pass: contrast, focus rings, alt text, keyboard nav, modal ARIA, `prefers-reduced-motion` respected
-- Performance budget green on mobile + desktop (Lighthouse run + Real User Monitoring plan)
-- Cross-browser smoke test (Safari iOS, Chrome Android, Safari macOS, Chrome desktop, Firefox desktop)
-- 404 + 500 pages branded
-- Analytics installed (events: page_view, cta_click, modal_open, form_submit, phone_tap)
-- Conversion goal configured in analytics
-- VeePo agency credit present (per existing memory)
-- Master version pinned in `VERSION.ts`; this remix records what it forked from
-- Add this site to `src/master/trades.ts` with live URL once deployed
-- Sister-site widgets re-rendered across the network so backlinks go live everywhere
-- Pre-launch human walkthrough: every page on real mobile, every CTA tapped, every form submitted
-- Post-launch: submit sitemap to Search Console, request indexing on top 5 pages, monitor Core Web Vitals for 7 days
+- `plan-read-brand-bible` — read `BRAND_BIBLE.md` end-to-end before any work
+- `plan-read-brand-identity-northstar` — read `brand-identity.ts` + `brand-identity-northstar.ts`
+- `plan-load-relevant-personas` — load the persona files relevant to the current phase (e.g. Phase 4 → `narrative-copywriter` + `strategic-narrative` + `seo-faq`; Phase 5 → `master-visual` + `image-seo` + `scroll-motion`)
+- `plan-read-trade-config` — read `trade.config.ts` for current trade truth
+- `plan-deep-plan-before-execution` — for every `planDepth: "deep"` item, produce a written plan covering: goal, brand-truth refs, craft benchmarks, IA, content, motion, accessibility, performance, success criteria, risks. **No code until the plan is written.**
+- `plan-craft-benchmarks-pinned` — pin benchmark URLs (Apple, Fantasy.co, Linear, FROG, Christopher Gawryletz, Stripe) for visual + motion reference per page
 
-## Technical Implementation
+## New items added to existing phases
 
-Files to change:
+### Phase 2 — Brand
+- `brand-identity-docs-pulled-into-trade` — every `trade.config.ts` field traceable to a brand source
+- `brand-northstar-tagline-aligned` — tagline candidates pulled from `brand-identity-northstar.ts`
+- `brand-style-guide-tokens-respected` — colors/spacing/radius come from `src/config/style-guide.ts`, not hand-typed
 
-1. **`src/master/checklist.ts`** — extend `CheckItem` with `tier`, `owner`, `phase`, `inputsNeeded`, `playbook` (already exists, expand enum). Bump `CheckId` enum to ~100+ ids. Add `CHECKLIST_PHASES` constant in execution order. Keep existing 30 ids so nothing in the codebase breaks.
-2. **`src/master/checklist.ts`** — export helper `getChecklistByPhase()` and `getChecklistByTier()` so future UI / planner can consume.
-3. **`src/master/playbooks/`** — add three new playbooks the new checklist points to:
-   - `INTAKE_BRIEF.md` — what to collect from the trade owner before remix starts
-   - `IA_WIREFRAME_GUIDE.md` — site IA patterns, page templates, navigation rules
-   - `LEGAL_TRUST_GUIDE.md` — privacy, terms, warranty, license/insurance display rules
-4. **`src/master/playbooks/SEO_PLAYBOOK.md`** — expand with the Phase-6 depth above (keyword research worksheet, per-page schema templates, area-page template, NAP audit checklist, GBP setup steps, internal linking matrix template).
-5. **`src/master/playbooks/COPY_GUIDE.md`** — expand with the Phase-4 depth (origin-story prompt, FAQ-mining method, anti-paraphrase rule with examples).
-6. **`src/master/README.md`** — add a "How the remix checklist works" section pointing to phases.
-7. **`src/master/checklist.ts`** — add a header doc-comment explaining: "Each item is a plan-able task. Hand it to Lovable/Claude with the inputs listed and the linked playbook; the AI will produce an in-depth, executable plan."
+### Phase 3 — IA (gaps)
+- `ia-content-model-defined` — every page typed (entities, fields, relations) before copy
+- `ia-empty-state-and-loading-state-map` — every async/empty surface designed, not patched later
+- `ia-error-state-map` — every error surface (network, validation, 4xx/5xx) designed
+- `ia-thumb-zone-audit` — primary CTAs in mobile thumb-zone (Apple HIG / FROG mobile rule)
 
-No new routes, no dashboards, no runners. Pure typed source + markdown playbooks.
+### Phase 4 — Copy (gaps)
+- `copy-testimonials-real-with-name-city` — pulled from `reviews.ts`, never invented
+- `copy-fear-dispel-block-applied` — uses `fear-dispel.ts` to address top 5 objections
+- `copy-discovery-framework-followed` — story arc matches `discovery-framework.ts`
+- `copy-power-words-from-northstar` — power words list audited against `brand-identity-northstar.ts`
 
-## What I will ask you mid-build (only if needed)
+### Phase 5 — Visual (Fantasy.co / Apple-grade craft)
+- `visual-editorial-rhythm-applied` — varied section heights (40–55vh dividers per memory), generous padding, varied density
+- `visual-apple-grade-hero-treatment` — hero spec: macro detail, controlled lighting, single subject, premium negative space; references Apple product page benchmarks
+- `visual-fantasy-co-grade-detail-pass` — visual edge refinement, gradient overlays, premium type pairings, asymmetric grids
+- `visual-cinematic-image-reveals` — bottom-to-top clip-path reveals on hero/section images (per master motion memory)
+- `visual-parallax-coverage-correct` — 130% height + -15% top offset (per parallax memory) on every parallax slot
+- `visual-typographic-rhythm-locked` — headline scale + body leading + measure (60–75ch) per master typography
+- `visual-color-temperature-consistency` — per-trade palette warm/cool stays consistent across all imagery
 
-I'll only stop to ask if a specific phase needs a decision that isn't in the master spreadsheet you'll upload (e.g. "Do you want a separate `/process` page or fold it into `/about`?"). Otherwise I'll plan and embed.
+### Phase 5b (NEW PHASE) — Motion & Interaction Craft (FROG-level)
+Inserted between Visual and SEO. Currently the checklist has zero motion items beyond a single "respected" line.
+
+- `motion-philosophy-doc-written` — per-trade motion principles (timing curves, durations, choreography) drafted from master `scroll-motion.ts` persona
+- `motion-page-transition-implemented` — cloth-wipe / signature transition per master memory
+- `motion-hover-microinteractions` — every interactive surface has a considered hover (lift, shimmer, color, cursor) — no default browser hovers
+- `motion-scroll-choreography` — section reveals timed and staggered (stagger 60–120ms), not all-at-once
+- `motion-cursor-aware-effects` — hero "showroom spotlight" / parallax-on-hover where master spec calls for it
+- `motion-loading-sequence-bespoke` — 5-phase entry sequence (per master memory: enter → hold → suspend → exit → done)
+- `motion-form-submission-signature` — booking submission has the signature animation (e.g. dirt-to-clean per master memory) — not a generic spinner
+- `motion-prefers-reduced-motion-fallbacks` — every motion has a static or reduced equivalent (Apple a11y standard)
+- `motion-button-tactile-feedback` — buttons feel pressed (transform-on-active, optional haptic on touch)
+- `motion-modal-entry-and-exit` — booking modal opens with master easing (not default Radix), focus moves, exit reverses
+- `motion-frame-budget-respected` — every animation 60fps on mid-tier mobile; transforms + opacity only, no layout-thrash
+- `motion-easing-curves-pinned` — one easing system used site-wide (e.g. cubic-bezier(.16,1,.3,1) for entry, cubic-bezier(.7,0,.84,0) for exit), documented
+
+### Phase 6 — SEO (small gaps)
+- `seo-image-sitemap-generated` — for galleries / before-afters
+- `seo-hreflang-if-multilingual` — skip if EN-only; flag if added later
+- `seo-404-monitor-set-up` — soft-404 detection on Search Console
+
+### Phase 7 — Conversion (interaction craft gaps)
+- `conv-multi-step-form-progress-indicator` — booking modal shows step N of M with dot indicator (per master booking-modal memory)
+- `conv-trust-elements-near-cta` — license/insurance/years/warranty visible within 200px of every primary CTA
+- `conv-sms-fallback-considered` — SMS option for mobile-first leads (P1)
+- `conv-callback-promise-rendered` — concrete time promise near form ("we'll call within 4 business hours")
+
+### Phase 8 — Legal/Trust (gaps)
+- `legal-real-testimonials-with-permission` — every testimonial has documented permission to use name + city
+- `legal-photo-permission-trail` — every real photo of a customer's home has signed permission
+
+### Phase 9 — Launch (post-launch growth gaps)
+- `launch-uptime-monitor-configured` — Pingdom / UptimeRobot / similar
+- `launch-error-monitoring-installed` — Sentry or similar for runtime errors
+- `launch-review-request-flow-armed` — automated post-job review request (email/SMS) ready to fire
+- `launch-content-cadence-plan` — monthly blog / case-study cadence documented; first 3 topics drafted
+- `launch-first-30-day-seo-checkin` — schedule a 30-day post-launch SEO/CWV/conversion review
+
+## New playbooks
+
+- `MOTION_AND_CRAFT.md` — the new Phase 5b reference. Codifies easing curves, durations, stagger timings, tactile feedback patterns, page-transition recipe, modal animation spec, prefers-reduced-motion fallback rules, frame-budget rules. References Apple HIG, Fantasy.co case studies, Linear's interaction language, FROG's interaction principles, and the master `scroll-motion.ts` persona.
+- `PLAN_FIRST_DISCIPLINE.md` — the new Phase 0 reference. Codifies the deep-plan template the AI must produce before any "deep" item: Goal · Brand truth refs · Craft benchmarks · IA · Content · Motion · A11y · Performance · Success criteria · Risks · Verification. Includes a worked example.
+
+## Craft benchmark library (pinned in `MOTION_AND_CRAFT.md`)
+
+- **Apple** — apple.com/airpods-pro, apple.com/iphone-15-pro (hero treatment, scroll choreography, type rhythm)
+- **Fantasy.co** — fantasy.co (visual edge, editorial density, asymmetric craft)
+- **Linear** — linear.app (interaction language, easing, modal entry)
+- **FROG** — frog.co (interaction philosophy, micro-interactions)
+- **Stripe** — stripe.com/payments (form craft, trust placement)
+- **Christopher Gawryletz** — christophergawryletz.com (per existing brand memory — editorial luxury benchmark)
+
+## Files changed
+
+1. `src/master/checklist.ts` — extend `CheckItem` schema (3 new optional fields), add `ChecklistPhase` `"0-plan-first"` and `"5b-motion"`, add ~50 new items, backfill `brandSources` + `craftBenchmarks` on the highest-leverage existing items, add `MOTION_AND_CRAFT` + `PLAN_FIRST_DISCIPLINE` to `ChecklistPlaybook` union, update `CHECKLIST_PHASES` + `CHECKLIST_PHASE_META`
+2. `src/master/playbooks/MOTION_AND_CRAFT.md` — new
+3. `src/master/playbooks/PLAN_FIRST_DISCIPLINE.md` — new
+4. `src/master/README.md` — phases section bumped from 9 to 11
+
+## Outcome
+
+Every remix item now: (a) names the brand sources to read, (b) names the craft benchmarks to study, (c) demands a deep plan before code on any non-trivial item, (d) covers the motion/interaction layer that's currently invisible in the checklist, and (e) carries through post-launch growth.
