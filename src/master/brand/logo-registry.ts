@@ -129,6 +129,21 @@ const EMBLEM_WHITE = {
   2400: cmbEmblemWhite2400,
 } as const;
 
+/** Square exploded/tiled-emblem files keyed by edge length in px. */
+const TILES_BLACK = {
+  100: cmbTilesBlack100,
+  200: cmbTilesBlack200,
+  400: cmbTilesBlack400,
+  800: cmbTilesBlack800,
+  1200: cmbTilesBlack1200,
+  2400: cmbTilesBlack2400,
+} as const;
+
+// Aliases: navy + white tiles fall back to black until those packages land.
+// When real assets arrive, replace these two lines with their own maps.
+const TILES_NAVY = TILES_BLACK;
+const TILES_WHITE = TILES_BLACK;
+
 export const MASTER_LOGOS = {
   black: {
     nav: { sm: cmbBlackNavSm, md: cmbBlackNavMd, lg: cmbBlackNavLg },
