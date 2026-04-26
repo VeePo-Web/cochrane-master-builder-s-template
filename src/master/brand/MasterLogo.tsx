@@ -69,6 +69,7 @@ const SLOT_HEIGHT: Record<MasterLogoSlot, string> = {
   loading: "h-auto w-28",
   emblem: "h-auto w-auto",
   tiles: "h-auto w-auto",
+  monogram: "h-auto w-auto",
 };
 
 /** Read the trade's chosen colorway with a safe fallback. */
