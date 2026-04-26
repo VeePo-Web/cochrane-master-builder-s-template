@@ -105,10 +105,28 @@ import cmbTilesWhite800 from "../assets/logo/cmb-tiles-white-800.png";
 import cmbTilesWhite1200 from "../assets/logo/cmb-tiles-white-1200.png";
 import cmbTilesWhite2400 from "../assets/logo/cmb-tiles-white-2400.png";
 
+// ── Monogram family (handwritten "MB" signature mark) ──────────────────────
+// Black ✅ + Navy ✅ embedded. White aliases to black until that
+// package lands. Different size ladder than emblem/tiles — capped at 1024
+// because the monogram is never a hero asset (it's a signature).
+import cmbMbMonoBlack64 from "../assets/logo/cmb-mb-monogram-black-64.png";
+import cmbMbMonoBlack128 from "../assets/logo/cmb-mb-monogram-black-128.png";
+import cmbMbMonoBlack256 from "../assets/logo/cmb-mb-monogram-black-256.png";
+import cmbMbMonoBlack512 from "../assets/logo/cmb-mb-monogram-black-512.png";
+import cmbMbMonoBlack1024 from "../assets/logo/cmb-mb-monogram-black-1024.png";
+
+import cmbMbMonoNavy64 from "../assets/logo/cmb-mb-monogram-navy-64.png";
+import cmbMbMonoNavy128 from "../assets/logo/cmb-mb-monogram-navy-128.png";
+import cmbMbMonoNavy256 from "../assets/logo/cmb-mb-monogram-navy-256.png";
+import cmbMbMonoNavy512 from "../assets/logo/cmb-mb-monogram-navy-512.png";
+import cmbMbMonoNavy1024 from "../assets/logo/cmb-mb-monogram-navy-1024.png";
+
 export type LogoColorway = "black" | "navy" | "white";
 export type EmblemSize = 100 | 200 | 400 | 800 | 1200 | 2400;
 /** Tiles share the emblem size ladder — single source of truth. */
 export type TileSize = EmblemSize;
+/** Monogram has its own ladder — capped at 1024; never a hero asset. */
+export type MonogramSize = 64 | 128 | 256 | 512 | 1024;
 
 /**
  * Per-colorway file map. Same shape across colorways — the remixer can swap
