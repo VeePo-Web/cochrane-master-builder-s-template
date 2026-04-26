@@ -18,6 +18,7 @@ export type CheckId =
   | "master-monogram-binaries-embedded"
   | "master-wordmark-binaries-embedded"
   | "master-wordmark-ground-binaries-embedded"
+  | "master-favicon-pwa-pack-embedded"
   | "master-logo-slot-map-followed"
   | "copy-unique"
   | "story-rewritten"
@@ -61,7 +62,8 @@ export const REMIX_CHECKLIST: CheckItem[] = [
   { id: "master-tiles-binaries-embedded", group: "setup", automated: true, label: "Master tiles binaries embedded", description: "Exploded/tiled emblem PNGs (100/200/400/800/1200/2400) wired through <MasterLogo slot='tiles' size={…}>. Black, navy, and white all ✅ (see TILES_STATUS)." },
   { id: "master-monogram-binaries-embedded", group: "setup", automated: true, label: "Master monogram binaries embedded", description: "Handwritten 'MB' signature PNGs (64/128/256/512/1024) wired through <MasterLogo slot='monogram' size={…}>. Black, navy, and white all ✅ (see MONOGRAM_STATUS)." },
   { id: "master-wordmark-binaries-embedded", group: "setup", automated: true, label: "Master wordmark binaries embedded", description: "Pure-typography wordmark PNGs (200/400/800/1200/2400) wired through <MasterLogo slot='wordmark' size={…}>. Black, navy, and white all ✅ — matrix complete (see WORDMARK_STATUS)." },
-  { id: "master-wordmark-ground-binaries-embedded", group: "setup", automated: true, label: "Master wordmark Ground variant embedded", description: "Drafted plumb-line + base rule wordmark PNGs (200/400/800/1200/2400) wired through <MasterLogo slot='wordmarkGround' size={…}>. Black ✅ + Navy ✅; white aliased to black until that package lands (see WORDMARK_GROUND_STATUS)." },
+  { id: "master-wordmark-ground-binaries-embedded", group: "setup", automated: true, label: "Master wordmark Ground variant embedded", description: "Drafted plumb-line + base rule wordmark PNGs (200/400/800/1200/2400) wired through <MasterLogo slot='wordmarkGround' size={…}>. Black, navy, and white all ✅ — matrix complete (see WORDMARK_GROUND_STATUS)." },
+  { id: "master-favicon-pwa-pack-embedded", group: "setup", automated: true, label: "Favicon + PWA icon pack embedded", description: "Multi-resolution navy MB-diamond favicon set in /public/ (favicon.ico, favicon-16.png, apple-touch-icon.png, android-chrome-192/512.png) + site.webmanifest. Wired into index.html via <link rel='icon|apple-touch-icon|manifest'>. Unlocks crisp browser-chrome rendering and PWA install." },
   { id: "master-logo-slot-map-followed", group: "setup", automated: false, label: "New logo surfaces follow the slot map", description: "Any new component using a logo is added to LOGO_SLOT_MAP.md and rendered via <MasterLogo slot=\"...\"/> — never <img src=\".../cmb-...png\"> direct." },
 
   // Brand

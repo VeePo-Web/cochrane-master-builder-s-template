@@ -167,6 +167,12 @@ import cmbWordmarkGroundNavy800 from "../assets/logo/cmb-wordmark-ground-navy-80
 import cmbWordmarkGroundNavy1200 from "../assets/logo/cmb-wordmark-ground-navy-1200.png";
 import cmbWordmarkGroundNavy2400 from "../assets/logo/cmb-wordmark-ground-navy-2400.png";
 
+import cmbWordmarkGroundWhite200 from "../assets/logo/cmb-wordmark-ground-white-200.png";
+import cmbWordmarkGroundWhite400 from "../assets/logo/cmb-wordmark-ground-white-400.png";
+import cmbWordmarkGroundWhite800 from "../assets/logo/cmb-wordmark-ground-white-800.png";
+import cmbWordmarkGroundWhite1200 from "../assets/logo/cmb-wordmark-ground-white-1200.png";
+import cmbWordmarkGroundWhite2400 from "../assets/logo/cmb-wordmark-ground-white-2400.png";
+
 export type LogoColorway = "black" | "navy" | "white";
 export type EmblemSize = 100 | 200 | 400 | 800 | 1200 | 2400;
 /** Tiles share the emblem size ladder — single source of truth. */
@@ -308,8 +314,14 @@ const WORDMARK_GROUND_NAVY = {
   2400: cmbWordmarkGroundNavy2400,
 } as const;
 
-// White ground wordmark aliased to black until that package lands.
-const WORDMARK_GROUND_WHITE = WORDMARK_GROUND_BLACK;
+// White ground wordmark ✅ embedded as a real map.
+const WORDMARK_GROUND_WHITE = {
+  200: cmbWordmarkGroundWhite200,
+  400: cmbWordmarkGroundWhite400,
+  800: cmbWordmarkGroundWhite800,
+  1200: cmbWordmarkGroundWhite1200,
+  2400: cmbWordmarkGroundWhite2400,
+} as const;
 
 export const MASTER_LOGOS = {
   black: {
@@ -358,7 +370,7 @@ export const MASTER_LOGOS = {
     monogram: MONOGRAM_WHITE,
     // White wordmark ✅ embedded.
     wordmark: WORDMARK_WHITE,
-    // White ground wordmark aliased to black until that package lands.
+    // White ground wordmark ✅ embedded.
     wordmarkGround: WORDMARK_GROUND_WHITE,
   },
 } as const;
@@ -395,7 +407,7 @@ export const WORDMARK_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
 export const WORDMARK_GROUND_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
   black: "ready",
   navy: "ready",
-  white: "aliased",
+  white: "ready",
 };
 
 export const EMBLEM_SIZES: EmblemSize[] = [100, 200, 400, 800, 1200, 2400];

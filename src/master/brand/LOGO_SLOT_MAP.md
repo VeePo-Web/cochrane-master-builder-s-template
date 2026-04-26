@@ -343,16 +343,17 @@ plain wordmark reads as **editorial type**.
 
 #### Colorway readiness
 
-| Variant | Black ✅                                 | Navy ✅                                  | White ⏳ (aliased) |
-|---------|------------------------------------------|------------------------------------------|---------------------|
-| 200     | `cmb-wordmark-ground-black-200.png`      | `cmb-wordmark-ground-navy-200.png`       | → black             |
-| 400     | `cmb-wordmark-ground-black-400.png`      | `cmb-wordmark-ground-navy-400.png`       | → black             |
-| 800     | `cmb-wordmark-ground-black-800.png`      | `cmb-wordmark-ground-navy-800.png`       | → black             |
-| 1200    | `cmb-wordmark-ground-black-1200.png`     | `cmb-wordmark-ground-navy-1200.png`      | → black             |
-| 2400    | `cmb-wordmark-ground-black-2400.png`     | `cmb-wordmark-ground-navy-2400.png`      | → black             |
+| Variant | Black ✅                                 | Navy ✅                                  | White ✅                                 |
+|---------|------------------------------------------|------------------------------------------|------------------------------------------|
+| 200     | `cmb-wordmark-ground-black-200.png`      | `cmb-wordmark-ground-navy-200.png`       | `cmb-wordmark-ground-white-200.png`      |
+| 400     | `cmb-wordmark-ground-black-400.png`      | `cmb-wordmark-ground-navy-400.png`       | `cmb-wordmark-ground-white-400.png`      |
+| 800     | `cmb-wordmark-ground-black-800.png`      | `cmb-wordmark-ground-navy-800.png`       | `cmb-wordmark-ground-white-800.png`      |
+| 1200    | `cmb-wordmark-ground-black-1200.png`     | `cmb-wordmark-ground-navy-1200.png`      | `cmb-wordmark-ground-white-1200.png`     |
+| 2400    | `cmb-wordmark-ground-black-2400.png`     | `cmb-wordmark-ground-navy-2400.png`      | `cmb-wordmark-ground-white-2400.png`     |
 
-`WORDMARK_GROUND_STATUS` reports `ready` for black + navy; white aliases
-to black until that package lands.
+`WORDMARK_GROUND_STATUS` reports `ready` for all three colorways. **The
+entire five-family × three-colorway brand matrix is now embedded with
+zero aliases anywhere in the registry.**
 
 #### Render API
 
