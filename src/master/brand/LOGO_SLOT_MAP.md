@@ -320,6 +320,55 @@ The component sets `width={size}` and `height={Math.round(size/5)}` on
 the `<img>` so the ~5:1 aspect ratio of the file is reserved before
 the bytes arrive — zero CLS.
 
+### Wordmark Ground variant (drafted plumb-line + base rule)
+
+Sibling treatment to the plain wordmark, **not a replacement**. Same
+typography, but framed by an architect's plumb-line on the left and a
+horizontal base rule beneath. Reads as **spec-grade / authored** where the
+plain wordmark reads as **editorial type**.
+
+> **Plain `wordmark` vs. `wordmarkGround`:**
+> - **`wordmark`** → sits *with* surrounding text (inline, eyebrow, breadcrumb, document masthead). Doesn't compete with body copy.
+> - **`wordmarkGround`** → **standalone** brand statements that need to feel anchored and authored (chapter openers, project nameplates, deck covers, certificate headers). The plumb + base rule make it read as a stamp, not a label.
+
+#### Sizes & recommended use
+
+| Size (px) | Slot key                | Use case                                                            | Surface | Loading |
+|-----------|-------------------------|---------------------------------------------------------------------|---------|---------|
+| 200       | `wordmarkGroundInline`  | Specification stamp inline in a spec sheet, drawing-set legend      | light   | lazy    |
+| 400       | `wordmarkGroundChapter` | Chapter / case-study opener title block above a long-form section  | light   | lazy    |
+| 800       | `wordmarkGroundPlate`   | Project nameplate, "stamped by" plate on warranty / handoff docs   | light   | lazy    |
+| 1200      | `wordmarkGroundBand`    | Hero brand band on About / Capabilities — anchors a wide section   | any     | lazy    |
+| 2400      | `wordmarkGroundCover`   | Capabilities deck / proposal PDF cover, large-format presentation   | any     | lazy    |
+
+#### Colorway readiness
+
+| Variant | Black ✅                                 | Navy ✅                                  | White ⏳ (aliased) |
+|---------|------------------------------------------|------------------------------------------|---------------------|
+| 200     | `cmb-wordmark-ground-black-200.png`      | `cmb-wordmark-ground-navy-200.png`       | → black             |
+| 400     | `cmb-wordmark-ground-black-400.png`      | `cmb-wordmark-ground-navy-400.png`       | → black             |
+| 800     | `cmb-wordmark-ground-black-800.png`      | `cmb-wordmark-ground-navy-800.png`       | → black             |
+| 1200    | `cmb-wordmark-ground-black-1200.png`     | `cmb-wordmark-ground-navy-1200.png`      | → black             |
+| 2400    | `cmb-wordmark-ground-black-2400.png`     | `cmb-wordmark-ground-navy-2400.png`      | → black             |
+
+`WORDMARK_GROUND_STATUS` reports `ready` for black + navy; white aliases
+to black until that package lands.
+
+#### Render API
+
+```tsx
+import MasterLogo from "@/master/brand/MasterLogo";
+
+<MasterLogo slot="wordmarkGround" size={400}  />                    // chapter opener
+<MasterLogo slot="wordmarkGround" size={800}  />                    // project plate
+<MasterLogo slot="wordmarkGround" size={1200} className="w-full" /> // brand band
+<MasterLogo slot="wordmarkGround" size={2400} />                    // deck cover
+```
+
+The component reserves a `~3.5:1` CLS box (`width={size}`,
+`height={Math.round(size/3.5)}`) — taller than the plain wordmark because
+the plumb-line adds vertical artwork.
+
 ---
 
 ## Perf budget per slot

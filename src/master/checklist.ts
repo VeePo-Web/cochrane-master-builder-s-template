@@ -17,6 +17,7 @@ export type CheckId =
   | "master-tiles-binaries-embedded"
   | "master-monogram-binaries-embedded"
   | "master-wordmark-binaries-embedded"
+  | "master-wordmark-ground-binaries-embedded"
   | "master-logo-slot-map-followed"
   | "copy-unique"
   | "story-rewritten"
