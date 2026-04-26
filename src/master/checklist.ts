@@ -14,6 +14,7 @@ export type CheckId =
   | "master-logo-colorway-set"
   | "master-logo-binaries-embedded"
   | "master-emblem-binaries-embedded"
+  | "master-tiles-binaries-embedded"
   | "master-logo-slot-map-followed"
   | "copy-unique"
   | "story-rewritten"
