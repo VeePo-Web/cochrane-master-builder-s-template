@@ -127,16 +127,27 @@ import cmbMbMonoWhite512 from "../assets/logo/cmb-mb-monogram-white-512.png";
 import cmbMbMonoWhite1024 from "../assets/logo/cmb-mb-monogram-white-1024.png";
 
 // ── Wordmark family (pure typography — "MASTER BUILDERS / COCHRANE") ───────
-// The fifth asset family. Lockup = wordmark + emblem stacked; the wordmark
-// alone removes the emblem so it can sit in horizontal rails (≥3:1 aspect)
-// without dominating. Editorial type voice — section eyebrows, doc headers,
-// press kit, breadcrumb chips. Black ✅ embedded; navy + white alias to
-// black until those packages land.
+// All three colorways ✅ embedded. Lockup = wordmark + emblem stacked; the
+// wordmark alone removes the emblem so it can sit in horizontal rails
+// (≥3:1 aspect) without dominating. Editorial type voice — section
+// eyebrows, doc headers, press kit, breadcrumb chips.
 import cmbWordmarkBlack200 from "../assets/logo/cmb-wordmark-black-200.png";
 import cmbWordmarkBlack400 from "../assets/logo/cmb-wordmark-black-400.png";
 import cmbWordmarkBlack800 from "../assets/logo/cmb-wordmark-black-800.png";
 import cmbWordmarkBlack1200 from "../assets/logo/cmb-wordmark-black-1200.png";
 import cmbWordmarkBlack2400 from "../assets/logo/cmb-wordmark-black-2400.png";
+
+import cmbWordmarkNavy200 from "../assets/logo/cmb-wordmark-navy-200.png";
+import cmbWordmarkNavy400 from "../assets/logo/cmb-wordmark-navy-400.png";
+import cmbWordmarkNavy800 from "../assets/logo/cmb-wordmark-navy-800.png";
+import cmbWordmarkNavy1200 from "../assets/logo/cmb-wordmark-navy-1200.png";
+import cmbWordmarkNavy2400 from "../assets/logo/cmb-wordmark-navy-2400.png";
+
+import cmbWordmarkWhite200 from "../assets/logo/cmb-wordmark-white-200.png";
+import cmbWordmarkWhite400 from "../assets/logo/cmb-wordmark-white-400.png";
+import cmbWordmarkWhite800 from "../assets/logo/cmb-wordmark-white-800.png";
+import cmbWordmarkWhite1200 from "../assets/logo/cmb-wordmark-white-1200.png";
+import cmbWordmarkWhite2400 from "../assets/logo/cmb-wordmark-white-2400.png";
 
 export type LogoColorway = "black" | "navy" | "white";
 export type EmblemSize = 100 | 200 | 400 | 800 | 1200 | 2400;
@@ -244,9 +255,23 @@ const WORDMARK_BLACK = {
   2400: cmbWordmarkBlack2400,
 } as const;
 
-// Navy + white wordmark aliased to black until those packages land.
-const WORDMARK_NAVY = WORDMARK_BLACK;
-const WORDMARK_WHITE = WORDMARK_BLACK;
+// Navy wordmark ✅ embedded as a real map.
+const WORDMARK_NAVY = {
+  200: cmbWordmarkNavy200,
+  400: cmbWordmarkNavy400,
+  800: cmbWordmarkNavy800,
+  1200: cmbWordmarkNavy1200,
+  2400: cmbWordmarkNavy2400,
+} as const;
+
+// White wordmark ✅ embedded as a real map.
+const WORDMARK_WHITE = {
+  200: cmbWordmarkWhite200,
+  400: cmbWordmarkWhite400,
+  800: cmbWordmarkWhite800,
+  1200: cmbWordmarkWhite1200,
+  2400: cmbWordmarkWhite2400,
+} as const;
 
 export const MASTER_LOGOS = {
   black: {
@@ -274,7 +299,7 @@ export const MASTER_LOGOS = {
     tiles: TILES_NAVY,
     // Navy monogram ✅ embedded.
     monogram: MONOGRAM_NAVY,
-    // Navy wordmark aliased to black until that package lands.
+    // Navy wordmark ✅ embedded.
     wordmark: WORDMARK_NAVY,
   },
   white: {
@@ -290,7 +315,7 @@ export const MASTER_LOGOS = {
     tiles: TILES_WHITE,
     // White monogram ✅ embedded.
     monogram: MONOGRAM_WHITE,
-    // White wordmark aliased to black until that package lands.
+    // White wordmark ✅ embedded.
     wordmark: WORDMARK_WHITE,
   },
 } as const;
@@ -319,8 +344,8 @@ export const MONOGRAM_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
 /** Per-colorway readiness for the wordmark family specifically. */
 export const WORDMARK_STATUS: Record<LogoColorway, "ready" | "aliased"> = {
   black: "ready",
-  navy: "aliased",
-  white: "aliased",
+  navy: "ready",
+  white: "ready",
 };
 
 export const EMBLEM_SIZES: EmblemSize[] = [100, 200, 400, 800, 1200, 2400];
