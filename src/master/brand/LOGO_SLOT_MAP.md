@@ -26,8 +26,8 @@ needs a logo, add the slot here first, then to `LOGO_USAGE_MAP` in
 | `bookingModal`    | `cmb-medium.png` (158 KB)            | Booking modal left rail                 | when modal opens (lg+)                     | light (bone)       | trade colorway            | lazy    | auto, max-w-sm|
 | `about`           | `cmb-large.png` (323 KB)             | About-page brand monument               | `/about` route                             | light              | trade colorway            | lazy    | auto, max-w-lg|
 | `notFound`        | `cmb-medium.png` (158 KB)            | 404 page                                | router fallback                            | light              | trade colorway            | lazy    | auto          |
-| `email`           | `/og-image-cmb.png` (323 KB)         | Transactional email header              | quote/booking confirmations                | light              | trade colorway            | n/a     | 280 max-w     |
-| `og`              | `/og-image-cmb.png` (323 KB)         | `<meta property="og:image">`            | social share crawler fetch                 | image              | (baked into og file)      | n/a     | 1200×630      |
+| `email`           | `/og-image-cmb.png` (legacy — to migrate) | Transactional email header         | quote/booking confirmations                | light              | trade colorway            | n/a     | 280 max-w     |
+| `og`              | `/share/og-1200x630-navybg.jpg`      | `<meta property="og:image">` + Twitter  | social share crawler fetch                 | navy (baked)       | navy MB diamond + wordmark| n/a     | 1200×630      |
 | `favicon`         | `/favicon-cmb.png` (9 KB)            | `<link rel="icon">`                     | browser tab, bookmarks                     | any (browser-chrome)| (baked into favicon)     | n/a     | 32×32 → 256×256|
 
 ---
@@ -542,10 +542,44 @@ in a separate pass.
 
 ---
 
+## Social share & profile pack
+
+A complete 10-file pack lives in `/public/share/`. Five platform-sized canvases
+× two background treatments (`transparent`, `navybg`). Consumed via the typed
+registry in [`share-pack.ts`](./share-pack.ts).
+
+| File | Dimensions | Consumer | When to use |
+|---|---|---|---|
+| `og-1200x630-navybg.jpg` | 1200×630 | Facebook, Slack, iMessage, LinkedIn, default OG/Twitter | **Default share preview.** Wired to `og:image` + `twitter:image` in `index.html`. |
+| `og-1200x630-transparent.png` | 1200×630 | Email signatures, brand-kit downloads, layered comps | When the destination surface is already navy/dark and the baked bg would clash. |
+| `twitter-1200x600-navybg.jpg` | 1200×600 | Twitter alternate 2:1 ratio, generic 2:1 share | Twitter cards or any UI requesting a 2:1 image. |
+| `twitter-1200x600-transparent.png` | 1200×600 | Composable banners | When the designer drops the lockup onto a custom backdrop. |
+| `linkedin-1584x396-navybg.jpg` | 1584×396 | LinkedIn company-page cover | Upload as the page banner / hero. |
+| `linkedin-1584x396-transparent.png` | 1584×396 | Custom LinkedIn hero comps | Designer overlay use only. |
+| `instagram-1080x1080-navybg.jpg` | 1080×1080 | IG feed post, FB square share, generic 1:1 social | Default 1:1 social post. |
+| `instagram-1080x1080-transparent.png` | 1080×1080 | IG carousels / Stories with custom backdrops | When other slides set the surface color. |
+| `profile-400x400-navybg.jpg` | 400×400 | Twitter / IG / LinkedIn / GitHub / Substack profile photo | Set as profile pic everywhere — round-crops cleanly. |
+| `profile-400x400-transparent.png` | 400×400 | Brand-kit downloads, embed badges, dark-mode avatars | Use behind a custom backdrop or where transparency is required. |
+
+**Decision rule:** default to `-navybg` for any external surface (share
+previews, profile photos, banners, anywhere a third-party renders the asset
+on its own chrome). Reach for `-transparent` only when **you control the
+destination background** or the consumer composites onto its own surface.
+
+Programmatic access:
+```ts
+import { getShareAsset } from "@/master/brand/share-pack";
+const ogUrl = getShareAsset("og");          // → /share/og-1200x630-navybg.jpg
+const ogAlt = getShareAsset("og", "transparent");
+```
+
+---
+
 ## Cross-references
 
 - Component: [`MasterLogo.tsx`](./MasterLogo.tsx)
 - Registry: [`logo-registry.ts`](./logo-registry.ts)
+- Share pack: [`share-pack.ts`](./share-pack.ts)
 - Usage rules: [`LOGO_USAGE.md`](./LOGO_USAGE.md)
 - Brand identity: [`identity.ts`](./identity.ts)
 - Remix checklist: [`../checklist.ts`](../checklist.ts)

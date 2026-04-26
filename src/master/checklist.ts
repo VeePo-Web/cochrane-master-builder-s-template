@@ -19,6 +19,7 @@ export type CheckId =
   | "master-wordmark-binaries-embedded"
   | "master-wordmark-ground-binaries-embedded"
   | "master-favicon-pwa-pack-embedded"
+  | "master-share-pack-embedded"
   | "master-logo-slot-map-followed"
   | "copy-unique"
   | "story-rewritten"
@@ -54,7 +55,7 @@ export const REMIX_CHECKLIST: CheckItem[] = [
   { id: "trade-config-edited", group: "setup", automated: true, playbook: "REMIX_PLAYBOOK", label: "trade.config.ts updated", description: "Identity, services, and palette accent reflect the new trade." },
   { id: "logo-generated", group: "setup", automated: true, playbook: "REMIX_PLAYBOOK", label: "Trade logo generated", description: "AI-generated wordmark from the master CMB logo, saved to /public/." },
   { id: "favicon-generated", group: "setup", automated: true, label: "Favicon + PWA icons generated", description: "Derived from the trade logo." },
-  { id: "og-image-generated", group: "setup", automated: true, label: "OG / social image generated", description: "16:9 branded share image." },
+  { id: "og-image-generated", group: "setup", automated: true, label: "OG / social image generated", description: "Master Builders OG card embedded — replaces legacy Cochrane Drywall art. Full multi-platform share pack lives in /public/share/ (see master-share-pack-embedded)." },
   { id: "master-logo-rendering", group: "setup", automated: true, label: "Master CMB logo rendering in nav + footer", description: "<MasterLogo slot='nav'> and slot='footer' resolve to a master file or per-trade override (see LOGO_USAGE.md)." },
   { id: "master-logo-colorway-set", group: "setup", automated: true, label: "Logo colorway chosen", description: "TRADE.identity.logoColorway is one of: black | navy | white. Verify contrast against nav, footer, hero, and OG surfaces." },
   { id: "master-logo-binaries-embedded", group: "setup", automated: true, label: "Master logo binaries embedded (chosen colorway)", description: "Real PNGs in /src/master/assets/logo/ for the active colorway — no aliases. Black, navy, and white full lockups are all ✅." },
@@ -64,6 +65,7 @@ export const REMIX_CHECKLIST: CheckItem[] = [
   { id: "master-wordmark-binaries-embedded", group: "setup", automated: true, label: "Master wordmark binaries embedded", description: "Pure-typography wordmark PNGs (200/400/800/1200/2400) wired through <MasterLogo slot='wordmark' size={…}>. Black, navy, and white all ✅ — matrix complete (see WORDMARK_STATUS)." },
   { id: "master-wordmark-ground-binaries-embedded", group: "setup", automated: true, label: "Master wordmark Ground variant embedded", description: "Drafted plumb-line + base rule wordmark PNGs (200/400/800/1200/2400) wired through <MasterLogo slot='wordmarkGround' size={…}>. Black, navy, and white all ✅ — matrix complete (see WORDMARK_GROUND_STATUS)." },
   { id: "master-favicon-pwa-pack-embedded", group: "setup", automated: true, label: "Favicon + PWA icon pack embedded", description: "Full navy MB-diamond ladder (favicon.ico + 16/32/48/64/96/128/144/152/180/192/256/512) plus white reverse-colorway ladder (32/64/128/192/256/512) in /public/, served via prefers-color-scheme media queries for dark-mode browser chrome. Wired into index.html with theme-color #1F2F4D, msapplication tile metadata, and site.webmanifest declaring start_url/scope and 8 icon entries (any + maskable). Unlocks crisp navy chrome on light surfaces, white reverse on dark surfaces, and PWA install across iOS / Android / desktop — no service worker required." },
+  { id: "master-share-pack-embedded", group: "setup", automated: true, label: "Social share + OG + profile pack embedded", description: "10-file share pack in /public/share/ — 5 platform sizes (OG 1200×630, Twitter 1200×600, LinkedIn 1584×396, Instagram 1080×1080, Profile 400×400) × 2 backgrounds (transparent + navybg). Wired into index.html for og:image / twitter:image (navy 1200×630) with width/height/alt meta. Typed registry at src/master/brand/share-pack.ts with getShareAsset() helper and recommendedShareBackground() decision rule (default navybg for external surfaces). Per-file consumer map documented in LOGO_SLOT_MAP.md → 'Social share & profile pack'." },
   { id: "master-logo-slot-map-followed", group: "setup", automated: false, label: "New logo surfaces follow the slot map", description: "Any new component using a logo is added to LOGO_SLOT_MAP.md and rendered via <MasterLogo slot=\"...\"/> — never <img src=\".../cmb-...png\"> direct." },
 
   // Brand
