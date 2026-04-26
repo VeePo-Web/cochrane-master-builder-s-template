@@ -83,12 +83,21 @@ import cmbEmblemWhite1200 from "../assets/logo/cmb-emblem-white-1200.png";
 import cmbEmblemWhite2400 from "../assets/logo/cmb-emblem-white-2400.png";
 
 // ── Tiles family (exploded/deconstructed mark — 3 separated panels) ────────
-// Black ✅ embedded (6 sizes). Navy + white alias to black until those
-// packages land — flip the aliases below in one line when they arrive.
+// Black ✅ + Navy ✅ embedded. White aliases to black until that
+// package lands — flip the alias below in one line when it arrives.
 import cmbTilesBlack100 from "../assets/logo/cmb-tiles-black-100.png";
 import cmbTilesBlack200 from "../assets/logo/cmb-tiles-black-200.png";
 import cmbTilesBlack400 from "../assets/logo/cmb-tiles-black-400.png";
 import cmbTilesBlack800 from "../assets/logo/cmb-tiles-black-800.png";
+import cmbTilesBlack1200 from "../assets/logo/cmb-tiles-black-1200.png";
+import cmbTilesBlack2400 from "../assets/logo/cmb-tiles-black-2400.png";
+
+import cmbTilesNavy100 from "../assets/logo/cmb-tiles-navy-100.png";
+import cmbTilesNavy200 from "../assets/logo/cmb-tiles-navy-200.png";
+import cmbTilesNavy400 from "../assets/logo/cmb-tiles-navy-400.png";
+import cmbTilesNavy800 from "../assets/logo/cmb-tiles-navy-800.png";
+import cmbTilesNavy1200 from "../assets/logo/cmb-tiles-navy-1200.png";
+import cmbTilesNavy2400 from "../assets/logo/cmb-tiles-navy-2400.png";
 import cmbTilesBlack1200 from "../assets/logo/cmb-tiles-black-1200.png";
 import cmbTilesBlack2400 from "../assets/logo/cmb-tiles-black-2400.png";
 
