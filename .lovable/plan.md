@@ -1,113 +1,148 @@
-## What you uploaded
+## Goal
 
-**The canonical brand bible plus the master source artwork and showcase boards.** This is the foundation document everyone (you, me, future contractors, designers) should reference. Three groups:
+Turn `src/master/checklist.ts` into the **definitive remix roadmap** for every Masters sub-service site (Drywall, Roofing, Plumbing, Electrical, …). Each item is a *plan-able task* — descriptive enough that Lovable / Claude can read the item and generate a deep, in-depth implementation plan from it. No automated runners; this is a guided source-of-truth.
 
-| Group | Files | Purpose |
-|---|---|---|
-| **1. Brand bible** | `README.md` (170 lines) | Official rules: folder layout, color hex (`#1F2F4D`), size variants, file-naming convention, clear-space + minimum size, do's / don'ts |
-| **2. Source artwork** | `MB_Master_Logo_1_cleaned.png` (no-ground lockup — primary), `MB_Master_Logo_2_original.png` (with-ground lockup — vertical post + horizontal base rule under wordmark) | The two master compositions all derived assets are cropped from. Archive-grade. |
-| **3. Showcase boards** | `full-logo-on-{white,black,navy}` + `emblem-on-{black,navy}` (1920–2048px square renders) | High-res in-context renders. Use case: brand-kit page on the site, designer download links, social campaign hero plates. |
+Outcome: when a remix is finished, walking this list end-to-end guarantees a fully bespoke, SEO-strong, conversion-tuned, legally-clean Masters site — never a re-skinned template.
 
-The **bulk of what the brand bible describes is already embedded** from prior passes — the full lockup matrix (3 colorways × full size ladder), emblem family (×3), tiles (×3), monogram (×3), wordmark (×3), wordmark-ground (×3), favicon + PWA pack (13-rung navy + 6-rung white), social share pack (5 platforms × 2 bgs), site.webmanifest, theme-color, and the typed `<MasterLogo>` registry/component system. **What's missing is the brand bible itself** (no canonical reference doc lives in the repo) and **a brand-kit surface** that exposes these assets to anyone who needs them.
+## Structure
 
----
+The checklist becomes **9 phases**, executed in order. Each item is tagged:
+- **Tier**: `P0` (must ship), `P1` (should ship), `P2` (polish)
+- **Owner**: `human` (taste, content, legal) or `ai-plan` (Lovable/Claude generates the plan & executes)
+- **Playbook**: link to the deep-dive doc (existing or new) that the AI consults when generating the plan
+- **Inputs needed**: the specific assets/info the operator must hand over before the AI can plan this item
 
-## Plan
+### Phase 1 — Intake & Trade Foundation (P0)
+Capture everything bespoke about THIS trade before touching code.
+- Trade master brief uploaded (name, slug, category, founding story, USPs, pricing model, scope of work, what they refuse to do)
+- Service catalogue uploaded (every service, sub-service, scope, typical price band, lead time, materials)
+- Service-area master spreadsheet uploaded (every city/town/neighborhood served, with priority ranking)
+- Sister-site backlink map confirmed (which other Masters sites link here, anchor-text plan)
+- Trade-specific compliance docs collected (license #, WCB/insurance, certifications, warranty terms)
+- Founder bio + real photos of *work* (no people) collected
+- Competitor audit: 3 best-in-class sites for this trade, screenshots + what they do well
+- Color/theme direction chosen (accent HSL, hero mood, photography palette) — overrides master defaults only where justified
 
-### 1. Embed the brand bible as the canonical reference
+### Phase 2 — Brand & Identity Bespoking (P0)
+Every visible brand decision matched to THIS trade — no leftover drywall fingerprints.
+- `trade.config.ts` fully edited (identity, contact, services, palette accent, SEO title/desc, voice arrays)
+- Logo colorway chosen against this trade's hero/nav surfaces and verified at `/brand`
+- Per-trade logo override generated *if* the master CMB lockup needs trade-specific sub-wordmark (e.g. "Cochrane Roofing")
+- Favicon + PWA pack regenerated/verified for the chosen colorway
+- Share pack (OG, Twitter, LinkedIn, IG, Profile) regenerated with trade name in the card
+- Voice & tone document written for this trade (5 do's, 5 don'ts, sample paragraph)
+- Zero leftover references scan: rg the repo for the previous trade's name, services, pricing, and city-specific quirks → all 0
+- `/style-guide` walked: contrast matrix all-green on every accent
 
-Drop the README into `src/master/brand/BRAND_BIBLE.md` as the **single source of truth**. Adapt it to reflect what's actually true in *this* repo:
+### Phase 3 — Information Architecture & Wireframes (P0)
+Pages and structure designed for THIS trade before any copy is written.
+- Sitemap drafted (home, services index, one page per service, areas index, one page per area cluster, about, story, process, gallery, FAQ, contact, legal pages)
+- Wireframe per page approved (sketch or low-fi) — section order, hero pattern, trust block, CTA placement
+- Navigation IA finalized (≤6 top items, mobile drawer order, footer columns)
+- Booking funnel entry-point map (every CTA on every page → booking modal, pre-filled service if applicable)
+- URL/slug map locked (clean, keyword-aware, no /page-2 patterns)
 
-- Replace the README's "📁 Folder Structure" section (which describes the source-package's `01-…/02-…` flat layout) with our actual layout: `src/master/assets/logo/` (bundled lockup + emblem + tiles + monogram + wordmark families), `public/` (favicon ladder + PWA), `public/share/` (social pack), all read through `<MasterLogo>` and `share-pack.ts`.
-- Keep the brand bible's color block, size-variant ladders, naming convention, clear-space rules, minimum-size rules, and don'ts **verbatim** — these are the rules.
-- Replace the README's example HTML snippets (which point at unbundled `/img/cmb-…` paths) with the actual import patterns: `<MasterLogo slot="nav" />`, `getShareAsset("og")`, etc.
-- Cross-link to existing docs: `LOGO_SLOT_MAP.md`, `LOGO_USAGE.md`, `share-pack.ts`, `identity.ts`.
+### Phase 4 — Copy & Storytelling (P0 / P1)
+Every word bespoke. Zero paraphrasing between sister sites — Google penalizes it.
+- Founder/origin story written from scratch (≥250 words, this trade's pain points, this trade's wins)
+- Home hero copy (headline, sub, primary CTA) — bespoke, not template-mad-libs
+- "Problems we solve" block (5–8 trade-specific homeowner pain points)
+- "Why us" block (3–5 differentiators that are TRUE for this trade, with proof)
+- Process/method copy (3–6 stage walkthrough specific to this trade's workflow)
+- Per-service page copy: scope, what's included, what's not, materials, timeline, price band, FAQ × 5, CTA
+- About page copy (team, values, license/insurance, warranty)
+- FAQ master list (≥20 Q&A) — sourced from real customer questions for this trade
+- Service-area page copy template + per-cluster intro paragraphs (no duplicate content across areas)
+- Microcopy pass (form labels, button text, empty states, success states, 404)
+- Legal copy: privacy policy, terms of service, cookie notice (if analytics), warranty terms
+- Sales-copy pass (P1): every CTA scored against AIDA, every section against "so what?"
 
-The result: one file a designer / developer / AI-agent can read top-to-bottom and have the complete brand contract.
+### Phase 5 — Visual Craft & AI Imagery (P0)
+- Hero image set generated (3–5 candidates, picked one) — ultra-realistic, no faces, no people, trade-specific subject matter
+- Service-page hero per service (one each)
+- Process/method imagery (one per stage)
+- Before/after pair per service (real if possible; AI if not, clearly marked)
+- Ambient backdrop / parallax dividers per major section
+- Gallery: ≥12 finished-work shots
+- OG card hero swapped to trade-specific imagery
+- Image weight audit: every image <300KB, served as WebP/AVIF where possible
+- Alt-text pass: every image has descriptive alt, no `alt=""` except decorative
+- Filename audit: no `image1.png` / `hero-final-FINAL.jpg` — all kebab-case descriptive
 
-### 2. Archive the master source artwork
+### Phase 6 — SEO Depth (P0 — this is the section that needs the most depth)
+Plans generated here must be exhaustive — search is the moat.
+- **Keyword research**: top 10 head terms + 30 long-tails per service, mapped to pages
+- **Per-page SEO**: unique `<title>` (≤60 char), unique meta description (≤155 char), single H1, semantic H2/H3 outline
+- **Canonical URLs** set on every page; trailing-slash policy consistent
+- **JSON-LD schema** per page type:
+  - Home: `Organization` + `LocalBusiness` + `WebSite` + `BreadcrumbList`
+  - Service pages: `Service` + `BreadcrumbList` + `FAQPage`
+  - Area pages: `LocalBusiness` (with `areaServed`) + `BreadcrumbList`
+  - About: `AboutPage`
+  - FAQ: `FAQPage`
+- **Service-area pages**: every area from the master spreadsheet has its own page, unique intro, local landmarks/neighborhoods, embedded map, LocalBusiness schema with correct `areaServed`
+- **Internal linking plan**: every service ↔ every relevant area, cross-link every service to 2 sibling services
+- **Sister-site cross-linking**: footer + body widget per the master spreadsheet plan — agreed anchor text, not "click here"
+- **External backlink targets**: 10 local directories (Yelp, Google Business, BBB, HomeStars, trade-specific dirs) — submission checklist
+- **Sitemap.xml**: every page + every area page included, lastmod accurate, submitted to Google Search Console
+- **robots.txt**: sane defaults, sitemap referenced
+- **OG / Twitter cards** verified per-page (not just home)
+- **Local SEO**: NAP (Name/Address/Phone) consistent across site + every directory; embedded Google Map on contact + area pages
+- **Google Business Profile** claimed/verified with category, services, photos, hours
+- **Search Console** + **Bing Webmaster** verified
+- **Page-speed-as-SEO**: LCP <2.5s, INP <200ms, CLS <0.1 on mobile (this is also P0 for ranking)
+- **E-E-A-T signals**: license #, insurance #, years in business, real address, real phone, founder bio with photo of WORK (not face), warranty page
 
-Drop both originals into `src/master/assets/logo/source/` (new subfolder):
-- `cmb-source-lockup-no-ground.png` ← `MB_Master_Logo_1_cleaned.png`
-- `cmb-source-lockup-with-ground.png` ← `MB_Master_Logo_2_original.png`
+### Phase 7 — Conversion, Forms & Booking (P0)
+- Booking modal opens from every documented CTA (audit list)
+- Form fields minimized to true must-haves; service pre-fills when launched from a service page
+- Phone link (`tel:`) on every page, large tap target on mobile
+- Email submission lands in master inbox tagged with `siteSlug`
+- Success state copy bespoke and reassuring
+- Spam protection (honeypot or hCaptcha) live
+- Form analytics events fire on open / start / submit / success
+- "Book in 60 seconds" promise honored (time the flow on real mobile)
 
-Add a tiny `source/README.md` explaining: these are the master compositions all cropped/recolored exports derive from — never edit, never ship to `<img>`, only re-derive from these.
+### Phase 8 — Legal, Trust & Compliance (P0)
+- Privacy policy reflects actual data collected and processors used (Lovable Cloud, analytics, email)
+- Terms of service drafted for this trade's scope (warranty, change orders, payment terms)
+- Cookie notice (if analytics or marketing pixels)
+- License #, insurance #, WCB # rendered in footer + about page
+- Real business address, real local phone (no virtual numbers if avoidable), business hours
+- Warranty page with specifics (years, what's covered, what's not, claim process)
+- Accessibility statement (WCAG AA target, contact for issues)
 
-### 3. Embed the showcase boards (high-res context renders)
+### Phase 9 — Quality Gate, Analytics & Launch (P0 / P1)
+- WCAG AA pass: contrast, focus rings, alt text, keyboard nav, modal ARIA, `prefers-reduced-motion` respected
+- Performance budget green on mobile + desktop (Lighthouse run + Real User Monitoring plan)
+- Cross-browser smoke test (Safari iOS, Chrome Android, Safari macOS, Chrome desktop, Firefox desktop)
+- 404 + 500 pages branded
+- Analytics installed (events: page_view, cta_click, modal_open, form_submit, phone_tap)
+- Conversion goal configured in analytics
+- VeePo agency credit present (per existing memory)
+- Master version pinned in `VERSION.ts`; this remix records what it forked from
+- Add this site to `src/master/trades.ts` with live URL once deployed
+- Sister-site widgets re-rendered across the network so backlinks go live everywhere
+- Pre-launch human walkthrough: every page on real mobile, every CTA tapped, every form submitted
+- Post-launch: submit sitemap to Search Console, request indexing on top 5 pages, monitor Core Web Vitals for 7 days
 
-Drop the 5 board renders into `src/master/assets/logo/boards/`:
-- `cmb-board-lockup-on-white.png`
-- `cmb-board-lockup-on-black.png`
-- `cmb-board-lockup-on-navy.png`
-- `cmb-board-emblem-on-black.png`
-- `cmb-board-emblem-on-navy.png`
+## Technical Implementation
 
-Wire them into the registry as a new `boards` family under each colorway-context — surfaced via a new typed export `MASTER_BOARDS` in `logo-registry.ts`. These power downstream surfaces (brand-kit page, press-kit download links, internal style references) without anyone hardcoding paths.
+Files to change:
 
-### 4. Surface the showcase boards on `/brand`
+1. **`src/master/checklist.ts`** — extend `CheckItem` with `tier`, `owner`, `phase`, `inputsNeeded`, `playbook` (already exists, expand enum). Bump `CheckId` enum to ~100+ ids. Add `CHECKLIST_PHASES` constant in execution order. Keep existing 30 ids so nothing in the codebase breaks.
+2. **`src/master/checklist.ts`** — export helper `getChecklistByPhase()` and `getChecklistByTier()` so future UI / planner can consume.
+3. **`src/master/playbooks/`** — add three new playbooks the new checklist points to:
+   - `INTAKE_BRIEF.md` — what to collect from the trade owner before remix starts
+   - `IA_WIREFRAME_GUIDE.md` — site IA patterns, page templates, navigation rules
+   - `LEGAL_TRUST_GUIDE.md` — privacy, terms, warranty, license/insurance display rules
+4. **`src/master/playbooks/SEO_PLAYBOOK.md`** — expand with the Phase-6 depth above (keyword research worksheet, per-page schema templates, area-page template, NAP audit checklist, GBP setup steps, internal linking matrix template).
+5. **`src/master/playbooks/COPY_GUIDE.md`** — expand with the Phase-4 depth (origin-story prompt, FAQ-mining method, anti-paraphrase rule with examples).
+6. **`src/master/README.md`** — add a "How the remix checklist works" section pointing to phases.
+7. **`src/master/checklist.ts`** — add a header doc-comment explaining: "Each item is a plan-able task. Hand it to Lovable/Claude with the inputs listed and the linked playbook; the AI will produce an in-depth, executable plan."
 
-Add a lightweight `/brand` route — **internal brand-kit page** that renders:
-- The brand bible (rendered MD with the rules)
-- The 5 showcase boards in a gallery (with download buttons)
-- The 4 logo-family variants showing each colorway (lockup, emblem, tiles, monogram, wordmark, wordmark-ground)
-- The share-pack assets with platform labels
-- Color tokens (navy `#1F2F4D` + white + black) with hex, copy-to-clipboard
-- Clear-space + minimum-size demonstration tile
-- Don'ts grid (use the rules from the bible)
+No new routes, no dashboards, no runners. Pure typed source + markdown playbooks.
 
-This is the "give this URL to a contractor / designer / journalist" surface. Not linked from the public nav — accessible by direct URL only.
+## What I will ask you mid-build (only if needed)
 
-### 5. Per-asset map (the "where it would go when" the user asked for)
-
-Append a **"Master file → Surface map"** section to `BRAND_BIBLE.md` documenting where each new file lands:
-
-| New file | Lives at | Rendered by | When |
-|---|---|---|---|
-| `README.md` | `src/master/brand/BRAND_BIBLE.md` | `/brand` page (markdown render) | Single source of truth for all brand decisions |
-| `MB_Master_Logo_1_cleaned.png` | `src/master/assets/logo/source/cmb-source-lockup-no-ground.png` | Archive-only; never bundled into UI | Master file for re-deriving any future no-ground crop |
-| `MB_Master_Logo_2_original.png` | `src/master/assets/logo/source/cmb-source-lockup-with-ground.png` | Archive-only; never bundled into UI | Master file for re-deriving any future with-ground crop |
-| `full-logo-on-white.png` | `src/master/assets/logo/boards/cmb-board-lockup-on-white.png` | `/brand` showcase grid + press-kit download | "Logo on light backgrounds" demonstration |
-| `full-logo-on-black.png` | `src/master/assets/logo/boards/cmb-board-lockup-on-black.png` | `/brand` showcase grid + press-kit download | "Logo on dark backgrounds" demonstration |
-| `full-logo-on-navy.png` | `src/master/assets/logo/boards/cmb-board-lockup-on-navy.png` | `/brand` showcase grid + press-kit download | "Logo on brand-navy backgrounds" demonstration |
-| `emblem-on-black.png` | `src/master/assets/logo/boards/cmb-board-emblem-on-black.png` | `/brand` showcase grid + press-kit download | "Emblem on dark backgrounds" demonstration |
-| `emblem-on-navy.png` | `src/master/assets/logo/boards/cmb-board-emblem-on-navy.png` | `/brand` showcase grid + press-kit download | "Emblem on brand-navy backgrounds" demonstration |
-
-### 6. Checklist updates
-
-Two new items in `src/master/checklist.ts`:
-- `master-brand-bible-embedded` — canonical brand contract lives at `BRAND_BIBLE.md`, surfaces on `/brand`
-- `master-brand-kit-page-live` — `/brand` route renders all logo families + boards + color tokens + rules
-- `master-source-artwork-archived` — originals archived to `assets/logo/source/`, never `<img>`'d
-
-Also: drop the `full-logo-on-navy.jpg` (JPG sibling) since the PNG is higher quality — using the PNG only.
-
----
-
-## Files touched
-
-**Created (binaries):**
-- `src/master/assets/logo/source/cmb-source-lockup-no-ground.png`
-- `src/master/assets/logo/source/cmb-source-lockup-with-ground.png`
-- `src/master/assets/logo/boards/cmb-board-lockup-on-{white,black,navy}.png`
-- `src/master/assets/logo/boards/cmb-board-emblem-on-{black,navy}.png`
-
-**Created (code/docs):**
-- `src/master/brand/BRAND_BIBLE.md` — adapted brand bible (master reference)
-- `src/master/assets/logo/source/README.md` — archive guard
-- `src/pages/Brand.tsx` — `/brand` brand-kit page
-- New `MASTER_BOARDS` export in `logo-registry.ts`
-
-**Edited:**
-- `src/master/brand/logo-registry.ts` — add boards imports + `MASTER_BOARDS` export
-- `src/App.tsx` — register `/brand` route
-- `src/master/checklist.ts` — 3 new checks
-- `src/master/brand/LOGO_SLOT_MAP.md` — link to BRAND_BIBLE + brand-kit page
-
----
-
-## Why this matters
-
-1. **The brand bible has no home today.** Rules like "navy = `#1F2F4D`", "clear space = height of M in MASTER", "minimum 150px wide", "don't recolor outside the palette" are scattered across slot-map / usage docs / your own messages. Embedding `BRAND_BIBLE.md` gives one canonical place future-you (and any contractor) reads first.
-2. **Source artwork preservation.** If we ever need to re-export a new variant (e.g. the with-ground full lockup as a footer asset), having the cleaned originals checked in means we don't go hunting through chat history.
-3. **`/brand` becomes a power surface.** A single URL you can give to a journalist, a partner, a fabrication vendor, or a sister-site agency — they get the bible, the boards, the colors, and downloadable assets without any back-and-forth.
-4. **The 5 showcase boards become real assets.** They're high-res hero plates — exactly what a `/brand` press-kit needs for "see the mark in context" demonstrations. Right now they'd just sit in chat history.
+I'll only stop to ask if a specific phase needs a decision that isn't in the master spreadsheet you'll upload (e.g. "Do you want a separate `/process` page or fold it into `/about`?"). Otherwise I'll plan and embed.
