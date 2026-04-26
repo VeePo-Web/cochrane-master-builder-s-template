@@ -1,204 +1,100 @@
-# Build-time guard-rails checklist (linked to the decision index)
+## Goal
 
-A non-negotiable preflight that runs on every build, prints a pass/fail report, and — for any failure — names the exact partner doc(s) and decision-index route(s) to consult. Blocking by default in production builds; warn-only in dev.
+Replace the "free-text only" router input with a **strict, validated DecisionInput schema** so the router can deterministically narrow the candidate document set before scoring. Free-text remains supported (as the `goal` field) but is now joined by typed dimensions.
 
----
+## The schema
 
-## 1. Wire each guard rail to its decision routes
+A new file `src/master/knowledge/decision-input.ts` defines:
 
-**New file:** `src/master/knowledge/guardrail-routes.ts`
-
-A pure typed map from `GuardRailId` → `DecisionRoute[]`. Built by inverting the registry: for each route in `decision-index.ts`, every `guardRails[]` entry adds the route to the map. Result: when `gr-real-business-signals` fails, you instantly get the 8 partner docs that govern it.
-
-```ts
-export const GUARDRAIL_TO_ROUTES: Record<GuardRailId, DecisionRoute[]>;
-export function getRoutesForGuardRail(id: GuardRailId): DecisionRoute[];
-export function getUnroutedGuardRails(): GuardRailId[]; // coverage check
-```
-
-No new content — fully derived from existing `GUARD_RAILS` (18 rails) and `DECISION_INDEX` (10 routes).
-
----
-
-## 2. Define the build-time check runner
-
-**New file:** `src/master/knowledge/preflight.ts`
-
-Pure logic (no I/O). For each of the 18 `GUARD_RAILS`, run a typed check function and return a `PreflightResult`.
-
-```ts
-export type RailStatus = "pass" | "fail" | "skipped";
-
-export interface RailReport {
-  id: GuardRailId;
-  title: string;
-  category: GuardRailCategory;
-  status: RailStatus;
-  law: string;
-  evidence: string[];          // what the check actually inspected
-  failures: string[];          // human-readable failure reasons
-  routes: DecisionRoute[];     // from guardrail-routes.ts
-  partnerDocPaths: string[];   // copy-pasteable file paths
-  remediation: string;         // one-line "do this next"
-}
-
-export interface PreflightReport {
-  ok: boolean;
-  total: number;
-  passed: number;
-  failed: number;
-  skipped: number;
-  rails: RailReport[];
-}
-
-export function runPreflight(opts?: {
-  only?: GuardRailId[];
-  skip?: GuardRailId[];
-}): Promise<PreflightReport>;
-```
-
-Each rail gets a small async checker registered in a `RAIL_CHECKERS: Record<GuardRailId, Checker>` table inside `preflight.ts`. Checkers are deterministic and read-only (filesystem scans, JSON-LD parse, route enumeration). Rails without a feasible programmatic check return `skipped` with an `evidence[]` note ("manual proof required: see proofRequired").
-
-**Initial checker coverage** (programmatic where realistic; `skipped` otherwise — never silently `pass`):
-
-| Guard rail                        | Check |
-|---|---|
-| `gr-zero-sister-fingerprints`     | `rg` scan against sibling slugs from `src/master/trades.ts`; fail on any hit. |
-| `gr-master-logo-slot-map`         | `rg` for `<img[^>]*src="[^"]*(cmb-\|master/assets/logo)`; fail on any. |
-| `gr-bespoke-style-guide-live`     | Verify `/style-guide` route registered in `src/App.tsx`. |
-| `gr-page-meta-jsonld-unique`      | Walk `src/pages/*.tsx`, collect `document.title` strings, fail on dup. |
-| `gr-crawl-hygiene`                | Check `public/robots.txt` exists and isn't `Disallow: /`; check `public/sitemap.xml` exists. |
-| `gr-areas-we-serve-excellence`    | Skipped (requires running app); emit `proofRequired` reminder. |
-| `gr-modern-image-pipeline`        | Scan `src/` for `.png`/`.jpg` `<img src=` without companion `.webp`/`.avif`; warn. |
-| `gr-performance-budget-mobile`    | Skipped — runtime measurement; remind to run Lighthouse. |
-| `gr-wcag-aa`                      | Skipped — runtime; remind to run axe. |
-| `gr-booking-one-tap`              | Verify `BookingModal` import in `src/App.tsx` (already required). |
-| `gr-real-business-signals`        | Scan footer/contact pages for a phone-number regex + address keyword. |
-| `gr-legal-pages-bespoke`          | Verify `/privacy` and `/terms` routes exist + files are >1KB. |
-| `gr-motion-system-pinned`         | Verify `framer-motion` import + presence of a motion config file. |
-| `gr-anti-paraphrase-readability`  | Skipped — needs sister-site corpus; remind. |
-| `gr-bespoke-brand-derivation`     | Verify `src/config/brand-identity.ts` exists. |
-| `gr-local-trust-schema`           | `rg` for `"@type":\s*"LocalBusiness"` in `src/`. |
-| `gr-plan-first-deep-items`        | Verify `.lovable/plan.md` exists and is non-empty. |
-| `gr-prelaunch-walk-postlaunch-monitor` | Skipped — operational; remind. |
-
-Every checker returns evidence and (on failure) a one-line remediation that ends with: `→ consult <partnerDoc1>, <partnerDoc2>`.
-
----
-
-## 3. CLI runner
-
-**New file:** `scripts/preflight.ts`
-
-```bash
-bun scripts/preflight.ts                      # run all rails
-bun scripts/preflight.ts --only gr-crawl-hygiene
-bun scripts/preflight.ts --json               # machine output
-bun scripts/preflight.ts --strict             # exit 1 on any fail OR skip
-```
-
-Default exit code: `0` if no failures, `1` if any rail fails. Pretty output groups by `GuardRailCategory`, shows `✓ / ✗ / ◌`, prints failures with their linked partner-doc paths.
-
-Example output:
 ```text
-✗ gr-zero-sister-fingerprints   Brand & Identity
-  3 failures:
-    - src/components/Hero.tsx:42 references "drywall-pro"
-    - src/pages/About.tsx:11 references "calem-wood"
-  remediation: remove sibling slug references; rerun.
-  → consult: cmb-strategy-1.3, cmb-brand-1.2.1, cmb-strategy-1.0
-  partner docs:
-    src/master/knowledge/partner-documents/.../strategy/1.3_..._.partner.md
-    src/master/knowledge/partner-documents/.../brand-identity/1.2.1_..._.partner.md
-```
-
----
-
-## 4. Wire into every website build
-
-**Edit `package.json` scripts:**
-
-```json
-"scripts": {
-  "preflight": "bun scripts/preflight.ts",
-  "prebuild": "bun scripts/preflight.ts --strict",
-  "build": "vite build",
-  "build:dev": "vite build --mode development"
+DecisionInput {
+  goal:        string                    // required, 3..240 chars — free-text intent
+  pageSection?: PageSection              // enum (one of)
+  audience?:   Audience[]                // enum (multi)
+  channel?:    Channel                   // enum (one of)
+  category?:   DecisionCategory          // existing enum, optional pre-filter
+  constraints?: Constraint[]             // enum (multi) — hard rules to honour
+  excludeIds?: string[]                  // route ids the caller already rejected
 }
 ```
 
-`prebuild` runs automatically before `build`. In `--strict` mode, any failure halts the build. Dev (`bun dev`) is unaffected so iteration stays fast.
+Enum values (drawn from existing partner-doc triggers + guard rails so nothing new leaks in):
 
-**Vite plugin (lightweight, dev-time warning):** `vite.config.ts` gets a small custom plugin that runs `runPreflight()` once on dev-server start and prints a one-line "⚠ N guard rails failing — run `bun preflight` for details." No build halt in dev.
+- **PageSection**: `home-hero`, `home-body`, `service-page`, `service-area-page`, `about`, `legal`, `partners-vendors`, `footer`, `forms-booking`, `style-guide`, `blog-faq`, `meta-seo`
+- **Audience**: `mothers`, `grandfathers`, `subcontractors`, `general-homeowner`, `b2b-vendor`, `ai-search-crawler`
+- **Channel**: `web-desktop`, `web-mobile`, `email`, `print-collateral`, `voice-search`, `ai-overview`
+- **Constraint**: `wcag-aa`, `motion-restraint`, `no-sister-fingerprints`, `bespoke-only`, `pricing-transparency`, `local-trust-required`, `phone-cta-priority`, `legal-bespoke`
 
----
+Each enum value carries a small mapping table to existing `DecisionCategory[]` and `GuardRailId[]` so the compiler can boost or filter routes without adding new domain knowledge.
 
-## 5. UI surface (reuses existing `/knowledge` infrastructure)
+Validation uses **Zod** (already in the project). Errors surface as field-level messages.
 
-**New route:** `/knowledge/preflight` (internal, `noindex`).
+## Router compilation
 
-**New files:**
-- `src/pages/Preflight.tsx`
-- `src/components/knowledge/PreflightDashboard.tsx`
+A new pure function in `src/master/knowledge/decision-search.ts`:
 
-UX:
-- "Run preflight" button calls a new edge function `preflight` that re-runs the same `runPreflight()` logic (logic is shared via the import; the edge function just wraps it for HTTP access from the client).
-- Renders the `PreflightReport` grouped by category, each rail showing status icon, law, evidence, failures, remediation, and clickable links to partner docs (reusing `DECISION_INDEX` lookups so we get categories + guard-rail chips for free).
-- Failed rails are pinned to the top.
+```text
+compileQuery(input: DecisionInput): {
+  text:         string                 // synthesized free-text for the existing scorer
+  category?:    DecisionCategory       // hard pre-filter
+  boostRails:   GuardRailId[]          // routes touching these get +score
+  requiredRails: GuardRailId[]         // hard filter — route must include all
+  excludeIds:   Set<string>
+}
+```
 
-**Edge function:** `supabase/functions/preflight/index.ts` — calls `runPreflight()` server-side (so the client never has to do filesystem scans), returns the typed report. CORS + 429/402 standard error pass-through (no AI calls here).
+Then `searchDecisions` gains an overload `searchDecisionsStructured(input)` that:
 
-> Note: file-system checkers in the edge function will scan the deployed function bundle, not the live repo. For accurate results in CI/local, the CLI is the source of truth; the UI is for at-a-glance during development.
+1. Runs `compileQuery` to get filters.
+2. Pre-filters `DECISION_INDEX` by `category`, `requiredRails`, and `excludeIds`.
+3. Runs the existing keyword scorer against the synthesized `text` (goal + enum labels expanded into trigger-friendly phrases).
+4. Adds a `+1` score nudge per `boostRails` hit, capped at the existing 0..1 normalization.
+5. Returns the same `MatchResult[]` shape so all downstream UI/CLI code keeps working.
 
----
+The existing free-text `searchDecisions(query)` stays untouched — structured search is purely additive.
 
-## 6. Coverage assertions
+## Surfaces
 
-Add to `preflight.ts`:
+**UI** (`src/components/knowledge/DecisionSearch.tsx`)
+- Add a collapsible "Refine" panel under the existing search box with: goal textarea, section/channel selects, audience multi-select chips, constraint multi-select chips.
+- When any structured field is set, calls `searchDecisionsStructured`; otherwise falls back to the existing `searchDecisions` path.
+- AI fallback button now sends the compiled query (text + filters) to the edge function so semantic results respect the same hard filters.
 
-- `assertEveryRailHasChecker()` — fails build if a new `GuardRailId` is added without a checker entry. Forces future rails to be wired in.
-- `assertEveryRailHasRoutes()` — wraps `getUnroutedGuardRails()`; fails if any rail has zero linked routes (currently every rail has at least one).
+**CLI** (`scripts/decisions.ts`)
+- Add flags: `--section`, `--audience` (repeatable), `--channel`, `--constraint` (repeatable), `--exclude`.
+- When any structured flag is present, uses the structured path; otherwise unchanged.
+- Prints the compiled query summary above the results table for transparency.
 
-These run as the first thing inside `runPreflight()`. Misses are reported as a special `gr-meta-coverage` failure.
+**Edge function** (`supabase/functions/decision-search-ai/index.ts`)
+- Accepts an optional `filters` block in the request body.
+- Pre-filters the `registry` it sends to the model by the same rules used client-side, so the model can never return a route that violates a hard constraint.
+- System prompt updated with one extra rule: "Honour all filters; never recommend a route excluded by them."
 
----
+## Documentation
 
-## 7. Documentation (additive only)
+Update `src/master/knowledge/DECISION_ROUTER.md` with:
+- The new schema and enum tables.
+- A short "When to use structured input" section.
+- One worked example for each surface (UI, CLI, programmatic).
 
-**Edit `src/master/playbooks/GUARD_RAILS.md`** — append a "Build-time Enforcement" section pointing at `scripts/preflight.ts`, the `prebuild` hook, and `/knowledge/preflight`.
+`src/master/knowledge/README.md` gets a one-line link to the new schema file.
 
-**Edit `src/master/knowledge/README.md`** — add a "Preflight" subsection under "Searchable Index".
+## Files
 
-**Edit `src/master/knowledge/DECISION_ROUTER.md`** — add a one-liner: "Programmatic enforcement: `bun preflight` runs every guard rail and links failures back to these partner docs."
+**New**
+- `src/master/knowledge/decision-input.ts` — schema, enums, Zod validator, enum→category/guardrail maps.
 
-No source docs touched. No partner docs touched. No changes to existing `guardrails.ts` or `checklist.ts` (the rail set and checklist items remain the contract).
+**Modified**
+- `src/master/knowledge/decision-search.ts` — `compileQuery` + `searchDecisionsStructured`.
+- `src/components/knowledge/DecisionSearch.tsx` — Refine panel + structured branch.
+- `scripts/decisions.ts` — new flags + structured branch.
+- `supabase/functions/decision-search-ai/index.ts` — accept + apply filters.
+- `src/master/knowledge/DECISION_ROUTER.md` — schema + examples.
+- `src/master/knowledge/README.md` — link.
 
----
+## Out of scope
 
-## 8. Files to create / change
-
-Create:
-- `src/master/knowledge/guardrail-routes.ts`
-- `src/master/knowledge/preflight.ts`
-- `scripts/preflight.ts`
-- `src/pages/Preflight.tsx`
-- `src/components/knowledge/PreflightDashboard.tsx`
-- `supabase/functions/preflight/index.ts`
-
-Edit (additive):
-- `package.json` — add `preflight` and `prebuild` scripts.
-- `vite.config.ts` — add a tiny dev-only warning plugin.
-- `src/App.tsx` — register `/knowledge/preflight`.
-- `src/master/playbooks/GUARD_RAILS.md` — append enforcement section.
-- `src/master/knowledge/README.md` — append preflight subsection.
-- `src/master/knowledge/DECISION_ROUTER.md` — one-line pointer.
-
----
-
-## 9. Verification after build
-
-- `bun preflight` runs in <2s on the current repo and prints a categorized report.
-- `bun run build` halts when any rail fails (because of `prebuild --strict`); succeeds otherwise.
-- `/knowledge/preflight` renders the same report with clickable partner-doc links.
-- `assertEveryRailHasChecker()` and `assertEveryRailHasRoutes()` both green.
-- Source docs (`source-documents/**`) remain byte-identical. Partner docs untouched. `guardrails.ts` and `checklist.ts` untouched.
+- No changes to source or partner documents.
+- No changes to guard rails or preflight.
+- No new routes in `App.tsx` — UI lives in the existing `/knowledge` page.
+- No persistence of past queries.
