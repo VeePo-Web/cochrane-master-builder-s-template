@@ -15,7 +15,7 @@
  */
 
 import { useEffect } from "react";
-import { Helmet } from "react-helmet-async";
+// (no Helmet in this project — set document.title via effect below)
 import {
   MASTER_BOARDS,
   MASTER_BOARDS_META,
@@ -96,14 +96,25 @@ const downloadBoard = (id: MasterBoardId) => {
 
 const Brand = () => {
   useEffect(() => {
+    const prevTitle = document.title;
+    document.title = "Brand Kit — Cochrane Master Builders";
+
+    const meta = document.createElement("meta");
+    meta.name = "robots";
+    meta.content = "noindex, follow";
+    document.head.appendChild(meta);
+
     document.documentElement.style.scrollBehavior = "smooth";
     return () => {
+      document.title = prevTitle;
+      document.head.removeChild(meta);
       document.documentElement.style.scrollBehavior = "";
     };
   }, []);
 
   return (
     <>
+      {/* document.title + meta robots set in effect above */}
       <Helmet>
         <title>Brand Kit — Cochrane Master Builders</title>
         <meta name="description" content="The canonical brand bible for Cochrane Master Builders: marks, colors, sizes, clear space, and downloadable showcase boards." />
