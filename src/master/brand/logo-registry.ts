@@ -179,8 +179,6 @@ export const MASTER_LOGOS = {
     small: cmbNavySmall,
     // Navy emblem ✅ embedded.
     emblem: EMBLEM_NAVY,
-    // Navy emblem ✅ embedded.
-    emblem: EMBLEM_NAVY,
     // Navy tiles ✅ embedded.
     tiles: TILES_NAVY,
   },
