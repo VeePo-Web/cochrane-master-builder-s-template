@@ -1,81 +1,176 @@
-# Plan — Deepen the 10 Partner Docs Into Full Decision Rule Books
+# Decision Index — searchable "what rules apply" lookup
 
-## Goal
+A single typed registry powers two surfaces (CLI + internal UI) so both stay in sync. Results are **lean**: matched partner docs, source paths, decision triggers hit, guard rails touched, and a one-line "why matched". No rule text dumped in results — you click through to the partner doc to read rules.
 
-Take each of the 10 existing `.partner.md` files (one per Cochrane source document) and expand them in place from lean route maps into **full decision rule books**. After this pass, opening any partner doc gives the AI everything it needs to recognize a decision, route to the right source, AND know the rules / anti-patterns / worked examples that govern that decision — without ever rewriting source content.
+---
 
-## Hard constraints (unchanged)
+## 1. The registry (single source of truth)
 
-- Source docs under `source-documents/` stay byte-immutable. Never opened for write.
-- Partner docs never reproduce source content. They route, rule, and exemplify — they do not paraphrase the source's actual material (positioning text, tagline candidates, persona quotes, keyword lists, etc.). When in doubt, the rule says "open the source and read section X" instead of restating it.
-- Backend-only. No app code, no components, no configs touched.
-- `DECISION_ROUTER.md` stays the master index; it does not need to change unless a new decision shape emerges from the deepening (then we append rows).
+**New file:** `src/master/knowledge/decision-index.ts`
 
-## New 12-section template (replaces current 7-section one)
+Pure typed data, zero runtime side effects. One `DecisionRoute` per partner doc, mechanically derivable from the §3 (Decision triggers) and §12 (Guard Rail Linkage) sections of each partner doc you just deepened.
 
-Every partner doc gets restructured to:
+```ts
+export type DecisionCategory =
+  | "seo"
+  | "brand-style"
+  | "voice-copy"
+  | "persona-icp"
+  | "conversion"
+  | "ux-layout"
+  | "performance"
+  | "trust-legal"
+  | "strategy-positioning"
+  | "architecture-backend";
 
-1. **Source pointer** — (kept as-is)
-2. **What this document is** — (kept as-is, tightened)
-3. **Decision triggers** — expanded with concrete phrasing the AI can pattern-match against ("matches if the request contains: hero copy, headline, tagline, h1, sub-hero, promise, pitch, …")
-4. **Decision types this doc DOES NOT govern** — (kept as-is, sharpened)
-5. **How to read the source** — (kept) plus a "fast lookup" table mapping common triggers → which section/page of the source to read first
-6. **Routing precedence** — (kept) plus a conflict-resolution example
-7. **Cross-links** — (kept)
-8. **Rules — non-negotiables this doc enforces** — numbered laws derived from the source's spirit, written as imperatives ("Never … Always … Prefer … Avoid …"). 6–14 per doc depending on scope. Each rule names the source section it traces back to.
-9. **Anti-patterns** — concrete examples of what failure looks like for this decision domain (templated phrasing, generic stock images, density mistakes, persona mismatches). 4–8 per doc.
-10. **Worked example** — one realistic decision walked end-to-end: trigger recognized → source section consulted → rules applied → output decision. Shows the AI exactly how to use this doc.
-11. **AI prompts to run against the source** — 3–6 ready-made prompts the AI can use with `document--parse_document` output to extract exactly what it needs (e.g. "List every tone word and its forbidden synonym", "Extract the top 5 objections and their sanctioned answers"). Saves re-discovering the right question every time.
-12. **Linkage to guard rails** — list which `GuardRailId`s from `src/master/guardrails.ts` this doc helps satisfy, and how. This stitches the partner-doc layer into the existing constitution layer.
+export interface DecisionRoute {
+  id: string;                       // e.g. "cmb-strategy-1.2"
+  brand: "cochrane-master-builders";
+  partnerDoc: string;               // path under src/master/knowledge
+  sourceDoc: string;                // path under src/master/knowledge
+  title: string;                    // short label for results
+  oneLine: string;                  // what this doc governs
+  categories: DecisionCategory[];
+  triggers: string[];               // verbatim phrases from §3
+  guardRails: GuardRailId[];        // from §12
+  precedence?: string;              // from §6, e.g. "1.2 > 1.0 on positioning"
+}
 
-## Per-doc scope (keeps each one focused)
+export const DECISION_INDEX: DecisionRoute[];
+export const CATEGORY_LABELS: Record<DecisionCategory, string>;
+```
 
-| Partner doc | Rule-set focus | Approx rule count |
-|---|---|---|
-| `strategy/1.0` | Constitutional positioning, on-mission/off-mission test | 8 rules, 4 anti-patterns |
-| `strategy/1.2` | Iterated positioning, pricing transparency posture, differentiation | 10 rules, 5 anti-patterns |
-| `strategy/1.3` | Multi-trade backend, sister-site network, what inherits vs. what stays bespoke | 12 rules, 6 anti-patterns |
-| `seo-research/1.1` | Keyword selection, meta structure, Areas-We-Serve depth, AI-search visibility, schema density | 14 rules, 8 anti-patterns |
-| `brand-identity/1.2.1` | Voice register, family-language guardrails, palette derivation, type philosophy | 12 rules, 6 anti-patterns |
-| `brand-identity/1.2.2` | Tagline cadence rules, mission phrasing, hero promise patterns | 10 rules, 6 anti-patterns |
-| `ux-design/1.3.1` | Layout density, hierarchy, mobile defaults, footer arch, trust placement, form structure | 14 rules, 8 anti-patterns |
-| `personas-icp/1.4.1` | Subcontractor B2B copy register, partner-portal UX, vendor-form rules | 10 rules, 5 anti-patterns |
-| `personas-icp/1.4.2` | Mother-persona empathy, scheduling/safety/pricing transparency, trust selection | 12 rules, 6 anti-patterns |
-| `personas-icp/1.4.3` | Grandfather-persona empathy, accessibility upshifts, motion restraint, plainspoken register | 12 rules, 6 anti-patterns |
+Initial seed: 10 routes (one per existing partner doc). Each maps to the right categories, e.g.:
+- `cmb-seo-1.1` → `["seo"]`
+- `cmb-brand-1.2.1` / `cmb-brand-1.2.2` → `["brand-style","voice-copy"]`
+- `cmb-persona-1.4.2` (mothers) → `["persona-icp","conversion","voice-copy"]`
+- `cmb-ux-1.3.1` → `["ux-layout","conversion","trust-legal"]`
+- `cmb-strategy-1.3` → `["strategy-positioning","architecture-backend","seo"]`
+- etc.
 
-Total new content: ~110 rules + ~60 anti-patterns + 10 worked examples + ~40 ready-made AI prompts.
+---
 
-## Authoring discipline (so we don't violate the no-rewrite rule)
+## 2. Matching engine (deterministic, hybrid-ready)
 
-For every rule and worked example, I will:
-- Phrase rules as **imperatives the AI follows** ("Always X; never Y"), not as **content extracted from the source**.
-- Cite source sections by *name/topic* ("see the voice register section"), not by quoting source prose.
-- Use generic / illustrative copy in worked examples (e.g. "a hero for `/services/custom-home`"), never paste candidate taglines or persona quotes that live in the source.
-- Anti-patterns describe failures in the AI's own outputs, not source content.
+**New file:** `src/master/knowledge/decision-search.ts`
 
-## What changes vs. what stays
+Pure function, no I/O, used by both CLI and UI.
 
-Stays identical:
-- All 10 source docs (untouched).
-- `DECISION_ROUTER.md` content (router still works; new sections in partner docs only deepen the destination, not the routing).
-- README.md workflow (still partner doc + router entry).
-- Guard rails, checklist, playbooks, brand bible, configs — none touched.
+```ts
+export interface MatchResult {
+  route: DecisionRoute;
+  score: number;            // 0..1
+  matchedTriggers: string[];
+  matchedCategories: DecisionCategory[];
+  reason: string;           // one-line "why matched"
+}
 
-Changes:
-- All 10 `.partner.md` files rewritten in place using the 12-section template.
-- README.md updated in one spot to mention the new 12-section template (so future partner docs follow it).
+export function searchDecisions(
+  query: string,
+  opts?: { category?: DecisionCategory; limit?: number; minScore?: number }
+): MatchResult[];
+```
 
-## Verification after build
+**Scoring (deterministic pass):**
+- Tokenize query (lowercase, strip punctuation, drop stopwords).
+- For each route: count trigger-phrase substring hits + token overlaps + explicit category mentions ("seo", "voice", "mother", "subcontractor", etc.).
+- Apply precedence boosts so the right partner doc rises (e.g. positioning queries prefer 1.2 over 1.0).
+- Return top N sorted by score; expose `minScore` so UI knows when to offer the AI fallback.
 
-- `find src/master/knowledge/partner-documents -name "*.partner.md" | wc -l` → still `10`.
-- `grep -L "## 8. Rules" src/master/knowledge/partner-documents/**/*.partner.md` → expect empty (every doc has the new sections).
-- `grep -L "## 12. Linkage to guard rails" …` → expect empty.
-- Source tree byte-identical: `find src/master/knowledge/source-documents -type f -newer /tmp/marker` → expect empty after touching a marker first.
-- Spot-check 2 docs end-to-end for a worked example that doesn't paraphrase source content.
+No external deps — plain TS.
 
-## Out of scope (call out so we don't drift)
+---
 
-- No changes to checklists or guard rails.
-- No new partner docs for the empty category folders (animations/, components/, etc.) — those wait until a source doc lands there.
-- No machine-readable frontmatter yet (still keeping docs human-readable; can add YAML triggers later if you want auto-routing tooling).
-- No edits to existing playbooks under `src/master/playbooks/`.
+## 3. AI fallback (only when keyword score is weak)
+
+**New edge function:** `supabase/functions/decision-search-ai/index.ts`
+
+- Takes `{ query, registry }` (registry is sent compact: id + title + oneLine + triggers + categories).
+- Calls Lovable AI Gateway, model `google/gemini-3-flash-preview`, with structured tool-calling so it returns `{ matches: [{ id, score, reason }] }`.
+- System prompt forbids inventing routes outside the registry.
+- Handles 429 / 402 with the standard pass-through errors.
+- Stays lean: never returns rule text, only route ids + reasons.
+
+Frontend invokes it via `supabase.functions.invoke("decision-search-ai", { body })` only when keyword `topScore < 0.35` OR the user clicks "Ask AI" in the UI.
+
+---
+
+## 4. CLI surface
+
+**New file:** `scripts/decisions.ts`
+
+Run with `bun scripts/decisions.ts "<query>" [--category seo] [--ai]`.
+
+- Loads `decision-index.ts` directly (no Supabase needed for keyword mode).
+- Prints a lean table to stdout:
+
+```text
+score  id              partner doc                                          why
+0.82   cmb-seo-1.1     .../seo-research/1.1_..._.partner.md                  triggers: "areas we serve", "meta title"
+0.41   cmb-strategy-1.3 .../strategy/1.3_..._.partner.md                    categories: seo, architecture-backend
+```
+
+- `--ai` flag: also calls the edge function (using `LOVABLE_API_KEY` directly via the gateway, bypassing Supabase invoke for offline use). Reuses the same compact registry payload.
+
+---
+
+## 5. Internal UI surface
+
+**New route:** `/knowledge` (not added to nav; reachable by URL only).
+
+**New files:**
+- `src/pages/Knowledge.tsx`
+- `src/components/knowledge/DecisionSearch.tsx`
+
+UX (shadcn primitives, no new deps):
+- Search input (debounced 200ms) + category `Select` filter + "Ask AI" button.
+- Results list: each row shows route title, category chips, matched triggers, guard-rail chips, two links — "Open partner doc" and "Open source doc". Both links open the file paths in a new tab (raw `<a>` to the file path under the dev server's source tree — for read-only inspection during planning).
+- When `topScore < 0.35`, the "Ask AI" button glows with a hint: "Keyword match weak — try AI."
+- AI results render in the same row format with a small "AI" badge and the model's `reason`.
+
+No auth required — page is intentionally undocumented; not linked from the marketing site.
+
+---
+
+## 6. Documentation
+
+**Updated files (append-only, do not rewrite existing sections):**
+- `src/master/knowledge/README.md` — add a "Searchable Index" section explaining the registry, CLI usage, and `/knowledge` route.
+- `src/master/knowledge/DECISION_ROUTER.md` — add a single line at the top: "Programmatic equivalent: `decision-index.ts` + `/knowledge` route."
+
+No partner docs are touched. No source docs are touched.
+
+---
+
+## 7. Out of scope
+
+- No DB tables, no auth, no nav entry.
+- No semantic embeddings or vector store — keyword-first by design; AI fallback is a single chat call.
+- No rule-text rendering in results (lean routes only, per your choice).
+- No multi-brand expansion yet — registry is structured to accept other brands later by adding new `DecisionRoute` entries.
+
+---
+
+## 8. Files to create / change
+
+Create:
+- `src/master/knowledge/decision-index.ts`
+- `src/master/knowledge/decision-search.ts`
+- `scripts/decisions.ts`
+- `supabase/functions/decision-search-ai/index.ts`
+- `src/pages/Knowledge.tsx`
+- `src/components/knowledge/DecisionSearch.tsx`
+
+Edit (small, additive):
+- `src/App.tsx` — register the `/knowledge` route.
+- `src/master/knowledge/README.md` — add "Searchable Index" section.
+- `src/master/knowledge/DECISION_ROUTER.md` — one-line pointer at top.
+
+---
+
+## 9. Verification after build
+
+- `bun scripts/decisions.ts "hero copy for mothers"` returns `cmb-persona-1.4.2` and `cmb-brand-1.2.2` in top 2.
+- `bun scripts/decisions.ts "areas we serve schema"` returns `cmb-seo-1.1` first.
+- `/knowledge` renders, search responds <100ms on keyword pass, AI fallback works and surfaces 429/402 toasts cleanly.
+- All 10 partner docs and all 10 source docs remain byte-identical (verified by directory listing — no writes touch them).
