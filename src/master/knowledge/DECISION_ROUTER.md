@@ -1,6 +1,8 @@
 # Decision Router — How to Find the Right Source Document for Any Decision
 
-> **Programmatic equivalent:** `decision-index.ts` (typed registry) + `decision-search.ts` (keyword scorer) power the `bun scripts/decisions.ts "<query>"` CLI and the `/knowledge` UI route, with an AI fallback via `supabase/functions/decision-search-ai`. Use those for queryable lookup; this file remains the human-readable map.
+> **Programmatic equivalent:** `decision-index.ts` (typed registry) + `decision-search.ts` (keyword scorer + structured router) power the `bun scripts/decisions.ts "<query>"` CLI and the `/knowledge` UI route, with an AI fallback via `supabase/functions/decision-search-ai`. Use those for queryable lookup; this file remains the human-readable map.
+>
+> **Strict input schema:** structured queries use `decision-input.ts` — fields `goal`, `pageSection`, `audience[]`, `channel`, `category`, `constraints[]`. Each enum value compiles to (a) free-text trigger phrases, (b) soft category boosts, (c) hard required guard rails. Use the **Refine** panel in the UI or the `--section`, `--audience`, `--channel`, `--constraint`, `--exclude` CLI flags. See *Structured input* below.
 >
 > **Build-time enforcement:** `bun preflight` runs every guard rail on each build (auto-invoked by the `prebuild` hook) and links every failure back to the partner docs in this router. See `/knowledge/preflight` for the dashboard.
 
