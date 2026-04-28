@@ -1,16 +1,16 @@
-# Embed the General SEO Persona & "What Not To Do" Checklist
+# Embed the World-Class SEO FAQ Optimization Persona
 
 ## What this document is
 
-A 7-page persona + checklist titled **"General SEO Prompt — use checklist from Dev.veepo.ca"**. It defines:
+A 14-page page-by-page FAQ optimization playbook titled **"World-Class SEO FAQ Optimization Persona and Instructions."** It is the **operational companion** to the general SEO virtuoso persona embedded in the previous turn — narrower in scope (FAQs only), deeper in detail. Contents:
 
-- A 50-year-veteran SEO persona (Victorious-SEO senior strategist), E-E-A-T obsessed
-- **15 core principles** (people-first content, separation of concerns, technical excellence, crawlability, Core Web Vitals, structured data, content structure, on-page metadata, heading hierarchy, internal/external linking, GEO for AI search, link building, local/international SEO, analytics, ethics)
-- A comprehensive **"what not to do" checklist** (keyword stuffing, cannibalization, plagiarism, thin content, doorway pages, hidden text, slow speed, broken links, bad canonicalization, missing HTTPS, generic anchor text, missing alt text, link spam, orphan pages, intrusive ads, etc.)
-- A **5-step working process** (Audit → Plan → Implement → Measure → Communicate)
-- A trailing operational instruction about the Cochrane subdomain and a "collapsible FAQ" bug — clearly leftover context from a prior `dev.veepo.ca` conversation. Per the governance charter, this stays verbatim in the source and is addressed in the partner doc.
+- A 50-year Victorious-SEO veteran persona (same archetype as the general SEO doc, scoped to FAQ work)
+- **8 core principles** (people-first/data-driven, one-intent-per-question, concise complete answers, structural integrity & crawlability, schema compliance & moderation, local & voice search, performance/accessibility/UX, continuous improvement)
+- **10 numbered sections** covering: strategy, discovery (with intent-bucket table), question selection, answer development, FAQ placement & site architecture, FAQPage JSON-LD schema rules, local + voice search, performance/UX/accessibility, monitoring & iteration, ethics & compliance, and a 10-step process workflow
+- A 5-row HTML `<table>` of intent buckets (Informational, Transactional, Navigational, Local, Edge Cases)
+- A trailing operational instruction block (Cochrane subdomain step) — same leftover from `dev.veepo.ca` as the previous SEO doc
 
-This is **the most important SEO governance document in the corpus** — broader than the existing brand-specific `cmb-seo-1.1` (which is about CMB market/competitor/AI-SEO research). This one is the *methodology* the SEO persona uses on any brand.
+This is **the canonical reference for any FAQ work** in the codebase: which questions to include, how to write answers, where to place them, how to schema-mark them, how to monitor them.
 
 ## Where it goes
 
@@ -18,89 +18,119 @@ This is **the most important SEO governance document in the corpus** — broader
 src/master/knowledge/
 ├── source-documents/
 │   └── experience-prompts/
-│       └── seo-virtuoso-persona.source.md      ← NEW (verbatim)
+│       └── seo-faq-optimization-persona.source.md      ← NEW (verbatim)
 └── partner-documents/
-    └── experience-prompts/                      ← NEW folder
-        └── seo-virtuoso-persona.partner.md      ← NEW (interpretation)
+    └── experience-prompts/
+        └── seo-faq-optimization-persona.partner.md     ← NEW (interpretation)
 ```
 
-Filing under `experience-prompts/` rather than a new `seo/` folder because it's a **persona/experience prompt** (50-year SEO virtuoso) — same shelf as the existing `master-design-persona-fantasy.source.md` and `anti-gravity-opening-engineer.source.md`. Domain-specific SEO research already lives correctly under `brands/cochrane-master-builders/seo-research/`.
+Filed under `experience-prompts/` next to `seo-virtuoso-persona.*` because it's the same persona archetype scoped to a specific function. Not a new `faq/` folder — that would fragment the SEO methodology.
 
 ## Files to create (2)
 
-### 1. `source-documents/experience-prompts/seo-virtuoso-persona.source.md`
+### 1. `seo-faq-optimization-persona.source.md`
 
-- Standard immutability frontmatter matching the other source files in this folder (`status: IMMUTABLE`, `do-not-edit: true`, `verbatim: true`, `origin-file: General_SEO_Prompt_use_checklist_from_Dev.veepo.ca-2.docx`, `source-format: docx`, `embedded-on: 2026-04-26`, `layer: source`, `category: experience-prompts`).
-- Standard DO-NOT-EDIT banner, plus a one-line note that conflicts/adaptation (Lovable.dev → Cochrane Master Builders, dev.veepo.ca leftover Cochrane-step instruction, the collapsible FAQ bug request) live in the partner file.
-- Full verbatim text of all 7 pages, including:
-  - The duplicated section-title fragments (e.g. "People-First Content First Content", "Heading  ierarchy & Content Presentation", "Local  **Local & International SEO:**", "Audit  Audit & Research") — these are upload artefacts and are preserved per the immutability rule.
-  - The `<mark>...</mark>` tags around schema/attribute names.
-  - The mixed bullet glyphs (`-`, `●`, `○`).
-  - The trailing italicized instruction block about the Cochrane subdomain and the collapsible-FAQ bug.
-  - The "mangools.com" inline citations.
+- Standard immutability frontmatter (`status: IMMUTABLE`, `do-not-edit: true`, `verbatim: true`, `origin-file: General_SEO_FAQ_prompt_page_by_page_refer_to_checklist_on_dev.veepo.ca-2.docx`, `source-format: docx`, `embedded-on: 2026-04-26`, `layer: source`, `category: experience-prompts`, `cross-cuts: seo, faq`).
+- Standard DO-NOT-EDIT banner.
+- Full verbatim text of all 14 pages preserved exactly, including:
+  - The intent-bucket HTML `<table>` (5 rows) — kept as-is, not converted to markdown
+  - The `<mark>...</mark>` tags around schema names (`FAQPage`, `Question`, `Answer`, `LocalBusiness`, `QAPage`)
+  - All duplicated heading-fragment artefacts ("Local Search Relevance levance", "Analytics Analytics", "Variables Variables", "Inclusions Inclusions", "Duplication lication", "Grouping 3 Grouping", "User Interface Interface", "Page Load 1 Page Load", "Usability Usability", "Impressions Impressions", "Categorization ategorization", "Ethical Considerations ical Considerations", "Accessibility Accessibility", "Transparency Transparency", "Structured Structured")
+  - The mixed bullet glyphs (`-`, `*`, `1.`, `■`, indented sub-bullets)
+  - The "Lovable.dev" brand references
+  - The trailing italicized Cochrane-subdomain operational instruction
+  - The non-ASCII smart quotes / em-dashes
 
-### 2. `partner-documents/experience-prompts/seo-virtuoso-persona.partner.md`
+### 2. `seo-faq-optimization-persona.partner.md`
 
-Full 12-section partner template:
+12-section partner template tailored to FAQ work:
 
-1. **Title** — General SEO Virtuoso Persona & "What Not To Do" Checklist
-2. **Category** — `experience-prompts/` (also cross-cuts `seo`)
-3. **Main purpose** — install the SEO methodology any agent should use when reasoning about technical SEO, on-page SEO, structured data, GEO/AI search, link building, or analytics — for *any* brand in the corpus.
-4. **What it influences** — every backend SEO decision: meta tags, JSON-LD, robots.txt, sitemap.xml, canonicals, heading hierarchy, alt text, internal-linking maps, anchor-text choices, Core Web Vitals tuning, FAQ schema eligibility, redirect strategy, hreflang (if multilingual), AI-bot accessibility.
-5. **Trigger prompts** — extensive list: "meta title for…", "should this be H1 or H2?", "add JSON-LD", "FAQ schema", "robots.txt", "sitemap", "canonical for…", "redirect chain", "Core Web Vitals", "LCP/INP/CLS", "AI Overview citation", "Perplexity visibility", "internal-linking plan", "anchor text", "alt text", "image format / WebP / AVIF", "hreflang", "local SEO", "Google Business Profile", "broken links audit", "duplicate content", "keyword cannibalization", "rich results test", "URL inspection", "page speed", "structured data validator".
-6. **Scope of application** — global (cross-brand methodology). Specifically applies to every page route, every `<head>`, every JSON-LD blob, every image asset, every link, every form. Does NOT govern visible copy or visual design (the persona's own "Separation of Concerns" rule).
-7. **Output-quality direction** — Victorious-SEO level technical precision; E-E-A-T obsession; AI-search-aware (GEO); zero-tolerance for the items in the "what not to do" checklist.
-8. **Brand/ICP relationship** — this persona is brand-agnostic but must always be filtered through the active brand layer:
-   - For Cochrane Master Builders: combine with `cmb-seo-1.1` (market/competitor/AI-SEO research), `cmb-strategy-1.0/1.2/1.3` (positioning), and the persona docs (`cmb-persona-1.4.1/1.4.2/1.4.3`) so that meta titles, FAQs, and JSON-LD ring true for mothers, grandfathers, and subcontractors in the Cochrane / Rocky View / Calgary CMA market.
-   - Local SEO ≠ generic — must use real NAP, real service-area neighborhoods from `cmb-strategy-1.3`, and real warranty/license signals.
-9. **Global vs specific** — global. P0 alongside the governance charter for any SEO question. Wins over `cmb-seo-1.1` on *methodology and don'ts*; loses to `cmb-seo-1.1` on Cochrane-specific keyword targets.
-10. **Adaptation notes (the conflict rule applied here)** — preserved verbatim in source; addressed here:
-    - **"Lovable.dev"** → substitute the active brand. For this codebase: Cochrane Master Builders Corp.
-    - **"Victorious SEO"** → an external agency reference; treat as quality benchmark only, no imitation of their site or copy.
-    - **Trailing Cochrane-subdomain + collapsible-FAQ instruction** — this is operational scope from a prior `dev.veepo.ca` conversation. It does **not** authorise any frontend change in this codebase. If the user later asks for a Cochrane-page SEO pass or a collapsible-FAQ fix, that's a separate, opt-in task — this embedding is knowledge-only.
-    - **"Lovable.dev serves specific regions"** clause — for the active codebase, the regions are Cochrane / Bow Valley / Rocky View County / Calgary CMA adjacency (per `cmb-strategy-1.3`).
-    - **Duplicated heading fragments** in the source — typos / paste artefacts; do not "fix" the source. Read past them.
-    - **`mangools.com` inline citations** — the persona cites them; treat as informational sources, not endorsements.
+1. **Title** — World-Class SEO FAQ Optimization Persona & Page-by-Page Instructions
+2. **Category** — `experience-prompts/`, cross-cuts `seo` + `faq` + `forms` (FAQ accordion components touch UI)
+3. **Main purpose** — install the operational FAQ playbook for any agent doing FAQ work on any brand. Defines question discovery, answer framework, placement rules, JSON-LD schema, voice/local optimization, performance budgets, accessibility, monitoring.
+4. **What it influences** —
+   - Which questions appear on which page (page-specific vs site-wide)
+   - The exact answer structure (1-2 sentence direct answer → context → factors/ranges → CTA)
+   - FAQ section placement, heading hierarchy (`<h2>` for section, `<h3>`/`<h4>` for questions)
+   - The accordion/disclosure UI pattern (lightweight `<details>`/`<summary>` preferred; full HTML render even when collapsed)
+   - `FAQPage` JSON-LD blob construction & validation
+   - Internal linking from FAQ answers to deeper pages
+   - Canonical-page assignment for repeated questions
+   - 15-40 question count per service page
+   - Top 5-8 FAQs expanded by default, rest rendered in HTML
+   - Local intent modifiers ("near me", "in Cochrane")
+   - Voice-search phrasing (conversational questions)
+5. **Trigger prompts** — extensive list:
+   - "add an FAQ section to…", "FAQ block on the homepage"
+   - "FAQPage schema", "FAQ JSON-LD", "structured data for FAQs"
+   - "what questions should we include", "FAQ question list", "discovery for FAQs"
+   - "rewrite this FAQ answer", "FAQ tone", "FAQ voice"
+   - "FAQ accordion", "collapsible FAQ", "expand-by-default FAQs"
+   - "FAQ for the Cochrane page", "FAQ for the Areas-We-Serve page"
+   - "categorize FAQs", "FAQ jump links", "FAQ table of contents"
+   - "voice search FAQ", "AI Overview FAQ"
+   - "duplicate FAQs across pages", "FAQ canonical"
+   - "monitor FAQ performance", "FAQ Search Console"
+6. **Scope of application** — backend FAQ structure + content selection + JSON-LD, plus the *structural* (not stylistic) requirements of the FAQ UI (lightweight component, full HTML render, ARIA on disclosure widgets, visible top FAQs, mobile responsive, WCAG 2.1). Does NOT govern the *visual* design of FAQ accordions — that belongs to the design partner docs.
+7. **Output-quality direction** — Victorious-SEO discipline; AI-citation-aware (FAQs are prime GEO real estate even though Google rich-result display has been restricted since Aug 2023); WCAG 2.1; Core Web Vitals safe; conversion-aware (every answer ends with a CTA / next step).
+8. **Brand / ICP relationship** — for Cochrane Master Builders:
+   - Question phrasing must reflect how Cochrane homeowners actually search (pull from `cmb-seo-1.1` keyword research)
+   - Answer voice must match `cmb-brand-1.2.2` ("Strong Foundations For Those Who Come After Us" — generational, plainspoken, no jargon)
+   - Audience-specific question selection: Mothers (`cmb-persona-1.4.2`) → pricing transparency, scheduling sensitivity, mess/disruption, safety; Grandfathers (`cmb-persona-1.4.3`) → warranty, longevity, plainspoken pricing, phone CTA in CTA slot; Subcontractors (`cmb-persona-1.4.1`) → onboarding, license/insurance upload, payment terms
+   - Local modifiers: "in Cochrane", "Bow Valley", "Rocky View County", "Calgary CMA"
+   - Geo-specific question example from the source ("How do I prepare my Calgary home for winter?") → translates naturally to Cochrane equivalents (winter readiness for Cochrane / Bow Valley climate, snow-load engineering, etc.) — **note in partner only, not source**
+9. **Global vs specific** —
+   - **Wins over** the general SEO virtuoso persona on FAQ-specific tactics (15-40 question count, the 4-part answer framework, FAQPage schema rules, accordion implementation, monitoring metrics specific to FAQs)
+   - **Inherits from** the general SEO virtuoso persona on overarching methodology (E-E-A-T, GEO, what-not-to-do)
+   - **Loses to** ICP partner docs on tone of answer copy
+   - **Loses to** brand-identity partner docs on voice register
+10. **Adaptation notes (conflict rule applied — verbatim source preserved)**:
+    - **"Lovable.dev"** → substitute Cochrane Master Builders Corp. for this codebase
+    - **"Calgary" example questions** ("How do I prepare my Calgary home for winter?") — applicable to this codebase since CMB's service area includes the Calgary CMA. For Cochrane-specific FAQs, prefer "Cochrane" as the primary modifier with Calgary as secondary.
+    - **August 2023 Google rich-result restriction** — still accurate at time of embedding; the persona correctly notes that schema remains valuable for voice + AI synthesis even if rich snippets don't display. Apply as written.
+    - **Trailing Cochrane-subdomain operational instruction** — leftover from a prior `dev.veepo.ca` conversation; **knowledge-only**, does not authorise a frontend FAQ pass on this codebase. If the user asks for the Cochrane FAQ pass later, that's a separate, deliberate scope.
+    - **Source-side typos / duplicated heading fragments** — paste artefacts; preserved per immutability rule. Read past them.
+    - **Intent-bucket HTML `<table>`** — preserved as raw HTML in markdown so the structure survives. Render as a 5-row table when consulting.
+    - **References to "Calgary" in geo examples** — already on-region for Cochrane Master Builders; no substitution needed.
+    - **`■` (black square)** bullet glyph in section 5.2 — kept verbatim; treat as a third-level bullet.
 11. **Dependencies / related documents**:
-    - `governance/knowledge-system-charter` (P0 — governs how to use this)
-    - `experience-prompts/master-design-persona-fantasy` (visual-quality counterpart)
-    - `experience-prompts/anti-gravity-opening-engineer` (motion counterpart)
-    - `brands/cochrane-master-builders/seo-research/1.1_…` (brand-specific keyword/SERP research — pair with this persona)
-    - `brands/cochrane-master-builders/strategy/1.3_…` (sister-site network, NAP propagation, taxonomy)
-    - `brands/cochrane-master-builders/personas-icp/1.4.1/1.4.2/1.4.3` (audience-specific phrasing for FAQs and meta descriptions)
-    - The repo's typed router (`decision-index.ts`) — not edited by this embed; the persona is discoverable through `INDEX.md`.
+    - `governance/knowledge-system-charter` — P0 governance (always)
+    - `experience-prompts/seo-virtuoso-persona` — P0 SEO methodology this FAQ playbook operates inside of
+    - `brands/cochrane-master-builders/seo-research/1.1_…` — Cochrane keyword + AI-Overview research (the *what* the questions should target)
+    - `brands/cochrane-master-builders/strategy/1.3_…` — Areas-We-Serve taxonomy (which location FAQs to add)
+    - `brands/cochrane-master-builders/brand-identity/1.2.2_…` — voice/tone for answer copy
+    - `brands/cochrane-master-builders/personas-icp/1.4.1/1.4.2/1.4.3` — audience-specific question selection
+    - `brands/cochrane-master-builders/ux-design/1.3.1_…` — confirms accordion UI pattern is on-brand
+    - **Mem note:** `mem://design/booking-modal-architecture` (or wherever FAQ-component design lives) when FAQ component visual styling comes up
 12. **Practical examples** — three:
-    - "Add an FAQ section to the Cochrane homepage" → consult this persona for FAQ-schema rules + GEO sub-query phrasing, then `cmb-seo-1.1` for actual keywords, then `cmb-persona-1.4.2` (Mothers) for tone of answer copy.
-    - "Audit our meta titles" → this persona's principle 8 + checklist's metadata section govern; cross-check with `cmb-seo-1.1` for CMB-specific keyword targets.
-    - "We want to rank for 'custom home builder Cochrane'" → this persona for *how* to optimize (E-E-A-T, GEO, structured data), `cmb-seo-1.1` for *what* to target, `cmb-strategy-1.3` for *where* (Areas-We-Serve taxonomy), `cmb-brand-1.2.2` for *how it sounds*.
+    - **A.** "Add an FAQ section to the Cochrane custom-home services page" → discovery (PAA + Search Console + sales calls per source §2.1) → 15-40 questions (source §2.3 rule 4) → cluster by intent-bucket table → 4-part answer framework → top 5-8 expanded → `<details>/<summary>` for the rest → `FAQPage` JSON-LD matching visible text exactly → cross-link to /service-areas, /portfolio, /about → measure in Search Console
+    - **B.** "We have a global FAQ on /faq and the same question on /custom-homes — what do we do?" → source §4.1 rule 3 + §4.2 → /faq is canonical, /custom-homes gets a shorter variant + descriptive anchor link
+    - **C.** "Our FAQ accordions are slow / cause CLS" → source §4.4 + §7.1 → swap heavy library for `<details>/<summary>`, lazy-load any embedded media, ensure full HTML rendering
+    - **D. (bonus)** "The user asks for FAQ rich results in Google" → source §5.4 → set expectation: since Aug 2023, Google only shows them for gov/health; schema is still valuable for voice + AI synthesis
 
-## Index update (1 file, docs only)
+## Index update
 
-### `src/master/knowledge/INDEX.md`
-
-Add a new **Experience Prompts (cross-brand)** section between the Governance section and the Cochrane Master Builders brand section:
+Add a row to the existing **Experience Prompts (cross-brand) Personas** section in `INDEX.md`:
 
 ```text
-## Experience Prompts — Cross-Brand Personas (`experience-prompts/`)
-
-Cross-brand expertise personas applied through the brand-specific layers below.
-
-| File | Format | Status | One-line label |
-|------|--------|--------|----------------|
-| `source-documents/experience-prompts/seo-virtuoso-persona.source.md` | Markdown (verbatim DOCX) | partnered | 50-year SEO virtuoso persona + 15 principles + "what not to do" checklist + GEO/AI-search methodology |
-| `source-documents/experience-prompts/master-design-persona-fantasy.source.md` | Markdown (verbatim DOCX) | source-only | Fantasy.co-level master design persona (existing) |
-| `source-documents/experience-prompts/anti-gravity-opening-engineer.source.md` | Markdown (verbatim DOCX) | source-only | Anti-gravity opening / cinematic intro engineer persona (existing) |
+| `source-documents/experience-prompts/seo-faq-optimization-persona.source.md` | Markdown (verbatim DOCX) | partnered | World-class SEO FAQ optimization playbook (8 principles + 10-section process + intent buckets + FAQPage JSON-LD rules + voice/local + performance + monitoring) |
 ```
-
-(The two existing files are noted as `source-only` for honest status accounting — a separate future task can write their partner docs.)
 
 ## Deliberately NOT changing
 
-- **No frontend touched.** The trailing instruction in the source about fixing collapsible FAQs on the Cochrane subdomain is explicitly out of scope for this embed (knowledge-only, per the charter).
-- **No router schema widening.** `decision-index.ts` `brand` enum stays `"cochrane-master-builders"`. The persona is discoverable through `INDEX.md`. Wiring it into the typed router is a separate, deliberate change.
-- **No edits to existing source/partner files.** The other two `experience-prompts` source files keep their `source-only` status — partner docs for them are a future task.
-- **No Supabase changes, no edge functions, no UI components.**
+- **No frontend touched.** The trailing Cochrane-subdomain instruction is knowledge-only, just like in the previous SEO doc embed.
+- **No router schema widening** (`decision-index.ts` stays brand-locked to `cochrane-master-builders`). FAQ persona is brand-agnostic; discoverable through `INDEX.md`.
+- **No edits to existing source/partner files** including the SEO virtuoso persona embedded in the previous turn.
+- **No Supabase, no edge functions, no UI components.**
 
 ## After this turn
 
-Whenever you (or any agent) asks about SEO — meta tags, JSON-LD, FAQs, robots, sitemap, canonicals, AI-search visibility, Core Web Vitals, link building, etc. — the system reads this persona first (the *methodology*), then layers the brand-specific `cmb-seo-1.1` research on top, then filters output through the active ICP persona for tone. Cochrane SEO answers will inherit Victorious-SEO discipline automatically.
+When you (or any agent) asks anything about FAQs — building one, writing answers, schema, accordion implementation, what questions to include, voice search, performance — the system reads:
+
+1. `governance/knowledge-system-charter` (how to use knowledge)
+2. `experience-prompts/seo-virtuoso-persona` (overarching SEO methodology)
+3. `experience-prompts/seo-faq-optimization-persona` (FAQ-specific tactics) ← **this embed**
+4. `brands/cochrane-master-builders/seo-research/1.1_…` (Cochrane keywords)
+5. The active ICP doc for tone
+
+Result: every FAQ on this codebase will be page-by-page Victorious-SEO grade, AI-citation-friendly, and bespoke to Cochrane Master Builders' voice and audience.
