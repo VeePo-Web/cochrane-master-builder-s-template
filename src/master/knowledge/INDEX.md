@@ -35,6 +35,18 @@ the brand-specific layers below. P0 within their topical area.
 
 ---
 
+## Animations & Motion (`animations/`)
+
+Function-scoped technical playbooks for motion, scroll mechanics, and performance-disciplined
+animation. Brand-agnostic; brand personality is layered on via brand-specific motion memories
+and partner docs.
+
+| File | Format | Status | One-line label |
+|------|--------|--------|----------------|
+| `source-documents/animations/premium-scroll-animation-persona.source.md` | Markdown (verbatim DOCX) | partnered | Master scroll-craftsperson persona + Lenis + GSAP playbook (config, ScrollTrigger integration triad, Igloo case study, 5-phase implementation plan, performance + accessibility rules) |
+
+---
+
 ## Cochrane Master Builders Corp. (`brands/cochrane-master-builders/`)
 
 Brand slug: `cochrane-master-builders`
