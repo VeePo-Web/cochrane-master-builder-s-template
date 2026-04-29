@@ -1,136 +1,179 @@
-# Embed the World-Class SEO FAQ Optimization Persona
+# Embed the Premium Scroll Animation Persona (Lenis + GSAP playbook)
 
 ## What this document is
 
-A 14-page page-by-page FAQ optimization playbook titled **"World-Class SEO FAQ Optimization Persona and Instructions."** It is the **operational companion** to the general SEO virtuoso persona embedded in the previous turn — narrower in scope (FAQs only), deeper in detail. Contents:
+A 14-page persona + technical playbook for **fantasy.co / igloo.inc-grade smooth-scroll experiences** built on Lenis + GSAP ScrollTrigger. Contents:
 
-- A 50-year Victorious-SEO veteran persona (same archetype as the general SEO doc, scoped to FAQ work)
-- **8 core principles** (people-first/data-driven, one-intent-per-question, concise complete answers, structural integrity & crawlability, schema compliance & moderation, local & voice search, performance/accessibility/UX, continuous improvement)
-- **10 numbered sections** covering: strategy, discovery (with intent-bucket table), question selection, answer development, FAQ placement & site architecture, FAQPage JSON-LD schema rules, local + voice search, performance/UX/accessibility, monitoring & iteration, ethics & compliance, and a 10-step process workflow
-- A 5-row HTML `<table>` of intent buckets (Informational, Transactional, Navigational, Local, Edge Cases)
-- A trailing operational instruction block (Cochrane subdomain step) — same leftover from `dev.veepo.ca` as the previous SEO doc
+- **Master craftsperson persona** with formative years at Fantasy.co, Igloo Inc, Pentagram, IDEO, AKQA, Huge, Wolff Olins, B-Reel, MetaDesign, Work & Co
+- **Why premium scrolling matters** + scroll-fade research (Nielsen Norman, Designmodo)
+- **Performance principles** — 60fps / 16.7ms budget, transform/opacity only, rAF discipline
+- **Lenis library deep-dive** — install, basic setup, GSAP ScrollTrigger integration code, full configuration option list (wrapper, content, smoothWheel, lerp, duration, easing, orientation, syncTouch, wheelMultiplier, touchMultiplier, infinite, autoResize, prevent, virtualScroll, overscroll, autoRaf, anchors, autoToggle, allowNestedScroll, naiveDimensions, stopInertiaOnNavigate), methods (raf, scrollTo, on, stop/start, resize, destroy), nested-scroll handling, anchor links, limitations, Next.js provider example
+- **Scroll-driven animations API** (CSS-native scroll timelines on the compositor)
+- **Igloo Inc case study** — procedural ice blocks, WebGL UI, particle simulations, Three.js + GSAP + Svelte stack
+- **Best principles** — narrative & hierarchy, motion & restraint, orientation & navigation, input normalization & accessibility, performance & optimization
+- **What not to do** (scrolljacking, mobile motion overload, blocking main thread, ignoring SEO, poor contrast)
+- **5-phase Lovable.dev implementation plan** (Discovery → Prototyping → Design → Development → Polishing)
+- **Tools & frameworks** list
+- **Mindset & Tone** section
+- Trailing **Final Directive** with the per-step operational hook
 
-This is **the canonical reference for any FAQ work** in the codebase: which questions to include, how to write answers, where to place them, how to schema-mark them, how to monitor them.
+This is **the canonical reference for any scroll-motion work** in the codebase.
 
 ## Where it goes
+
+This is the first **animation/motion** persona embedded. Create a new top-level category `animations/` under both source and partner trees (the original folder taxonomy in `governance/knowledge-system-charter` already lists `/animations/`). File it there — *not* under `experience-prompts/` — because it's a function-scoped technical playbook, not a generic experience persona.
 
 ```text
 src/master/knowledge/
 ├── source-documents/
-│   └── experience-prompts/
-│       └── seo-faq-optimization-persona.source.md      ← NEW (verbatim)
+│   └── animations/
+│       └── premium-scroll-animation-persona.source.md   ← NEW (verbatim)
 └── partner-documents/
-    └── experience-prompts/
-        └── seo-faq-optimization-persona.partner.md     ← NEW (interpretation)
+    └── animations/
+        └── premium-scroll-animation-persona.partner.md  ← NEW (interpretation)
 ```
-
-Filed under `experience-prompts/` next to `seo-virtuoso-persona.*` because it's the same persona archetype scoped to a specific function. Not a new `faq/` folder — that would fragment the SEO methodology.
 
 ## Files to create (2)
 
-### 1. `seo-faq-optimization-persona.source.md`
+### 1. `premium-scroll-animation-persona.source.md`
 
-- Standard immutability frontmatter (`status: IMMUTABLE`, `do-not-edit: true`, `verbatim: true`, `origin-file: General_SEO_FAQ_prompt_page_by_page_refer_to_checklist_on_dev.veepo.ca-2.docx`, `source-format: docx`, `embedded-on: 2026-04-26`, `layer: source`, `category: experience-prompts`, `cross-cuts: seo, faq`).
+- Standard immutability frontmatter (`status: IMMUTABLE`, `do-not-edit: true`, `verbatim: true`, `origin-file: GENERAL_SCROLL_ANIMATION_PROMPT-2.docx`, `source-format: docx`, `embedded-on: 2026-04-28`, `layer: source`, `category: animations`, `cross-cuts: motion, scroll, performance, ux`).
 - Standard DO-NOT-EDIT banner.
 - Full verbatim text of all 14 pages preserved exactly, including:
-  - The intent-bucket HTML `<table>` (5 rows) — kept as-is, not converted to markdown
-  - The `<mark>...</mark>` tags around schema names (`FAQPage`, `Question`, `Answer`, `LocalBusiness`, `QAPage`)
-  - All duplicated heading-fragment artefacts ("Local Search Relevance levance", "Analytics Analytics", "Variables Variables", "Inclusions Inclusions", "Duplication lication", "Grouping 3 Grouping", "User Interface Interface", "Page Load 1 Page Load", "Usability Usability", "Impressions Impressions", "Categorization ategorization", "Ethical Considerations ical Considerations", "Accessibility Accessibility", "Transparency Transparency", "Structured Structured")
-  - The mixed bullet glyphs (`-`, `*`, `1.`, `■`, indented sub-bullets)
-  - The "Lovable.dev" brand references
-  - The trailing italicized Cochrane-subdomain operational instruction
-  - The non-ASCII smart quotes / em-dashes
+  - The persona's full agency lineage (Fantasy.co, Igloo.inc, Pentagram, IDEO, AKQA, Huge, Wolff Olins, B-Reel, MetaDesign, Work & Co)
+  - The "Lovable.dev" brand reference
+  - Code blocks (Lenis basic init, custom rAF loop, GSAP ScrollTrigger integration) preserved as-is — not wrapped or re-formatted
+  - All `<mark>...</mark>` tags around config keys (`window`, `vertical`, `horizontal`, `both`, `true`, `prefers-reduced-motion`, `scroll`, `ALL`, etc.)
+  - All paste artefacts: duplicated section headings ("Performance principles for scroll animations" appears twice), "GSAP GSAP & ScrollTrigger", " Example: Next.js provider for Lenis" (leading space), " Scroll-driven animation API" (leading space), " Igloo Inc case study" (leading space)
+  - The mixed bullet glyphs (`-`, `*`, `1.`, indented sub-bullets) and smart quotes / em-dashes
+  - The trailing **Final Directive** with the `<u>...</u>` HTML and the empty operational step
 
-### 2. `seo-faq-optimization-persona.partner.md`
+### 2. `premium-scroll-animation-persona.partner.md`
 
-12-section partner template tailored to FAQ work:
+12-section partner template tailored to motion/scroll work:
 
-1. **Title** — World-Class SEO FAQ Optimization Persona & Page-by-Page Instructions
-2. **Category** — `experience-prompts/`, cross-cuts `seo` + `faq` + `forms` (FAQ accordion components touch UI)
-3. **Main purpose** — install the operational FAQ playbook for any agent doing FAQ work on any brand. Defines question discovery, answer framework, placement rules, JSON-LD schema, voice/local optimization, performance budgets, accessibility, monitoring.
+1. **Title** — Premium Scroll Animation Persona & Lenis + GSAP Implementation Playbook
+2. **Category** — `animations/` (new shelf), cross-cuts `motion`, `scroll`, `performance`, `ux`, `ui-components` (when scroll-triggered components are involved)
+3. **Main purpose** — install fantasy.co / igloo.inc-grade scroll-experience methodology and the Lenis + GSAP technical stack as the default approach for any scroll-driven work.
 4. **What it influences** —
-   - Which questions appear on which page (page-specific vs site-wide)
-   - The exact answer structure (1-2 sentence direct answer → context → factors/ranges → CTA)
-   - FAQ section placement, heading hierarchy (`<h2>` for section, `<h3>`/`<h4>` for questions)
-   - The accordion/disclosure UI pattern (lightweight `<details>`/`<summary>` preferred; full HTML render even when collapsed)
-   - `FAQPage` JSON-LD blob construction & validation
-   - Internal linking from FAQ answers to deeper pages
-   - Canonical-page assignment for repeated questions
-   - 15-40 question count per service page
-   - Top 5-8 FAQs expanded by default, rest rendered in HTML
-   - Local intent modifiers ("near me", "in Cochrane")
-   - Voice-search phrasing (conversational questions)
+   - Whether to add Lenis at all (default yes, with `prefers-reduced-motion` fallback)
+   - Lenis configuration (lerp, duration, wheelMultiplier, touchMultiplier, syncTouch, anchors, autoRaf)
+   - GSAP ScrollTrigger integration pattern (the `lenis.on('scroll', ScrollTrigger.update)` + `gsap.ticker.add(...)` + `gsap.ticker.lagSmoothing(0)` triad)
+   - Animation property choice (transform + opacity only — never width/height/margin)
+   - Fade-in durations (100–400ms band)
+   - Stagger discipline (one element type at a time; don't fade text + images simultaneously)
+   - Section pacing (alternate long and short scrolls; let upcoming sections peek)
+   - Sticky nav + anchor + scroll-progress conventions
+   - Mobile behaviour (minimize/disable scroll-fades on small screens)
+   - `prefers-reduced-motion` handling (mandatory)
+   - Nested-scroll handling (`data-lenis-prevent` on modals/carousels)
+   - When to consider WebGL (igloo-style heavy effects) vs DOM-only
+   - When to consider scroll-driven CSS animation API vs Lenis
 5. **Trigger prompts** — extensive list:
-   - "add an FAQ section to…", "FAQ block on the homepage"
-   - "FAQPage schema", "FAQ JSON-LD", "structured data for FAQs"
-   - "what questions should we include", "FAQ question list", "discovery for FAQs"
-   - "rewrite this FAQ answer", "FAQ tone", "FAQ voice"
-   - "FAQ accordion", "collapsible FAQ", "expand-by-default FAQs"
-   - "FAQ for the Cochrane page", "FAQ for the Areas-We-Serve page"
-   - "categorize FAQs", "FAQ jump links", "FAQ table of contents"
-   - "voice search FAQ", "AI Overview FAQ"
-   - "duplicate FAQs across pages", "FAQ canonical"
-   - "monitor FAQ performance", "FAQ Search Console"
-6. **Scope of application** — backend FAQ structure + content selection + JSON-LD, plus the *structural* (not stylistic) requirements of the FAQ UI (lightweight component, full HTML render, ARIA on disclosure widgets, visible top FAQs, mobile responsive, WCAG 2.1). Does NOT govern the *visual* design of FAQ accordions — that belongs to the design partner docs.
-7. **Output-quality direction** — Victorious-SEO discipline; AI-citation-aware (FAQs are prime GEO real estate even though Google rich-result display has been restricted since Aug 2023); WCAG 2.1; Core Web Vitals safe; conversion-aware (every answer ends with a CTA / next step).
-8. **Brand / ICP relationship** — for Cochrane Master Builders:
-   - Question phrasing must reflect how Cochrane homeowners actually search (pull from `cmb-seo-1.1` keyword research)
-   - Answer voice must match `cmb-brand-1.2.2` ("Strong Foundations For Those Who Come After Us" — generational, plainspoken, no jargon)
-   - Audience-specific question selection: Mothers (`cmb-persona-1.4.2`) → pricing transparency, scheduling sensitivity, mess/disruption, safety; Grandfathers (`cmb-persona-1.4.3`) → warranty, longevity, plainspoken pricing, phone CTA in CTA slot; Subcontractors (`cmb-persona-1.4.1`) → onboarding, license/insurance upload, payment terms
-   - Local modifiers: "in Cochrane", "Bow Valley", "Rocky View County", "Calgary CMA"
-   - Geo-specific question example from the source ("How do I prepare my Calgary home for winter?") → translates naturally to Cochrane equivalents (winter readiness for Cochrane / Bow Valley climate, snow-load engineering, etc.) — **note in partner only, not source**
+   - "smooth scroll", "Lenis", "scroll feel", "scroll feels janky"
+   - "scroll-triggered animation", "scroll fade", "fade in on scroll"
+   - "parallax", "scroll parallax", "scroll-driven"
+   - "scrolljacking", "scroll hijack"
+   - "GSAP ScrollTrigger", "scroll timeline"
+   - "scroll-snap", "snap to section"
+   - "scroll progress indicator", "scroll progress bar"
+   - "scroll cinema", "scroll storytelling"
+   - "fix the modal scroll", "modal scroll wrong" (→ `data-lenis-prevent`)
+   - "anchor links jumping wrong", "scroll-to with offset"
+   - "reduce motion", "respect prefers-reduced-motion"
+   - "performance", "60fps", "frame rate", "jank", "CLS"
+   - "horizontal scroll section", "pinned section"
+   - "WebGL hero", "Three.js hero", "ice block", "particle hero"
+6. **Scope of application** —
+   - Global app-shell scroll smoothing
+   - Per-section reveal animations (hero curtain, divider taper, image clip-path)
+   - Pinned / horizontal sections
+   - Cinematic intro choreography (overlaps with `experience-prompts/anti-gravity-opening-engineer`)
+   - Cloth-wipe / asphalt-wipe page transitions (already in `mem://design/cloth-wipe-transition`)
+   - Modals & overlays (`data-lenis-prevent`, plus `mem://tech/modal-lifecycle-management`)
+   - Booking-funnel panel auto-advance (verify it doesn't fight Lenis)
+   - **Out of scope:** raw 3D modeling decisions (use the case study as inspiration only), audio engineering specifics
+7. **Output-quality direction** —
+   - **fantasy.co / igloo.inc bar.** Scroll must feel weighted, intentional, and silent — never twitchy.
+   - **60fps non-negotiable.** Drop a non-critical animation before letting frame rate slip.
+   - **Restraint over spectacle.** "One effect at a time" beats stacked effects every time.
+   - **Brand-coupled easing.** For Calem Wood the easing personality is heavy / luxurious — slow lerp (≈0.06–0.08), gentle cubic-bezier with long out-curve, never bouncy.
+   - **Persistence.** Once content has appeared, it stays. No fading back out on reverse scroll.
+   - **Accessibility on equal footing with polish.** Every Lenis instance needs a reduced-motion branch.
+8. **Brand & ICP relationship (Calem Wood Detailing — current active brand)** —
+   - **Easing** matches the existing motion philosophy: cinematic reveals, bottom-to-top clip-path curtains, Ken Burns scaling (`mem://design/motion-philosophy`).
+   - **Lenis lerp** lands around `0.06–0.08` for Calem Wood — heavier than the 0.05 in the source's Next.js example because the brand is luxury/automotive, not light/playful. `wheelMultiplier ~1.1`, `touchMultiplier ~1.0`, `syncTouch: false` for now to avoid iOS<16 unpredictability.
+   - **Hero choreography** must coexist with the locked hero (`mem://design/hero-section-lock`) and the loading sequence (`mem://features/loading-sequence`) — Lenis should be initialised *after* the loading sequence resolves so it doesn't fight the curtain.
+   - **Modal singleton rule** (`mem://tech/modal-lifecycle-management`): the booking modal must apply `data-lenis-prevent` to its scrollable form panel; Lenis must `stop()` on modal-open and `start()` on modal-close.
+   - **Cloth-wipe transition** (`mem://design/cloth-wipe-transition`): the wipe runs on the compositor (transform + opacity), so it stays compatible with Lenis.
+   - **Editorial divider tapers** (`mem://design/editorial-divider-specs`) and parallax coverage (`mem://tech/parallax-coverage-specs`) are scroll-driven candidates — drive them via ScrollTrigger feeding off Lenis.
+   - **No human imagery, no rounded cards** (`mem://constraints/image-content-restrictions`, `mem://design/component-styling`) — applies to any 3D/WebGL hero we'd build inspired by the Igloo case study.
+   - **Mobile rule** (`mem://constraints/mobile-optimization`, 390px target): prefer native scroll over scroll-fades on mobile per source's "Avoid scroll fading on mobile" guideline. Lenis stays on for momentum, scroll-fade reveals get downgraded.
 9. **Global vs specific** —
-   - **Wins over** the general SEO virtuoso persona on FAQ-specific tactics (15-40 question count, the 4-part answer framework, FAQPage schema rules, accordion implementation, monitoring metrics specific to FAQs)
-   - **Inherits from** the general SEO virtuoso persona on overarching methodology (E-E-A-T, GEO, what-not-to-do)
-   - **Loses to** ICP partner docs on tone of answer copy
-   - **Loses to** brand-identity partner docs on voice register
-10. **Adaptation notes (conflict rule applied — verbatim source preserved)**:
-    - **"Lovable.dev"** → substitute Cochrane Master Builders Corp. for this codebase
-    - **"Calgary" example questions** ("How do I prepare my Calgary home for winter?") — applicable to this codebase since CMB's service area includes the Calgary CMA. For Cochrane-specific FAQs, prefer "Cochrane" as the primary modifier with Calgary as secondary.
-    - **August 2023 Google rich-result restriction** — still accurate at time of embedding; the persona correctly notes that schema remains valuable for voice + AI synthesis even if rich snippets don't display. Apply as written.
-    - **Trailing Cochrane-subdomain operational instruction** — leftover from a prior `dev.veepo.ca` conversation; **knowledge-only**, does not authorise a frontend FAQ pass on this codebase. If the user asks for the Cochrane FAQ pass later, that's a separate, deliberate scope.
-    - **Source-side typos / duplicated heading fragments** — paste artefacts; preserved per immutability rule. Read past them.
-    - **Intent-bucket HTML `<table>`** — preserved as raw HTML in markdown so the structure survives. Render as a 5-row table when consulting.
-    - **References to "Calgary" in geo examples** — already on-region for Cochrane Master Builders; no substitution needed.
-    - **`■` (black square)** bullet glyph in section 5.2 — kept verbatim; treat as a third-level bullet.
-11. **Dependencies / related documents**:
-    - `governance/knowledge-system-charter` — P0 governance (always)
-    - `experience-prompts/seo-virtuoso-persona` — P0 SEO methodology this FAQ playbook operates inside of
-    - `brands/cochrane-master-builders/seo-research/1.1_…` — Cochrane keyword + AI-Overview research (the *what* the questions should target)
-    - `brands/cochrane-master-builders/strategy/1.3_…` — Areas-We-Serve taxonomy (which location FAQs to add)
-    - `brands/cochrane-master-builders/brand-identity/1.2.2_…` — voice/tone for answer copy
-    - `brands/cochrane-master-builders/personas-icp/1.4.1/1.4.2/1.4.3` — audience-specific question selection
-    - `brands/cochrane-master-builders/ux-design/1.3.1_…` — confirms accordion UI pattern is on-brand
-    - **Mem note:** `mem://design/booking-modal-architecture` (or wherever FAQ-component design lives) when FAQ component visual styling comes up
-12. **Practical examples** — three:
-    - **A.** "Add an FAQ section to the Cochrane custom-home services page" → discovery (PAA + Search Console + sales calls per source §2.1) → 15-40 questions (source §2.3 rule 4) → cluster by intent-bucket table → 4-part answer framework → top 5-8 expanded → `<details>/<summary>` for the rest → `FAQPage` JSON-LD matching visible text exactly → cross-link to /service-areas, /portfolio, /about → measure in Search Console
-    - **B.** "We have a global FAQ on /faq and the same question on /custom-homes — what do we do?" → source §4.1 rule 3 + §4.2 → /faq is canonical, /custom-homes gets a shorter variant + descriptive anchor link
-    - **C.** "Our FAQ accordions are slow / cause CLS" → source §4.4 + §7.1 → swap heavy library for `<details>/<summary>`, lazy-load any embedded media, ensure full HTML rendering
-    - **D. (bonus)** "The user asks for FAQ rich results in Google" → source §5.4 → set expectation: since Aug 2023, Google only shows them for gov/health; schema is still valuable for voice + AI synthesis
+   - **Wins over** ad-hoc per-component scroll animation choices on technical method (always Lenis + GSAP ScrollTrigger, always transform/opacity, always 100–400ms fade band).
+   - **Inherits from** `governance/knowledge-system-charter` (always) and the `experience-prompts/master-design-persona-fantasy` for visual taste.
+   - **Loses to** brand-identity / motion-philosophy partner docs and existing memories on **personality** of the easing (e.g., for Calem Wood the brand says "heavy / luxurious" and that overrides the source's lighter `lerp: 0.05` example).
+   - **Loses to** existing locked components: hero (`mem://design/hero-section-lock`), brand-logo parallax (`mem://design/micro-interactions/brand-logo-parallax`), loading sequence (`mem://features/loading-sequence`).
+10. **Adaptation notes (conflict rule applied — source preserved verbatim)** —
+    | In source | Apply as |
+    |-----------|----------|
+    | `Lovable.dev` | The active brand for the prompt (default: Calem Wood Detailing in this codebase; Cochrane Master Builders when CMB is the active brand). |
+    | `lerp: 0.05` (Next.js provider example) | Use as a starting point for light brands. For Calem Wood / luxury brands, prefer `0.06–0.08` for more weight. Document the per-brand lerp in the brand's motion partner doc. |
+    | `wheelMultiplier: 1.5`, `touchMultiplier: 1.1` (example) | Treat as one valid preset. For Calem Wood prefer `1.1` / `1.0` so input feels deliberate, not snappy. |
+    | `syncTouch: true` warning for iOS<16 | Default `false` until iOS<16 share is negligible. |
+    | "Igloo Inc procedural ice blocks / WebGL UI / particle simulations" | **Inspiration only**, not a blueprint. Calem Wood does not currently use Three.js/WebGL — adopt only if a brand explicitly invests in a 3D hero. |
+    | Tool list mentioning Svelte / Vue / SvelteKit | This codebase is **React 18 + Vite**. Translate patterns into a React `LenisProvider` component (the `useEffect` + rAF lifecycle pattern in source §"Next.js provider for Lenis" maps cleanly to React). |
+    | Scroll-driven CSS animations API | Browser support still limited. Continue using Lenis + GSAP as primary; revisit annually. |
+    | Trailing **Final Directive** with the empty operational step | **Knowledge-only.** Does NOT authorise a frontend scroll-overhaul pass. Implementing Lenis + GSAP across the site is a separate, deliberately-scoped request. |
+    | Duplicated headings ("Performance principles…" twice, "GSAP GSAP &…", leading-space headings) | Paste artefacts. Read past them. |
+    | `<mark>` tags | Treat as code identifiers / inline highlights. |
+11. **Dependencies / related documents** —
+    - **Always inherit:** `partner-documents/governance/knowledge-system-charter`
+    - **Style + taste partner:** `partner-documents/experience-prompts/master-design-persona-fantasy`
+    - **Cinematic intro partner:** `partner-documents/experience-prompts/anti-gravity-opening-engineer` (the opening choreography sits *before* Lenis takes over the page)
+    - **Brand motion memories (Calem Wood):**
+      - `mem://design/motion-philosophy` — cinematic reveals, clip-path curtains, Ken Burns
+      - `mem://design/cloth-wipe-transition` — transform/opacity-only, Lenis-safe
+      - `mem://features/loading-sequence` — Lenis must start *after* this resolves
+      - `mem://design/hero-section-lock` — hero choreography is locked; Lenis works around it
+      - `mem://design/editorial-divider-specs` — scroll-driven taper reveals
+      - `mem://tech/parallax-coverage-specs` — 130% / -15% offset rule for full-bleed parallax
+      - `mem://design/hero-interactive-shine` — cursor-driven, not scroll-driven, but lives in the same frame budget
+      - `mem://design/micro-interactions/brand-logo-parallax` — desktop-only, mouse-parallax (compositor-only)
+      - `mem://tech/modal-lifecycle-management` — Lenis stop/start hooks
+      - `mem://constraints/mobile-optimization` — downgrade scroll-fades on 390px viewport
+    - **Future:** when CMB activates as the live brand, mirror motion memories there.
+12. **Practical examples** —
+    **A. "The site feels twitchy on Mac trackpads."** → install Lenis at the App root with `lerp: 0.07`, `wheelMultiplier: 1.1`, `touchMultiplier: 1.0`, `autoRaf: true`. Wire `lenis.on('scroll', ScrollTrigger.update)` + `gsap.ticker.add(t => lenis.raf(t*1000))` + `gsap.ticker.lagSmoothing(0)`. Add `prefers-reduced-motion` branch that skips Lenis entirely.
+    **B. "Add a scroll-fade reveal to the section heading."** → `gsap.from(el, { opacity: 0, y: 24, duration: 0.32, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 80%' } })`. Duration sits inside the 100–400ms band. Persist (no fade-out on reverse). Skip on mobile per source guideline.
+    **C. "The booking modal scrolls weird inside Lenis."** → add `data-lenis-prevent` to the inner scrollable form panel; on modal `onOpenChange(true)` call `lenis.stop()`, on close call `lenis.start()`. Combine with the modal singleton rule from `mem://tech/modal-lifecycle-management`.
+    **D. "Anchor link to `#services` lands behind the sticky nav."** → enable `anchors: { offset: -80 }` (matching the 80px navbar from `mem://design/navigation-specs`).
+    **E. "Build an Igloo-style WebGL hero for Cochrane Master Builders."** → flag as a bigger investment. Confirm with brand decision-makers; if approved, scaffold Three.js + R3F, follow §Igloo case study (procedural variation, GPU-side effects, browser-iterated shader work, real-time intro). Otherwise stay DOM-only and lean on motion-philosophy reveals.
 
 ## Index update
 
-Add a row to the existing **Experience Prompts (cross-brand) Personas** section in `INDEX.md`:
+Add a new top-level **Animations** section in `INDEX.md` between Experience Prompts and the Cochrane brand block, with this row:
 
-```text
-| `source-documents/experience-prompts/seo-faq-optimization-persona.source.md` | Markdown (verbatim DOCX) | partnered | World-class SEO FAQ optimization playbook (8 principles + 10-section process + intent buckets + FAQPage JSON-LD rules + voice/local + performance + monitoring) |
+```
+| `source-documents/animations/premium-scroll-animation-persona.source.md` | Markdown (verbatim DOCX) | partnered | Master scroll-craftsperson persona + Lenis + GSAP playbook (config, integration, Igloo case study, 5-phase implementation plan, performance & accessibility rules) |
 ```
 
 ## Deliberately NOT changing
 
-- **No frontend touched.** The trailing Cochrane-subdomain instruction is knowledge-only, just like in the previous SEO doc embed.
-- **No router schema widening** (`decision-index.ts` stays brand-locked to `cochrane-master-builders`). FAQ persona is brand-agnostic; discoverable through `INDEX.md`.
-- **No edits to existing source/partner files** including the SEO virtuoso persona embedded in the previous turn.
+- **No frontend touched.** Trailing Final Directive is knowledge-only.
+- **No Lenis installed in `package.json`** — installation happens only when a real scroll request comes in.
+- **No router/decision-index changes.** Animations are brand-agnostic; surfaced through `INDEX.md`.
+- **No edits to existing source/partner files** including the previous SEO + governance + design embeds.
 - **No Supabase, no edge functions, no UI components.**
 
 ## After this turn
 
-When you (or any agent) asks anything about FAQs — building one, writing answers, schema, accordion implementation, what questions to include, voice search, performance — the system reads:
+When you (or any agent) asks anything about scroll feel, scroll-triggered animation, parallax, scroll-fade, jank, GSAP ScrollTrigger, smooth scroll, anchor offsets, modal-vs-scroll conflicts, or "make this feel like fantasy.co / igloo.inc," the system reads:
 
 1. `governance/knowledge-system-charter` (how to use knowledge)
-2. `experience-prompts/seo-virtuoso-persona` (overarching SEO methodology)
-3. `experience-prompts/seo-faq-optimization-persona` (FAQ-specific tactics) ← **this embed**
-4. `brands/cochrane-master-builders/seo-research/1.1_…` (Cochrane keywords)
-5. The active ICP doc for tone
+2. `experience-prompts/master-design-persona-fantasy` (taste)
+3. `experience-prompts/anti-gravity-opening-engineer` (intro choreography)
+4. `animations/premium-scroll-animation-persona` (scroll mechanics) ← **this embed**
+5. The brand's motion memories / partner docs (personality of the easing)
 
-Result: every FAQ on this codebase will be page-by-page Victorious-SEO grade, AI-citation-friendly, and bespoke to Cochrane Master Builders' voice and audience.
+Result: every scroll interaction in this codebase will be Lenis-grade smooth, GSAP-precise, performance-budgeted at 60fps, accessibility-respecting, and bespoke to the active brand's motion personality.
