@@ -47,6 +47,17 @@ and partner docs.
 
 ---
 
+## Messaging — Copy, Narrative, Voice (`messaging/`)
+
+Methodology brains for copywriting and brand storytelling. Govern wording only —
+never visual design. Always paired with the active brand's voice/identity layer.
+
+| File | Format | Status | One-line label |
+|------|--------|--------|----------------|
+| `source-documents/messaging/round-two-copywrite-storytelling-persona.source.md` | Markdown (verbatim DOCX) | partnered | Master storyteller / brand strategist persona for page-by-page, section-by-section copy refinement (narrative backbone, voice & tone, emotional resonance, inclusive storytelling, advanced techniques, governance) — design strictly untouched |
+
+---
+
 ## Cochrane Master Builders Corp. (`brands/cochrane-master-builders/`)
 
 Brand slug: `cochrane-master-builders`

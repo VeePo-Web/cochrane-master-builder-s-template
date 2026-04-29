@@ -1,179 +1,205 @@
-# Embed the Premium Scroll Animation Persona (Lenis + GSAP playbook)
+# Embed the Round-Two Copywrite & Storytelling Persona
 
 ## What this document is
 
-A 14-page persona + technical playbook for **fantasy.co / igloo.inc-grade smooth-scroll experiences** built on Lenis + GSAP ScrollTrigger. Contents:
+12-page master storyteller / brand strategist persona prompt for **page-by-page, section-by-section copy refinement** without touching design. Includes:
 
-- **Master craftsperson persona** with formative years at Fantasy.co, Igloo Inc, Pentagram, IDEO, AKQA, Huge, Wolff Olins, B-Reel, MetaDesign, Work & Co
-- **Why premium scrolling matters** + scroll-fade research (Nielsen Norman, Designmodo)
-- **Performance principles** — 60fps / 16.7ms budget, transform/opacity only, rAF discipline
-- **Lenis library deep-dive** — install, basic setup, GSAP ScrollTrigger integration code, full configuration option list (wrapper, content, smoothWheel, lerp, duration, easing, orientation, syncTouch, wheelMultiplier, touchMultiplier, infinite, autoResize, prevent, virtualScroll, overscroll, autoRaf, anchors, autoToggle, allowNestedScroll, naiveDimensions, stopInertiaOnNavigate), methods (raf, scrollTo, on, stop/start, resize, destroy), nested-scroll handling, anchor links, limitations, Next.js provider example
-- **Scroll-driven animations API** (CSS-native scroll timelines on the compositor)
-- **Igloo Inc case study** — procedural ice blocks, WebGL UI, particle simulations, Three.js + GSAP + Svelte stack
-- **Best principles** — narrative & hierarchy, motion & restraint, orientation & navigation, input normalization & accessibility, performance & optimization
-- **What not to do** (scrolljacking, mobile motion overload, blocking main thread, ignoring SEO, poor contrast)
-- **5-phase Lovable.dev implementation plan** (Discovery → Prototyping → Design → Development → Polishing)
-- **Tools & frameworks** list
-- **Mindset & Tone** section
-- Trailing **Final Directive** with the per-step operational hook
-
-This is **the canonical reference for any scroll-motion work** in the codebase.
+- Persona: chief narrative architect lineage (Fantasy, R/GA, Frog, ustwo, Huge, storytelling collectives)
+- 8-pillar narrative philosophy
+- Discovery / preparation methodology
+- 5-part **narrative backbone** (Problem → Empathy → Insight → Transformation → Proof)
+- Voice & tone development
+- Page-by-page copy guidance (Home, About, Product/Service, Case Studies, Community/Lifestyle/Blog, Merch/Membership, Support/Contact)
+- Emotional resonance techniques (sensory language, metaphor, archetypes, contrast, rhythm)
+- Inclusive & ethical storytelling
+- Polarisation & exclusivity
+- Advanced techniques (data-driven, interactive, long-form, exclusivity/merch, personalised/dynamic)
+- Measurement & continuous improvement
+- Governance & ethics
+- Future-proofing
+- 9 case-study brand exemplars (Warby Parker, Nike, Burt's Bees, Duolingo, Liquid Death, Crocs, Summer Fridays, Lululemon, Sephora "Faces of Music", Lenovo "Creator Odyssey")
+- Final operational rule: **design untouched, copy only, page-by-page, section-by-section**
 
 ## Where it goes
 
-This is the first **animation/motion** persona embedded. Create a new top-level category `animations/` under both source and partner trees (the original folder taxonomy in `governance/knowledge-system-charter` already lists `/animations/`). File it there — *not* under `experience-prompts/` — because it's a function-scoped technical playbook, not a generic experience persona.
+Belongs on the `messaging/` shelf (reserved in `governance/knowledge-system-charter`). It's a **copywriting / narrative methodology persona** — not animation, not SEO, not visual. Cross-cuts conversion, brand-identity, ux.
 
 ```text
 src/master/knowledge/
 ├── source-documents/
-│   └── animations/
-│       └── premium-scroll-animation-persona.source.md   ← NEW (verbatim)
+│   └── messaging/
+│       └── round-two-copywrite-storytelling-persona.source.md   ← NEW (verbatim)
 └── partner-documents/
-    └── animations/
-        └── premium-scroll-animation-persona.partner.md  ← NEW (interpretation)
+    └── messaging/
+        └── round-two-copywrite-storytelling-persona.partner.md  ← NEW (interpretation)
 ```
 
 ## Files to create (2)
 
-### 1. `premium-scroll-animation-persona.source.md`
+### 1. Source (verbatim)
 
-- Standard immutability frontmatter (`status: IMMUTABLE`, `do-not-edit: true`, `verbatim: true`, `origin-file: GENERAL_SCROLL_ANIMATION_PROMPT-2.docx`, `source-format: docx`, `embedded-on: 2026-04-28`, `layer: source`, `category: animations`, `cross-cuts: motion, scroll, performance, ux`).
-- Standard DO-NOT-EDIT banner.
-- Full verbatim text of all 14 pages preserved exactly, including:
-  - The persona's full agency lineage (Fantasy.co, Igloo.inc, Pentagram, IDEO, AKQA, Huge, Wolff Olins, B-Reel, MetaDesign, Work & Co)
-  - The "Lovable.dev" brand reference
-  - Code blocks (Lenis basic init, custom rAF loop, GSAP ScrollTrigger integration) preserved as-is — not wrapped or re-formatted
-  - All `<mark>...</mark>` tags around config keys (`window`, `vertical`, `horizontal`, `both`, `true`, `prefers-reduced-motion`, `scroll`, `ALL`, etc.)
-  - All paste artefacts: duplicated section headings ("Performance principles for scroll animations" appears twice), "GSAP GSAP & ScrollTrigger", " Example: Next.js provider for Lenis" (leading space), " Scroll-driven animation API" (leading space), " Igloo Inc case study" (leading space)
-  - The mixed bullet glyphs (`-`, `*`, `1.`, indented sub-bullets) and smart quotes / em-dashes
-  - The trailing **Final Directive** with the `<u>...</u>` HTML and the empty operational step
+- Immutability frontmatter (`status: IMMUTABLE`, `verbatim: true`, `origin-file: General_ROUND_TWO_COPYWRITE_STORY_TELLING_PRMOPT-2.docx`, `category: messaging`, `cross-cuts: copy, narrative, conversion, brand-identity, ux, accessibility`).
+- DO-NOT-EDIT banner.
+- Full 12-page text preserved exactly. Includes:
+  - Leading `.` artefact at start of section 1
+  - Duplicated section headings ("5.4 Case Studies…" twice, "5.5 Community…" twice)
+  - Leading-space headings (" 5.6", " 5.7", " 6.", " 11.", " 12.", " 13.")
+  - Indented bullet variants (`*   `, `*    `, `-`, `1.`)
+  - Smart quotes, em-dashes
+  - Final asterisked all-caps directive paragraph + the trailing `"` opener with empty operational step
 
-### 2. `premium-scroll-animation-persona.partner.md`
+### 2. Partner doc
 
-12-section partner template tailored to motion/scroll work:
+12-section partner template:
 
-1. **Title** — Premium Scroll Animation Persona & Lenis + GSAP Implementation Playbook
-2. **Category** — `animations/` (new shelf), cross-cuts `motion`, `scroll`, `performance`, `ux`, `ui-components` (when scroll-triggered components are involved)
-3. **Main purpose** — install fantasy.co / igloo.inc-grade scroll-experience methodology and the Lenis + GSAP technical stack as the default approach for any scroll-driven work.
+1. **Title** — Round-Two Copywrite & Storytelling Persona (Page-by-Page, Section-by-Section Refinement)
+2. **Category** — `messaging/`. Cross-cuts: `conversion`, `brand-identity`, `ux`, `seo` (when copy carries metadata/FAQ structure), `accessibility`.
+3. **Main purpose** — install a master narrative architect's discipline as the **default copywriting brain** for any text-only refinement pass. Hard rule: **never change design elements** — only copy. Always work page-by-page, section-by-section, anchored on the brand's narrative backbone.
 4. **What it influences** —
-   - Whether to add Lenis at all (default yes, with `prefers-reduced-motion` fallback)
-   - Lenis configuration (lerp, duration, wheelMultiplier, touchMultiplier, syncTouch, anchors, autoRaf)
-   - GSAP ScrollTrigger integration pattern (the `lenis.on('scroll', ScrollTrigger.update)` + `gsap.ticker.add(...)` + `gsap.ticker.lagSmoothing(0)` triad)
-   - Animation property choice (transform + opacity only — never width/height/margin)
-   - Fade-in durations (100–400ms band)
-   - Stagger discipline (one element type at a time; don't fade text + images simultaneously)
-   - Section pacing (alternate long and short scrolls; let upcoming sections peek)
-   - Sticky nav + anchor + scroll-progress conventions
-   - Mobile behaviour (minimize/disable scroll-fades on small screens)
-   - `prefers-reduced-motion` handling (mandatory)
-   - Nested-scroll handling (`data-lenis-prevent` on modals/carousels)
-   - When to consider WebGL (igloo-style heavy effects) vs DOM-only
-   - When to consider scroll-driven CSS animation API vs Lenis
-5. **Trigger prompts** — extensive list:
-   - "smooth scroll", "Lenis", "scroll feel", "scroll feels janky"
-   - "scroll-triggered animation", "scroll fade", "fade in on scroll"
-   - "parallax", "scroll parallax", "scroll-driven"
-   - "scrolljacking", "scroll hijack"
-   - "GSAP ScrollTrigger", "scroll timeline"
-   - "scroll-snap", "snap to section"
-   - "scroll progress indicator", "scroll progress bar"
-   - "scroll cinema", "scroll storytelling"
-   - "fix the modal scroll", "modal scroll wrong" (→ `data-lenis-prevent`)
-   - "anchor links jumping wrong", "scroll-to with offset"
-   - "reduce motion", "respect prefers-reduced-motion"
-   - "performance", "60fps", "frame rate", "jank", "CLS"
-   - "horizontal scroll section", "pinned section"
-   - "WebGL hero", "Three.js hero", "ice block", "particle hero"
-6. **Scope of application** —
-   - Global app-shell scroll smoothing
-   - Per-section reveal animations (hero curtain, divider taper, image clip-path)
-   - Pinned / horizontal sections
-   - Cinematic intro choreography (overlaps with `experience-prompts/anti-gravity-opening-engineer`)
-   - Cloth-wipe / asphalt-wipe page transitions (already in `mem://design/cloth-wipe-transition`)
-   - Modals & overlays (`data-lenis-prevent`, plus `mem://tech/modal-lifecycle-management`)
-   - Booking-funnel panel auto-advance (verify it doesn't fight Lenis)
-   - **Out of scope:** raw 3D modeling decisions (use the case study as inspiration only), audio engineering specifics
+   - Hero headlines, subheadings, hero CTAs (wording only — visual locked by `mem://design/hero-section-lock`)
+   - Section headings, body copy, captions, tooltips, microcopy, success/error states
+   - About-page origin story, mission/values phrasing, team bios, milestones
+   - Service/product page problem→solution sequencing, feature-story grouping, proof callouts, FAQ wording
+   - Case study / customer story arcs (Problem → Empathy → Insight → Transformation → Proof)
+   - Footer sign-off, legal microcopy tone, agency credit phrasing (respect `mem://brand/agency-credit`)
+   - CTA verbs (no generic "Submit"; use emotional, action-led language)
+   - Form field labels, helper text, validation messages, confirmation/thank-you copy
+   - Booking-funnel step copy (without changing the 4-step architecture from `mem://features/booking-funnel`)
+   - Email/auth template copy when scaffolded
+5. **Trigger prompts** —
+   - "rewrite the copy", "improve the copy", "refine the wording", "punch up the headline"
+   - "make the hero more emotional", "stronger CTA", "better subheading"
+   - "tell our story better", "origin story", "About page narrative", "founder story"
+   - "case study", "customer story", "testimonial copy"
+   - "FAQ wording", "FAQ tone"
+   - "tone of voice", "voice & tone", "brand voice", "voice guidelines"
+   - "make this more premium / luxurious / editorial / human"
+   - "fix microcopy", "tooltip copy", "error message", "empty state copy", "success message"
+   - "footer copy", "legal copy", "privacy/terms tone"
+   - "form labels", "thank-you page"
+   - "page-by-page", "section-by-section copy pass"
+   - "narrative backbone", "problem-solution-proof"
+6. **Scope of application** — every page, every text node. Specifically:
+   - Home, About, Services (Detailing menu / packages), Process, Gallery, FAQ, Booking funnel, Footer, 404, support/contact, future blog/journal, future membership/exclusive program pages.
+   - **In scope:** all text content — headings, body, captions, alt text, microcopy, CTAs, form labels, validation, confirmations, email templates.
+   - **Out of scope:** **any visual change.** No layout, no spacing, no color, no typography sizing, no component structure. The source is explicit and repeated: "IT IS CRUCIAL YOU DO NOT CHANGE ANY DESIGN ELEMENTS AT ALL, ONLY THE COPYWRITE."
 7. **Output-quality direction** —
-   - **fantasy.co / igloo.inc bar.** Scroll must feel weighted, intentional, and silent — never twitchy.
-   - **60fps non-negotiable.** Drop a non-critical animation before letting frame rate slip.
-   - **Restraint over spectacle.** "One effect at a time" beats stacked effects every time.
-   - **Brand-coupled easing.** For Calem Wood the easing personality is heavy / luxurious — slow lerp (≈0.06–0.08), gentle cubic-bezier with long out-curve, never bouncy.
-   - **Persistence.** Once content has appeared, it stays. No fading back out on reverse scroll.
-   - **Accessibility on equal footing with polish.** Every Lenis instance needs a reduced-motion branch.
-8. **Brand & ICP relationship (Calem Wood Detailing — current active brand)** —
-   - **Easing** matches the existing motion philosophy: cinematic reveals, bottom-to-top clip-path curtains, Ken Burns scaling (`mem://design/motion-philosophy`).
-   - **Lenis lerp** lands around `0.06–0.08` for Calem Wood — heavier than the 0.05 in the source's Next.js example because the brand is luxury/automotive, not light/playful. `wheelMultiplier ~1.1`, `touchMultiplier ~1.0`, `syncTouch: false` for now to avoid iOS<16 unpredictability.
-   - **Hero choreography** must coexist with the locked hero (`mem://design/hero-section-lock`) and the loading sequence (`mem://features/loading-sequence`) — Lenis should be initialised *after* the loading sequence resolves so it doesn't fight the curtain.
-   - **Modal singleton rule** (`mem://tech/modal-lifecycle-management`): the booking modal must apply `data-lenis-prevent` to its scrollable form panel; Lenis must `stop()` on modal-open and `start()` on modal-close.
-   - **Cloth-wipe transition** (`mem://design/cloth-wipe-transition`): the wipe runs on the compositor (transform + opacity), so it stays compatible with Lenis.
-   - **Editorial divider tapers** (`mem://design/editorial-divider-specs`) and parallax coverage (`mem://tech/parallax-coverage-specs`) are scroll-driven candidates — drive them via ScrollTrigger feeding off Lenis.
-   - **No human imagery, no rounded cards** (`mem://constraints/image-content-restrictions`, `mem://design/component-styling`) — applies to any 3D/WebGL hero we'd build inspired by the Igloo case study.
-   - **Mobile rule** (`mem://constraints/mobile-optimization`, 390px target): prefer native scroll over scroll-fades on mobile per source's "Avoid scroll fading on mobile" guideline. Lenis stays on for momentum, scroll-fade reveals get downgraded.
+   - **Bespoke + premium.** Replace any generic phrasing ("Submit", "Learn more", "Get started") with brand-specific, emotionally-grounded language.
+   - **Narrative backbone applied per section.** Every section earns its place by carrying at least one of: Problem, Empathy, Insight, Transformation, Proof.
+   - **Voice = the active brand's voice.** Not the source's example archetypes verbatim — those are illustrative only.
+   - **Sensory + specific.** Concrete nouns, real numerals, vivid sensory verbs over adjectives.
+   - **Read aloud test.** Sentence-length variation, rhythm, musicality.
+   - **Inclusive + accessible.** Person-first language, alt text discipline, WCAG-readable line lengths, no jargon without context.
+   - **Conversion-aware.** Every page ends or pivots on a CTA that names the *next emotional step*, not the mechanical action.
+   - **AI-retelling test.** A reader (or LLM) summarising the page back must reproduce the brand's positioning correctly. If they can't, copy is too vague.
+8. **Brand & ICP relationship** —
+
+   ### Calem Wood Detailing (current active brand)
+   - **Voice anchors:** quiet authority, craft devotion, automotive reverence, editorial restraint. Never bro-y, never hype-y, never exclamation-stacked. Single exclamation marks are rare. Em-dashes, periods, and short sentences carry the gravity.
+   - **Archetypes:** primarily **Caregiver** (custodian of someone's prized car) + **Magician** (transformation from neglected to immaculate). Adjacent: **Creator** (craft).
+   - **Narrative backbone applied to Calem Wood:**
+     - *Problem*: a car that deserves better than a tunnel wash; daily grit dulling investment-grade paint.
+     - *Empathy*: knowing the owner sees details others miss.
+     - *Insight*: detailing is preservation, not cleaning. Time + craft, not chemicals + speed.
+     - *Transformation*: paint reading deeper, leather drinking conditioner, water beading like new.
+     - *Proof*: macro photography, before/after pairs, repeat-client cadence, named clients (when permitted).
+   - **Hero copy** stays inside the locked hero choreography (`mem://design/hero-section-lock`). Copy refinement may *change words*, never the visual.
+   - **Booking funnel copy** (`mem://features/booking-funnel`) — keep 4-step architecture; refine each step's micro-narrative (the photo-upload step, for instance, is *Empathy + Insight*: "show us what you're starting with, we'll tell you what it can become").
+   - **Footer sign-off** (`mem://brand/footer-architecture`) — the massive `clamp(4-10rem)` line is brand declarative; refine its phrasing only with care (and never its size/placement).
+   - **Agency credit** (`mem://brand/agency-credit`) — VeePo phrasing and link target are locked.
+   - **Visual constraints carry across copy assumptions:** no human imagery → don't write copy that *requires* photos of people ("Meet our team" is fine as text, but don't promise team-portrait photography).
+
+   ### Cochrane Master Builders (when activated)
+   - Voice anchors: family legacy, generational craft, prairie quiet confidence, multi-generational stewardship.
+   - Archetypes: **Caregiver** (homes that protect families across generations) + **Sage** (decades of building wisdom).
+   - ICPs (Mothers / Grandfathers / Subcontractors) carry distinct sub-tones; consult the brand's ICP source docs before writing.
+
 9. **Global vs specific** —
-   - **Wins over** ad-hoc per-component scroll animation choices on technical method (always Lenis + GSAP ScrollTrigger, always transform/opacity, always 100–400ms fade band).
-   - **Inherits from** `governance/knowledge-system-charter` (always) and the `experience-prompts/master-design-persona-fantasy` for visual taste.
-   - **Loses to** brand-identity / motion-philosophy partner docs and existing memories on **personality** of the easing (e.g., for Calem Wood the brand says "heavy / luxurious" and that overrides the source's lighter `lerp: 0.05` example).
-   - **Loses to** existing locked components: hero (`mem://design/hero-section-lock`), brand-logo parallax (`mem://design/micro-interactions/brand-logo-parallax`), loading sequence (`mem://features/loading-sequence`).
+   - **Global** for *methodology*: the narrative backbone, voice/tone discipline, page-by-page workflow, accessibility/inclusion guardrails apply to every brand.
+   - **Specific** for *language*: the actual voice (luxury automotive, family construction, etc.) is set by the active brand's identity docs and memories — those override the source's example archetypes.
+   - **Hard floor:** the design-elements rule is non-negotiable. No partner doc, no brand layer, no future request can authorise visual changes through this lane.
 10. **Adaptation notes (conflict rule applied — source preserved verbatim)** —
+
     | In source | Apply as |
     |-----------|----------|
-    | `Lovable.dev` | The active brand for the prompt (default: Calem Wood Detailing in this codebase; Cochrane Master Builders when CMB is the active brand). |
-    | `lerp: 0.05` (Next.js provider example) | Use as a starting point for light brands. For Calem Wood / luxury brands, prefer `0.06–0.08` for more weight. Document the per-brand lerp in the brand's motion partner doc. |
-    | `wheelMultiplier: 1.5`, `touchMultiplier: 1.1` (example) | Treat as one valid preset. For Calem Wood prefer `1.1` / `1.0` so input feels deliberate, not snappy. |
-    | `syncTouch: true` warning for iOS<16 | Default `false` until iOS<16 share is negligible. |
-    | "Igloo Inc procedural ice blocks / WebGL UI / particle simulations" | **Inspiration only**, not a blueprint. Calem Wood does not currently use Three.js/WebGL — adopt only if a brand explicitly invests in a 3D hero. |
-    | Tool list mentioning Svelte / Vue / SvelteKit | This codebase is **React 18 + Vite**. Translate patterns into a React `LenisProvider` component (the `useEffect` + rAF lifecycle pattern in source §"Next.js provider for Lenis" maps cleanly to React). |
-    | Scroll-driven CSS animations API | Browser support still limited. Continue using Lenis + GSAP as primary; revisit annually. |
-    | Trailing **Final Directive** with the empty operational step | **Knowledge-only.** Does NOT authorise a frontend scroll-overhaul pass. Implementing Lenis + GSAP across the site is a separate, deliberately-scoped request. |
-    | Duplicated headings ("Performance principles…" twice, "GSAP GSAP &…", leading-space headings) | Paste artefacts. Read past them. |
-    | `<mark>` tags | Treat as code identifiers / inline highlights. |
+    | Example brands (Warby Parker, Nike, Burt's Bees, Duolingo, Liquid Death, Crocs, Summer Fridays, Lululemon, Sephora, Lenovo) | **Inspiration only**, never name-dropped in client output. Translate the *principle*, not the brand. |
+    | Wedding / lifestyle examples (if any surface) | Treat as out-of-scope. The active brand context governs. |
+    | "Brand portal (Frontify or Bynder)" | We don't operate a portal. Treat the project's `src/master/knowledge/` tree as the equivalent. |
+    | "AB testing", "heatmaps", "session replays" | Aspirational. Don't fabricate metrics. If A/B-testable hooks come up, flag for future tooling, don't simulate results. |
+    | "AI sentiment analysis", "AI retelling tests" | The "AI retelling test" *can* be performed in-loop (re-summarise a page; verify positioning survives). The other tools are wishlist. |
+    | Web3 / NFTs / blockchain mentions | Out-of-scope. Skip unless the active brand explicitly opens that lane. |
+    | Long-form brand-funded films / docuseries | Aspirational. Document as future-state only. |
+    | Personalisation / dynamic content / segmentation | Possible only with auth + Cloud — not authorised by this doc alone. |
+    | "Choose-your-own-adventure" branching copy | Out-of-scope unless explicitly requested. |
+    | Trailing operational step (empty `"`) | **Knowledge-only.** Does NOT authorise a sitewide copy rewrite pass. Each pass must be explicitly requested and scoped to one page (or one section) at a time. |
+    | Duplicated headings ("5.4", "5.5"), leading-space headings, leading `.` | Paste artefacts. Read past them. |
+    | "polarising" / polarisation guidance | Apply *cautiously*. Calem Wood's stance is craft-devotion, not provocation. Polarisation expresses as quiet refusal of cheap detailing culture, not antagonism. |
+
 11. **Dependencies / related documents** —
-    - **Always inherit:** `partner-documents/governance/knowledge-system-charter`
-    - **Style + taste partner:** `partner-documents/experience-prompts/master-design-persona-fantasy`
-    - **Cinematic intro partner:** `partner-documents/experience-prompts/anti-gravity-opening-engineer` (the opening choreography sits *before* Lenis takes over the page)
-    - **Brand motion memories (Calem Wood):**
-      - `mem://design/motion-philosophy` — cinematic reveals, clip-path curtains, Ken Burns
-      - `mem://design/cloth-wipe-transition` — transform/opacity-only, Lenis-safe
-      - `mem://features/loading-sequence` — Lenis must start *after* this resolves
-      - `mem://design/hero-section-lock` — hero choreography is locked; Lenis works around it
-      - `mem://design/editorial-divider-specs` — scroll-driven taper reveals
-      - `mem://tech/parallax-coverage-specs` — 130% / -15% offset rule for full-bleed parallax
-      - `mem://design/hero-interactive-shine` — cursor-driven, not scroll-driven, but lives in the same frame budget
-      - `mem://design/micro-interactions/brand-logo-parallax` — desktop-only, mouse-parallax (compositor-only)
-      - `mem://tech/modal-lifecycle-management` — Lenis stop/start hooks
-      - `mem://constraints/mobile-optimization` — downgrade scroll-fades on 390px viewport
-    - **Future:** when CMB activates as the live brand, mirror motion memories there.
+
+    **Always inherit**
+    - `partner-documents/governance/knowledge-system-charter`
+
+    **Co-consult**
+    - `partner-documents/experience-prompts/master-design-persona-fantasy` — taste ceiling for the *feel* the words must match.
+    - `partner-documents/experience-prompts/seo-virtuoso-persona` — copy carries SEO weight; titles, H1/H2, meta descriptions, alt text intersect.
+    - `partner-documents/experience-prompts/seo-faq-optimization-persona` — when refining FAQ copy, apply the 4-part answer framework (Direct → Context → Factors → CTA).
+    - `partner-documents/animations/premium-scroll-animation-persona` — scroll-revealed copy must respect the persistence + 100–400 ms fade rules.
+
+    **Calem Wood brand memories**
+    - `mem://brand/identity` — CW monogram, voice references implicit.
+    - `mem://brand/footer-architecture` — sign-off line is rewriteable in *language*, not in *scale*.
+    - `mem://brand/agency-credit` — VeePo phrasing locked.
+    - `mem://constraints/typography-legibility` — copy length must serve the line-height / font-size system (no headline that breaks the hierarchy).
+    - `mem://design/hero-section-lock` — hero text may be refined; hero visual is locked.
+    - `mem://features/booking-funnel` — 4-step copy is refineable; step count and architecture are not.
+    - `mem://features/loading-sequence` — any loading-state copy must respect the 5-phase sequence timing.
+    - `mem://features/booking-submission-animation` — confirmation/thank-you copy lands *after* the cloth-wipe; write the line that earns that moment.
+    - `mem://design/booking-modal-architecture` — modal headings, dot-indicator labels, CTA labels.
+    - `mem://constraints/mobile-optimization` — mobile copy must read at 14–19px Jost without crowding 390px viewport.
+    - `mem://constraints/image-content-restrictions` — no copy that requires human imagery.
+
+    **Cochrane brand sources** (when activated) — the v1.2.x brand-identity docs + 1.4.x ICP docs override the source's archetypes.
+
 12. **Practical examples** —
-    **A. "The site feels twitchy on Mac trackpads."** → install Lenis at the App root with `lerp: 0.07`, `wheelMultiplier: 1.1`, `touchMultiplier: 1.0`, `autoRaf: true`. Wire `lenis.on('scroll', ScrollTrigger.update)` + `gsap.ticker.add(t => lenis.raf(t*1000))` + `gsap.ticker.lagSmoothing(0)`. Add `prefers-reduced-motion` branch that skips Lenis entirely.
-    **B. "Add a scroll-fade reveal to the section heading."** → `gsap.from(el, { opacity: 0, y: 24, duration: 0.32, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 80%' } })`. Duration sits inside the 100–400ms band. Persist (no fade-out on reverse). Skip on mobile per source guideline.
-    **C. "The booking modal scrolls weird inside Lenis."** → add `data-lenis-prevent` to the inner scrollable form panel; on modal `onOpenChange(true)` call `lenis.stop()`, on close call `lenis.start()`. Combine with the modal singleton rule from `mem://tech/modal-lifecycle-management`.
-    **D. "Anchor link to `#services` lands behind the sticky nav."** → enable `anchors: { offset: -80 }` (matching the 80px navbar from `mem://design/navigation-specs`).
-    **E. "Build an Igloo-style WebGL hero for Cochrane Master Builders."** → flag as a bigger investment. Confirm with brand decision-makers; if approved, scaffold Three.js + R3F, follow §Igloo case study (procedural variation, GPU-side effects, browser-iterated shader work, real-time intro). Otherwise stay DOM-only and lean on motion-philosophy reveals.
+
+    **A. "Refine the hero copy on the home page."** → Read `mem://design/hero-section-lock` (visual locked). Apply narrative backbone: hero = Problem + hint of Transformation. Voice = Calem Wood quiet-authority. Test read-aloud. Confirm CTA verb names the emotional next step ("Begin the inspection" not "Book now"). Do not touch layout/colors/typography.
+
+    **B. "Improve the About page wording."** → Origin story (founder's first car-detail epiphany), mission in one sentence, 3 values with one-sentence each, optional timeline phrased as turning points, no team-portrait copy unless photography exists. Apply Caregiver + Creator archetype voice.
+
+    **C. "Make the Services page CTAs more emotional."** → Replace generic verbs. Each CTA should pair *invitation* + *next emotional step*: "Schedule the deep restore" / "Reserve a paint correction consult" / "Walk through the interior detail" — never "Submit" or "Click here".
+
+    **D. "Tighten the FAQ copy."** → Cross-consult `seo-faq-optimization-persona`. For each Q: Direct Answer (one sentence) → Context → Factors/Range → CTA with internal link. Match Calem Wood voice. JSON-LD must mirror visible text exactly.
+
+    **E. "Punch up the booking confirmation message."** → This lands after the cloth-wipe. Earn the moment. Single line, present tense, sensory: "Your appointment is set. We'll begin the inspection on [date]." Then a quieter follow-up paragraph confirming logistics. No exclamation marks.
+
+    **F. "Section-by-section copy pass on the home page."** → Confirm scope = home page only. List every section. For each section: identify which backbone beat it carries (Problem / Empathy / Insight / Transformation / Proof). Rewrite *only* the text. Submit a diff that touches no JSX structure, only string contents.
+
+---
 
 ## Index update
 
-Add a new top-level **Animations** section in `INDEX.md` between Experience Prompts and the Cochrane brand block, with this row:
+Add a new top-level **Messaging** section in `INDEX.md` after **Animations & Motion**, with this row:
 
 ```
-| `source-documents/animations/premium-scroll-animation-persona.source.md` | Markdown (verbatim DOCX) | partnered | Master scroll-craftsperson persona + Lenis + GSAP playbook (config, integration, Igloo case study, 5-phase implementation plan, performance & accessibility rules) |
+| `source-documents/messaging/round-two-copywrite-storytelling-persona.source.md` | Markdown (verbatim DOCX) | partnered | Master storyteller / brand strategist persona for page-by-page, section-by-section copy refinement (narrative backbone, voice & tone, emotional resonance, inclusive storytelling, advanced techniques, governance) — design strictly untouched |
 ```
 
 ## Deliberately NOT changing
 
-- **No frontend touched.** Trailing Final Directive is knowledge-only.
-- **No Lenis installed in `package.json`** — installation happens only when a real scroll request comes in.
-- **No router/decision-index changes.** Animations are brand-agnostic; surfaced through `INDEX.md`.
-- **No edits to existing source/partner files** including the previous SEO + governance + design embeds.
-- **No Supabase, no edge functions, no UI components.**
+- **No frontend touched.** Source's hard rule and the trailing operational step are knowledge-only.
+- **No batch copy rewrite triggered.** Each rewrite pass must be explicitly requested and scoped.
+- **No edits to existing source/partner files.**
+- **No router/decision-index changes.**
+- **No Supabase / edge function / package.json changes.**
 
 ## After this turn
 
-When you (or any agent) asks anything about scroll feel, scroll-triggered animation, parallax, scroll-fade, jank, GSAP ScrollTrigger, smooth scroll, anchor offsets, modal-vs-scroll conflicts, or "make this feel like fantasy.co / igloo.inc," the system reads:
+Whenever any prompt asks to refine wording, rewrite a section, improve tone, punch up a CTA, write a story, write microcopy, write FAQs, write footer sign-off, write thank-you copy, or "make this read more premium," the system reads:
 
-1. `governance/knowledge-system-charter` (how to use knowledge)
-2. `experience-prompts/master-design-persona-fantasy` (taste)
-3. `experience-prompts/anti-gravity-opening-engineer` (intro choreography)
-4. `animations/premium-scroll-animation-persona` (scroll mechanics) ← **this embed**
-5. The brand's motion memories / partner docs (personality of the easing)
+1. `governance/knowledge-system-charter`
+2. `messaging/round-two-copywrite-storytelling-persona` ← **this embed**
+3. The active brand's identity / footer / agency-credit / voice memories
+4. Co-consulted partners (SEO virtuoso, SEO FAQ, master-design persona) where relevant
 
-Result: every scroll interaction in this codebase will be Lenis-grade smooth, GSAP-precise, performance-budgeted at 60fps, accessibility-respecting, and bespoke to the active brand's motion personality.
+Result: every word in the codebase moves toward narrative-backbone-anchored, brand-voiced, conversion-aware, accessible copy — without ever pretending it can change a single design element.
