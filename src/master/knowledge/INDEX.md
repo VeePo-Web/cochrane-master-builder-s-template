@@ -58,6 +58,20 @@ never visual design. Always paired with the active brand's voice/identity layer.
 
 ---
 
+## SEO — Image, Local & Sub-Specialty Personas (`seo/`)
+
+Function-scoped SEO sub-specialty playbooks. The general SEO virtuoso and FAQ
+SEO personas remain canonical under `experience-prompts/`; this shelf holds
+deeper sub-specialty embeds (image SEO, local visibility, future: technical
+SEO, programmatic SEO, etc.). All entries enforce the source's hard rule:
+**do not change desktop design, layout, or visual hierarchy.**
+
+| File | Format | Status | One-line label |
+|------|--------|--------|----------------|
+| `source-documents/seo/image-seo-local-visibility-persona.source.md` | Markdown (verbatim DOCX) | partnered | Image SEO + Local Visibility Specialist persona — page→section→image audit format, alt-text rules, filenames, formats/compression, responsive + lazy, ImageObject + image sitemap, CDN/caching, local schema + GBP, OG/Twitter, pitfalls, tooling, future trends, 14-step implementation framework |
+
+---
+
 ## Cochrane Master Builders Corp. (`brands/cochrane-master-builders/`)
 
 Brand slug: `cochrane-master-builders`
