@@ -1,205 +1,195 @@
-# Embed the Round-Two Copywrite & Storytelling Persona
+# Embed the Image SEO + Local Visibility Specialist Persona
 
 ## What this document is
 
-12-page master storyteller / brand strategist persona prompt for **page-by-page, section-by-section copy refinement** without touching design. Includes:
+17-page master Image SEO + Local Visibility Specialist persona prompt. Two stitched parts:
 
-- Persona: chief narrative architect lineage (Fantasy, R/GA, Frog, ustwo, Huge, storytelling collectives)
-- 8-pillar narrative philosophy
-- Discovery / preparation methodology
-- 5-part **narrative backbone** (Problem → Empathy → Insight → Transformation → Proof)
-- Voice & tone development
-- Page-by-page copy guidance (Home, About, Product/Service, Case Studies, Community/Lifestyle/Blog, Merch/Membership, Support/Contact)
-- Emotional resonance techniques (sensory language, metaphor, archetypes, contrast, rhythm)
-- Inclusive & ethical storytelling
-- Polarisation & exclusivity
-- Advanced techniques (data-driven, interactive, long-form, exclusivity/merch, personalised/dynamic)
-- Measurement & continuous improvement
-- Governance & ethics
-- Future-proofing
-- 9 case-study brand exemplars (Warby Parker, Nike, Burt's Bees, Duolingo, Liquid Death, Crocs, Summer Fridays, Lululemon, Sephora "Faces of Music", Lenovo "Creator Odyssey")
-- Final operational rule: **design untouched, copy only, page-by-page, section-by-section**
+1. **Lovable.dev Master Intro — Image SEO**: 55+ year specialist persona (Victorious, Semrush, Screaming Frog, Red Door, Loganix, Google Search Central lineage), mission, hard execution constraints, expert-brain principles, page-output format, world-class bar.
+2. **World-Class Image SEO Specialist Prompt**: 16-section playbook covering persona/philosophy, audit, alt text rules, file naming, formats/compression, responsive + lazy loading, structured data + sitemaps, CDN/caching, local SEO signals, e-commerce imagery, Open Graph/Twitter Cards, common pitfalls, tooling, future trends, implementation framework, and conclusion.
+
+Final operational rule: **page-by-page → section-by-section → image-by-image. Do NOT change desktop design, layout, or visual hierarchy. Do NOT rewrite marketing copy unless instructed.** Trailing operational hook: "USE ALL OF YOUR WORLDCLASS EXPERIENCE TO MAKE A VERY IN DEPTH PLAN FOR YOUR SPECIFIC NEXT STEP."
 
 ## Where it goes
 
-Belongs on the `messaging/` shelf (reserved in `governance/knowledge-system-charter`). It's a **copywriting / narrative methodology persona** — not animation, not SEO, not visual. Cross-cuts conversion, brand-identity, ux.
+A new `seo/` shelf under both `source-documents/` and `partner-documents/`. SEO is a distinct domain — it deserves its own folder rather than being lumped into `experience-prompts/` (the previous SEO personas live there, but with three SEO docs accumulating it's time to graduate them; for now, keep the existing two in `experience-prompts/` undisturbed and create the new `seo/` shelf for image-SEO + future SEO sub-specialties — and add a "see also" cross-reference in the partner doc and INDEX). This is consistent with how `messaging/` and `animations/` were graduated.
 
 ```text
 src/master/knowledge/
 ├── source-documents/
-│   └── messaging/
-│       └── round-two-copywrite-storytelling-persona.source.md   ← NEW (verbatim)
+│   └── seo/
+│       └── image-seo-local-visibility-persona.source.md   ← NEW (verbatim)
 └── partner-documents/
-    └── messaging/
-        └── round-two-copywrite-storytelling-persona.partner.md  ← NEW (interpretation)
+    └── seo/
+        └── image-seo-local-visibility-persona.partner.md  ← NEW (interpretation)
 ```
 
-## Files to create (2)
+## Files to create (2) + 1 update
 
 ### 1. Source (verbatim)
 
-- Immutability frontmatter (`status: IMMUTABLE`, `verbatim: true`, `origin-file: General_ROUND_TWO_COPYWRITE_STORY_TELLING_PRMOPT-2.docx`, `category: messaging`, `cross-cuts: copy, narrative, conversion, brand-identity, ux, accessibility`).
+- Frontmatter: `status: IMMUTABLE`, `verbatim: true`, `origin-file: General_Prompt_for_SEO_IMAGES-2.docx`, `category: seo`, `cross-cuts: images, performance, accessibility, local-seo, structured-data, copy, brand-identity`.
 - DO-NOT-EDIT banner.
-- Full 12-page text preserved exactly. Includes:
-  - Leading `.` artefact at start of section 1
-  - Duplicated section headings ("5.4 Case Studies…" twice, "5.5 Community…" twice)
-  - Leading-space headings (" 5.6", " 5.7", " 6.", " 11.", " 12.", " 13.")
-  - Indented bullet variants (`*   `, `*    `, `-`, `1.`)
-  - Smart quotes, em-dashes
-  - Final asterisked all-caps directive paragraph + the trailing `"` opener with empty operational step
+- Full 17-page text preserved exactly. Includes paste artefacts: leading `**` capture instruction, doubled "Open Graph  Open Graph" heading, doubled "Image SEO  Image SEO" heading, doubled "## 5.4 / ## 5.5" pattern N/A here, leading-space headings (" Your mission", " Hard execution", " How you think"), `<mark>` tags, mixed bullet styles (`*`, `-`, `1.`), TeX `$1200 \times 630$`, smart quotes, em-dashes, trailing `"` opener.
 
-### 2. Partner doc
+### 2. Partner doc (12-section template, fully Calem-Wood-mapped)
 
-12-section partner template:
-
-1. **Title** — Round-Two Copywrite & Storytelling Persona (Page-by-Page, Section-by-Section Refinement)
-2. **Category** — `messaging/`. Cross-cuts: `conversion`, `brand-identity`, `ux`, `seo` (when copy carries metadata/FAQ structure), `accessibility`.
-3. **Main purpose** — install a master narrative architect's discipline as the **default copywriting brain** for any text-only refinement pass. Hard rule: **never change design elements** — only copy. Always work page-by-page, section-by-section, anchored on the brand's narrative backbone.
+1. **Title** — Image SEO + Local Visibility Specialist Persona (Page-by-Page, Section-by-Section, Image-by-Image)
+2. **Category** — `seo/`. Cross-cuts: `performance`, `accessibility`, `brand-identity`, `messaging` (alt text touches copy), `ux` (CLS, layout stability).
+3. **Main purpose** — install a 55-year image-SEO + local-SEO specialist as the **default brain** for every image-related decision. Two non-negotiables: (a) never change desktop design / layout / visual hierarchy; (b) work page-by-page → section-by-section → image-by-image with the prescribed output format.
 4. **What it influences** —
-   - Hero headlines, subheadings, hero CTAs (wording only — visual locked by `mem://design/hero-section-lock`)
-   - Section headings, body copy, captions, tooltips, microcopy, success/error states
-   - About-page origin story, mission/values phrasing, team bios, milestones
-   - Service/product page problem→solution sequencing, feature-story grouping, proof callouts, FAQ wording
-   - Case study / customer story arcs (Problem → Empathy → Insight → Transformation → Proof)
-   - Footer sign-off, legal microcopy tone, agency credit phrasing (respect `mem://brand/agency-credit`)
-   - CTA verbs (no generic "Submit"; use emotional, action-led language)
-   - Form field labels, helper text, validation messages, confirmation/thank-you copy
-   - Booking-funnel step copy (without changing the 4-step architecture from `mem://features/booking-funnel`)
-   - Email/auth template copy when scaffolded
+   - Every `<img>` / `<picture>` / background-image / SVG / `next-gen` asset on every page.
+   - **Filename conventions** for all assets in `src/assets/`, `public/`, and any future image upload pipeline.
+   - **Alt text strategy** — informative vs decorative, length, front-loading, geographic modifiers (Calgary / Cochrane / Rocky View when truthful), zero "image of" / "photo of".
+   - **Responsive delivery** — `srcset`, `<picture>`, `sizes`, explicit `width`/`height` to protect CLS. Honor the parallax 130%/-15% spec (`mem://tech/parallax-coverage-specs`) when picking image dimensions.
+   - **Lazy-loading** — `loading="lazy"` below the fold; `loading="eager"` + `fetchpriority="high"` for hero (respecting `mem://design/hero-section-lock`).
+   - **Format selection** — AVIF/WebP for photos with JPEG fallback; SVG for the CW monogram and copper iconography; never GIF for photographic content.
+   - **Compression budgets** — hero ≤ 200 KB, thumbnails ≤ 50 KB, with sRGB color profile.
+   - **Structured data** — `ImageObject` JSON-LD on key images; `LocalBusiness` schema with location-specific photos for Calem Wood; `Product`/`Offer` only if/when a product surface is added.
+   - **Image XML sitemap** — separate sitemap with `<image:loc>`, `<image:caption>`, `<image:title>` for indexable assets.
+   - **CDN + caching** — versioned filenames, `Cache-Control: max-age=31536000` for static assets, HTTP/2 or HTTP/3 enabled.
+   - **Local SEO** — geotag truthful EXIF on original Calem Wood photography (Calgary/Cochrane GPS only when accurate), local landmarks where they appear, geographic modifiers in alt text only when the photo *actually* depicts the location.
+   - **Google Business Profile** — minimum 720×720 photos aligned to the brand (paint macro, leather macro, water beading, exterior shop shots — never human-imagery; respect `mem://constraints/image-content-restrictions`).
+   - **Open Graph / Twitter Cards** — 1200×630 JPEG/PNG (not WebP — scrapers struggle), branded with copper accent + CW monogram, `og:image:alt` always set.
+   - **`<figure>` + `<figcaption>`** semantics — wherever a caption is truthful and additive (editorial photography sections, gallery, case studies).
+   - **404, error, empty states** — image alt should still describe.
 5. **Trigger prompts** —
-   - "rewrite the copy", "improve the copy", "refine the wording", "punch up the headline"
-   - "make the hero more emotional", "stronger CTA", "better subheading"
-   - "tell our story better", "origin story", "About page narrative", "founder story"
-   - "case study", "customer story", "testimonial copy"
-   - "FAQ wording", "FAQ tone"
-   - "tone of voice", "voice & tone", "brand voice", "voice guidelines"
-   - "make this more premium / luxurious / editorial / human"
-   - "fix microcopy", "tooltip copy", "error message", "empty state copy", "success message"
-   - "footer copy", "legal copy", "privacy/terms tone"
-   - "form labels", "thank-you page"
-   - "page-by-page", "section-by-section copy pass"
-   - "narrative backbone", "problem-solution-proof"
-6. **Scope of application** — every page, every text node. Specifically:
-   - Home, About, Services (Detailing menu / packages), Process, Gallery, FAQ, Booking funnel, Footer, 404, support/contact, future blog/journal, future membership/exclusive program pages.
-   - **In scope:** all text content — headings, body, captions, alt text, microcopy, CTAs, form labels, validation, confirmations, email templates.
-   - **Out of scope:** **any visual change.** No layout, no spacing, no color, no typography sizing, no component structure. The source is explicit and repeated: "IT IS CRUCIAL YOU DO NOT CHANGE ANY DESIGN ELEMENTS AT ALL, ONLY THE COPYWRITE."
+   - "image SEO", "alt text", "alt tags", "image filenames", "rename images"
+   - "image performance", "Core Web Vitals", "LCP", "CLS", "image lazy load", "srcset", "responsive images"
+   - "WebP", "AVIF", "image format", "compress images", "hero image size"
+   - "image sitemap", "ImageObject schema", "structured data for images"
+   - "Open Graph image", "social preview", "Twitter card", "og:image"
+   - "Google Business Profile photos", "GBP images"
+   - "local SEO images", "geotag", "EXIF"
+   - "image audit", "broken images", "crawl images"
+   - "CDN", "image caching"
+   - "figure / figcaption", "image captions"
+   - "Google Image rankings", "Google Lens", "visual search"
+6. **Scope of application** — every page, every image, every state. **In scope:** alt text, filenames, formats, dimensions, `srcset`/`sizes`, `loading` attribute, `fetchpriority`, `width`/`height` attrs, JSON-LD `ImageObject`, image sitemap entries, OG/Twitter image meta, GBP uploads, EXIF geotags. **Out of scope:** desktop design, layout, visual hierarchy, marketing copy (unless explicitly requested), the locked hero image asset itself, the CW monogram artwork, motion timing.
 7. **Output-quality direction** —
-   - **Bespoke + premium.** Replace any generic phrasing ("Submit", "Learn more", "Get started") with brand-specific, emotionally-grounded language.
-   - **Narrative backbone applied per section.** Every section earns its place by carrying at least one of: Problem, Empathy, Insight, Transformation, Proof.
-   - **Voice = the active brand's voice.** Not the source's example archetypes verbatim — those are illustrative only.
-   - **Sensory + specific.** Concrete nouns, real numerals, vivid sensory verbs over adjectives.
-   - **Read aloud test.** Sentence-length variation, rhythm, musicality.
-   - **Inclusive + accessible.** Person-first language, alt text discipline, WCAG-readable line lengths, no jargon without context.
-   - **Conversion-aware.** Every page ends or pivots on a CTA that names the *next emotional step*, not the mechanical action.
-   - **AI-retelling test.** A reader (or LLM) summarising the page back must reproduce the brand's positioning correctly. If they can't, copy is too vague.
+   - Every page output uses the **prescribed format**: page intent + local intent target → section-by-section image inventory → per-image (Role / Filename / Alt / Caption / Tech delivery / Local cues / Schema hooks) → implementation checklist → QA validation steps.
+   - Every recommendation maps to a **concrete outcome**: indexing, relevance, CTR, local confidence, performance, or accessibility. No "generic SEO tips."
+   - **Never falsify** — no fake geotags, no aspirational alt text, no keyword-stuffed filenames.
+   - **Never break design** — propose only changes that preserve design intent (filename swap + `srcset` addition is fine; cropping that changes composition is not, unless explicitly requested).
+   - **Performance over aesthetic shortcuts** — if a hero is too heavy, recommend re-export at the same crop, not a different image.
+   - **Accessibility-correct, not accessibility-theatre** — decorative gets `alt=""`, never a missing attribute; informative gets descriptive alt.
 8. **Brand & ICP relationship** —
 
    ### Calem Wood Detailing (current active brand)
-   - **Voice anchors:** quiet authority, craft devotion, automotive reverence, editorial restraint. Never bro-y, never hype-y, never exclamation-stacked. Single exclamation marks are rare. Em-dashes, periods, and short sentences carry the gravity.
-   - **Archetypes:** primarily **Caregiver** (custodian of someone's prized car) + **Magician** (transformation from neglected to immaculate). Adjacent: **Creator** (craft).
-   - **Narrative backbone applied to Calem Wood:**
-     - *Problem*: a car that deserves better than a tunnel wash; daily grit dulling investment-grade paint.
-     - *Empathy*: knowing the owner sees details others miss.
-     - *Insight*: detailing is preservation, not cleaning. Time + craft, not chemicals + speed.
-     - *Transformation*: paint reading deeper, leather drinking conditioner, water beading like new.
-     - *Proof*: macro photography, before/after pairs, repeat-client cadence, named clients (when permitted).
-   - **Hero copy** stays inside the locked hero choreography (`mem://design/hero-section-lock`). Copy refinement may *change words*, never the visual.
-   - **Booking funnel copy** (`mem://features/booking-funnel`) — keep 4-step architecture; refine each step's micro-narrative (the photo-upload step, for instance, is *Empathy + Insight*: "show us what you're starting with, we'll tell you what it can become").
-   - **Footer sign-off** (`mem://brand/footer-architecture`) — the massive `clamp(4-10rem)` line is brand declarative; refine its phrasing only with care (and never its size/placement).
-   - **Agency credit** (`mem://brand/agency-credit`) — VeePo phrasing and link target are locked.
-   - **Visual constraints carry across copy assumptions:** no human imagery → don't write copy that *requires* photos of people ("Meet our team" is fine as text, but don't promise team-portrait photography).
+   - **Subject discipline**: extreme macro automotive — paint, leather, water beads, microfiber, copper-lit detail (`mem://design/image-content-direction`). **Never human imagery** (`mem://constraints/image-content-restrictions`). Alt text reflects this — describe surface, finish, light, texture; never "person detailing a car."
+   - **Filename conventions** for Calem Wood assets:
+     ```
+     {subject}-{finish-or-context}-{view}-{location?}.{ext}
+     calem-wood-paint-correction-macro-cochrane.avif
+     calem-wood-leather-conditioning-detail.webp
+     calem-wood-water-beading-hood-macro.avif
+     calem-wood-interior-deep-clean-rocky-view.webp
+     ```
+     Always lowercase, hyphenated, no underscores, no `IMG_*`.
+   - **Alt text voice** — pulls from `messaging/round-two-copywrite-storytelling-persona`. Quiet, sensory, specific. No exclamation marks, no "stunning", no "amazing", no "image of."
+     - Good: "Hand-polished black paint reflecting overhead studio lights, post-correction"
+     - Bad: "Image of a shiny car"
+   - **Hero image** (`mem://design/hero-section-lock`) — visual is locked. We may still add `width`/`height`, `fetchpriority="high"`, refined alt, `<picture>` AVIF source with JPEG fallback at the same dimensions. We do **not** swap the asset, change the crop, or add overlays.
+   - **Parallax images** — must satisfy `mem://tech/parallax-coverage-specs` (130% height, -15% top). When recommending new dimensions, account for this.
+   - **Visual edge refinement** (`mem://design/visual-edge-refinement`) — feathering is a CSS overlay, not an image edit. Don't propose pre-baked gradients into source images.
+   - **Local intent target** — Cochrane / Calgary / Rocky View County. Geographic modifiers in alt text and filenames are valid **only when the photo was taken there** or unambiguously depicts a recognizable Calgary/Cochrane scene.
+   - **GBP imagery** — exterior shop, interior bay, macro craft shots. Minimum 720×720, sRGB, well-lit, in focus. No staff portraits (no human imagery).
+   - **OG/Twitter card** — 1200×630 JPEG with CW monogram + copper accent on asphalt background. Not WebP. `og:image:alt` set.
+   - **`<figure><figcaption>`** — use for editorial gallery sections; captions follow `messaging` partner voice.
 
    ### Cochrane Master Builders (when activated)
-   - Voice anchors: family legacy, generational craft, prairie quiet confidence, multi-generational stewardship.
-   - Archetypes: **Caregiver** (homes that protect families across generations) + **Sage** (decades of building wisdom).
-   - ICPs (Mothers / Grandfathers / Subcontractors) carry distinct sub-tones; consult the brand's ICP source docs before writing.
+   - Subject: completed homes, interiors, neighborhoods, foundations, framing, multi-generational interior moments (no exploitative human imagery).
+   - Filenames pivot on `cochrane-master-builders-{home-style}-{room-or-feature}-{community}.{ext}`.
+   - Local schema: full `LocalBusiness` with Cochrane address, geo coords, openingHours, image array.
 
 9. **Global vs specific** —
-   - **Global** for *methodology*: the narrative backbone, voice/tone discipline, page-by-page workflow, accessibility/inclusion guardrails apply to every brand.
-   - **Specific** for *language*: the actual voice (luxury automotive, family construction, etc.) is set by the active brand's identity docs and memories — those override the source's example archetypes.
-   - **Hard floor:** the design-elements rule is non-negotiable. No partner doc, no brand layer, no future request can authorise visual changes through this lane.
+   - **Global** for *methodology*: persona, audit process, alt-text rules, filename rules, format/compression budgets, responsive/lazy patterns, structured-data approach, CDN/caching, OG/Twitter, pitfalls, tooling, monitoring — apply to every brand and every project.
+   - **Specific** for *content*: subject matter, voice in alt text, geographic modifiers, GBP photo direction, OG image art direction — set by the active brand's identity docs and memories.
+   - **Hard floors**: (a) no design/layout/hierarchy changes; (b) page-by-page → section-by-section → image-by-image discipline; (c) no falsified geotags, no keyword stuffing; (d) Calem Wood image-content restrictions (no humans) override anything in the source that suggests "diverse staff photos" etc.
+
 10. **Adaptation notes (conflict rule applied — source preserved verbatim)** —
 
     | In source | Apply as |
     |-----------|----------|
-    | Example brands (Warby Parker, Nike, Burt's Bees, Duolingo, Liquid Death, Crocs, Summer Fridays, Lululemon, Sephora, Lenovo) | **Inspiration only**, never name-dropped in client output. Translate the *principle*, not the brand. |
-    | Wedding / lifestyle examples (if any surface) | Treat as out-of-scope. The active brand context governs. |
-    | "Brand portal (Frontify or Bynder)" | We don't operate a portal. Treat the project's `src/master/knowledge/` tree as the equivalent. |
-    | "AB testing", "heatmaps", "session replays" | Aspirational. Don't fabricate metrics. If A/B-testable hooks come up, flag for future tooling, don't simulate results. |
-    | "AI sentiment analysis", "AI retelling tests" | The "AI retelling test" *can* be performed in-loop (re-summarise a page; verify positioning survives). The other tools are wishlist. |
-    | Web3 / NFTs / blockchain mentions | Out-of-scope. Skip unless the active brand explicitly opens that lane. |
-    | Long-form brand-funded films / docuseries | Aspirational. Document as future-state only. |
-    | Personalisation / dynamic content / segmentation | Possible only with auth + Cloud — not authorised by this doc alone. |
-    | "Choose-your-own-adventure" branching copy | Out-of-scope unless explicitly requested. |
-    | Trailing operational step (empty `"`) | **Knowledge-only.** Does NOT authorise a sitewide copy rewrite pass. Each pass must be explicitly requested and scoped to one page (or one section) at a time. |
-    | Duplicated headings ("5.4", "5.5"), leading-space headings, leading `.` | Paste artefacts. Read past them. |
-    | "polarising" / polarisation guidance | Apply *cautiously*. Calem Wood's stance is craft-devotion, not provocation. Polarisation expresses as quiet refusal of cheap detailing culture, not antagonism. |
+    | Generic example filenames (`calgary-cafe-400w.jpg`, `latte-art-blue-cup.jpg`, `nike-air-max-97-silver-sku12345.jpg`, `croissant-paris-fr.jpg`) | Inspiration only. Use Calem Wood naming conventions (above). |
+    | "Calgary coffee shop interior with plants" example alt | Translate the *pattern*, not the content. Use Calem Wood subjects. |
+    | Wedding / café / restaurant / coffee references | Out of scope. Calem Wood = automotive detailing. |
+    | "Diverse ethnicities, ages, genders and abilities" inclusive-imagery guidance | Methodology valid; specific application blocked by `mem://constraints/image-content-restrictions` (no human imagery). Calem Wood inclusivity expresses through subject access (cars across budgets, not just exotics) and copy (`messaging/`), not human portraiture. |
+    | "Encourage user-generated photos" | Aspirational. Don't invent UGC. Possible future feature. |
+    | "Recipe schema" | N/A — not a food site. |
+    | "Multilingual sites", `og:locale:alternate` | Calem Wood is currently English/Canada only. Methodology stays for future expansion. |
+    | "AI-generated images (DALL·E, Midjourney)" | If used, must align with brand subject discipline (no humans, macro automotive only) and be disclosed in image metadata. Editorial macro photography is preferred. |
+    | "AR/VR / 3D models / USDZ / glTF / ProductModel schema" | Aspirational. Out of scope until a configurator/3D surface is built. |
+    | "Falsified geotags" | Hard prohibition. Source agrees. Reinforced. |
+    | Trailing operational hook (empty `"`) | **Knowledge-only.** Does NOT authorise a sitewide image-SEO sweep. Each pass must be explicitly requested and scoped to one page. |
+    | Doubled headings ("Image SEO  Image SEO", "Open Graph  Open Graph"), `<mark>` tags, leading `**`, leading spaces, TeX `$\times$` | Paste artefacts. Do not "fix" the source. |
 
 11. **Dependencies / related documents** —
 
     **Always inherit**
     - `partner-documents/governance/knowledge-system-charter`
 
-    **Co-consult**
-    - `partner-documents/experience-prompts/master-design-persona-fantasy` — taste ceiling for the *feel* the words must match.
-    - `partner-documents/experience-prompts/seo-virtuoso-persona` — copy carries SEO weight; titles, H1/H2, meta descriptions, alt text intersect.
-    - `partner-documents/experience-prompts/seo-faq-optimization-persona` — when refining FAQ copy, apply the 4-part answer framework (Direct → Context → Factors → CTA).
-    - `partner-documents/animations/premium-scroll-animation-persona` — scroll-revealed copy must respect the persistence + 100–400 ms fade rules.
+    **Co-consult (cross-domain)**
+    - `partner-documents/experience-prompts/seo-virtuoso-persona` — general SEO context.
+    - `partner-documents/experience-prompts/seo-faq-optimization-persona` — when imagery sits inside FAQ blocks (decorative vs informative).
+    - `partner-documents/messaging/round-two-copywrite-storytelling-persona` — alt text is copy; voice rules apply.
+    - `partner-documents/animations/premium-scroll-animation-persona` — image performance budgets must support 60fps scroll.
+    - `partner-documents/experience-prompts/master-design-persona-fantasy` — taste check on subject choice and OG art direction.
 
     **Calem Wood brand memories**
-    - `mem://brand/identity` — CW monogram, voice references implicit.
-    - `mem://brand/footer-architecture` — sign-off line is rewriteable in *language*, not in *scale*.
-    - `mem://brand/agency-credit` — VeePo phrasing locked.
-    - `mem://constraints/typography-legibility` — copy length must serve the line-height / font-size system (no headline that breaks the hierarchy).
-    - `mem://design/hero-section-lock` — hero text may be refined; hero visual is locked.
-    - `mem://features/booking-funnel` — 4-step copy is refineable; step count and architecture are not.
-    - `mem://features/loading-sequence` — any loading-state copy must respect the 5-phase sequence timing.
-    - `mem://features/booking-submission-animation` — confirmation/thank-you copy lands *after* the cloth-wipe; write the line that earns that moment.
-    - `mem://design/booking-modal-architecture` — modal headings, dot-indicator labels, CTA labels.
-    - `mem://constraints/mobile-optimization` — mobile copy must read at 14–19px Jost without crowding 390px viewport.
-    - `mem://constraints/image-content-restrictions` — no copy that requires human imagery.
+    - `mem://design/hero-section-lock` — hero asset locked.
+    - `mem://design/image-content-direction` — extreme macro automotive subjects.
+    - `mem://constraints/image-content-restrictions` — no human imagery.
+    - `mem://tech/parallax-coverage-specs` — 130% / -15% dimensions for parallax.
+    - `mem://design/visual-edge-refinement` — feathering is CSS, not pre-baked.
+    - `mem://design/aesthetic-direction` — overall photographic taste.
+    - `mem://brand/identity` — CW monogram + brand mark for OG composites.
+    - `mem://constraints/mobile-optimization` — mobile breakpoint sourcing for `srcset`.
 
-    **Cochrane brand sources** (when activated) — the v1.2.x brand-identity docs + 1.4.x ICP docs override the source's archetypes.
+    **Cochrane** — when activated, v1.2.x brand-identity + v1.4.x ICP docs guide subject matter.
 
 12. **Practical examples** —
 
-    **A. "Refine the hero copy on the home page."** → Read `mem://design/hero-section-lock` (visual locked). Apply narrative backbone: hero = Problem + hint of Transformation. Voice = Calem Wood quiet-authority. Test read-aloud. Confirm CTA verb names the emotional next step ("Begin the inspection" not "Book now"). Do not touch layout/colors/typography.
+    **A. "Audit images on the home page."** → Output uses prescribed format. Section-by-section image inventory. For each: Role / recommended filename (Calem Wood convention) / alt text (sensory, no "image of") / caption (only if additive) / format + dimensions + `srcset` + `loading` / local cues (only if truthful) / `ImageObject` JSON-LD if hero or feature. Implementation checklist + QA steps. **No layout changes proposed.**
 
-    **B. "Improve the About page wording."** → Origin story (founder's first car-detail epiphany), mission in one sentence, 3 values with one-sentence each, optional timeline phrased as turning points, no team-portrait copy unless photography exists. Apply Caregiver + Creator archetype voice.
+    **B. "Improve hero image performance."** → Hero asset is locked. Propose: AVIF + WebP + JPEG `<picture>` sources at the same dimensions, explicit `width`/`height`, `fetchpriority="high"`, `loading="eager"`, `decoding="async"`, refined alt, sRGB profile, ≤ 200 KB target on the smallest source. Do not swap the asset.
 
-    **C. "Make the Services page CTAs more emotional."** → Replace generic verbs. Each CTA should pair *invitation* + *next emotional step*: "Schedule the deep restore" / "Reserve a paint correction consult" / "Walk through the interior detail" — never "Submit" or "Click here".
+    **C. "Add alt text across the gallery."** → Each image gets a unique, sensory, brand-voice alt (Caregiver/Magician archetype from `messaging/`). Decorative dividers get `alt=""`. Macro paint shots get specific alt: "Polished metallic blue paint with mirror-grade reflection of overhead lighting." Geographic modifiers added only where truthful.
 
-    **D. "Tighten the FAQ copy."** → Cross-consult `seo-faq-optimization-persona`. For each Q: Direct Answer (one sentence) → Context → Factors/Range → CTA with internal link. Match Calem Wood voice. JSON-LD must mirror visible text exactly.
+    **D. "Set up Open Graph images."** → 1200×630 JPEG (not WebP). CW monogram + copper accent on asphalt background. Per-page variants for home / services / booking / about. `og:image`, `og:image:width`, `og:image:height`, `og:image:alt` all set. Twitter `summary_large_image` mirrored. Test in Facebook Sharing Debugger.
 
-    **E. "Punch up the booking confirmation message."** → This lands after the cloth-wipe. Earn the moment. Single line, present tense, sensory: "Your appointment is set. We'll begin the inspection on [date]." Then a quieter follow-up paragraph confirming logistics. No exclamation marks.
+    **E. "Local SEO image push."** → Confirm Calem Wood service area (Cochrane / Calgary / Rocky View). Filenames + alt text get geographic modifiers **only on photos that depict those locations**. EXIF geotags only on original photography taken there. `LocalBusiness` JSON-LD with `image` array of GBP-aligned shots. Upload matching set to GBP at ≥ 720×720, no humans.
 
-    **F. "Section-by-section copy pass on the home page."** → Confirm scope = home page only. List every section. For each section: identify which backbone beat it carries (Problem / Empathy / Insight / Transformation / Proof). Rewrite *only* the text. Submit a diff that touches no JSX structure, only string contents.
+    **F. "Sitewide image-SEO sweep."** → Push back. Source mandates page-by-page, section-by-section, image-by-image. Ask which page first. Scope explicitly.
 
 ---
 
 ## Index update
 
-Add a new top-level **Messaging** section in `INDEX.md` after **Animations & Motion**, with this row:
+Add a new top-level **SEO** section in `INDEX.md` after **Messaging**, with this row:
 
 ```
-| `source-documents/messaging/round-two-copywrite-storytelling-persona.source.md` | Markdown (verbatim DOCX) | partnered | Master storyteller / brand strategist persona for page-by-page, section-by-section copy refinement (narrative backbone, voice & tone, emotional resonance, inclusive storytelling, advanced techniques, governance) — design strictly untouched |
+| `source-documents/seo/image-seo-local-visibility-persona.source.md` | Markdown (verbatim DOCX) | partnered | Image SEO + Local Visibility Specialist persona — page→section→image audit format, alt-text rules, filenames, formats/compression, responsive + lazy, ImageObject + image sitemap, CDN/caching, local schema + GBP, OG/Twitter, pitfalls, tooling, future trends, 14-step implementation framework |
 ```
+
+Also add a "see also" note that the `experience-prompts/seo-*` personas remain canonical for general/FAQ SEO and that future SEO sub-specialty docs should land in `seo/`.
 
 ## Deliberately NOT changing
 
-- **No frontend touched.** Source's hard rule and the trailing operational step are knowledge-only.
-- **No batch copy rewrite triggered.** Each rewrite pass must be explicitly requested and scoped.
+- **No frontend touched.** Source's hard rule preserved.
+- **No batch image-SEO sweep triggered.** Each pass scoped on request.
 - **No edits to existing source/partner files.**
-- **No router/decision-index changes.**
+- **No moves/renames of the existing `experience-prompts/seo-*` files.**
+- **No image asset edits, no filename changes, no `<img>` tag edits in any component.**
 - **No Supabase / edge function / package.json changes.**
 
 ## After this turn
 
-Whenever any prompt asks to refine wording, rewrite a section, improve tone, punch up a CTA, write a story, write microcopy, write FAQs, write footer sign-off, write thank-you copy, or "make this read more premium," the system reads:
+Whenever any prompt asks about images, alt text, filenames, formats, performance, OG/Twitter cards, image sitemaps, structured data for images, GBP photos, local SEO via images, CDN/caching, or visual search, the system reads:
 
 1. `governance/knowledge-system-charter`
-2. `messaging/round-two-copywrite-storytelling-persona` ← **this embed**
-3. The active brand's identity / footer / agency-credit / voice memories
-4. Co-consulted partners (SEO virtuoso, SEO FAQ, master-design persona) where relevant
+2. `seo/image-seo-local-visibility-persona` ← **this embed**
+3. `experience-prompts/seo-virtuoso-persona` (general SEO context)
+4. `messaging/round-two-copywrite-storytelling-persona` (alt-text voice)
+5. Calem Wood image / hero / parallax / mobile memories
 
-Result: every word in the codebase moves toward narrative-backbone-anchored, brand-voiced, conversion-aware, accessible copy — without ever pretending it can change a single design element.
+Result: every image decision moves toward indexable, performant, accessible, locally-relevant, brand-voiced — without a single design change.
