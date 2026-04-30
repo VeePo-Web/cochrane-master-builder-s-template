@@ -72,6 +72,20 @@ SEO, programmatic SEO, etc.). All entries enforce the source's hard rule:
 
 ---
 
+## Navigation — Wayfinding & Sitewide Nav Systems (`navigation/`)
+
+Function-scoped playbooks for navbars, footer-nav coherence, mobile menus,
+dropdowns, breadcrumbs, ARIA, keyboard maps, and scroll-driven nav behaviour.
+Binding rules from the source: **never write a "no changes needed" nav
+plan**, **navigation must be sitewide consistent**, and **nav + footer must
+read as one composition** (the "Easter egg" coincidence).
+
+| File | Format | Status | One-line label |
+|------|--------|--------|----------------|
+| `source-documents/navigation/navigation-architect-persona.source.md` | Markdown (verbatim DOCX) | partnered | Navigation Architect persona — 8-step process (Discovery→IA→Responsive→Visual→Accessibility→Personalization→Testing→Documentation) + 10-step implementation plan + principles (Hick's/Fitts's/Serial Position) + patterns (mega/drop/hamburger/bottom/full-screen/sidebar/search) + 7 what-if concepts + tone & voice. Always-propose-a-refinement rule. Nav↔footer Easter-egg coherence. |
+
+---
+
 ## Cochrane Master Builders Corp. (`brands/cochrane-master-builders/`)
 
 Brand slug: `cochrane-master-builders`
