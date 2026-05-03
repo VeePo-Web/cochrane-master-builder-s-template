@@ -83,6 +83,7 @@ read as one composition** (the "Easter egg" coincidence).
 | File | Format | Status | One-line label |
 |------|--------|--------|----------------|
 | `source-documents/navigation/navigation-architect-persona.source.md` | Markdown (verbatim DOCX) | partnered | Navigation Architect persona — 8-step process (Discovery→IA→Responsive→Visual→Accessibility→Personalization→Testing→Documentation) + 10-step implementation plan + principles (Hick's/Fitts's/Serial Position) + patterns (mega/drop/hamburger/bottom/full-screen/sidebar/search) + 7 what-if concepts + tone & voice. Always-propose-a-refinement rule. Nav↔footer Easter-egg coherence. |
+| ↳ `source-documents/navigation/navigation-architect-persona.v3.source.md` | Markdown (verbatim DOCX) | provenance-only | v3 snapshot of `-3.docx` upload — substantively identical to canonical v2. Routing stays on the v2 partner; this entry exists for audit trail only. |
 
 ---
 
