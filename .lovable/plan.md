@@ -1,35 +1,35 @@
-## Plan — Embed "World-Class Performance Engineer" persona
+## Plan — Embed "Mobile Wrapping & Responsive Design Visionary" persona
 
-New function-scoped category: **Performance & Speed**. The source is a 7-page React 18 + Vite performance playbook (Core Web Vitals, asset optimization, critical render path, caching, React concurrency, Vite-specific tuning, third-party hygiene, monitoring). The trailing directive locks it to **performance-only changes — never touch design**.
+New function-scoped category: **Mobile & Responsive Wrapping**. Source is a Fantasy/R-GA/Frog/ustwo/Huge 50-year responsive-design persona (One Web, content prioritization, mobile nav patterns, fluid type, art direction, 4G perf budget, breakpoints, container queries, WCAG, QA). Closing directive is binding: **desktop design frozen — mobile is page-by-page, section-by-section.**
 
 ### Files to create
 
-1. **`src/master/knowledge/source-documents/performance/react-vite-performance-engineer-persona.source.md`**
-   - Verbatim, untouched copy of the parsed DOCX (all 11 sections + Conclusion + the all-caps "DO NOT CHANGE ANY DESIGN" closing directive).
-   - Frontmatter only (name, category, status: partnered, source filename).
+1. **`src/master/knowledge/source-documents/mobile/mobile-wrapping-responsive-persona.source.md`** — verbatim DOCX content + closing all-caps directive, frontmatter only.
 
-2. **`src/master/knowledge/partner-documents/performance/react-vite-performance-engineer-persona.partner.md`**
-   - Full Calem Wood Detailing interpretation layer:
-     - **Binding rules**: zero design/layout/motion/copy changes; LCP ≤ 2.5s, INP ≤ 200ms, CLS < 0.1; performance budgets enforced; measure before optimizing.
-     - **Brand-specific guards**: hero image (`hero-vehicle.jpg`) is preload-priority but its choreography (loading sequence, Ken Burns, parallax 130%/-15%) MUST NOT be altered to chase LCP. Cinematic motion (Framer Motion, GSAP-style reveals, cloth wipe, split-curtain) is sacrosanct — optimize via `will-change`, GPU compositing, `prefers-reduced-motion` fallbacks, never by removing or shortening animations.
-     - **Asset rules mapped to brand**: AVIF/WebP for all macro-detailing photography; preload hero; lazy-load below-fold; CDN-friendly hashed filenames; font-display: swap on Space Grotesk + Jost; subset to used glyphs.
-     - **React rules mapped**: `React.memo` on heavy section blocks; `useTransition` for filter/booking-step transitions; never memoize at the cost of motion smoothness; virtualize long lists if any appear.
-     - **Vite rules mapped**: avoid barrel files in `src/components/*`; explicit `.tsx` imports; `server.warmup` for hero + booking modal modules; visualizer audit before each release.
-     - **Booking modal**: singleton in `App.tsx` rule (existing memory) is performance-aligned — partner reaffirms it; pointer-events gating during AnimatePresence exit must stay deterministic.
-     - **Decision triggers** (when to consult): "the site feels slow", "improve LCP/INP/CLS", "Lighthouse audit", "bundle is too big", "lazy-load X", "image optimization", "fonts are flashing", "scroll is janky", "First load is heavy", "preload hero", "code-split routes", "third-party script audit", "hydration cost", "RUM / Core Web Vitals".
-     - **Conflict rule with design memories**: if a perf optimization would violate Hero Section Lock, Motion Philosophy, Cloth Wipe, Loading Sequence, Parallax Coverage Specs, or Booking Modal Architecture → **design memories win**; find a different perf path.
-     - **Related docs**: links to Animations, Navigation, SEO Image personas, governance charter.
-   - Practical examples (3–4): preloading hero, code-splitting the booking modal, optimizing the loading sequence without shortening it, third-party tracker audit.
+2. **`src/master/knowledge/partner-documents/mobile/mobile-wrapping-responsive-persona.partner.md`** — Calem Wood interpretation layer:
+   - **Hard binding rules**: desktop frozen (any shared component must be forked via responsive prefix or `useIsMobile`), One Web parity, page-by-page plans first, 48 px touch minimums, 4G perf default.
+   - **Brand-specific guards** mapped to memories:
+     - 390 px target, safe-area, 92 dvh full-screen panels, sticky booking-bar clearance.
+     - Booking modal: singleton stays; mobile collapses to 540 px paper-form panel only (bone brand stack is `lg+` only); native camera trigger for photo step; auto-advance + dot indicator + seam preserved.
+     - Hero: portrait `<picture>` swap under `(max-width: 768px)`; loading sequence, CW monogram, Ken Burns, interactive shine all preserved on mobile; parallax 130%/-15% retained with `prefers-reduced-motion` fallback.
+     - Motion: cloth wipe full-bleed on mobile; logo parallax desktop-only; reduced-motion *simplifies, never removes*.
+     - Typography: 13 px floor, 14–16 px body @ 1.7 line-height, `clamp()` for displays; footer sign-off `clamp(4rem, 12vw, 10rem)` curve preserved.
+     - Navigation: 80 px desktop bar untouched; 64 px mobile bar + hamburger → 92 dvh full-screen panel; copper-fill active states; sticky thumb-zone Book CTA; no bottom nav.
+     - Imagery: macro detailing crops re-tightened for mobile, no human imagery, no stock substitutions.
+     - Visual rhythm: `py-48` → `py-24/28` mobile only; dividers 40–55vh → 24–32vh.
+   - **Decision triggers**: mobile, tablet, responsive, breakpoint, viewport, hamburger, touch target, iPhone/Android, 390, safe area, thumb zone, art direction, container queries, fluid type, "looks bad on phone", "overflows on mobile".
+   - **Conflict ladder**: binding rules → brand guards/memories → Performance Engineer partner → governance → generic persona. Generic suggestions that violate Hero Section Lock, Loading Sequence, Motion Philosophy, Booking Modal Architecture, or Mobile Optimization memories lose.
+   - **Output discipline**: page→section inventory, per-section mobile spec, breakpoint table (≤390 / 391–600 / 601–1024 / 1025+), explicit desktop-impact audit, perf+accessibility checklist, QA matrix (390/430/iPad portrait+landscape).
+   - **Practical examples** (4): hero on mobile, booking modal cramped, mobile nav build, sections too tall.
+   - **Related docs**: Performance, Navigation, Animations, SEO Image, Master Design Persona, Governance.
 
-3. **`src/master/knowledge/INDEX.md`** — append a new top-level category:
-   - **Performance & Speed (`performance/`)** — function-scoped React 18 + Vite performance playbook. Hard rule: optimize without altering design or motion.
-   - One row pointing to the new source file.
+3. **`src/master/knowledge/INDEX.md`** — append a new top-level category **Mobile & Responsive Wrapping** above the brand section, with one row pointing to the new source file and a one-line label summarizing the persona + binding rule.
 
 ### What will NOT change
 - Front-end code (zero React/CSS/component edits).
-- Existing knowledge files.
-- Memory index (no new core rules; design memories already cover the guardrails this partner doc references).
-- `vite.config.ts`, build config, or any tooling.
+- Any existing knowledge files (other than the INDEX append).
+- `mem://index.md` — no new core rules; existing memories already cover the guardrails the partner doc references.
+- Build/Vite/tooling config.
 
-### Decision-routing behavior after embed
-Any future prompt about speed, LCP/INP/CLS, bundle size, lazy loading, image format, fonts, caching, hydration, or Lighthouse → consult the new partner doc, which then routes back to the canonical motion/hero/modal memories before proposing any change.
+### Decision-routing after embed
+Any future mobile/tablet/responsive prompt → consult this partner doc, which routes through the design memories and pairs with the Performance Engineer partner doc before any code is proposed. Desktop changes triggered by mobile work are forbidden.
