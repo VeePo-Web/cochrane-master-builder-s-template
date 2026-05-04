@@ -1,34 +1,35 @@
-## Plan — Embed Navigation Architect Persona (v3 snapshot)
+## Plan — Embed "World-Class Performance Engineer" persona
 
-The uploaded `GENERAL_PROMPT_for_NAV_BARS_AND_NAV_PAGES-3.docx` is byte-identical in content to the `-2.docx` already embedded last turn as the canonical Navigation Architect Persona. Per your selection, I will store it as a **versioned snapshot** for audit-trail purposes and route all decision logic back to the canonical v2 partner doc — so future AI consultations have a single source of truth and don't get confused by two parallel interpretation layers.
+New function-scoped category: **Performance & Speed**. The source is a 7-page React 18 + Vite performance playbook (Core Web Vitals, asset optimization, critical render path, caching, React concurrency, Vite-specific tuning, third-party hygiene, monitoring). The trailing directive locks it to **performance-only changes — never touch design**.
 
 ### Files to create
 
-1. **`src/master/knowledge/source-documents/navigation/navigation-architect-persona.v3.source.md`**
-   - Verbatim, untouched copy of the `-3.docx` content (all 11 pages, including the trailing `<mark>FANTASY.CO</mark>` instruction block).
-   - Frontmatter notes: `version: v3`, `uploaded: 2026-05-01`, `canonical: ./navigation-architect-persona.source.md`, `status: snapshot`.
-   - No edits, no cleanup, no summarization inside the file body.
+1. **`src/master/knowledge/source-documents/performance/react-vite-performance-engineer-persona.source.md`**
+   - Verbatim, untouched copy of the parsed DOCX (all 11 sections + Conclusion + the all-caps "DO NOT CHANGE ANY DESIGN" closing directive).
+   - Frontmatter only (name, category, status: partnered, source filename).
 
-2. **`src/master/knowledge/partner-documents/navigation/navigation-architect-persona.v3.partner.md`**
-   - Short partner doc (not a full re-interpretation).
-   - Explicitly states: this snapshot exists for provenance only; **all decision logic, brand mapping, Calem Wood adaptations, nav/footer coherence rules, mobile specs, and "Never No Changes" mandate live in the canonical partner doc** at `partner-documents/navigation/navigation-architect-persona.partner.md`.
-   - Includes a diff note: "Content matches v2 verbatim; no semantic delta detected. Treat v2 partner as authoritative."
-   - Trigger keywords intentionally **not** duplicated here — to avoid splitting the topic-index across two files.
+2. **`src/master/knowledge/partner-documents/performance/react-vite-performance-engineer-persona.partner.md`**
+   - Full Calem Wood Detailing interpretation layer:
+     - **Binding rules**: zero design/layout/motion/copy changes; LCP ≤ 2.5s, INP ≤ 200ms, CLS < 0.1; performance budgets enforced; measure before optimizing.
+     - **Brand-specific guards**: hero image (`hero-vehicle.jpg`) is preload-priority but its choreography (loading sequence, Ken Burns, parallax 130%/-15%) MUST NOT be altered to chase LCP. Cinematic motion (Framer Motion, GSAP-style reveals, cloth wipe, split-curtain) is sacrosanct — optimize via `will-change`, GPU compositing, `prefers-reduced-motion` fallbacks, never by removing or shortening animations.
+     - **Asset rules mapped to brand**: AVIF/WebP for all macro-detailing photography; preload hero; lazy-load below-fold; CDN-friendly hashed filenames; font-display: swap on Space Grotesk + Jost; subset to used glyphs.
+     - **React rules mapped**: `React.memo` on heavy section blocks; `useTransition` for filter/booking-step transitions; never memoize at the cost of motion smoothness; virtualize long lists if any appear.
+     - **Vite rules mapped**: avoid barrel files in `src/components/*`; explicit `.tsx` imports; `server.warmup` for hero + booking modal modules; visualizer audit before each release.
+     - **Booking modal**: singleton in `App.tsx` rule (existing memory) is performance-aligned — partner reaffirms it; pointer-events gating during AnimatePresence exit must stay deterministic.
+     - **Decision triggers** (when to consult): "the site feels slow", "improve LCP/INP/CLS", "Lighthouse audit", "bundle is too big", "lazy-load X", "image optimization", "fonts are flashing", "scroll is janky", "First load is heavy", "preload hero", "code-split routes", "third-party script audit", "hydration cost", "RUM / Core Web Vitals".
+     - **Conflict rule with design memories**: if a perf optimization would violate Hero Section Lock, Motion Philosophy, Cloth Wipe, Loading Sequence, Parallax Coverage Specs, or Booking Modal Architecture → **design memories win**; find a different perf path.
+     - **Related docs**: links to Animations, Navigation, SEO Image personas, governance charter.
+   - Practical examples (3–4): preloading hero, code-splitting the booking modal, optimizing the loading sequence without shortening it, third-party tracker audit.
 
-3. **`src/master/knowledge/INDEX.md`** (update)
-   - Under the existing **Navigation — Wayfinding & Sitewide Nav Systems** category, add a single sub-bullet under the canonical entry:
-     - `↳ v3 snapshot (provenance only) — source-documents/navigation/navigation-architect-persona.v3.source.md`
-   - No new top-level category. No new keyword routes. The canonical v2 entry remains the only one the decision-map points to.
+3. **`src/master/knowledge/INDEX.md`** — append a new top-level category:
+   - **Performance & Speed (`performance/`)** — function-scoped React 18 + Vite performance playbook. Hard rule: optimize without altering design or motion.
+   - One row pointing to the new source file.
 
 ### What will NOT change
-- `navigation-architect-persona.source.md` (canonical v2) — untouched.
-- `navigation-architect-persona.partner.md` (canonical v2) — untouched.
-- All other knowledge files — untouched.
-- Front-end code — untouched (zero React/CSS/component changes).
-- Memory index — untouched (no new core rules; nav specs already covered).
+- Front-end code (zero React/CSS/component edits).
+- Existing knowledge files.
+- Memory index (no new core rules; design memories already cover the guardrails this partner doc references).
+- `vite.config.ts`, build config, or any tooling.
 
 ### Decision-routing behavior after embed
-When future prompts ask about nav bars, footers, wayfinding, hover states, mobile menus, mega menus, breadcrumbs, accessibility of nav, or "Never No Changes" audits → the system will continue to consult the **canonical v2 partner doc only**. The v3 snapshot is reachable via direct path lookup but is not in the active decision rotation.
-
-### Rationale for this approach
-Embedding a second full partner doc with identical guidance would create two competing interpretation layers and dilute decision quality — the opposite of the intent. A thin provenance snapshot preserves the upload trail (in case you later upload a `-3.docx` that *does* differ and want to compare) without polluting the routing layer.
+Any future prompt about speed, LCP/INP/CLS, bundle size, lazy loading, image format, fonts, caching, hydration, or Lighthouse → consult the new partner doc, which then routes back to the canonical motion/hero/modal memories before proposing any change.
