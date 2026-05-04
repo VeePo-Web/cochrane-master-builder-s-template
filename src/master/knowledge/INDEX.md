@@ -103,6 +103,23 @@ Architecture, etc.) before shipping.
 
 ---
 
+## Mobile & Responsive Wrapping (`mobile/`)
+
+Function-scoped playbooks for mobile + tablet adaptation, breakpoints, touch
+ergonomics, mobile navigation patterns, art-direction crops, and "One Web"
+content prioritization. Hard binding rule from the source: **desktop design
+is frozen — mobile work must never alter the desktop experience.** Every
+mobile change is page-by-page, section-by-section, routes through the
+project's design memories (Hero Section Lock, Booking Modal Architecture,
+Mobile Optimization, Typography Legibility, Navigation Specs, etc.) and
+pairs with the Performance Engineer partner doc.
+
+| File | Format | Status | One-line label |
+|------|--------|--------|----------------|
+| `source-documents/mobile/mobile-wrapping-responsive-persona.source.md` | Markdown (verbatim DOCX) | partnered | 50-year Fantasy/R-GA/Frog/ustwo/Huge responsive design visionary persona — One Web philosophy, content prioritization, mobile nav patterns, fluid type, art direction (srcset + sizes + AVIF/WebP), 4G perf budget, micro-interactions, breakpoint strategy (320–375 / 480–600 / 768–1024 / 1280+), container queries, WCAG, QA matrix + binding "desktop untouched" rule. |
+
+---
+
 ## Cochrane Master Builders Corp. (`brands/cochrane-master-builders/`)
 
 Brand slug: `cochrane-master-builders`
