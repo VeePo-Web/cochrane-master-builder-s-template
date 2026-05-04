@@ -87,6 +87,22 @@ read as one composition** (the "Easter egg" coincidence).
 
 ---
 
+## Performance & Speed (`performance/`)
+
+Function-scoped technical playbooks for Core Web Vitals, asset/bundle/network
+optimization, React 18 concurrency, and Vite-specific tuning. Hard binding
+rule from the source: **never alter design, layout, motion, copy, or
+hierarchy as a side-effect of performance work.** All perf moves must route
+through the project's design memories (Hero Section Lock, Motion Philosophy,
+Loading Sequence, Cloth Wipe, Parallax Coverage Specs, Booking Modal
+Architecture, etc.) before shipping.
+
+| File | Format | Status | One-line label |
+|------|--------|--------|----------------|
+| `source-documents/performance/react-vite-performance-engineer-persona.source.md` | Markdown (verbatim DOCX) | partnered | World-class React 18 + Vite performance engineer persona — 11-section playbook (perf-first mindset, asset optimization, minify/compress/bundle, critical render path, network/protocols, caching, React concurrency + memoization + SSR/RSC, Vite-specific tuning, third-party hygiene, monitor/iterate, emerging trends) + binding "no design changes" rule. LCP ≤ 2.5s / INP ≤ 200ms / CLS < 0.1 targets. |
+
+---
+
 ## Cochrane Master Builders Corp. (`brands/cochrane-master-builders/`)
 
 Brand slug: `cochrane-master-builders`
