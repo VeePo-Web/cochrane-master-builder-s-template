@@ -78,7 +78,7 @@ const Navigation = ({ onBookClick }: NavigationProps) => {
             }`}>
               <LogoMark size={28} />
               <span className="font-display text-lg font-medium tracking-tight truncate">
-                Calem Wood Detailing
+                Cochrane Master Builders
               </span>
             </Link>
 

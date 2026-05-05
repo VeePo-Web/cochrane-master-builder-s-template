@@ -145,7 +145,7 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
   const persistAndNotify = useCallback(async () => {
     // Best-effort persistence + email. Failures are silent to the user — the
     // animation/success state still completes so the customer never sees a
-    // technical error. Calem can follow up via the contact channels shown.
+    // technical error. Cochrane Master Builders can follow up via the contact channels shown.
     try {
       const id = crypto.randomUUID();
       const serviceLabel = services.find((s) => s.id === selectedService)?.name;
@@ -344,7 +344,7 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
                 className="w-16 h-px bg-gradient-to-r from-transparent via-copper/40 to-transparent origin-center"
               />
 
-              {/* "CALEM WOOD" — character-by-character stagger */}
+              {/* "COCHRANE MASTER BUILDERS" — character-by-character stagger */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -353,7 +353,7 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
                 className="text-center"
               >
                 <p className="font-display text-display-sm text-foreground/90 tracking-[0.08em]">
-                  {"CALEM WOOD".split("").map((char, i) => (
+                  {"COCHRANE MASTER BUILDERS".split("").map((char, i) => (
                     <motion.span
                       key={i}
                       initial={{ opacity: 0, y: 8 }}
@@ -370,7 +370,7 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
                 <motion.p
                   initial={{ opacity: 0, x: 12 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.6 + "CALEM WOOD".length * 0.03 + 0.05, ease: panelEase }}
+                  transition={{ duration: 0.4, delay: 0.6 + "COCHRANE MASTER BUILDERS".length * 0.03 + 0.05, ease: panelEase }}
                   className="font-overline text-caption tracking-[0.3em] text-copper/60 uppercase mt-1"
                 >
                   Detailing
@@ -382,7 +382,7 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.4, delay: 0.6 + "CALEM WOOD".length * 0.03 + 0.25 }}
+                transition={{ duration: 0.4, delay: 0.6 + "COCHRANE MASTER BUILDERS".length * 0.03 + 0.25 }}
                 className="text-body-sm text-muted-foreground/30 tracking-[0.15em] uppercase"
               >
                 Calgary, Alberta

@@ -129,7 +129,7 @@ The source contains paste artefacts and references from a prior context. Per `go
 - **Service-area taxonomy:** `brands/cochrane-master-builders/strategy/1.3_…` (which location FAQs to add and on which sub-pages)
 - **Brand voice / tone:** `brands/cochrane-master-builders/brand-identity/1.2.2_…`
 - **ICP personas:** `brands/cochrane-master-builders/personas-icp/1.4.1` (subcontractors), `1.4.2` (mothers), `1.4.3` (grandfathers)
-- **UX / component design:** `brands/cochrane-master-builders/ux-design/1.3.1_…` and the Calem-Wood design memories (`mem://design/component-styling`, `mem://design/editorial-divider-specs`, `mem://constraints/typography-legibility`) for the *visual* treatment of FAQ accordions.
+- **UX / component design:** `brands/cochrane-master-builders/ux-design/1.3.1_…` and the Cochrane Master Builders-Wood design memories (`mem://design/component-styling`, `mem://design/editorial-divider-specs`, `mem://constraints/typography-legibility`) for the *visual* treatment of FAQ accordions.
 - **Future:** any per-page FAQ canonical registry (a JSON or MD list of "question → canonical page") should be created the first time we duplicate an FAQ across two pages.
 
 ## 12. Practical examples

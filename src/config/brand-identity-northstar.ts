@@ -1,10 +1,10 @@
 /**
- * CALEM WOOD — Brand Identity North Star
+ * COCHRANE MASTER BUILDERS — Brand Identity North Star
  * 
  * DECISION-MAKING REFERENCE ONLY. Does not render anything.
  * 
  * This is the RESOLVED output of the Brand Identity Architect process.
- * Every design, copy, layout, and interaction decision for the Calem Wood
+ * Every design, copy, layout, and interaction decision for the Cochrane Master Builders
  * website must pass through this document. No ambiguity. One direction.
  * 
  * Category: Mobile Auto Detailing — Calgary, Alberta
@@ -103,7 +103,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
       "How prominently 'neglected car' language is used — can be direct or implied, depending on context",
       "Photography processing — natural vs slightly graded, as long as authentic",
       "Accent color intensity — can be bold or restrained, must always feel energetic and actionable",
-      "Amount of founder personality shown — can feature Calem directly or let the work speak",
+      "Amount of founder personality shown — can feature Cochrane Master Builders directly or let the work speak",
     ],
     dealbreakers: [
       "Luxury-coded language or aesthetics (gold, marble, script fonts, 'bespoke experience')",
@@ -154,7 +154,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
   // SECTION 4 — POSITIONING & CATEGORY OWNERSHIP
   // ═══════════════════════════════════════════════════════════════════
   positioning: {
-    statement: "Calem Wood is Calgary's mobile vehicle restoration service for drivers whose cars have crossed into problem-state. By delivering deep interior extraction, paint restoration, and a full sensory reset directly to the customer's location — with travel included — Calem transforms neglected vehicles into spaces that feel factory-fresh again. This is not a car wash. This is getting your car back.",
+    statement: "Cochrane Master Builders is Calgary's mobile vehicle restoration service for drivers whose cars have crossed into problem-state. By delivering deep interior extraction, paint restoration, and a full sensory reset directly to the customer's location — with travel included — Cochrane Master Builders transforms neglected vehicles into spaces that feel factory-fresh again. This is not a car wash. This is getting your car back.",
     categoryOwned: "Mobile Vehicle Restoration",
     uniqueMechanisms: [
       { mechanism: "Mobile delivery", description: "The entire service comes to the customer. No drop-offs, no coordination, no wasted time." },
@@ -172,7 +172,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
         "Customer reviews quoting specific outcomes ('the smell is gone,' 'it looks brand new,' 'I can't believe the difference')",
         "Pricing transparency — clear pricing with 'travel included' prominently stated",
         "Service area map — visual confirmation of Calgary-wide coverage",
-        "Founder presence — Calem's face, name, and personal commitment to the work",
+        "Founder presence — Cochrane Master Builders's face, name, and personal commitment to the work",
       ],
       mustNotShow: [
         "Stock photography of showroom-condition vehicles",
@@ -244,7 +244,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
         { objection: "~$100 seems too cheap for a full detail", response: "Transparent pricing with travel included. No hidden fees, no upsells at the door. You get the full reset." },
         { objection: "Can mobile really do as good a job as a shop?", response: "Before/after proof from hundreds of Calgary vehicles. Same equipment, same products, delivered to your driveway." },
         { objection: "My car might be too dirty", response: "The worse the condition, the more dramatic the transformation. That's where we do our best work." },
-        { objection: "I don't know if I can trust someone at my home", response: "Reviews, real name, real face. Calem shows up, does the work, and you watch it happen." },
+        { objection: "I don't know if I can trust someone at my home", response: "Reviews, real name, real face. Cochrane Master Builders shows up, does the work, and you watch it happen." },
         { objection: "What if I'm not satisfied?", response: "The proof is in every before/after. We don't leave until the reset is complete." },
         { objection: "I can just go to a car wash", response: "A car wash moves surface dirt. We extract what's embedded — grime, smell, buildup, everything a wash can't reach." },
       ],
@@ -259,8 +259,8 @@ export const BRAND_IDENTITY_NORTHSTAR = {
     narrativeSpine: {
       neglectBuilds: "Life gets busy. The car gets pushed down the list. Crumbs accumulate, stains set, the smell settles in. What started as 'I'll clean it this weekend' becomes months of avoidance.",
       thresholdHit: "Then one day — someone needs a ride, a client gets in, or the owner just can't take it anymore. The gap between how the car feels and how they want it to feel becomes unbearable.",
-      discoveryMoment: "They find Calem Wood. Mobile. Calgary-wide. Travel included. No drop-off, no hassle. A real reset, not just a rinse.",
-      theReset: "Calem shows up. The extraction pulls out what nobody wants to see. The interior transforms. The paint comes back. The vehicle that was a source of low-grade stress becomes a source of genuine satisfaction.",
+      discoveryMoment: "They find Cochrane Master Builders. Mobile. Calgary-wide. Travel included. No drop-off, no hassle. A real reset, not just a rinse.",
+      theReset: "Cochrane Master Builders shows up. The extraction pulls out what nobody wants to see. The interior transforms. The paint comes back. The vehicle that was a source of low-grade stress becomes a source of genuine satisfaction.",
       carBack: "They sit in their car and it feels different. Not just cleaner — reset. Factory-fresh. Like getting it back. The pride, the relief, the satisfaction of a vehicle that feels cared for again.",
     },
     repeatableThemes: [
@@ -268,7 +268,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
       { theme: "The Reveal", description: "The dramatic moment of seeing the result. The extraction bucket. The paint correction. The first look inside." },
       { theme: "The Relief", description: "The emotional exhale of having it handled. Not just clean — off your plate. Someone else took care of it." },
       { theme: "The Return", description: "Getting your car back. Not a different car — YOUR car, the way it used to feel. Factory-fresh, familiar, yours again." },
-      { theme: "The Standard", description: "Calem's personal commitment to a level of finish. Not good enough ≠ done. The standard is factory-feel or it's not finished." },
+      { theme: "The Standard", description: "Cochrane Master Builders's personal commitment to a level of finish. Not good enough ≠ done. The standard is factory-feel or it's not finished." },
     ],
     signatureMoments: [
       "The before/after reveal — documented, shared, celebrated",
@@ -282,7 +282,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
       "Extraction close-ups showing embedded dirt, grime, and buildup removed",
       "Side-by-side paint correction: before haze vs restored clarity",
       "Customer reviews with specific language: 'smells new,' 'can't believe the difference,' 'finally feels like my car again'",
-      "Real-time process documentation: Calem working on a real Calgary vehicle",
+      "Real-time process documentation: Cochrane Master Builders working on a real Calgary vehicle",
       "Repeat customer bookings — people who come back because the first reset was that good",
     ],
     taglineDirections: [
@@ -475,7 +475,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
         ],
         subheads: [
           "Every job is documented — because the transformation speaks louder than any claim.",
-          "Real vehicles in Calgary, restored by Calem Wood, photographed before and after.",
+          "Real vehicles in Calgary, restored by Cochrane Master Builders, photographed before and after.",
           "Our customers don't say 'it's clean.' They say 'it feels brand new.'",
           "We publish extraction results because the proof is in what comes out.",
           "Scroll through real jobs and decide for yourself.",
@@ -607,14 +607,14 @@ export const BRAND_IDENTITY_NORTHSTAR = {
       },
       {
         trait: "Grounded",
-        soundsLike: "This is a Calgary-based mobile service. Calem shows up in your driveway and restores your car.",
+        soundsLike: "This is a Calgary-based mobile service. Cochrane Master Builders shows up in your driveway and restores your car.",
         neverSoundsLike: "Our bespoke concierge automotive renewal experience transcends traditional detailing paradigms.",
       },
     ],
     toneModulation: {
       website: "Confident, warm, proof-driven. Lead with outcomes, support with specifics. Short paragraphs, direct language, before/after imagery doing the heavy lifting.",
       ads: "Punchy, visual, outcome-first. One strong hook + before/after image + CTA. No fluff. 'Your car, restored. We come to you. Book now.'",
-      social: "Casual, satisfying, visual. Show the work. Let the transformation speak. Occasional Calem personality. Calgary-local references.",
+      social: "Casual, satisfying, visual. Show the work. Let the transformation speak. Occasional Cochrane Master Builders personality. Calgary-local references.",
       bookingConfirmation: "Clear, friendly, practical. Confirm what's happening, when, where. Set expectations. 'See you [day] at [location]. We'll handle the rest.'",
       followUp: "Warm, appreciative, proof-collecting. Thank the customer. Ask for a review. Share the before/after. 'Your car looks incredible. Mind if we share?'",
     },
@@ -659,7 +659,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
       bad: [
         "We are a premium mobile detailing company offering world-class services to discerning vehicle owners.",
         "Our team of experienced professionals takes pride in delivering exceptional results with attention to every detail.",
-        "At Calem Wood, we believe in providing affordable, quality car cleaning services to the Calgary community.",
+        "At Cochrane Master Builders, we believe in providing affordable, quality car cleaning services to the Calgary community.",
         "Experience the luxury of having your vehicle professionally cleaned without leaving home.",
         "We go above and beyond to ensure complete customer satisfaction on every job.",
       ],
@@ -685,7 +685,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
       "Real job photography — recognizably Calgary, recognizably real",
       "Pricing visibility — '$100 full detail, travel included' is shown early and clearly",
       "Review integration — specific customer quotes about outcomes, not generic praise",
-      "Founder presence — Calem's name, face, and personal standard visible throughout",
+      "Founder presence — Cochrane Master Builders's name, face, and personal standard visible throughout",
       "Process transparency — showing the extraction, the tools, the work in progress",
     ],
     photography: {
@@ -694,7 +694,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
         "Extraction close-ups: dirty water, debris removed, seat transformation",
         "Paint correction reveals: the wipe that shows restored finish",
         "Real Calgary locations: driveways, parking lots, residential streets",
-        "Calem at work: authentic action shots, not posed",
+        "Cochrane Master Builders at work: authentic action shots, not posed",
         "Interior panoramas: the full cabin transformation",
         "Detail shots: clean door jambs, restored cup holders, fresh floor mats",
       ],
@@ -896,7 +896,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
     primary: {
       name: "Caregiver-Creator Hybrid",
       description: "The Caregiver restores what matters — taking responsibility for something the customer can't or won't handle themselves, and doing it with genuine care. The Creator takes pride in craft — the work itself is a source of satisfaction, and the standard is personal, not corporate.",
-      manifestation: "Calem doesn't just clean cars. He restores something the owner had stopped feeling good about. The care is real. The craft is visible. The standard is 'factory-feel or it's not done.'",
+      manifestation: "Cochrane Master Builders doesn't just clean cars. He restores something the owner had stopped feeling good about. The care is real. The craft is visible. The standard is 'factory-feel or it's not done.'",
     },
     supporting: {
       name: "Everyman",
@@ -906,7 +906,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
     rejected: [
       {
         archetype: "Hero",
-        reason: "The Hero archetype positions the brand as the central figure who overcomes challenges. But in this story, the customer is the one with the problem. Calem is the guide, not the hero. Making the brand the hero would shift focus away from the customer's transformation.",
+        reason: "The Hero archetype positions the brand as the central figure who overcomes challenges. But in this story, the customer is the one with the problem. Cochrane Master Builders is the guide, not the hero. Making the brand the hero would shift focus away from the customer's transformation.",
       },
       {
         archetype: "Ruler",

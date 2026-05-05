@@ -32,7 +32,7 @@ const Footer = ({ onBookClick }: FooterProps) => {
               <div className="flex items-center gap-2.5 text-porcelain">
                 <LogoMark size={28} />
                 <h3 className="font-display text-display-sm text-porcelain">
-                  Calem Wood Detailing
+                  Cochrane Master Builders
                 </h3>
               </div>
               <p className="font-body text-caption text-porcelain/30">
@@ -90,10 +90,10 @@ const Footer = ({ onBookClick }: FooterProps) => {
                 </p>
                 <div className="flex flex-col space-y-2.5">
                   <a
-                    href="mailto:hello@calemwood.ca"
+                    href="mailto:hello@cochranemasterbuilders.ca"
                     className="font-body text-body-sm text-porcelain/40 hover:text-porcelain/70 transition-colors duration-300 w-fit"
                   >
-                    hello@calemwood.ca
+                    hello@cochranemasterbuilders.ca
                   </a>
                   <a
                     href="tel:+13062097804"
@@ -105,7 +105,7 @@ const Footer = ({ onBookClick }: FooterProps) => {
                     Call or text — text is fastest.
                   </span>
                   <a
-                    href="https://instagram.com/calemwooddetailing"
+                    href="https://instagram.com/cochranemasterbuilders"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-body text-body-sm text-porcelain/40 hover:text-porcelain/70 transition-colors duration-300 w-fit"
@@ -127,7 +127,7 @@ const Footer = ({ onBookClick }: FooterProps) => {
             className="font-display text-[clamp(3rem,10vw,8rem)] leading-none text-porcelain/[0.08] select-none transition-all duration-700 hover:text-porcelain/[0.12] hover:scale-[1.005] origin-left"
             aria-hidden="true"
           >
-            Calem Wood Detailing
+            Cochrane Master Builders
           </motion.p>
         </ScrollReveal>
       </div>
@@ -136,7 +136,7 @@ const Footer = ({ onBookClick }: FooterProps) => {
       <div className="border-t border-porcelain/8">
         <div className="container mx-auto px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-body text-caption text-porcelain/40">
-            © {currentYear} Calem Wood Detailing · Calgary, Alberta
+            © {currentYear} Cochrane Master Builders · Calgary, Alberta
           </p>
           <div className="flex items-center gap-2">
             <Link to="/privacy" className="font-body text-caption text-porcelain/40 hover:text-porcelain/60 transition-colors">

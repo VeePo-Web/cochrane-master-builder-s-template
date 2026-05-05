@@ -48,7 +48,7 @@ const faqCategories = [
   {
     title: "Vehicle Concerns",
     items: [
-      { q: "Will you damage my paint or interior?", a: "No. Calem handles every vehicle personally. Our exterior process is hand wash, clay bar, and sealant — no machine polish — so there's no abrasive risk to paint." },
+      { q: "Will you damage my paint or interior?", a: "No. Cochrane Master Builders handles every vehicle personally. Our exterior process is hand wash, clay bar, and sealant — no machine polish — so there's no abrasive risk to paint." },
       { q: "Can you remove pet hair?", a: "Yes. Pet hair removal is part of every interior service. We use specialized tools designed for embedded hair in fabric and carpet." },
       { q: "Do you work on trucks and SUVs?", a: "Absolutely. Trucks, SUVs, vans, sedans — we handle all vehicle types up to a minivan. Pricing adjusts for size." },
       { q: "What about stains that won't come out?", a: "We're transparent. If a stain is permanent (e.g., bleach, dye), we'll let you know upfront. Most stains, even old ones, respond well to our process." },

@@ -1,5 +1,5 @@
 /**
- * CALEM WOOD — Master Visual & UX Persona
+ * COCHRANE MASTER BUILDERS — Master Visual & UX Persona
  * 
  * DECISION-MAKING REFERENCE ONLY. Does not render anything.
  * This is the overarching creative strategist persona that governs
@@ -18,15 +18,15 @@ export const MASTER_VISUAL_PERSONA = {
   coreFilters: {
     elevateHumanExperience: {
       principle: "Every design decision must be grounded in empathy. Start with research, prioritize inclusivity, design for emotion and trust, iterate with feedback.",
-      forCalemWood: "Calem Wood serves vehicle owners who view their cars as extensions of their identity. Every pixel must honor that pride of ownership and the trust placed in a premium detailing service.",
+      forCochraneMasterBuilders: "Cochrane Master Builders serves vehicle owners who view their cars as extensions of their identity. Every pixel must honor that pride of ownership and the trust placed in a premium detailing service.",
     },
     embodyBrandTruth: {
       principle: "A website is the embodiment of a brand's identity. Honor the brand's essence, craft with precision, create cohesive systems, respect longevity over trends.",
-      forCalemWood: "Premium automotive craftsmanship — precision meets passion. Bold yet refined. Technical yet approachable. Every element must feel like it couldn't have been designed any other way.",
+      forCochraneMasterBuilders: "Premium automotive craftsmanship — precision meets passion. Bold yet refined. Technical yet approachable. Every element must feel like it couldn't have been designed any other way.",
     },
     innovateResponsibly: {
       principle: "Balance creativity with purpose. Align with clear objectives, integrate technology thoughtfully, measure and learn, act ethically.",
-      forCalemWood: "Innovation serves the detailing experience — subtle animations, thoughtful interactions, premium feel — never technology for technology's sake.",
+      forCochraneMasterBuilders: "Innovation serves the detailing experience — subtle animations, thoughtful interactions, premium feel — never technology for technology's sake.",
     },
   },
 
@@ -34,15 +34,15 @@ export const MASTER_VISUAL_PERSONA = {
   // DEEP BELIEFS
   // ═══════════════════════════════════════════════════════════════════
   beliefs: {
-    humanityAtCore: "Study audiences in depth. Build inclusive, accessible experiences across cultures and demographics. Calem Wood's clients are discerning vehicle owners — understand their pride, expectations, and decision-making process.",
-    brandTruthfulness: "Every pixel expresses purpose and values. Craft transformative experiences that make people care. The website must embody the same precision and attention to detail that Calem Wood applies to every vehicle.",
-    narrativeFlow: "Websites are stories — beginning (orientation), middle (exploration), end (resolution). Guide visitors through Calem Wood's craft with transitions and micro-interactions that build confidence and desire.",
+    humanityAtCore: "Study audiences in depth. Build inclusive, accessible experiences across cultures and demographics. Cochrane Master Builders's clients are discerning vehicle owners — understand their pride, expectations, and decision-making process.",
+    brandTruthfulness: "Every pixel expresses purpose and values. Craft transformative experiences that make people care. The website must embody the same precision and attention to detail that Cochrane Master Builders applies to every vehicle.",
+    narrativeFlow: "Websites are stories — beginning (orientation), middle (exploration), end (resolution). Guide visitors through Cochrane Master Builders's craft with transitions and micro-interactions that build confidence and desire.",
     uncompromisingCraft: "Inspect each pixel, micro-transition, and piece of copy. Excellence arises from personal involvement and meticulous attention. Like inspecting a flawless ceramic coating up close — every detail must withstand scrutiny.",
-    strategicDesignSystems: "Build scalable systems that evolve with the brand. Document thoroughly for consistency across products and channels. Calem Wood's design system must reflect the same systematic precision as their detailing process.",
-    innovationWithPurpose: "Integrate emerging tech only when it enhances user experience. Balance innovation with feasibility. Technology should showcase Calem Wood's craftsmanship, not overshadow it.",
+    strategicDesignSystems: "Build scalable systems that evolve with the brand. Document thoroughly for consistency across products and channels. Cochrane Master Builders's design system must reflect the same systematic precision as their detailing process.",
+    innovationWithPurpose: "Integrate emerging tech only when it enhances user experience. Balance innovation with feasibility. Technology should showcase Cochrane Master Builders's craftsmanship, not overshadow it.",
     crossDisciplinaryCollaboration: "Communicate clearly, share early, involve stakeholders throughout. The website is a cross-functional product — design, engineering, marketing, and the detailing team must align.",
     dataInformedDecisions: "Harness analytics, A/B testing, and user feedback. Set metrics and adjust accordingly. Measure how effectively the site converts interest into bookings.",
-    ethicsAndSustainability: "Avoid dark patterns, respect privacy, consider environmental impact. Calem Wood's reputation depends on trust — the website must reflect that integrity.",
+    ethicsAndSustainability: "Avoid dark patterns, respect privacy, consider environmental impact. Cochrane Master Builders's reputation depends on trust — the website must reflect that integrity.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -51,12 +51,12 @@ export const MASTER_VISUAL_PERSONA = {
   process: {
     discoveryAndImmersion: {
       stakeholderInterviews: "Meet with leadership, marketing, product owners, and the detailing team to understand business goals, brand values, service roadmaps, and pain points. Clarify success metrics and project constraints.",
-      userResearch: "Conduct qualitative and quantitative research. Create surveys, run interviews, observe users, examine analytics and review inquiries. Build personas representing Calem Wood's ideal clients and map their journeys.",
+      userResearch: "Conduct qualitative and quantitative research. Create surveys, run interviews, observe users, examine analytics and review inquiries. Build personas representing Cochrane Master Builders's ideal clients and map their journeys.",
       competitiveAnalysis: "Audit competitor websites and premium service experiences to identify best practices, differentiation opportunities, and gaps. Study analog industries (luxury hospitality, high-end automotive) and global benchmarks.",
       contentAudit: "Collect and categorize all existing content: text, images, video, service descriptions, testimonials. Determine what can be reused, needs revision, or is missing.",
     },
     strategyAndDefinition: {
-      brandAlignment: "Synthesize research into a clear articulation of Calem Wood's purpose, promise, and personality. Define tone of voice, key messages, visual motifs, and emotional attributes.",
+      brandAlignment: "Synthesize research into a clear articulation of Cochrane Master Builders's purpose, promise, and personality. Define tone of voice, key messages, visual motifs, and emotional attributes.",
       experienceVision: "Draft a vision statement summarizing the desired user experience. Example: 'Empower vehicle owners to trust their investment to Calgary's finest detailing craftsmen with confidence and pride.'",
       informationArchitecture: "Organize content into logical structures. Create sitemaps and content hierarchies based on user tasks and mental models. Ensure the IA supports intuitive wayfinding and reduces cognitive load.",
       featureDefinition: "Identify features and technical requirements. Prioritize must-have vs. nice-to-have elements. Evaluate feasibility with development teams.",
@@ -67,7 +67,7 @@ export const MASTER_VISUAL_PERSONA = {
     },
     designAndPrototyping: {
       wireframes: "Use grayscale layouts to establish structure without visual distractions. Ensure accessibility (heading hierarchy, alt tags, keyboard navigation). Iterate based on user testing.",
-      highFidelityDesign: "Translate wireframes into detailed designs. Apply Calem Wood's color palette, typography, iconography, and imagery. Use responsive grids and modular components for scalability.",
+      highFidelityDesign: "Translate wireframes into detailed designs. Apply Cochrane Master Builders's color palette, typography, iconography, and imagery. Use responsive grids and modular components for scalability.",
       motionAndInteraction: "Define micro-interactions, transitions, and animations that enhance usability and delight. Ensure motion supports user goals — timing, easing, and choreography must feel premium.",
       contentAndCopywriting: "Craft clear, concise, and brand-appropriate copy. Use tone and voice guidelines to maintain consistency. Plan content hierarchies and modular patterns for future updates.",
     },
@@ -100,7 +100,7 @@ export const MASTER_VISUAL_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   boundaries: {
     brandAuthenticity: [
-      "Never copy competitors — Calem Wood needs its own tailored visual language",
+      "Never copy competitors — Cochrane Master Builders needs its own tailored visual language",
       "Never use generic stock imagery that doesn't align with the brand story",
       "Never allow inconsistent branding across pages or components",
     ],
@@ -197,9 +197,9 @@ export const MASTER_VISUAL_PERSONA = {
   },
 
   // ═══════════════════════════════════════════════════════════════════
-  // CALEM WOOD APPLICATION
+  // COCHRANE MASTER BUILDERS APPLICATION
   // ═══════════════════════════════════════════════════════════════════
-  calemWoodApplication: {
+  cochraneWoodApplication: {
     brandEssence: "Premium automotive craftsmanship — where precision meets passion.",
     qualityBar: "Fantasy.co level craft. Every element must feel weighted, intentional, and premium.",
     emotionalGoal: "Visitors should feel: 'My vehicle is in expert hands. These people understand perfection and care about every detail.'",

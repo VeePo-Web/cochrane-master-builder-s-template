@@ -159,7 +159,7 @@ const LoadingScreen = ({ children, onComplete }: LoadingScreenProps) => {
                     }
                     transition={{ duration: 0.6, delay: 0, ease: EASE_OUT_EXPO }}
                   >
-                    Calem
+                    Cochrane Master Builders
                   </motion.span>
                   <motion.span
                     className="font-display text-display-lg tracking-[-0.03em] text-foreground"

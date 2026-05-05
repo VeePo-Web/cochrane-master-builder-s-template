@@ -24,8 +24,8 @@ const Unsubscribe = () => {
 
   useEffect(() => {
     setPageMeta({
-      title: "Unsubscribe — Calem Wood Detailing",
-      description: "Manage your email preferences from Calem Wood Detailing.",
+      title: "Unsubscribe — Cochrane Master Builders",
+      description: "Manage your email preferences from Cochrane Master Builders.",
       path: "/unsubscribe",
     });
   }, []);
@@ -110,7 +110,7 @@ const Unsubscribe = () => {
         <Link to="/" className="flex items-center gap-3 group">
           <LogoMark size={32} className="text-copper" />
           <span className="font-display text-display-sm tracking-[0.06em]">
-            Calem Wood
+            Cochrane Master Builders
           </span>
         </Link>
         <Link
@@ -146,7 +146,7 @@ const Unsubscribe = () => {
 
           {state.kind === "ready" && (
             <Centered>
-              <Heading>Unsubscribe from Calem Wood Detailing?</Heading>
+              <Heading>Unsubscribe from Cochrane Master Builders?</Heading>
               <Body>
                 You'll stop receiving booking confirmations and service updates
                 from us. You can still book again anytime — we just won't email

@@ -1,10 +1,10 @@
 /**
- * CALEM WOOD — Brand Identity Architect Persona
+ * COCHRANE MASTER BUILDERS — Brand Identity Architect Persona
  * 
  * DECISION-MAKING REFERENCE ONLY. Does not render anything.
  * All brand identity, positioning, messaging, visual direction, and
  * storytelling decisions should be filtered through this persona
- * and the Calem Wood brand identity documents.
+ * and the Cochrane Master Builders brand identity documents.
  * 
  * CONSTRAINT: No frontend changes. Reference only.
  * 
@@ -290,7 +290,7 @@ export const BRAND_IDENTITY_ARCHITECT = {
     framework: {
       step1: "Pinpoint the conflict — identify the customer's pain point and the 'villain' (cheap car washes, inconsistent detailers, fear of damage)",
       step2: "Position the customer as the hero — the vehicle owner who demands excellence",
-      step3: "Develop the plot — hero's journey from frustration to discovering Calem Wood to transformation",
+      step3: "Develop the plot — hero's journey from frustration to discovering Cochrane Master Builders to transformation",
       step4: "Identify the moral — the brand's deeper purpose (precision craftsmanship protects what matters)",
     },
     storyTypes: [
@@ -365,11 +365,11 @@ export const BRAND_IDENTITY_ARCHITECT = {
   ],
 
   // ═══════════════════════════════════════════════════════════════════
-  // CALEM WOOD APPLICATION
+  // COCHRANE MASTER BUILDERS APPLICATION
   // ═══════════════════════════════════════════════════════════════════
-  calemWoodApplication: {
+  cochraneWoodApplication: {
     category: "Premium automotive detailing and paint protection — specifically for discerning vehicle owners who value precision craftsmanship, technical expertise, and white-glove service.",
-    brandTruth: "Calem Wood exists because most automotive detailing feels either cheap and rushed (drive-through car washes, quick-detail shops) or inconsistent and unreliable (mobile detailers with no standards). They offer a third path: precision craftsmanship with technical expertise and obsessive attention to detail.",
+    brandTruth: "Cochrane Master Builders exists because most automotive detailing feels either cheap and rushed (drive-through car washes, quick-detail shops) or inconsistent and unreliable (mobile detailers with no standards). They offer a third path: precision craftsmanship with technical expertise and obsessive attention to detail.",
     audienceIdentity: "For vehicle owners who see their cars as extensions of their identity — not just transportation to maintain. They want to trust the hands touching their vehicle, not gamble on whoever shows up.",
     proofMechanics: "Before/after portfolio quality, product and certification partnerships, process transparency and documentation, client testimonials, technical knowledge visible in every touchpoint.",
     personality: "Precise yet passionate. Technical yet approachable. Premium yet personal.",

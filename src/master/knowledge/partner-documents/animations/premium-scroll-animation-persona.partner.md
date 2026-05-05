@@ -97,10 +97,10 @@ Consult whenever the request touches scroll mechanics, perceived smoothness, or 
 
 ## 8. Brand & ICP relationship
 
-### Calem Wood Detailing — current active brand
+### Cochrane Master Builders — current active brand
 
 - **Easing personality** matches `mem://design/motion-philosophy`: cinematic reveals, bottom-to-top clip-path curtains, Ken Burns scaling. Heavy / luxurious. Never bouncy.
-- **Lenis preset (Calem Wood):**
+- **Lenis preset (Cochrane Master Builders):**
   - `lerp: 0.06–0.08` (heavier than the source's 0.05 example because brand = luxury automotive).
   - `wheelMultiplier: 1.1`, `touchMultiplier: 1.0` — input feels *deliberate*, not snappy.
   - `syncTouch: false` (default) until iOS<16 share is negligible.
@@ -123,16 +123,16 @@ Consult whenever the request touches scroll mechanics, perceived smoothness, or 
 
 - **Wins over** ad-hoc per-component scroll choices on **technical method**: always Lenis + GSAP ScrollTrigger, always transform/opacity, always 100–400 ms fade band, always `prefers-reduced-motion` branch.
 - **Inherits from** `governance/knowledge-system-charter` (always) and `experience-prompts/master-design-persona-fantasy` (visual taste).
-- **Loses to** brand-identity / motion-philosophy partner docs and existing memories on the **personality** of the easing (e.g., Calem Wood overrides the source's lighter `lerp: 0.05` example with a heavier 0.06–0.08 band).
+- **Loses to** brand-identity / motion-philosophy partner docs and existing memories on the **personality** of the easing (e.g., Cochrane Master Builders overrides the source's lighter `lerp: 0.05` example with a heavier 0.06–0.08 band).
 - **Loses to** existing locked components: hero (`mem://design/hero-section-lock`), brand-logo parallax (`mem://design/micro-interactions/brand-logo-parallax`), loading sequence (`mem://features/loading-sequence`), booking submission animation (`mem://features/booking-submission-animation`).
 
 ## 10. Adaptation notes (conflict rule applied — source preserved verbatim)
 
 | In source | Apply as |
 |-----------|----------|
-| `Lovable.dev` (the framework the source addresses) | The active brand for the prompt — **Calem Wood Detailing** in this codebase by default; **Cochrane Master Builders** when CMB is the active brand. |
-| `lerp: 0.05` (Next.js provider example) | Starting point for *light* brands. For Calem Wood / luxury brands prefer `0.06–0.08`. Always document the per-brand lerp in the brand's motion partner doc. |
-| `wheelMultiplier: 1.5`, `touchMultiplier: 1.1` (example) | One valid preset. For Calem Wood prefer `1.1` / `1.0` — input must feel *deliberate*, not snappy. |
+| `Lovable.dev` (the framework the source addresses) | The active brand for the prompt — **Cochrane Master Builders** in this codebase by default; **Cochrane Master Builders** when CMB is the active brand. |
+| `lerp: 0.05` (Next.js provider example) | Starting point for *light* brands. For Cochrane Master Builders / luxury brands prefer `0.06–0.08`. Always document the per-brand lerp in the brand's motion partner doc. |
+| `wheelMultiplier: 1.5`, `touchMultiplier: 1.1` (example) | One valid preset. For Cochrane Master Builders prefer `1.1` / `1.0` — input must feel *deliberate*, not snappy. |
 | `syncTouch: true` (with iOS<16 caveat) | Default `false` until iOS<16 share is negligible. |
 | Igloo Inc procedural ice blocks / WebGL UI / particle simulations | **Inspiration only**, not a blueprint. Do not adopt Three.js unless a brand explicitly invests in a 3D hero. |
 | Tool list mentioning Svelte / Vue / SvelteKit / Next.js | This codebase is **React 18 + Vite**. Translate the "Next.js provider for Lenis" pattern into a React `LenisProvider` component (`useEffect` + rAF lifecycle pattern maps cleanly). Use `lenis` package (npm) when actually installing. |
@@ -141,7 +141,7 @@ Consult whenever the request touches scroll mechanics, perceived smoothness, or 
 | Duplicated headings ("Performance principles…" twice, "GSAP GSAP & ScrollTrigger", leading-space headings " Example: Next.js…", " Scroll-driven animation API", " Igloo Inc case study") | Paste artefacts from the original DOCX. Read past them. |
 | `<mark>` tags around config keys / values | Treat as inline highlights of code identifiers. |
 | Mention of "Work Work & Co" | Likely refers to Work & Co. Treat as such, but do not edit the source. |
-| References to "weddings" or any non-detailing/non-construction context if encountered | Treat as out-of-scope. The active brand's identity (Calem Wood automotive detailing or CMB construction) governs all output decisions. |
+| References to "weddings" or any non-detailing/non-construction context if encountered | Treat as out-of-scope. The active brand's identity (Cochrane Master Builders automotive detailing or CMB construction) governs all output decisions. |
 
 ## 11. Dependencies / related documents
 
@@ -154,7 +154,7 @@ Consult whenever the request touches scroll mechanics, perceived smoothness, or 
 **Cinematic intro partner**
 - `partner-documents/experience-prompts/anti-gravity-opening-engineer` — owns the opening choreography that runs *before* Lenis takes over the page.
 
-**Brand motion memories (Calem Wood Detailing)**
+**Brand motion memories (Cochrane Master Builders)**
 - `mem://design/motion-philosophy` — cinematic reveals, clip-path curtains, Ken Burns.
 - `mem://design/cloth-wipe-transition` — transform/opacity-only, Lenis-safe.
 - `mem://features/loading-sequence` — Lenis must start *after* this resolves.

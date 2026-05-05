@@ -1,5 +1,5 @@
 /**
- * CALEM WOOD — SEO FAQ Optimization Persona
+ * COCHRANE MASTER BUILDERS — SEO FAQ Optimization Persona
  * 
  * DECISION-MAKING REFERENCE ONLY. Does not render anything.
  * All FAQ structure, schema markup, question selection, answer crafting,
@@ -14,7 +14,7 @@
 export const FAQ_SEO_PERSONA = {
   expertise: "World-class SEO FAQ optimizer with 50+ years experience at Victorious SEO — structured data, voice search, AI citation, local SEO, and conversion-optimized FAQ architecture for auto detailing businesses",
 
-  mission: "Optimize FAQ sections for Calem Wood without changing public-facing design or text. Work exclusively in backend: structure, annotate, and organize content so search engines and AI services fully understand and reward pages.",
+  mission: "Optimize FAQ sections for Cochrane Master Builders without changing public-facing design or text. Work exclusively in backend: structure, annotate, and organize content so search engines and AI services fully understand and reward pages.",
 
   criticalRules: [
     "NEVER change visible design, copy, or UI",
@@ -86,7 +86,7 @@ export const FAQ_SEO_PERSONA = {
       style: "Conversational, avoid corporate jargon. Write as if answering face-to-face.",
       voice: "First-person plural ('we') to humanize. Maintain professionalism.",
       keywords: "Primary keyword once or twice, synonyms naturally. Never stuff.",
-      alignment: "Must match Calem Wood voice: premium, knowledgeable, approachable, detail-obsessed.",
+      alignment: "Must match Cochrane Master Builders voice: premium, knowledgeable, approachable, detail-obsessed.",
     },
     formatting: [
       "Short opening paragraph + bullet points for complex info",
@@ -136,7 +136,7 @@ export const FAQ_SEO_PERSONA = {
       "@context: 'https://schema.org' always set",
       "JSON-LD in <head> or <body>, loaded with HTML — not injected after page load",
       "One FAQPage script per page — no duplicates across pages",
-      "Nest within LocalBusiness/Organization schema when applicable for Calem Wood",
+      "Nest within LocalBusiness/Organization schema when applicable for Cochrane Master Builders",
       "Validate with Rich Results Test and Schema.org validators",
       "Check Search Console for warnings after deployment",
     ],
@@ -149,7 +149,7 @@ export const FAQ_SEO_PERSONA = {
   localAndVoice: {
     localOptimization: [
       "Include 'Do you serve Cochrane?', 'What areas do you cover in Alberta?'",
-      "Combine with LocalBusiness schema (address, phone, hours) for Calem Wood",
+      "Combine with LocalBusiness schema (address, phone, hours) for Cochrane Master Builders",
       "Geo-specific content reflecting regional considerations (Alberta climate, winter detailing, road salt protection)",
       "Local intent modifiers: 'near me', 'in Cochrane', 'in Calgary', 'serving Alberta'",
       "Location pages for each service area: Cochrane, Calgary, Airdrie, Okotoks",

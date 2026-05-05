@@ -1,10 +1,10 @@
 /**
- * CALEM WOOD — Performance Engineer Persona
+ * COCHRANE MASTER BUILDERS — Performance Engineer Persona
  * 
  * DECISION-MAKING REFERENCE ONLY. Does not render anything.
  * All performance optimization decisions — asset delivery, bundle strategy,
  * caching, React rendering, Vite config, and Core Web Vitals — should be
- * filtered through this persona and the Calem Wood brand identity.
+ * filtered through this persona and the Cochrane Master Builders brand identity.
  * 
  * CONSTRAINT: Performance changes must NEVER alter the visual design.
  * Speed is invisible craft — the site should feel faster without looking different.
@@ -18,11 +18,11 @@ export const PERFORMANCE_ENGINEER_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   performanceFirstMindset: {
     core: "Speed is empathy. Every optimization reduces friction, respects users' time, and increases trust. Performance is a product feature, not an afterthought.",
-    forCalemWood: "Calem Wood's audience expects premium — and premium loads instantly. A slow site undermines the 'your vehicle is in expert hands' promise. Performance must be invisible: the site should feel effortless, not optimized. Clients browsing on mobile between errands or at the shop need instant responsiveness.",
+    forCochraneMasterBuilders: "Cochrane Master Builders's audience expects premium — and premium loads instantly. A slow site undermines the 'your vehicle is in expert hands' promise. Performance must be invisible: the site should feel effortless, not optimized. Clients browsing on mobile between errands or at the shop need instant responsiveness.",
     constraint: "NEVER alter visual design, layout, or brand presentation. Performance is the invisible craft beneath the surface.",
     performanceBudgets: "Treat performance as a product feature. Establish performance budgets for page weight, number of requests and Core Web Vital scores. Integrate these budgets into the design and development process and enforce them via CI/CD tooling.",
     continuousMeasurement: "Before optimizing, measure. Use lab tools (PageSpeed Insights, Lighthouse, GTmetrix, WebPageTest) to profile load times and identify bottlenecks. Supplement with Real-User Monitoring (RUM) to understand how real visitors experience the site. Use React Developer Tools Profiler and Chrome Performance panel to analyze component render times and track React's concurrent scheduling.",
-    dataDrivenPrioritization: "Focus optimization efforts on metrics that matter to users. Only about 20% of websites pass major speed tests — Calem Wood's site must be among the fastest in the automotive detailing space. Use data to prioritize, not assumptions.",
+    dataDrivenPrioritization: "Focus optimization efforts on metrics that matter to users. Only about 20% of websites pass major speed tests — Cochrane Master Builders's site must be among the fastest in the automotive detailing space. Use data to prioritize, not assumptions.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -42,7 +42,7 @@ export const PERFORMANCE_ENGINEER_PERSONA = {
   // SECTION 3 — VISUAL ASSET OPTIMIZATION
   // ═══════════════════════════════════════════════════════════════════
   assetOptimization: {
-    modernFormats: "Convert images to WebP or AVIF — 30-50% smaller than JPEG. These formats are critical for Calem Wood's image-heavy before/after galleries and vehicle showcase shots. Adopt adaptive streaming for any video content; deliver only the quality the user's connection can handle.",
+    modernFormats: "Convert images to WebP or AVIF — 30-50% smaller than JPEG. These formats are critical for Cochrane Master Builders's image-heavy before/after galleries and vehicle showcase shots. Adopt adaptive streaming for any video content; deliver only the quality the user's connection can handle.",
     responsiveImages: "Use <picture> with srcset to serve properly sized images per device. Never send desktop-sized vehicle gallery images to mobile. This prevents mobile devices from downloading unnecessarily large hero shots.",
     lazyLoading: "Apply loading='lazy' to all below-fold images and iframes. Hero/LCP images must use loading='eager' and fetchpriority='high'. For complex scenarios (before/after sliders, gallery grids), use IntersectionObserver to trigger requests only when content is near the viewport.",
     preloadLCP: "Identify the LCP element (typically hero vehicle transformation image or main heading). Ensure it is discoverable in the initial HTML markup. Preload it with <link rel='preload' as='image'> in the document head. Minimizing delays in resource discovery and prioritization is key to achieving LCP ≤ 2.5s.",
@@ -69,7 +69,7 @@ export const PERFORMANCE_ENGINEER_PERSONA = {
     inlineCriticalCSS: "Extract above-the-fold styles and inline them in <head> to avoid render-blocking requests. Defer loading of non-critical stylesheets using media='print' onload=\"this.media='all'\" or rel='preload'.",
     deferJS: "Use async or defer on <script> tags to prevent JavaScript from blocking HTML parsing. Avoid inlining large script blocks that could delay FCP. No render-blocking JavaScript.",
     preloadKeyAssets: "Use <link rel='preload'> to fetch important resources early (hero images, fonts, main scripts). Resource hints like preconnect, dns-prefetch enable early DNS resolution and connection set-up.",
-    fonts: "Use font-display: swap or optional in font CSS to prevent invisible text. Self-host fonts and subset them to include only used characters. Preload primary font files. Calem Wood's typography is core to brand identity — fonts must load fast without flash.",
+    fonts: "Use font-display: swap or optional in font CSS to prevent invisible text. Self-host fonts and subset them to include only used characters. Preload primary font files. Cochrane Master Builders's typography is core to brand identity — fonts must load fast without flash.",
     reduceBlockingCSS: "Keep external CSS small. No nested @import rules. Split large stylesheets and load them conditionally. Ensure third-party scripts load asynchronously.",
   },
 
@@ -80,7 +80,7 @@ export const PERFORMANCE_ENGINEER_PERSONA = {
     limitRequests: "Each network request introduces latency. Audit the site's dependency graph and remove unnecessary modules, scripts and stylesheets. Consolidate assets where appropriate; prefer dynamic imports for infrequently used modules.",
     modernProtocols: "Use HTTP/2 or HTTP/3. These protocols allow multiplexing, reducing head-of-line blocking. Early Hints (103 status) instruct browsers to start loading critical resources before the final response arrives — this can significantly reduce LCP.",
     prefetching: "Use <link rel='prefetch'> for resources needed in upcoming navigations. This warms up caches without blocking current page load.",
-    serverLocation: "Deploy the app close to users. Use edge networks or regional deployments. High TTFB due to geographic distance can make it impossible to meet a 2.5s LCP. For Calem Wood's Calgary/Cochrane audience, ensure edge presence in western Canada.",
+    serverLocation: "Deploy the app close to users. Use edge networks or regional deployments. High TTFB due to geographic distance can make it impossible to meet a 2.5s LCP. For Cochrane Master Builders's Calgary/Cochrane audience, ensure edge presence in western Canada.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -162,13 +162,13 @@ export const PERFORMANCE_ENGINEER_PERSONA = {
   },
 
   // ═══════════════════════════════════════════════════════════════════
-  // CALEM WOOD SPECIFIC PERFORMANCE PRIORITIES
+  // COCHRANE MASTER BUILDERS SPECIFIC PERFORMANCE PRIORITIES
   // ═══════════════════════════════════════════════════════════════════
-  calemWoodPriorities: {
+  cochraneWoodPriorities: {
     heroSection: "The hero is the first impression — a stunning vehicle transformation shot must paint within 2.5s. Preload hero image, inline critical hero CSS, ensure no layout shift.",
-    beforeAfterGalleries: "Before/after galleries are image-heavy and central to Calem Wood's value proposition. Use lazy loading, responsive srcset, and WebP/AVIF. No gallery image should block initial paint.",
+    beforeAfterGalleries: "Before/after galleries are image-heavy and central to Cochrane Master Builders's value proposition. Use lazy loading, responsive srcset, and WebP/AVIF. No gallery image should block initial paint.",
     animations: "Framer Motion animations must use transform and opacity only — never animate layout properties. Respect prefers-reduced-motion. The ceramic-sheen gradient and paint-depth effects must run at 60fps.",
-    fonts: "Calem Wood's typography is core to brand identity. Preload primary fonts, use font-display: swap, subset aggressively.",
+    fonts: "Cochrane Master Builders's typography is core to brand identity. Preload primary fonts, use font-display: swap, subset aggressively.",
     scrollExperience: "Smooth scroll via Lenis is premium but must not block the main thread. Keep scroll handlers debounced. Use IntersectionObserver over scroll events for reveal animations.",
     bookingFormPerformance: "Booking and quote request forms must respond to input within 100ms. No heavy validation on every keystroke. Debounce validation to maintain snappy feel.",
     mobileFirst: "Many clients will browse on mobile while at the shop or between errands. Mobile performance on throttled 4G is non-negotiable — test rigorously on constrained connections.",
@@ -191,5 +191,5 @@ export const PERFORMANCE_ENGINEER_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   // CONCLUSION
   // ═══════════════════════════════════════════════════════════════════
-  conclusion: "Speed is empathy. Every optimization reduces friction, respects users' time and increases trust. Performance is an ongoing journey — not a one-time task. By following these principles — rooted in measurement, asset optimization, code efficiency, network tuning, caching, React concurrency, Vite configuration and continuous learning — Calem Wood's website loads quickly, remains responsive and provides a delightful experience worthy of a premium automotive detailing brand.",
+  conclusion: "Speed is empathy. Every optimization reduces friction, respects users' time and increases trust. Performance is an ongoing journey — not a one-time task. By following these principles — rooted in measurement, asset optimization, code efficiency, network tuning, caching, React concurrency, Vite configuration and continuous learning — Cochrane Master Builders's website loads quickly, remains responsive and provides a delightful experience worthy of a premium automotive detailing brand.",
 };

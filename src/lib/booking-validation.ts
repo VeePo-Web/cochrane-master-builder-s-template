@@ -1,5 +1,5 @@
 /**
- * CALEM WOOD DETAILING — Booking Validation
+ * COCHRANE MASTER BUILDERS — Booking Validation
  *
  * Pure validation module. No React, no UI. Validates a `BookingDraft`
  * against the contract defined in `src/config/booking-requirements.ts`.

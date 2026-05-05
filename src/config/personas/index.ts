@@ -1,12 +1,12 @@
 /**
- * CALEM WOOD — Persona & Decision Framework Index
+ * COCHRANE MASTER BUILDERS — Persona & Decision Framework Index
  * 
  * Central export for all decision-making reference files.
  * Import from here when referencing any persona or framework.
  * 
  * These files are REFERENCE ONLY — they do not render anything.
  * They encode the depth of expertise that guides every UI/UX decision
- * for Calem Wood Mobile Auto Detailing.
+ * for Cochrane Master Builders Mobile Auto Detailing.
  */
 
 export { DISCOVERY_FRAMEWORK } from './discovery-framework';
