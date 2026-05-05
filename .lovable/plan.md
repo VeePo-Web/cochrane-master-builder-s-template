@@ -1,35 +1,57 @@
-## Plan — Embed "Mobile Wrapping & Responsive Design Visionary" persona
+# Rebrand: Calem Wood → Cochrane Master Builders
 
-New function-scoped category: **Mobile & Responsive Wrapping**. Source is a Fantasy/R-GA/Frog/ustwo/Huge 50-year responsive-design persona (One Web, content prioritization, mobile nav patterns, fluid type, art direction, 4G perf budget, breakpoints, container queries, WCAG, QA). Closing directive is binding: **desktop design frozen — mobile is page-by-page, section-by-section.**
+## Goal
+Remove every lingering "Calem Wood" / "Calem Wood Detailing" / mobile-detailing reference across the project and re-anchor those files to the **Cochrane Master Builders** brand identity (legacy-focused, traditional, uncompromised luxury home/drywall builder per `1.5_Brand_Identity_North_Star_Report_Partner.md` and `src/config/brand.ts`).
 
-### Files to create
+The active site (`drywall/*` components, pages, `src/config/brand.ts`, `src/config/design-preferences.ts`) is already Cochrane-branded — nothing visual on the live site changes. The rename targets stale legacy files left over from a prior detailing build.
 
-1. **`src/master/knowledge/source-documents/mobile/mobile-wrapping-responsive-persona.source.md`** — verbatim DOCX content + closing all-caps directive, frontmatter only.
+## Scope (47 files identified via `rg -l -i "calem"`)
 
-2. **`src/master/knowledge/partner-documents/mobile/mobile-wrapping-responsive-persona.partner.md`** — Calem Wood interpretation layer:
-   - **Hard binding rules**: desktop frozen (any shared component must be forked via responsive prefix or `useIsMobile`), One Web parity, page-by-page plans first, 48 px touch minimums, 4G perf default.
-   - **Brand-specific guards** mapped to memories:
-     - 390 px target, safe-area, 92 dvh full-screen panels, sticky booking-bar clearance.
-     - Booking modal: singleton stays; mobile collapses to 540 px paper-form panel only (bone brand stack is `lg+` only); native camera trigger for photo step; auto-advance + dot indicator + seam preserved.
-     - Hero: portrait `<picture>` swap under `(max-width: 768px)`; loading sequence, CW monogram, Ken Burns, interactive shine all preserved on mobile; parallax 130%/-15% retained with `prefers-reduced-motion` fallback.
-     - Motion: cloth wipe full-bleed on mobile; logo parallax desktop-only; reduced-motion *simplifies, never removes*.
-     - Typography: 13 px floor, 14–16 px body @ 1.7 line-height, `clamp()` for displays; footer sign-off `clamp(4rem, 12vw, 10rem)` curve preserved.
-     - Navigation: 80 px desktop bar untouched; 64 px mobile bar + hamburger → 92 dvh full-screen panel; copper-fill active states; sticky thumb-zone Book CTA; no bottom nav.
-     - Imagery: macro detailing crops re-tightened for mobile, no human imagery, no stock substitutions.
-     - Visual rhythm: `py-48` → `py-24/28` mobile only; dividers 40–55vh → 24–32vh.
-   - **Decision triggers**: mobile, tablet, responsive, breakpoint, viewport, hamburger, touch target, iPhone/Android, 390, safe area, thumb zone, art direction, container queries, fluid type, "looks bad on phone", "overflows on mobile".
-   - **Conflict ladder**: binding rules → brand guards/memories → Performance Engineer partner → governance → generic persona. Generic suggestions that violate Hero Section Lock, Loading Sequence, Motion Philosophy, Booking Modal Architecture, or Mobile Optimization memories lose.
-   - **Output discipline**: page→section inventory, per-section mobile spec, breakpoint table (≤390 / 391–600 / 601–1024 / 1025+), explicit desktop-impact audit, perf+accessibility checklist, QA matrix (390/430/iPad portrait+landscape).
-   - **Practical examples** (4): hero on mobile, booking modal cramped, mobile nav build, sections too tall.
-   - **Related docs**: Performance, Navigation, Animations, SEO Image, Master Design Persona, Governance.
+### A. Active backend / runtime references (must rewrite carefully)
+1. `src/lib/booking-validation.ts`
+2. `src/config/booking-requirements.ts`
+3. `src/config/discovery-questionnaire.ts`
+4. `src/config/brand-identity-northstar.ts`
+5. `src/config/business-overview.ts`
+6. `src/config/style-guide.ts`
+7. `src/config/design-plan.ts`
+8. `src/config/questionnaire-answers.ts`
+9. `src/config/open-questions-checklist.md`
+10. `src/pages/FAQ.tsx`
+11. `src/pages/Unsubscribe.tsx`
+12. `src/test/booking-validation.test.ts`
+13. `supabase/functions/send-transactional-email/index.ts`
 
-3. **`src/master/knowledge/INDEX.md`** — append a new top-level category **Mobile & Responsive Wrapping** above the brand section, with one row pointing to the new source file and a one-line label summarizing the persona + binding rule.
+### B. Persona configs (`src/config/personas/*`) — 18 files
+All persona files (strategic-narrative, ideal-customer, market-research, seo-expert, ui-footer, footer-architect, nav-architect, ui-navigation, ui-visual, master-visual, scroll-motion, responsive-mobile, frontend-engineer, performance-engineer, image-seo, seo-faq, narrative-copywriter, brand-identity-architect, discovery-framework, index.ts).
 
-### What will NOT change
-- Front-end code (zero React/CSS/component edits).
-- Any existing knowledge files (other than the INDEX append).
-- `mem://index.md` — no new core rules; existing memories already cover the guardrails the partner doc references.
-- Build/Vite/tooling config.
+### C. Stale `detailing/` components (7 files)
+`LoadingScreen.tsx`, `BookingModal.tsx`, `Navigation.tsx`, `FounderFinaleSection.tsx`, `Footer.tsx` — these belong to the old detailing build. Confirm whether any are still imported; if not, delete them. If imported, rewrite copy to Master Builders.
 
-### Decision-routing after embed
-Any future mobile/tablet/responsive prompt → consult this partner doc, which routes through the design memories and pairs with the Performance Engineer partner doc before any code is proposed. Desktop changes triggered by mobile work are forbidden.
+### D. Backend knowledge docs (8 partner/source markdown files under `src/master/knowledge/...`)
+Replace business-context examples (mobile detailing → drywall/finishing/insulation) while preserving each persona's structural intent.
+
+## Approach
+
+1. **Sweep + categorize**: For each file, classify as (a) pure copy/string swap, (b) needs business-context rewrite (services, pricing, customer profile), or (c) delete if orphaned.
+2. **Verify orphans**: `rg` for imports of each `detailing/*` component to confirm safe deletion.
+3. **Rewrite business semantics** in category (b) files using Cochrane brand truths from `src/config/brand.ts`, `src/config/design-preferences.ts`, and `1.5_Brand_Identity_North_Star_Report_Partner.md`:
+   - Service: drywall / insulation / painting / basement & garage finishing (NOT mobile auto detailing)
+   - Customer: Cochrane/Calgary-area homeowners commissioning legacy-quality home finishing
+   - Tone: timeless luxury, legacy, bespoke traditional — never "get your car back" / "$100 reset"
+   - Service area: Cochrane, Alberta (+ surrounding)
+4. **Preserve structure**: Keep each persona's section headings, decision-rule format, and exports unchanged so downstream references continue working.
+5. **No visual/runtime changes** to the live drywall site. Active components under `src/components/drywall/*` and pages already on-brand are untouched.
+
+## Out of scope
+- Any change to `src/components/drywall/*`, `src/pages/Index.tsx`, hero, layout, motion, or color tokens.
+- Adding new persona files (this is a rename/realignment pass only).
+
+## Technical notes
+- `src/config/personas/index.ts` re-exports — if any persona file is renamed (not just edited), update the barrel. Plan: keep filenames, only rewrite contents.
+- `supabase/functions/send-transactional-email/index.ts`: swap brand strings (sender name, footer signature, support email copy). No schema or env changes.
+- Tests: `src/test/booking-validation.test.ts` likely uses brand strings in assertions — update fixtures to match new copy.
+- Run `bunx vitest run` after edits to confirm tests still pass.
+
+## Deliverable
+A single PR-equivalent change set: zero "Calem" matches remaining (`rg -i calem` returns empty), live site unchanged, backend knowledge/persona layer fully Cochrane Master Builders.
