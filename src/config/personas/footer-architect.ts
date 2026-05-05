@@ -17,7 +17,7 @@ export const FOOTER_ARCHITECT_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   philosophy: {
     core: "The footer is a high-leverage product surface, not an afterthought. It is the final impression — a brand signature moment.",
-    forCalemWood: "The footer must feel like the final layer of a flawless detail — the foundation coat beneath the ceramic, invisible but essential. Every element placed with the same precision as the services Cochrane Master Builders delivers.",
+    forCochraneMasterBuilders: "The footer must feel like the final layer of a flawless detail — the foundation coat beneath the ceramic, invisible but essential. Every element placed with the same precision as the services Cochrane Master Builders delivers.",
     constraint: "Do NOT damage the site's premium feel. No template vibes. No performance traps. No SEO spam.",
     unifiedWithNav: "The footer and navigation bar form two halves of one cohesive system — like paint depth layers. The nav is the clear coat (transparent, protective, first thing seen); the footer is the foundation/primer (the base of trust). Together they create a complete visual frame for the Cochrane Master Builders experience.",
     paintDepthMetaphor: "In automotive finishing, what's beneath matters as much as what's visible. The footer is the primer coat — structurally critical, silently supporting everything above it. Users may not consciously notice a great footer, but they feel the trust it provides.",
@@ -259,7 +259,7 @@ export const FOOTER_ARCHITECT_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   // COCHRANE MASTER BUILDERS FOOTER PRIORITIES
   // ═══════════════════════════════════════════════════════════════════
-  calemWoodPriorities: {
+  cochraneWoodPriorities: {
     navFooterUnity: "Footer echoes nav bar design language — together they form a complete visual frame. Paint depth metaphor: nav = clear coat, footer = foundation.",
     closingMoment: "The footer is the final note — it should resolve the page's story with confidence and precision.",
     bookNowCTA: "Gentle, inviting CTA for booking — not aggressive, not buried. 'Book Now' or 'Get a Quote'.",

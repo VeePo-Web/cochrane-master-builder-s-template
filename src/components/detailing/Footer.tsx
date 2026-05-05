@@ -90,10 +90,10 @@ const Footer = ({ onBookClick }: FooterProps) => {
                 </p>
                 <div className="flex flex-col space-y-2.5">
                   <a
-                    href="mailto:hello@calemwood.ca"
+                    href="mailto:hello@cochranemasterbuilders.ca"
                     className="font-body text-body-sm text-porcelain/40 hover:text-porcelain/70 transition-colors duration-300 w-fit"
                   >
-                    hello@calemwood.ca
+                    hello@cochranemasterbuilders.ca
                   </a>
                   <a
                     href="tel:+13062097804"
@@ -105,7 +105,7 @@ const Footer = ({ onBookClick }: FooterProps) => {
                     Call or text — text is fastest.
                   </span>
                   <a
-                    href="https://instagram.com/calemwooddetailing"
+                    href="https://instagram.com/cochranemasterbuilders"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-body text-body-sm text-porcelain/40 hover:text-porcelain/70 transition-colors duration-300 w-fit"

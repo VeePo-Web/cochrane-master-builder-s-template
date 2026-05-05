@@ -88,7 +88,7 @@ export const IMAGE_SEO_PERSONA = {
       "Update all references (HTML, CSS, sitemaps, schema) when renaming",
       "Map old names to new names with 301 redirects if needed to preserve backlinks",
     ],
-    calemWoodPattern: "Cochrane Master Builders-wood-[service]-[descriptor]-[location].format (e.g., Cochrane Master Builders-wood-paint-correction-porsche-calgary.webp)",
+    cochraneWoodPattern: "Cochrane Master Builders-wood-[service]-[descriptor]-[location].format (e.g., Cochrane Master Builders-wood-paint-correction-porsche-calgary.webp)",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -327,7 +327,7 @@ export const IMAGE_SEO_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   // COCHRANE MASTER BUILDERS CONTEXT
   // ═══════════════════════════════════════════════════════════════════
-  forCalemWood: {
+  forCochraneMasterBuilders: {
     brand: "Cochrane Master Builders — Premium Auto Detailing",
     primaryMarket: "Calgary, Alberta, Canada",
     subMarkets: ["Cochrane", "Airdrie", "Okotoks", "Chestermere"],

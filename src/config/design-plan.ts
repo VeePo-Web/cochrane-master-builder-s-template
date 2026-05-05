@@ -549,7 +549,7 @@ export const MASTER_DESIGN_PLAN = {
   // ═══════════════════════════════════════════════════════════════════
   seoArchitecture: {
     titleTemplate: "{Page Title} | Cochrane Master Builders — Calgary Mobile Detail",
-    canonicalBase: "https://calemwooddetailing.com",
+    canonicalBase: "https://cochranemasterbuilders.com",
     structuredData: [
       "LocalBusiness — site-wide (name, address, areaServed: Calgary, priceRange)",
       "Service — services page (The Full Reset)",

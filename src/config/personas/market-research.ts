@@ -36,7 +36,7 @@ export const MARKET_RESEARCH = {
         description: "Paint correction, ceramic coatings, showroom prep, resale prep, premium vehicle care.",
       },
     },
-    calemPosition: "Sits most naturally between Layer 2 and entry-level Layer 3 — more differentiated than 'cheap detailing.'",
+    cochranePosition: "Sits most naturally between Layer 2 and entry-level Layer 3 — more differentiated than 'cheap detailing.'",
     whatClientsBuy: [
       "Relief",
       "Pride",

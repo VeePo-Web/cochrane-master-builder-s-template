@@ -352,7 +352,7 @@ export const DISCOVERY_FRAMEWORK = {
   // SECTION 11: TECHNICAL AND INTEGRATIONS
   // ═══════════════════════════════════════════════════════════════════
   technical: {
-    domain: "calemwooddetailing.com (or similar — TBD)",
+    domain: "cochranemasterbuilders.com (or similar — TBD)",
     communication: {
       primary: "Text messaging — fastest, most natural for the customer",
       secondary: "Phone calls",

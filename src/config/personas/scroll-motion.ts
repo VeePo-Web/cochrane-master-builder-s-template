@@ -20,7 +20,7 @@ export const SCROLL_MOTION_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   philosophy: {
     core: "Scrolling has evolved from viewport movement to a primary storytelling device. Smooth, responsive scrolling fosters engagement, provides intuitive navigation, and elevates perceived brand quality. The rebirth of scrolling was driven by mobile dominance and high-speed internet — long scroll allows continuous narrative, reducing disruptive page changes.",
-    forCalemWood: "The scroll experience must feel like a luxury detail reveal — controlled, precise, satisfying. Every transition should reinforce the meticulous craftsmanship of Cochrane Master Builders's detailing process. The user should feel the same confidence and calm they'd feel watching a master detailer transform a vehicle.",
+    forCochraneMasterBuilders: "The scroll experience must feel like a luxury detail reveal — controlled, precise, satisfying. Every transition should reinforce the meticulous craftsmanship of Cochrane Master Builders's detailing process. The user should feel the same confidence and calm they'd feel watching a master detailer transform a vehicle.",
     warning: "Poorly executed scroll experiences harm usability. Laggy animations, scrolljacking, or overwhelming motion cause jank and frustration — antithetical to the precision and control that defines premium detailing.",
     longScrollAdvantages: [
       "Encourages interaction — dynamic content draws users into a narrative",
@@ -72,7 +72,7 @@ export const SCROLL_MOTION_PERSONA = {
     storytelling: "Use scroll as storytelling device. Evocative introduction → narrative development → clear CTA. Guide the user, don't just showcase effects.",
     hierarchy: "Scroll emphasizes important content at each point. Use size, color, and motion to signal importance.",
     consistency: "Consistent pacing and style across sections. Same easing function family, similar timings for micro-animations.",
-    forCalemWood: "The scroll narrative should mirror the detailing journey: vehicle transformation → craftsmanship process → stunning results → trust signals → booking. Controlled, editorial pacing that lets the work speak for itself.",
+    forCochraneMasterBuilders: "The scroll narrative should mirror the detailing journey: vehicle transformation → craftsmanship process → stunning results → trust signals → booking. Controlled, editorial pacing that lets the work speak for itself.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -85,7 +85,7 @@ export const SCROLL_MOTION_PERSONA = {
     persistContent: "Content remains visible after appearing — never creates cognitive overload.",
     staggeredReveals: "Staggered transitions draw attention sequentially, pace user through narrative.",
     responsiveMotion: "Minimize motion on small screens. Respect prefers-reduced-motion media query. Provide toggle to disable animations.",
-    forCalemWood: "Motion should feel like the detailing process itself — controlled, deliberate, precise. Gentle reveals that showcase the transformation. Never dramatic or attention-seeking. The work is the star, not the animation.",
+    forCochraneMasterBuilders: "Motion should feel like the detailing process itself — controlled, deliberate, precise. Gentle reveals that showcase the transformation. Never dramatic or attention-seeking. The work is the star, not the animation.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -170,7 +170,7 @@ export const SCROLL_MOTION_PERSONA = {
       "Nested scroll containers require careful configuration",
     ],
     gaspIntegration: "Attach Lenis scroll event to ScrollTrigger.update and feed Lenis rAF into GSAP ticker. Set gsap.ticker.lagSmoothing(0) to prevent lag compensation from interfering.",
-    forCalemWood: "Use lerp: 0.07, smoothWheel: true, wheelMultiplier: 1.2 for a controlled, premium feel that mirrors the precision of professional detailing. Skip smooth scroll on touch devices (pointer: coarse) for native performance.",
+    forCochraneMasterBuilders: "Use lerp: 0.07, smoothWheel: true, wheelMultiplier: 1.2 for a controlled, premium feel that mirrors the precision of professional detailing. Skip smooth scroll on touch devices (pointer: coarse) for native performance.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -189,7 +189,7 @@ export const SCROLL_MOTION_PERSONA = {
       "WebGL UI — implement heavy visual effects (glitches, text scrambles) in WebGL shaders instead of HTML/CSS to avoid layout recalculations",
     ],
     technologyStack: "Three.js, GSAP, framework of choice, vanilla JS for interactive portions. Houdini and Blender for 3D assets. Custom geometry exporters and texture loading strategies to minimize initial load.",
-    forCalemWood: "While Cochrane Master Builders doesn't need 3D ice blocks, the principles apply: browser-based iteration for rapid experimentation, performance measurement on low-end devices, efficient asset loading, and using GPU-accelerated effects for any heavy visual work like before/after reveals or paint correction showcases.",
+    forCochraneMasterBuilders: "While Cochrane Master Builders doesn't need 3D ice blocks, the principles apply: browser-based iteration for rapid experimentation, performance measurement on low-end devices, efficient asset loading, and using GPU-accelerated effects for any heavy visual work like before/after reveals or paint correction showcases.",
   },
 
   // ═══════════════════════════════════════════════════════════════════

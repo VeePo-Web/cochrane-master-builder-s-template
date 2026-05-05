@@ -1,7 +1,7 @@
 /**
  * COCHRANE MASTER BUILDERS — Founder Questionnaire (Verbatim)
  *
- * SOURCE: calem_wood_detailing_Submissions_2026-04-23.csv
+ * SOURCE: cochrane_wood_detailing_Submissions_2026-04-23.csv
  * Submitted: 2026-04-18 by Cochrane Master Builders (Submission ID: 4aBYAyb)
  *
  * ⚠️ FOUNDER-STATED TRUTH
@@ -118,7 +118,7 @@ export const QUESTIONNAIRE_ANSWERS = {
     "6.3_infoNeededToConfirm": "date, time, location, and what package detailing they want.",
     "6.4_commonPreBookingQuestions": "how much does this it cost, what do the packages include",
     "6.5_customerProvides": "water access, power and driveway, car keys",
-    "6.6_calemHandles": "Equipment, attention to detail, result",
+    "6.6_cochraneHandles": "Equipment, attention to detail, result",
     "6.7_typicalDuration": "3-5 hours",
     "6.8_durationVariables":
       "if the car is very dirty in the interior, muddy, filled with stains, in need to move stuff around.",
@@ -172,7 +172,7 @@ export const QUESTIONNAIRE_ANSWERS = {
     "9.3_neverUsePhrases": "\"the work i do is perfect.\"",
     "9.4_friendDescription":
       "I clean cars, i make them look like they just came off the dealership lot or as close to that as possible",
-    "9.5_calemWoodHelpsPeopleWho": "cant or don't have time to keep their vehicles clean themselves.",
+    "9.5_cochraneWoodHelpsPeopleWho": "cant or don't have time to keep their vehicles clean themselves.",
     "9.6_realValueIs": "to serve people at a good price.",
     "9.7_worthPayingForBecause":
       "that you know ill do the best to my ability and or up to the customers satisfaction.",

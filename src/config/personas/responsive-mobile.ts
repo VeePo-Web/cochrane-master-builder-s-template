@@ -18,7 +18,7 @@ export const RESPONSIVE_MOBILE_PERSONA = {
   philosophy: {
     oneWeb: "Every visitor — phone, tablet, or desktop — senses the same brand story and quality. One codebase, one design system, different layouts per viewport. Never split content across separate m-dot sites.",
     responsiveOverAdaptive: "Responsive design scales effortlessly to unforeseen devices and reduces maintenance overhead. Fluid grids, CSS Grid, Flexbox, viewport units and modern CSS functions like clamp() create smoothly scaling text and spacing.",
-    forCalemWood: "Cochrane Master Builders's mobile experience must feel like inspecting a flawless ceramic coating up close — every detail precise, every surface considered. Mobile is where most vehicle owners research detailing services and book appointments on-the-go.",
+    forCochraneMasterBuilders: "Cochrane Master Builders's mobile experience must feel like inspecting a flawless ceramic coating up close — every detail precise, every surface considered. Mobile is where most vehicle owners research detailing services and book appointments on-the-go.",
     constraint: "NEVER alter the desktop design. Mobile/tablet changes adapt presentation only.",
     userFirst: "Mobile contexts involve shorter attention spans, touch interactions, slower networks and physical constraints. Prioritize ruthlessly — primary goals above the fold, secondary content in collapsible sections.",
     contentPrioritization: "Identify the primary user goals (view services, see before/after results, book an appointment) and ensure they appear immediately. Tuck secondary details into collapsible/accordion patterns to reduce cognitive load.",
@@ -43,7 +43,7 @@ export const RESPONSIVE_MOBILE_PERSONA = {
     thumbZone: "Critical CTAs (Book Now, Get Quote) positioned within natural thumb reach — bottom third of screen. Persistent booking button stays within easy reach.",
     stickyElements: "Sticky CTA bar at bottom with Book Now action. Hides on scroll down to maximize content area, reveals on scroll up for instant access.",
     backNavigation: "Users can always find their way back using clear 'back' or 'up' controls. Never trap the user in a dead-end state.",
-    forCalemWood: "Navigation should feel as precise and intentional as Cochrane Master Builders's detailing process — every tap leads somewhere purposeful. The Book Now CTA is always within reach, like the confidence of knowing your vehicle is in expert hands.",
+    forCochraneMasterBuilders: "Navigation should feel as precise and intentional as Cochrane Master Builders's detailing process — every tap leads somewhere purposeful. The Book Now CTA is always within reach, like the confidence of knowing your vehicle is in expert hands.",
   },
 
   mobileTypography: {
@@ -60,7 +60,7 @@ export const RESPONSIVE_MOBILE_PERSONA = {
     formats: "WebP/AVIF with JPEG fallback. Lazy-load below-fold. Eager-load hero/LCP image (vehicle transformation hero shot).",
     noAutoplay: "Never autoplay videos on mobile. Provide clear play controls and let users opt in. For detailing process videos, show a compelling thumbnail with a play button.",
     inlineSVGs: "Replace icon fonts with inline SVGs for crisp, scalable graphics at any resolution. Service icons, process step indicators and UI elements should all be SVG.",
-    forCalemWood: "Before/after galleries are Cochrane Master Builders's most powerful conversion tool. On mobile, use swipe-to-reveal or slider interactions that feel tactile and satisfying. Every vehicle image must look stunning at any viewport — crisp paint reflections, sharp detail shots.",
+    forCochraneMasterBuilders: "Before/after galleries are Cochrane Master Builders's most powerful conversion tool. On mobile, use swipe-to-reveal or slider interactions that feel tactile and satisfying. Every vehicle image must look stunning at any viewport — crisp paint reflections, sharp detail shots.",
   },
 
   touchInteractions: {
@@ -68,7 +68,7 @@ export const RESPONSIVE_MOBILE_PERSONA = {
     feedback: "Immediate visual feedback on tap — subtle scale or color shift. No hover-dependent interactions on mobile. Every touch must acknowledge the user's action.",
     microInteractions: "Weave in purposeful micro-interactions: button ripples on tap, card reveals for service details, subtle parallax on scroll. These provide feedback and delight without distracting from content.",
     forms: "Appropriate input types (tel for phone, email for email). Auto-complete enabled. Minimal fields — Cochrane Master Builders's booking form should capture only essentials: name, phone, vehicle, service interest. Inline validation with friendly error messages.",
-    forCalemWood: "Touch feedback should feel refined and precise — matching Cochrane Master Builders's meticulous craftsmanship. A gentle press response, a smooth slide for before/after reveals, a satisfying confirmation on booking submission.",
+    forCochraneMasterBuilders: "Touch feedback should feel refined and precise — matching Cochrane Master Builders's meticulous craftsmanship. A gentle press response, a smooth slide for before/after reveals, a satisfying confirmation on booking submission.",
     frictionReduction: "Employ auto-complete, one-tap booking confirmations and saved preferences to remove friction. The booking flow should feel as effortless as dropping off a vehicle.",
   },
 
@@ -85,7 +85,7 @@ export const RESPONSIVE_MOBILE_PERSONA = {
     grid: "Fluid grids using CSS Grid and Flexbox. Single column on mobile, two-column on tablet, multi-column on desktop.",
     spacing: "Tighter horizontal padding (16–20px) on mobile, generous vertical spacing between sections. Sections should breathe without wasting precious vertical space.",
     contentPriority: "Primary goals surfaced first: service overview, before/after results, booking CTA. Secondary content (detailed process descriptions, FAQ, testimonials) in collapsible/accordion patterns.",
-    forCalemWood: "Mobile sections should feel like stages of a transformation — each section revealing the next level of care. The scroll journey mirrors the detailing process: assessment → preparation → correction → protection → reveal.",
+    forCochraneMasterBuilders: "Mobile sections should feel like stages of a transformation — each section revealing the next level of care. The scroll journey mirrors the detailing process: assessment → preparation → correction → protection → reveal.",
     stateDesign: "Design error states (booking form validation), empty states (no reviews yet for a new service), and loading skeletons (gallery tiles loading) so users are never left guessing.",
     offlineConsideration: "Cache critical information (service descriptions, pricing, contact details) so vehicle owners can reference them even without connectivity — e.g., in an underground parking garage.",
   },

@@ -21,7 +21,7 @@ export const NAV_ARCHITECT_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   philosophy: {
     core: "Navigation is not merely a mechanical interface element — it's a storytelling vehicle that embodies the brand's mission and values. Every interaction carries potential to deepen trust and delight.",
-    forCalemWood: "The navigation must feel like the Cochrane Master Builders experience itself: precise, intentional, premium, and unmistakably bespoke. It should communicate 'your vehicle is in expert hands' before a single word of copy is read. The way the nav moves, transitions, and responds should mirror the care and precision of a master detailer working on a flawless finish.",
+    forCochraneMasterBuilders: "The navigation must feel like the Cochrane Master Builders experience itself: precise, intentional, premium, and unmistakably bespoke. It should communicate 'your vehicle is in expert hands' before a single word of copy is read. The way the nav moves, transitions, and responds should mirror the care and precision of a master detailer working on a flawless finish.",
     fantasyCoStandard: "Every element must have the weight, depth, and luxurious feel of Fantasy.co — lines that feel heavy and intentional, transitions that feel smooth and earned, states that feel crafted not generated.",
     brandConnection: "Cochrane Master Builders transforms vehicles from ordinary to extraordinary through meticulous attention to detail. The navigation must embody this same transformation — ordinary UI elements elevated to extraordinary through craft, precision, and intentionality.",
   },

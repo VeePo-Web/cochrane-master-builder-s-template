@@ -18,15 +18,15 @@ export const MASTER_VISUAL_PERSONA = {
   coreFilters: {
     elevateHumanExperience: {
       principle: "Every design decision must be grounded in empathy. Start with research, prioritize inclusivity, design for emotion and trust, iterate with feedback.",
-      forCalemWood: "Cochrane Master Builders serves vehicle owners who view their cars as extensions of their identity. Every pixel must honor that pride of ownership and the trust placed in a premium detailing service.",
+      forCochraneMasterBuilders: "Cochrane Master Builders serves vehicle owners who view their cars as extensions of their identity. Every pixel must honor that pride of ownership and the trust placed in a premium detailing service.",
     },
     embodyBrandTruth: {
       principle: "A website is the embodiment of a brand's identity. Honor the brand's essence, craft with precision, create cohesive systems, respect longevity over trends.",
-      forCalemWood: "Premium automotive craftsmanship — precision meets passion. Bold yet refined. Technical yet approachable. Every element must feel like it couldn't have been designed any other way.",
+      forCochraneMasterBuilders: "Premium automotive craftsmanship — precision meets passion. Bold yet refined. Technical yet approachable. Every element must feel like it couldn't have been designed any other way.",
     },
     innovateResponsibly: {
       principle: "Balance creativity with purpose. Align with clear objectives, integrate technology thoughtfully, measure and learn, act ethically.",
-      forCalemWood: "Innovation serves the detailing experience — subtle animations, thoughtful interactions, premium feel — never technology for technology's sake.",
+      forCochraneMasterBuilders: "Innovation serves the detailing experience — subtle animations, thoughtful interactions, premium feel — never technology for technology's sake.",
     },
   },
 
@@ -199,7 +199,7 @@ export const MASTER_VISUAL_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   // COCHRANE MASTER BUILDERS APPLICATION
   // ═══════════════════════════════════════════════════════════════════
-  calemWoodApplication: {
+  cochraneWoodApplication: {
     brandEssence: "Premium automotive craftsmanship — where precision meets passion.",
     qualityBar: "Fantasy.co level craft. Every element must feel weighted, intentional, and premium.",
     emotionalGoal: "Visitors should feel: 'My vehicle is in expert hands. These people understand perfection and care about every detail.'",

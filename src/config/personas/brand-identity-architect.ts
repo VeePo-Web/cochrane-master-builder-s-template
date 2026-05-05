@@ -367,7 +367,7 @@ export const BRAND_IDENTITY_ARCHITECT = {
   // ═══════════════════════════════════════════════════════════════════
   // COCHRANE MASTER BUILDERS APPLICATION
   // ═══════════════════════════════════════════════════════════════════
-  calemWoodApplication: {
+  cochraneWoodApplication: {
     category: "Premium automotive detailing and paint protection — specifically for discerning vehicle owners who value precision craftsmanship, technical expertise, and white-glove service.",
     brandTruth: "Cochrane Master Builders exists because most automotive detailing feels either cheap and rushed (drive-through car washes, quick-detail shops) or inconsistent and unreliable (mobile detailers with no standards). They offer a third path: precision craftsmanship with technical expertise and obsessive attention to detail.",
     audienceIdentity: "For vehicle owners who see their cars as extensions of their identity — not just transportation to maintain. They want to trust the hands touching their vehicle, not gamble on whoever shows up.",

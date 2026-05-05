@@ -37,20 +37,20 @@ or run them as parent/sub-brand (e.g. "StreetSmart Detailing — by Cochrane Mas
 | `src/pages/FAQ.tsx` | 121–124 | `sms:+14035551234` / `Text (403) 555-1234` |
 | `src/components/detailing/BookingModal.tsx` | 463 | `tel:+14035551234` / `(403) 555-1234` |
 
-### Email (`hello@calemwood.ca`)
+### Email (`hello@cochranemasterbuilders.ca`)
 
 | File | Line | Current text |
 |---|---|---|
-| `src/components/detailing/Footer.tsx` | 93–96 | `mailto:hello@calemwood.ca` |
-| `src/pages/Privacy.tsx` | 32 | `…contact us at hello@calemwood.ca.` |
+| `src/components/detailing/Footer.tsx` | 93–96 | `mailto:hello@cochranemasterbuilders.ca` |
+| `src/pages/Privacy.tsx` | 32 | `…contact us at hello@cochranemasterbuilders.ca.` |
 
-### Instagram (`instagram.com/calemwooddetailing`)
+### Instagram (`instagram.com/cochranemasterbuilders`)
 
 | File | Line | Current text |
 |---|---|---|
-| `src/components/detailing/Footer.tsx` | 105 | `https://instagram.com/calemwooddetailing` |
+| `src/components/detailing/Footer.tsx` | 105 | `https://instagram.com/cochranemasterbuilders` |
 
-**Decision needed:** real phone, real email (does the domain `calemwood.ca`
+**Decision needed:** real phone, real email (does the domain `cochranemasterbuilders.ca`
 exist or is it `streetsmartdetailing.ca`?), real IG handle.
 
 ---

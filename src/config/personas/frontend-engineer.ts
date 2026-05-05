@@ -282,7 +282,7 @@ export const FRONTEND_ENGINEER_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   // COCHRANE MASTER BUILDERS APPLICATION
   // ═══════════════════════════════════════════════════════════════════
-  calemWoodApplication: {
+  cochraneWoodApplication: {
     stack: "React 18 + Vite + TypeScript + Tailwind — confirmed and locked.",
     designTokens: "All brand colors, typography, and spacing defined in tailwind.config.ts and index.css via CSS custom properties.",
     componentPhilosophy: "Small, focused, composable components. Each one unmistakably Cochrane Master Builders.",
