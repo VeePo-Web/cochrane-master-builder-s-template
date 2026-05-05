@@ -1,5 +1,5 @@
 /**
- * CALEM WOOD — Fantasy-Style Internal Creative Brief
+ * COCHRANE MASTER BUILDERS — Fantasy-Style Internal Creative Brief
  * 
  * DECISION-MAKING REFERENCE ONLY. Does not render anything.
  * This file encodes the full strategic understanding of the business
@@ -15,7 +15,7 @@ export const BUSINESS_OVERVIEW = {
   // 1. BUSINESS SNAPSHOT
   // ═══════════════════════════════════════════════════════════════════
   snapshot: {
-    description: "Calem Wood is building a mobile detailing business in Calgary focused on restoring vehicles that have been heavily used, neglected, or simply not maintained to a high standard over time.",
+    description: "Cochrane Master Builders is building a mobile detailing business in Calgary focused on restoring vehicles that have been heavily used, neglected, or simply not maintained to a high standard over time.",
     currentOffer: "A full car detail for approximately $100, with gas and travel included anywhere in Calgary.",
     serviceIncludes: [
       "Interior shampooing and extraction using a dirt extractor",
@@ -32,7 +32,7 @@ export const BUSINESS_OVERVIEW = {
   // ═══════════════════════════════════════════════════════════════════
   coreOpportunity: {
     statement: "Own the space between practical convenience and high-satisfaction transformation.",
-    insight: "Many car cleaning services compete on generic promises: quality, fast service, attention to detail. Calem's advantage is more emotionally resonant — serving the customer who has let their car go too far, feels the friction of fixing it themselves, and wants someone else to come in and completely reset the situation.",
+    insight: "Many car cleaning services compete on generic promises: quality, fast service, attention to detail. Cochrane Master Builders's advantage is more emotionally resonant — serving the customer who has let their car go too far, feels the friction of fixing it themselves, and wants someone else to come in and completely reset the situation.",
     narrativeShift: [
       "Not just 'we detail cars' → 'we bring your car back'",
       "Not just 'mobile convenience' → 'we remove the effort and deliver the payoff'",
@@ -46,7 +46,7 @@ export const BUSINESS_OVERVIEW = {
   // ═══════════════════════════════════════════════════════════════════
   brandEssence: {
     working: "A convenient, high-satisfaction mobile detailing service that restores neglected vehicles and gives owners the feeling of getting their car back.",
-    oneSentence: "Calem Wood brings dirty, heavily used vehicles back to life through mobile detailing that feels easy to book and deeply satisfying to experience.",
+    oneSentence: "Cochrane Master Builders brings dirty, heavily used vehicles back to life through mobile detailing that feels easy to book and deeply satisfying to experience.",
     emotionalTerritory: ["relief", "reset", "pride", "freshness", "satisfaction", "transformation"],
     functionalTerritory: ["mobile service", "deep interior extraction", "exterior improvement", "paint restoration", "all-Calgary coverage", "straightforward value"],
   },
@@ -121,7 +121,7 @@ export const BUSINESS_OVERVIEW = {
   // ═══════════════════════════════════════════════════════════════════
   valueProposition: {
     current: "A mobile detailing service in Calgary that restores dirty vehicles to a cleaner, fresher, more factory-like condition for an accessible price, with travel included.",
-    stronger: "Calem Wood delivers convenient, high-impact mobile car detailing for Calgary drivers who want their vehicle deeply restored without sacrificing their own time. By combining all-city mobility, deep interior extraction, and exterior restoration, the service transforms neglected cars into spaces that feel clean, fresh, and worth driving again.",
+    stronger: "Cochrane Master Builders delivers convenient, high-impact mobile car detailing for Calgary drivers who want their vehicle deeply restored without sacrificing their own time. By combining all-city mobility, deep interior extraction, and exterior restoration, the service transforms neglected cars into spaces that feel clean, fresh, and worth driving again.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -140,7 +140,7 @@ export const BUSINESS_OVERVIEW = {
   differentiationPotential: [
     { angle: "Mobile without compromise", description: "Not just convenient, but capable of real results." },
     { angle: "Factory-feel restoration", description: "A stronger emotional outcome than 'clean'." },
-    { angle: "Made for neglected cars", description: "A compelling niche if Calem is comfortable owning it." },
+    { angle: "Made for neglected cars", description: "A compelling niche if Cochrane Master Builders is comfortable owning it." },
     { angle: "Affordable transformation", description: "A notable position if the ~$100 detail remains core." },
     { angle: "Local, direct, hardworking service", description: "A strong personality advantage if the brand stays authentic and grounded." },
   ],
@@ -195,7 +195,7 @@ export const BUSINESS_OVERVIEW = {
   // ═══════════════════════════════════════════════════════════════════
   websiteMessagingDirection: {
     coreQuestionsToAnswer: [
-      "What does Calem do?",
+      "What does Cochrane Master Builders do?",
       "Who is it for?",
       "What kind of transformation can people expect?",
       "Why is mobile a better experience?",
@@ -216,11 +216,11 @@ export const BUSINESS_OVERVIEW = {
   // 15. STRATEGIC TENSIONS TO RESOLVE
   // ═══════════════════════════════════════════════════════════════════
   strategicTensions: [
-    { tension: "Broad vs Niche", question: "Does Calem want to serve everyone with a car, or own a specific use case?" },
+    { tension: "Broad vs Niche", question: "Does Cochrane Master Builders want to serve everyone with a car, or own a specific use case?" },
     { tension: "Affordable vs Premium", question: "Is the business winning on price accessibility, or does it want to evolve toward a higher-end offer?" },
     { tension: "Cleaning vs Restoration", question: "Is this mostly maintenance detailing, or deeper recovery work?" },
     { tension: "Convenience vs Craft", question: "Is the lead hook that the service comes to you, or that the result is exceptional?" },
-    { tension: "Personal Brand vs Business Brand", question: "Is this 'Calem Wood' as an individual operator, or the early version of a broader branded company?" },
+    { tension: "Personal Brand vs Business Brand", question: "Is this 'Cochrane Master Builders' as an individual operator, or the early version of a broader branded company?" },
   ],
 
   // ═══════════════════════════════════════════════════════════════════
@@ -235,7 +235,7 @@ export const BUSINESS_OVERVIEW = {
   // 17. FOUNDER INTENT TO EXTRACT (via questionnaire)
   // ═══════════════════════════════════════════════════════════════════
   founderIntentToExtract: [
-    { category: "Vision", question: "What kind of business Calem wants this to become over time." },
+    { category: "Vision", question: "What kind of business Cochrane Master Builders wants this to become over time." },
     { category: "Mission", question: "Why this work matters to him and what result he wants to create for customers." },
     { category: "Positioning", question: "What he wants to be known for in the market." },
     { category: "Audience", question: "Who his best-fit customers really are." },

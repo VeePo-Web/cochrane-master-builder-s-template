@@ -1,9 +1,9 @@
 /**
- * CALEM WOOD DETAILING — Fantasy.co-Level Master Design Plan
+ * COCHRANE MASTER BUILDERS — Fantasy.co-Level Master Design Plan
  * 
  * DECISION-MAKING REFERENCE ONLY. Does not render anything.
  * This is the comprehensive, exhaustive design specification that governs
- * every pixel, interaction, and word of the Calem Wood Detailing website.
+ * every pixel, interaction, and word of the Cochrane Master Builders website.
  * 
  * Built for a mobile vehicle restoration brand in Calgary, Alberta.
  * Grounded in the Brand Identity North Star, Discovery Questionnaire,
@@ -18,7 +18,7 @@ export const MASTER_DESIGN_PLAN = {
   // 0. CURRENT STATE AUDIT
   // ═══════════════════════════════════════════════════════════════════
   currentStateAudit: {
-    problem: "The current site is built as a luxury wedding planning brand ('Hickory & Rose'). Calem Wood Detailing is a mobile vehicle restoration service in Calgary. The entire design system, content, architecture, and emotional tone must be rebuilt to serve a grounded, proof-driven, industrial-premium brand that converts Calgary drivers with overdue vehicles into bookings.",
+    problem: "The current site is built as a luxury wedding planning brand ('Hickory & Rose'). Cochrane Master Builders is a mobile vehicle restoration service in Calgary. The entire design system, content, architecture, and emotional tone must be rebuilt to serve a grounded, proof-driven, industrial-premium brand that converts Calgary drivers with overdue vehicles into bookings.",
     stackConfirmation: {
       framework: "React 18 ✓",
       buildTool: "Vite ✓",
@@ -32,7 +32,7 @@ export const MASTER_DESIGN_PLAN = {
       smoothScroll: "Lenis ✓",
     },
     whatMustChange: [
-      "All 'Hickory & Rose' wedding content → Calem Wood Detailing mobile restoration content",
+      "All 'Hickory & Rose' wedding content → Cochrane Master Builders mobile restoration content",
       "Sage/cream wedding palette → Asphalt Black, Stone Gray, Warm Porcelain, Burnished Copper",
       "Cormorant Garamond + Great Vibes → Industrial premium sans-serif type system",
       "Editorial wedding photography → Before/after restoration photography, close-up textures, founder-at-work",
@@ -48,13 +48,13 @@ export const MASTER_DESIGN_PLAN = {
   // 1. STRATEGIC ANALYSIS
   // ═══════════════════════════════════════════════════════════════════
   strategicAnalysis: {
-    marketPositioning: "Calem Wood Detailing occupies the 'most satisfying, most convenient, most honest full reset in Calgary' position. Competitors own either 'cheap mobile wash' or 'luxury ceramic coating for exotics.' The underserved void is everyday drivers whose vehicles have crossed into problem-state — people who need a genuine restoration, not a wipe-down, delivered to their door without judgment.",
+    marketPositioning: "Cochrane Master Builders occupies the 'most satisfying, most convenient, most honest full reset in Calgary' position. Competitors own either 'cheap mobile wash' or 'luxury ceramic coating for exotics.' The underserved void is everyday drivers whose vehicles have crossed into problem-state — people who need a genuine restoration, not a wipe-down, delivered to their door without judgment.",
 
     primaryConversionObjective: "Convert a Calgary driver with an overdue vehicle from website visitor to booking. The path: see transformation proof → feel desire for the reset → understand convenience (mobile, travel included) → book or text.",
 
     trustBuildingMechanisms: [
       "Before/after photography of real Calgary vehicles in genuinely bad condition",
-      "Founder presence — Calem's name, face, standards declaration",
+      "Founder presence — Cochrane Master Builders's name, face, standards declaration",
       "Transparent pricing — starting from ~$100, travel included, no hidden fees",
       "No-judgment language — explicit reassurance that all conditions are welcome",
       "Service clarity — single 'Full Reset' offer, clear inclusions/exclusions",
@@ -220,7 +220,7 @@ export const MASTER_DESIGN_PLAN = {
         "Real before/after pairs from actual Calgary jobs — the worse the starting state, the better",
         "Close-up texture macro: leather grain, carpet fibers after extraction, paint clarity post-correction",
         "Interior atmosphere shots — almost architectural in composition",
-        "Founder-at-work documentary: Calem working on vehicles, hands-on detail moments",
+        "Founder-at-work documentary: Cochrane Master Builders working on vehicles, hands-on detail moments",
         "Calgary residential contexts: driveways, suburban streets, real neighborhoods",
         "Natural light, weather-appropriate — Calgary realism, not studio glamour",
         "Extraction evidence: what came OUT of the seats, the dirty water bucket",
@@ -322,7 +322,7 @@ export const MASTER_DESIGN_PLAN = {
             content: "Book → We Come → Reset",
             steps: [
               { number: "01", title: "Book", description: "Pick a time. Tell us your vehicle and condition." },
-              { number: "02", title: "We Come to You", description: "Calem arrives at your location with everything needed." },
+              { number: "02", title: "We Come to You", description: "Cochrane Master Builders arrives at your location with everything needed." },
               { number: "03", title: "Full Reset", description: "Deep extraction. Paint correction. You get your car back." },
             ],
             design: "Warm Porcelain background. Numbered steps with editorial typography. Horizontal on desktop, vertical stack on mobile. Subtle connector lines between steps.",
@@ -338,8 +338,8 @@ export const MASTER_DESIGN_PLAN = {
           {
             id: "founder-section",
             type: "Manifesto-style founder block",
-            content: "Calem's standards — what 'done' means. Short, punchy, real.",
-            copy: "3-4 sentences about what Calem believes, why he does this, and what his standard is. Not a biography. A declaration of craft.",
+            content: "Cochrane Master Builders's standards — what 'done' means. Short, punchy, real.",
+            copy: "3-4 sentences about what Cochrane Master Builders believes, why he does this, and what his standard is. Not a biography. A declaration of craft.",
             design: "Dark background (Asphalt Black). Founder at-work photography. Clean sans typography. Short manifesto text. Should feel confident, not small.",
           },
           {
@@ -368,7 +368,7 @@ export const MASTER_DESIGN_PLAN = {
             headline: "Your car is next.",
             sensoryCopy: "The smell of a car that's been reset — clean fabric, fresh air, no trace of what was there before.",
             cta: "Book Your Reset",
-            secondaryCta: "Text Calem",
+            secondaryCta: "Text Cochrane Master Builders",
             design: "Dark background with single powerful before/after. Sensory copy. Dual CTA. Should feel like a permission to finally act.",
           },
         ],
@@ -406,11 +406,11 @@ export const MASTER_DESIGN_PLAN = {
       about: {
         route: "/about",
         purpose: "Build trust through founder authenticity. Convert skeptics through realness, not persuasion.",
-        h1: "About Calem Wood — Calgary Mobile Detailing",
+        h1: "About Cochrane Master Builders — Calgary Mobile Detailing",
         sections: [
-          "Short manifesto — what Calem believes, why he does this, what his standard is",
+          "Short manifesto — what Cochrane Master Builders believes, why he does this, what his standard is",
           "At-work photography and environmental portraits",
-          "'Calem's Standard' — what every vehicle gets and what 'done' means",
+          "'Cochrane Master Builders's Standard' — what every vehicle gets and what 'done' means",
           "Calgary locality: local, founder-operated, not a franchise",
           "Booking CTA",
         ],
@@ -502,7 +502,7 @@ export const MASTER_DESIGN_PLAN = {
       CTASection: "Dark band with emotional headline, sensory copy, dual CTA.",
       BookingFormSection: "Minimal, calm form + text/call alternative.",
       ProofGallery: "Curated before/after grid with condition tags and vehicle types.",
-      StickyMobileCTA: "Fixed bottom bar on mobile: alternates 'Book Your Reset' / 'Text Calem' based on scroll position.",
+      StickyMobileCTA: "Fixed bottom bar on mobile: alternates 'Book Your Reset' / 'Text Cochrane Master Builders' based on scroll position.",
     },
 
     patterns: {
@@ -548,7 +548,7 @@ export const MASTER_DESIGN_PLAN = {
   // 6. SEO ARCHITECTURE
   // ═══════════════════════════════════════════════════════════════════
   seoArchitecture: {
-    titleTemplate: "{Page Title} | Calem Wood Detailing — Calgary Mobile Detail",
+    titleTemplate: "{Page Title} | Cochrane Master Builders — Calgary Mobile Detail",
     canonicalBase: "https://calemwooddetailing.com",
     structuredData: [
       "LocalBusiness — site-wide (name, address, areaServed: Calgary, priceRange)",
@@ -712,7 +712,7 @@ export const MASTER_DESIGN_PLAN = {
   implementationPlan: {
     phase1_DesignSystem: {
       order: 1,
-      description: "Rebuild design tokens, colors, typography for Calem Wood identity",
+      description: "Rebuild design tokens, colors, typography for Cochrane Master Builders identity",
       tasks: [
         "Replace index.css color tokens: sage/cream/teal → asphalt/stone/porcelain/copper",
         "Update tailwind.config.ts with new color system and font families",
@@ -724,7 +724,7 @@ export const MASTER_DESIGN_PLAN = {
     },
     phase2_Navigation: {
       order: 2,
-      description: "Rebuild navigation for Calem Wood brand",
+      description: "Rebuild navigation for Cochrane Master Builders brand",
       tasks: [
         "New nav links: Home, Services, Results, About, FAQ, Book",
         "Desktop: transparent → solid on scroll with copper Book CTA",
@@ -820,7 +820,7 @@ export const MASTER_DESIGN_PLAN = {
   approvalStatus: {
     status: "APPROVED",
     instruction: "This plan is approved and implementation-ready. Execution follows the phase order defined in implementationPlan.",
-    nextStep: "Begin Phase 1: Design System — rebuild color tokens, typography, and base styles for Calem Wood Detailing identity.",
+    nextStep: "Begin Phase 1: Design System — rebuild color tokens, typography, and base styles for Cochrane Master Builders identity.",
   },
 
 } as const;

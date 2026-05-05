@@ -1,9 +1,9 @@
 /**
- * CALEM WOOD — Navigation UI/UX Persona
+ * COCHRANE MASTER BUILDERS — Navigation UI/UX Persona
  * 
  * DECISION-MAKING REFERENCE ONLY. Does not render anything.
  * All navigation design decisions should be filtered through this persona
- * and the Calem Wood brand identity (premium automotive craftsmanship, quiet confidence).
+ * and the Cochrane Master Builders brand identity (premium automotive craftsmanship, quiet confidence).
  */
 
 export const NAV_PERSONA = {
@@ -13,9 +13,9 @@ export const NAV_PERSONA = {
     clarity: "Navigation must communicate site structure in under 2 seconds — vehicle owners value their time",
     hierarchy: "Primary CTA (Book Now) must be visually distinct from navigation links — the one element that breaks the pattern",
     consistency: "Navigation behavior must be predictable across all pages and breakpoints — inconsistency signals carelessness",
-    conversion: "Every nav state should subtly guide toward booking — the primary conversion action for Calem Wood",
+    conversion: "Every nav state should subtly guide toward booking — the primary conversion action for Cochrane Master Builders",
     trust: "Navigation design signals professionalism — sloppy nav = sloppy detailer perception",
-    precision: "Navigation should feel precise and intentional — reflecting Calem Wood's meticulous craft and attention to detail",
+    precision: "Navigation should feel precise and intentional — reflecting Cochrane Master Builders's meticulous craft and attention to detail",
   },
 
   decisions: {
@@ -29,7 +29,7 @@ export const NAV_PERSONA = {
     },
     activeState: {
       rule: "Subtle underline or weight shift — never heavy borders or background fills",
-      rationale: "Active states should inform, not distract. Precision and restraint match Calem Wood's identity — the mark of a current state, not a shout.",
+      rationale: "Active states should inform, not distract. Precision and restraint match Cochrane Master Builders's identity — the mark of a current state, not a shout.",
     },
     ctaPlacement: {
       rule: "Primary CTA ('Book Now') as right-aligned button in nav",
@@ -41,7 +41,7 @@ export const NAV_PERSONA = {
     },
     spacing: {
       rule: "Generous horizontal spacing between nav items; comfortable click/tap targets (44px minimum)",
-      rationale: "Prevents misclicks; communicates quality through breathing room — a luxury signal. The same precision spacing Calem Wood applies to their work.",
+      rationale: "Prevents misclicks; communicates quality through breathing room — a luxury signal. The same precision spacing Cochrane Master Builders applies to their work.",
     },
     dropdowns: {
       rule: "Use sparingly — only if service tiers (Maintenance, Enhancement, Signature, Flagship) need sub-navigation",
@@ -65,13 +65,13 @@ export const NAV_PERSONA = {
   },
 
   antiPatterns: [
-    "Racing stripes, checkered flags, or obvious automotive clichés — Calem Wood is premium, not themed",
+    "Racing stripes, checkered flags, or obvious automotive clichés — Cochrane Master Builders is premium, not themed",
     "Nav items that compete visually with the Book Now CTA",
     "Animated hamburger icons that feel playful when the brand is precise and confident",
     "Too many nav items (max 6-7 including CTA)",
     "Nav that disappears on scroll without a way to re-access",
     "Inconsistent nav between pages — breaks trust immediately",
-    "Overly trendy nav patterns that won't feel timeless — Calem Wood's quality endures",
+    "Overly trendy nav patterns that won't feel timeless — Cochrane Master Builders's quality endures",
     "Loud colors or aggressive styling in the nav — confidence is quiet",
     "Generic CSS transitions — every animation must be custom-eased and intentional",
     "Thin, weightless lines — everything must feel substantial and crafted",

@@ -24,8 +24,8 @@ function happyDraft(): Partial<BookingDraft> {
     powerOutlet: true,
     driveway: true,
     keysHandoff: true,
-    name: "Calem Wood",
-    email: "calem@example.com",
+    name: "Cochrane Master Builders",
+    email: "Cochrane Master Builders@example.com",
     phone: "(403) 555-0123",
   };
 }
@@ -41,8 +41,8 @@ describe("validateBookingDraft", () => {
 
   it("name + email only is still invalid", () => {
     const result = validateBookingDraft({
-      name: "Calem",
-      email: "calem@example.com",
+      name: "Cochrane Master Builders",
+      email: "Cochrane Master Builders@example.com",
     });
     expect(result.isValid).toBe(false);
     expect(result.missing.length).toBeGreaterThan(0);

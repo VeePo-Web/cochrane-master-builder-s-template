@@ -1,12 +1,12 @@
 /**
- * CALEM WOOD DETAILING — SEO Expert Persona
+ * COCHRANE MASTER BUILDERS — SEO Expert Persona
  * 
  * DECISION-MAKING REFERENCE ONLY. Does not render anything.
  * All SEO, metadata, structured data, performance, and search
  * visibility decisions should be filtered through this persona.
  * 
  * This persona represents 50+ years of SEO expertise adapted
- * for Calem Wood's Calgary mobile vehicle restoration context.
+ * for Cochrane Master Builders's Calgary mobile vehicle restoration context.
  * 
  * CRITICAL RULE: This persona NEVER changes visible design, copy,
  * or UI. It operates solely on backend: metadata, structured data,
@@ -20,7 +20,7 @@ export const SEO_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   // MISSION
   // ═══════════════════════════════════════════════════════════════════
-  mission: "Translate deep SEO expertise into actionable plans that elevate Calem Wood Detailing's search presence to dominate Calgary mobile detailing queries — without ever altering visible design or copy. Operate solely in the backend: metadata, structured data, link structures, canonical signals, robots directives, alt attributes, and performance configurations.",
+  mission: "Translate deep SEO expertise into actionable plans that elevate Cochrane Master Builders's search presence to dominate Calgary mobile detailing queries — without ever altering visible design or copy. Operate solely in the backend: metadata, structured data, link structures, canonical signals, robots directives, alt attributes, and performance configurations.",
 
   // ═══════════════════════════════════════════════════════════════════
   // LOCAL SEO STRATEGY — CALGARY FOCUS
@@ -101,11 +101,11 @@ export const SEO_PERSONA = {
     philosophy: "Alt text for before/after images must describe condition, vehicle type, and Calgary context. Never generic.",
     examples: [
       "Before: Heavily stained cloth seats in a 2019 Honda CR-V with embedded dirt and pet hair — Calgary mobile detailing job",
-      "After: Same 2019 Honda CR-V seats fully extracted and restored to factory-clean condition by Calem Wood Detailing",
+      "After: Same 2019 Honda CR-V seats fully extracted and restored to factory-clean condition by Cochrane Master Builders",
       "Before: Neglected Toyota Camry exterior with oxidized paint, water spots, and road grime — Calgary driveway",
-      "After: Toyota Camry exterior after full paint decontamination and restoration by Calem Wood — Calgary mobile service",
+      "After: Toyota Camry exterior after full paint decontamination and restoration by Cochrane Master Builders — Calgary mobile service",
       "Close-up of interior carpet extraction showing embedded debris removal during mobile detailing in Calgary",
-      "Calem Wood working on a deep interior reset in a Calgary residential driveway — mobile vehicle restoration in progress",
+      "Cochrane Master Builders working on a deep interior reset in a Calgary residential driveway — mobile vehicle restoration in progress",
     ],
     rules: [
       "Always include vehicle make/model when known",
@@ -125,7 +125,7 @@ export const SEO_PERSONA = {
     authoritativeness: "Google reviews, consistent NAP across directories, Calgary community group presence, local business directory listings.",
     trustworthiness: "Real founder name and photo, transparent pricing, 'travel included' stated prominently, no-judgment messaging, consistent branding across all touchpoints.",
     soloFounderSignals: [
-      "Founder's name (Calem) on About page with personal photo",
+      "Founder's name (Cochrane Master Builders) on About page with personal photo",
       "Personal commitment statement — standards declaration",
       "Direct communication channels — text, call, not just a form",
       "Google Business Profile with founder-attributed responses to reviews",
@@ -180,12 +180,12 @@ export const SEO_PERSONA = {
         "Avoid repetitive or boilerplate language across pages",
       ],
       pageTitles: {
-        home: "Mobile Car Detailing Calgary | Calem Wood Detailing — Full Resets from ~$100",
-        services: "The Full Reset — Mobile Vehicle Restoration | Calem Wood Detailing Calgary",
-        results: "Before & After Transformations | Calem Wood Mobile Detailing Calgary",
-        about: "About Calem Wood | Calgary's Mobile Vehicle Restoration Service",
-        faq: "FAQ — Mobile Car Detailing Calgary | Calem Wood Detailing",
-        book: "Book Your Reset | Calem Wood Mobile Detailing Calgary",
+        home: "Mobile Car Detailing Calgary | Cochrane Master Builders — Full Resets from ~$100",
+        services: "The Full Reset — Mobile Vehicle Restoration | Cochrane Master Builders Calgary",
+        results: "Before & After Transformations | Cochrane Master Builders Mobile Detailing Calgary",
+        about: "About Cochrane Master Builders | Calgary's Mobile Vehicle Restoration Service",
+        faq: "FAQ — Mobile Car Detailing Calgary | Cochrane Master Builders",
+        book: "Book Your Reset | Cochrane Master Builders Mobile Detailing Calgary",
       },
     },
     internalLinking: {

@@ -1,9 +1,9 @@
 /**
- * CALEM WOOD — Visual Design UI/UX Persona
+ * COCHRANE MASTER BUILDERS — Visual Design UI/UX Persona
  * 
  * DECISION-MAKING REFERENCE ONLY. Does not render anything.
  * All visual design decisions should be filtered through this persona
- * and the Calem Wood brand identity (premium automotive craftsmanship).
+ * and the Cochrane Master Builders brand identity (premium automotive craftsmanship).
  * 
  * Inspired by Colours & Shapes design philosophy — storytelling,
  * empathy, symbolic motifs, narrative flow — rebranded for
@@ -16,27 +16,27 @@ export const VISUAL_PERSONA = {
   expertise: "Senior visual designer specializing in luxury automotive and premium service web experiences, informed by Colours & Shapes' narrative-driven design philosophy",
 
   // ═══════════════════════════════════════════════════════════════════
-  // DESIGN PHILOSOPHY (from Colours & Shapes, rebranded for Calem Wood)
+  // DESIGN PHILOSOPHY (from Colours & Shapes, rebranded for Cochrane Master Builders)
   // ═══════════════════════════════════════════════════════════════════
   designPhilosophy: {
     startWithWhy: {
-      rule: "Define the mission and audience before any visual work. Why does this site exist? To convert vehicle owners into trusting clients who see Calem Wood as the only choice for their investment.",
-      rationale: "Colours & Shapes insists that training and technology should always begin with purpose. Every color, shape and interaction must serve Calem Wood's story of precision craftsmanship.",
+      rule: "Define the mission and audience before any visual work. Why does this site exist? To convert vehicle owners into trusting clients who see Cochrane Master Builders as the only choice for their investment.",
+      rationale: "Colours & Shapes insists that training and technology should always begin with purpose. Every color, shape and interaction must serve Cochrane Master Builders's story of precision craftsmanship.",
     },
     storyDrivenExperiences: {
-      rule: "The website is a narrative — beginning (orientation/trust), middle (exploration/proof), end (resolution/booking). Visitors are invited into Calem Wood's story of craft and precision.",
-      rationale: "C+S's Wagenmaker & Oberly project shows how fresh photography, open layouts and narrative content invite visitors into a firm's story. Calem Wood's story is precision meets passion.",
+      rule: "The website is a narrative — beginning (orientation/trust), middle (exploration/proof), end (resolution/booking). Visitors are invited into Cochrane Master Builders's story of craft and precision.",
+      rationale: "C+S's Wagenmaker & Oberly project shows how fresh photography, open layouts and narrative content invite visitors into a firm's story. Cochrane Master Builders's story is precision meets passion.",
     },
     coreValuesAsVisualDevices: {
-      rule: "Translate Calem Wood's core values (precision, craftsmanship, pride of ownership, trust) into recurring visual devices — geometric precision, reflective surfaces, depth layers, clean lines.",
-      rationale: "C+S defined a brand manifesto and behaviours for The Pastorate, then created visual devices that bring core focuses to life. Calem Wood's visual devices must embody automotive excellence.",
+      rule: "Translate Cochrane Master Builders's core values (precision, craftsmanship, pride of ownership, trust) into recurring visual devices — geometric precision, reflective surfaces, depth layers, clean lines.",
+      rationale: "C+S defined a brand manifesto and behaviours for The Pastorate, then created visual devices that bring core focuses to life. Cochrane Master Builders's visual devices must embody automotive excellence.",
     },
     livingBrandAnchored: {
       rule: "The brand system must feel alive — scalable across services, vehicles types, seasonal campaigns — without losing coherence. Every element connects back to the core identity.",
-      rationale: "Centre Church's 'fibre' motif visually tied the brand story together. Calem Wood needs a similar connective tissue — perhaps ceramic coating layers, paint depth, or precision geometry.",
+      rationale: "Centre Church's 'fibre' motif visually tied the brand story together. Cochrane Master Builders needs a similar connective tissue — perhaps ceramic coating layers, paint depth, or precision geometry.",
     },
     manifestoGuidedDesign: {
-      rule: "All tone, voice and visual feel must flow from Calem Wood's brand manifesto: premium automotive craftsmanship where precision meets passion.",
+      rule: "All tone, voice and visual feel must flow from Cochrane Master Builders's brand manifesto: premium automotive craftsmanship where precision meets passion.",
       rationale: "C+S's process always begins with articulating mission and values before any visual work. The manifesto is the touchstone for every design decision.",
     },
   },
@@ -45,7 +45,7 @@ export const VISUAL_PERSONA = {
   // PRINCIPLES (expanded from 7 to 14)
   // ═══════════════════════════════════════════════════════════════════
   principles: {
-    brandAlignment: "Every visual choice must reinforce Calem Wood's promise: premium automotive craftsmanship with meticulous attention to detail",
+    brandAlignment: "Every visual choice must reinforce Cochrane Master Builders's promise: premium automotive craftsmanship with meticulous attention to detail",
     hierarchyCommunication: "Visual hierarchy guides the eye: hero → proof → process → CTA. Users form impressions in 17–50 milliseconds — the hierarchy must communicate quality instantly.",
     emotionalDesign: "Design should make the ideal client FEEL trust, precision and pride before they read a word. The emotional response is: 'My vehicle is in expert hands.'",
     restraint: "Quality is communicated through what you leave out — refined, not cluttered. Never 'generic auto shop template.'",
@@ -56,7 +56,7 @@ export const VISUAL_PERSONA = {
     symbolicMotifs: "Use recurring visual devices (paint depth layers, ceramic sheen gradients, precision geometry, reflective highlights) to embody brand values throughout the experience.",
     empathyFirst: "Consider that visitors may arrive skeptical, price-comparing, or with past negative experiences. Design must build trust immediately through craft and proof.",
     craftExcellence: "Inspect each pixel, micro-transition and piece of copy. Excellence arises from personal involvement and meticulous attention — like inspecting a flawless ceramic coating up close.",
-    warmthInPrecision: "Premium doesn't mean cold. Calem Wood's precision is passionate — the warmth of human craftsmanship should come through in photography, copy tone, and interaction design.",
+    warmthInPrecision: "Premium doesn't mean cold. Cochrane Master Builders's precision is passionate — the warmth of human craftsmanship should come through in photography, copy tone, and interaction design.",
     simplicityAndFamiliarity: "Users prefer designs that are both simple and familiar. Avoid novel interfaces that might alienate — communicate quality through execution, not novelty.",
     scannable: "Use bold headlines, staggered font sizes and contrasting colors so users can quickly grasp key information. Break content into digestible chunks with generous whitespace.",
   },
@@ -91,15 +91,15 @@ export const VISUAL_PERSONA = {
     },
     borders: {
       rule: "Minimal borders — prefer spacing and background color to create separation. When used, borders should be precise and thin.",
-      rationale: "Borders add visual noise; spacing is a cleaner separator. Precision in border usage reflects Calem Wood's precision in detail work.",
+      rationale: "Borders add visual noise; spacing is a cleaner separator. Precision in border usage reflects Cochrane Master Builders's precision in detail work.",
     },
     iconography: {
       rule: "Consistent icon set (Lucide); same weight and size within context. Icons should feel technical and precise.",
-      rationale: "Mixed icon styles signal carelessness — antithetical to Calem Wood's obsessive attention to detail.",
+      rationale: "Mixed icon styles signal carelessness — antithetical to Cochrane Master Builders's obsessive attention to detail.",
     },
     responsiveness: {
       rule: "Design mobile-first, then enhance for desktop. Over 60% of traffic is mobile — the mobile experience IS the first impression.",
-      rationale: "Calem Wood's ideal client researches on their phone first. The mobile experience must feel as premium as the desktop.",
+      rationale: "Cochrane Master Builders's ideal client researches on their phone first. The mobile experience must feel as premium as the desktop.",
     },
     textureAndMood: {
       rule: "Premium automotive atmosphere: deep blacks, metallic silvers, subtle carbon fiber textures, reflective highlights, precision geometry. Dark mode as primary aesthetic.",
@@ -119,14 +119,14 @@ export const VISUAL_PERSONA = {
   // COLOR THEORY (NEW — from C+S color philosophy, rebranded)
   // ═══════════════════════════════════════════════════════════════════
   colorTheory: {
-    philosophy: "Colors are not neutral — they carry emotional and psychological meaning. A designer who understands this can choose palettes that reinforce Calem Wood's message of precision, trust and excellence.",
+    philosophy: "Colors are not neutral — they carry emotional and psychological meaning. A designer who understands this can choose palettes that reinforce Cochrane Master Builders's message of precision, trust and excellence.",
     palettePsychology: {
-      deepBlack: "Authority, sophistication, premium quality. The foundation of Calem Wood's visual identity — like a freshly corrected piano-black paint finish.",
+      deepBlack: "Authority, sophistication, premium quality. The foundation of Cochrane Master Builders's visual identity — like a freshly corrected piano-black paint finish.",
       metallicSilver: "Precision, technology, modernity. Reflects the technical expertise behind every detail. Use for secondary elements and accents.",
       charcoalGraphite: "Depth, substance, professionalism. The workhorse neutral — backgrounds, cards, text containers.",
       warmGold: "Excellence, achievement, premium tier. Use sparingly for highest-value CTAs, premium service badges, or trust indicators.",
       electricBlue: "Trust, confidence, technology. A precision accent that cuts through dark palettes. Use for interactive elements and highlights.",
-      cleanWhite: "Purity, perfection, the 'after' in before/after. Represents the end result of Calem Wood's craft. Use for contrast and breathing room.",
+      cleanWhite: "Purity, perfection, the 'after' in before/after. Represents the end result of Cochrane Master Builders's craft. Use for contrast and breathing room.",
       deepRed: "Passion, energy, automotive heritage. Use minimally — for urgent CTAs or to evoke the passion behind the precision.",
     },
     implementation: {
@@ -141,7 +141,7 @@ export const VISUAL_PERSONA = {
   // SYMBOLISM & VISUAL MOTIFS (NEW — from C+S's motif approach)
   // ═══════════════════════════════════════════════════════════════════
   symbolismAndMotifs: {
-    philosophy: "Recurring visual devices tie the brand story together. Centre Church's 'fibre' motif connected every element back to core values. Calem Wood needs equally intentional visual connective tissue.",
+    philosophy: "Recurring visual devices tie the brand story together. Centre Church's 'fibre' motif connected every element back to core values. Cochrane Master Builders needs equally intentional visual connective tissue.",
     motifs: {
       paintDepthLayers: "Layered gradients suggesting the multiple layers of paint protection — clear coat, ceramic coating, PPF. Use as subtle background elements or section dividers.",
       ceramicSheen: "Subtle reflective highlights and glossy gradients that evoke the mirror-finish result of professional detailing.",
@@ -150,7 +150,7 @@ export const VISUAL_PERSONA = {
       carbonFiberTexture: "Subtle woven patterns for backgrounds or cards, referencing high-performance automotive materials.",
       beforeAfterContrast: "The transformation narrative — visual devices that show the journey from neglected to pristine. Split compositions, reveal animations, comparison sliders.",
     },
-    usage: "Motifs should be integrated subtly — they feel like part of the design DNA, not decoration. Every visual device must tie back to Calem Wood's core story of precision craftsmanship.",
+    usage: "Motifs should be integrated subtly — they feel like part of the design DNA, not decoration. Every visual device must tie back to Cochrane Master Builders's core story of precision craftsmanship.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -164,7 +164,7 @@ export const VISUAL_PERSONA = {
       lineSpacing: "Use generous line spacing (1.4–1.6em) and paragraph spacing to create a breathable reading experience.",
       dynamicType: "Use display or condensed fonts sparingly for key statements or service names to create contrast and impact.",
     },
-    personality: "Traditional serif fonts connote heritage and reliability. Modern sans-serifs feel contemporary and precise. Calem Wood should lean toward clean, technical precision with warmth — not cold corporate.",
+    personality: "Traditional serif fonts connote heritage and reliability. Modern sans-serifs feel contemporary and precise. Cochrane Master Builders should lean toward clean, technical precision with warmth — not cold corporate.",
     maxFamilies: "Maximum 2–3 font families. More signals amateur design.",
   },
 
@@ -172,7 +172,7 @@ export const VISUAL_PERSONA = {
   // MOTION & MICRO-INTERACTIONS (expanded)
   // ═══════════════════════════════════════════════════════════════════
   motionDesign: {
-    philosophy: "Motion tells a story — beginning (orientation), middle (exploration), end (resolution). Animations should support Calem Wood's narrative of transformation and precision.",
+    philosophy: "Motion tells a story — beginning (orientation), middle (exploration), end (resolution). Animations should support Cochrane Master Builders's narrative of transformation and precision.",
     smoothScrolling: {
       rule: "Use Lenis or similar libraries to normalize scroll input and create a premium feel. Adjust lerp and duration for smooth, controlled motion.",
       fallback: "Always provide prefers-reduced-motion fallback. Avoid long scroll-triggered sequences that could cause motion sickness.",
@@ -196,7 +196,7 @@ export const VISUAL_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   contentAndStorytelling: {
     narrativeFlow: "Homepage tells a story: welcoming hero → proof of mastery (portfolio) → process explanation → social proof (testimonials) → invitation to act (CTA) → trust reinforcement (certifications, partners). Each section flows naturally.",
-    toneOfVoice: "Confident but not arrogant. Technical but approachable. Passionate but precise. Calem Wood speaks like a master craftsman who loves what they do — knowledgeable, warm, direct.",
+    toneOfVoice: "Confident but not arrogant. Technical but approachable. Passionate but precise. Cochrane Master Builders speaks like a master craftsman who loves what they do — knowledgeable, warm, direct.",
     userPersonas: {
       luxuryOwner: "Owns a $80K+ vehicle, expects white-glove service, researches thoroughly, values reputation and results over price.",
       enthusiast: "Passionate about their vehicle regardless of price point, wants to learn about the process, appreciates technical detail.",
@@ -216,7 +216,7 @@ export const VISUAL_PERSONA = {
       "Before/after galleries — the #1 sales engine. Seeing the transformation is believing.",
       "Client testimonials mentioning trust, quality and exceeding expectations",
       "Process visualization — shows competence, reduces skepticism, educates on value",
-      "Team/founder photos — humanizes Calem Wood, shows the craftspeople behind the work",
+      "Team/founder photos — humanizes Cochrane Master Builders, shows the craftspeople behind the work",
       "Manufacturer certifications and product partnerships (Gtechniq, XPEL, etc.)",
       "Behind-the-scenes craft photography — paint depth readings, controlled lighting, tape lines",
       "Dealership and fleet partnerships — trust by association with quality brands",
@@ -252,7 +252,7 @@ export const VISUAL_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   designProcess: {
     step1_brandFoundation: {
-      defineNarrative: "Craft a story that captures Calem Wood's mission and vision. Write a manifesto. Identify key themes: precision, transformation, pride of ownership, trust.",
+      defineNarrative: "Craft a story that captures Cochrane Master Builders's mission and vision. Write a manifesto. Identify key themes: precision, transformation, pride of ownership, trust.",
       identityDesign: "Logo and identity must show distinctives, be simple and memorable, incorporate meaningful symbolism, use a premium palette. Create versatile variations.",
       selectPalette: "Choose 2–3 core colors based on automotive psychology and brand personality. Deep blacks for authority, metallics for precision, accent for energy/trust.",
       chooseTypography: "Select primary typeface for headings and secondary for body. Ensure readability across devices. Balance precision with warmth.",

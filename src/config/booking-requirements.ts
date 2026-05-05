@@ -1,5 +1,5 @@
 /**
- * CALEM WOOD DETAILING — Booking Requirements
+ * COCHRANE MASTER BUILDERS — Booking Requirements
  *
  * Single source of truth for what a "complete" booking is, derived from
  * `QUESTIONNAIRE_ANSWERS`. Decision-making reference + validator contract.
@@ -38,7 +38,7 @@ export const REQUIRED_FIELD_KEYS = [
   // Location (Q5 — service area: Calgary + Airdrie + Cochrane)
   "street",
   "city",
-  // Site readiness (Calem's hard requirements — mobile-service contract)
+  // Site readiness (Cochrane Master Builders's hard requirements — mobile-service contract)
   "waterAccess",
   "powerOutlet",
   "driveway",

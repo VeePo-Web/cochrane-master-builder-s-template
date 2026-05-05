@@ -1,8 +1,8 @@
 /**
- * CALEM WOOD DETAILING — Founder Questionnaire (Verbatim)
+ * COCHRANE MASTER BUILDERS — Founder Questionnaire (Verbatim)
  *
  * SOURCE: calem_wood_detailing_Submissions_2026-04-23.csv
- * Submitted: 2026-04-18 by Calem Wood (Submission ID: 4aBYAyb)
+ * Submitted: 2026-04-18 by Cochrane Master Builders (Submission ID: 4aBYAyb)
  *
  * ⚠️ FOUNDER-STATED TRUTH
  * This file is the canonical source of truth for everything related to
@@ -18,7 +18,7 @@ export const QUESTIONNAIRE_ANSWERS = {
     submissionId: "4aBYAyb",
     respondentId: "aQjevBZ",
     submittedAt: "2026-04-18 18:53:17",
-    respondent: "Calem Wood",
+    respondent: "Cochrane Master Builders",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -65,7 +65,7 @@ export const QUESTIONNAIRE_ANSWERS = {
     "3.3_realisticExpectation":
       "Results of satisfaction, not perfect but noticeable change from before to after.",
     "3.4_doNotExpect": "a full revive of their vehicle, heavily damaged surface restoration",
-    "3.5_basicCleanVsCalem":
+    "3.5_basicCleanVsCochrane Master Builders":
       "I pay attention to little details, i strive for quality over quantity. I want to do this to the best of my ability, and to a satisfying level for the customers.",
     "3.6_differenceFromCompetitors": "question 3.5 answers this.",
     "3.7_serviceFraming": "Mix of them all",
@@ -151,7 +151,7 @@ export const QUESTIONNAIRE_ANSWERS = {
   // SECTION 8 — Differentiation & Proof
   // ═══════════════════════════════════════════════════════════════════
   differentiation: {
-    "8.1_whyChooseCalem":
+    "8.1_whyChooseCochrane Master Builders":
       "because i am willing to clean till their satisfaction and not only my own",
     "8.2_betterThanCompetitors": "Make sure the customers are satisfied",
     "8.3_proofAvailable": "none yet",
@@ -261,7 +261,7 @@ export const QUESTIONNAIRE_ANSWERS = {
     "15.5_obviousButNotObvious":
       "the vision is to build something reliable and trustworthy right out of the gate. Something with straight forward and honest feel.",
     "15.6_aboutMeMemo":
-      "Hi, i am Calem Wood, the owner of StreetSmart detailing. I started this company to serve people with high-quality car detailing with affordable prices and trustworthy results. When i was young (10-15years old) my parents would let me clean their cars for a quick buck. I didn't mind that it was cheap for a car cleaning, i still did my best with the equipment provided. As my parents trusted me to do a good job for something affordable for them with StreetSmart detailing I hope to keep that same feeling. I strive to be trust worthy, reliable, affordable, and satisfactory for all customers. Outside of work I spend time with friends and family. I love serving at church, and I am a student at tehillah Ministry school. I keep Jesus at the centre of all the work i do, assuring everything is done to the best of my ability. If you are someone looking to get your car detailed and value affordability and premium quality please consider booking with me today.",
+      "Hi, i am Cochrane Master Builders, the owner of StreetSmart detailing. I started this company to serve people with high-quality car detailing with affordable prices and trustworthy results. When i was young (10-15years old) my parents would let me clean their cars for a quick buck. I didn't mind that it was cheap for a car cleaning, i still did my best with the equipment provided. As my parents trusted me to do a good job for something affordable for them with StreetSmart detailing I hope to keep that same feeling. I strive to be trust worthy, reliable, affordable, and satisfactory for all customers. Outside of work I spend time with friends and family. I love serving at church, and I am a student at tehillah Ministry school. I keep Jesus at the centre of all the work i do, assuring everything is done to the best of my ability. If you are someone looking to get your car detailed and value affordability and premium quality please consider booking with me today.",
   },
 } as const;
 
@@ -272,10 +272,10 @@ export const QUESTIONNAIRE_ANSWERS = {
 export const SOURCE_OF_TRUTH = {
   // ─── BRAND ─────────────────────────────────────────────────────────
   brand: {
-    currentSiteName: "Calem Wood Detailing",
+    currentSiteName: "Cochrane Master Builders",
     founderStatedName: "StreetSmart detailing",
-    conflict: "OPEN QUESTION — confirm with Calem which name is the public brand.",
-    founder: "Calem Wood",
+    conflict: "OPEN QUESTION — confirm with Cochrane Master Builders which name is the public brand.",
+    founder: "Cochrane Master Builders",
     voice: ["confident", "straightforward", "trustworthy", "excited to be of service"],
     neverUse: ["the work i do is perfect"],
     biggestThingNotToGetWrong: "That the prices don't reflect the quality of the work.",
@@ -356,7 +356,7 @@ export const SOURCE_OF_TRUTH = {
     realChannelsToday: ["Text to personal phone", "Instagram"],
     infoNeededToConfirm: ["Date", "Time", "Location", "Package selected"],
     payments: ["Cash", "E-transfer", "Card"],
-    cancellationPolicy: "OPEN QUESTION — Calem did not state a window. Do not invent.",
+    cancellationPolicy: "OPEN QUESTION — Cochrane Master Builders did not state a window. Do not invent.",
   },
 
   // ─── SERVICE AREA ──────────────────────────────────────────────────
@@ -391,9 +391,9 @@ export const SOURCE_OF_TRUTH = {
       "Site MUST NOT claim 'hundreds of vehicles restored' or imply established track record.",
   },
 
-  // ─── OPEN QUESTIONS FOR CALEM ──────────────────────────────────────
+  // ─── OPEN QUESTIONS FOR COCHRANE MASTER BUILDERS ──────────────────────────────────────
   openQuestions: [
-    "Brand name: Calem Wood Detailing or StreetSmart Detailing? (or both?)",
+    "Brand name: Cochrane Master Builders or StreetSmart Detailing? (or both?)",
     "Real phone number for the site.",
     "Real email address for the site.",
     "Real Instagram handle for the site.",

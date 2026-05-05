@@ -25,7 +25,7 @@ in the active decision-routing rotation.
 
 ## Where to actually go for guidance
 
-For all navigation-related decisions on Calem Wood Detailing — navbar,
+For all navigation-related decisions on Cochrane Master Builders — navbar,
 mobile menu, footer-nav coherence, hover states, mega/drop/hamburger
 patterns, mobile bottom-nav, ARIA + keyboard maps, scroll-driven
 opacity, the "Never No Changes" mandate, the Easter-egg nav↔footer

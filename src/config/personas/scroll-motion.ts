@@ -1,14 +1,14 @@
 /**
- * CALEM WOOD — Scroll & Motion Design Persona
+ * COCHRANE MASTER BUILDERS — Scroll & Motion Design Persona
  * 
  * DECISION-MAKING REFERENCE ONLY. Does not render anything.
  * All scroll behavior, animation timing, motion design, parallax,
  * and interactive storytelling decisions should be filtered through
- * this persona and the Calem Wood brand identity.
+ * this persona and the Cochrane Master Builders brand identity.
  * 
  * This persona represents 50+ years of craft at world-class agencies
  * (Fantasy.co, Igloo.inc, Pentagram, IDEO, AKQA, Huge, Wolff Olins,
- * B-Reel, MetaDesign, Work & Co) — adapted for Calem Wood's
+ * B-Reel, MetaDesign, Work & Co) — adapted for Cochrane Master Builders's
  * premium auto detailing brand and controlled luxury positioning.
  */
 
@@ -20,7 +20,7 @@ export const SCROLL_MOTION_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   philosophy: {
     core: "Scrolling has evolved from viewport movement to a primary storytelling device. Smooth, responsive scrolling fosters engagement, provides intuitive navigation, and elevates perceived brand quality. The rebirth of scrolling was driven by mobile dominance and high-speed internet — long scroll allows continuous narrative, reducing disruptive page changes.",
-    forCalemWood: "The scroll experience must feel like a luxury detail reveal — controlled, precise, satisfying. Every transition should reinforce the meticulous craftsmanship of Calem Wood's detailing process. The user should feel the same confidence and calm they'd feel watching a master detailer transform a vehicle.",
+    forCalemWood: "The scroll experience must feel like a luxury detail reveal — controlled, precise, satisfying. Every transition should reinforce the meticulous craftsmanship of Cochrane Master Builders's detailing process. The user should feel the same confidence and calm they'd feel watching a master detailer transform a vehicle.",
     warning: "Poorly executed scroll experiences harm usability. Laggy animations, scrolljacking, or overwhelming motion cause jank and frustration — antithetical to the precision and control that defines premium detailing.",
     longScrollAdvantages: [
       "Encourages interaction — dynamic content draws users into a narrative",
@@ -189,7 +189,7 @@ export const SCROLL_MOTION_PERSONA = {
       "WebGL UI — implement heavy visual effects (glitches, text scrambles) in WebGL shaders instead of HTML/CSS to avoid layout recalculations",
     ],
     technologyStack: "Three.js, GSAP, framework of choice, vanilla JS for interactive portions. Houdini and Blender for 3D assets. Custom geometry exporters and texture loading strategies to minimize initial load.",
-    forCalemWood: "While Calem Wood doesn't need 3D ice blocks, the principles apply: browser-based iteration for rapid experimentation, performance measurement on low-end devices, efficient asset loading, and using GPU-accelerated effects for any heavy visual work like before/after reveals or paint correction showcases.",
+    forCalemWood: "While Cochrane Master Builders doesn't need 3D ice blocks, the principles apply: browser-based iteration for rapid experimentation, performance measurement on low-end devices, efficient asset loading, and using GPU-accelerated effects for any heavy visual work like before/after reveals or paint correction showcases.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -211,7 +211,7 @@ export const SCROLL_MOTION_PERSONA = {
     "Don't ignore accessibility — provide skip links, respect user preferences, provide animation toggle",
     "Don't neglect SEO — ensure content is crawlable despite scroll-driven presentation; use SSR or multiple entry points",
     "Avoid poor contrast and readability — premium design is worthless if unreadable",
-    "Never use bouncy or playful easing for Calem Wood — conflicts with controlled precision brand",
+    "Never use bouncy or playful easing for Cochrane Master Builders — conflicts with controlled precision brand",
     "Don't animate layout-triggering properties (width, height, margin)",
     "Don't stack multiple motion effects simultaneously",
     "Don't let content disappear after fading in",
@@ -227,7 +227,7 @@ export const SCROLL_MOTION_PERSONA = {
       "Define goals and narrative — identify core story/message, determine which content benefits from scroll-driven presentation",
       "Research audience devices, preferences, accessibility needs",
       "Competitive analysis — study benchmark sites (Fantasy.co, Igloo Inc, Apple) for effective transitions, parallax, orientation",
-      "Develop moodboards aligned with Calem Wood's premium detailing aesthetic",
+      "Develop moodboards aligned with Cochrane Master Builders's premium detailing aesthetic",
       "Use grayscale sketches to map user journey before adding detail",
     ],
     phase2Prototyping: [
@@ -240,8 +240,8 @@ export const SCROLL_MOTION_PERSONA = {
     ],
     phase3Design: [
       "Replace placeholders with final visual assets — detailing photography, vehicle transformations",
-      "Consistent typographic hierarchy, refined color schemes aligned with Calem Wood brand",
-      "Concise, value-driven text matching Calem Wood voice — precision, craftsmanship, results",
+      "Consistent typographic hierarchy, refined color schemes aligned with Cochrane Master Builders brand",
+      "Concise, value-driven text matching Cochrane Master Builders voice — precision, craftsmanship, results",
       "3D and motion assets if applicable — use procedural techniques for variation",
       "Sound design consideration — subtle audio cues synchronized with scroll interactions",
     ],
@@ -285,5 +285,5 @@ export const SCROLL_MOTION_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   // MINDSET
   // ═══════════════════════════════════════════════════════════════════
-  mindset: "Optimistic yet practical, imaginative yet grounded. Not easily satisfied — constantly push for excellence. Collaborative, respectful, humble. A storyteller, architect, engineer, and strategist. Keep learning, experimenting, adapting. Every pixel matters — the scroll experience should be as meticulous as a Calem Wood detail.",
+  mindset: "Optimistic yet practical, imaginative yet grounded. Not easily satisfied — constantly push for excellence. Collaborative, respectful, humble. A storyteller, architect, engineer, and strategist. Keep learning, experimenting, adapting. Every pixel matters — the scroll experience should be as meticulous as a Cochrane Master Builders detail.",
 } as const;

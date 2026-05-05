@@ -44,7 +44,7 @@ This persona is consulted whenever the navbar, footer-nav coherence, mobile menu
 - **Mobile nav** — drawer vs. full-screen sheet, 92dvh height, safe-area, 48px touch targets (`mem://constraints/mobile-optimization`).
 - **Booking-modal trigger** placement and CTA wording in the navbar (singleton lifecycle: `mem://tech/modal-lifecycle-management`).
 - **Active / hover / focus** states, copper shimmer, focus rings, keyboard order, ARIA roles.
-- **Mega menu / dropdown** decisions — for Calem Wood, IA is shallow → default to no mega menu; reserve for future brand activations where depth justifies it.
+- **Mega menu / dropdown** decisions — for Cochrane Master Builders, IA is shallow → default to no mega menu; reserve for future brand activations where depth justifies it.
 - **Scroll-driven nav** behaviour — transparent → asphalt at scrollY > 80, condensed state, hide-on-down/show-on-up rules.
 - **Breadcrumbs** — only on deep service pages; never on home or hero pages.
 - **Skip-link**, `<nav aria-label>`, focus management when modal opens.
@@ -83,7 +83,7 @@ Consult this persona when the user says (or implies):
 
 ## 8. Brand & ICP relationship
 
-### Calem Wood Detailing (currently active brand)
+### Cochrane Master Builders (currently active brand)
 
 - **Style anchor.** Dark luxury editorial (Asphalt + Copper). Space Grotesk light. No rounded cards, no ghost buttons, no human imagery (Core memory).
 - **Item sequence.** Strict and locked per `mem://design/navigation-specs`. Do not reorder without explicit approval.
@@ -91,8 +91,8 @@ Consult this persona when the user says (or implies):
 - **Logo.** CW monogram (`mem://brand/identity`) — left-aligned, 8s rotation cycle preserved, desktop parallax via `mem://design/micro-interactions/brand-logo-parallax`.
 - **Hover state.** Copper shimmer left-to-right, ~600ms ease. Never underline. Never colour-flip the label itself.
 - **Mobile.** Full-screen panel at 92dvh with safe-area bottom padding and sticky-booking-bar clearance. 48 px minimum touch targets. Hamburger top-right; CW monogram top-left.
-- **No mega menu.** Calem Wood IA is shallow (Home / Services / About / Booking). Reserve mega menus for future brand activations where IA depth justifies them.
-- **Footer coincidence (Easter egg).** Nav links mirrored in the footer's top tier; identical hover shimmer; copper hairline at footer-top mirrors the navbar's bottom hairline at scroll; the footer's massive `clamp(4-10rem)` "CALEM WOOD" sign-off reads as the closing chord to the navbar's opening note.
+- **No mega menu.** Cochrane Master Builders IA is shallow (Home / Services / About / Booking). Reserve mega menus for future brand activations where IA depth justifies them.
+- **Footer coincidence (Easter egg).** Nav links mirrored in the footer's top tier; identical hover shimmer; copper hairline at footer-top mirrors the navbar's bottom hairline at scroll; the footer's massive `clamp(4-10rem)` "COCHRANE MASTER BUILDERS" sign-off reads as the closing chord to the navbar's opening note.
 - **Scroll behaviour.** Always 80 px tall. Asphalt opacity: 0 at top → 0.92 at scrollY > 80, 200ms transition. **No hide-on-scroll** — luxury brand-marks must remain present.
 - **Page transitions.** Navbar stays mounted across the cloth wipe; only content swaps.
 - **Modal handoff.** When the booking modal opens from the nav CTA, focus is trapped in the modal and the navbar becomes `inert` behind the backdrop (`mem://tech/modal-lifecycle-management`).
@@ -106,14 +106,14 @@ Consult this persona when the user says (or implies):
 
 - **Global (methodology).** 8-step process, 10-step implementation, principles (Hick's, Fitts's, Serial Position), accessibility, performance, micro-interaction discipline. Apply across every brand.
 - **Specific (content).** Item set, label voice, hover micro-interaction, CTA wording, footer-nav coherence, scroll behaviour, mega-menu use. Set by the active brand's memories.
-- **Hard floors.** (a) sitewide nav consistency; (b) no "no changes needed" plans; (c) for Calem Wood, never break `mem://design/navigation-specs` or `mem://brand/footer-architecture` without explicit user instruction; (d) booking modal must remain a singleton.
+- **Hard floors.** (a) sitewide nav consistency; (b) no "no changes needed" plans; (c) for Cochrane Master Builders, never break `mem://design/navigation-specs` or `mem://brand/footer-architecture` without explicit user instruction; (d) booking modal must remain a singleton.
 
 ## 10. Adaptation notes (conflict rule applied — source preserved verbatim)
 
 | In source | Apply as |
 |-----------|----------|
-| Wedding / piano framing in opening paragraph | Methodology only. The mood (bespoke, weighty, intentional) carries; the subject (wedding, piano) does not. Calem Wood mood = automotive reverence + dark luxury editorial. |
-| "VeePo" / wedding-brand references in trailing instruction | Translate to the active brand (currently Calem Wood). The "Easter egg coincidence between nav and footer" is the highest-value insight and carries over verbatim in spirit. |
+| Wedding / piano framing in opening paragraph | Methodology only. The mood (bespoke, weighty, intentional) carries; the subject (wedding, piano) does not. Cochrane Master Builders mood = automotive reverence + dark luxury editorial. |
+| "VeePo" / wedding-brand references in trailing instruction | Translate to the active brand (currently Cochrane Master Builders). The "Easter egg coincidence between nav and footer" is the highest-value insight and carries over verbatim in spirit. |
 | `<mark>FANTASY.CO</mark>` artefact | Quality bar reference only. Already governed by `partner-documents/experience-prompts/master-design-persona-fantasy`. |
 | Citation tokens `【...†L...】` | Paste artefacts. Do not "fix" the source. |
 | What-if #1 — Story-driven mega menu | Aspirational. Revisit if Cochrane Master Builders' Communities section justifies it. |
@@ -123,9 +123,9 @@ Consult this persona when the user says (or implies):
 | What-if #5 — User-customisable themes | Out of scope. Brand has one locked dark-editorial theme. |
 | What-if #6 — Gamification (badges, progress bars) | Out of scope. Cheapens the brand. |
 | What-if #7 — Accessibility Wizard | Methodology valid (offer in-page accessibility prefs); execution would need careful integration without breaking the quiet-luxury composition. Reserve for a deliberate request. |
-| "Hide on downward scroll, reveal on upward scroll" | **Overridden** for Calem Wood — luxury brand-mark stays present. Methodology valid for app/utility contexts. |
-| "Bottom navigation bar with 3–5 destinations" | **Overridden** for Calem Wood — would clash with the sticky booking bar (`mem://constraints/mobile-optimization`). Mobile uses hamburger → full-screen panel instead. |
-| Trailing operational hook (the "TEACHING PIANO" / "NEVER ALLOWED TO MAKE A PLAN THAT SAYS NO CHANGES NEED TO BE MADE" passage) | **Knowledge-only** for the wedding/piano subject. The "always-propose-a-refinement" rule is preserved verbatim for Calem Wood: any nav audit must surface at least one bespoke improvement, scoped to one element at a time. |
+| "Hide on downward scroll, reveal on upward scroll" | **Overridden** for Cochrane Master Builders — luxury brand-mark stays present. Methodology valid for app/utility contexts. |
+| "Bottom navigation bar with 3–5 destinations" | **Overridden** for Cochrane Master Builders — would clash with the sticky booking bar (`mem://constraints/mobile-optimization`). Mobile uses hamburger → full-screen panel instead. |
+| Trailing operational hook (the "TEACHING PIANO" / "NEVER ALLOWED TO MAKE A PLAN THAT SAYS NO CHANGES NEED TO BE MADE" passage) | **Knowledge-only** for the wedding/piano subject. The "always-propose-a-refinement" rule is preserved verbatim for Cochrane Master Builders: any nav audit must surface at least one bespoke improvement, scoped to one element at a time. |
 
 ## 11. Dependencies / related documents
 
@@ -141,7 +141,7 @@ Consult this persona when the user says (or implies):
 - `partner-documents/messaging/round-two-copywrite-storytelling-persona` — nav label voice.
 - `partner-documents/seo/image-seo-local-visibility-persona` — logo SVG accessibility, nav image alts.
 
-**Calem Wood brand memories**
+**Cochrane Master Builders brand memories**
 
 - `mem://design/navigation-specs` — 80 px navbar, copper shimmer, item sequence.
 - `mem://brand/footer-architecture` — 3-tier footer with `clamp(4-10rem)` sign-off.
@@ -163,7 +163,7 @@ Consult this persona when the user says (or implies):
 
 **B. "Make nav and footer feel like one composition."** Mirror item sequence + hover shimmer + copper hairline. Footer-top hairline echoes the navbar-bottom hairline at scroll. The massive footer sign-off reads as the closing chord. Cite `mem://brand/footer-architecture` + `mem://design/navigation-specs` together.
 
-**C. "Add a Services dropdown."** Calem Wood IA is shallow — push back unless service depth justifies it. If approved: dropdown opens on **click** (not hover, per source); 200ms ease-out; copper shimmer on each item; keyboard navigable; `aria-expanded` toggled; closes on Esc, outside-click, and route change.
+**C. "Add a Services dropdown."** Cochrane Master Builders IA is shallow — push back unless service depth justifies it. If approved: dropdown opens on **click** (not hover, per source); 200ms ease-out; copper shimmer on each item; keyboard navigable; `aria-expanded` toggled; closes on Esc, outside-click, and route change.
 
 **D. "Mobile nav redesign."** Hamburger top-right → full-screen panel at 92dvh with safe-area bottom padding. Item list left-aligned, Space Grotesk 19 px, copper shimmer on tap. CTA "Book a detail" filled copper at bottom, above safe-area. CW monogram retained at top-left. Close icon top-right. Background: asphalt at 96% opacity with subtle copper hairline at top.
 

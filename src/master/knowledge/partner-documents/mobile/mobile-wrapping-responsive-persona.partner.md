@@ -30,7 +30,7 @@ Canonical reference whenever a request touches **mobile, tablet, responsive beha
 4. **Touch ergonomics non-negotiable.** 48×48 px minimum, safe-area padding, thumb-zone CTAs, no tap collisions.
 5. **Mobile performance is the default.** 4G baseline, not Wi-Fi. Pair every mobile change with the Performance Engineer partner doc.
 
-## 4. Brand-specific guards (Calem Wood Detailing overlays)
+## 4. Brand-specific guards (Cochrane Master Builders overlays)
 
 These memory-backed rules outrank generic persona advice when in conflict.
 

@@ -61,13 +61,13 @@ Two non-negotiables, both inherited verbatim from the source:
   CW monogram and copper iconography; never GIF for photographic content.
 - **Compression budgets** — hero ≤ 200 KB, thumbnails ≤ 50 KB, sRGB profile.
 - **Structured data** — `ImageObject` JSON-LD on key images; `LocalBusiness`
-  schema with location-specific photos for Calem Wood; `Product`/`Offer` only
+  schema with location-specific photos for Cochrane Master Builders; `Product`/`Offer` only
   if/when a product surface is added.
 - **Image XML sitemap** — separate sitemap with `<image:loc>`, `<image:caption>`,
   `<image:title>` for indexable assets.
 - **CDN + caching** — versioned filenames, `Cache-Control: max-age=31536000`
   for static assets, HTTP/2 or HTTP/3.
-- **Local SEO** — truthful EXIF geotags on original Calem Wood photography,
+- **Local SEO** — truthful EXIF geotags on original Cochrane Master Builders photography,
   local landmarks where they appear, geographic modifiers in alt text only
   when the photo *actually* depicts the location.
 - **Google Business Profile** — minimum 720×720 photos aligned to the brand
@@ -135,7 +135,7 @@ Hard rules:
 
 ## 8. Brand & ICP relationship
 
-### Calem Wood Detailing (current active brand)
+### Cochrane Master Builders (current active brand)
 
 - **Subject discipline** — extreme macro automotive: paint, leather, water
   beads, microfiber, copper-lit detail (`mem://design/image-content-direction`).
@@ -145,10 +145,10 @@ Hard rules:
 - **Filename convention** —
   ```
   {subject}-{finish-or-context}-{view}-{location?}.{ext}
-  calem-wood-paint-correction-macro-cochrane.avif
-  calem-wood-leather-conditioning-detail.webp
-  calem-wood-water-beading-hood-macro.avif
-  calem-wood-interior-deep-clean-rocky-view.webp
+  Cochrane Master Builders-wood-paint-correction-macro-cochrane.avif
+  Cochrane Master Builders-wood-leather-conditioning-detail.webp
+  Cochrane Master Builders-wood-water-beading-hood-macro.avif
+  Cochrane Master Builders-wood-interior-deep-clean-rocky-view.webp
   ```
   Always lowercase, hyphenated, no underscores, no `IMG_*`.
 - **Alt text voice** — pulls from
@@ -195,20 +195,20 @@ Hard rules:
   brand's identity docs and memories.
 - **Hard floors** — (a) no design/layout/hierarchy changes; (b)
   page→section→image discipline; (c) no falsified geotags, no keyword
-  stuffing; (d) Calem Wood image-content restrictions (no humans) override
+  stuffing; (d) Cochrane Master Builders image-content restrictions (no humans) override
   any source guidance suggesting "diverse staff photos."
 
 ## 10. Adaptation notes (conflict rule applied — source preserved verbatim)
 
 | In source | Apply as |
 |-----------|----------|
-| Generic example filenames (`calgary-cafe-400w.jpg`, `latte-art-blue-cup.jpg`, `nike-air-max-97-silver-sku12345.jpg`, `croissant-paris-fr.jpg`) | Inspiration only. Use Calem Wood naming conventions above. |
-| "Calgary coffee shop interior with plants" example alt | Translate the *pattern*, not the content. Use Calem Wood subjects. |
-| Wedding / café / restaurant / coffee references | Out of scope. Calem Wood = automotive detailing. |
-| "Diverse ethnicities, ages, genders and abilities" inclusive-imagery guidance | Methodology valid; specific application blocked by `mem://constraints/image-content-restrictions` (no human imagery). Calem Wood inclusivity expresses through subject access (cars across budgets, not just exotics) and copy (`messaging/`), not human portraiture. |
+| Generic example filenames (`calgary-cafe-400w.jpg`, `latte-art-blue-cup.jpg`, `nike-air-max-97-silver-sku12345.jpg`, `croissant-paris-fr.jpg`) | Inspiration only. Use Cochrane Master Builders naming conventions above. |
+| "Calgary coffee shop interior with plants" example alt | Translate the *pattern*, not the content. Use Cochrane Master Builders subjects. |
+| Wedding / café / restaurant / coffee references | Out of scope. Cochrane Master Builders = automotive detailing. |
+| "Diverse ethnicities, ages, genders and abilities" inclusive-imagery guidance | Methodology valid; specific application blocked by `mem://constraints/image-content-restrictions` (no human imagery). Cochrane Master Builders inclusivity expresses through subject access (cars across budgets, not just exotics) and copy (`messaging/`), not human portraiture. |
 | "Encourage user-generated photos" | Aspirational. Don't invent UGC. Possible future feature. |
 | "Recipe schema" | N/A — not a food site. |
-| "Multilingual sites", `og:locale:alternate` | Calem Wood is currently English/Canada only. Methodology stays for future expansion. |
+| "Multilingual sites", `og:locale:alternate` | Cochrane Master Builders is currently English/Canada only. Methodology stays for future expansion. |
 | "AI-generated images (DALL·E, Midjourney)" | If used, must align with brand subject discipline (no humans, macro automotive only) and be disclosed in image metadata. Editorial macro photography is preferred. |
 | "AR/VR / 3D models / USDZ / glTF / ProductModel schema" | Aspirational. Out of scope until a configurator/3D surface is built. |
 | "Falsified geotags" | Hard prohibition. Source agrees. Reinforced. |
@@ -229,7 +229,7 @@ Hard rules:
 - `partner-documents/animations/premium-scroll-animation-persona` — image performance budgets must support 60fps scroll.
 - `partner-documents/experience-prompts/master-design-persona-fantasy` — taste check on subject choice and OG art direction.
 
-**Calem Wood brand memories**
+**Cochrane Master Builders brand memories**
 
 - `mem://design/hero-section-lock` — hero asset locked.
 - `mem://design/image-content-direction` — extreme macro automotive subjects.
@@ -246,7 +246,7 @@ Hard rules:
 
 **A. "Audit images on the home page."**
 → Output uses prescribed format. Section-by-section image inventory. For each:
-Role / recommended filename (Calem Wood convention) / alt text (sensory, no
+Role / recommended filename (Cochrane Master Builders convention) / alt text (sensory, no
 "image of") / caption (only if additive) / format + dimensions + `srcset` +
 `loading` / local cues (only if truthful) / `ImageObject` JSON-LD if hero or
 feature. Implementation checklist + QA steps. **No layout changes proposed.**
@@ -270,7 +270,7 @@ Per-page variants for home / services / booking / about. `og:image`,
 `summary_large_image` mirrored. Test in Facebook Sharing Debugger.
 
 **E. "Local SEO image push."**
-→ Confirm Calem Wood service area (Cochrane / Calgary / Rocky View). Filenames
+→ Confirm Cochrane Master Builders service area (Cochrane / Calgary / Rocky View). Filenames
 + alt text get geographic modifiers **only on photos that depict those
 locations**. EXIF geotags only on original photography taken there.
 `LocalBusiness` JSON-LD with `image` array of GBP-aligned shots. Upload

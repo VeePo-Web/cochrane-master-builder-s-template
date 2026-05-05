@@ -1,5 +1,5 @@
 /**
- * CALEM WOOD DETAILING — Master Ideal Customer Persona: "Dirty Daniel"
+ * COCHRANE MASTER BUILDERS — Master Ideal Customer Persona: "Dirty Daniel"
  * 
  * DECISION-MAKING REFERENCE ONLY. Does not render anything.
  * Every copy, design, UX, and conversion decision should be filtered
@@ -13,7 +13,7 @@ export const DIRTY_DANIEL = {
   // ═══════════════════════════════════════════════════════════════════
   // EXECUTIVE SUMMARY
   // ═══════════════════════════════════════════════════════════════════
-  summary: "Daniel is a busy Calgary driver whose vehicle has crossed into problem-state — months of accumulated crumbs, stains, smell, and visual decline. He's not a slob; life just got ahead of him. He still cares about his car but the mess has become too overwhelming to tackle himself and too inconvenient to coordinate a drop-off. He's hiring Calem Wood for one thing: a complete, hassle-free reset delivered to his door, without judgment.",
+  summary: "Daniel is a busy Calgary driver whose vehicle has crossed into problem-state — months of accumulated crumbs, stains, smell, and visual decline. He's not a slob; life just got ahead of him. He still cares about his car but the mess has become too overwhelming to tackle himself and too inconvenient to coordinate a drop-off. He's hiring Cochrane Master Builders for one thing: a complete, hassle-free reset delivered to his door, without judgment.",
 
   // ═══════════════════════════════════════════════════════════════════
   // DEMOGRAPHICS & FIRMOGRAPHICS
@@ -162,7 +162,7 @@ export const DIRTY_DANIEL = {
       transformationProof: "Before/after photos of genuinely dirty vehicles — not staged, not minor jobs. Real Calgary vehicles in problem-state restored to factory-feel.",
       pricingClarity: "Starting price visible immediately. 'From ~$100' with clear 'travel included, no hidden fees' language.",
       mobileConfirmation: "'We come to you' — not buried, prominent. Calgary-wide coverage stated.",
-      founderCredibility: "Real name, real face. Not a corporate facade. Calem's presence signals personal accountability.",
+      founderCredibility: "Real name, real face. Not a corporate facade. Cochrane Master Builders's presence signals personal accountability.",
       reviewEvidence: "Google reviews or testimonials quoting specific outcomes — 'the smell is gone,' 'it looks brand new,' 'I can't believe the difference.'",
       noJudgmentSignal: "Explicit reassurance: 'No matter how long it's been' or 'The worse the condition, the more satisfying the reset.'",
     },

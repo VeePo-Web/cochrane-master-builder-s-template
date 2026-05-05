@@ -8,7 +8,7 @@ status: snapshot
 note: |
   This is a verbatim provenance snapshot of the v3 upload. Content is
   byte-identical in substance to the canonical v2. All decision logic,
-  brand mapping (Calem Wood / Cochrane Master Builders), nav-footer
+  brand mapping (Cochrane Master Builders / Cochrane Master Builders), nav-footer
   coherence rules, and "Never No Changes" mandate are governed by the
   canonical v2 partner document at
   `partner-documents/navigation/navigation-architect-persona.partner.md`.

@@ -1,5 +1,5 @@
 /**
- * CALEM WOOD — Market, Competitor & SEO Research
+ * COCHRANE MASTER BUILDERS — Market, Competitor & SEO Research
  * 
  * DECISION-MAKING REFERENCE ONLY. Does not render anything.
  * Guides: positioning decisions, copy differentiation, SEO strategy,
@@ -193,28 +193,28 @@ export const MARKET_RESEARCH = {
       positioning: "Professional results, in-shop equipment, trusted detailing quality",
       strength: "May appear more established, broader service menus, stronger authority signals, premium paint services",
       blindSpot: "They assume customers will tolerate inconvenience if quality is good enough. Many will not — especially for a non-emergency service.",
-      opportunityForCalem: "Win on convenience without sacrificing transformation.",
+      opportunityForCochrane Master Builders: "Win on convenience without sacrificing transformation.",
     },
     cheapMobileCleaners: {
       name: "Cheap mobile car cleaners",
       positioning: "Fast, affordable, mobile, basic car cleaning",
       strength: "Low entry pricing, simple offer, convenience",
       blindSpot: "They sell mobility, not outcome. They sound interchangeable.",
-      opportunityForCalem: "Differentiate through restoration-level transformation, especially for dirty cars and overdue vehicles.",
+      opportunityForCochrane Master Builders: "Differentiate through restoration-level transformation, especially for dirty cars and overdue vehicles.",
     },
     premiumLuxuryDetailers: {
       name: "Premium luxury detailers",
       positioning: "High-end correction, coatings, showroom-level finish, premium vehicle care",
       strength: "Aspirational branding, strong visuals, premium pricing power, authority among enthusiasts",
       blindSpot: "They optimize for the car enthusiast or premium owner, not the everyday overwhelmed driver with a messy interior.",
-      opportunityForCalem: "Own the middle ground: serious results for normal people with real messes.",
+      opportunityForCochrane Master Builders: "Own the middle ground: serious results for normal people with real messes.",
     },
     diyAlternatives: {
       name: "Self-serve washes and DIY alternatives",
       positioning: "Cheap, quick, under customer control",
       strength: "Lower cost, instant access, habitual behavior",
       blindSpot: "DIY is only attractive until the car is too far gone.",
-      opportunityForCalem: "Market the service as the moment when the vehicle has moved beyond 'quick clean' and needs a real reset.",
+      opportunityForCochrane Master Builders: "Market the service as the moment when the vehicle has moved beyond 'quick clean' and needs a real reset.",
     },
   },
 
@@ -223,7 +223,7 @@ export const MARKET_RESEARCH = {
   // ═══════════════════════════════════════════════════════════════════
   strategicPosition: {
     nicheClaim: "Mobile vehicle restoration for busy Calgary drivers with dirty, neglected, or heavily used cars.",
-    positioningStatement: "Calem Wood helps Calgary drivers get their car back through mobile detailing that restores dirty, heavily used vehicles to a cleaner, fresher, pride-worthy condition — without the hassle of leaving home or work.",
+    positioningStatement: "Cochrane Master Builders helps Calgary drivers get their car back through mobile detailing that restores dirty, heavily used vehicles to a cleaner, fresher, pride-worthy condition — without the hassle of leaving home or work.",
     brandPillars: {
       convenience: "We come to you. No drop-off. No lost time. No extra friction.",
       transformation: "This is not a light clean. This is a visible, satisfying reset.",
@@ -390,7 +390,7 @@ export const MARKET_RESEARCH = {
       ],
       reviewStrategy: "Encourage reviews that mention: Calgary, mobile convenience, interior detailing, stains/smell/neglected vehicle transformation, professionalism, speed and ease of booking.",
       idealReviewLanguage: [
-        "Calem came right to my house in Calgary and completely transformed the interior.",
+        "Cochrane Master Builders came right to my house in Calgary and completely transformed the interior.",
         "My truck had been neglected for months and it feels new again.",
         "The convenience was amazing and the results were way beyond a normal clean.",
       ],
@@ -467,7 +467,7 @@ export const MARKET_RESEARCH = {
     },
     {
       risk: "Sounding too generic",
-      detail: "If the messaging stays at 'quality detailing at affordable prices,' Calem will blur into the market.",
+      detail: "If the messaging stays at 'quality detailing at affordable prices,' Cochrane Master Builders will blur into the market.",
     },
     {
       risk: "Overpromising 'factory quality'",
@@ -487,6 +487,6 @@ export const MARKET_RESEARCH = {
     bestMarketPosition: "Calgary's mobile detailer for dirty, neglected, and heavily used vehicles that need a true reset.",
     emotionalPromise: "From stale, dirty, and overdue to fresh, restored, and satisfying.",
     practicalPromise: "We come to you anywhere in Calgary and handle the full reset without adding friction.",
-    coreNarrative: "Calem Wood exists to restore pride of ownership: you get your car back because someone capable came to you and handled the full transformation — from neglected and overdue to fresh, clean, and satisfying.",
+    coreNarrative: "Cochrane Master Builders exists to restore pride of ownership: you get your car back because someone capable came to you and handled the full transformation — from neglected and overdue to fresh, clean, and satisfying.",
   },
 } as const;

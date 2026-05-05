@@ -1,11 +1,11 @@
 /**
- * CALEM WOOD DETAILING — Website Discovery Framework
+ * COCHRANE MASTER BUILDERS — Website Discovery Framework
  * 
  * DECISION-MAKING REFERENCE ONLY. Does not render anything.
  * It encodes the depth of thinking behind every website decision —
  * from positioning and customer psychology to conversion architecture.
  * 
- * Adapted for Calem Wood Detailing — mobile vehicle restoration, Calgary, AB.
+ * Adapted for Cochrane Master Builders — mobile vehicle restoration, Calgary, AB.
  * All decision criteria are specific to transformation-proof-driven
  * mobile detailing and no-judgment service positioning.
  * 
@@ -22,11 +22,11 @@ export const DISCOVERY_FRAMEWORK = {
   // Guides: Homepage hero, taglines, meta descriptions, about page
   // ═══════════════════════════════════════════════════════════════════
   identity: {
-    purpose: "Define what Calem Wood communicates in every pixel",
+    purpose: "Define what Cochrane Master Builders communicates in every pixel",
     decisionCriteria: {
-      brandName: "Calem Wood Detailing (short: Calem Wood)",
+      brandName: "Cochrane Master Builders (short: Cochrane Master Builders)",
       positioningLine: "Mobile vehicle restoration for Calgary drivers whose cars need a real reset. Deep extraction. Paint restoration. We come to you.",
-      namedPromise: "Calem Wood exists to give you your car back — this drives every CTA",
+      namedPromise: "Cochrane Master Builders exists to give you your car back — this drives every CTA",
       theFullReset: "The Full Reset is the flagship service name and the brand's primary conversion anchor. It signals depth, completeness, and transformation — not just cleaning.",
       noJudgment: "Every condition is welcome. The worse the starting state, the more dramatic the result. The brand never shames neglect — it meets it with capability and relief.",
       coreValues: "Grounded, hardworking, honest, satisfying, confident, no-nonsense, warm but direct",
@@ -45,7 +45,7 @@ export const DISCOVERY_FRAMEWORK = {
       prohibitedWords: ["bespoke", "artisan", "curated experience", "premium package", "luxury treatment", "world-class", "cutting-edge", "synergy", "leverage", "state-of-the-art"],
     },
     brandPersona: {
-      purpose: "If Calem Wood were a person at your door, how would they show up?",
+      purpose: "If Cochrane Master Builders were a person at your door, how would they show up?",
       behavioralCues: "On time, prepared, professional equipment, friendly but focused, shows you the results, doesn't oversell, lets the work speak. Like a competent tradesperson who takes pride in the craft.",
       manifesto: "Every vehicle deserves a real reset. Not a wipe-down, not a rinse, not a shortcut. A deep, honest restoration that makes you feel like you got a new car. We show up at your door with the tools, the skill, and the standards to make it happen. No judgment about how it got this way. Just results.",
     },
@@ -130,9 +130,9 @@ export const DISCOVERY_FRAMEWORK = {
     },
     experienceDesign: {
       purpose: "The booking and service experience itself is a trust signal",
-      bookingFlow: "Text, call, or short online form → Calem confirms time and price → shows up → does the work → customer gets their car back",
+      bookingFlow: "Text, call, or short online form → Cochrane Master Builders confirms time and price → shows up → does the work → customer gets their car back",
       communicationStyle: "Text-first, fast response, friendly and direct. No corporate scripts.",
-      dayOfExperience: "Calem arrives on time, assesses the vehicle, does the work, shows the customer the result. No surprise upsells. The transformation IS the selling point for repeat business and referrals.",
+      dayOfExperience: "Cochrane Master Builders arrives on time, assesses the vehicle, does the work, shows the customer the result. No surprise upsells. The transformation IS the selling point for repeat business and referrals.",
     },
   },
 
@@ -171,7 +171,7 @@ export const DISCOVERY_FRAMEWORK = {
   brandStory: {
     purpose: "Trust is built through proof, not claims",
     decisionCriteria: {
-      founderStory: "Calem — a Calgary-based founder who takes personal pride in the craft of vehicle restoration. Not corporate-trained, not franchise-backed. Hands-on, standards-driven, accountable.",
+      founderStory: "Cochrane Master Builders — a Calgary-based founder who takes personal pride in the craft of vehicle restoration. Not corporate-trained, not franchise-backed. Hands-on, standards-driven, accountable.",
       personality: "Hardworking, friendly, direct, no-nonsense. Takes pride in the transformation. Lets the work speak.",
       onlinePresence: "Warmth through messaging, authority through before/after volume, trust through transparency.",
       assumptions: "Never assume the customer knows what 'detailing' means. Never assume they've done this before. Never assume they're comparing us to other detailers — they might be comparing us to doing it themselves.",
@@ -233,7 +233,7 @@ export const DISCOVERY_FRAMEWORK = {
         "Check pricing",
         "Understand what's included",
         "Read reviews",
-        "Learn about Calem",
+        "Learn about Cochrane Master Builders",
         "Browse FAQ for objection answers",
       ],
       conversionPath: "See proof → feel desire → confirm price/convenience → book. 3 clicks maximum from any page to booking.",

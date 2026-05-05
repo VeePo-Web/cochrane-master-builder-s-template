@@ -1,9 +1,9 @@
 /**
- * CALEM WOOD DETAILING — Comprehensive Style Guide
+ * COCHRANE MASTER BUILDERS — Comprehensive Style Guide
  *
  * DECISION-MAKING REFERENCE ONLY. Does not render anything.
  * This is the single definitive pixel-level specification for
- * every visual implementation decision on the Calem Wood website.
+ * every visual implementation decision on the Cochrane Master Builders website.
  *
  * Cross-references:
  *   - src/config/brand-identity-northstar.ts (brand DNA)
@@ -679,7 +679,7 @@ export const COMPONENTS = {
       "3. Service areas: Calgary neighborhoods list",
       "4. Booking CTA: secondary button 'Book Your Reset'",
       "5. Social links: Instagram, Google Business",
-      "6. Legal: © Calem Wood Detailing, Privacy, Terms — bottom bar",
+      "6. Legal: © Cochrane Master Builders, Privacy, Terms — bottom bar",
     ],
     typography: {
       sectionHeading: "overline scale, copper color",
@@ -1179,7 +1179,7 @@ export const IMAGERY = {
   },
   altTextPatterns: {
     beforeAfter: "'Before: [condition description]. After: [result description].' Example: 'Before: Coffee-stained grey fabric car seat with visible discoloration. After: Clean grey fabric seat restored to original color.'",
-    founder: "'Calem Wood [action] [context].' Example: 'Calem Wood extracting carpet fibers in a client\u2019s SUV.'",
+    founder: "'Cochrane Master Builders [action] [context].' Example: 'Cochrane Master Builders extracting carpet fibers in a client\u2019s SUV.'",
     texture: "'Close-up of [material] [condition].' Example: 'Close-up of restored leather steering wheel with natural grain visible.'",
     service: "'[Service name]: [what\u2019s shown].' Example: 'The Full Reset: complete interior deep clean in progress.'",
   },
@@ -1351,7 +1351,7 @@ export const COPY_SYSTEM = {
     },
     aboutHero: {
       pattern: "[Founder name]. [One-line origin].",
-      resolved: "Calem Wood. Started with one bucket and a borrowed pressure washer.",
+      resolved: "Cochrane Master Builders. Started with one bucket and a borrowed pressure washer.",
     },
     faqHero: {
       pattern: "[Direct address]. [Reassurance].",
@@ -1371,7 +1371,7 @@ export const COPY_SYSTEM = {
       "See Results",
       "Learn More",
       "Our Approach",
-      "Meet Calem",
+      "Meet Cochrane Master Builders",
     ],
     ghost: [
       "Read more",
@@ -1456,7 +1456,7 @@ export const COPY_SYSTEM = {
         body: "Interior deep clean + exterior restoration. We show up at your door with professional-grade equipment, extract every crumb and stain, restore your paint, and leave your car feeling factory-fresh. From ~$100, travel included.",
       },
       founderTeaser: {
-        overline: "Meet Calem",
+        overline: "Meet Cochrane Master Builders",
         headline: "Started with one bucket and a borrowed pressure washer.",
         body: "Now delivering the most satisfying vehicle transformations in Calgary. Every vehicle gets the same obsessive attention to detail\u2014because that\u2019s the standard.",
       },
@@ -1480,11 +1480,11 @@ export const COPY_SYSTEM = {
     },
     about: {
       hero: {
-        headline: "Calem Wood.",
+        headline: "Cochrane Master Builders.",
         subline: "Started with one bucket and a borrowed pressure washer.",
       },
       manifesto: [
-        "I started Calem Wood Detailing because I couldn\u2019t find a mobile service in Calgary that actually did deep work. Most places do a surface wipe and call it done. That wasn\u2019t good enough.",
+        "I started Cochrane Master Builders because I couldn\u2019t find a mobile service in Calgary that actually did deep work. Most places do a surface wipe and call it done. That wasn\u2019t good enough.",
         "Every vehicle I touch gets the same treatment: full interior extraction, paint decontamination, and a complete sensory reset. I bring everything to your driveway\u2014no drop-offs, no coordination, no wasted time.",
         "I\u2019ve seen it all. Pet hair carpets, years-old coffee stains, cars people are embarrassed to show. That\u2019s exactly where I do my best work. The worse the condition, the more dramatic the transformation.",
         "This isn\u2019t a car wash. It\u2019s a reset. And I\u2019m building the most trusted name in Calgary to deliver it.",
@@ -1843,10 +1843,10 @@ export const FOUNDER_SECTION = {
     warmOverlay: "hsl(25 30% 50% / 0.08)",
     objectFit: "cover",
     objectPosition: "center 30%",
-    note: "Calem at work — action shot, not posed portrait",
+    note: "Cochrane Master Builders at work — action shot, not posed portrait",
   },
   overline: {
-    text: "Meet Calem",
+    text: "Meet Cochrane Master Builders",
     typography: "overline scale, var(--copper-light), uppercase, 0.15em tracking",
   },
   manifesto: {
@@ -1855,7 +1855,7 @@ export const FOUNDER_SECTION = {
     maxWidth: "48ch",
   },
   standardsList: {
-    heading: "Calem\u2019s Standard",
+    heading: "Cochrane Master Builders\u2019s Standard",
     headingTypography: "overline scale, copper, uppercase, marginTop 32px, marginBottom 16px",
     items: [
       "Every vehicle gets the same obsessive attention",
@@ -1869,7 +1869,7 @@ export const FOUNDER_SECTION = {
     itemSpacing: "12px",
   },
   cta: {
-    label: "Book with Calem \u2192",
+    label: "Book with Cochrane Master Builders \u2192",
     variant: "ghost — white text, no border, underline on hover, copper underline",
     marginTop: "32px",
   },
@@ -2084,8 +2084,8 @@ export const NOT_FOUND_PAGE = {
     secondary: { label: "View Services", variant: "secondaryOnDark (white border)", href: "/services" },
   },
   seoMeta: {
-    title: "Page Not Found | Calem Wood Detailing — Calgary Mobile Detailing",
-    description: "The page you\u2019re looking for doesn\u2019t exist. Head back to Calem Wood Detailing for Calgary\u2019s best mobile vehicle reset.",
+    title: "Page Not Found | Cochrane Master Builders — Calgary Mobile Detailing",
+    description: "The page you\u2019re looking for doesn\u2019t exist. Head back to Cochrane Master Builders for Calgary\u2019s best mobile vehicle reset.",
     statusCode: 404,
     noIndex: true,
   },
@@ -2206,7 +2206,7 @@ export const FAQ_CONTENT = {
       items: [
         {
           q: "Will you damage my paint or interior?",
-          a: "No. We use tested techniques and quality products. Calem personally handles every vehicle with care. Your car is in good hands.",
+          a: "No. We use tested techniques and quality products. Cochrane Master Builders personally handles every vehicle with care. Your car is in good hands.",
         },
         {
           q: "Can you remove pet hair?",

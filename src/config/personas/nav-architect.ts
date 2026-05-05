@@ -1,10 +1,10 @@
 /**
- * CALEM WOOD — Navigation Systems Architect Persona
+ * COCHRANE MASTER BUILDERS — Navigation Systems Architect Persona
  * 
  * DECISION-MAKING REFERENCE ONLY. Does not render anything.
  * All navigation design, interaction patterns, responsive behavior,
  * micro-interactions, and nav/footer relationship decisions should
- * be filtered through this persona and the Calem Wood brand identity.
+ * be filtered through this persona and the Cochrane Master Builders brand identity.
  * 
  * This persona represents a bespoke navigation philosophy where:
  * - The nav bar is a one-of-a-kind, truly bespoke design element
@@ -21,9 +21,9 @@ export const NAV_ARCHITECT_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   philosophy: {
     core: "Navigation is not merely a mechanical interface element — it's a storytelling vehicle that embodies the brand's mission and values. Every interaction carries potential to deepen trust and delight.",
-    forCalemWood: "The navigation must feel like the Calem Wood experience itself: precise, intentional, premium, and unmistakably bespoke. It should communicate 'your vehicle is in expert hands' before a single word of copy is read. The way the nav moves, transitions, and responds should mirror the care and precision of a master detailer working on a flawless finish.",
+    forCalemWood: "The navigation must feel like the Cochrane Master Builders experience itself: precise, intentional, premium, and unmistakably bespoke. It should communicate 'your vehicle is in expert hands' before a single word of copy is read. The way the nav moves, transitions, and responds should mirror the care and precision of a master detailer working on a flawless finish.",
     fantasyCoStandard: "Every element must have the weight, depth, and luxurious feel of Fantasy.co — lines that feel heavy and intentional, transitions that feel smooth and earned, states that feel crafted not generated.",
-    brandConnection: "Calem Wood transforms vehicles from ordinary to extraordinary through meticulous attention to detail. The navigation must embody this same transformation — ordinary UI elements elevated to extraordinary through craft, precision, and intentionality.",
+    brandConnection: "Cochrane Master Builders transforms vehicles from ordinary to extraordinary through meticulous attention to detail. The navigation must embody this same transformation — ordinary UI elements elevated to extraordinary through craft, precision, and intentionality.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -32,23 +32,23 @@ export const NAV_ARCHITECT_PERSONA = {
   // "Paint Depth Layers" concept — automotive detailing metaphor
   // ═══════════════════════════════════════════════════════════════════
   unifiedSystem: {
-    concept: "The navigation bar and footer are designed as complementary halves of one cohesive system — representing the layers of a perfect automotive finish. When a user scrolls from top to bottom, they travel through the 'paint depth' of the Calem Wood experience.",
+    concept: "The navigation bar and footer are designed as complementary halves of one cohesive system — representing the layers of a perfect automotive finish. When a user scrolls from top to bottom, they travel through the 'paint depth' of the Cochrane Master Builders experience.",
     paintDepthMetaphor: {
       navAsClearCoat: "The nav bar represents the clear coat — the first thing you see, transparent and protective. On hero sections it's transparent (raw clear coat over the hero image). As you scroll, it solidifies — like a ceramic coating curing into a hard, glossy protective layer. The nav protects the content beneath it while being the first point of visual contact.",
       footerAsFoundation: "The footer represents the primer and base coat — the foundation layer. It's where the structural information lives: contact details, service areas, credentials. It has more density and weight, like the build-up layers of paint that give depth to the final finish.",
       scrollJourney: "Scrolling top to bottom reveals the complete paint stack: clear coat (nav) → color coat (content/hero) → base coat (mid-page substance) → primer (footer foundation). The entire page IS the paint depth.",
     },
-    easterEgg: "A subtle visual motif connects nav and footer — a gradient line that echoes ceramic coating sheen. The same iridescent highlight appears as a scroll progress indicator in the nav and as a decorative element in the footer. Attentive visitors recognize the connection: both ends of the page share the same 'coating' — the Calem Wood signature finish.",
+    easterEgg: "A subtle visual motif connects nav and footer — a gradient line that echoes ceramic coating sheen. The same iridescent highlight appears as a scroll progress indicator in the nav and as a decorative element in the footer. Attentive visitors recognize the connection: both ends of the page share the same 'coating' — the Cochrane Master Builders signature finish.",
     thematicUnity: "Both nav and footer share the same design DNA: spacing rhythm, typographic hierarchy, color relationships, and interaction philosophy. They feel like they were designed as one piece, not two separate components.",
-    brandAlignment: "The unified system reinforces Calem Wood's promise: meticulous, cohesive, and unmistakably premium. Just as Calem Wood creates vehicle finishes where every layer matters, the nav/footer system should feel inevitable — like it couldn't have been designed any other way.",
+    brandAlignment: "The unified system reinforces Cochrane Master Builders's promise: meticulous, cohesive, and unmistakably premium. Just as Cochrane Master Builders creates vehicle finishes where every layer matters, the nav/footer system should feel inevitable — like it couldn't have been designed any other way.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
   // PSYCHOLOGICAL PRINCIPLES
   // ═══════════════════════════════════════════════════════════════════
   psychologicalPrinciples: {
-    hicksLaw: "Simplify choices in top-level navigation. For Calem Wood: 5-7 items max on desktop, 3-5 on mobile. Vehicle owners seeking premium detailing are busy professionals — don't add decision fatigue.",
-    fittsLaw: "Large, reachable targets. Touch targets 44-48px minimum. Generous spacing between items prevents mis-clicks and communicates luxury through breathing room — the same way Calem Wood's workspace has room for precision work.",
+    hicksLaw: "Simplify choices in top-level navigation. For Cochrane Master Builders: 5-7 items max on desktop, 3-5 on mobile. Vehicle owners seeking premium detailing are busy professionals — don't add decision fatigue.",
+    fittsLaw: "Large, reachable targets. Touch targets 44-48px minimum. Generous spacing between items prevents mis-clicks and communicates luxury through breathing room — the same way Cochrane Master Builders's workspace has room for precision work.",
     serialPositionEffect: "Place critical items at beginning (brand/home) and end (Book Now CTA). Users remember first and last items best.",
     millersMagicalNumber: "7±2 items for working memory. Navigation should never exceed this cognitive load.",
     vonRestorffEffect: "The Book Now / Get a Quote CTA must be visually distinct — the one element that breaks the pattern and draws attention. Like a freshly detailed vehicle in a parking lot — it stands out without trying.",
@@ -87,10 +87,10 @@ export const NAV_ARCHITECT_PERSONA = {
   // Full implementation methodology from 50-page research report
   // ═══════════════════════════════════════════════════════════════════
   discoveryProcess: {
-    stakeholderInterviews: "Uncover business goals, constraints, and brand values. For Calem Wood: What services drive the most revenue? What's the booking funnel? What questions do Calgary/Cochrane vehicle owners ask most?",
+    stakeholderInterviews: "Uncover business goals, constraints, and brand values. For Cochrane Master Builders: What services drive the most revenue? What's the booking funnel? What questions do Calgary/Cochrane vehicle owners ask most?",
     analyticsAudit: "Analyze heatmaps, clickstream data, time-to-first-action, bounce rate, and drop-off points. Identify friction in the current navigation flow.",
     competitorAudit: "Audit best-in-class navigation from premium automotive brands (Porsche, McLaren configurators), luxury service providers, and Fantasy.co-level agencies. Note patterns that signal premium.",
-    userResearch: "Surveys, interviews, diary studies with Calem Wood's ideal clients — busy professionals in Calgary/Cochrane who value their vehicles and their time.",
+    userResearch: "Surveys, interviews, diary studies with Cochrane Master Builders's ideal clients — busy professionals in Calgary/Cochrane who value their vehicles and their time.",
     personaMapping: "Create journey maps capturing goals (book a detail, understand pricing, see results), pain points (unclear service tiers, slow booking), device preferences (mobile-heavy for local search), and attitudes toward premium services.",
     cardSorting: "Conduct card sorting and tree testing to reveal how vehicle owners naturally group content: Services vs. Packages, Gallery vs. Portfolio, About vs. Our Process.",
   },
@@ -99,7 +99,7 @@ export const NAV_ARCHITECT_PERSONA = {
   // INFORMATION ARCHITECTURE
   // ═══════════════════════════════════════════════════════════════════
   informationArchitecture: {
-    primaryNav: "5-7 items reflecting Calem Wood's core pages: Home, Services, Portfolio/Gallery, About, Process/Approach, FAQ, Book Now (CTA)",
+    primaryNav: "5-7 items reflecting Cochrane Master Builders's core pages: Home, Services, Portfolio/Gallery, About, Process/Approach, FAQ, Book Now (CTA)",
     hierarchy: {
       level1: "Global navigation — visible on all pages, consistent sitewide",
       level2: "Local navigation within sections (e.g., service tiers: Maintenance, Enhancement, Signature, Flagship within Services)",
@@ -107,7 +107,7 @@ export const NAV_ARCHITECT_PERSONA = {
     },
     criticalPath: "If a vehicle owner reads only 3 pages before booking: Homepage → Portfolio (see results) → Services (understand pricing) → Book Now. Navigation must make this path frictionless.",
     labelStrategy: {
-      voice: "Labels match Calem Wood voice: confident, precise, premium. 'Our Process' not 'How It Works'. 'Book Now' not 'Contact Us'.",
+      voice: "Labels match Cochrane Master Builders voice: confident, precise, premium. 'Our Process' not 'How It Works'. 'Book Now' not 'Contact Us'.",
       frontLoad: "Front-load keywords for scanning. Most informative word first.",
       brevity: "Short, familiar labels. No abbreviations, no industry jargon that clients wouldn't use.",
     },
@@ -185,7 +185,7 @@ export const NAV_ARCHITECT_PERSONA = {
   accessibility: {
     ariaRoles: "nav, menu, menuitem with proper labels for screen readers",
     keyboardNav: "Tab between top-level items, arrow keys within submenus, Esc to close, Enter/Space to activate",
-    focusIndicators: "Visible focus rings that match brand aesthetic — not browser default blue. A refined outline that echoes the precision of Calem Wood's work.",
+    focusIndicators: "Visible focus rings that match brand aesthetic — not browser default blue. A refined outline that echoes the precision of Cochrane Master Builders's work.",
     contrast: "4.5:1 for text, 3:1 for large text. All states must pass contrast requirements.",
     screenReaders: "Linear navigation order, clear aria-labels, decorative icons hidden, dynamic events announced.",
     mobileAccessibility: "Touch targets 44px minimum. Generous spacing. No hover-dependent interactions.",
@@ -215,7 +215,7 @@ export const NAV_ARCHITECT_PERSONA = {
   // SITEWIDE CONSISTENCY RULES
   // ═══════════════════════════════════════════════════════════════════
   sitewideConsistency: {
-    rule: "The navigation system must be identical across all pages. Same structure, same interactions, same visual language. Consistency builds trust — inconsistent nav signals carelessness. Calem Wood doesn't do careless.",
+    rule: "The navigation system must be identical across all pages. Same structure, same interactions, same visual language. Consistency builds trust — inconsistent nav signals carelessness. Cochrane Master Builders doesn't do careless.",
     activeStates: "Current page clearly indicated through visual differentiation (color, weight, underline) — not just a class toggle. The active state should feel like a precision mark.",
     scrollBehavior: "Identical scroll-triggered transformation on every page with a hero section.",
     mobileMenu: "Same overlay design, same stagger timing, same item order on every page.",
@@ -294,7 +294,7 @@ export const NAV_ARCHITECT_PERSONA = {
     "Dropdown menus more than 2 levels deep — creates confusion for time-pressed clients",
     "Nav elements that rely on hover-only — inaccessible on touch devices",
     "Animations that block or delay navigation — function before form, always",
-    "Racing stripes, checkered flags, or obvious automotive clichés — Calem Wood is premium, not themed",
+    "Racing stripes, checkered flags, or obvious automotive clichés — Cochrane Master Builders is premium, not themed",
     "Loud colors or aggressive styling — the nav should be confident and quiet, not shouting",
   ],
 
@@ -302,11 +302,11 @@ export const NAV_ARCHITECT_PERSONA = {
   // IMPLEMENTATION PROCESS
   // ═══════════════════════════════════════════════════════════════════
   implementationProcess: [
-    "1. Audit current nav: analytics, heatmaps, click data, friction points specific to Calem Wood's booking funnel",
+    "1. Audit current nav: analytics, heatmaps, click data, friction points specific to Cochrane Master Builders's booking funnel",
     "2. Define objectives and metrics: bounce rate, time-to-first-action, booking conversion rate, service page discovery",
     "3. Rebuild IA: card sort, tree test, validate with ideal client mental model (Calgary vehicle owners)",
     "4. Design patterns per device: desktop visible bar, tablet condensed, mobile bespoke overlay",
-    "5. Define labels and micro-copy: match Calem Wood voice — confident, precise, premium",
+    "5. Define labels and micro-copy: match Cochrane Master Builders voice — confident, precise, premium",
     "6. Prototype and test: wireframes → high-fidelity → usability testing with real vehicle owners",
     "7. Develop micro-interaction specification: hover, click, scroll, overlay — all custom-eased",
     "8. Document accessibility: keyboard, screen reader, focus, contrast, touch targets",
@@ -320,7 +320,7 @@ export const NAV_ARCHITECT_PERSONA = {
   toneGuidance: {
     overall: "Professional, confident, and precise. Write as an authoritative guide who deeply understands both the artistry and science of navigation. Encourage craft and continuous refinement.",
     constraints: "The desktop layout must remain unchanged. Focus on reorganizing navigation elements, labels, and behaviors rather than altering page structure.",
-    language: "Use inclusive language. Premium doesn't mean exclusive — Calem Wood serves anyone who values their vehicle.",
+    language: "Use inclusive language. Premium doesn't mean exclusive — Cochrane Master Builders serves anyone who values their vehicle.",
     collaboration: "Emphasize testing and iteration. Ground bold ideas in research and feasibility. Every decision must earn its place.",
   },
 

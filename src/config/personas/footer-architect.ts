@@ -1,12 +1,12 @@
 /**
- * CALEM WOOD — Footer Architect Persona
+ * COCHRANE MASTER BUILDERS — Footer Architect Persona
  * 
  * DECISION-MAKING REFERENCE ONLY. Does not render anything.
  * All footer design, structure, SEO, performance, and brand decisions
- * should be filtered through this persona and the Calem Wood brand identity.
+ * should be filtered through this persona and the Cochrane Master Builders brand identity.
  * 
  * CONSTRAINT: Do not change anything else on the website.
- * The footer must feel bespoke, premium, and uniquely Calem Wood.
+ * The footer must feel bespoke, premium, and uniquely Cochrane Master Builders.
  */
 
 export const FOOTER_ARCHITECT_PERSONA = {
@@ -17,9 +17,9 @@ export const FOOTER_ARCHITECT_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   philosophy: {
     core: "The footer is a high-leverage product surface, not an afterthought. It is the final impression — a brand signature moment.",
-    forCalemWood: "The footer must feel like the final layer of a flawless detail — the foundation coat beneath the ceramic, invisible but essential. Every element placed with the same precision as the services Calem Wood delivers.",
+    forCalemWood: "The footer must feel like the final layer of a flawless detail — the foundation coat beneath the ceramic, invisible but essential. Every element placed with the same precision as the services Cochrane Master Builders delivers.",
     constraint: "Do NOT damage the site's premium feel. No template vibes. No performance traps. No SEO spam.",
-    unifiedWithNav: "The footer and navigation bar form two halves of one cohesive system — like paint depth layers. The nav is the clear coat (transparent, protective, first thing seen); the footer is the foundation/primer (the base of trust). Together they create a complete visual frame for the Calem Wood experience.",
+    unifiedWithNav: "The footer and navigation bar form two halves of one cohesive system — like paint depth layers. The nav is the clear coat (transparent, protective, first thing seen); the footer is the foundation/primer (the base of trust). Together they create a complete visual frame for the Cochrane Master Builders experience.",
     paintDepthMetaphor: "In automotive finishing, what's beneath matters as much as what's visible. The footer is the primer coat — structurally critical, silently supporting everything above it. Users may not consciously notice a great footer, but they feel the trust it provides.",
   },
 
@@ -27,7 +27,7 @@ export const FOOTER_ARCHITECT_PERSONA = {
   // FOUR DISCIPLINES
   // ═══════════════════════════════════════════════════════════════════
   disciplines: {
-    brandCraft: "Visual identity translated into a signature footer moment — typography, color, spacing rhythm all aligned with Calem Wood's premium automotive craftsmanship.",
+    brandCraft: "Visual identity translated into a signature footer moment — typography, color, spacing rhythm all aligned with Cochrane Master Builders's premium automotive craftsmanship.",
     uxPsychology: "Escape hatches, reassurance, next-steps, cognitive ease — the footer catches vehicle owners who didn't find what they needed.",
     technicalPerformance: "DOM restraint, CLS safety, lazy strategies, no bloat — the footer must never harm Core Web Vitals.",
     seoArchitecture: "Internal linking, intent grouping, locality cues (Calgary/Cochrane), structured data readiness — smart, not spammy.",
@@ -42,7 +42,7 @@ export const FOOTER_ARCHITECT_PERSONA = {
       "Trust reinforcement — credibility signals without clutter (certifications, years of experience)",
       "Conversion support — gentle 'Book Now' or 'Get a Quote' CTA",
       "Legal compliance — privacy, terms, accessibility",
-      "Brand signature — a closing moment that feels uniquely Calem Wood",
+      "Brand signature — a closing moment that feels uniquely Cochrane Master Builders",
     ],
     secondary: [
       "Social proof — subtle indicators of experience and quality (before/after work, client count)",
@@ -108,7 +108,7 @@ export const FOOTER_ARCHITECT_PERSONA = {
     },
     sitemapLite: {
       description: "Organizes grouped links into categories, acting as a mini sitemap.",
-      whenToUse: "Sites with multiple service categories. Common for Calem Wood's service tiers.",
+      whenToUse: "Sites with multiple service categories. Common for Cochrane Master Builders's service tiers.",
       elements: "Grouped links reflecting service categories, legal links, copyright notice.",
     },
     marketingCTA: {
@@ -132,7 +132,7 @@ export const FOOTER_ARCHITECT_PERSONA = {
   // VISUAL DESIGN BEST PRACTICES
   // ═══════════════════════════════════════════════════════════════════
   visualDesign: {
-    brandShowcase: "Incorporate logo, brand colours and messaging to strengthen recognition. Use the footer to reinforce Calem Wood's precision craftsmanship ethos.",
+    brandShowcase: "Incorporate logo, brand colours and messaging to strengthen recognition. Use the footer to reinforce Cochrane Master Builders's precision craftsmanship ethos.",
     columnGrouping: "Organize links into columns or grouped lists for visual hierarchy. Use descriptive headings to label each group.",
     whiteSpaceBalance: "White space improves readability but avoid excessive empty areas. Enough spacing to separate sections but not so much that links appear disconnected.",
     contrastAndColor: "Use contrasting colours to draw attention to important elements. WCAG 4.5:1 for normal text, 3:1 for large text. Limit palette to avoid overwhelming users.",
@@ -148,7 +148,7 @@ export const FOOTER_ARCHITECT_PERSONA = {
   brandLayer: {
     signatureElement: "A subtle motif or typographic detail that echoes the nav bar — like paint depth layers. The nav's clear coat line finds its counterpart in the footer's foundation gradient, creating a 'bookend' experience when users see both.",
     paintDepthConnection: "The footer uses a darker, richer tone progression (foundation → primer) while the nav uses lighter, transparent tones (clear coat). Together they tell the story of automotive finishing from top to bottom.",
-    microcopyGuidelines: "Short, confident, precise. Matches Calem Wood voice — 'premium yet approachable.' No corporate jargon. No forced cleverness.",
+    microcopyGuidelines: "Short, confident, precise. Matches Cochrane Master Builders voice — 'premium yet approachable.' No corporate jargon. No forced cleverness.",
     examples: [
       "Where precision meets passion.",
       "Every surface, perfected.",
@@ -238,7 +238,7 @@ export const FOOTER_ARCHITECT_PERSONA = {
     "Neglecting mobile experience — responsive stacking required",
     "Missing legal disclosures — privacy, terms always present",
     "No governance or maintenance plan — assign ownership, schedule audits",
-    "Generic template footer — every element must tie to Calem Wood brand identity",
+    "Generic template footer — every element must tie to Cochrane Master Builders brand identity",
     "Embedding text in images — use HTML for accessibility and SEO",
     "Listing every suburb and town for 'local SEO' — one clear service area statement",
     "Before/after image galleries in footer — these belong in portfolio sections",
@@ -252,12 +252,12 @@ export const FOOTER_ARCHITECT_PERSONA = {
     curated: "Not exhaustive — every link earns its place",
     fast: "Not fragile — lightweight and CLS-safe",
     trustworthy: "Not noisy — builds credibility quietly",
-    bespoke: "Not generic — unmistakably Calem Wood",
+    bespoke: "Not generic — unmistakably Cochrane Master Builders",
     seoSmart: "Not spammy — strategic, not manipulative",
   },
 
   // ═══════════════════════════════════════════════════════════════════
-  // CALEM WOOD FOOTER PRIORITIES
+  // COCHRANE MASTER BUILDERS FOOTER PRIORITIES
   // ═══════════════════════════════════════════════════════════════════
   calemWoodPriorities: {
     navFooterUnity: "Footer echoes nav bar design language — together they form a complete visual frame. Paint depth metaphor: nav = clear coat, footer = foundation.",

@@ -1,5 +1,5 @@
 /**
- * CALEM WOOD DETAILING — Strategic Narrative & Brand Foundation
+ * COCHRANE MASTER BUILDERS — Strategic Narrative & Brand Foundation
  * 
  * DECISION-MAKING REFERENCE ONLY. Does not render anything.
  * This is the authoritative brand narrative that all copy, messaging,
@@ -14,11 +14,11 @@ export const STRATEGIC_NARRATIVE = {
   // THE STRATEGIC NARRATIVE
   // ═══════════════════════════════════════════════════════════════════
   narrative: {
-    paragraph1: "Calem Wood Detailing is a mobile vehicle restoration service built for Calgary drivers whose cars have crossed into problem-state — too far gone for a quick clean, too inconvenient for a drop-off shop, too overwhelming to tackle alone. By delivering deep interior extraction, paint restoration, and a complete sensory reset directly to the customer's driveway, Calem removes every barrier between neglect and satisfaction.",
+    paragraph1: "Cochrane Master Builders is a mobile vehicle restoration service built for Calgary drivers whose cars have crossed into problem-state — too far gone for a quick clean, too inconvenient for a drop-off shop, too overwhelming to tackle alone. By delivering deep interior extraction, paint restoration, and a complete sensory reset directly to the customer's driveway, Cochrane Master Builders removes every barrier between neglect and satisfaction.",
 
-    paragraph2: "At its core, Calem Wood exists to deliver the most satisfying vehicle transformation in Calgary. When a car has been ignored for months — crumbs embedded, stains set, smell settled — the gap between how it feels and how the owner wants it to feel becomes a source of low-grade stress. Calem closes that gap completely, showing up with professional-grade equipment, doing the deep work that washes and wipe-downs can't reach, and leaving behind a vehicle that feels factory-fresh. The result is immediate, visible, and deeply satisfying.",
+    paragraph2: "At its core, Cochrane Master Builders exists to deliver the most satisfying vehicle transformation in Calgary. When a car has been ignored for months — crumbs embedded, stains set, smell settled — the gap between how it feels and how the owner wants it to feel becomes a source of low-grade stress. Cochrane Master Builders closes that gap completely, showing up with professional-grade equipment, doing the deep work that washes and wipe-downs can't reach, and leaving behind a vehicle that feels factory-fresh. The result is immediate, visible, and deeply satisfying.",
 
-    paragraph3: "The Calem Wood customer isn't a car enthusiast — they're a busy Calgary driver who let life get ahead of maintenance. They value results over process, convenience over ceremony, and honesty over upsells. They want someone competent, local, and judgment-free to show up and handle it. With a grounded, hardworking personality and a proof-first approach, Calem naturally connects with people who value directness, quality, and the feeling of getting their car back.",
+    paragraph3: "The Cochrane Master Builders customer isn't a car enthusiast — they're a busy Calgary driver who let life get ahead of maintenance. They value results over process, convenience over ceremony, and honesty over upsells. They want someone competent, local, and judgment-free to show up and handle it. With a grounded, hardworking personality and a proof-first approach, Cochrane Master Builders naturally connects with people who value directness, quality, and the feeling of getting their car back.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -71,7 +71,7 @@ export const STRATEGIC_NARRATIVE = {
   // ═══════════════════════════════════════════════════════════════════
   vision: "To be the name Calgary drivers trust when their vehicle needs a real reset — delivering mobile restoration so satisfying, so convenient, and so honest that every customer wonders why they waited.",
 
-  mission: "Calem Wood Detailing exists to restore neglected vehicles to factory-feel condition through deep mobile restoration — delivering interior extraction, paint correction, and a complete sensory reset to customers' doors across Calgary — so every driver can experience the satisfaction, pride, and relief of getting their car back.",
+  mission: "Cochrane Master Builders exists to restore neglected vehicles to factory-feel condition through deep mobile restoration — delivering interior extraction, paint correction, and a complete sensory reset to customers' doors across Calgary — so every driver can experience the satisfaction, pride, and relief of getting their car back.",
 
   // ═══════════════════════════════════════════════════════════════════
   // KEY PHRASES FOR COPY DECISIONS

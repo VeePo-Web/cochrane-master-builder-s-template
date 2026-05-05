@@ -94,7 +94,7 @@ const FounderFinaleSection = ({
 
   /* ── Text transforms — 4 phases: personal intro → craft → testimonial → final CTA ── */
 
-  // Phase 1: Meet Calem (0% → 26%)
+  // Phase 1: Meet Cochrane Master Builders (0% → 26%)
   const p1Opacity = useTransform(smoothProgress, [0.0, 0.06, 0.19, 0.26], [0, 1, 1, 0]);
   const p1Y = useTransform(smoothProgress, [0.0, 0.06, 0.19, 0.26], [24, 0, 0, -16]);
 
@@ -126,7 +126,7 @@ const FounderFinaleSection = ({
           <div className="absolute inset-0 bg-[#121418]/80" />
           <div className="relative z-10 py-28 md:py-36 lg:py-48">
             <div className="container mx-auto px-6 lg:px-8 max-w-xl">
-              <p className="font-overline text-copper-light mb-4">Meet Calem</p>
+              <p className="font-overline text-copper-light mb-4">Meet Cochrane Master Builders</p>
               <p className="text-body-lg text-white/80 font-light mb-5 max-w-[48ch]">I started this business because I believe everyone deserves to feel good about their vehicle — without the judgment, without the upsell, without the hassle.</p>
               <p className="text-body-lg text-white/80 font-light mb-12 max-w-[48ch]">Every reset is done by me, personally. I bring professional-grade equipment to your driveway and treat every vehicle as if it were my own.</p>
               <div className="editorial-rule mx-auto mb-8" />
@@ -204,10 +204,10 @@ const FounderFinaleSection = ({
                 }}
               />
 
-              {/* Phase 1: Meet Calem */}
+              {/* Phase 1: Meet Cochrane Master Builders */}
               <TextBlock opacity={p1Opacity} y={p1Y}>
                 <div>
-                  <p className="font-overline text-copper mb-6">Meet Calem</p>
+                  <p className="font-overline text-copper mb-6">Meet Cochrane Master Builders</p>
                   <h2 className="font-display text-display-lg text-white mb-5">
                     Built on care, not volume.
                   </h2>

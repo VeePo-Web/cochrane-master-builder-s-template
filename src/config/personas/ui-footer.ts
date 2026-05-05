@@ -1,9 +1,9 @@
 /**
- * CALEM WOOD — Footer UI/UX Persona
+ * COCHRANE MASTER BUILDERS — Footer UI/UX Persona
  * 
  * DECISION-MAKING REFERENCE ONLY. Does not render anything.
  * All footer design decisions should be filtered through this persona
- * and the Calem Wood brand identity (premium automotive craftsmanship, precision luxury).
+ * and the Cochrane Master Builders brand identity (premium automotive craftsmanship, precision luxury).
  */
 
 export const FOOTER_PERSONA = {
@@ -41,7 +41,7 @@ export const FOOTER_PERSONA = {
     },
     branding: {
       rule: "Logo + brand promise or tagline in footer",
-      rationale: "Reinforces Calem Wood identity one last time before the visitor leaves",
+      rationale: "Reinforces Cochrane Master Builders identity one last time before the visitor leaves",
     },
     serviceArea: {
       rule: "Include 'Calgary, Cochrane and surrounding areas, Alberta' for local SEO",

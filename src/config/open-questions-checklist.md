@@ -2,28 +2,28 @@
 
 This is a confirmation checklist, not a code change. Each open item from
 `SOURCE_OF_TRUTH.openQuestions` (see `questionnaire-answers.ts`) is paired
-with the exact strings on the site that depend on Calem's answer.
+with the exact strings on the site that depend on Cochrane Master Builders's answer.
 
-Once Calem confirms each item, we update every linked location in one pass.
+Once Cochrane Master Builders confirms each item, we update every linked location in one pass.
 
 ---
 
-## 1. Brand Name — "Calem Wood Detailing" vs "StreetSmart Detailing"
+## 1. Brand Name — "Cochrane Master Builders" vs "StreetSmart Detailing"
 
 | File | Line | Current text |
 |---|---|---|
-| `src/components/detailing/Footer.tsx` | 35 | `Calem Wood Detailing` (footer brand H3) |
-| `src/components/detailing/Footer.tsx` | 127 | `Calem Wood Detailing` (monumental sign-off) |
-| `src/components/detailing/Footer.tsx` | 136 | `© {year} Calem Wood Detailing · Calgary, Alberta` |
-| `src/components/detailing/BookingModal.tsx` | 220 | `CALEM WOOD` (animated brand stack) |
-| `src/components/detailing/BookingModal.tsx` | 241 | `Detailing` (overline under CALEM WOOD) |
-| `src/pages/Terms.tsx` | 12 | `By booking a service with Calem Wood Detailing…` |
+| `src/components/detailing/Footer.tsx` | 35 | `Cochrane Master Builders` (footer brand H3) |
+| `src/components/detailing/Footer.tsx` | 127 | `Cochrane Master Builders` (monumental sign-off) |
+| `src/components/detailing/Footer.tsx` | 136 | `© {year} Cochrane Master Builders · Calgary, Alberta` |
+| `src/components/detailing/BookingModal.tsx` | 220 | `COCHRANE MASTER BUILDERS` (animated brand stack) |
+| `src/components/detailing/BookingModal.tsx` | 241 | `Detailing` (overline under COCHRANE MASTER BUILDERS) |
+| `src/pages/Terms.tsx` | 12 | `By booking a service with Cochrane Master Builders…` |
 | `src/pages/Privacy.tsx` | header | brand references |
 | `index.html` | `<title>` / meta | site title + OG name |
 | `src/components/detailing/LogoMark.tsx` | — | confirm logomark still applies if name changes |
 
-**Decision needed:** keep `Calem Wood Detailing`, switch to `StreetSmart Detailing`,
-or run them as parent/sub-brand (e.g. "StreetSmart Detailing — by Calem Wood").
+**Decision needed:** keep `Cochrane Master Builders`, switch to `StreetSmart Detailing`,
+or run them as parent/sub-brand (e.g. "StreetSmart Detailing — by Cochrane Master Builders").
 
 ---
 
@@ -57,7 +57,7 @@ exist or is it `streetsmartdetailing.ca`?), real IG handle.
 
 ## 3. Cancellation / Reschedule Window
 
-Calem did not state a window — current "24 hours" is invented and must be
+Cochrane Master Builders did not state a window — current "24 hours" is invented and must be
 confirmed or removed.
 
 | File | Line | Current text |
@@ -83,13 +83,13 @@ confirmed or removed.
 
 ## 4. Pricing Display Model — "Interior + $30 add-on" vs Bundled "Full Detail"
 
-Site currently shows three tiers at wrong prices. Calem's real model is
+Site currently shows three tiers at wrong prices. Cochrane Master Builders's real model is
 **Interior base + $30 exterior add-on**.
 
 | File | Line | Current text |
 |---|---|---|
 | `src/pages/Services.tsx` | 45–48 | `The Full Reset` · `From $349` · `4–6 hours` |
-| `src/pages/Services.tsx` | 49–52 | "Everything in the Interior Deep Clean, plus hand wash, clay bar treatment, **machine polish**, paint sealant…" *(machine polish — Calem does not offer)* |
+| `src/pages/Services.tsx` | 49–52 | "Everything in the Interior Deep Clean, plus hand wash, clay bar treatment, **machine polish**, paint sealant…" *(machine polish — Cochrane Master Builders does not offer)* |
 | `src/pages/Services.tsx` | 76–82 | `Interior Deep Clean` · `From $199` · `2–3 hours` |
 | `src/pages/Services.tsx` | 97–103 | `Exterior Restoration` · `From $199` · "one-step **machine polish**…" |
 | `src/components/detailing/FullResetSection.tsx` | 135–136 | `From $349` · `Sedans from $349 · SUVs & trucks from $399` |
@@ -122,7 +122,7 @@ minivan") should appear here.
 
 ---
 
-## Bonus — Unsupported Claims to Flag with Calem
+## Bonus — Unsupported Claims to Flag with Cochrane Master Builders
 
 These conflict with `stage: "Just starting"` and `proofAvailable: "None yet"`:
 
@@ -134,7 +134,7 @@ These conflict with `stage: "Just starting"` and `proofAvailable: "None yet"`:
 
 ---
 
-## Deliverable after Calem confirms
+## Deliverable after Cochrane Master Builders confirms
 
 A single follow-up pass that updates every row above in lockstep, so brand,
 contact, pricing, service area, and policy are consistent across:
