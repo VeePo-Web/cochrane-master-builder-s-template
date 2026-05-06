@@ -128,13 +128,13 @@ const FullResetSection = ({
           <div className="relative z-10 py-28 md:py-36 lg:py-48">
             <div className="container mx-auto px-6 lg:px-8 max-w-xl">
               <p className="font-overline text-copper mb-4">Flagship Service</p>
-              <h2 className="font-display text-display-lg text-white mb-8">The Full Reset</h2>
-              <p className="text-body-lg text-white/60 font-light mb-3">Full interior detail. Hand wash, clay bar, sealant outside.</p>
-              <p className="text-body-lg text-white/60 font-light mb-3">Every surface cleaned and protected.</p>
-              <p className="text-body-lg text-white/60 font-light mb-3">We come to you. Travel included across Calgary, Airdrie, and Cochrane.</p>
-              <p className="font-display text-display-md text-copper mt-10 mb-2">Interior from $139 · +$30 exterior</p>
-              <p className="text-caption text-white/40 mb-10">Sedans $139 · SUV/Truck $159 · 7-seater $199. Add $30 for exterior.</p>
-              <button onClick={onBookClick} className="inline-flex items-center px-8 py-3.5 rounded-full bg-copper text-primary-foreground font-body text-label uppercase tracking-[0.15em] hover:bg-copper-glow cta-copper-glow transition-all duration-[400ms]">Book Your Reset</button>
+              <h2 className="font-display text-display-lg text-white mb-8">The Custom Build</h2>
+              <p className="text-body-lg text-white/60 font-light mb-3">Architectural design, full structural build, master interior finishing.</p>
+              <p className="text-body-lg text-white/60 font-light mb-3">Every wall, joint, and trim line built to last generations.</p>
+              <p className="text-body-lg text-white/60 font-light mb-3">We build across Cochrane, Calgary, and Rocky View County.</p>
+              <p className="font-display text-display-md text-copper mt-10 mb-2">Fixed-scope quotes</p>
+              <p className="text-caption text-white/40 mb-10">Custom homes · Major renovations · Additions · Master interior finishing.</p>
+              <button onClick={onBookClick} className="inline-flex items-center px-8 py-3.5 rounded-full bg-copper text-primary-foreground font-body text-label uppercase tracking-[0.15em] hover:bg-copper-glow cta-copper-glow transition-all duration-[400ms]">Request a Consultation</button>
             </div>
           </div>
         </div>
@@ -210,10 +210,10 @@ const FullResetSection = ({
                 <div>
                   <p className="font-overline text-copper mb-6">Flagship Service</p>
                   <h2 className="font-display text-display-lg text-white mb-5">
-                    The Full Reset
+                    The Custom Build
                   </h2>
                   <p className="text-body-lg text-white/50 font-light max-w-[44ch] leading-relaxed">
-                    The complete transformation — inside and out.
+                    The complete master-builder process — design, build, and finish.
                   </p>
                 </div>
               </TextBlock>
@@ -223,14 +223,14 @@ const FullResetSection = ({
                 <div>
                   <p className="font-overline text-copper mb-6">What's Included</p>
                   <h3 className="font-display text-display-sm text-white mb-5">
-                    Every surface, restored.
+                    Every detail, built right.
                   </h3>
                   <p className="text-body-lg text-white/50 font-light max-w-[44ch] leading-relaxed mb-5">
-                    Full interior detail. Hand wash, clay bar, sealant outside.
-                    Every surface cleaned and protected.
+                    Architectural planning, foundation through framing, drywall, millwork,
+                    cabinetry, and master interior finishing.
                   </p>
                   <p className="text-body-lg text-white/40 font-light max-w-[44ch] leading-relaxed">
-                    We come to you. Travel included across Calgary, Airdrie, and Cochrane.
+                    We build across Cochrane, Calgary, and Rocky View County.
                   </p>
                 </div>
               </TextBlock>
@@ -239,12 +239,12 @@ const FullResetSection = ({
               <TextBlock opacity={p3Opacity} y={p3Y}>
                 <div>
                   <p className="font-overline text-copper mb-6">Transparent Pricing</p>
-                  <p className="font-display text-display-md text-copper mb-5">Interior from $139 · +$30 exterior</p>
+                  <p className="font-display text-display-md text-copper mb-5">Fixed-scope quotes</p>
                   <p className="text-body-lg text-white/50 font-light max-w-[44ch] leading-relaxed mb-2">
-                    Sedans $139 · SUV/Truck $159 · 7-seater $199
+                    Custom homes · Major renovations · Additions · Master interior finishing
                   </p>
                   <p className="text-body-lg text-white/40 font-light max-w-[44ch] leading-relaxed">
-                    Add $30 for the full exterior.
+                    Every quote is fixed-scope and detailed line-by-line — no surprise change orders.
                   </p>
                 </div>
               </TextBlock>
@@ -257,17 +257,17 @@ const FullResetSection = ({
                 <div>
                   <div className="editorial-rule mb-8" />
                   <h2 className="font-display text-display-md text-white mb-4">
-                    Ready for your reset?
+                    Ready to start?
                   </h2>
                   <p className="text-body-lg text-white/50 font-light max-w-[40ch] mb-10">
-                    That new-car feeling is one booking away.
+                    A finished home is one consultation away.
                   </p>
                   <div className="flex flex-col sm:flex-row items-start gap-4">
                     <button
                       onClick={onBookClick}
                       className="inline-flex items-center px-8 py-3.5 rounded-full bg-copper text-primary-foreground font-body text-label uppercase tracking-[0.15em] hover:bg-copper-glow cta-copper-glow transition-all duration-[400ms] pointer-events-auto"
                     >
-                      Book Your Reset
+                      Request a Consultation
                     </button>
                     <Link
                       to="/services"
