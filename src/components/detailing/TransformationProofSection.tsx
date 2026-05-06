@@ -128,12 +128,12 @@ const TransformationProofSection = ({
           <div className="relative z-10 py-28 md:py-36 lg:py-48">
             <div className="container mx-auto px-6 lg:px-8 max-w-xl">
               <p className="font-overline text-copper mb-4">The Proof</p>
-              <h2 className="font-display text-display-lg text-white mb-6">Real transformations. Real Calgary vehicles.</h2>
-              <p className="text-body-lg text-white/50 font-light mb-4">From neglected interiors to showroom-quality finishes. Every reset is documented with before and after photos.</p>
-              <p className="text-body-lg text-white/40 font-light mb-10">200+ vehicles restored across Calgary.</p>
+              <h2 className="font-display text-display-lg text-white mb-6">Real builds. Real Cochrane &amp; Calgary homes.</h2>
+              <p className="text-body-lg text-white/50 font-light mb-4">From rough framing to finished interiors. Every project documented before, during, and after.</p>
+              <p className="text-body-lg text-white/40 font-light mb-10">Custom homes, full renovations, and master-craft finishing across Cochrane, Calgary, and Rocky View County.</p>
               <div className="flex flex-col sm:flex-row items-start gap-4">
-                <button onClick={onBookClick} className="inline-flex items-center px-8 py-3.5 rounded-full bg-copper text-primary-foreground font-body text-label uppercase tracking-[0.15em] hover:bg-copper-glow cta-copper-glow transition-all duration-[400ms]">Book Your Reset</button>
-                <Link to="/results" className="inline-flex items-center text-white/50 text-body-sm hover:text-copper transition-colors duration-300 underline underline-offset-4 decoration-copper/30 hover:decoration-copper py-3.5">See Before & Afters</Link>
+                <button onClick={onBookClick} className="inline-flex items-center px-8 py-3.5 rounded-full bg-copper text-primary-foreground font-body text-label uppercase tracking-[0.15em] hover:bg-copper-glow cta-copper-glow transition-all duration-[400ms]">Request a Consultation</button>
+                <Link to="/results" className="inline-flex items-center text-white/50 text-body-sm hover:text-copper transition-colors duration-300 underline underline-offset-4 decoration-copper/30 hover:decoration-copper py-3.5">See Before &amp; Afters</Link>
               </div>
             </div>
           </div>
@@ -212,10 +212,10 @@ const TransformationProofSection = ({
                 <div>
                   <p className="font-overline text-copper mb-6">The Proof</p>
                   <h2 className="font-display text-display-lg text-white mb-5">
-                    Real transformations.<br />Real Calgary vehicles.
+                    Real builds.<br />Real Cochrane homes.
                   </h2>
                   <p className="text-body-lg text-white/50 font-light max-w-[44ch] leading-relaxed">
-                    Every detail documented. Every surface restored.
+                    Every project documented. Every detail built right.
                   </p>
                 </div>
               </TextBlock>
@@ -223,16 +223,16 @@ const TransformationProofSection = ({
               {/* Phase 2: Specific evidence */}
               <TextBlock opacity={p2Opacity} y={p2Y}>
                 <div>
-                  <p className="font-overline text-copper mb-6">Interior Deep Clean</p>
+                  <p className="font-overline text-copper mb-6">Master Interior Finishing</p>
                   <h3 className="font-display text-display-sm text-white mb-5">
-                    From neglected to factory-fresh.
+                    From rough-in to finished room.
                   </h3>
                   <p className="text-body-lg text-white/50 font-light max-w-[44ch] leading-relaxed mb-5">
-                    Stained consoles, embedded pet hair, ground-in dirt — methodically
-                    extracted and restored.
+                    Drywall, millwork, custom cabinetry, paint, and trim — built and finished
+                    to a master standard, room by room.
                   </p>
                   <p className="text-body text-white/40 font-light">
-                    2019 Hyundai Tucson · 2020 Nissan Rogue · 200+ more
+                    Custom kitchens · Whole-home renovations · Basement developments
                   </p>
                 </div>
               </TextBlock>
@@ -240,16 +240,16 @@ const TransformationProofSection = ({
               {/* Phase 3: Conviction */}
               <TextBlock opacity={p3Opacity} y={p3Y}>
                 <div>
-                  <p className="font-overline text-copper mb-6">Full Exterior Restoration</p>
+                  <p className="font-overline text-copper mb-6">Full Custom Builds</p>
                   <h3 className="font-display text-display-sm text-white mb-5">
-                    Corrected and protected.
+                    Built to last generations.
                   </h3>
                   <p className="text-body-lg text-white/50 font-light max-w-[44ch] leading-relaxed mb-5">
-                    Oxidized paint, water spots, road film — corrected with
-                    ceramic-grade coatings that hold for months.
+                    Foundation through final walk-through — every joint, every line,
+                    every finish held to a master-builder standard.
                   </p>
                   <p className="text-body text-white/40 font-light">
-                    Before and after photos on every single reset.
+                    Documented at every stage of the build.
                   </p>
                 </div>
               </TextBlock>
@@ -265,20 +265,20 @@ const TransformationProofSection = ({
                     See it to believe it.
                   </h2>
                   <p className="text-body-lg text-white/50 font-light max-w-[40ch] mb-10">
-                    The results speak for themselves.
+                    The work speaks for itself.
                   </p>
                   <div className="flex flex-col sm:flex-row items-start gap-4">
                     <button
                       onClick={onBookClick}
                       className="inline-flex items-center px-8 py-3.5 rounded-full bg-copper text-primary-foreground font-body text-label uppercase tracking-[0.15em] hover:bg-copper-glow cta-copper-glow transition-all duration-[400ms] pointer-events-auto"
                     >
-                      Book Your Reset
+                      Request a Consultation
                     </button>
                     <Link
                       to="/results"
                       className="inline-flex items-center text-white/50 text-body-sm hover:text-copper transition-colors duration-300 underline underline-offset-4 decoration-copper/30 hover:decoration-copper py-3.5 pointer-events-auto"
                     >
-                      See Before & Afters
+                      See Before &amp; Afters
                     </Link>
                   </div>
                 </div>

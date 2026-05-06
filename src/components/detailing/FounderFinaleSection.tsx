@@ -127,13 +127,13 @@ const FounderFinaleSection = ({
           <div className="relative z-10 py-28 md:py-36 lg:py-48">
             <div className="container mx-auto px-6 lg:px-8 max-w-xl">
               <p className="font-overline text-copper-light mb-4">Meet Cochrane Master Builders</p>
-              <p className="text-body-lg text-white/80 font-light mb-5 max-w-[48ch]">I started this business because I believe everyone deserves to feel good about their vehicle — without the judgment, without the upsell, without the hassle.</p>
-              <p className="text-body-lg text-white/80 font-light mb-12 max-w-[48ch]">Every reset is done by me, personally. I bring professional-grade equipment to your driveway and treat every vehicle as if it were my own.</p>
+              <p className="text-body-lg text-white/80 font-light mb-5 max-w-[48ch]">We started this company because every family deserves a home built with care — without inflated quotes, without subcontractor relays, and without surprise change orders.</p>
+              <p className="text-body-lg text-white/80 font-light mb-12 max-w-[48ch]">Every project is run by a master builder, on-site, from foundation to final walk-through. We treat every home as if it were our own.</p>
               <div className="editorial-rule mx-auto mb-8" />
-              <p className="text-pull-quote text-white font-display italic mb-6">"I was embarrassed to let anyone in my car. After The Full Reset, I actually want to give people rides again."</p>
-              <p className="font-overline text-white/30 mb-12">Parker G. — 2013 Dodge Journey</p>
-              <h2 className="font-display text-display-lg text-white mb-6">Your car is next.</h2>
-              <button onClick={onBookClick} className="inline-flex items-center px-8 py-3.5 rounded-full bg-copper text-primary-foreground font-body text-label uppercase tracking-[0.15em] hover:bg-copper-glow cta-copper-glow transition-all duration-[400ms]">Book Your Reset</button>
+              <p className="text-pull-quote text-white font-display italic mb-6">"They built our home like it was theirs. Every joint, every finish — exactly what was quoted, on time."</p>
+              <p className="font-overline text-white/30 mb-12">Parker G. — Custom Home, Cochrane</p>
+              <h2 className="font-display text-display-lg text-white mb-6">Your home is next.</h2>
+              <button onClick={onBookClick} className="inline-flex items-center px-8 py-3.5 rounded-full bg-copper text-primary-foreground font-body text-label uppercase tracking-[0.15em] hover:bg-copper-glow cta-copper-glow transition-all duration-[400ms]">Request a Consultation</button>
             </div>
           </div>
         </div>
@@ -209,12 +209,12 @@ const FounderFinaleSection = ({
                 <div>
                   <p className="font-overline text-copper mb-6">Meet Cochrane Master Builders</p>
                   <h2 className="font-display text-display-lg text-white mb-5">
-                    Built on care, not volume.
+                    Built on craft, not volume.
                   </h2>
                   <p className="text-body-lg text-white/50 font-light max-w-[44ch] leading-relaxed">
-                    I started this business because I believe everyone deserves to
-                    feel good about their vehicle — without the judgment, without the
-                    upsell, without the hassle.
+                    We started this company because every family deserves a home built with
+                    care — without inflated quotes, without subcontractor relays, and
+                    without surprise change orders.
                   </p>
                 </div>
               </TextBlock>
@@ -222,18 +222,16 @@ const FounderFinaleSection = ({
               {/* Phase 2: Personal craft */}
               <TextBlock opacity={p2Opacity} y={p2Y}>
                 <div>
-                  <p className="font-overline text-copper mb-6">Every Detail, Personally</p>
+                  <p className="font-overline text-copper mb-6">Master-Built, On-Site</p>
                   <h3 className="font-display text-display-sm text-white mb-5">
-                    One person. One standard.
+                    One builder. One standard.
                   </h3>
                   <p className="text-body-lg text-white/50 font-light max-w-[44ch] leading-relaxed mb-5">
-                    Every reset is done by me, personally. I bring professional-grade
-                    equipment to your driveway and treat every vehicle as if it were
-                    my own.
+                    Every project is run by a master builder, on-site, from foundation to
+                    final walk-through. We treat every home as if it were our own.
                   </p>
                   <p className="text-body-lg text-white/40 font-light max-w-[44ch] leading-relaxed">
-                    No employees. No shortcuts. Just one person who takes this
-                    seriously.
+                    No relay teams. No shortcuts. Just craftspeople who take this seriously.
                   </p>
                 </div>
               </TextBlock>
@@ -244,10 +242,10 @@ const FounderFinaleSection = ({
                   <p className="font-overline text-copper mb-6">What Clients Say</p>
                   <div className="editorial-rule mb-8" />
                   <p className="font-display text-display-sm text-white italic leading-snug mb-6">
-                    "I was embarrassed to let anyone in my car. After The Full Reset,
-                    I actually want to give people rides again."
+                    "They built our home like it was theirs. Every joint, every finish —
+                    exactly what was quoted, on time."
                   </p>
-                  <p className="font-overline text-white/30">Parker G. — 2013 Dodge Journey</p>
+                  <p className="font-overline text-white/30">Parker G. — Custom Home, Cochrane</p>
                 </div>
               </TextBlock>
 
@@ -259,16 +257,16 @@ const FounderFinaleSection = ({
                 <div>
                   <div className="editorial-rule mb-8" />
                   <h2 className="font-display text-display-md text-white mb-4">
-                    Your car is next.
+                    Your home is next.
                   </h2>
                   <p className="text-body-lg text-white/50 font-light max-w-[40ch] mb-10">
-                    That new-car feeling is one booking away.
+                    A finished home is one consultation away.
                   </p>
                   <button
                     onClick={onBookClick}
                     className="inline-flex items-center px-8 py-3.5 rounded-full bg-copper text-primary-foreground font-body text-label uppercase tracking-[0.15em] hover:bg-copper-glow cta-copper-glow transition-all duration-[400ms] pointer-events-auto"
                   >
-                    Book Your Reset
+                    Request a Consultation
                   </button>
                 </div>
               </motion.div>
