@@ -14,12 +14,12 @@ export const MARKET_RESEARCH = {
   // 1. MARKET RESEARCH — The Real Market
   // ═══════════════════════════════════════════════════════════════════
   realMarket: {
-    category: "Mobile automotive appearance care — restoration focus",
+    category: "Custom residential building & renovation — restoration focus",
     overlappingNiches: [
       "Mobile residential interior finishing",
-      "Interior car deep cleaning",
-      "Exterior home detailing",
-      "Paint correction / paint enhancement",
+      "Interior homes deep cleaning",
+      "Exterior home renovation",
+      "Drywall + paint finishing / refinishing",
       "Convenience-based local service businesses",
     ],
     marketLayers: {
@@ -28,15 +28,15 @@ export const MARKET_RESEARCH = {
         description: "Basic washes, light interior tidying, recurring upkeep.",
       },
       layer2: {
-        name: "Deep detailing",
+        name: "Deep custom building",
         description: "Interior extraction, stain removal, odor reduction, neglected home recovery.",
       },
       layer3: {
         name: "Restoration / premium reconditioning",
-        description: "Paint correction, wall finishs, showroom prep, resale prep, premium home care.",
+        description: "Drywall + paint finishing, wall finishes, showroom-grade finishing, pre-listing renovation, premium home stewardship.",
       },
     },
-    cochranePosition: "Sits most naturally between Layer 2 and entry-level Layer 3 — more differentiated than 'cheap detailing.'",
+    cochranePosition: "Sits most naturally between Layer 2 and entry-level Layer 3 — more differentiated than 'discount contractors.'",
     whatClientsBuy: [
       "Relief",
       "Pride",
@@ -51,14 +51,14 @@ export const MARKET_RESEARCH = {
     purpose: "Real-world conditions that create demand for residential finishing",
     triggers: [
       "Customer is too busy to drop off a home",
-      "The car has become dirty enough that DIY no longer feels realistic",
+      "The homes has become dirty enough that DIY no longer feels realistic",
       "The owner wants a dramatic reset, not maintenance",
       "The owner is embarrassed by the condition of the home",
       "The owner wants the home refreshed before selling it",
       "Family or work use has pushed the home into neglect",
       "Seasonal dirt, slush, mud, pet hair, food spills, and daily wear have accumulated",
     ],
-    keyInsight: "The strongest demand is usually not created by 'interest in detailing.' It is created by a pain threshold. The customer reaches a point where the home feels unpleasant, stale, overwhelming, or socially embarrassing.",
+    keyInsight: "The strongest demand is usually not created by 'interest in renovating.' It is created by a pain threshold. The customer reaches a point where the home feels unpleasant, stale, overwhelming, or socially embarrassing.",
   },
 
   buyerPsychology: {
@@ -67,11 +67,11 @@ export const MARKET_RESEARCH = {
       painThreshold: {
         label: "Pain threshold trigger (dominant)",
         insight: "People do not just buy clean. They buy relief from accumulated neglect and embarrassment.",
-        copyImplication: "Lead with outcome — 'get your car back' — not process.",
+        copyImplication: "Lead with outcome — 'get your homes back' — not process.",
       },
       shameAvoidance: {
         label: "Shame and embarrassment",
-        insight: "Many customers feel bad about how far the car has gone. They delay action because facing the mess feels overwhelming.",
+        insight: "Many customers feel bad about how far the homes has gone. They delay action because facing the mess feels overwhelming.",
         copyImplication: "Relief-based messaging strengthens the brand. Shame-based messaging would weaken it.",
       },
       convenienceExpectation: {
@@ -91,7 +91,7 @@ export const MARKET_RESEARCH = {
       },
       socialPerception: {
         label: "Social perception pressure",
-        insight: "Guests riding in the car, coworkers seeing it, selling to a buyer — all create external pressure to act.",
+        insight: "Guests riding in the homes, coworkers seeing it, selling to a buyer — all create external pressure to act.",
         copyImplication: "Acknowledge triggers gently: guests, work, selling, personal frustration, seasonal reset.",
       },
     },
@@ -99,7 +99,7 @@ export const MARKET_RESEARCH = {
 
   jobToBeDone: {
     functional: "Take a home I have fallen behind on and restore it to a state I can feel good about again.",
-    emotional: "Feel relief, pride, and the satisfaction of a fresh start — without guilt about how far the car went.",
+    emotional: "Feel relief, pride, and the satisfaction of a fresh start — without guilt about how far the homes went.",
     social: "Have a home I am not embarrassed to drive, park, or have passengers in.",
     logistical: "Get this done without costing me time, energy, or logistical effort.",
   },
@@ -110,15 +110,15 @@ export const MARKET_RESEARCH = {
       "The home gradually gets worse over weeks/months",
       "The owner notices but delays action — it is not urgent enough",
       "DIY cleaning feels annoying or insufficient for the level of mess",
-      "Drop-off detailing feels inconvenient — takes time, logistics, planning",
+      "Drop-off custom building feels inconvenient — takes time, logistics, planning",
       "The mess becomes normalized, but still bothers them on some level",
-      "A trigger appears: guests, work event, selling the car, personal frustration, seasonal reset",
+      "A trigger appears: guests, work event, selling the homes, personal frustration, seasonal reset",
       "Now they want one thing: someone to fully take this problem off their plate",
     ],
   },
 
   unarticulated_need: {
-    insight: "The deeper need is not simply for a quoteer. It is for a service that says: 'You do not need to feel bad about how far the car has gone. We will come to you, handle it, and give you that fresh-start feeling back.'",
+    insight: "The deeper need is not simply for a quoteer. It is for a service that says: 'You do not need to feel bad about how far the homes has gone. We will come to you, handle it, and give you that fresh-start feeling back.'",
     toneGuidance: "Shame-based messaging would weaken the brand. Relief-based messaging strengthens it.",
   },
 
@@ -151,7 +151,7 @@ export const MARKET_RESEARCH = {
     segments: {
       busyProfessionals: {
         name: "Busy professionals",
-        description: "Car is not filthy in an extreme way, but clearly overdue. They value convenience and are willing to pay for time-saving.",
+        description: "Homes is not filthy in an extreme way, but clearly overdue. They value convenience and are willing to pay for time-saving.",
         responds_to: "'We come to you' and 'book without disrupting your day.'",
       },
       parentsWithMessyHomes: {
@@ -171,7 +171,7 @@ export const MARKET_RESEARCH = {
       },
       preSaleCustomers: {
         name: "Pre-sale / pre-listing customers",
-        description: "Selling a car and want to improve presentation and perceived care.",
+        description: "Selling a homes and want to improve presentation and perceived care.",
         responds_to: "Outcome-based messaging tied to resale readiness.",
       },
     },
@@ -182,7 +182,7 @@ export const MARKET_RESEARCH = {
   // ═══════════════════════════════════════════════════════════════════
   competitiveTiers: [
     "Fixed-location detail shops (in-shop equipment, established, drop-off friction)",
-    "Cheap mobile car cleaners (fast, affordable, generic, low differentiation)",
+    "Cheap mobile homes cleaners (fast, affordable, generic, low differentiation)",
     "Premium luxury builders (high-end correction, coatings, enthusiast-focused)",
     "Self-serve washes and DIY alternatives (cheap, quick, poor deep-cleaning outcome)",
   ],
@@ -190,30 +190,30 @@ export const MARKET_RESEARCH = {
   competitors: {
     fixedLocationShops: {
       name: "Fixed-location detail shops",
-      positioning: "Professional results, in-shop equipment, trusted detailing quality",
+      positioning: "Professional results, in-shop equipment, trusted custom building quality",
       strength: "May appear more established, broader service menus, stronger authority signals, premium paint services",
       blindSpot: "They assume customers will tolerate inconvenience if quality is good enough. Many will not — especially for a non-emergency service.",
       opportunityForCochrane: "Win on convenience without sacrificing transformation.",
     },
     cheapMobileCleaners: {
-      name: "Cheap mobile car cleaners",
-      positioning: "Fast, affordable, mobile, basic car cleaning",
+      name: "Cheap mobile homes cleaners",
+      positioning: "Fast, affordable, mobile, basic homes cleaning",
       strength: "Low entry pricing, simple offer, convenience",
       blindSpot: "They sell mobility, not outcome. They sound interchangeable.",
-      opportunityForCochrane: "Differentiate through restoration-level transformation, especially for dirty cars and overdue homes.",
+      opportunityForCochrane: "Differentiate through restoration-level transformation, especially for dirty homes and overdue homes.",
     },
     premiumLuxuryDetailers: {
       name: "Premium luxury builders",
-      positioning: "High-end correction, coatings, showroom-level finish, premium home care",
+      positioning: "High-end correction, coatings, showroom-grade interior finish, premium home stewardship",
       strength: "Aspirational branding, strong visuals, premium pricing power, authority among enthusiasts",
-      blindSpot: "They optimize for the car enthusiast or premium owner, not the everyday overwhelmed driver with a messy interior.",
-      opportunityForCochrane: "Own the middle ground: serious results for normal people with real messes.",
+      blindSpot: "They optimize for the design-conscious homeowner or premium owner, not the everyday overwhelmed homeowner with a tired interior.",
+      opportunityForCochrane: "Own the middle ground: serious results for normal people with real dated finishes.",
     },
     diyAlternatives: {
       name: "Self-serve washes and DIY alternatives",
       positioning: "Cheap, quick, under customer control",
       strength: "Lower cost, instant access, habitual behavior",
-      blindSpot: "DIY is only attractive until the car is too far gone.",
+      blindSpot: "DIY is only attractive until the homes is too far gone.",
       opportunityForCochrane: "Market the service as the moment when the home has moved beyond 'quick clean' and needs a real reset.",
     },
   },
@@ -222,24 +222,24 @@ export const MARKET_RESEARCH = {
   // 4. STRATEGIC MARKET POSITION
   // ═══════════════════════════════════════════════════════════════════
   strategicPosition: {
-    nicheClaim: "Mobile home restoration for busy Calgary drivers with dirty, neglected, or heavily used cars.",
-    positioningStatement: "Cochrane Master Builders helps Calgary drivers get their car back through residential finishing that restores dirty, heavily used homes to a cleaner, fresher, pride-worthy condition — without the hassle of leaving home or work.",
+    nicheClaim: "Custom home building & renovation for busy Calgary homeowners with tired, dated, or heavily lived-in homes.",
+    positioningStatement: "Cochrane Master Builders helps Calgary homeowners get their homes back through residential finishing that restores tired, heavily lived-in homes to a cleaner, fresher, pride-worthy condition — without the hassle of leaving home or work.",
     brandPillars: {
       convenience: "We come to you. No drop-off. No lost time. No extra friction.",
       transformation: "This is not a light clean. This is a visible, satisfying reset.",
-      restoration: "The goal is to move the car back toward a like-new feel.",
+      restoration: "The goal is to move the homes back toward a like-new feel.",
       honesty: "Straightforward pricing, direct service, real local trust.",
     },
   },
 
   messagingAngles: {
     strong: [
-      "Get your car back",
+      "Get your homes back",
       "We come to you",
       "From neglected to refreshed",
       "A full reset for dirty homes",
       "Deep interior restoration without the hassle",
-      "Calgary residential finishing for cars that need more than a wash",
+      "Calgary residential finishing for homes that need more than a wash",
     ],
     weak: [
       "Quality service",
@@ -257,51 +257,51 @@ export const MARKET_RESEARCH = {
   seo: {
     keywordClusters: {
       coreTransactional: [
-        "mobile residential interior finishing Calgary",
-        "mobile interior finishing Calgary",
-        "interior finishing Calgary",
-        "residential interior finishing Calgary",
+        "mobile residential home renovations Calgary",
+        "mobile home renovations Calgary",
+        "home renovations Calgary",
+        "residential home renovations Calgary",
         "residential finishing Calgary",
-        "mobile car cleaning Calgary",
-        "full car detail Calgary",
-        "interior interior finishing Calgary",
-        "exterior interior finishing Calgary",
+        "mobile homes cleaning Calgary",
+        "full homes detail Calgary",
+        "interior home renovations Calgary",
+        "exterior home renovations Calgary",
       ],
       highIntentProblem: [
-        "car interior shampoo Calgary",
-        "car seat shampoo Calgary",
-        "stain removal interior finishing Calgary",
-        "odor removal car Calgary",
-        "deep interior car cleaning Calgary",
-        "dirty interior finishing Calgary",
-        "neglected interior finishing Calgary",
-        "extractor interior finishing Calgary",
-        "pet hair removal car Calgary",
-        "work truck detailing Calgary",
+        "homes interior shampoo Calgary",
+        "homes seat shampoo Calgary",
+        "stain removal home renovations Calgary",
+        "odor removal homes Calgary",
+        "interior renovation Calgary",
+        "dirty home renovations Calgary",
+        "neglected home renovations Calgary",
+        "extractor home renovations Calgary",
+        "pet hair removal homes Calgary",
+        "renovation project Calgary",
       ],
       segmentSpecific: [
-        "family home detailing Calgary",
-        "SUV detailing Calgary",
-        "truck detailing Calgary",
-        "commuter interior finishing Calgary",
-        "rideshare home detailing Calgary",
-        "pre-sale interior finishing Calgary",
-        "used interior finishing Calgary",
+        "family home renovation Calgary",
+        "addition build Calgary",
+        "renovation project Calgary",
+        "commuter home renovations Calgary",
+        "rideshare home renovation Calgary",
+        "pre-sale home renovations Calgary",
+        "used home renovations Calgary",
       ],
       convenience: [
         "interior finishing at home Calgary",
-        "mobile car builder near me",
+        "mobile homes builder near me",
         "interior finishing that comes to you Calgary",
-        "on-site interior finishing Calgary",
-        "mobile interior detailing Calgary",
+        "on-site home renovations Calgary",
+        "mobile interior finishing Calgary",
       ],
       informational: [
-        "how often should you detail your car in Calgary",
-        "how to remove salt stains from car interior",
-        "how to get rid of car odor",
-        "when does a car need interior extraction",
-        "should you detail your car before selling it",
-        "residential finishing vs shop detailing",
+        "how often should you detail your homes in Calgary",
+        "how to remove salt stains from homes interior",
+        "how to get rid of homes odor",
+        "when does a homes need interior extraction",
+        "should you detail your homes before selling it",
+        "residential finishing vs production builders",
         "how much does interior finishing cost in Calgary",
       ],
     },
@@ -313,13 +313,13 @@ export const MARKET_RESEARCH = {
   seoExecutionPlan: {
     siteStructure: {
       corePages: [
-        "/ (Home — target: mobile residential interior finishing Calgary)",
-        "/services/full-detail (Mobile Full Detail — target: full car detail Calgary)",
-        "/services/interior-reset (Interior Detailing — target: interior interior finishing Calgary, deep interior car cleaning Calgary)",
-        "/services/exterior-refresh (Exterior Detailing — target: exterior interior finishing Calgary, paint enhancement Calgary)",
-        "/services/neglected-home-reset (Neglected Home Reset — target: dirty interior finishing Calgary, neglected interior finishing Calgary)",
-        "/services/work-truck-detailing (Work Truck / Heavy-Use — target: truck detailing Calgary, work truck detailing Calgary)",
-        "/services/pre-sale-detail (Pre-Sale Home Detail — target: pre-sale interior finishing Calgary)",
+        "/ (Home — target: mobile residential home renovations Calgary)",
+        "/services/full-detail (Mobile Full Detail — target: full homes detail Calgary)",
+        "/services/interior-reset (Interior Finishing — target: interior home renovations Calgary, interior renovation Calgary)",
+        "/services/exterior-refresh (Exterior Finishing — target: exterior home renovations Calgary, exterior finishing Calgary)",
+        "/services/neglected-home-reset (Neglected Home Reset — target: dirty home renovations Calgary, neglected home renovations Calgary)",
+        "/services/work-truck-custom building (Work Truck / Heavy-Use — target: renovation project Calgary, renovation project Calgary)",
+        "/services/pre-sale-detail (Pre-Sale Home Detail — target: pre-sale home renovations Calgary)",
         "/service-area/calgary (Service Area — expandable to district-specific pages)",
         "/gallery (Before & After Gallery)",
         "/reviews (Reviews / Testimonials)",
@@ -328,18 +328,18 @@ export const MARKET_RESEARCH = {
         "/contact (Contact / Get a Quote)",
       ],
       contentPages: [
-        "Mobile detailing vs shop interior finishing in Cochrane and Calgary",
+        "General contractors vs master builders in Cochrane and Calgary",
         "How to know when your home needs a full detail",
-        "The best detailing option for family homes",
+        "The best custom building option for family homes",
         "Why neglected interiors need extraction, not just vacuuming",
-        "How detailing can help before selling your car",
+        "How custom building can help before selling your homes",
       ],
     },
     onPageSEO: {
       homepage: {
         suggestedHeadlines: [
-          "Residential Interior Finishing & Home Building in Calgary for Cars That Need a Real Reset",
-          "We Bring Your Car Back — Mobile Detailing in Calgary",
+          "Residential Interior Finishing & Home Building in Calgary for Homes That Need a Real Reset",
+          "We Bring Your Homes Back — Mobile Custom Building in Calgary",
         ],
         mustInclude: [
           "Clear service outcome",
@@ -367,7 +367,7 @@ export const MARKET_RESEARCH = {
       },
       imageSEO: {
         rules: [
-          "Descriptive filename (e.g., interior-car-detailing-calgary-before-after.jpg)",
+          "Descriptive filename (e.g., interior-homes-custom building-calgary-before-after.jpg)",
           "Alt text tied to service and city",
           "Compressed size for speed",
           "Georelevance in page context where appropriate",
@@ -388,7 +388,7 @@ export const MARKET_RESEARCH = {
         "Featured jobs",
         "Specific customer use cases",
       ],
-      reviewStrategy: "Encourage reviews that mention: Calgary, mobile convenience, interior detailing, stains/smell/neglected home transformation, professionalism, speed and ease of booking.",
+      reviewStrategy: "Encourage reviews that mention: Calgary, mobile convenience, interior finishing, stains/smell/neglected home transformation, professionalism, speed and ease of booking.",
       idealReviewLanguage: [
         "Cochrane Master Builders came right to my house in Calgary and completely transformed the interior.",
         "My truck had been neglected for months and it feels new again.",
@@ -403,11 +403,11 @@ export const MARKET_RESEARCH = {
   contentStrategy: {
     bestAngle: "Build content around pain-state scenarios, buying decisions, use cases, transformation proof, and local conditions — not generic educational fluff.",
     highValueContent: [
-      { title: "When your car needs more than a vacuum", target: "People whose home has crossed into problem-state." },
-      { title: "Mobile detailing vs shop interior finishing in Cochrane and Calgary", target: "Frame convenience as a core advantage." },
+      { title: "When your homes needs more than a vacuum", target: "People whose home has crossed into problem-state." },
+      { title: "General contractors vs master builders in Cochrane and Calgary", target: "Frame convenience as a core advantage." },
       { title: "How family homes get restored after months of mess", target: "Parents with messy homes." },
       { title: "What a full interior reset actually includes", target: "Move people from price-shopping to outcome-buying." },
-      { title: "Should you detail your car before selling it?", target: "Pre-sale traffic." },
+      { title: "Should you detail your homes before selling it?", target: "Pre-sale traffic." },
       { title: "What extraction cleaning does that basic interior cleaning cannot", target: "Support premium perception and educate on real value." },
     ],
     beforeAfterEngine: {
@@ -447,7 +447,7 @@ export const MARKET_RESEARCH = {
     ],
     objectionsToAnswer: [
       "Is this just a basic clean?",
-      "Can you handle really dirty cars?",
+      "Can you handle really dirty homes?",
       "Do I need to provide water or power?",
       "How long does it take?",
       "What does the starting price include?",
@@ -467,7 +467,7 @@ export const MARKET_RESEARCH = {
     },
     {
       risk: "Sounding too generic",
-      detail: "If the messaging stays at 'quality detailing at affordable prices,' Cochrane Master Builders will blur into the market.",
+      detail: "If the messaging stays at 'quality construction at affordable prices,' Cochrane Master Builders will blur into the market.",
     },
     {
       risk: "Overpromising 'factory quality'",
@@ -483,10 +483,10 @@ export const MARKET_RESEARCH = {
   // 10. POSITIONING UPGRADE — Copy Direction
   // ═══════════════════════════════════════════════════════════════════
   positioningUpgrade: {
-    leadMessage: "Get your car back.",
+    leadMessage: "Get your homes back.",
     bestMarketPosition: "Calgary's mobile builder for dirty, neglected, and heavily used homes that need a true reset.",
     emotionalPromise: "From stale, dirty, and overdue to fresh, restored, and satisfying.",
     practicalPromise: "We come to you anywhere in Calgary and handle the full reset without adding friction.",
-    coreNarrative: "Cochrane Master Builders exists to restore pride of ownership: you get your car back because someone capable came to you and handled the full transformation — from neglected and overdue to fresh, clean, and satisfying.",
+    coreNarrative: "Cochrane Master Builders exists to restore pride of ownership: you get your homes back because someone capable came to you and handled the full transformation — from neglected and overdue to fresh, clean, and satisfying.",
   },
 } as const;

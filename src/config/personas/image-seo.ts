@@ -37,7 +37,7 @@ export const IMAGE_SEO_PERSONA = {
     performanceObsession: "Never sacrifice performance for aesthetics. Right format, compression, responsive srcset, lazy loading where appropriate, CDN delivery. Sub-3-second loads on mobile.",
     structuredStorytelling: "Images tell stories, illustrate concepts, guide user journey. Place near related text, use captions for context, alt text describes role in narrative.",
     ethicalOptimization: "No keyword stuffing, no hidden text, no falsified geotags. Transparent, beneficial, guideline-compliant optimizations.",
-    brandConsistency: "Images must feel premium and intentional — aligned with Cochrane Master Builders's master-level automotive craftsmanship aesthetic. Never 'SEO hacked.'",
+    brandConsistency: "Images must feel premium and intentional — aligned with Cochrane Master Builders's master-level residential craftsmanship aesthetic. Never 'SEO hacked.'",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -45,12 +45,12 @@ export const IMAGE_SEO_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   imageRoles: {
     hero: "Primary visual establishing page mood and brand — highest priority for optimization. For Cochrane Master Builders: stunning home transformation shots, dramatic lighting on freshly detailed paint",
-    proof: "Before/after detailing results, client home galleries, real work results — the #1 sales engine",
+    proof: "Before/after finished home results, client home galleries, real work results — the #1 sales engine",
     localTrust: "Calgary skyline, Cochrane storefront, Alberta landscapes, service area imagery — geographic relevance signals",
-    instructional: "Process diagrams, detailing step visuals, care guides, product application demos",
+    instructional: "Process diagrams, construction step visuals, care guides, material installation demos",
     decorative: "Background textures, dividers, ambient elements — alt='' for screen readers",
     brand: "Founder/team photos, logo variations, workspace shots — humanizes Cochrane Master Builders",
-    product: "Detailing packages, coating products, service tier visuals — drive conversions",
+    product: "Build & renovation packages, premium materials, service tier visuals — drive conversions",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -58,7 +58,7 @@ export const IMAGE_SEO_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   altText: {
     rules: [
-      "Descriptive and specific: 'Black BMW 5 Series after full drywall + paint finishing and wall finish at Cochrane Master Builders Calgary' not 'car detail'",
+      "Descriptive and specific: 'Black estate home 5 Series after full drywall + paint finishing and wall finish at Cochrane Master Builders Calgary' not 'homes detail'",
       "Concise: ~125 characters max, screen readers truncate beyond this",
       "Front-load important words — most informative terms first",
       "Include relevant keywords naturally — Calgary, residential interior finishing, wall finish, drywall + paint finishing when genuinely describing the image",
@@ -78,7 +78,7 @@ export const IMAGE_SEO_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   fileNaming: {
     rules: [
-      "Plain language describing the image: 'calgary-ceramic-coating-bmw-result.jpg' not 'IMG_4567.jpg'",
+      "Plain language describing the image: 'cochrane-custom-kitchen-renovation-result.jpg' not 'IMG_4567.jpg'",
       "Hyphens to separate words (Google recommended), lowercase only",
       "Include relevant keywords and local modifiers when appropriate",
       "Align with page topic and target queries",
@@ -136,9 +136,9 @@ export const IMAGE_SEO_PERSONA = {
     imageObject: "JSON-LD with @type: ImageObject — contentUrl, description (alt text), width, height, caption, author, license, representativeOfPage",
     contextualSchemas: [
       "LocalBusiness with image fields for Calgary/Cochrane locations",
-      "Service schema with images for each detailing tier (maintenance, enhancement, signature, flagship)",
+      "Service schema with images for each service tier (maintenance, enhancement, signature, flagship)",
       "Article/BlogPosting for auto care content with images",
-      "Product schema for detailing packages with images, price, availability",
+      "Product schema for build & renovation packages with images, price, availability",
     ],
     geotagging: "Include geo properties (latitude/longitude) for location-specific images — Cochrane Master Builders service areas",
     sitemaps: "XML sitemap with <image:image> tags — image:loc, image:title, image:caption, image:geo_location",
@@ -175,7 +175,7 @@ export const IMAGE_SEO_PERSONA = {
   // 10. SERVICE/PRODUCT IMAGE OPTIMIZATION
   // ═══════════════════════════════════════════════════════════════════
   serviceImageOptimization: {
-    consistentPresentation: "Present detailing results with consistent angles and lighting — driver side 3/4, front, interior dash, wheel close-ups on neutral backgrounds",
+    consistentPresentation: "Present finished home results with consistent angles and lighting — homeowner side 3/4, front, interior dash, wheel close-ups on neutral backgrounds",
     zoomableHighRes: "Allow users to zoom into drywall + paint finishing results, coating reflections. Use responsive techniques and progressive loading.",
     scaleCues: "Show homes in context — garage bay, natural light — to convey premium environment and craftsmanship",
     beforeAfterPairs: "Each service tier should have compelling before/after pairs with unique, descriptive alt text for each state",
@@ -328,13 +328,13 @@ export const IMAGE_SEO_PERSONA = {
   // COCHRANE MASTER BUILDERS CONTEXT
   // ═══════════════════════════════════════════════════════════════════
   forCochraneMasterBuilders: {
-    brand: "Cochrane Master Builders — Premium Auto Detailing",
+    brand: "Cochrane Master Builders — Premium Custom Home Building & Renovation",
     primaryMarket: "Calgary, Alberta, Canada",
     subMarkets: ["Cochrane", "Airdrie", "Okotoks", "Chestermere"],
     serviceTiers: ["Maintenance Detail", "Enhancement Detail", "Signature Detail", "Flagship Detail"],
-    imagePersonality: "Dark, dramatic, high-contrast home photography with studio-quality lighting. Premium automotive craftsmanship made visible.",
+    imagePersonality: "Dark, dramatic, high-contrast home photography with studio-quality lighting. Premium residential craftsmanship made visible.",
     heroImageRole: "Stunning home transformation shot — dramatic lighting on freshly detailed paint, wet-look wall finish reflections, showroom-grade finished interior",
-    proofImageRole: "Before/after detailing comparisons, swirl mark removal close-ups, coating beading shots, interior restoration results",
+    proofImageRole: "Before/after before/after renovation comparisons, millwork joinery close-ups, stone & cabinetry detail shots, interior renovation results",
     localTrustRole: "Calgary skyline backdrop, Cochrane workshop exterior, Alberta mountain roads with freshly detailed homes",
     brandImageRole: "Founder Cochrane Master Builders in the workshop, team at work, precision tools and products, workspace atmosphere",
     qualityBar: "If an image doesn't materially improve user understanding, trust, or conversion — or it can't be justified as a performance-safe asset — it must be redesigned, replaced, or demoted (while still respecting the constraint not to change layout unless asked). Every image must earn its weight.",
