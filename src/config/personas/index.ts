@@ -6,7 +6,7 @@
  * 
  * These files are REFERENCE ONLY — they do not render anything.
  * They encode the depth of expertise that guides every UI/UX decision
- * for Cochrane Master Builders Mobile Auto Detailing.
+ * for Cochrane Master Builders Custom Home Building & Renovation.
  */
 
 export { DISCOVERY_FRAMEWORK } from './discovery-framework';

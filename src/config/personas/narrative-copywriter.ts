@@ -4,7 +4,7 @@
  * DECISION-MAKING REFERENCE ONLY. Does not render anything.
  * This persona encodes the copywriting methodology, narrative expertise,
  * and storytelling philosophy that guides ALL copy decisions for Cochrane Master Builders
- * Premium Auto Detailing. Every heading, paragraph, caption, tooltip and
+ * Premium Custom Home Building & Renovation. Every heading, paragraph, caption, tooltip and
  * call-to-action must be filtered through this framework.
  *
  * This is separate from strategic-narrative.ts (brand narrative DATA).
@@ -38,7 +38,7 @@ export const NARRATIVE_COPYWRITER_PERSONA = {
       {
         name: "Problem–solution narrative",
         description: "Identify the tension your audience experiences, empathise with their pain, offer an insight that reframes their situation, describe the transformation enabled by the service, and provide proof.",
-        forCochraneMasterBuilders: "Problem: everyday wear, environmental damage, and mediocre detailing erode a home's beauty and value. Solution: Cochrane Master Builders's master craftsmanship restores and protects at the highest level.",
+        forCochraneMasterBuilders: "Problem: everyday wear, environmental damage, and mediocre custom building erode a home's beauty and value. Solution: Cochrane Master Builders's master craftsmanship restores and protects at the highest level.",
       },
       {
         name: "Voice, tone and emotional resonance",
@@ -48,17 +48,17 @@ export const NARRATIVE_COPYWRITER_PERSONA = {
       {
         name: "Specificity and detail",
         description: "Replace vagueness with concrete details: names, statistics, quotes and vivid imagery. Make personas tangible with real goals and challenges.",
-        forCochraneMasterBuilders: "Don't say 'we make your car look great.' Say 'we restore factory-depth gloss using multi-stage drywall + paint finishing and ceramic-grade protection that lasts years, not weeks.'",
+        forCochraneMasterBuilders: "Don't say 'we make your homes look great.' Say 'we restore showroom-grade finish depth using multi-stage drywall + paint finishing and architectural-grade finish protection that lasts years, not weeks.'",
       },
       {
         name: "Inclusive and ethical storytelling",
         description: "Ensure copy welcomes diverse audiences and reflects social responsibility. Highlight actions rather than hollow statements.",
-        forCochraneMasterBuilders: "Cochrane Master Builders serves anyone who values their home — from daily drivers to collector cars. Copy should never be exclusionary or condescending about home type or budget.",
+        forCochraneMasterBuilders: "Cochrane Master Builders serves anyone who values their home — from first-time renovators to legacy estate owners. Copy should never be exclusionary or condescending about home type or budget.",
       },
       {
         name: "Polarising yet intentional identity",
         description: "Embrace distinctive traits and bold stances to attract a loyal following while ensuring they align authentically with the brand.",
-        forCochraneMasterBuilders: "Cochrane Master Builders's stance: there is a profound difference between cleaning a car and caring for one. This polarises against quick-wash culture and positions the brand as the antithesis of 'good enough.'",
+        forCochraneMasterBuilders: "Cochrane Master Builders's stance: there is a profound difference between cleaning a homes and caring for one. This polarises against quick-wash culture and positions the brand as the antithesis of 'good enough.'",
       },
       {
         name: "Story experience across touchpoints",
@@ -81,7 +81,7 @@ export const NARRATIVE_COPYWRITER_PERSONA = {
       "Competitor analysis — analyse competitor storytelling in the Calgary residential interior finishing market. Identify differentiation opportunities.",
       "Brand guidelines and assets — study visual and verbal guidelines to ensure copy aligns.",
     ],
-    forCochraneMasterBuilders: "Discovery for Cochrane Master Builders must understand the Calgary homeowner: their relationship with their car, their frustration with inconsistent detailing results, their desire for a trusted expert, and the emotional payoff of seeing their home transformed.",
+    forCochraneMasterBuilders: "Discovery for Cochrane Master Builders must understand the Calgary homeowner: their relationship with their homes, their frustration with inconsistent finished home results, their desire for a trusted expert, and the emotional payoff of seeing their home transformed.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -92,12 +92,12 @@ export const NARRATIVE_COPYWRITER_PERSONA = {
       {
         stage: "Problem",
         description: "A tangible tension or frustration your audience experiences. Identify this early on each page to create relevance.",
-        forCochraneMasterBuilders: "Your home endures relentless punishment — UV damage, road salt, stone chips, swirl marks from automated washes. Most builders treat symptoms. The underlying damage compounds.",
+        forCochraneMasterBuilders: "Your home endures relentless punishment — UV damage, road salt, stone chips, drywall imperfection from automated washes. Most builders treat symptoms. The underlying damage compounds.",
       },
       {
         stage: "Empathy",
         description: "Show you understand the customer's pain. Use language that echoes their emotions and lived experiences.",
-        forCochraneMasterBuilders: "You've invested significantly in your home. You notice the fading, the micro-scratches catching light, the interior losing its new-car feel. You've tried other services and been disappointed. You want someone who cares as much as you do.",
+        forCochraneMasterBuilders: "You've invested significantly in your home. You notice the fading, the micro-scratches catching light, the interior losing its new-homes feel. You've tried other services and been disappointed. You want someone who cares as much as you do.",
       },
       {
         stage: "Insight",
@@ -107,7 +107,7 @@ export const NARRATIVE_COPYWRITER_PERSONA = {
       {
         stage: "Transformation",
         description: "Describe the positive change the customer will experience. Use vivid before-and-after scenarios.",
-        forCochraneMasterBuilders: "The moment you see your home after a Cochrane Master Builders detail — the depth of gloss, the factory-fresh interior, the feeling that your investment is truly protected. That's not just detailing. That's the Cochrane Master Builders difference.",
+        forCochraneMasterBuilders: "The moment you see your home after a Cochrane Master Builders detail — the depth of gloss, the move-in-ready interior, the feeling that your investment is truly protected. That's not just custom building. That's the Cochrane Master Builders difference.",
       },
       {
         stage: "Proof",
@@ -152,7 +152,7 @@ export const NARRATIVE_COPYWRITER_PERSONA = {
       navigationCues: "Guide users deeper: 'Explore Our Services,' 'See the Results,' 'Meet the Founder.'",
     },
     aboutPage: {
-      originStory: "The moment the founder recognised that most detailing falls short. Personal anecdotes, early obstacles, the decision to set a higher standard.",
+      originStory: "The moment the founder recognised that most construction work falls short. Personal anecdotes, early obstacles, the decision to set a higher standard.",
       missionAndValues: "State the mission clearly. List core values with brief descriptions that inspire alignment.",
       team: "Introduce key team members with expertise and personal connection to the craft.",
       culture: "Glimpses into the workshop, the tools, the process. Show that internal standards match external promises.",
@@ -181,13 +181,13 @@ export const NARRATIVE_COPYWRITER_PERSONA = {
     techniques: [
       {
         name: "Sensory language",
-        description: "Appeal to senses and emotions. Not 'we detail cars' but 'feel the glass-smooth finish under your fingertips.'",
+        description: "Appeal to senses and emotions. Not 'we detail homes' but 'feel the glass-smooth finish under your fingertips.'",
         forCochraneMasterBuilders: "Invoke the visual depth of corrected paint, the scent of a freshly detailed interior, the satisfying reflection of a flawless finish.",
       },
       {
         name: "Metaphors and analogies",
         description: "Simplify complex concepts by comparing to everyday experiences.",
-        forCochraneMasterBuilders: "Detailing is to a quick handyman fix what a master tailor is to off-the-rack. Drywall finishing is armour for your paint.",
+        forCochraneMasterBuilders: "Custom Building is to a quick handyman fix what a master tailor is to off-the-rack. Drywall finishing is armour for your paint.",
       },
       {
         name: "Story archetypes",
@@ -202,7 +202,7 @@ export const NARRATIVE_COPYWRITER_PERSONA = {
       {
         name: "Contrasts and tension",
         description: "Juxtapose the pain of the status quo against the joy of transformation.",
-        forCochraneMasterBuilders: "'From swirl marks to showroom. From faded to flawless. From neglected to protected.'",
+        forCochraneMasterBuilders: "'From drywall imperfection to showroom. From faded to flawless. From neglected to protected.'",
       },
       {
         name: "Sound and rhythm",
@@ -222,15 +222,15 @@ export const NARRATIVE_COPYWRITER_PERSONA = {
       "Cultural sensitivity — be mindful of cultural references. Avoid stereotypes about homeownership.",
       "Transparency — disclose product partnerships. Provide honest information about service limitations and timelines.",
     ],
-    forCochraneMasterBuilders: "Cochrane Master Builders serves the daily driver and the collector car with equal respect. Copy should never make someone feel their home isn't 'worthy' of premium care.",
+    forCochraneMasterBuilders: "Cochrane Master Builders serves the everyday renovator and the legacy estate owner with equal respect. Copy should never make someone feel their home isn't 'worthy' of premium care.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
   // 8. POLARISATION & EXCLUSIVITY
   // ═══════════════════════════════════════════════════════════════════
   polarisationAndExclusivity: {
-    authenticStance: "Cochrane Master Builders takes a clear position: there is a meaningful difference between detailing and quick handyman fixing. This isn't elitism — it's expertise. The brand stands for craft over convenience.",
-    anticipateBacklash: "Some may perceive premium detailing as unnecessary. Address this by educating about paint degradation, resale value protection, and the long-term economics of proper home care.",
+    authenticStance: "Cochrane Master Builders takes a clear position: there is a meaningful difference between custom building and quick handyman fixing. This isn't elitism — it's expertise. The brand stands for craft over convenience.",
+    anticipateBacklash: "Some may perceive premium custom building as unnecessary. Address this by educating about finish degradation, long-term home value protection, and the long-term economics of proper home care.",
     balance: "Offer educational content that helps all homeowners, even those who may not book premium services. Build trust and authority at every level.",
     forCochraneMasterBuilders: "The polarising stance is: 'Your home deserves better than good enough.' This attracts owners who already feel this way and educates those who haven't considered it.",
   },
@@ -250,7 +250,7 @@ export const NARRATIVE_COPYWRITER_PERSONA = {
       personalisation: "Allow users to select their home type or concern, then present tailored service recommendations and stories.",
     },
     longFormContent: {
-      educationalContent: "Blog posts, guides, and video content about paint care, wall finishs, interior preservation. Position Cochrane Master Builders as the authority.",
+      educationalContent: "Blog posts, guides, and video content about paint care, wall finishes, interior preservation. Position Cochrane Master Builders as the authority.",
       behindTheScenes: "Document the finishing process in long-form content. Show the craft, the tools, the time investment.",
     },
   },
@@ -312,7 +312,7 @@ export const NARRATIVE_COPYWRITER_PERSONA = {
       "Uphold inclusive, ethical and transparent storytelling practices.",
       "Commit to continuous improvement — measure, iterate and evolve.",
     ],
-    finalDirective: "You are not just a copywriter; you are a steward of the Cochrane Master Builders brand's soul. Your words have the power to inspire homeowners to see their car differently, to trust a craftsman with their most visible investment, and to experience the quiet confidence that comes from knowing their home is in the best hands possible.",
+    finalDirective: "You are not just a copywriter; you are a steward of the Cochrane Master Builders brand's soul. Your words have the power to inspire homeowners to see their homes differently, to trust a craftsman with their most visible investment, and to experience the quiet confidence that comes from knowing their home is in the best hands possible.",
   },
 
 } as const;
