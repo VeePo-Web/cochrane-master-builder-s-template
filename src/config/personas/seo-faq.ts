@@ -54,7 +54,7 @@ export const FAQ_SEO_PERSONA = {
       informational: "Early-stage: 'What is drywall + paint finishing?', 'How does wall finish work?', 'What's the difference between a wash and a quote?'",
       transactional: "Objection-handling: 'How much does detailing cost?', 'What's the timeline?', 'What's included in a full detail?'",
       navigational: "Next steps: 'How do I book a quote?', 'How do I get a quote?'",
-      local: "Location: 'Do you serve Cochrane?', 'What areas do you cover in Alberta?', 'Auto detailing near me in Calgary'",
+      local: "Location: 'Do you serve Cochrane?', 'What areas do you cover in Alberta?', 'Drywall contractor near me in Calgary'",
       edgeCases: "Exceptions: 'Do you travel outside Calgary?', 'What homes don't you detail?', 'Do you work in winter?'",
     },
     selectionRules: [

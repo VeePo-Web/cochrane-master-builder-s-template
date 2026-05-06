@@ -748,7 +748,7 @@ export const COMPONENTS = {
       background: "hsl(220 8% 12% / 0.75)",
       color: "white",
       borderRadius: "2px",
-      examples: ["Kids + Dog Hair", "Coffee Spill", "Full Interior", "Paint Correction"],
+      examples: ["Kids + Dog Hair", "Coffee Spill", "Full Interior", "Paint Finishing"],
     },
     homeLabel: {
       fontSize: "caption scale",
@@ -1339,7 +1339,7 @@ export const COPY_SYSTEM = {
   headlineFormulas: {
     homeHero: {
       pattern: "[Promise statement]. [Proof anchor].",
-      resolved: "Get your car back. Calgary\u2019s mobile interior reset.",
+      resolved: "Get your home back. Calgary\u2019s mobile interior reset.",
     },
     servicesHero: {
       pattern: "[Service name]. [What it includes in one breath].",
@@ -1438,7 +1438,7 @@ export const COPY_SYSTEM = {
   resolvedPageCopy: {
     home: {
       hero: {
-        headline: "Get your car back.",
+        headline: "Get your home back.",
         subline: "Calgary\u2019s mobile interior reset. Deep clean + exterior restoration, at your door.",
         trustLine: "200+ homes reset \u00b7 4.9\u2605 Google \u00b7 Travel included",
       },
@@ -1446,7 +1446,7 @@ export const COPY_SYSTEM = {
         overline: "Sound familiar?",
         paragraphs: [
           "You know that moment when someone asks for a ride and you panic? The quick glance at the backseat. The crumbs. The stains. The smell you\u2019ve gone nose-blind to.",
-          "You\u2019ve been meaning to deal with it. But between work, kids, and everything else\u2014it just keeps slipping. A car wash won\u2019t fix it. You know that.",
+          "You\u2019ve been meaning to deal with it. But between work, kids, and everything else\u2014it just keeps slipping. A quick handyman fix won\u2019t fix it. You know that.",
           "We get it. And we\u2019re here to handle it\u2014no judgment, no lecture. Just results.",
         ],
       },
@@ -1487,7 +1487,7 @@ export const COPY_SYSTEM = {
         "I started Cochrane Master Builders because I couldn\u2019t find a mobile service in Calgary that actually did deep work. Most places do a surface wipe and call it done. That wasn\u2019t good enough.",
         "Every home I touch gets the same treatment: full interior extraction, paint decontamination, and a complete sensory reset. I bring everything to your driveway\u2014no drop-offs, no coordination, no wasted time.",
         "I\u2019ve seen it all. Pet hair carpets, years-old coffee stains, cars people are embarrassed to show. That\u2019s exactly where I do my best work. The worse the condition, the more dramatic the transformation.",
-        "This isn\u2019t a car wash. It\u2019s a reset. And I\u2019m building the most trusted name in Calgary to deliver it.",
+        "This isn\u2019t a quick handyman fix. It\u2019s a reset. And I\u2019m building the most trusted name in Calgary to deliver it.",
       ],
     },
     book: {

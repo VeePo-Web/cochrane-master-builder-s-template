@@ -34,7 +34,7 @@ export const BUSINESS_OVERVIEW = {
     statement: "Own the space between practical convenience and high-satisfaction transformation.",
     insight: "Many car cleaning services compete on generic promises: quality, fast service, attention to detail. Cochrane Master Builders's advantage is more emotionally resonant — serving the customer who has let their car go too far, feels the friction of fixing it themselves, and wants someone else to come in and completely reset the situation.",
     narrativeShift: [
-      "Not just 'we detail cars' → 'we bring your car back'",
+      "Not just 'we detail cars' → 'we bring your home back'",
       "Not just 'mobile convenience' → 'we remove the effort and deliver the payoff'",
       "Not just 'cleaning' → 'restoration to a standard you can feel proud of again'",
     ],
@@ -204,7 +204,7 @@ export const BUSINESS_OVERVIEW = {
       "How do I book?",
     ],
     emotionalHooks: [
-      "Get your car back.",
+      "Get your home back.",
       "Restore the factory-fresh feel.",
       "We bring the detail to you.",
       "From neglected to refreshed.",

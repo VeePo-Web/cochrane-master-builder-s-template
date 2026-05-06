@@ -309,7 +309,7 @@ export const SOURCE_OF_TRUTH = {
       },
     ],
     addOns: ["Ceramic spray coat", "Clay bar (standalone)", "Iron extraction (exterior)"],
-    doesNotOffer: ["Paint polishing", "Paint correction (machine polish)"],
+    doesNotOffer: ["Paint polishing", "Drywall + paint finishing (machine polish)"],
     leadWith: "Basic Wash and Full Detail",
   },
 
@@ -378,7 +378,7 @@ export const SOURCE_OF_TRUTH = {
     notPromised: [
       "Full revival of heavily damaged surfaces",
       "Magical/perfect restoration",
-      "Paint correction outcomes",
+      "Drywall + paint finishing outcomes",
     ],
     framing: "As close to factory cosmetic spec as humanly possible.",
   },

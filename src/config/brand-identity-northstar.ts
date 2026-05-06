@@ -126,7 +126,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
   brandSpine: {
     category: "Residential Interior Finishing — Calgary, Alberta",
     enemy: [
-      "Generic car washes that move dirt around but don't solve the real problem",
+      "Generic quick handyman fixes that move dirt around but don't solve the real problem",
       "Drop-off detail shops that waste your time with coordination, waiting, and pick-up logistics",
       "Surface-level 'builders' who clean what you can see but leave embedded grime, odor, and buildup",
       "The voice in your head that says 'I'll get to it eventually' — the friction of DIY that never happens",
@@ -136,7 +136,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
     proof: [
       "Before/after transformations — real homes, real Calgary jobs, real results",
       "Extraction close-ups showing what came out of the interior",
-      "Paint correction reveals — the moment the finish comes back",
+      "Drywall + paint finishing reveals — the moment the finish comes back",
       "Customer reactions and reviews describing the feeling, not just the service",
       "Transparent pricing with travel included — no surprises",
     ],
@@ -154,7 +154,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
   // SECTION 4 — POSITIONING & CATEGORY OWNERSHIP
   // ═══════════════════════════════════════════════════════════════════
   positioning: {
-    statement: "Cochrane Master Builders is Calgary's residential interior finishing service for drivers whose cars have crossed into problem-state. By delivering deep interior extraction, paint restoration, and a full sensory reset directly to the customer's location — with travel included — Cochrane Master Builders transforms neglected homes into spaces that feel factory-fresh again. This is not a car wash. This is getting your car back.",
+    statement: "Cochrane Master Builders is Calgary's residential interior finishing service for drivers whose cars have crossed into problem-state. By delivering deep interior extraction, paint restoration, and a full sensory reset directly to the customer's location — with travel included — Cochrane Master Builders transforms neglected homes into spaces that feel factory-fresh again. This is not a quick handyman fix. This is getting your home back.",
     categoryOwned: "Residential Interior Finishing",
     uniqueMechanisms: [
       { mechanism: "Mobile delivery", description: "The entire service comes to the customer. No drop-offs, no coordination, no wasted time." },
@@ -246,7 +246,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
         { objection: "My car might be too dirty", response: "The worse the condition, the more dramatic the transformation. That's where we do our best work." },
         { objection: "I don't know if I can trust someone at my home", response: "Reviews, real name, real face. Cochrane Master Builders shows up, does the work, and you watch it happen." },
         { objection: "What if I'm not satisfied?", response: "The proof is in every before/after. We don't leave until the reset is complete." },
-        { objection: "I can just go to a car wash", response: "A car wash moves surface dirt. We extract what's embedded — grime, smell, buildup, everything a wash can't reach." },
+        { objection: "I can just go to a quick handyman fix", response: "A quick handyman fix moves surface dirt. We extract what's embedded — grime, smell, buildup, everything a wash can't reach." },
       ],
     },
   },
@@ -267,7 +267,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
       { theme: "The Reset", description: "The core transformation promise. Before → after. Neglected → restored. A complete sensory and visual reset." },
       { theme: "The Reveal", description: "The dramatic moment of seeing the result. The extraction bucket. The drywall + paint finishing. The first look inside." },
       { theme: "The Relief", description: "The emotional exhale of having it handled. Not just clean — off your plate. Someone else took care of it." },
-      { theme: "The Return", description: "Getting your car back. Not a different car — YOUR car, the way it used to feel. Factory-fresh, familiar, yours again." },
+      { theme: "The Return", description: "Getting your home back. Not a different car — YOUR car, the way it used to feel. Factory-fresh, familiar, yours again." },
       { theme: "The Standard", description: "Cochrane Master Builders's personal commitment to a level of finish. Not good enough ≠ done. The standard is factory-feel or it's not finished." },
     ],
     signatureMoments: [
@@ -286,7 +286,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
       "Repeat customer bookings — people who come back because the first reset was that good",
     ],
     taglineDirections: [
-      "Get your car back.",
+      "Get your home back.",
       "The reset your home has been waiting for.",
       "From neglected to factory-fresh.",
       "We come to you. We bring it back.",
@@ -321,10 +321,10 @@ export const BRAND_IDENTITY_NORTHSTAR = {
           "Before/after photo pairs from real Calgary jobs",
           "Extraction results showing embedded grime removal",
           "Customer testimonials describing the feeling of 'getting their car back'",
-          "Paint correction documentation showing restored finish",
+          "Drywall + paint finishing documentation showing restored finish",
         ],
         headlines: [
-          "Get your car back.",
+          "Get your home back.",
           "The reset your home needs.",
           "From months of neglect to factory-fresh.",
           "This isn't a clean. It's a comeback.",
@@ -350,7 +350,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
         ctas: [
           "Book your reset",
           "See the transformation",
-          "Get your car back",
+          "Get your home back",
           "Start the reset",
           "View before & afters",
           "Ready for a fresh start?",
@@ -408,7 +408,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
       },
       {
         name: "Beyond Clean",
-        meaning: "This service goes deeper than what a car wash or basic detail can reach. Deep extraction, embedded grime removal, odor elimination, paint restoration.",
+        meaning: "This service goes deeper than what a quick handyman fix or basic detail can reach. Deep extraction, embedded grime removal, odor elimination, paint restoration.",
         proofPoints: [
           "Interior shampooing and extraction vs surface wipe comparison",
           "Extraction results: what came out of the seats and carpets",
@@ -421,7 +421,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
           "We don't wash your car. We bring it back.",
           "Surface-level won't cut it.",
           "The detail that goes deeper.",
-          "What a car wash can't reach, we extract.",
+          "What a quick handyman fix can't reach, we extract.",
           "This isn't a clean. It's a restoration.",
           "We remove what you can't see — and what you can smell.",
           "Factory-feel isn't a promise. It's the standard.",
@@ -434,7 +434,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
           "The difference between 'cleaned' and 'restored' is what we extract.",
           "You'll see what came out of your seats. Then you'll understand.",
           "Every detail includes the work most services skip.",
-          "A car wash moves dirt. We remove it — from deep inside the fabric.",
+          "A quick handyman fix moves dirt. We remove it — from deep inside the fabric.",
           "Interior extraction pulls out months of buildup in a single session.",
           "The kind of deep clean your home hasn't had since it was new.",
           "We restore the standard your car was built to.",
@@ -619,7 +619,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
       followUp: "Warm, appreciative, proof-collecting. Thank the customer. Ask for a review. Share the before/after. 'Your car looks incredible. Mind if we share?'",
     },
     lexicon: {
-      ownedWords: ["reset", "restore", "factory-feel", "bring it back", "deep extraction", "your car back", "the reveal", "transformation", "mobile restoration"],
+      ownedWords: ["reset", "restore", "factory-feel", "bring it back", "deep extraction", "your home back", "the reveal", "transformation", "mobile restoration"],
       bannedWords: ["luxury", "bespoke", "elite", "premium experience", "world-class", "unmatched", "simple clean", "just a wash", "cheap", "basic", "budget", "discount"],
       replacements: [
         { instead: "We clean your car", say: "We restore your home" },
@@ -692,7 +692,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
       required: [
         "Before/after pairs: same angle, same lighting, dramatic contrast",
         "Extraction close-ups: dirty water, debris removed, seat transformation",
-        "Paint correction reveals: the wipe that shows restored finish",
+        "Drywall + paint finishing reveals: the wipe that shows restored finish",
         "Real Calgary locations: driveways, parking lots, residential streets",
         "Cochrane Master Builders at work: authentic action shots, not posed",
         "Interior panoramas: the full cabin transformation",
@@ -770,7 +770,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
       antiPatterns: [
         "Gold or champagne tones — reads as luxury, breaks positioning",
         "Marble or granite textures — same luxury misalignment",
-        "Bright blue — generic car wash / corporate default",
+        "Bright blue — generic quick handyman fix / corporate default",
         "Neon green or lime — energy drink, not restoration",
         "Pastel palette — too soft for a hardworking, confident brand",
         "Rainbow or multi-color — lacks the discipline this brand needs",
@@ -786,7 +786,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
       prohibited: [
         "Ornate or decorative icons",
         "Car silhouettes or generic auto icons",
-        "Sparkle/shine effects (reads as car wash, not restoration)",
+        "Sparkle/shine effects (reads as quick handyman fix, not restoration)",
         "Shield/badge icons (reads as corporate or insurance)",
       ],
     },
@@ -873,7 +873,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
       "Never use script or decorative fonts",
       "Never create cluttered layouts with competing elements",
       "Never hide pricing behind friction (modals, form submissions, 'call for a quote')",
-      "Never use sparkle/shine effects that read as 'car wash'",
+      "Never use sparkle/shine effects that read as 'quick handyman fix'",
       "Never sacrifice mobile readability for desktop aesthetics",
       "Never use generic car silhouette graphics",
     ],

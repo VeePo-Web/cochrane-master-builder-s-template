@@ -295,7 +295,7 @@ export const MASTER_DESIGN_PLAN = {
             id: "hero",
             type: "Full-screen dark hero with before/after crossfade",
             content: "Emotional hook headline + trust line + dual CTA",
-            headline: "Get your car back.",
+            headline: "Get your home back.",
             subline: "Mobile home restoration across Calgary. Deep interior extraction. Paint restoration. Travel included.",
             trustLine: "Mobile in Calgary · Travel Included · Full Detail from ~$100 · No Judgment",
             primaryCTA: "Book Your Reset",
@@ -323,7 +323,7 @@ export const MASTER_DESIGN_PLAN = {
             steps: [
               { number: "01", title: "Book", description: "Pick a time. Tell us your home and condition." },
               { number: "02", title: "We Come to You", description: "Cochrane Master Builders arrives at your location with everything needed." },
-              { number: "03", title: "Full Reset", description: "Deep extraction. Paint correction. You get your car back." },
+              { number: "03", title: "Full Reset", description: "Deep extraction. Drywall + paint finishing. You get your home back." },
             ],
             design: "Warm Porcelain background. Numbered steps with editorial typography. Horizontal on desktop, vertical stack on mobile. Subtle connector lines between steps.",
           },
@@ -535,7 +535,7 @@ export const MASTER_DESIGN_PLAN = {
       "Condensed hero — single before/after with swipe and headline overlaid",
     ],
     aboveTheFoldMobile: [
-      "Clear headline ('Get your car back')",
+      "Clear headline ('Get your home back')",
       "What the service is (residential interior finishing)",
       "That it is mobile + Calgary",
       "CTA to book",
@@ -648,7 +648,7 @@ export const MASTER_DESIGN_PLAN = {
     visual: [
       "Generic — if it could be any detailing company's website, it has failed",
       "Stock photography dependent",
-      "Blue-gradient car wash aesthetic",
+      "Blue-gradient quick handyman fix aesthetic",
       "Black-and-gold luxury coded",
       "Masculine-aggressive (racing fonts, flames, neon)",
       "Template-driven (Bootstrap/Wix default look)",
@@ -736,7 +736,7 @@ export const MASTER_DESIGN_PLAN = {
       order: 3,
       description: "Complete homepage rebuild with transformation narrative",
       tasks: [
-        "Dark hero with 'Get your car back' headline + trust line + dual CTA",
+        "Dark hero with 'Get your home back' headline + trust line + dual CTA",
         "Bespoke before/after slider (signature interaction)",
         "Outcome-led 'Full Reset' service overview",
         "3-step 'How it works' section",

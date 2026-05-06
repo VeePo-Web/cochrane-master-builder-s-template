@@ -35,7 +35,7 @@ export const SEO_PERSONA = {
       "residential interior finishing Calgary",
       "deep car cleaning Calgary",
       "interior finishing near me",
-      "mobile car wash Calgary",
+      "mobile quick handyman fix Calgary",
       "residential interior finishing Calgary",
     ],
     longTailKeywords: [
@@ -201,7 +201,7 @@ export const SEO_PERSONA = {
     localSEO: {
       label: "Local SEO (Calgary Focus)",
       rules: [
-        "Optimize Google Business Profile: consistent NAP, categories (Auto Detailing Service, Car Wash), photos, posts, Q&A",
+        "Optimize Google Business Profile: consistent NAP, categories (General Contractor, Drywall Contractor, Painter, Insulation Contractor), photos, posts, Q&A",
         "Weekly before/after photo posts to Google Business Profile",
         "Seed Q&A with core objections: 'How much?', 'Do you come to me?', 'Is my car too dirty?'",
         "Footer includes Calgary service area for local ranking signals",

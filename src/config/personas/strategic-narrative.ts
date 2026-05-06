@@ -31,7 +31,7 @@ export const STRATEGIC_NARRATIVE = {
     },
     deepRestoration: {
       label: "Deep restoration, not surface cleaning",
-      description: "Interior extraction that removes embedded grime, stains, debris, and odor. Paint correction that restores the finish. This isn't a car wash — it's a full reset.",
+      description: "Interior extraction that removes embedded grime, stains, debris, and odor. Drywall + paint finishing that restores the finish. This isn't a quick handyman fix — it's a full reset.",
     },
     noJudgment: {
       label: "No-judgment service for every condition",
@@ -78,12 +78,12 @@ export const STRATEGIC_NARRATIVE = {
   // Reusable language that should appear across the site
   // ═══════════════════════════════════════════════════════════════════
   keyPhrases: [
-    "Get your car back",
+    "Get your home back",
     "The Full Reset",
     "Mobile home restoration across Calgary",
     "We come to you — travel included",
     "The worse the condition, the more dramatic the transformation",
-    "Not a car wash. A reset.",
+    "Not a quick handyman fix. A reset.",
     "Deep interior extraction, paint restoration, factory-fresh results",
     "No judgment. No hidden fees. Just results.",
     "Your car back. That feeling.",
