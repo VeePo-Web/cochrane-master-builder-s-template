@@ -159,7 +159,7 @@ const LoadingScreen = ({ children, onComplete }: LoadingScreenProps) => {
                     }
                     transition={{ duration: 0.6, delay: 0, ease: EASE_OUT_EXPO }}
                   >
-                    Cochrane Master Builders
+                    Cochrane
                   </motion.span>
                   <motion.span
                     className="font-display text-display-lg tracking-[-0.03em] text-foreground"
@@ -171,11 +171,11 @@ const LoadingScreen = ({ children, onComplete }: LoadingScreenProps) => {
                     }
                     transition={{ duration: 0.6, delay: 0.1, ease: EASE_OUT_EXPO }}
                   >
-                    Wood
+                    Master Builders
                   </motion.span>
                 </div>
 
-                {/* "Detailing" — staggered sub-title */}
+                {/* "Custom Homes & Renovations" — staggered sub-title */}
                 <motion.span
                   className="font-body text-body-sm uppercase tracking-[0.3em] text-copper/50"
                   initial={{ clipPath: "inset(0 0 100% 0)", opacity: 0 }}
@@ -186,7 +186,7 @@ const LoadingScreen = ({ children, onComplete }: LoadingScreenProps) => {
                   }
                   transition={{ duration: 0.5, delay: 0.25, ease: EASE_OUT_EXPO }}
                 >
-                  Detailing
+                  Custom Homes &amp; Renovations
                 </motion.span>
 
                 {/* Progress bar */}
