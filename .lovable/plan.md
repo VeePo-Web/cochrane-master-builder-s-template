@@ -1,57 +1,115 @@
-# Rebrand: Calem Wood → Cochrane Master Builders
-
 ## Goal
-Remove every lingering "Calem Wood" / "Calem Wood Detailing" / mobile-detailing reference across the project and re-anchor those files to the **Cochrane Master Builders** brand identity (legacy-focused, traditional, uncompromised luxury home/drywall builder per `1.5_Brand_Identity_North_Star_Report_Partner.md` and `src/config/brand.ts`).
+Remove every lingering Calem Wood / auto-detailing interpretation and re-author the affected internal documents so they reflect the real Cochrane Master Builders brand: family-legacy, custom-home / residential-building context, and the existing Cochrane brand materials already embedded in the project.
 
-The active site (`drywall/*` components, pages, `src/config/brand.ts`, `src/config/design-preferences.ts`) is already Cochrane-branded — nothing visual on the live site changes. The rename targets stale legacy files left over from a prior detailing build.
+## What I found
+There are two conflicting brand layers in the codebase:
 
-## Scope (47 files identified via `rg -l -i "calem"`)
+1. Correct Cochrane canonical brand files already exist, for example:
+- `src/config/brand.ts`
+- `src/config/brand-identity.ts`
+- `src/config/business.ts`
+- `src/master/knowledge/partner-documents/brands/cochrane-master-builders/...`
 
-### A. Active backend / runtime references (must rewrite carefully)
-1. `src/lib/booking-validation.ts`
-2. `src/config/booking-requirements.ts`
-3. `src/config/discovery-questionnaire.ts`
-4. `src/config/brand-identity-northstar.ts`
-5. `src/config/business-overview.ts`
-6. `src/config/style-guide.ts`
-7. `src/config/design-plan.ts`
-8. `src/config/questionnaire-answers.ts`
-9. `src/config/open-questions-checklist.md`
-10. `src/pages/FAQ.tsx`
-11. `src/pages/Unsubscribe.tsx`
-12. `src/test/booking-validation.test.ts`
-13. `supabase/functions/send-transactional-email/index.ts`
+2. A large set of generated/internal documents were renamed to “Cochrane Master Builders” but still carry the wrong business meaning:
+- auto detailing
+- vehicle owners
+- ceramic coating / paint correction / clear coat metaphors
+- booking a detail
+- Calgary mobile detailing context
 
-### B. Persona configs (`src/config/personas/*`) — 18 files
-All persona files (strategic-narrative, ideal-customer, market-research, seo-expert, ui-footer, footer-architect, nav-architect, ui-navigation, ui-visual, master-visual, scroll-motion, responsive-mobile, frontend-engineer, performance-engineer, image-seo, seo-faq, narrative-copywriter, brand-identity-architect, discovery-framework, index.ts).
+So the real problem is not just the word “Calem” anymore. It is a wrong interpretation layer that still describes the wrong business.
 
-### C. Stale `detailing/` components (7 files)
-`LoadingScreen.tsx`, `BookingModal.tsx`, `Navigation.tsx`, `FounderFinaleSection.tsx`, `Footer.tsx` — these belong to the old detailing build. Confirm whether any are still imported; if not, delete them. If imported, rewrite copy to Master Builders.
+## Plan
+### 1) Re-anchor all generated docs to the true Cochrane brand source of truth
+Use the existing Cochrane canonical files as the authority:
+- `src/config/brand.ts`
+- `src/config/brand-identity.ts`
+- `src/config/business.ts`
+- Cochrane brand knowledge docs under `src/master/knowledge/partner-documents/brands/cochrane-master-builders/...`
 
-### D. Backend knowledge docs (8 partner/source markdown files under `src/master/knowledge/...`)
-Replace business-context examples (mobile detailing → drywall/finishing/insulation) while preserving each persona's structural intent.
+Then rewrite every mistaken generated document so it maps to:
+- practical residential finishing / custom home builder context where appropriate
+- family legacy / generational stewardship language
+- homeowners, families, subcontractors, communities, and build trust
+- construction proof signals instead of car-detailing proof signals
 
-## Approach
+### 2) Rewrite the internal config docs that still contain the wrong brand semantics
+Re-author the affected internal reference/config files so they stop describing a mobile detailing business and instead match Cochrane Master Builders.
 
-1. **Sweep + categorize**: For each file, classify as (a) pure copy/string swap, (b) needs business-context rewrite (services, pricing, customer profile), or (c) delete if orphaned.
-2. **Verify orphans**: `rg` for imports of each `detailing/*` component to confirm safe deletion.
-3. **Rewrite business semantics** in category (b) files using Cochrane brand truths from `src/config/brand.ts`, `src/config/design-preferences.ts`, and `1.5_Brand_Identity_North_Star_Report_Partner.md`:
-   - Service: drywall / insulation / painting / basement & garage finishing (NOT mobile auto detailing)
-   - Customer: Cochrane/Calgary-area homeowners commissioning legacy-quality home finishing
-   - Tone: timeless luxury, legacy, bespoke traditional — never "get your car back" / "$100 reset"
-   - Service area: Cochrane, Alberta (+ surrounding)
-4. **Preserve structure**: Keep each persona's section headings, decision-rule format, and exports unchanged so downstream references continue working.
-5. **No visual/runtime changes** to the live drywall site. Active components under `src/components/drywall/*` and pages already on-brand are untouched.
+Priority files include:
+- `src/config/brand-identity-northstar.ts`
+- `src/config/business-overview.ts`
+- `src/config/design-plan.ts`
+- `src/config/discovery-questionnaire.ts`
+- `src/config/questionnaire-answers.ts`
+- `src/config/style-guide.ts`
+- `src/config/open-questions-checklist.md`
 
-## Out of scope
-- Any change to `src/components/drywall/*`, `src/pages/Index.tsx`, hero, layout, motion, or color tokens.
-- Adding new persona files (this is a rename/realignment pass only).
+And the persona layer:
+- `src/config/personas/brand-identity-architect.ts`
+- `src/config/personas/discovery-framework.ts`
+- `src/config/personas/footer-architect.ts`
+- `src/config/personas/frontend-engineer.ts`
+- `src/config/personas/ideal-customer.ts`
+- `src/config/personas/image-seo.ts`
+- `src/config/personas/market-research.ts`
+- `src/config/personas/master-visual.ts`
+- `src/config/personas/narrative-copywriter.ts`
+- `src/config/personas/nav-architect.ts`
+- `src/config/personas/performance-engineer.ts`
+- `src/config/personas/responsive-mobile.ts`
+- `src/config/personas/scroll-motion.ts`
+- `src/config/personas/seo-expert.ts`
+- `src/config/personas/seo-faq.ts`
+- `src/config/personas/strategic-narrative.ts`
+- `src/config/personas/ui-footer.ts`
+- `src/config/personas/ui-navigation.ts`
+- `src/config/personas/ui-visual.ts`
 
-## Technical notes
-- `src/config/personas/index.ts` re-exports — if any persona file is renamed (not just edited), update the barrel. Plan: keep filenames, only rewrite contents.
-- `supabase/functions/send-transactional-email/index.ts`: swap brand strings (sender name, footer signature, support email copy). No schema or env changes.
-- Tests: `src/test/booking-validation.test.ts` likely uses brand strings in assertions — update fixtures to match new copy.
-- Run `bunx vitest run` after edits to confirm tests still pass.
+### 3) Rewrite the partner knowledge docs that were interpreted through the wrong brand lens
+Several partner docs correctly preserve methodology but apply the wrong active-brand content. I will keep the methodology and rewrite the Cochrane-specific overlays.
 
-## Deliverable
-A single PR-equivalent change set: zero "Calem" matches remaining (`rg -i calem` returns empty), live site unchanged, backend knowledge/persona layer fully Cochrane Master Builders.
+Priority files:
+- `src/master/knowledge/partner-documents/mobile/mobile-wrapping-responsive-persona.partner.md`
+- `src/master/knowledge/partner-documents/performance/react-vite-performance-engineer-persona.partner.md`
+- `src/master/knowledge/partner-documents/navigation/navigation-architect-persona.partner.md`
+- `src/master/knowledge/partner-documents/seo/image-seo-local-visibility-persona.partner.md`
+- `src/master/knowledge/partner-documents/messaging/round-two-copywrite-storytelling-persona.partner.md`
+- plus any other partner docs still using automotive/detailing metaphors
+
+These will be rewritten so the active-brand overlays reference:
+- homes, builds, finishes, trades, sites, materials, communities
+- Cochrane / Calgary / Rocky View truthfully
+- family legacy and “Foundations For Generations After Us” positioning
+- real construction trust signals instead of automotive ones
+
+### 4) Remove literal leftover old-brand references
+Run a cleanup pass for direct leftover strings such as:
+- `Calem`
+- `Calem Wood`
+- `calemwood`
+- obvious old-detailing leftovers tied to the mistaken interpretation
+
+This is a second pass after the semantic rewrites so I do not miss cases where the name was changed but the meaning stayed wrong.
+
+### 5) Verify that the rewritten documents now agree with the real Cochrane brand
+After rewriting, I will do a consistency audit to confirm:
+- no Calem references remain
+- no auto-detailing language remains in Cochrane internal docs unless intentionally preserved in immutable historical/source material
+- internal personas and partner docs agree with the canonical Cochrane brand files
+- the active knowledge layer no longer routes decisions through automotive/detailing assumptions
+
+## Technical details
+- I will preserve document structure, methodology, and role of each file.
+- I will change the brand-specific interpretation only.
+- I will not edit immutable source uploads unless they were mistakenly generated by us rather than provided as source truth.
+- Where there is a conflict, these files will win:
+  - `src/config/brand.ts`
+  - `src/config/brand-identity.ts`
+  - `src/config/business.ts`
+  - `src/master/knowledge/partner-documents/brands/cochrane-master-builders/...`
+
+## Expected result
+The backend/internal knowledge system will stop thinking in “Calem Wood / auto detailing dressed up as Cochrane” terms and will instead consistently think in true Cochrane Master Builders brand terms.
+
+If you approve, I’ll execute the rewrite pass across the affected docs and then run a final contamination audit.
