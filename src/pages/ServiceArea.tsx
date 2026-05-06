@@ -12,11 +12,11 @@ interface ServiceAreaProps {
 }
 
 const neighborhoods = {
-  NW: ["Tuscany", "Varsity", "Brentwood", "University District", "Kensington"],
-  NE: ["Bridgeland", "Vista Heights", "Marlborough", "Monterey Park", "Saddleridge"],
-  SW: ["Altadore", "Marda Loop", "Signal Hill", "Aspen Woods", "Springbank Hill"],
-  SE: ["Mahogany", "Cranston", "Auburn Bay", "McKenzie Towne", "Walden"],
-  Surrounding: ["Airdrie", "Cochrane"],
+  Cochrane: ["Heritage Hills", "Sunset Ridge", "Riversong", "Fireside", "GlenEagles"],
+  "Calgary NW": ["Tuscany", "Varsity", "Brentwood", "University District", "Kensington"],
+  "Calgary SW": ["Altadore", "Marda Loop", "Aspen Woods", "Springbank Hill", "Signal Hill"],
+  "Rocky View": ["Bearspaw", "Springbank", "Bragg Creek", "Chestermere", "Airdrie"],
+  Surrounding: ["Canmore", "Banff (on request)"],
 };
 
 const ServiceArea = ({ onBookClick }: ServiceAreaProps) => (
@@ -25,38 +25,35 @@ const ServiceArea = ({ onBookClick }: ServiceAreaProps) => (
     <main id="main-content">
       <InnerHero
         image={calgarySkyline}
-        imageAlt="Calgary skyline at golden hour with Rocky Mountains in background"
-        overline="Service Area"
-        headline="We come to you."
-        subhead="Mobile service across Calgary, Airdrie, and Cochrane. Travel is always included."
+        imageAlt="Calgary and Rocky View County skyline at golden hour with the Rocky Mountains beyond"
+        overline="Where We Build"
+        headline="Built local. Built right."
+        subhead="Custom homes, renovations, and master-craft finishing across Cochrane, Calgary, and Rocky View County."
       />
 
-      {/* ── Travel Included — prominent callout ── */}
       <section className="py-20 md:py-24 bg-asphalt grain-overlay">
         <div className="container mx-auto px-6 lg:px-8 max-w-2xl text-center">
           <ScrollReveal>
             <div className="border-l-2 border-copper/20 pl-6 md:pl-8 text-left inline-block">
-              <p className="font-overline text-copper mb-3">Always Included</p>
+              <p className="font-overline text-copper mb-3">Local Master Builders</p>
               <p className="text-body-lg text-white/50 font-light max-w-[44ch]">
-                Gas and travel are included in every service — anywhere in Calgary,
-                Airdrie, and Cochrane. No extra fees, no mileage charges.
+                Every project is run by an on-site master builder. We build close to home so we can stay close to the work — Cochrane, Calgary, and Rocky View County.
               </p>
               <p className="text-caption text-white/30 mt-4 max-w-[44ch]">
-                Nothing larger than a minivan — no semis, buses, or heavy machinery.
+                Out-of-area projects considered case-by-case. Just ask.
               </p>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ── Neighborhood Grid ── */}
       <section className="py-28 md:py-36 lg:py-48 bg-asphalt grain-overlay">
         <div className="container mx-auto px-6 lg:px-8 max-w-4xl">
           <ScrollReveal className="mb-16 lg:mb-20">
             <p className="font-overline text-copper mb-6">Coverage</p>
-            <h2 className="font-display text-display-lg text-white mb-5">Neighborhoods We Serve</h2>
+            <h2 className="font-display text-display-lg text-white mb-5">Communities We Build In</h2>
             <p className="text-body-lg text-white/50 font-light max-w-[44ch]">
-              Don't see yours? Text us — if you're inside Calgary, Airdrie, or Cochrane we cover it.
+              Don't see yours? Text us — if you're in Cochrane, Calgary, or Rocky View County, we build there.
             </p>
           </ScrollReveal>
 
@@ -77,23 +74,22 @@ const ServiceArea = ({ onBookClick }: ServiceAreaProps) => (
         </div>
       </section>
 
-      <SectionDivider imageSrc={rockies} alt="Rocky Mountain vista from Calgary foothills at golden hour" height="40vh" variant="warm" />
+      <SectionDivider imageSrc={rockies} alt="Rocky Mountain vista from Cochrane foothills at golden hour" height="40vh" variant="warm" />
 
-      {/* ── CTA ── */}
       <section className="py-28 md:py-36 lg:py-48 bg-asphalt grain-overlay text-center">
         <div className="container mx-auto px-6 lg:px-8 max-w-xl">
           <ScrollReveal>
             <div className="editorial-rule mx-auto mb-10" />
-            <h2 className="font-display text-display-md text-white mb-4">Your driveway is our workshop.</h2>
+            <h2 className="font-display text-display-md text-white mb-4">Your lot. Your renovation. Your vision.</h2>
             <p className="text-body-lg text-white/50 mb-10 max-w-[42ch] mx-auto">
-              All we need: water tap, power outlet, flat parking, and the keys. We bring everything else.
+              Book a free on-site walkthrough. We'll talk scope, materials, and what success looks like.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
                 onClick={onBookClick}
                 className="inline-flex items-center px-8 py-3.5 rounded-full bg-copper text-primary-foreground font-body text-label uppercase tracking-[0.15em] hover:bg-copper-glow cta-copper-glow transition-all duration-[400ms]"
               >
-                Book Your Reset
+                Request a Consultation
               </button>
               <Link
                 to="/services"

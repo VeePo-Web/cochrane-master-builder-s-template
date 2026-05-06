@@ -21,27 +21,27 @@ interface ResultsProps {
 const proofPairs = [
   {
     num: "01",
-    service: "Interior Deep Clean",
+    service: "Interior Renovation",
     before: beforeInterior,
     after: afterInterior,
     label: "Sample work",
-    condition: "Coffee stains, dog hair, months of build-up",
+    condition: "Dated finishes, worn flooring, builder-grade trim",
   },
   {
     num: "02",
-    service: "Full Reset",
+    service: "Full Custom Build",
     before: beforeExterior,
     after: afterExterior,
     label: "Sample work",
-    condition: "Road salt, mud, oxidized paint",
+    condition: "Bare lot through finished elevation",
   },
   {
     num: "03",
-    service: "Dashboard Restoration",
+    service: "Kitchen & Millwork",
     before: beforeDashboard,
     after: afterDashboard,
     label: "Sample work",
-    condition: "Dust, UV damage, sticky residue",
+    condition: "Original cabinetry, dated layout, low-spec finishes",
   },
 ];
 
@@ -52,12 +52,11 @@ const Results = ({ onBookClick }: ResultsProps) => {
       <main id="main-content">
         <InnerHero
           image={resultsHero}
-          imageAlt="Freshly detailed SUV gleaming at golden hour"
+          imageAlt="Master-built custom home exterior at golden hour"
           overline="Results"
-          headline="Real resets, in progress."
-          subhead="We're documenting every reset starting now — your vehicle could be one of the first featured here."
+          headline="Real builds, in progress."
+          subhead="Every project documented from rough-in to final walk-through — your home could be one of the first featured here."
         />
-        {/* ── Before / After Pairs ── */}
         {proofPairs.map((pair, i) => (
           <section key={pair.label} className="relative py-20 md:py-28 lg:py-32 bg-asphalt grain-overlay">
             <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-asphalt to-transparent pointer-events-none z-[1]" />
@@ -100,9 +99,8 @@ const Results = ({ onBookClick }: ResultsProps) => {
           </section>
         ))}
 
-        <SectionDivider imageSrc={dividerMitt} alt="Hands with detailing mitt polishing wet dark car paint" variant="warm" />
+        <SectionDivider imageSrc={dividerMitt} alt="Master-craft millwork and joinery detail" variant="warm" />
 
-        {/* ── Reviews Coming Soon ── */}
         <section className="py-28 md:py-36 lg:py-48 bg-asphalt grain-overlay">
           <div className="container mx-auto px-6 lg:px-8 max-w-2xl text-center">
             <ScrollReveal>
@@ -110,27 +108,26 @@ const Results = ({ onBookClick }: ResultsProps) => {
               <div className="editorial-rule mx-auto mb-10" />
               <h2 className="font-display text-display-md text-white mb-5">Real reviews coming soon.</h2>
               <p className="text-body-lg text-white/50 font-light max-w-[44ch] mx-auto">
-                We're just getting started. Be one of the first — your honest review helps the next person decide.
+                We're documenting every build. Be one of the first — your honest review helps the next family decide.
               </p>
             </ScrollReveal>
           </div>
         </section>
 
-        {/* ── CTA ── */}
         <section className="py-28 md:py-36 lg:py-48 bg-asphalt grain-overlay text-center">
           <div className="container mx-auto px-6 lg:px-8 max-w-xl">
             <ScrollReveal>
               <div className="editorial-rule mx-auto mb-10" />
-              <h2 className="font-display text-display-md text-white mb-4">Your car is next.</h2>
+              <h2 className="font-display text-display-md text-white mb-4">Your home is next.</h2>
               <p className="text-body-lg text-white/50 mb-10 max-w-[42ch] mx-auto">
-                Book your reset today. We'll text you back to confirm.
+                Book a free consultation. We'll text you back to confirm.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button
                   onClick={onBookClick}
                   className="inline-flex items-center px-8 py-3.5 rounded-full bg-copper text-primary-foreground font-body text-label uppercase tracking-[0.15em] hover:bg-copper-glow cta-copper-glow transition-all duration-[400ms]"
                 >
-                  Book Your Reset
+                  Request a Consultation
                 </button>
                 <Link
                   to="/services"
