@@ -87,7 +87,7 @@ const HeroSection = ({ onBookClick, initialDelay = 0 }: HeroSectionProps) => {
       >
         <img
           src={heroVehicle}
-          alt="Extreme macro detail of restored luxury leather car seat with elegant stitching and immaculate grain texture"
+          alt="Macro detail of master-crafted interior finishing — millwork, joinery, and timber grain in a custom Cochrane home"
           className="w-full h-full object-cover"
           loading="eager"
           fetchPriority="high"
@@ -128,12 +128,12 @@ const HeroSection = ({ onBookClick, initialDelay = 0 }: HeroSectionProps) => {
               transition={{ duration: dur(600), delay: d(1000), ease: EASE }}
               className="font-overline text-copper mb-8"
             >
-              Calgary's Premium Mobile Detailing
+              Cochrane's Master Home Builders
             </motion.p>
 
             {/* Headline */}
             <RevealText
-              text="Get your car back."
+              text="Build it like it's ours."
               as="h1"
               className="font-display text-display-xl text-white mb-8"
               delay={skip ? 0 : initialDelay + 1.2}
@@ -146,7 +146,7 @@ const HeroSection = ({ onBookClick, initialDelay = 0 }: HeroSectionProps) => {
               transition={{ duration: dur(500), delay: d(1450), ease: EASE }}
               className="text-body-lg text-white/60 mb-12 max-w-lg mx-auto lg:mx-0"
             >
-              The Full Reset — interior deep clean, exterior restoration, travel included. We come to you.
+              Custom homes, full renovations, and master-craft interior finishing — built in Cochrane, Calgary, and Rocky View County.
             </motion.p>
 
             {/* Single CTA */}
@@ -159,7 +159,7 @@ const HeroSection = ({ onBookClick, initialDelay = 0 }: HeroSectionProps) => {
                 onClick={onBookClick}
                 className="inline-flex items-center px-8 py-3.5 rounded-full bg-copper text-primary-foreground font-body text-label uppercase tracking-[0.15em] hover:bg-copper-glow cta-copper-glow transition-all duration-[400ms]"
               >
-                Book Your Reset
+                Request a Consultation
               </button>
             </motion.div>
           </div>

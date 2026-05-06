@@ -16,19 +16,19 @@ interface SurfaceRevealSectionProps {
 
 const textStates = [
   {
-    eyebrow: "Precision Restoration",
+    eyebrow: "Master Craftsmanship",
     headline: "Every finish tells a story.",
-    body: "We restore clarity, depth, and protection through meticulous detailing crafted around the surfaces that define your vehicle.",
+    body: "We build clarity, depth, and permanence through meticulous craft — drywall, millwork, paint, and trim worked to a finish you feel before you see.",
   },
   {
     eyebrow: "Craft in Motion",
-    headline: "We restore clarity, depth, and presence.",
-    body: "Paint, trim, and reflection are treated with the same precision that makes a well-kept vehicle feel unmistakable.",
+    headline: "We build presence into every surface.",
+    body: "Walls, joinery, and lighting are treated with the same precision that makes a well-built room feel unmistakable.",
   },
   {
-    eyebrow: "Surface. Light. Control.",
-    headline: "Crafted for vehicles worth preserving.",
-    body: "A premium detailing experience built around correction, protection, and the kind of finish you notice immediately.",
+    eyebrow: "Surface. Light. Detail.",
+    headline: "Built for homes worth living in.",
+    body: "A master-builder process anchored in correction, protection, and the kind of finish you notice the moment you walk in.",
   },
 ];
 
@@ -301,10 +301,10 @@ const SurfaceRevealSection = ({
                 <div>
                   <div className="editorial-rule mb-8" />
                   <h2 className="font-display text-display-md text-white mb-4">
-                    The surface doesn't lie.
+                    The finish doesn't lie.
                   </h2>
                   <p className="text-body-lg text-white/50 font-light max-w-[40ch] mb-10">
-                    See what precision detailing looks like up close.
+                    See what master-craft homebuilding looks like up close.
                   </p>
                   <div className="flex flex-col sm:flex-row items-start gap-4">
                     <Link

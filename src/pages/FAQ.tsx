@@ -18,40 +18,40 @@ interface FAQProps {
 
 const faqCategories = [
   {
-    title: "The Service",
+    title: "The Work",
     items: [
-      { q: "What exactly is The Full Reset?", a: "Full interior detail — vacuum, shampoo, dash, console, seats, carpets, leather, doors, trunk, mats — plus hand wash, tires and rims, clay bar, and sealant outside. The whole car, done right." },
-      { q: "How long does it take?", a: "Most Full Resets take 3–5 hours depending on vehicle size and condition. We'll give you a time estimate when we confirm your booking." },
-      { q: "Do you come to my location?", a: "Yes. We're fully mobile. We come to your home, office, or wherever your car is parked in Calgary, Airdrie, and Cochrane. All we need is access to the vehicle, a water tap, a nearby power outlet, and a flat driveway or parking pad. Keys handed off (or vehicle unlocked) on arrival." },
-      { q: "What if my car is really dirty?", a: "That's literally what we do. No judgment — the worse it is, the more satisfying the reset. We've seen it all." },
-      { q: "Do you offer paint correction or polishing?", a: "No — we don't offer machine polish or paint correction. Our exterior service is hand wash, clay bar, and sealant." },
-      { q: "What vehicles can't you service?", a: "Anything larger than a minivan — no semis, buses, or heavy machinery." },
+      { q: "What does Cochrane Master Builders actually do?", a: "Custom homes, full renovations, additions, and master-craft interior finishing — drywall, millwork, cabinetry, paint, trim, and finish carpentry. From foundation to final walk-through, all run by a master builder." },
+      { q: "How long does a typical project take?", a: "Renovations run 4–16 weeks depending on scope. Custom homes typically 8–14 months. We give you a fixed schedule with your quote and update it weekly." },
+      { q: "Where do you build?", a: "Cochrane, Calgary, and Rocky View County. We're happy to travel for the right project — just ask." },
+      { q: "Will you take on a small project?", a: "Yes. A single-room renovation, a kitchen refresh, or a basement development is welcome. We're built for craft, not volume." },
+      { q: "Do you handle architectural drawings and permits?", a: "Yes. We coordinate design, drawings, engineering, and permits as part of the build — one master builder, one accountable point of contact." },
+      { q: "What kinds of projects can't you take on?", a: "Pure commercial fit-outs and out-of-province builds. Everything else, ask." },
     ],
   },
   {
-    title: "Pricing & Booking",
+    title: "Pricing & Quoting",
     items: [
-      { q: "How much does it cost?", a: "Interior detail: $139 sedan · $159 SUV/Truck · $199 7-seater. Add $30 for the full exterior — hand wash, tires, clay bar, sealant. Add-ons (ceramic spray, iron extraction, standalone clay bar) priced on request." },
-      { q: "Is travel included in the price?", a: "Yes. Anywhere in Calgary, Airdrie, or Cochrane — travel is included. No surprise fees." },
-      { q: "How do I book?", a: "Use the form, text us, or DM us on Instagram. We confirm by text. Call or text (306) 209-7804 anytime — text is the fastest way to reach us." },
-      { q: "How do I pay?", a: "Cash, e-transfer, or card." },
+      { q: "How much does a project cost?", a: "Every quote is fixed-scope and detailed line-by-line. After a free on-site walkthrough, we deliver a written quote within 7–10 days. No surprise change orders." },
+      { q: "Are consultations free?", a: "Yes. The first on-site walkthrough is free. We'll talk scope, materials, and what success looks like for you." },
+      { q: "How do I get started?", a: "Use the form, text us, or call. We confirm your consultation by text. Call or text (306) 209-7804 anytime." },
+      { q: "How do I pay?", a: "Standard milestone draw schedule. E-transfer, cheque, or direct deposit." },
     ],
   },
   {
     title: "The Process",
     items: [
-      { q: "What do I need to do to prepare?", a: "Remove personal items and valuables from the car. Make sure we'll have access to a water tap, a power outlet, and a flat driveway or parking pad on arrival. That's it — we handle everything else." },
-      { q: "Do I need to be home?", a: "Not necessarily. As long as we can access the vehicle and you've left it unlocked (or given us a key), we can work while you're out. We just need keys handed off (or the car unlocked) and may need you reachable for ±15 min flex on arrival time." },
-      { q: "What products do you use?", a: "Standard professional detailing products, safe for interior and exterior surfaces. We avoid anything that risks damage to leather, plastics, or paint." },
+      { q: "What do I need to do to prepare?", a: "Just know what you want done — even loosely. We'll handle drawings, scope, materials, permits, scheduling, and trades. You approve at every milestone." },
+      { q: "Do I need to be home during construction?", a: "Not for site work. We coordinate access and only ask for sign-off at scheduled milestones." },
+      { q: "What materials do you use?", a: "Premium, locally-sourced materials wherever possible. We'll walk you through every selection — finishes, fixtures, cabinetry — before any order is placed." },
     ],
   },
   {
-    title: "Vehicle Concerns",
+    title: "Project Concerns",
     items: [
-      { q: "Will you damage my paint or interior?", a: "No. Cochrane Master Builders handles every vehicle personally. Our exterior process is hand wash, clay bar, and sealant — no machine polish — so there's no abrasive risk to paint." },
-      { q: "Can you remove pet hair?", a: "Yes. Pet hair removal is part of every interior service. We use specialized tools designed for embedded hair in fabric and carpet." },
-      { q: "Do you work on trucks and SUVs?", a: "Absolutely. Trucks, SUVs, vans, sedans — we handle all vehicle types up to a minivan. Pricing adjusts for size." },
-      { q: "What about stains that won't come out?", a: "We're transparent. If a stain is permanent (e.g., bleach, dye), we'll let you know upfront. Most stains, even old ones, respond well to our process." },
+      { q: "Will the build run over budget?", a: "Our quotes are fixed-scope. Anything outside scope is approved by you in writing before work begins. No surprises." },
+      { q: "Do you handle warranty?", a: "Yes. Workmanship warranty on every project. Major builds include New Home Warranty Alberta coverage where required." },
+      { q: "Do you work with our designer or architect?", a: "Absolutely. We collaborate with your designer, architect, or interior designer — or we can bring in trusted partners." },
+      { q: "What if we change our mind mid-build?", a: "Change orders are documented, priced, and signed before work proceeds. You're always in control of cost." },
     ],
   },
 ];
@@ -62,10 +62,10 @@ const FAQ = ({ onBookClick }: FAQProps) => (
     <main id="main-content">
       <InnerHero
         image={dividerCoating}
-        imageAlt="Close-up of ceramic coating application on dark paint"
+        imageAlt="Close-up of master-craft interior finishing — paint, trim, and joinery"
         overline="FAQ"
         headline="Questions? Answered."
-        subhead="Everything you need to know before booking."
+        subhead="Everything you need to know before requesting a consultation."
         minHeight="min-h-[50vh]"
         align="center"
       />
@@ -75,7 +75,6 @@ const FAQ = ({ onBookClick }: FAQProps) => (
         <div className="container mx-auto px-6 lg:px-8 max-w-2xl">
           {faqCategories.map((cat, ci) => (
             <ScrollReveal key={cat.title} delay={ci * 0.05} className="mb-20 last:mb-0">
-              {/* Category header with border */}
               <div className="border-l-2 border-copper/20 pl-6 mb-8">
                 <p className="font-overline text-copper">{cat.title}</p>
               </div>
@@ -101,7 +100,7 @@ const FAQ = ({ onBookClick }: FAQProps) => (
         </div>
       </section>
 
-      <SectionDivider imageSrc={dividerMicrofiber} alt="Close-up microfiber cloth on dark paint surface" variant="deep" />
+      <SectionDivider imageSrc={dividerMicrofiber} alt="Master-craft interior finishing — paint and trim detail" variant="deep" />
 
       {/* ── CTA ── */}
       <section className="py-28 md:py-36 lg:py-48 bg-asphalt grain-overlay text-center">
@@ -110,14 +109,14 @@ const FAQ = ({ onBookClick }: FAQProps) => (
             <div className="editorial-rule mx-auto mb-10" />
             <h2 className="font-display text-display-md text-white mb-4">Still have questions?</h2>
             <p className="text-body-lg text-white/50 mb-10 max-w-[42ch] mx-auto">
-              Book a reset and we'll walk you through everything. Or text us anytime — we'll text you back as soon as we can.
+              Book a free on-site consultation and we'll walk you through the whole process. Or text us anytime — we'll text you back.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
                 onClick={onBookClick}
                 className="inline-flex items-center px-8 py-3.5 rounded-full bg-copper text-primary-foreground font-body text-label uppercase tracking-[0.15em] hover:bg-copper-glow cta-copper-glow transition-all duration-[400ms]"
               >
-                Book Your Reset
+                Request a Consultation
               </button>
               <a
                 href="sms:+13062097804"

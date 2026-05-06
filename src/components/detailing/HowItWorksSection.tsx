@@ -32,9 +32,9 @@ const TextBlock = ({ children, opacity, y }: TextBlockProps) => (
 );
 
 const steps = [
-  { num: "01", title: "Book", desc: "Pick a time that works. We'll text back to confirm." },
-  { num: "02", title: "We Come to You", desc: "No drop-off. We arrive at your home or office — we just need water access, a power outlet, and a flat parking spot." },
-  { num: "03", title: "Get Your Car Back", desc: "Walk out to a vehicle that looks and feels brand new." },
+  { num: "01", title: "Consult", desc: "Tell us about your project. We'll book a no-pressure on-site walkthrough to understand scope, site conditions, and what success looks like for you." },
+  { num: "02", title: "Plan & Quote", desc: "We deliver a clear scope, transparent fixed pricing, and a build schedule — no surprise change orders, no hidden fees." },
+  { num: "03", title: "Build & Hand-Off", desc: "One master builder runs your project from foundation to final walk-through. You get the keys to a finished space, built to last." },
 ];
 
 const HowItWorksSection = ({
@@ -151,7 +151,7 @@ const HowItWorksSection = ({
                 </div>
               ))}
               <div className="mt-12">
-                <button onClick={onBookClick} className="inline-flex items-center px-8 py-3.5 rounded-full bg-copper text-primary-foreground font-body text-label uppercase tracking-[0.15em] hover:bg-copper-glow cta-copper-glow transition-all duration-[400ms]">Book Your Reset</button>
+                <button onClick={onBookClick} className="inline-flex items-center px-8 py-3.5 rounded-full bg-copper text-primary-foreground font-body text-label uppercase tracking-[0.15em] hover:bg-copper-glow cta-copper-glow transition-all duration-[400ms]">Request a Consultation</button>
               </div>
             </div>
           </div>
@@ -291,13 +291,13 @@ const HowItWorksSection = ({
                     Simple as that.
                   </h2>
                   <p className="text-body-lg text-white/50 font-light max-w-[40ch] mb-10">
-                    No shop visits. No waiting rooms. Just results.
+                    No vague quotes. No subcontractor relay. Just one master builder, one standard.
                   </p>
                   <button
                     onClick={onBookClick}
                     className="inline-flex items-center px-8 py-3.5 rounded-full bg-copper text-primary-foreground font-body text-label uppercase tracking-[0.15em] hover:bg-copper-glow cta-copper-glow transition-all duration-[400ms] pointer-events-auto"
                   >
-                    Book Your Reset
+                    Request a Consultation
                   </button>
                 </div>
               </motion.div>
