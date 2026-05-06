@@ -117,7 +117,7 @@ export const DISCOVERY_FRAMEWORK = {
         "Gas and travel — always included in the price",
       ],
       doesNotInclude: [
-        "Ceramic coating or long-life topcoat",
+        "Drywall finishing or long-life topcoat",
         "Engine bay detailing (available on request)",
         "Permanent scratch repair or bodywork",
         "Competition-grade show preparation",

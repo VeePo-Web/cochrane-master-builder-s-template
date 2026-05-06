@@ -294,7 +294,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
       "Mobile detailing that actually restores.",
       "The detail that makes it feel new again.",
       "Deep clean. Full reset. Your door.",
-      "Calgary's mobile restoration service.",
+      "Calgary's residential finishing and home-building service.",
       "We don't wash cars. We bring them back.",
       "The before/after you've been putting off.",
       "A full reset, delivered.",

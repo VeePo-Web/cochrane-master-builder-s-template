@@ -68,7 +68,7 @@ export const FOOTER_ARCHITECT_PERSONA = {
     hierarchy: "Clear visual hierarchy with group headings. Most important groups positioned first (left on desktop, top on mobile).",
     mobileAdaptation: "Stacked layout or accordion on mobile. Progressive disclosure for secondary content.",
     intentGroups: {
-      example: "Services (Ceramic Coating, Paint Correction, Interior Detail) | Company (About, Process, FAQ) | Connect (Get a Quote, Contact, Instagram)",
+      example: "Services (Drywall Repair, Drywall Installation, Painting, Insulation, Garage & Basement Packages) | Company (About, Process, FAQ) | Connect (Get a Quote, Contact, Instagram)",
       rationale: "Groups mirror how homeowners think: What do you offer? → Who are you? → How do I start?",
     },
   },
@@ -163,8 +163,8 @@ export const FOOTER_ARCHITECT_PERSONA = {
   // SEO LAYER
   // ═══════════════════════════════════════════════════════════════════
   seoLayer: {
-    internalLinking: "Curated links to key service pages (Ceramic Coating, Paint Correction, Interior Detail) and deep content (Process, FAQ, About). Intent-based, not volume-based.",
-    anchorText: "Descriptive, natural language. No keyword stuffing. No repetitive exact-match anchors. Example: 'Ceramic coating services' not 'best Calgary wall finish detailing near me'.",
+    internalLinking: "Curated links to key service pages (Drywall Repair, Drywall Installation, Painting, Insulation, Garage & Basement Packages) and deep content (Process, FAQ, About). Intent-based, not volume-based.",
+    anchorText: "Descriptive, natural language. No keyword stuffing. No repetitive exact-match anchors. Example: 'Drywall and finishing services' not 'best Calgary drywall and finishing near me'.",
     localSEO: {
       napConsistency: "Include business name, address (Calgary/Cochrane), and phone consistently across all pages.",
       serviceArea: "Mention 'Calgary, Cochrane and surrounding areas, Alberta' naturally — not as a keyword-stuffed list of every nearby city.",

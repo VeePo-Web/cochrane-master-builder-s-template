@@ -288,7 +288,7 @@ export const BRAND_IDENTITY_ARCHITECT = {
   // ═══════════════════════════════════════════════════════════════════
   brandStorytelling: {
     framework: {
-      step1: "Pinpoint the conflict — identify the customer's pain point and the 'villain' (cheap car washes, inconsistent builders, fear of damage)",
+      step1: "Pinpoint the conflict — identify the customer's pain point and the 'villain' (generic handyman patches, inconsistent builders, fear of damage)",
       step2: "Position the customer as the hero — the homeowner who demands excellence",
       step3: "Develop the plot — hero's journey from frustration to discovering Cochrane Master Builders to transformation",
       step4: "Identify the moral — the brand's deeper purpose (precision craftsmanship protects what matters)",
@@ -369,7 +369,7 @@ export const BRAND_IDENTITY_ARCHITECT = {
   // ═══════════════════════════════════════════════════════════════════
   cochraneWoodApplication: {
     category: "Premium residential finishing and long-life finish — specifically for discerning homeowners who value precision craftsmanship, technical expertise, and white-glove service.",
-    brandTruth: "Cochrane Master Builders exists because most residential finishing feels either cheap and rushed (drive-through car washes, quick-detail shops) or inconsistent and unreliable (mobile builders with no standards). They offer a third path: precision craftsmanship with technical expertise and obsessive attention to detail.",
+    brandTruth: "Cochrane Master Builders exists because most residential finishing feels either cheap and rushed (generic handyman patches and franchise contractor templates) or inconsistent and unreliable (mobile builders with no standards). They offer a third path: precision craftsmanship with technical expertise and obsessive attention to detail.",
     audienceIdentity: "For homeowners who see their cars as extensions of their identity — not just transportation to maintain. They want to trust the hands touching their home, not gamble on whoever shows up.",
     proofMechanics: "Before/after portfolio quality, product and certification partnerships, process transparency and documentation, client testimonials, technical knowledge visible in every touchpoint.",
     personality: "Precise yet passionate. Technical yet approachable. Premium yet personal.",

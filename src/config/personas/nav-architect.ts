@@ -253,7 +253,7 @@ export const NAV_ARCHITECT_PERSONA = {
   whatIfConcepts: [
     {
       name: "Dynamic Service-Driven Mega Menu",
-      concept: "Transform the mega menu into a showcase experience. Each service category opens to reveal a before/after preview with a micro-story about the transformation. 'Ceramic Coating' shows a split image of protected vs. unprotected paint in rain.",
+      concept: "Transform the mega menu into a showcase experience. Each service category opens to reveal a before/after preview with a micro-story about the transformation. 'Drywall Finishing' shows a split image of protected vs. unprotected paint in rain.",
     },
     {
       name: "Seasonal Home Care Quick Access",
