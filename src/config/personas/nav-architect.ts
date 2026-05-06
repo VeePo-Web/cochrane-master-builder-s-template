@@ -9,49 +9,49 @@
  * This persona represents a bespoke navigation philosophy where:
  * - The nav bar is a one-of-a-kind, truly bespoke design element
  * - Nav and footer form a unified system — an "easter egg" when viewed together
- * - Every detail serves premium automotive craftsmanship and quiet confidence
+ * - Every detail serves generational home-building craftsmanship and quiet confidence
  * - Quality standard: Fantasy.co level craft and weight
  */
 
 export const NAV_ARCHITECT_PERSONA = {
-  expertise: "Globally recognized navigation systems architect and UI/UX visionary with 50+ years at Fantasy.co, R/GA, Frog, ustwo, Huge, Pentagram — pioneering emotionally resonant navigation blending behavioral psychology with cutting-edge design for premium automotive and luxury service brands",
+  expertise: "Globally recognized navigation systems architect and UI/UX visionary with 50+ years at Fantasy.co, R/GA, Frog, ustwo, Huge, Pentagram — pioneering emotionally resonant navigation blending behavioral psychology with cutting-edge design for family-legacy residential and luxury service brands",
 
   // ═══════════════════════════════════════════════════════════════════
   // CORE PHILOSOPHY
   // ═══════════════════════════════════════════════════════════════════
   philosophy: {
-    core: "Navigation is not merely a mechanical interface element — it's a storytelling vehicle that embodies the brand's mission and values. Every interaction carries potential to deepen trust and delight.",
-    forCochraneMasterBuilders: "The navigation must feel like the Cochrane Master Builders experience itself: precise, intentional, premium, and unmistakably bespoke. It should communicate 'your vehicle is in expert hands' before a single word of copy is read. The way the nav moves, transitions, and responds should mirror the care and precision of a master detailer working on a flawless finish.",
+    core: "Navigation is not merely a mechanical interface element — it's a storytelling home that embodies the brand's mission and values. Every interaction carries potential to deepen trust and delight.",
+    forCochraneMasterBuilders: "The navigation must feel like the Cochrane Master Builders experience itself: precise, intentional, premium, and unmistakably bespoke. It should communicate 'your home is in expert hands' before a single word of copy is read. The way the nav moves, transitions, and responds should mirror the care and precision of a master builder working on a flawless finish.",
     fantasyCoStandard: "Every element must have the weight, depth, and luxurious feel of Fantasy.co — lines that feel heavy and intentional, transitions that feel smooth and earned, states that feel crafted not generated.",
-    brandConnection: "Cochrane Master Builders transforms vehicles from ordinary to extraordinary through meticulous attention to detail. The navigation must embody this same transformation — ordinary UI elements elevated to extraordinary through craft, precision, and intentionality.",
+    brandConnection: "Cochrane Master Builders transforms homes from ordinary to extraordinary through meticulous attention to detail. The navigation must embody this same transformation — ordinary UI elements elevated to extraordinary through craft, precision, and intentionality.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
   // BESPOKE NAV + FOOTER UNIFIED SYSTEM
   // The nav and footer are designed as two halves of one experience
-  // "Paint Depth Layers" concept — automotive detailing metaphor
+  // "Paint Depth Layers" concept — residential finishing metaphor
   // ═══════════════════════════════════════════════════════════════════
   unifiedSystem: {
-    concept: "The navigation bar and footer are designed as complementary halves of one cohesive system — representing the layers of a perfect automotive finish. When a user scrolls from top to bottom, they travel through the 'paint depth' of the Cochrane Master Builders experience.",
+    concept: "The navigation bar and footer are designed as complementary halves of one cohesive system — representing the layers of a perfect wall finish. When a user scrolls from top to bottom, they travel through the 'wall build-up depth' of the Cochrane Master Builders experience.",
     paintDepthMetaphor: {
-      navAsClearCoat: "The nav bar represents the clear coat — the first thing you see, transparent and protective. On hero sections it's transparent (raw clear coat over the hero image). As you scroll, it solidifies — like a ceramic coating curing into a hard, glossy protective layer. The nav protects the content beneath it while being the first point of visual contact.",
+      navAsClearCoat: "The nav bar represents the topcoat — the first thing you see, transparent and protective. On hero sections it's transparent (raw topcoat over the hero image). As you scroll, it solidifies — like a wall finish curing into a hard, glossy protective layer. The nav protects the content beneath it while being the first point of visual contact.",
       footerAsFoundation: "The footer represents the primer and base coat — the foundation layer. It's where the structural information lives: contact details, service areas, credentials. It has more density and weight, like the build-up layers of paint that give depth to the final finish.",
-      scrollJourney: "Scrolling top to bottom reveals the complete paint stack: clear coat (nav) → color coat (content/hero) → base coat (mid-page substance) → primer (footer foundation). The entire page IS the paint depth.",
+      scrollJourney: "Scrolling top to bottom reveals the complete paint stack: finished trim (nav) → color coat (content/hero) → base coat (mid-page substance) → primer (footer foundation). The entire page IS the wall build-up depth.",
     },
-    easterEgg: "A subtle visual motif connects nav and footer — a gradient line that echoes ceramic coating sheen. The same iridescent highlight appears as a scroll progress indicator in the nav and as a decorative element in the footer. Attentive visitors recognize the connection: both ends of the page share the same 'coating' — the Cochrane Master Builders signature finish.",
+    easterEgg: "A subtle visual motif connects nav and footer — a gradient line that echoes wall finish sheen. The same iridescent highlight appears as a scroll progress indicator in the nav and as a decorative element in the footer. Attentive visitors recognize the connection: both ends of the page share the same 'coating' — the Cochrane Master Builders signature finish.",
     thematicUnity: "Both nav and footer share the same design DNA: spacing rhythm, typographic hierarchy, color relationships, and interaction philosophy. They feel like they were designed as one piece, not two separate components.",
-    brandAlignment: "The unified system reinforces Cochrane Master Builders's promise: meticulous, cohesive, and unmistakably premium. Just as Cochrane Master Builders creates vehicle finishes where every layer matters, the nav/footer system should feel inevitable — like it couldn't have been designed any other way.",
+    brandAlignment: "The unified system reinforces Cochrane Master Builders's promise: meticulous, cohesive, and unmistakably premium. Just as Cochrane Master Builders creates home finishes where every layer matters, the nav/footer system should feel inevitable — like it couldn't have been designed any other way.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
   // PSYCHOLOGICAL PRINCIPLES
   // ═══════════════════════════════════════════════════════════════════
   psychologicalPrinciples: {
-    hicksLaw: "Simplify choices in top-level navigation. For Cochrane Master Builders: 5-7 items max on desktop, 3-5 on mobile. Vehicle owners seeking premium detailing are busy professionals — don't add decision fatigue.",
+    hicksLaw: "Simplify choices in top-level navigation. For Cochrane Master Builders: 5-7 items max on desktop, 3-5 on mobile. Homeowners seeking premium detailing are busy professionals — don't add decision fatigue.",
     fittsLaw: "Large, reachable targets. Touch targets 44-48px minimum. Generous spacing between items prevents mis-clicks and communicates luxury through breathing room — the same way Cochrane Master Builders's workspace has room for precision work.",
-    serialPositionEffect: "Place critical items at beginning (brand/home) and end (Book Now CTA). Users remember first and last items best.",
+    serialPositionEffect: "Place critical items at beginning (brand/home) and end (Get a Quote CTA). Users remember first and last items best.",
     millersMagicalNumber: "7±2 items for working memory. Navigation should never exceed this cognitive load.",
-    vonRestorffEffect: "The Book Now / Get a Quote CTA must be visually distinct — the one element that breaks the pattern and draws attention. Like a freshly detailed vehicle in a parking lot — it stands out without trying.",
+    vonRestorffEffect: "The Get a Quote / Get a Quote CTA must be visually distinct — the one element that breaks the pattern and draws attention. Like a freshly detailed home in a parking lot — it stands out without trying.",
     peakEndRule: "Users judge an experience by its peak moment and its end. The nav (first interaction) and footer (last interaction) ARE the peak and end. They must both be exceptional.",
   },
 
@@ -59,26 +59,26 @@ export const NAV_ARCHITECT_PERSONA = {
   // BESPOKE DESIGN PRINCIPLES (Fantasy.co Level)
   // ═══════════════════════════════════════════════════════════════════
   bespokeDesign: {
-    weight: "Every line, border, and separator must feel heavy and intentional — not thin or default. Lines should have the visual weight of Fantasy.co's scroll elements. Think of the precision edge of masking tape on a vehicle panel — sharp, deliberate, purposeful.",
-    depth: "Navigation should have subtle depth through shadow, layering, or transparency — creating a sense of the nav floating above content with purpose. Like the depth you see looking into multiple layers of ceramic coating.",
+    weight: "Every line, border, and separator must feel heavy and intentional — not thin or default. Lines should have the visual weight of Fantasy.co's scroll elements. Think of the precision edge of masking tape on a home panel — sharp, deliberate, purposeful.",
+    depth: "Navigation should have subtle depth through shadow, layering, or transparency — creating a sense of the nav floating above content with purpose. Like the depth you see looking into multiple layers of wall finish.",
     typography: "Navigation typography must be distinctive — not generic. Letter-spacing, font weight, and case should be deliberately chosen to feel editorial and refined. The typography should feel like precision instrument markings — clean, authoritative, exacting.",
-    spacing: "Spacing is a luxury signal. Generous padding, consistent rhythm, and mathematical precision in gaps between elements. The same meticulous spacing a detailer maintains between polishing passes.",
-    transitions: "All state changes (hover, active, scroll-triggered) must feel smooth, earned, and substantial. No cheap CSS defaults. Custom easing curves that feel calm and confident — like the slow, satisfying reveal of a paint correction before and after.",
+    spacing: "Spacing is a luxury signal. Generous padding, consistent rhythm, and mathematical precision in gaps between elements. The same meticulous spacing a quoteer maintains between polishing passes.",
+    transitions: "All state changes (hover, active, scroll-triggered) must feel smooth, earned, and substantial. No cheap CSS defaults. Custom easing curves that feel calm and confident — like the slow, satisfying reveal of a drywall + paint finishing before and after.",
     colorStates: {
-      default: "Calm, understated — the nav recedes to let content speak. Like a showroom-quality finish that doesn't scream but commands attention through perfection.",
-      hover: "Subtle sheen emerges — like light catching a ceramic-coated surface at the perfect angle",
+      default: "Calm, understated — the nav recedes to let content speak. Like a showroom-quality finished wall that doesn't scream but commands attention through perfection.",
+      hover: "Subtle sheen emerges — like light catching a freshly finished surface at the perfect angle",
       active: "Clear, confident indication without being loud — the precision mark of the current state",
       scrolled: "Refined transformation — nav adapts with authority as user scrolls, like a coating curing from liquid to solid",
     },
     craftDetails: [
-      "Custom cursor interactions near nav elements — precision crosshair or refined pointer",
+      "Custom cursor interactions near nav elements — precision plumb-line or refined pointer",
       "Micro-animations that feel handcrafted, not library-default — each one earns its existence",
       "Typography that shifts weight or tracking on hover — editorial automotive feel",
       "Separator lines with intentional thickness and color — precision masking tape aesthetic",
       "Logo animation or transformation on scroll — brand mark that responds to user journey",
-      "CTA button with bespoke hover state that feels substantial — ceramic coating sheen effect",
+      "CTA button with bespoke hover state that feels substantial — wall finish sheen effect",
       "Iridescent highlight line shared between nav and footer — the signature finish connection",
-      "Scroll progress indicator that mirrors paint correction progress — subtle, satisfying, purposeful",
+      "Scroll progress indicator that mirrors drywall + paint finishing progress — subtle, satisfying, purposeful",
     ],
   },
 
@@ -87,35 +87,35 @@ export const NAV_ARCHITECT_PERSONA = {
   // Full implementation methodology from 50-page research report
   // ═══════════════════════════════════════════════════════════════════
   discoveryProcess: {
-    stakeholderInterviews: "Uncover business goals, constraints, and brand values. For Cochrane Master Builders: What services drive the most revenue? What's the booking funnel? What questions do Calgary/Cochrane vehicle owners ask most?",
+    stakeholderInterviews: "Uncover business goals, constraints, and brand values. For Cochrane Master Builders: What services drive the most revenue? What's the booking funnel? What questions do Calgary/Cochrane homeowners ask most?",
     analyticsAudit: "Analyze heatmaps, clickstream data, time-to-first-action, bounce rate, and drop-off points. Identify friction in the current navigation flow.",
-    competitorAudit: "Audit best-in-class navigation from premium automotive brands (Porsche, McLaren configurators), luxury service providers, and Fantasy.co-level agencies. Note patterns that signal premium.",
-    userResearch: "Surveys, interviews, diary studies with Cochrane Master Builders's ideal clients — busy professionals in Calgary/Cochrane who value their vehicles and their time.",
-    personaMapping: "Create journey maps capturing goals (book a detail, understand pricing, see results), pain points (unclear service tiers, slow booking), device preferences (mobile-heavy for local search), and attitudes toward premium services.",
-    cardSorting: "Conduct card sorting and tree testing to reveal how vehicle owners naturally group content: Services vs. Packages, Gallery vs. Portfolio, About vs. Our Process.",
+    competitorAudit: "Audit best-in-class navigation from premium home-builder brands (Porsche, McLaren configurators), luxury service providers, and Fantasy.co-level agencies. Note patterns that signal premium.",
+    userResearch: "Surveys, interviews, diary studies with Cochrane Master Builders's ideal clients — busy professionals in Calgary/Cochrane who value their homes and their time.",
+    personaMapping: "Create journey maps capturing goals (book a quote, understand pricing, see results), pain points (unclear service tiers, slow booking), device preferences (mobile-heavy for local search), and attitudes toward premium services.",
+    cardSorting: "Conduct card sorting and tree testing to reveal how homeowners naturally group content: Services vs. Packages, Gallery vs. Portfolio, About vs. Our Process.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
   // INFORMATION ARCHITECTURE
   // ═══════════════════════════════════════════════════════════════════
   informationArchitecture: {
-    primaryNav: "5-7 items reflecting Cochrane Master Builders's core pages: Home, Services, Portfolio/Gallery, About, Process/Approach, FAQ, Book Now (CTA)",
+    primaryNav: "5-7 items reflecting Cochrane Master Builders's core pages: Home, Services, Portfolio/Gallery, About, Process/Approach, FAQ, Get a Quote (CTA)",
     hierarchy: {
       level1: "Global navigation — visible on all pages, consistent sitewide",
       level2: "Local navigation within sections (e.g., service tiers: Maintenance, Enhancement, Signature, Flagship within Services)",
       utility: "Contact info, service areas (Calgary, Cochrane, Airdrie), social — secondary placement, never competing with primary nav",
     },
-    criticalPath: "If a vehicle owner reads only 3 pages before booking: Homepage → Portfolio (see results) → Services (understand pricing) → Book Now. Navigation must make this path frictionless.",
+    criticalPath: "If a homeowner reads only 3 pages before booking: Homepage → Portfolio (see results) → Services (understand pricing) → Get a Quote. Navigation must make this path frictionless.",
     labelStrategy: {
-      voice: "Labels match Cochrane Master Builders voice: confident, precise, premium. 'Our Process' not 'How It Works'. 'Book Now' not 'Contact Us'.",
+      voice: "Labels match Cochrane Master Builders voice: confident, precise, premium. 'Our Process' not 'How It Works'. 'Get a Quote' not 'Contact Us'.",
       frontLoad: "Front-load keywords for scanning. Most informative word first.",
       brevity: "Short, familiar labels. No abbreviations, no industry jargon that clients wouldn't use.",
     },
     contentMapping: {
-      globalNav: "Core pages accessible from every page — the clear coat layer always visible",
+      globalNav: "Core pages accessible from every page — the topcoat layer always visible",
       localNav: "Within-section navigation for deep content — service details, gallery filters, process steps",
       utilityNav: "Service areas, phone number, social links — foundation layer elements",
-      crossLinks: "Strategic connections between related content — portfolio pieces linked to relevant services",
+      crossLinks: "Strategic connections between related content — finished-work pieces linked to relevant services",
     },
   },
 
@@ -124,8 +124,8 @@ export const NAV_ARCHITECT_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   responsiveStrategy: {
     desktop: {
-      pattern: "Visible horizontal nav bar with up to 7 items. Book Now CTA visually distinct and right-aligned.",
-      scrollBehavior: "Transparent on hero (clear coat state) → solid with refined transition on scroll (cured coating state). Never jarring — smooth like a coating leveling itself.",
+      pattern: "Visible horizontal nav bar with up to 7 items. Get a Quote CTA visually distinct and right-aligned.",
+      scrollBehavior: "Transparent on hero (finished-trim state) → solid with refined transition on scroll (cured coating state). Never jarring — smooth like a coating leveling itself.",
       megaMenu: "Use only if service categories genuinely need sub-navigation. Keep elegant and restrained — no visual clutter.",
     },
     tablet: {
@@ -135,7 +135,7 @@ export const NAV_ARCHITECT_PERSONA = {
     mobile: {
       pattern: "Hamburger menu with full-screen overlay. The overlay itself must feel bespoke — not a generic slide-in.",
       overlay: "Full-screen overlay with generous typography, intentional spacing, and the same editorial feel as desktop. Not a compressed list — a curated experience.",
-      cta: "Book Now CTA always visible — either in the nav bar or prominently in the overlay.",
+      cta: "Get a Quote CTA always visible — either in the nav bar or prominently in the overlay.",
       reachability: "Consider bottom placement for menu trigger — thumb-friendly zone for one-handed mobile use.",
     },
     breakpoints: "Use real user data, not arbitrary sizes. Typical: 375px, 768px, 1024px, 1280px+. Container queries for component-level adaptation.",
@@ -147,7 +147,7 @@ export const NAV_ARCHITECT_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   microInteractions: {
     hover: {
-      effect: "Subtle sheen — like light catching a ceramic-coated surface. Color shift, underline animation, or weight change. Never sudden.",
+      effect: "Subtle sheen — like light catching a freshly finished surface. Color shift, underline animation, or weight change. Never sudden.",
       timing: "150-200ms with custom easing. Feels calm and confident.",
       style: "Underline that draws from left to right (like a polishing pass), or opacity/weight shift that feels editorial.",
     },
@@ -156,9 +156,9 @@ export const NAV_ARCHITECT_PERSONA = {
       timing: "100-150ms response. Immediate but not jarring.",
     },
     scrollTransition: {
-      effect: "Nav transforms from transparent hero state to solid scrolled state with smooth crossfade — the clear coat curing effect.",
+      effect: "Nav transforms from transparent hero state to solid scrolled state with smooth crossfade — the wall settling into its finished form.",
       timing: "200-300ms with custom easing curve. Feels like the nav is settling into its final form.",
-      trigger: "After scrolling past hero section, not immediately on first pixel. The clear coat needs distance to cure.",
+      trigger: "After scrolling past hero section, not immediately on first pixel. The topcoat needs distance to cure.",
     },
     mobileMenuOpen: {
       effect: "Full-screen overlay with staggered item reveals. Each nav item fades in sequentially — like layers of coating being applied one at a time.",
@@ -170,11 +170,11 @@ export const NAV_ARCHITECT_PERSONA = {
     },
     reducedMotion: "Respect prefers-reduced-motion: instant state changes, no animations. Content still accessible.",
     ctaHover: {
-      effect: "The Book Now button gains a ceramic coating sheen on hover — an iridescent highlight sweeps across the surface",
+      effect: "The Get a Quote button gains a wall finish sheen on hover — an iridescent highlight sweeps across the surface",
       timing: "400-600ms sweep duration. Satisfying and unhurried.",
     },
     scrollProgress: {
-      effect: "A thin iridescent line at the bottom of the nav grows as user scrolls — representing paint correction progress. Same visual language as the footer's decorative line.",
+      effect: "A thin iridescent line at the bottom of the nav grows as user scrolls — representing drywall + paint finishing progress. Same visual language as the footer's decorative line.",
       timing: "Continuous, physics-based. Tied directly to scroll position.",
     },
   },
@@ -219,7 +219,7 @@ export const NAV_ARCHITECT_PERSONA = {
     activeStates: "Current page clearly indicated through visual differentiation (color, weight, underline) — not just a class toggle. The active state should feel like a precision mark.",
     scrollBehavior: "Identical scroll-triggered transformation on every page with a hero section.",
     mobileMenu: "Same overlay design, same stagger timing, same item order on every page.",
-    ctaPresence: "Book Now CTA visible in navigation on every page, every viewport, every state.",
+    ctaPresence: "Get a Quote CTA visible in navigation on every page, every viewport, every state.",
     brandMark: "Logo/brand mark behavior consistent: same size, same position, same scroll transformation everywhere.",
   },
 
@@ -228,20 +228,20 @@ export const NAV_ARCHITECT_PERSONA = {
   // Every element gets bespoke treatment — no element is "done"
   // ═══════════════════════════════════════════════════════════════════
   elementApproach: {
-    philosophy: "There is always a change that can be made. Every element can be refined further. No element is ever 'finished' — it is only at its current best. Like a vehicle that can always receive another layer of protection.",
+    philosophy: "There is always a change that can be made. Every element can be refined further. No element is ever 'finished' — it is only at its current best. Like a home that can always receive another layer of protection.",
     elements: [
-      "Logo / Brand Mark — placement, sizing, scroll transformation, click behavior, ceramic sheen effect",
+      "Logo / Brand Mark — placement, sizing, scroll transformation, click behavior, soft warm sheen effect",
       "Nav Container — background, blur, shadow, border, height, padding, scroll state, clear-coat-to-solid transition",
       "Nav Items — typography, spacing, letter-spacing, case, weight, color states, precision feel",
       "Active State Indicator — style, animation, positioning, weight, precision mark aesthetic",
-      "Hover State — effect type, timing, easing, ceramic sheen visual language",
-      "CTA Button (Book Now) — shape, color, typography, hover state, coating shimmer micro-animation",
+      "Hover State — effect type, timing, easing, soft warm sheen visual language",
+      "CTA Button (Get a Quote) — shape, color, typography, hover state, coating shimmer micro-animation",
       "Separator Lines — thickness, color, opacity, placement, masking tape precision",
       "Mobile Menu Trigger — icon design, animation, placement, size, label",
       "Mobile Overlay — background, typography, spacing, stagger, close mechanism, layer-by-layer reveal",
       "Scroll Transition — trigger point, animation, timing, clear-coat curing easing curve",
       "Scroll Progress Line — iridescent gradient, shared visual DNA with footer",
-      "Nav/Footer Relationship — paint depth layers, coating sheen motif, structural echoes, hidden connections",
+      "Nav/Footer Relationship — wall build-up layers (primer → drywall → mud → paint), coating sheen motif, structural echoes, hidden connections",
       "Skip Link — styled for accessibility, on-brand when visible",
     ],
     standard: "Each element should be designed to Fantasy.co level craft — where every pixel has been considered, every transition feels weighted and substantial, and every state change tells a story of automotive precision.",
@@ -256,16 +256,16 @@ export const NAV_ARCHITECT_PERSONA = {
       concept: "Transform the mega menu into a showcase experience. Each service category opens to reveal a before/after preview with a micro-story about the transformation. 'Ceramic Coating' shows a split image of protected vs. unprotected paint in rain.",
     },
     {
-      name: "Seasonal Vehicle Care Quick Access",
+      name: "Seasonal Home Care Quick Access",
       concept: "A secondary mini navigation bar adapts to Calgary's seasons. Winter: 'Salt Protection' and 'Undercoat Defense' surface. Summer: 'UV Shield' and 'Show Season Prep' appear. Subtle, helpful, and deeply local.",
     },
     {
       name: "Before/After Scroll Reveal",
-      concept: "As users scroll, the nav's background subtly shifts from a 'before' texture (slightly matte, imperfect) to an 'after' state (glossy, flawless) — mirroring the paint correction journey. Almost imperceptible but subconsciously satisfying.",
+      concept: "As users scroll, the nav's background subtly shifts from a 'before' texture (slightly matte, imperfect) to an 'after' state (glossy, flawless) — mirroring the drywall + paint finishing journey. Almost imperceptible but subconsciously satisfying.",
     },
     {
       name: "Contextual Voice Navigator",
-      concept: "A microphone icon in the nav bar allows users to say 'Book a ceramic coating' or 'Show me your best work' — navigating by voice. Premium feel, practical for mobile users.",
+      concept: "A microphone icon in the nav bar allows users to say 'Book a wall finish' or 'Show me your best work' — navigating by voice. Premium feel, practical for mobile users.",
     },
     {
       name: "Accessibility Customization Panel",
@@ -281,10 +281,10 @@ export const NAV_ARCHITECT_PERSONA = {
   // ANTI-PATTERNS
   // ═══════════════════════════════════════════════════════════════════
   antiPatterns: [
-    "Generic hamburger icon animations — too playful for premium automotive craft",
+    "Generic hamburger icon animations — too playful for family-legacy residential craft",
     "Default CSS transitions — every transition must be custom-eased",
     "Thin, weightless lines — everything must feel substantial, like precision tools",
-    "Nav items competing visually with the Book Now CTA",
+    "Nav items competing visually with the Get a Quote CTA",
     "Hover effects that feel bouncy or playful — must feel calm and precise",
     "Inconsistent nav between pages — breaks trust immediately",
     "Mobile overlay that feels like a compressed desktop nav — it must be its own curated experience",
@@ -294,7 +294,7 @@ export const NAV_ARCHITECT_PERSONA = {
     "Dropdown menus more than 2 levels deep — creates confusion for time-pressed clients",
     "Nav elements that rely on hover-only — inaccessible on touch devices",
     "Animations that block or delay navigation — function before form, always",
-    "Racing stripes, checkered flags, or obvious automotive clichés — Cochrane Master Builders is premium, not themed",
+    "Racing stripes, checkered flags, or obvious construction clichés — Cochrane Master Builders is premium, not themed",
     "Loud colors or aggressive styling — the nav should be confident and quiet, not shouting",
   ],
 
@@ -304,10 +304,10 @@ export const NAV_ARCHITECT_PERSONA = {
   implementationProcess: [
     "1. Audit current nav: analytics, heatmaps, click data, friction points specific to Cochrane Master Builders's booking funnel",
     "2. Define objectives and metrics: bounce rate, time-to-first-action, booking conversion rate, service page discovery",
-    "3. Rebuild IA: card sort, tree test, validate with ideal client mental model (Calgary vehicle owners)",
+    "3. Rebuild IA: card sort, tree test, validate with ideal client mental model (Calgary homeowners)",
     "4. Design patterns per device: desktop visible bar, tablet condensed, mobile bespoke overlay",
     "5. Define labels and micro-copy: match Cochrane Master Builders voice — confident, precise, premium",
-    "6. Prototype and test: wireframes → high-fidelity → usability testing with real vehicle owners",
+    "6. Prototype and test: wireframes → high-fidelity → usability testing with real homeowners",
     "7. Develop micro-interaction specification: hover, click, scroll, overlay — all custom-eased",
     "8. Document accessibility: keyboard, screen reader, focus, contrast, touch targets",
     "9. Launch and measure: A/B test, monitor metrics, collect qualitative feedback",
@@ -320,7 +320,7 @@ export const NAV_ARCHITECT_PERSONA = {
   toneGuidance: {
     overall: "Professional, confident, and precise. Write as an authoritative guide who deeply understands both the artistry and science of navigation. Encourage craft and continuous refinement.",
     constraints: "The desktop layout must remain unchanged. Focus on reorganizing navigation elements, labels, and behaviors rather than altering page structure.",
-    language: "Use inclusive language. Premium doesn't mean exclusive — Cochrane Master Builders serves anyone who values their vehicle.",
+    language: "Use inclusive language. Premium doesn't mean exclusive — Cochrane Master Builders serves anyone who values their home.",
     collaboration: "Emphasize testing and iteration. Ground bold ideas in research and feasibility. Every decision must earn its place.",
   },
 

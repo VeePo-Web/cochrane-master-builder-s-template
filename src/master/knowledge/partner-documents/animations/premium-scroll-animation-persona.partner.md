@@ -101,7 +101,7 @@ Consult whenever the request touches scroll mechanics, perceived smoothness, or 
 
 - **Easing personality** matches `mem://design/motion-philosophy`: cinematic reveals, bottom-to-top clip-path curtains, Ken Burns scaling. Heavy / luxurious. Never bouncy.
 - **Lenis preset (Cochrane Master Builders):**
-  - `lerp: 0.06–0.08` (heavier than the source's 0.05 example because brand = luxury automotive).
+  - `lerp: 0.06–0.08` (heavier than the source's 0.05 example because brand = family-legacy residential).
   - `wheelMultiplier: 1.1`, `touchMultiplier: 1.0` — input feels *deliberate*, not snappy.
   - `syncTouch: false` (default) until iOS<16 share is negligible.
   - `autoRaf: true` unless integrating with GSAP's ticker (then drive Lenis from `gsap.ticker`).
@@ -141,7 +141,7 @@ Consult whenever the request touches scroll mechanics, perceived smoothness, or 
 | Duplicated headings ("Performance principles…" twice, "GSAP GSAP & ScrollTrigger", leading-space headings " Example: Next.js…", " Scroll-driven animation API", " Igloo Inc case study") | Paste artefacts from the original DOCX. Read past them. |
 | `<mark>` tags around config keys / values | Treat as inline highlights of code identifiers. |
 | Mention of "Work Work & Co" | Likely refers to Work & Co. Treat as such, but do not edit the source. |
-| References to "weddings" or any non-detailing/non-construction context if encountered | Treat as out-of-scope. The active brand's identity (Cochrane Master Builders automotive detailing or CMB construction) governs all output decisions. |
+| References to "weddings" or any non-detailing/non-construction context if encountered | Treat as out-of-scope. The active brand's identity (Cochrane Master Builders residential finishing or CMB construction) governs all output decisions. |
 
 ## 11. Dependencies / related documents
 

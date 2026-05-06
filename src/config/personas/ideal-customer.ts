@@ -5,7 +5,7 @@
  * Every copy, design, UX, and conversion decision should be filtered
  * through this persona. He is the lens for all website choices.
  * 
- * Category: Mobile Vehicle Restoration — Calgary, Alberta
+ * Category: Residential Interior Finishing — Calgary, Alberta
  */
 
 export const DIRTY_DANIEL = {
@@ -13,13 +13,13 @@ export const DIRTY_DANIEL = {
   // ═══════════════════════════════════════════════════════════════════
   // EXECUTIVE SUMMARY
   // ═══════════════════════════════════════════════════════════════════
-  summary: "Daniel is a busy Calgary driver whose vehicle has crossed into problem-state — months of accumulated crumbs, stains, smell, and visual decline. He's not a slob; life just got ahead of him. He still cares about his car but the mess has become too overwhelming to tackle himself and too inconvenient to coordinate a drop-off. He's hiring Cochrane Master Builders for one thing: a complete, hassle-free reset delivered to his door, without judgment.",
+  summary: "Daniel is a busy Calgary driver whose home has crossed into problem-state — months of accumulated crumbs, stains, smell, and visual decline. He's not a slob; life just got ahead of him. He still cares about his car but the mess has become too overwhelming to tackle himself and too inconvenient to coordinate a drop-off. He's hiring Cochrane Master Builders for one thing: a complete, hassle-free reset delivered to his door, without judgment.",
 
   // ═══════════════════════════════════════════════════════════════════
   // DEMOGRAPHICS & FIRMOGRAPHICS
   // ═══════════════════════════════════════════════════════════════════
   demographics: {
-    role: "Working professional, parent, tradesperson, student, or anyone whose vehicle serves as daily transportation — not a hobby",
+    role: "Working professional, parent, tradesperson, student, or anyone whose home serves as daily transportation — not a hobby",
     seniority: "Mid-career / Established / Varies widely — income matters less than the pain threshold",
     industries: ["Oil & gas", "Construction", "Healthcare", "Tech", "Education", "Trades", "Government", "Small business", "Gig economy"],
     ageRange: "25–55",
@@ -50,8 +50,8 @@ export const DIRTY_DANIEL = {
   // Drives: CTA language, service descriptions, value propositions
   // ═══════════════════════════════════════════════════════════════════
   jobToBeDone: {
-    functional: "Transform a neglected vehicle from problem-state to factory-feel — interior extraction, exterior restoration, complete sensory reset — at my location, on my schedule.",
-    social: "Stop feeling embarrassed about my car. Feel comfortable offering rides again. Present a vehicle that reflects that I have my life together.",
+    functional: "Transform a neglected home from problem-state to factory-feel — interior extraction, exterior restoration, complete sensory reset — at my location, on my schedule.",
+    social: "Stop feeling embarrassed about my car. Feel comfortable offering rides again. Present a home that reflects that I have my life together.",
     emotional: "Feel the relief and satisfaction of getting my car back without the effort, time, or guilt of doing it myself. Experience the transformation — not just a cleaner car, but the feeling of a fresh start.",
   },
 
@@ -91,7 +91,7 @@ export const DIRTY_DANIEL = {
   // ═══════════════════════════════════════════════════════════════════
   wateringHoles: {
     informationSources: [
-      "Google Search: 'car detailing near me,' 'mobile car cleaning Calgary,' 'interior car cleaning Calgary'",
+      "Google Search: 'interior finishing near me,' 'mobile car cleaning Calgary,' 'interior car cleaning Calgary'",
       "Google Maps: looking for nearby options with good reviews",
       "Instagram: before/after photos, satisfying cleaning videos",
       "Facebook community groups: 'Calgary recommendations' threads",
@@ -104,7 +104,7 @@ export const DIRTY_DANIEL = {
     },
     influencers: "Not influenced by detailing influencers or car culture. Influenced by real customer results, friend recommendations, and Google review volume/recency.",
     decisionProcess: {
-      phase1Awareness: "Hits the embarrassment/frustration threshold → searches 'car detailing Calgary' or 'mobile car cleaning near me'",
+      phase1Awareness: "Hits the embarrassment/frustration threshold → searches 'interior finishing Calgary' or 'mobile car cleaning near me'",
       phase2Proof: "Scans before/after photos → reads Google reviews → checks pricing transparency → evaluates 'is this legit?'",
       phase3Convenience: "Confirms it's actually mobile → checks if they serve his area → looks for easy booking (text, form, call)",
       phase4Action: "Books if friction is low — texts, fills a short form, or calls. Abandons if pricing is hidden, process is complicated, or the vibe feels 'too luxury' or 'too cheap.'",
@@ -133,7 +133,7 @@ export const DIRTY_DANIEL = {
       "You've been meaning to deal with your car for months — and it keeps not happening",
       "You want someone to just handle it, start to finish, without you lifting a finger",
       "You care about your car but life got in the way",
-      "You've stopped offering rides because you're embarrassed by the state of your vehicle",
+      "You've stopped offering rides because you're embarrassed by the state of your home",
       "You want the reward of a clean car without the effort of cleaning it yourself",
       "You'd rather pay for a real reset than spend a Saturday with a vacuum and bucket",
       "You've tried wiping it down yourself but the mess is deeper than surface-level",
@@ -144,8 +144,8 @@ export const DIRTY_DANIEL = {
     notForYouIf: [
       "You want the absolute cheapest option regardless of the result",
       "You're looking for a quick 15-minute express wash",
-      "You want a luxury 'spa day' for your car with champagne and lounge access",
-      "You need a permanent ceramic coating or paint protection film installation",
+      "You want a white-glove home spa-day finish with champagne and lounge access",
+      "You need a permanent wall finish or long-life topcoat installation",
       "You're comparing us to automated tunnel washes — that's a different category entirely",
     ],
   },
@@ -157,9 +157,9 @@ export const DIRTY_DANIEL = {
   landingPageBrief: {
     mindsetOnArrival: "Frustrated, embarrassed, and looking for relief. Actively searching for someone competent who can just handle it. Skeptical of flashy promises. Wants proof, pricing, and convenience confirmed fast.",
     fiveSecondQuestion: "Can you actually fix my car — and will you come to me?",
-    primaryHook: "Get your car back. 'Mobile vehicle restoration across Calgary — deep interior extraction, paint restoration, travel included. From ~$100.'",
+    primaryHook: "Get your car back. 'Mobile home restoration across Calgary — deep interior extraction, paint restoration, travel included. From ~$100.'",
     evidenceNeeded: {
-      transformationProof: "Before/after photos of genuinely dirty vehicles — not staged, not minor jobs. Real Calgary vehicles in problem-state restored to factory-feel.",
+      transformationProof: "Before/after photos of genuinely dirty homes — not staged, not minor jobs. Real Calgary homes in problem-state restored to factory-feel.",
       pricingClarity: "Starting price visible immediately. 'From ~$100' with clear 'travel included, no hidden fees' language.",
       mobileConfirmation: "'We come to you' — not buried, prominent. Calgary-wide coverage stated.",
       founderCredibility: "Real name, real face. Not a corporate facade. Cochrane Master Builders's presence signals personal accountability.",

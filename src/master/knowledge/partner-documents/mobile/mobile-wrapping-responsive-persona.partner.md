@@ -47,7 +47,7 @@ These memory-backed rules outrank generic persona advice when in conflict.
 - 4-step funnel + photo upload (`mem://features/booking-funnel`) — photo input uses `accept="image/*"` and `capture="environment"` for native camera.
 
 ### 4.3 Hero & arrival on mobile
-- Hero (`hero-vehicle.jpg`) and 5-phase loading sequence (`mem://design/hero-section-lock`, `mem://features/loading-sequence`) play on mobile. Split-curtain reveal, CW monogram breathing glow, Ken Burns scale, hero interactive shine — all preserved.
+- Hero (`hero-home.jpg`) and 5-phase loading sequence (`mem://design/hero-section-lock`, `mem://features/loading-sequence`) play on mobile. Split-curtain reveal, CW monogram breathing glow, Ken Burns scale, hero interactive shine — all preserved.
 - Mobile art-direction: portrait-friendly focal point. Use `<picture>` with `media="(max-width: 768px)"` to swap to a portrait crop — never CSS-scale the desktop landscape.
 - Parallax coverage (`mem://tech/parallax-coverage-specs`) — 130% / -15% rule still applies. `prefers-reduced-motion` fallback on low-power devices.
 
@@ -68,7 +68,7 @@ These memory-backed rules outrank generic persona advice when in conflict.
 - Bottom-thumb-zone sticky **Book** CTA is the persistent action; no bottom nav bar (single-conversion brand).
 
 ### 4.7 Imagery & content
-- Macro automotive detailing photography (`mem://design/image-content-direction`) — re-crop tight for mobile, no stock substitutions.
+- Macro residential finishing photography (`mem://design/image-content-direction`) — re-crop tight for mobile, no stock substitutions.
 - No human imagery (`mem://constraints/image-content-restrictions`).
 - Editorial blocks stay borderless (`mem://design/component-styling`); mobile vertical padding `py-48` → `py-24` while preserving negative space.
 

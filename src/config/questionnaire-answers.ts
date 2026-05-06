@@ -27,7 +27,7 @@ export const QUESTIONNAIRE_ANSWERS = {
   vision: {
     "1.1_oneSentenceVision": "A local trusted detailing spot with reasonable pricing.",
     "1.2_whyStarted":
-      "It is enjoyable to me, I also find a lot of people either don't have the time or purely don't want to detail their own vehicles so its a way i can help others in their day to day life.",
+      "It is enjoyable to me, I also find a lot of people either don't have the time or purely don't want to detail their own homes so its a way i can help others in their day to day life.",
     "1.3_firstThoughtAssociation": "Sweet I don't need to clean my car… he can.",
     "1.4_knownForMost": "Honest service, premium service and good value.",
     "1.5_directionOfBusiness": "A small team in Calgary",
@@ -41,17 +41,17 @@ export const QUESTIONNAIRE_ANSWERS = {
   services: {
     "2.1_mainServicesToday":
       "Basic wash: interior vacuum, dash board and console cleaning, seats and carpet shampoo, leather and plastic conditioning, window and mirror cleaning, door cleaning, trunk cleaning mats clean.",
-    "2.2_simpleExplanation": "I restore the looks of a vehicle on the inside and outside.",
+    "2.2_simpleExplanation": "I restore the looks of a home on the inside and outside.",
     "2.3_leadServiceForWebsite": "the basic wash and full detail",
     "2.4_fullDetailIncludes":
       "Full detail: basic wash, hand wash exterior, tires and rims, clay bar, sealant",
     "2.5_alwaysIncluded": "All interior cleaning",
-    "2.6_variableByVehicle": "the budget may change by the difference of vehicle type.",
+    "2.6_variableByHome": "the budget may change by the difference of home type.",
     "2.7_hasAddOns": "Yes",
     "2.8_addOnsList": "Ceramic spray coat, clay bar and iron extraction on exterior.",
     "2.9_servicesNotOffered": "Paint polishing",
     "2.10_bestAtFixing": "Heavy grime, dirt, stains",
-    "2.11_bestFitVehicles": "Any vehicle types",
+    "2.11_bestFitHomes": "Any home and project types",
     "2.12_notAGoodFit": "Heavy machinery",
   },
 
@@ -60,11 +60,11 @@ export const QUESTIONNAIRE_ANSWERS = {
   // ═══════════════════════════════════════════════════════════════════
   standards: {
     "3.1_meaningOfFactory":
-      "To bring the vehicle as close to factory spec for cosmetics as humanly possible",
-    "3.2_proudResultLevel": "Restoration realistic to the situation of the vehicle",
+      "To bring the home as close to factory spec for cosmetics as humanly possible",
+    "3.2_proudResultLevel": "Restoration realistic to the situation of the home",
     "3.3_realisticExpectation":
       "Results of satisfaction, not perfect but noticeable change from before to after.",
-    "3.4_doNotExpect": "a full revive of their vehicle, heavily damaged surface restoration",
+    "3.4_doNotExpect": "a full revive of their home, heavily damaged surface restoration",
     "3.5_basicCleanVsCochrane Master Builders":
       "I pay attention to little details, i strive for quality over quantity. I want to do this to the best of my ability, and to a satisfying level for the customers.",
     "3.6_differenceFromCompetitors": "question 3.5 answers this.",
@@ -79,7 +79,7 @@ export const QUESTIONNAIRE_ANSWERS = {
   // ═══════════════════════════════════════════════════════════════════
   audience: {
     "4.1_idealCustomer": "Someone looking for a clean up and car recovery",
-    "4.2_bestFitGroup": "People selling their vehicles, anyone with a car",
+    "4.2_bestFitGroup": "People selling their homes, anyone with a car",
     "4.3_valuesServiceMost": "people with no time to do it themselves, those who like the convenience",
     "4.4_enjoyWorkingWith":
       "someone that is incapable of doing it themselves or someone that it genuinely helps out.",
@@ -88,7 +88,7 @@ export const QUESTIONNAIRE_ANSWERS = {
     "4.7_feelingsBefore": "That their car is too dirty for them to clean it themselves.",
     "4.8_feelingsAfter": "visible transformation, feeling of renewal.",
     "4.9_whatTheyCareAbout": "mix of all of the above, trust and visible transformation being bigger ideas",
-    "4.10_audienceBreadth": "Anyone that values cleanliness and basic care for their vehicle.",
+    "4.10_audienceBreadth": "Anyone that values cleanliness and basic care for their home.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -101,7 +101,7 @@ export const QUESTIONNAIRE_ANSWERS = {
     "5.3_immediateChange": "The visual colour/shade change. Shininess in the paint.",
     "5.4_idealCustomerQuote":
       "\"oh wow, it turned out really good\" \"i can see myself in the paint\"",
-    "5.5_gettingCarBackMeaning": "seeing their vehicle back to where it might have once been",
+    "5.5_gettingCarBackMeaning": "seeing their home back to where it might have once been",
     "5.6_greatBeforeAfter":
       "visible transformation, example: black carpet looking like a black carpet, without specs of food or other colour.",
     "5.7_transformationFocus": "extreme worst of worst to the best of out ability",
@@ -122,7 +122,7 @@ export const QUESTIONNAIRE_ANSWERS = {
     "6.7_typicalDuration": "3-5 hours",
     "6.8_durationVariables":
       "if the car is very dirty in the interior, muddy, filled with stains, in need to move stuff around.",
-    "6.9_priceVariables": "dirtiness of vehicle or distance in which i need to travel, if it's urgent",
+    "6.9_priceVariables": "dirtiness of home or distance in which i need to travel, if it's urgent",
     "6.10_handlingDirtyCars":
       "depending on how much dirtier they are ill ask the customer if they are ok with extra charge of time and product.",
     "6.11_serviceRules":
@@ -172,7 +172,7 @@ export const QUESTIONNAIRE_ANSWERS = {
     "9.3_neverUsePhrases": "\"the work i do is perfect.\"",
     "9.4_friendDescription":
       "I clean cars, i make them look like they just came off the dealership lot or as close to that as possible",
-    "9.5_cochraneWoodHelpsPeopleWho": "cant or don't have time to keep their vehicles clean themselves.",
+    "9.5_cochraneWoodHelpsPeopleWho": "cant or don't have time to keep their homes clean themselves.",
     "9.6_realValueIs": "to serve people at a good price.",
     "9.7_worthPayingForBecause":
       "that you know ill do the best to my ability and or up to the customers satisfaction.",
@@ -190,10 +190,10 @@ export const QUESTIONNAIRE_ANSWERS = {
       "Understand services, book right away, see before and agrees, compare packages",
     "10.4_neededPages": "services, about, homepage, reviews, contact",
     "10.5_questionsToAnswer":
-      "how long it take for details, 3-5 hours\n\"How do i prepare my car?\" Take all personal items out of vehicle\n\"What kind of payments are accepted?\" Cash, E-transfer, Card\n\"Do you deal with dog hair and stains?\" Yes, i deal with both as well as i can.",
+      "how long it take for details, 3-5 hours\n\"How do i prepare my car?\" Take all personal items out of home\n\"What kind of payments are accepted?\" Cash, E-transfer, Card\n\"Do you deal with dog hair and stains?\" Yes, i deal with both as well as i can.",
     "10.6_questionsToAnswerPersonally": "any thing to do with results, after services.",
     "10.7_preBookingUnderstanding":
-      "price may vary from packages based on vehicle types, sedan, SUV/trucks, minivans\nIt's as close to perfection as possible",
+      "price may vary from packages based on home and project types, sedan, SUV/trucks, minivans\nIt's as close to perfection as possible",
     "10.8_bounceRisk": "im not sure",
   },
 
@@ -204,7 +204,7 @@ export const QUESTIONNAIRE_ANSWERS = {
     "11.1_topQuestions": "How long does it take? What do you need from me? How do I pay?",
     "11.2_commonMisunderstanding": "unsure",
     "11.3_topWorries": "not sure",
-    "11.4_mobileServiceExplanation": "I go to them, can be just as good as going to a detailing shop.",
+    "11.4_mobileServiceExplanation": "I go to them, can be just as good as going to a finishing trade.",
     "11.5_timingAccessPrep":
       "I need access to exterior water and electricity. Need about 15 mins flexibility from selected times for work. The car must not have any personal items in it.",
     "11.6_pricingConditionRules":
@@ -257,11 +257,11 @@ export const QUESTIONNAIRE_ANSWERS = {
     "15.3_oneThingToRemember":
       "I want them to remember that i have a high standard and am will to do anything to reach that standard.",
     "15.4_realStory":
-      "Ive thought of this business idea for a couple years, this year it came back to me and I decided I can't be half in and half out. I decided to buy the equipment and spread the word through my friends and church. I chose car detailing because it is a work almost strictly based off of experience, so i figured as i go in experience the business will grow with me.",
+      "Ive thought of this business idea for a couple years, this year it came back to me and I decided I can't be half in and half out. I decided to buy the equipment and spread the word through my friends and church. I chose interior finishing because it is a work almost strictly based off of experience, so i figured as i go in experience the business will grow with me.",
     "15.5_obviousButNotObvious":
       "the vision is to build something reliable and trustworthy right out of the gate. Something with straight forward and honest feel.",
     "15.6_aboutMeMemo":
-      "Hi, i am Cochrane Master Builders, the owner of StreetSmart detailing. I started this company to serve people with high-quality car detailing with affordable prices and trustworthy results. When i was young (10-15years old) my parents would let me clean their cars for a quick buck. I didn't mind that it was cheap for a car cleaning, i still did my best with the equipment provided. As my parents trusted me to do a good job for something affordable for them with StreetSmart detailing I hope to keep that same feeling. I strive to be trust worthy, reliable, affordable, and satisfactory for all customers. Outside of work I spend time with friends and family. I love serving at church, and I am a student at tehillah Ministry school. I keep Jesus at the centre of all the work i do, assuring everything is done to the best of my ability. If you are someone looking to get your car detailed and value affordability and premium quality please consider booking with me today.",
+      "Hi, i am Cochrane Master Builders, the owner of StreetSmart detailing. I started this company to serve people with high-quality interior finishing with affordable prices and trustworthy results. When i was young (10-15years old) my parents would let me clean their cars for a quick buck. I didn't mind that it was cheap for a car cleaning, i still did my best with the equipment provided. As my parents trusted me to do a good job for something affordable for them with StreetSmart detailing I hope to keep that same feeling. I strive to be trust worthy, reliable, affordable, and satisfactory for all customers. Outside of work I spend time with friends and family. I love serving at church, and I am a student at tehillah Ministry school. I keep Jesus at the centre of all the work i do, assuring everything is done to the best of my ability. If you are someone looking to get your car detailed and value affordability and premium quality please consider booking with me today.",
   },
 } as const;
 
@@ -329,7 +329,7 @@ export const SOURCE_OF_TRUTH = {
     rules: {
       firmness:
         "Prices are firm, except in extreme cases (excess hair, mud) — extra charge discussed with customer in advance.",
-      affectedBy: ["Vehicle type/size", "Condition (extreme only)", "Travel distance", "Urgency"],
+      affectedBy: ["Home type/size", "Condition (extreme only)", "Travel distance", "Urgency"],
       displayStyle: "Exact prices, possibly mixed with starting prices",
       fairnessFraming: "Price reflects the result, not the time spent.",
     },
@@ -345,7 +345,7 @@ export const SOURCE_OF_TRUTH = {
       "Power outlet (electricity)",
       "Driveway space",
       "Car keys",
-      "All personal items removed from the vehicle",
+      "All personal items removed from the home",
     ],
     cleaningOrder: "Exterior first, then interior",
     postJob: ["Payment", "Satisfaction check", "Review request", "Follow-up text 2 weeks – 1 month later"],
@@ -366,15 +366,15 @@ export const SOURCE_OF_TRUTH = {
   },
 
   // ─── VEHICLE SCOPE ─────────────────────────────────────────────────
-  vehicleScope: {
-    accepted: "Any vehicle up to and including a minivan",
+  homeScope: {
+    accepted: "Any home up to and including a minivan",
     rejected: ["Anything larger than a minivan", "Semis", "Buses", "Heavy machinery"],
     bestFitProblems: ["Heavy grime", "Embedded dirt", "Stains"],
   },
 
   // ─── REALISTIC EXPECTATIONS ────────────────────────────────────────
   expectations: {
-    promise: "Restoration realistic to the vehicle's situation — noticeable before/after.",
+    promise: "Restoration realistic to the home's situation — noticeable before/after.",
     notPromised: [
       "Full revival of heavily damaged surfaces",
       "Magical/perfect restoration",
@@ -388,7 +388,7 @@ export const SOURCE_OF_TRUTH = {
     current: "Just starting",
     proofAvailable: "None yet — no testimonials or before/after library yet.",
     implication:
-      "Site MUST NOT claim 'hundreds of vehicles restored' or imply established track record.",
+      "Site MUST NOT claim 'hundreds of homes restored' or imply established track record.",
   },
 
   // ─── OPEN QUESTIONS FOR COCHRANE MASTER BUILDERS ──────────────────────────────────────

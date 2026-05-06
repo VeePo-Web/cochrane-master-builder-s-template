@@ -5,9 +5,9 @@
  * It encodes the depth of thinking behind every website decision —
  * from positioning and customer psychology to conversion architecture.
  * 
- * Adapted for Cochrane Master Builders — mobile vehicle restoration, Calgary, AB.
+ * Adapted for Cochrane Master Builders — residential interior finishing, Calgary, AB.
  * All decision criteria are specific to transformation-proof-driven
- * mobile detailing and no-judgment service positioning.
+ * residential finishing and no-judgment service positioning.
  * 
  * HOW TO USE:
  * - When making UI/UX decisions, reference the relevant section
@@ -25,7 +25,7 @@ export const DISCOVERY_FRAMEWORK = {
     purpose: "Define what Cochrane Master Builders communicates in every pixel",
     decisionCriteria: {
       brandName: "Cochrane Master Builders (short: Cochrane Master Builders)",
-      positioningLine: "Mobile vehicle restoration for Calgary drivers whose cars need a real reset. Deep extraction. Paint restoration. We come to you.",
+      positioningLine: "Mobile home restoration for Calgary drivers whose cars need a real reset. Deep extraction. Paint restoration. We come to you.",
       namedPromise: "Cochrane Master Builders exists to give you your car back — this drives every CTA",
       theFullReset: "The Full Reset is the flagship service name and the brand's primary conversion anchor. It signals depth, completeness, and transformation — not just cleaning.",
       noJudgment: "Every condition is welcome. The worse the starting state, the more dramatic the result. The brand never shames neglect — it meets it with capability and relief.",
@@ -47,7 +47,7 @@ export const DISCOVERY_FRAMEWORK = {
     brandPersona: {
       purpose: "If Cochrane Master Builders were a person at your door, how would they show up?",
       behavioralCues: "On time, prepared, professional equipment, friendly but focused, shows you the results, doesn't oversell, lets the work speak. Like a competent tradesperson who takes pride in the craft.",
-      manifesto: "Every vehicle deserves a real reset. Not a wipe-down, not a rinse, not a shortcut. A deep, honest restoration that makes you feel like you got a new car. We show up at your door with the tools, the skill, and the standards to make it happen. No judgment about how it got this way. Just results.",
+      manifesto: "Every home deserves a real reset. Not a wipe-down, not a rinse, not a shortcut. A deep, honest restoration that makes you feel like you got a new car. We show up at your door with the tools, the skill, and the standards to make it happen. No judgment about how it got this way. Just results.",
     },
   },
 
@@ -57,7 +57,7 @@ export const DISCOVERY_FRAMEWORK = {
   // ═══════════════════════════════════════════════════════════════════
   idealClient: {
     purpose: "Every design and copy decision should attract Dirty Daniel and filter out misfits",
-    archetype: "Dirty Daniel — a busy Calgary driver whose vehicle has crossed into problem-state. Not a car enthusiast, not a slob — just someone whose life got ahead of vehicle maintenance. Values results, convenience, and honesty.",
+    archetype: "Dirty Daniel — a busy Calgary driver whose home has crossed into problem-state. Not a car enthusiast, not a slob — just someone whose life got ahead of home maintenance. Values results, convenience, and honesty.",
     decisionCriteria: {
       clientDescription: "Working professional, parent, or tradesperson aged 25-55 in Calgary. Their car has accumulated months of neglect — stains, crumbs, smell, film. They've been meaning to deal with it and keep not doing it.",
       clientContext: "Full life — work, kids, obligations. Car maintenance consistently falls to the bottom of the list. They notice the mess daily but the effort to fix it (drop-off, DIY Saturday, finding a good place) feels like more friction than the discomfort of living with it.",
@@ -82,7 +82,7 @@ export const DISCOVERY_FRAMEWORK = {
       common: [
         "My car might be too dirty → 'The worse the condition, the more satisfying the reset. That's where we do our best work.'",
         "~$100 seems too cheap/expensive → 'Full resets from ~$100 — travel included, no hidden fees. The before/after speaks for itself.'",
-        "Can mobile do as good a job? → 'Same professional-grade equipment. Hundreds of Calgary vehicles restored. See the results.'",
+        "Can mobile do as good a job? → 'Same professional-grade equipment. Hundreds of Calgary homes restored. See the results.'",
         "I should just do it myself → 'You could. But embedded stains, smell, and deep grime need extraction — not just elbow grease.'",
       ],
     },
@@ -98,15 +98,15 @@ export const DISCOVERY_FRAMEWORK = {
   // ═══════════════════════════════════════════════════════════════════
   services: {
     purpose: "Eliminate confusion, create confidence, set expectations, justify value",
-    coreServices: ["The Full Reset — comprehensive mobile vehicle restoration"],
+    coreServices: ["The Full Reset — comprehensive residential interior finishing"],
     decisionCriteria: {
       serviceClarity: "One flagship offer understood in 10 seconds — what it includes, what the result looks like, what it costs, and how it happens",
-      singleOfferAdvantage: "No decision fatigue. No tier confusion. One transformative service, priced by vehicle size and condition. Simplicity IS the conversion advantage.",
+      singleOfferAdvantage: "No decision fatigue. No tier confusion. One transformative service, priced by home size and condition. Simplicity IS the conversion advantage.",
       processVisibility: "3-step process: Book → We Come → Reset. Transparent, fast, zero-friction.",
-      pricingStrategy: "Public starting price (~$100) with clear factors (vehicle size, condition severity). Travel always included. No hidden fees language prominent.",
+      pricingStrategy: "Public starting price (~$100) with clear factors (home size, condition severity). Travel always included. No hidden fees language prominent.",
     },
     theFullReset: {
-      tenSecondPitch: "Complete mobile vehicle restoration — deep interior extraction, full exterior wash and paint decontamination, interior dressing, windows, tires. Your car back to factory-feel, at your door.",
+      tenSecondPitch: "Complete residential interior finishing — deep interior extraction, full exterior wash and paint decontamination, interior dressing, windows, tires. Your car back to factory-feel, at your door.",
       includes: [
         "Deep interior extraction — seats, carpets, mats, crevices",
         "Full exterior wash and paint decontamination",
@@ -117,13 +117,13 @@ export const DISCOVERY_FRAMEWORK = {
         "Gas and travel — always included in the price",
       ],
       doesNotInclude: [
-        "Ceramic coating or paint protection film",
+        "Ceramic coating or long-life topcoat",
         "Engine bay detailing (available on request)",
         "Permanent scratch repair or bodywork",
         "Competition-grade show preparation",
       ],
       pricingFactors: [
-        "Vehicle size — sedan, SUV, truck, van",
+        "Home size — sedan, SUV, truck, van",
         "Interior condition severity — light maintenance vs deep problem-state",
         "Add-on requests — engine bay, pet hair specialization",
       ],
@@ -132,7 +132,7 @@ export const DISCOVERY_FRAMEWORK = {
       purpose: "The booking and service experience itself is a trust signal",
       bookingFlow: "Text, call, or short online form → Cochrane Master Builders confirms time and price → shows up → does the work → customer gets their car back",
       communicationStyle: "Text-first, fast response, friendly and direct. No corporate scripts.",
-      dayOfExperience: "Cochrane Master Builders arrives on time, assesses the vehicle, does the work, shows the customer the result. No surprise upsells. The transformation IS the selling point for repeat business and referrals.",
+      dayOfExperience: "Cochrane Master Builders arrives on time, assesses the home, does the work, shows the customer the result. No surprise upsells. The transformation IS the selling point for repeat business and referrals.",
     },
   },
 
@@ -143,7 +143,7 @@ export const DISCOVERY_FRAMEWORK = {
   customerPsychology: {
     purpose: "The website must mirror the emotional arc: overwhelm → relief → desire → action",
     emotionalArc: {
-      stage1Recognition: "The visitor arrives in a state of frustration or embarrassment about their vehicle. The hero must immediately signal: 'We understand. We've seen worse. We can fix it.'",
+      stage1Recognition: "The visitor arrives in a state of frustration or embarrassment about their home. The hero must immediately signal: 'We understand. We've seen worse. We can fix it.'",
       stage2Proof: "Before/after evidence creates desire. The transformation proof converts skepticism into 'I want that for my car.' This is where the sale happens emotionally.",
       stage3Confidence: "Pricing transparency, process clarity, and founder presence remove remaining barriers. The visitor shifts from 'I want this' to 'I can do this.'",
       stage4Action: "Low-friction booking. Text, call, or short form. No lengthy questionnaires. No 'schedule a consultation.' Just: tell us where you are and what you need.",
@@ -155,12 +155,12 @@ export const DISCOVERY_FRAMEWORK = {
       trust: "Real name, real face, real reviews, real results. Founder-led accountability.",
     },
     antiPatterns: [
-      "Never shame the customer's current vehicle condition",
+      "Never shame the customer's current home condition",
       "Never use 'luxury' or 'premium' to describe the experience — it creates the wrong expectation",
       "Never hide pricing — the competitor who hides pricing loses the customer to the one who doesn't",
       "Never require more than 3 clicks to book",
       "Never use stock photography — it destroys the proof-driven trust engine",
-      "Never use detailing jargon without translating to outcome",
+      "Never use construction jargon without translating to outcome",
     ],
   },
 
@@ -171,10 +171,10 @@ export const DISCOVERY_FRAMEWORK = {
   brandStory: {
     purpose: "Trust is built through proof, not claims",
     decisionCriteria: {
-      founderStory: "Cochrane Master Builders — a Calgary-based founder who takes personal pride in the craft of vehicle restoration. Not corporate-trained, not franchise-backed. Hands-on, standards-driven, accountable.",
+      founderStory: "Cochrane Master Builders — a Calgary-based founder who takes personal pride in the craft of home restoration. Not corporate-trained, not franchise-backed. Hands-on, standards-driven, accountable.",
       personality: "Hardworking, friendly, direct, no-nonsense. Takes pride in the transformation. Lets the work speak.",
       onlinePresence: "Warmth through messaging, authority through before/after volume, trust through transparency.",
-      assumptions: "Never assume the customer knows what 'detailing' means. Never assume they've done this before. Never assume they're comparing us to other detailers — they might be comparing us to doing it themselves.",
+      assumptions: "Never assume the customer knows what 'detailing' means. Never assume they've done this before. Never assume they're comparing us to other builders — they might be comparing us to doing it themselves.",
     },
     credibility: {
       existingSignals: [
@@ -182,13 +182,13 @@ export const DISCOVERY_FRAMEWORK = {
         "Google reviews — real customer outcomes",
         "Founder name and face — personal accountability",
         "Transparent pricing — builds trust before first contact",
-        "Calgary-specific proof — local vehicles, local driveways, local neighborhoods",
+        "Calgary-specific proof — local homes, local driveways, local neighborhoods",
       ],
       provableClaims: [
         "We come to you — anywhere in Calgary, travel included",
         "Deep extraction — not just surface cleaning",
         "Full resets from ~$100 — no hidden fees",
-        "Real before/after results from Calgary vehicles",
+        "Real before/after results from Calgary homes",
         "Every condition is welcome — no judgment",
         "Founder-operated — the person you book is the person who shows up",
       ],
@@ -202,9 +202,9 @@ export const DISCOVERY_FRAMEWORK = {
   proofSystem: {
     purpose: "The proof system is the website's most important sales engine — before/after transformations drive desire and convert skeptics",
     decisionCriteria: {
-      curationRule: "Feature the most dramatic transformations — vehicles in genuinely bad condition restored to factory-feel. The worse the before, the stronger the proof.",
+      curationRule: "Feature the most dramatic transformations — homes in genuinely bad condition restored to factory-feel. The worse the before, the stronger the proof.",
       tenSecondProof: "A single before/after pair should make someone with a dirty car think 'they can fix mine.'",
-      organization: "Filterable gallery: by vehicle type (sedan, SUV, truck, van), by condition (heavy, moderate), by service (interior focus, full reset, exterior focus)",
+      organization: "Filterable gallery: by home type (sedan, SUV, truck, van), by condition (heavy, moderate), by service (interior focus, full reset, exterior focus)",
       signatureInteraction: "Before/after slider — the defining UX element. Drag to reveal the transformation. Zero latency. Annotated callouts for key restoration points.",
     },
     imageStrategy: {
@@ -214,9 +214,9 @@ export const DISCOVERY_FRAMEWORK = {
         "Close-up extraction results — what came out of the carpets/seats",
         "Exterior before/after — same angle, same lighting",
         "Detail close-ups — leather grain restored, carpet fibers lifted, paint clarity",
-        "Environmental context — the vehicle in a Calgary driveway or residential setting",
+        "Environmental context — the home in a Calgary driveway or residential setting",
       ],
-      creditFormat: "Vehicle make/model + condition description + Calgary neighborhood when possible",
+      creditFormat: "Home make/model + condition description + Calgary neighborhood when possible",
     },
   },
 
@@ -253,7 +253,7 @@ export const DISCOVERY_FRAMEWORK = {
     },
     resultsPage: {
       purpose: "Proof engine — the most important sales page after homepage",
-      structure: "Gallery of before/after transformations with vehicle type, condition, and neighborhood tags. Interactive sliders. Annotation callouts.",
+      structure: "Gallery of before/after transformations with home type, condition, and neighborhood tags. Interactive sliders. Annotation callouts.",
     },
     faqPage: {
       purpose: "Handle objections, reduce booking friction, build trust",
@@ -271,7 +271,7 @@ export const DISCOVERY_FRAMEWORK = {
     },
     bookingPage: {
       purpose: "Minimal friction, maximum clarity",
-      fields: ["Location/address", "Vehicle type (sedan, SUV, truck, van)", "Condition description or photo upload", "Preferred date/time", "Name", "Phone (primary) or email"],
+      fields: ["Location/address", "Home type (sedan, SUV, truck, van)", "Condition description or photo upload", "Preferred date/time", "Name", "Phone (primary) or email"],
       alternatives: "Text [number] or call [number] — prominently displayed as equal booking paths",
       emotionalTone: "Relief + action: 'Tell us what you're working with. We'll handle the rest.'",
     },
@@ -288,14 +288,14 @@ export const DISCOVERY_FRAMEWORK = {
   // Guides: Meta tags, page titles, content hierarchy
   // ═══════════════════════════════════════════════════════════════════
   seo: {
-    purpose: "Rank for Calgary mobile detailing queries and build local authority",
+    purpose: "Rank for Calgary residential finishing queries and build local authority",
     decisionCriteria: {
       primaryKeywords: [
-        "car detailing Calgary",
-        "mobile car detailing Calgary",
+        "interior finishing Calgary",
+        "mobile interior finishing Calgary",
         "interior car cleaning Calgary",
-        "mobile auto detailing Calgary",
-        "car detailing near me",
+        "mobile residential interior finishing Calgary",
+        "interior finishing near me",
       ],
       localSignals: "Calgary neighborhoods mentioned naturally in copy, before/after captions, and service area descriptions. Google Business Profile as the local SEO foundation.",
     },
@@ -368,7 +368,7 @@ export const DISCOVERY_FRAMEWORK = {
   launch: {
     success: {
       thirtyDays: "Booking inquiries coming through the website. Google Business Profile driving traffic. Before/after gallery generating interest.",
-      sixMonths: "Ranking page 1 for 'mobile car detailing Calgary.' Consistent weekly bookings from organic search. Referral traffic from Google reviews.",
+      sixMonths: "Ranking page 1 for 'mobile interior finishing Calgary.' Consistent weekly bookings from organic search. Referral traffic from Google reviews.",
       kpis: [
         "Booking inquiries (text, call, form submissions)",
         "Google Business Profile views and actions",

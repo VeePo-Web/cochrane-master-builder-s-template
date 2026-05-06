@@ -46,7 +46,7 @@ It is the canonical reference for:
 These rules translate the generic persona into the specific guardrails this codebase already enforces via memory. **All of them outrank the generic persona when they conflict.**
 
 ### 4.1 Hero & arrival choreography
-- The homepage hero asset (e.g. `hero-vehicle.jpg` per `mem://design/hero-section-lock`) is the LCP element. It **must** be preloaded (`<link rel="preload" as="image" fetchpriority="high">`) and converted to AVIF/WebP with a JPEG fallback via `<picture>`.
+- The homepage hero asset (e.g. `hero-home.jpg` per `mem://design/hero-section-lock`) is the LCP element. It **must** be preloaded (`<link rel="preload" as="image" fetchpriority="high">`) and converted to AVIF/WebP with a JPEG fallback via `<picture>`.
 - The **5-phase loading sequence** (`mem://features/loading-sequence`), the split-curtain reveal, the CW monogram breathing glow, the Ken Burns scaling, and the hero interactive shine **must not be shortened, removed, or "optimized away"** to improve LCP. They are part of the product.
 - If the loading sequence is hurting INP/LCP, the legitimate moves are: GPU compositing (`transform`/`opacity` only, `will-change` on the curtain layers), preloading the hero before the curtain lifts, throttling work during the sequence via `requestIdleCallback`, and respecting `prefers-reduced-motion` as a *fallback path* — never as a default.
 
@@ -66,7 +66,7 @@ These rules translate the generic persona into the specific guardrails this code
 - Space Grotesk (display) and Jost (body) at light weights (300/400) per `mem://constraints/typography-legibility`. Performance moves: self-host, subset to used Latin glyphs + numerals, `font-display: swap`, and `<link rel="preload" as="font" type="font/woff2" crossorigin>` for the two weights actually used above-the-fold. **Do not swap the font families.**
 
 ### 4.6 Imagery
-- Macro automotive detailing photography (`mem://design/image-content-direction`) — large, intentional, hero-grade. Optimize via AVIF + WebP fallback, responsive `srcset` with a 1.5x and 2x variant for the 928×672 viewport tier upward, `loading="lazy"` + `decoding="async"` on everything below the fold, `loading="eager" fetchpriority="high"` only on the hero. Never replace photography with placeholders or smaller crops to reduce weight.
+- Macro residential finishing photography (`mem://design/image-content-direction`) — large, intentional, hero-grade. Optimize via AVIF + WebP fallback, responsive `srcset` with a 1.5x and 2x variant for the 928×672 viewport tier upward, `loading="lazy"` + `decoding="async"` on everything below the fold, `loading="eager" fetchpriority="high"` only on the hero. Never replace photography with placeholders or smaller crops to reduce weight.
 - The image restriction (`mem://constraints/image-content-restrictions` — no human imagery) still applies.
 
 ### 4.7 Mobile

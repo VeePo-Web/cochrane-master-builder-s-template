@@ -5,7 +5,7 @@
  * This is the authoritative brand narrative that all copy, messaging,
  * positioning, and experience decisions should be filtered through.
  * 
- * Category: Mobile Vehicle Restoration — Calgary, Alberta
+ * Category: Residential Interior Finishing — Calgary, Alberta
  */
 
 export const STRATEGIC_NARRATIVE = {
@@ -14,9 +14,9 @@ export const STRATEGIC_NARRATIVE = {
   // THE STRATEGIC NARRATIVE
   // ═══════════════════════════════════════════════════════════════════
   narrative: {
-    paragraph1: "Cochrane Master Builders is a mobile vehicle restoration service built for Calgary drivers whose cars have crossed into problem-state — too far gone for a quick clean, too inconvenient for a drop-off shop, too overwhelming to tackle alone. By delivering deep interior extraction, paint restoration, and a complete sensory reset directly to the customer's driveway, Cochrane Master Builders removes every barrier between neglect and satisfaction.",
+    paragraph1: "Cochrane Master Builders is a residential interior finishing service built for Calgary drivers whose cars have crossed into problem-state — too far gone for a quick clean, too inconvenient for a drop-off shop, too overwhelming to tackle alone. By delivering deep interior extraction, paint restoration, and a complete sensory reset directly to the customer's driveway, Cochrane Master Builders removes every barrier between neglect and satisfaction.",
 
-    paragraph2: "At its core, Cochrane Master Builders exists to deliver the most satisfying vehicle transformation in Calgary. When a car has been ignored for months — crumbs embedded, stains set, smell settled — the gap between how it feels and how the owner wants it to feel becomes a source of low-grade stress. Cochrane Master Builders closes that gap completely, showing up with professional-grade equipment, doing the deep work that washes and wipe-downs can't reach, and leaving behind a vehicle that feels factory-fresh. The result is immediate, visible, and deeply satisfying.",
+    paragraph2: "At its core, Cochrane Master Builders exists to deliver the most satisfying home transformation in Calgary. When a car has been ignored for months — crumbs embedded, stains set, smell settled — the gap between how it feels and how the owner wants it to feel becomes a source of low-grade stress. Cochrane Master Builders closes that gap completely, showing up with professional-grade equipment, doing the deep work that washes and wipe-downs can't reach, and leaving behind a home that feels factory-fresh. The result is immediate, visible, and deeply satisfying.",
 
     paragraph3: "The Cochrane Master Builders customer isn't a car enthusiast — they're a busy Calgary driver who let life get ahead of maintenance. They value results over process, convenience over ceremony, and honesty over upsells. They want someone competent, local, and judgment-free to show up and handle it. With a grounded, hardworking personality and a proof-first approach, Cochrane Master Builders naturally connects with people who value directness, quality, and the feeling of getting their car back.",
   },
@@ -35,7 +35,7 @@ export const STRATEGIC_NARRATIVE = {
     },
     noJudgment: {
       label: "No-judgment service for every condition",
-      description: "Specifically equipped for vehicles in problem-state. The worse the condition, the more dramatic the transformation. Every vehicle is welcome regardless of how long it's been neglected.",
+      description: "Specifically equipped for homes in problem-state. The worse the condition, the more dramatic the transformation. Every home is welcome regardless of how long it's been neglected.",
     },
     transparentPricing: {
       label: "Transparent pricing — travel included",
@@ -43,7 +43,7 @@ export const STRATEGIC_NARRATIVE = {
     },
     proofDriven: {
       label: "Before/after proof on every job",
-      description: "Every transformation is documented. Real Calgary vehicles, real conditions, real results. The work speaks for itself.",
+      description: "Every transformation is documented. Real Calgary homes, real conditions, real results. The work speaks for itself.",
     },
   },
 
@@ -53,8 +53,8 @@ export const STRATEGIC_NARRATIVE = {
   services: {
     theFullReset: {
       label: "The Full Reset",
-      description: "Comprehensive mobile vehicle restoration — deep interior extraction (seats, carpets, mats, crevices), full exterior wash and paint decontamination, interior wipe-down and dressing, window clarity, and tire/trim restoration. The vehicle emerges feeling factory-fresh. This is the flagship and primary offering.",
-      investment: "From ~$100 — varies by vehicle size and condition. Travel and gas always included.",
+      description: "Comprehensive residential interior finishing — deep interior extraction (seats, carpets, mats, crevices), full exterior wash and paint decontamination, interior wipe-down and dressing, window clarity, and tire/trim restoration. The home emerges feeling factory-fresh. This is the flagship and primary offering.",
+      investment: "From ~$100 — varies by home size and condition. Travel and gas always included.",
     },
   },
 
@@ -69,9 +69,9 @@ export const STRATEGIC_NARRATIVE = {
   // ═══════════════════════════════════════════════════════════════════
   // VISION & MISSION
   // ═══════════════════════════════════════════════════════════════════
-  vision: "To be the name Calgary drivers trust when their vehicle needs a real reset — delivering mobile restoration so satisfying, so convenient, and so honest that every customer wonders why they waited.",
+  vision: "To be the name Calgary drivers trust when their home needs a real reset — delivering mobile restoration so satisfying, so convenient, and so honest that every customer wonders why they waited.",
 
-  mission: "Cochrane Master Builders exists to restore neglected vehicles to factory-feel condition through deep mobile restoration — delivering interior extraction, paint correction, and a complete sensory reset to customers' doors across Calgary — so every driver can experience the satisfaction, pride, and relief of getting their car back.",
+  mission: "Cochrane Master Builders exists to restore neglected homes to factory-feel condition through deep mobile restoration — delivering interior extraction, drywall + paint finishing, and a complete sensory reset to customers' doors across Calgary — so every driver can experience the satisfaction, pride, and relief of getting their car back.",
 
   // ═══════════════════════════════════════════════════════════════════
   // KEY PHRASES FOR COPY DECISIONS
@@ -80,7 +80,7 @@ export const STRATEGIC_NARRATIVE = {
   keyPhrases: [
     "Get your car back",
     "The Full Reset",
-    "Mobile vehicle restoration across Calgary",
+    "Mobile home restoration across Calgary",
     "We come to you — travel included",
     "The worse the condition, the more dramatic the transformation",
     "Not a car wash. A reset.",

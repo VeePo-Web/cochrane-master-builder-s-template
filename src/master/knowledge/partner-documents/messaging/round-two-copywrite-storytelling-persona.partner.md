@@ -120,7 +120,7 @@ If a copy change *requires* a layout change to fit, flag it — don't silently r
 ## 9. Global vs Specific
 
 - **Global** for *methodology*: narrative backbone, voice/tone discipline, page-by-page workflow, accessibility / inclusion guardrails — apply to every brand.
-- **Specific** for *language*: actual voice (luxury automotive, family construction, etc.) is set by the active brand's identity docs and memories — those override the source's example archetypes.
+- **Specific** for *language*: actual voice (family-legacy residential, family construction, etc.) is set by the active brand's identity docs and memories — those override the source's example archetypes.
 - **Hard floor**: design-elements rule is non-negotiable. No partner doc, no brand layer, no future request can authorise visual changes through this lane.
 
 ## 10. Adaptation Notes (Conflict Rule Applied — Source Preserved Verbatim)
@@ -179,7 +179,7 @@ Read `mem://design/hero-section-lock` (visual locked). Apply narrative backbone:
 Origin story (founder's first car-detail epiphany), mission in one sentence, 3 values with one-sentence each, optional timeline phrased as turning points. No team-portrait copy unless photography exists. Caregiver + Creator archetype voice.
 
 **C. "Make the Services page CTAs more emotional."**
-Replace generic verbs. Each CTA pairs *invitation* + *next emotional step*: "Schedule the deep restore" / "Reserve a paint correction consult" / "Walk through the interior detail." Never "Submit" or "Click here."
+Replace generic verbs. Each CTA pairs *invitation* + *next emotional step*: "Schedule the deep restore" / "Reserve a drywall + paint finishing consult" / "Walk through the interior detail." Never "Submit" or "Click here."
 
 **D. "Tighten the FAQ copy."**
 Cross-consult `seo-faq-optimization-persona`. For each Q: Direct Answer (one sentence) → Context → Factors / Range → CTA with internal link. Match Cochrane Master Builders voice. JSON-LD must mirror visible text exactly.
