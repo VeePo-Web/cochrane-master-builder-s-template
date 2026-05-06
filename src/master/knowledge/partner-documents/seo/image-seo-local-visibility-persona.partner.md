@@ -204,7 +204,7 @@ Hard rules:
 |-----------|----------|
 | Generic example filenames (`calgary-cafe-400w.jpg`, `latte-art-blue-cup.jpg`, `nike-air-max-97-silver-sku12345.jpg`, `croissant-paris-fr.jpg`) | Inspiration only. Use Cochrane Master Builders naming conventions above. |
 | "Calgary coffee shop interior with plants" example alt | Translate the *pattern*, not the content. Use Cochrane Master Builders subjects. |
-| Wedding / café / restaurant / coffee references | Out of scope. Cochrane Master Builders = automotive detailing. |
+| Wedding / café / restaurant / coffee references | Out of scope. Cochrane Master Builders = residential finishing. |
 | "Diverse ethnicities, ages, genders and abilities" inclusive-imagery guidance | Methodology valid; specific application blocked by `mem://constraints/image-content-restrictions` (no human imagery). Cochrane Master Builders inclusivity expresses through subject access (cars across budgets, not just exotics) and copy (`messaging/`), not human portraiture. |
 | "Encourage user-generated photos" | Aspirational. Don't invent UGC. Possible future feature. |
 | "Recipe schema" | N/A — not a food site. |

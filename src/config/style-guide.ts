@@ -649,7 +649,7 @@ export const COMPONENTS = {
       ctaButton: {
         variant: "primary (pill copper)",
         size: "height 40px, paddingX 24px, fontSize 0.8125rem",
-        label: "Book Now",
+        label: "Get a Quote",
       },
     },
     mobile: {
@@ -748,9 +748,9 @@ export const COMPONENTS = {
       background: "hsl(220 8% 12% / 0.75)",
       color: "white",
       borderRadius: "2px",
-      examples: ["Kids + Dog Hair", "Coffee Spill", "Full Interior", "Paint Correction"],
+      examples: ["Kids + Dog Hair", "Coffee Spill", "Full Interior", "Paint Finishing"],
     },
-    vehicleLabel: {
+    homeLabel: {
       fontSize: "caption scale",
       color: "stoneMid on light / stoneGray on dark",
       marginTop: "8px",
@@ -819,10 +819,10 @@ export const COMPONENTS = {
       fontSize: "body-sm",
       fontWeight: 500,
       color: "asphaltBlack on light / cleanWhite on dark",
-      format: "— First Name, Vehicle Year + Make",
+      format: "— First Name, Home Year + Make",
       example: "— Sarah, 2021 RAV4",
     },
-    vehicleContext: {
+    homeContext: {
       fontSize: "caption scale",
       color: "stoneMid",
       format: "'Full Interior Reset • Kids + dog owner'",
@@ -840,7 +840,7 @@ export const COMPONENTS = {
     factorExplainer: {
       layout: "Horizontal pills below price",
       pillStyle: "porcelainDark background, 2px radius, overline text, 8px gap",
-      factors: ["Vehicle Size", "Condition", "Add-ons"],
+      factors: ["Home Size", "Condition", "Add-ons"],
     },
     travelBadge: {
       text: "Travel Included — We Come to You",
@@ -970,7 +970,7 @@ export const ICONS = {
     "Droplets — extraction, cleaning",
     "Sparkles — results (used sparingly, only in proof context)",
     "Star — ratings, reviews",
-    "Car — vehicle type selector only",
+    "Car — home type selector only",
     "Camera — before/after",
   ],
   prohibitedMotifs: [
@@ -1159,7 +1159,7 @@ export const IMAGERY = {
     "Sparkle/shine particle effects",
     "Checkered racing patterns",
     "Glossy black backgrounds with lens flares",
-    "Stock photography of pristine showroom vehicles",
+    "Stock photography of pristine showroom homes",
     "Overly filtered or heavily color-graded images",
   ],
   aspectRatios: {
@@ -1230,10 +1230,10 @@ export const ANTI_PATTERNS = {
   ],
   copy: [
     "NEVER use 'luxury', 'premium', 'elite', 'VIP' — let the craft speak.",
-    "NEVER use automotive jargon: 'ceramic coating', 'paint correction', 'clay bar' without explanation.",
+    "NEVER use construction jargon: 'wall finish', 'drywall + paint finishing', 'clay bar' without explanation.",
     "NEVER use pushy sales language: 'Act now!', 'Limited spots!', 'Don't miss out!'",
     "NEVER use gendered language: 'man cave', 'dad car', 'mom's minivan'.",
-    "NEVER reference competitors or other detailing services.",
+    "NEVER reference competitors or other finishing services.",
     "NEVER promise specific timelines that can't be met.",
     "NEVER use exclamation marks in headings. Period or no punctuation.",
   ],
@@ -1339,7 +1339,7 @@ export const COPY_SYSTEM = {
   headlineFormulas: {
     homeHero: {
       pattern: "[Promise statement]. [Proof anchor].",
-      resolved: "Get your car back. Calgary\u2019s mobile interior reset.",
+      resolved: "Get your home back. Calgary\u2019s mobile interior reset.",
     },
     servicesHero: {
       pattern: "[Service name]. [What it includes in one breath].",
@@ -1347,7 +1347,7 @@ export const COPY_SYSTEM = {
     },
     resultsHero: {
       pattern: "[Proof quantity]. [Emotional outcome].",
-      resolved: "200+ vehicles reset. See the difference.",
+      resolved: "200+ homes reset. See the difference.",
     },
     aboutHero: {
       pattern: "[Founder name]. [One-line origin].",
@@ -1363,7 +1363,7 @@ export const COPY_SYSTEM = {
     primary: [
       "Book Your Reset",
       "Get Started",
-      "Book Now",
+      "Get a Quote",
       "Schedule Your Reset",
     ],
     secondary: [
@@ -1410,7 +1410,7 @@ export const COPY_SYSTEM = {
 
   toneCalibration: [
     {
-      wrong: "We offer premium luxury detailing services for discerning vehicle owners!",
+      wrong: "We offer premium luxury finishing services for discerning homeowners!",
       right: "We deep clean your car\u2019s interior and restore the exterior. We come to you.",
       why: "No puffery. State what you do, directly.",
     },
@@ -1438,15 +1438,15 @@ export const COPY_SYSTEM = {
   resolvedPageCopy: {
     home: {
       hero: {
-        headline: "Get your car back.",
+        headline: "Get your home back.",
         subline: "Calgary\u2019s mobile interior reset. Deep clean + exterior restoration, at your door.",
-        trustLine: "200+ vehicles reset \u00b7 4.9\u2605 Google \u00b7 Travel included",
+        trustLine: "200+ homes reset \u00b7 4.9\u2605 Google \u00b7 Travel included",
       },
       problemEmpathy: {
         overline: "Sound familiar?",
         paragraphs: [
           "You know that moment when someone asks for a ride and you panic? The quick glance at the backseat. The crumbs. The stains. The smell you\u2019ve gone nose-blind to.",
-          "You\u2019ve been meaning to deal with it. But between work, kids, and everything else\u2014it just keeps slipping. A car wash won\u2019t fix it. You know that.",
+          "You\u2019ve been meaning to deal with it. But between work, kids, and everything else\u2014it just keeps slipping. A quick handyman fix won\u2019t fix it. You know that.",
           "We get it. And we\u2019re here to handle it\u2014no judgment, no lecture. Just results.",
         ],
       },
@@ -1458,7 +1458,7 @@ export const COPY_SYSTEM = {
       founderTeaser: {
         overline: "Meet Cochrane Master Builders",
         headline: "Started with one bucket and a borrowed pressure washer.",
-        body: "Now delivering the most satisfying vehicle transformations in Calgary. Every vehicle gets the same obsessive attention to detail\u2014because that\u2019s the standard.",
+        body: "Now delivering the most satisfying home transformations in Calgary. Every home gets the same obsessive attention to detail\u2014because that\u2019s the standard.",
       },
       cta: {
         overline: "Ready?",
@@ -1474,8 +1474,8 @@ export const COPY_SYSTEM = {
     },
     results: {
       hero: {
-        headline: "200+ vehicles reset.",
-        subline: "See the difference. Real Calgary vehicles, real conditions, real results.",
+        headline: "200+ homes reset.",
+        subline: "See the difference. Real Calgary homes, real conditions, real results.",
       },
     },
     about: {
@@ -1485,9 +1485,9 @@ export const COPY_SYSTEM = {
       },
       manifesto: [
         "I started Cochrane Master Builders because I couldn\u2019t find a mobile service in Calgary that actually did deep work. Most places do a surface wipe and call it done. That wasn\u2019t good enough.",
-        "Every vehicle I touch gets the same treatment: full interior extraction, paint decontamination, and a complete sensory reset. I bring everything to your driveway\u2014no drop-offs, no coordination, no wasted time.",
+        "Every home I touch gets the same treatment: full interior extraction, paint decontamination, and a complete sensory reset. I bring everything to your driveway\u2014no drop-offs, no coordination, no wasted time.",
         "I\u2019ve seen it all. Pet hair carpets, years-old coffee stains, cars people are embarrassed to show. That\u2019s exactly where I do my best work. The worse the condition, the more dramatic the transformation.",
-        "This isn\u2019t a car wash. It\u2019s a reset. And I\u2019m building the most trusted name in Calgary to deliver it.",
+        "This isn\u2019t a quick handyman fix. It\u2019s a reset. And I\u2019m building the most trusted name in Calgary to deliver it.",
       ],
     },
     book: {
@@ -1523,16 +1523,16 @@ export const BOOKING_FLOW = {
     dotActive: "border 2px solid var(--copper), background transparent, pulse animation",
     connectorLine: "1px solid var(--stone-light) between dots, 32px width",
     connectorCompleted: "1px solid var(--copper)",
-    labels: ["Vehicle", "Service", "Schedule"],
+    labels: ["Home", "Service", "Schedule"],
     labelTypography: "overline scale (0.6875rem, uppercase, 0.15em tracking)",
   },
 
   steps: {
-    step1_vehicle: {
-      title: "Your Vehicle",
+    step1_home: {
+      title: "Your Home",
       fields: [
-        { name: "vehicleType", type: "visual-radio-grid", label: "Vehicle Type", options: ["Sedan", "SUV", "Truck", "Van/Minivan"], iconSize: "48px", gridColumns: "2 mobile / 4 desktop" },
-        { name: "vehicleYear", type: "select", label: "Approximate Year", placeholder: "Select year range", options: ["2020+", "2015\u20132019", "2010\u20132014", "Pre-2010"] },
+        { name: "homeType", type: "visual-radio-grid", label: "Home Type", options: ["Sedan", "SUV", "Truck", "Van/Minivan"], iconSize: "48px", gridColumns: "2 mobile / 4 desktop" },
+        { name: "homeYear", type: "select", label: "Approximate Year", placeholder: "Select year range", options: ["2020+", "2015\u20132019", "2010\u20132014", "Pre-2010"] },
         { name: "condition", type: "radio-cards", label: "Current Condition", options: [
           { value: "light", label: "Light", description: "Regular use, minor dust and crumbs" },
           { value: "moderate", label: "Moderate", description: "Stains, pet hair, months of buildup" },
@@ -1565,7 +1565,7 @@ export const BOOKING_FLOW = {
     icon: "lucide CheckCircle, 48px, copper",
     heading: "You\u2019re booked.",
     body: "We\u2019ll text you within 2 hours to confirm your details and answer any questions.",
-    summary: "Show: vehicle type, service selected, preferred date, name",
+    summary: "Show: home type, service selected, preferred date, name",
     secondaryCTA: { label: "Back to Home", variant: "ghost" },
   },
 
@@ -1642,7 +1642,7 @@ export const TRUST_BAR = {
     mobile: "2×2 grid, gap 24px",
   },
   stats: [
-    { value: "200+", label: "Vehicles Reset", icon: "lucide Car" },
+    { value: "200+", label: "Homes Reset", icon: "lucide Car" },
     { value: "4.9\u2605", label: "Google Rating", icon: "lucide Star" },
     { value: "< 2hr", label: "Response Time", icon: "lucide Clock" },
     { value: "\u2713", label: "Travel Included", icon: "lucide MapPin" },
@@ -1697,7 +1697,7 @@ export const PROCESS_STEPS = {
       number: "03",
       icon: "lucide Sparkles",
       heading: "Get Your Car Back",
-      description: "Drive away in a vehicle that feels like yours again.",
+      description: "Drive away in a home that feels like yours again.",
     },
   ],
   stepTypography: {
@@ -1858,7 +1858,7 @@ export const FOUNDER_SECTION = {
     heading: "Cochrane Master Builders\u2019s Standard",
     headingTypography: "overline scale, copper, uppercase, marginTop 32px, marginBottom 16px",
     items: [
-      "Every vehicle gets the same obsessive attention",
+      "Every home gets the same obsessive attention",
       "Professional-grade equipment, every job",
       "Before/after photos on every reset",
       "Honest pricing — no surprise upsells",
@@ -2085,7 +2085,7 @@ export const NOT_FOUND_PAGE = {
   },
   seoMeta: {
     title: "Page Not Found | Cochrane Master Builders — Calgary Mobile Detailing",
-    description: "The page you\u2019re looking for doesn\u2019t exist. Head back to Cochrane Master Builders for Calgary\u2019s best mobile vehicle reset.",
+    description: "The page you\u2019re looking for doesn\u2019t exist. Head back to Cochrane Master Builders for Calgary\u2019s best mobile home reset.",
     statusCode: 404,
     noIndex: true,
   },
@@ -2151,11 +2151,11 @@ export const FAQ_CONTENT = {
         },
         {
           q: "How long does it take?",
-          a: "Most Full Resets take 3\u20134 hours depending on vehicle size and condition. We\u2019ll give you a time estimate when we confirm your booking.",
+          a: "Most Full Resets take 3\u20134 hours depending on home size and condition. We\u2019ll give you a time estimate when we confirm your booking.",
         },
         {
           q: "Do you come to my location?",
-          a: "Yes. We\u2019re fully mobile. We come to your home, office, or wherever your car is parked in Calgary. All we need is access to the vehicle and ideally a power outlet nearby.",
+          a: "Yes. We\u2019re fully mobile. We come to your home, office, or wherever your car is parked in Calgary. All we need is access to the home and ideally a power outlet nearby.",
         },
         {
           q: "What if my car is really dirty?",
@@ -2168,7 +2168,7 @@ export const FAQ_CONTENT = {
       items: [
         {
           q: "How much does it cost?",
-          a: "The Full Reset starts at $250 for sedans. SUVs and trucks are $300+. We\u2019ll confirm exact pricing based on your vehicle and add-ons when you book.",
+          a: "The Full Reset starts at $250 for sedans. SUVs and trucks are $300+. We\u2019ll confirm exact pricing based on your home and add-ons when you book.",
         },
         {
           q: "Is travel included in the price?",
@@ -2193,7 +2193,7 @@ export const FAQ_CONTENT = {
         },
         {
           q: "Do I need to be home?",
-          a: "Not necessarily. As long as we can access the vehicle and you\u2019ve left it unlocked (or given us a key), we can work while you\u2019re out.",
+          a: "Not necessarily. As long as we can access the home and you\u2019ve left it unlocked (or given us a key), we can work while you\u2019re out.",
         },
         {
           q: "What products do you use?",
@@ -2201,12 +2201,12 @@ export const FAQ_CONTENT = {
         },
       ],
     },
-    vehicleConcerns: {
-      label: "Vehicle Concerns",
+    homeConcerns: {
+      label: "Home Concerns",
       items: [
         {
           q: "Will you damage my paint or interior?",
-          a: "No. We use tested techniques and quality products. Cochrane Master Builders personally handles every vehicle with care. Your car is in good hands.",
+          a: "No. We use tested techniques and quality products. Cochrane Master Builders personally handles every home with care. Your car is in good hands.",
         },
         {
           q: "Can you remove pet hair?",
@@ -2214,7 +2214,7 @@ export const FAQ_CONTENT = {
         },
         {
           q: "Do you work on trucks and SUVs?",
-          a: "Absolutely. Trucks, SUVs, vans, sedans — we handle all vehicle types. Pricing adjusts for size.",
+          a: "Absolutely. Trucks, SUVs, vans, sedans — we handle all home and project types. Pricing adjusts for size.",
         },
         {
           q: "What about stains that won\u2019t come out?",

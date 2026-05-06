@@ -9,7 +9,7 @@
  * This persona represents 50+ years of craft at world-class agencies
  * (Fantasy.co, Igloo.inc, Pentagram, IDEO, AKQA, Huge, Wolff Olins,
  * B-Reel, MetaDesign, Work & Co) — adapted for Cochrane Master Builders's
- * premium auto detailing brand and controlled luxury positioning.
+ * residential interior finishing brand and controlled luxury positioning.
  */
 
 export const SCROLL_MOTION_PERSONA = {
@@ -20,7 +20,7 @@ export const SCROLL_MOTION_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   philosophy: {
     core: "Scrolling has evolved from viewport movement to a primary storytelling device. Smooth, responsive scrolling fosters engagement, provides intuitive navigation, and elevates perceived brand quality. The rebirth of scrolling was driven by mobile dominance and high-speed internet — long scroll allows continuous narrative, reducing disruptive page changes.",
-    forCochraneMasterBuilders: "The scroll experience must feel like a luxury detail reveal — controlled, precise, satisfying. Every transition should reinforce the meticulous craftsmanship of Cochrane Master Builders's detailing process. The user should feel the same confidence and calm they'd feel watching a master detailer transform a vehicle.",
+    forCochraneMasterBuilders: "The scroll experience must feel like a luxury detail reveal — controlled, precise, satisfying. Every transition should reinforce the meticulous craftsmanship of Cochrane Master Builders's finishing process. The user should feel the same confidence and calm they'd feel watching a master builder transform a home.",
     warning: "Poorly executed scroll experiences harm usability. Laggy animations, scrolljacking, or overwhelming motion cause jank and frustration — antithetical to the precision and control that defines premium detailing.",
     longScrollAdvantages: [
       "Encourages interaction — dynamic content draws users into a narrative",
@@ -72,7 +72,7 @@ export const SCROLL_MOTION_PERSONA = {
     storytelling: "Use scroll as storytelling device. Evocative introduction → narrative development → clear CTA. Guide the user, don't just showcase effects.",
     hierarchy: "Scroll emphasizes important content at each point. Use size, color, and motion to signal importance.",
     consistency: "Consistent pacing and style across sections. Same easing function family, similar timings for micro-animations.",
-    forCochraneMasterBuilders: "The scroll narrative should mirror the detailing journey: vehicle transformation → craftsmanship process → stunning results → trust signals → booking. Controlled, editorial pacing that lets the work speak for itself.",
+    forCochraneMasterBuilders: "The scroll narrative should mirror the detailing journey: home transformation → craftsmanship process → stunning results → trust signals → booking. Controlled, editorial pacing that lets the work speak for itself.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -85,7 +85,7 @@ export const SCROLL_MOTION_PERSONA = {
     persistContent: "Content remains visible after appearing — never creates cognitive overload.",
     staggeredReveals: "Staggered transitions draw attention sequentially, pace user through narrative.",
     responsiveMotion: "Minimize motion on small screens. Respect prefers-reduced-motion media query. Provide toggle to disable animations.",
-    forCochraneMasterBuilders: "Motion should feel like the detailing process itself — controlled, deliberate, precise. Gentle reveals that showcase the transformation. Never dramatic or attention-seeking. The work is the star, not the animation.",
+    forCochraneMasterBuilders: "Motion should feel like the finishing process itself — controlled, deliberate, precise. Gentle reveals that showcase the transformation. Never dramatic or attention-seeking. The work is the star, not the animation.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -189,7 +189,7 @@ export const SCROLL_MOTION_PERSONA = {
       "WebGL UI — implement heavy visual effects (glitches, text scrambles) in WebGL shaders instead of HTML/CSS to avoid layout recalculations",
     ],
     technologyStack: "Three.js, GSAP, framework of choice, vanilla JS for interactive portions. Houdini and Blender for 3D assets. Custom geometry exporters and texture loading strategies to minimize initial load.",
-    forCochraneMasterBuilders: "While Cochrane Master Builders doesn't need 3D ice blocks, the principles apply: browser-based iteration for rapid experimentation, performance measurement on low-end devices, efficient asset loading, and using GPU-accelerated effects for any heavy visual work like before/after reveals or paint correction showcases.",
+    forCochraneMasterBuilders: "While Cochrane Master Builders doesn't need 3D ice blocks, the principles apply: browser-based iteration for rapid experimentation, performance measurement on low-end devices, efficient asset loading, and using GPU-accelerated effects for any heavy visual work like before/after reveals or drywall + paint finishing showcases.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -239,7 +239,7 @@ export const SCROLL_MOTION_PERSONA = {
       "User tests for comprehension, orientation, satisfaction — adjust narrative flow and timing",
     ],
     phase3Design: [
-      "Replace placeholders with final visual assets — detailing photography, vehicle transformations",
+      "Replace placeholders with final visual assets — finished-work photography, home transformations",
       "Consistent typographic hierarchy, refined color schemes aligned with Cochrane Master Builders brand",
       "Concise, value-driven text matching Cochrane Master Builders voice — precision, craftsmanship, results",
       "3D and motion assets if applicable — use procedural techniques for variation",

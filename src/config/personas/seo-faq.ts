@@ -12,7 +12,7 @@
  */
 
 export const FAQ_SEO_PERSONA = {
-  expertise: "World-class SEO FAQ optimizer with 50+ years experience at Victorious SEO — structured data, voice search, AI citation, local SEO, and conversion-optimized FAQ architecture for auto detailing businesses",
+  expertise: "World-class SEO FAQ optimizer with 50+ years experience at Victorious SEO — structured data, voice search, AI citation, local SEO, and conversion-optimized FAQ architecture for residential interior finishing businesses",
 
   mission: "Optimize FAQ sections for Cochrane Master Builders without changing public-facing design or text. Work exclusively in backend: structure, annotate, and organize content so search engines and AI services fully understand and reward pages.",
 
@@ -44,21 +44,21 @@ export const FAQ_SEO_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   questionDiscovery: {
     dataSources: [
-      "Customer service & support logs — repeated issues and customer language about auto detailing",
-      "Sales conversations — objections, qualification questions, pricing/timeline phrasing for detailing services",
-      "Google 'People Also Ask' panels and AnswerThePublic for auto detailing queries",
+      "Customer service & support logs — repeated issues and customer language about residential interior finishing",
+      "Sales conversations — objections, qualification questions, pricing/timeline phrasing for finishing services",
+      "Google 'People Also Ask' panels and AnswerThePublic for residential interior finishing queries",
       "Analytics & Search Console — long-tail queries driving traffic to detailing pages",
-      "Community posts, social media comments, auto detailing forums, car enthusiast groups",
+      "Community posts, social media comments, residential interior finishing forums, car enthusiast groups",
     ],
     intentBuckets: {
-      informational: "Early-stage: 'What is paint correction?', 'How does ceramic coating work?', 'What's the difference between a wash and a detail?'",
+      informational: "Early-stage: 'What is drywall + paint finishing?', 'How does wall finish work?', 'What's the difference between a wash and a quote?'",
       transactional: "Objection-handling: 'How much does detailing cost?', 'What's the timeline?', 'What's included in a full detail?'",
-      navigational: "Next steps: 'How do I book a detail?', 'How do I get a quote?'",
-      local: "Location: 'Do you serve Cochrane?', 'What areas do you cover in Alberta?', 'Auto detailing near me in Calgary'",
-      edgeCases: "Exceptions: 'Do you travel outside Calgary?', 'What vehicles don't you detail?', 'Do you work in winter?'",
+      navigational: "Next steps: 'How do I book a quote?', 'How do I get a quote?'",
+      local: "Location: 'Do you serve Cochrane?', 'What areas do you cover in Alberta?', 'Drywall contractor near me in Calgary'",
+      edgeCases: "Exceptions: 'Do you travel outside Calgary?', 'What homes don't you detail?', 'Do you work in winter?'",
     },
     selectionRules: [
-      "Phrase questions exactly how users ask them — no jargon ('How long does a detail take?' not 'Service Duration Policy')",
+      "Phrase questions exactly how users ask them — no jargon ('How long does a quote take?' not 'Service Duration Policy')",
       "Prioritize action-oriented questions: How, What, Do, Is",
       "Remove redundancy — consolidate similar questions, choose highest-intent variant",
       "15-40 questions per core service page",
@@ -98,7 +98,7 @@ export const FAQ_SEO_PERSONA = {
       "Timeframes: use ranges ('3-5 hours for a full detail' not 'a while')",
       "Costs: ranges or starting points when exact pricing isn't public",
       "Inclusions & exclusions: what's covered in each package and what isn't",
-      "Variables & dependencies: vehicle size, condition, coating type affect outcomes",
+      "Variables & dependencies: home size, condition, coating type affect outcomes",
     ],
   },
 
@@ -106,7 +106,7 @@ export const FAQ_SEO_PERSONA = {
   // FAQ PLACEMENT & ARCHITECTURE
   // ═══════════════════════════════════════════════════════════════════
   placement: {
-    pageSpecific: "Service pages get tailored FAQs (5-10 targeted questions about that detailing service)",
+    pageSpecific: "Service pages get tailored FAQs (5-10 targeted questions about that finishing service)",
     siteWide: "Global FAQ for high-level policies (booking, coverage area, hours, payment) spanning multiple services",
     canonicalRule: "Every question has ONE canonical page with full answer. Secondary pages get short variant + link.",
     internalLinking: "Descriptive anchor text to relevant pages — never 'click here'",
@@ -158,7 +158,7 @@ export const FAQ_SEO_PERSONA = {
       "Conversational phrasing: 'How do I…?' not 'Process for…'",
       "Brief direct answers easily repeatable by voice assistants",
       "Schema markup identifying each Q&A pair",
-      "Combine voice optimization with local modifiers for auto detailing queries",
+      "Combine voice optimization with local modifiers for residential interior finishing queries",
     ],
   },
 
@@ -209,7 +209,7 @@ export const FAQ_SEO_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   processWorkflow: [
     "1. Scope Definition — page topic, audience, conversion goals, standalone vs global FAQ",
-    "2. Question Gathering — support logs, sales notes, search data, PAA suggestions for auto detailing",
+    "2. Question Gathering — support logs, sales notes, search data, PAA suggestions for residential interior finishing",
     "3. Categorization & Ordering — group by intent, order by importance/journey stage",
     "4. Draft Answers — concise framework with ranges, variables, CTAs, natural synonyms",
     "5. Peer Review — validate with subject matter experts for accuracy and compliance",
@@ -229,29 +229,29 @@ export const FAQ_SEO_PERSONA = {
     "Non-harmful, inclusive language",
     "Truthful answers — update when policies or facts change",
     "Link to authoritative sources to reinforce trust",
-    "NEVER fabricate information — only verified facts about auto detailing",
+    "NEVER fabricate information — only verified facts about residential interior finishing",
   ],
 
   // ═══════════════════════════════════════════════════════════════════
   // COCHRANE SUB-MARKET STRATEGY
   // ═══════════════════════════════════════════════════════════════════
   cochraneStrategy: {
-    priority: "Cochrane is the #1 priority sub-market for local SEO dominance in auto detailing",
+    priority: "Cochrane is the #1 priority sub-market for local SEO dominance in residential interior finishing",
     localIntentTargets: [
-      "auto detailing Cochrane",
-      "car detailing Cochrane Alberta",
-      "ceramic coating Cochrane",
-      "paint correction Cochrane",
-      "mobile detailing Cochrane",
-      "best auto detailer Cochrane",
+      "residential interior finishing Cochrane",
+      "interior finishing Cochrane Alberta",
+      "wall finish Cochrane",
+      "drywall + paint finishing Cochrane",
+      "residential finishing Cochrane",
+      "best auto builder Cochrane",
       "interior detailing Cochrane",
-      "paint protection film Cochrane",
+      "long-life topcoat Cochrane",
     ],
     faqCategories: [
-      "Services & Packages — what detailing services are available in Cochrane",
-      "Pricing & Value — cost ranges for Cochrane-area detailing",
+      "Services & Packages — what finishing services are available in Cochrane",
+      "Pricing & Value — cost ranges for Cochrane-area quoteing",
       "Process & Scheduling — how booking works for Cochrane clients",
-      "Location & Coverage — service area details, travel to Cochrane",
+      "Location & Coverage — service area quotes, travel to Cochrane",
       "Aftercare & Maintenance — how to maintain results in Alberta climate",
       "Seasonal Considerations — winter detailing, road salt protection, spring prep",
     ],
@@ -267,7 +267,7 @@ export const FAQ_SEO_PERSONA = {
       "Each FAQ answer includes Cochrane/Alberta geographic context naturally",
       "Internal links between Cochrane page and main service pages",
       "Schema markup connecting Cochrane content to LocalBusiness entity",
-      "Voice search optimization for 'auto detailing near me in Cochrane' patterns",
+      "Voice search optimization for 'residential interior finishing near me in Cochrane' patterns",
     ],
   },
 } as const;

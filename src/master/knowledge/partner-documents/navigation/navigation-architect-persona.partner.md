@@ -62,7 +62,7 @@ Consult this persona when the user says (or implies):
 - "scroll behaviour for nav", "sticky nav", "condensed nav"
 - "nav accessibility", "skip link", "ARIA nav", "keyboard nav"
 - "nav labels", "nav copy", "rename nav items"
-- "nav CTA", "Book a detail in nav", "booking trigger placement"
+- "nav CTA", "Book a quote in nav", "booking trigger placement"
 - "logo placement", "CW monogram in nav"
 - "site coherence top to bottom", "nav and footer relationship", "Easter egg between nav and footer"
 
@@ -87,7 +87,7 @@ Consult this persona when the user says (or implies):
 
 - **Style anchor.** Dark luxury editorial (Asphalt + Copper). Space Grotesk light. No rounded cards, no ghost buttons, no human imagery (Core memory).
 - **Item sequence.** Strict and locked per `mem://design/navigation-specs`. Do not reorder without explicit approval.
-- **CTA.** Filled copper "Book a detail" — right-aligned, triggers the singleton booking modal.
+- **CTA.** Filled copper "Book a quote" — right-aligned, triggers the singleton booking modal.
 - **Logo.** CW monogram (`mem://brand/identity`) — left-aligned, 8s rotation cycle preserved, desktop parallax via `mem://design/micro-interactions/brand-logo-parallax`.
 - **Hover state.** Copper shimmer left-to-right, ~600ms ease. Never underline. Never colour-flip the label itself.
 - **Mobile.** Full-screen panel at 92dvh with safe-area bottom padding and sticky-booking-bar clearance. 48 px minimum touch targets. Hamburger top-right; CW monogram top-left.
@@ -100,7 +100,7 @@ Consult this persona when the user says (or implies):
 ### Cochrane Master Builders (when activated)
 
 - Deeper IA (Home / Custom Homes / Communities / Process / About / Journal / Contact) → mega menus under "Custom Homes" and "Communities" become justified.
-- Voice rotates from "automotive reverence" to "family legacy" — micro-copy shifts ("Our Story" instead of "About"; "Where We Build" instead of "Communities").
+- Voice rotates from "craft reverence" to "family legacy" — micro-copy shifts ("Our Story" instead of "About"; "Where We Build" instead of "Communities").
 
 ## 9. Global vs specific
 
@@ -112,7 +112,7 @@ Consult this persona when the user says (or implies):
 
 | In source | Apply as |
 |-----------|----------|
-| Wedding / piano framing in opening paragraph | Methodology only. The mood (bespoke, weighty, intentional) carries; the subject (wedding, piano) does not. Cochrane Master Builders mood = automotive reverence + dark luxury editorial. |
+| Wedding / piano framing in opening paragraph | Methodology only. The mood (bespoke, weighty, intentional) carries; the subject (wedding, piano) does not. Cochrane Master Builders mood = craft reverence + dark luxury editorial. |
 | "VeePo" / wedding-brand references in trailing instruction | Translate to the active brand (currently Cochrane Master Builders). The "Easter egg coincidence between nav and footer" is the highest-value insight and carries over verbatim in spirit. |
 | `<mark>FANTASY.CO</mark>` artefact | Quality bar reference only. Already governed by `partner-documents/experience-prompts/master-design-persona-fantasy`. |
 | Citation tokens `【...†L...】` | Paste artefacts. Do not "fix" the source. |
@@ -165,7 +165,7 @@ Consult this persona when the user says (or implies):
 
 **C. "Add a Services dropdown."** Cochrane Master Builders IA is shallow — push back unless service depth justifies it. If approved: dropdown opens on **click** (not hover, per source); 200ms ease-out; copper shimmer on each item; keyboard navigable; `aria-expanded` toggled; closes on Esc, outside-click, and route change.
 
-**D. "Mobile nav redesign."** Hamburger top-right → full-screen panel at 92dvh with safe-area bottom padding. Item list left-aligned, Space Grotesk 19 px, copper shimmer on tap. CTA "Book a detail" filled copper at bottom, above safe-area. CW monogram retained at top-left. Close icon top-right. Background: asphalt at 96% opacity with subtle copper hairline at top.
+**D. "Mobile nav redesign."** Hamburger top-right → full-screen panel at 92dvh with safe-area bottom padding. Item list left-aligned, Space Grotesk 19 px, copper shimmer on tap. CTA "Book a quote" filled copper at bottom, above safe-area. CW monogram retained at top-left. Close icon top-right. Background: asphalt at 96% opacity with subtle copper hairline at top.
 
 **E. "Nav micro-interactions."** Hover: copper shimmer left-to-right ~600ms ease (`mem://design/navigation-specs`). Focus: 2 px copper outline, 4 px offset. Active: 1 px copper hairline under label, full width, 200ms ease-out. Scroll: navbar bg 0 → 0.92 asphalt at scrollY > 80, 200ms. Page transition: nav stays mounted (`mem://design/cloth-wipe-transition`).
 

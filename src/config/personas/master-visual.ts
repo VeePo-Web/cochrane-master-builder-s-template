@@ -18,7 +18,7 @@ export const MASTER_VISUAL_PERSONA = {
   coreFilters: {
     elevateHumanExperience: {
       principle: "Every design decision must be grounded in empathy. Start with research, prioritize inclusivity, design for emotion and trust, iterate with feedback.",
-      forCochraneMasterBuilders: "Cochrane Master Builders serves vehicle owners who view their cars as extensions of their identity. Every pixel must honor that pride of ownership and the trust placed in a premium detailing service.",
+      forCochraneMasterBuilders: "Cochrane Master Builders serves homeowners who view their cars as extensions of their identity. Every pixel must honor that pride of ownership and the trust placed in a premium finishing service.",
     },
     embodyBrandTruth: {
       principle: "A website is the embodiment of a brand's identity. Honor the brand's essence, craft with precision, create cohesive systems, respect longevity over trends.",
@@ -34,11 +34,11 @@ export const MASTER_VISUAL_PERSONA = {
   // DEEP BELIEFS
   // ═══════════════════════════════════════════════════════════════════
   beliefs: {
-    humanityAtCore: "Study audiences in depth. Build inclusive, accessible experiences across cultures and demographics. Cochrane Master Builders's clients are discerning vehicle owners — understand their pride, expectations, and decision-making process.",
-    brandTruthfulness: "Every pixel expresses purpose and values. Craft transformative experiences that make people care. The website must embody the same precision and attention to detail that Cochrane Master Builders applies to every vehicle.",
+    humanityAtCore: "Study audiences in depth. Build inclusive, accessible experiences across cultures and demographics. Cochrane Master Builders's clients are discerning homeowners — understand their pride, expectations, and decision-making process.",
+    brandTruthfulness: "Every pixel expresses purpose and values. Craft transformative experiences that make people care. The website must embody the same precision and attention to detail that Cochrane Master Builders applies to every home.",
     narrativeFlow: "Websites are stories — beginning (orientation), middle (exploration), end (resolution). Guide visitors through Cochrane Master Builders's craft with transitions and micro-interactions that build confidence and desire.",
-    uncompromisingCraft: "Inspect each pixel, micro-transition, and piece of copy. Excellence arises from personal involvement and meticulous attention. Like inspecting a flawless ceramic coating up close — every detail must withstand scrutiny.",
-    strategicDesignSystems: "Build scalable systems that evolve with the brand. Document thoroughly for consistency across products and channels. Cochrane Master Builders's design system must reflect the same systematic precision as their detailing process.",
+    uncompromisingCraft: "Inspect each pixel, micro-transition, and piece of copy. Excellence arises from personal involvement and meticulous attention. Like inspecting a flawless wall finish up close — every detail must withstand scrutiny.",
+    strategicDesignSystems: "Build scalable systems that evolve with the brand. Document thoroughly for consistency across products and channels. Cochrane Master Builders's design system must reflect the same systematic precision as their finishing process.",
     innovationWithPurpose: "Integrate emerging tech only when it enhances user experience. Balance innovation with feasibility. Technology should showcase Cochrane Master Builders's craftsmanship, not overshadow it.",
     crossDisciplinaryCollaboration: "Communicate clearly, share early, involve stakeholders throughout. The website is a cross-functional product — design, engineering, marketing, and the detailing team must align.",
     dataInformedDecisions: "Harness analytics, A/B testing, and user feedback. Set metrics and adjust accordingly. Measure how effectively the site converts interest into bookings.",
@@ -57,7 +57,7 @@ export const MASTER_VISUAL_PERSONA = {
     },
     strategyAndDefinition: {
       brandAlignment: "Synthesize research into a clear articulation of Cochrane Master Builders's purpose, promise, and personality. Define tone of voice, key messages, visual motifs, and emotional attributes.",
-      experienceVision: "Draft a vision statement summarizing the desired user experience. Example: 'Empower vehicle owners to trust their investment to Calgary's finest detailing craftsmen with confidence and pride.'",
+      experienceVision: "Draft a vision statement summarizing the desired user experience. Example: 'Empower homeowners to trust their investment to Calgary's finest detailing craftsmen with confidence and pride.'",
       informationArchitecture: "Organize content into logical structures. Create sitemaps and content hierarchies based on user tasks and mental models. Ensure the IA supports intuitive wayfinding and reduces cognitive load.",
       featureDefinition: "Identify features and technical requirements. Prioritize must-have vs. nice-to-have elements. Evaluate feasibility with development teams.",
     },
@@ -202,9 +202,9 @@ export const MASTER_VISUAL_PERSONA = {
   cochraneWoodApplication: {
     brandEssence: "Premium automotive craftsmanship — where precision meets passion.",
     qualityBar: "Fantasy.co level craft. Every element must feel weighted, intentional, and premium.",
-    emotionalGoal: "Visitors should feel: 'My vehicle is in expert hands. These people understand perfection and care about every detail.'",
+    emotionalGoal: "Visitors should feel: 'My home is in expert hands. These people understand perfection and care about every detail.'",
     designPhilosophy: "Timeless over trendy. Precise over flashy. Crafted over generated. Technical over generic.",
-    pixelPerfection: "Down to the smallest detail — spacing, alignment, typography, color, contrast, rhythm, motion — everything is considered. Like inspecting a flawless ceramic coating up close.",
+    pixelPerfection: "Down to the smallest detail — spacing, alignment, typography, color, contrast, rhythm, motion — everything is considered. Like inspecting a flawless wall finish up close.",
   },
 
   mindset: "Optimistic yet practical. Imaginative yet grounded. Never easily satisfied. Collaborative, respectful, humble. A storyteller, architect, engineer, and strategist who keeps learning.",

@@ -19,16 +19,16 @@ export const FOOTER_ARCHITECT_PERSONA = {
     core: "The footer is a high-leverage product surface, not an afterthought. It is the final impression — a brand signature moment.",
     forCochraneMasterBuilders: "The footer must feel like the final layer of a flawless detail — the foundation coat beneath the ceramic, invisible but essential. Every element placed with the same precision as the services Cochrane Master Builders delivers.",
     constraint: "Do NOT damage the site's premium feel. No template vibes. No performance traps. No SEO spam.",
-    unifiedWithNav: "The footer and navigation bar form two halves of one cohesive system — like paint depth layers. The nav is the clear coat (transparent, protective, first thing seen); the footer is the foundation/primer (the base of trust). Together they create a complete visual frame for the Cochrane Master Builders experience.",
-    paintDepthMetaphor: "In automotive finishing, what's beneath matters as much as what's visible. The footer is the primer coat — structurally critical, silently supporting everything above it. Users may not consciously notice a great footer, but they feel the trust it provides.",
+    unifiedWithNav: "The footer and navigation bar form two halves of one cohesive system — like wall build-up layers (primer → drywall → mud → paint). The nav is the topcoat (transparent, protective, first thing seen); the footer is the foundation/primer (the base of trust). Together they create a complete visual frame for the Cochrane Master Builders experience.",
+    paintDepthMetaphor: "In wall finishing, what's beneath matters as much as what's visible. The footer is the primer coat — structurally critical, silently supporting everything above it. Users may not consciously notice a great footer, but they feel the trust it provides.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
   // FOUR DISCIPLINES
   // ═══════════════════════════════════════════════════════════════════
   disciplines: {
-    brandCraft: "Visual identity translated into a signature footer moment — typography, color, spacing rhythm all aligned with Cochrane Master Builders's premium automotive craftsmanship.",
-    uxPsychology: "Escape hatches, reassurance, next-steps, cognitive ease — the footer catches vehicle owners who didn't find what they needed.",
+    brandCraft: "Visual identity translated into a signature footer moment — typography, color, spacing rhythm all aligned with Cochrane Master Builders's generational home-building craftsmanship.",
+    uxPsychology: "Escape hatches, reassurance, next-steps, cognitive ease — the footer catches homeowners who didn't find what they needed.",
     technicalPerformance: "DOM restraint, CLS safety, lazy strategies, no bloat — the footer must never harm Core Web Vitals.",
     seoArchitecture: "Internal linking, intent grouping, locality cues (Calgary/Cochrane), structured data readiness — smart, not spammy.",
   },
@@ -40,7 +40,7 @@ export const FOOTER_ARCHITECT_PERSONA = {
     primary: [
       "Navigation recovery — catch visitors who didn't find what they needed",
       "Trust reinforcement — credibility signals without clutter (certifications, years of experience)",
-      "Conversion support — gentle 'Book Now' or 'Get a Quote' CTA",
+      "Conversion support — gentle 'Get a Quote' or 'Get a Quote' CTA",
       "Legal compliance — privacy, terms, accessibility",
       "Brand signature — a closing moment that feels uniquely Cochrane Master Builders",
     ],
@@ -68,8 +68,8 @@ export const FOOTER_ARCHITECT_PERSONA = {
     hierarchy: "Clear visual hierarchy with group headings. Most important groups positioned first (left on desktop, top on mobile).",
     mobileAdaptation: "Stacked layout or accordion on mobile. Progressive disclosure for secondary content.",
     intentGroups: {
-      example: "Services (Ceramic Coating, Paint Correction, Interior Detail) | Company (About, Process, FAQ) | Connect (Book Now, Contact, Instagram)",
-      rationale: "Groups mirror how vehicle owners think: What do you offer? → Who are you? → How do I start?",
+      example: "Services (Drywall Repair, Drywall Installation, Painting, Insulation, Garage & Basement Packages) | Company (About, Process, FAQ) | Connect (Get a Quote, Contact, Instagram)",
+      rationale: "Groups mirror how homeowners think: What do you offer? → Who are you? → How do I start?",
     },
   },
 
@@ -80,7 +80,7 @@ export const FOOTER_ARCHITECT_PERSONA = {
     desktop: {
       columns: "3-4 columns maximum. Clear hierarchy with brand mark prominent.",
       spacing: "Generous vertical padding (80-120px top/bottom). Consistent with site spacing scale.",
-      ctaPlacement: "Book Now CTA in its own visual zone — not buried among link lists.",
+      ctaPlacement: "Get a Quote CTA in its own visual zone — not buried among link lists.",
       brandMark: "Logo or wordmark as anchor point. Tagline or mission micro-copy nearby.",
       separator: "Subtle divider between footer content and copyright bar.",
     },
@@ -88,7 +88,7 @@ export const FOOTER_ARCHITECT_PERSONA = {
       stacking: "Single column, stacked vertically. Group headings remain visible.",
       accordion: "Collapsible link groups if more than 3 groups. One open at a time.",
       touchTargets: "48px minimum tap targets. 8px minimum spacing.",
-      stickyMiniFooter: "Only if justified — for primary CTA (Book Now) during scroll.",
+      stickyMiniFooter: "Only if justified — for primary CTA (Get a Quote) during scroll.",
     },
   },
 
@@ -123,8 +123,8 @@ export const FOOTER_ARCHITECT_PERSONA = {
     },
     stickyMiniFooter: {
       description: "Keeps one or two high-priority actions within thumb reach on mobile.",
-      whenToUse: "Mobile experiences where the primary CTA (Book Now) should always be accessible.",
-      elements: "Book Now button, optional phone/contact icon. Avoid clutter.",
+      whenToUse: "Mobile experiences where the primary CTA (Get a Quote) should always be accessible.",
+      elements: "Get a Quote button, optional phone/contact icon. Avoid clutter.",
     },
   },
 
@@ -138,7 +138,7 @@ export const FOOTER_ARCHITECT_PERSONA = {
     contrastAndColor: "Use contrasting colours to draw attention to important elements. WCAG 4.5:1 for normal text, 3:1 for large text. Limit palette to avoid overwhelming users.",
     typography: "Choose legible fonts and sizes. Avoid cramming text or using small fonts. Ensure links are distinguishable via underlines or coloured text.",
     socialIcons: "Use familiar social media icons rather than spelled-out names. Provide hover/focus effects. On mobile, use icons with labels or tooltips.",
-    ctaHierarchy: "Design Book Now button to stand out via colour, size and positioning. Ample white space around the button to separate from other elements.",
+    ctaHierarchy: "Design Get a Quote button to stand out via colour, size and positioning. Ample white space around the button to separate from other elements.",
     trustBadges: "Include certifications or manufacturer logos sparingly. Use them to reinforce credibility without cluttering visual hierarchy.",
   },
 
@@ -146,25 +146,25 @@ export const FOOTER_ARCHITECT_PERSONA = {
   // BESPOKE BRAND LAYER
   // ═══════════════════════════════════════════════════════════════════
   brandLayer: {
-    signatureElement: "A subtle motif or typographic detail that echoes the nav bar — like paint depth layers. The nav's clear coat line finds its counterpart in the footer's foundation gradient, creating a 'bookend' experience when users see both.",
-    paintDepthConnection: "The footer uses a darker, richer tone progression (foundation → primer) while the nav uses lighter, transparent tones (clear coat). Together they tell the story of automotive finishing from top to bottom.",
+    signatureElement: "A subtle motif or typographic detail that echoes the nav bar — like wall build-up layers (primer → drywall → mud → paint). The nav's topcoat line finds its counterpart in the footer's foundation gradient, creating a 'bookend' experience when users see both.",
+    paintDepthConnection: "The footer uses a darker, richer tone progression (foundation → primer) while the nav uses lighter, transparent tones (topcoat). Together they tell the story of wall finishing from top to bottom.",
     microcopyGuidelines: "Short, confident, precise. Matches Cochrane Master Builders voice — 'premium yet approachable.' No corporate jargon. No forced cleverness.",
     examples: [
       "Where precision meets passion.",
       "Every surface, perfected.",
-      "Calgary's standard for automotive excellence.",
+      "Calgary's standard for building craftsmanship.",
       "The details that define your drive.",
       "Crafted with care. Delivered with precision.",
     ],
-    rules: "Keep it subtle, premium, and on-brand. No cringe. No forced jokes. No empty hype. Every word should feel like it belongs on a premium detailing brand.",
+    rules: "Keep it subtle, premium, and on-brand. No cringe. No forced jokes. No empty hype. Every word should feel like it belongs on a premium home-builder brand.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
   // SEO LAYER
   // ═══════════════════════════════════════════════════════════════════
   seoLayer: {
-    internalLinking: "Curated links to key service pages (Ceramic Coating, Paint Correction, Interior Detail) and deep content (Process, FAQ, About). Intent-based, not volume-based.",
-    anchorText: "Descriptive, natural language. No keyword stuffing. No repetitive exact-match anchors. Example: 'Ceramic coating services' not 'best Calgary ceramic coating detailing near me'.",
+    internalLinking: "Curated links to key service pages (Drywall Repair, Drywall Installation, Painting, Insulation, Garage & Basement Packages) and deep content (Process, FAQ, About). Intent-based, not volume-based.",
+    anchorText: "Descriptive, natural language. No keyword stuffing. No repetitive exact-match anchors. Example: 'Drywall and finishing services' not 'best Calgary drywall and finishing near me'.",
     localSEO: {
       napConsistency: "Include business name, address (Calgary/Cochrane), and phone consistently across all pages.",
       serviceArea: "Mention 'Calgary, Cochrane and surrounding areas, Alberta' naturally — not as a keyword-stuffed list of every nearby city.",
@@ -226,7 +226,7 @@ export const FOOTER_ARCHITECT_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   antiPatterns: [
     "Overcrowding with dozens of links — keep curated and intentional (12+ links = 40% less engagement)",
-    "Keyword stuffing in anchor text — write naturally, no 'best Calgary auto detailing ceramic coating' spam",
+    "Keyword stuffing in anchor text — write naturally, no 'best Calgary residential interior finishing wall finish' spam",
     "Replicating the entire header — provide supplemental value, not duplication",
     "Tiny fonts and poor readability — maintain legibility, especially on mobile",
     "Excessive white space making footer feel empty — balance is key",
@@ -260,12 +260,12 @@ export const FOOTER_ARCHITECT_PERSONA = {
   // COCHRANE MASTER BUILDERS FOOTER PRIORITIES
   // ═══════════════════════════════════════════════════════════════════
   cochraneWoodPriorities: {
-    navFooterUnity: "Footer echoes nav bar design language — together they form a complete visual frame. Paint depth metaphor: nav = clear coat, footer = foundation.",
+    navFooterUnity: "Footer echoes nav bar design language — together they form a complete visual frame. Paint depth metaphor: nav = topcoat, footer = foundation.",
     closingMoment: "The footer is the final note — it should resolve the page's story with confidence and precision.",
-    bookNowCTA: "Gentle, inviting CTA for booking — not aggressive, not buried. 'Book Now' or 'Get a Quote'.",
+    bookNowCTA: "Gentle, inviting CTA for booking — not aggressive, not buried. 'Get a Quote' or 'Get a Quote'.",
     contactClarity: "Easy-to-find contact information — phone, email, Calgary/Cochrane location.",
     legalMinimalism: "Privacy and terms present but not prominent — clean and accessible.",
-    brandSignature: "A small, delightful detail that rewards attentive visitors — the paint depth gradient connecting footer to nav.",
+    brandSignature: "A small, delightful detail that rewards attentive visitors — the wall build-up depth gradient connecting footer to nav.",
     certificationTrust: "Mention manufacturer certifications or dealership-preferred status if applicable — powerful trust signal for premium detailing.",
   },
 

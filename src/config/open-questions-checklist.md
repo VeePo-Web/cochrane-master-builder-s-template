@@ -101,7 +101,7 @@ Site currently shows three tiers at wrong prices. Cochrane Master Builders's rea
 **Decisions needed:**
 - (a) Display as `Interior $139 + $30 exterior` or as bundled `Full Detail from $169 sedan / $189 SUV / $229 7-seater`?
 - (b) Confirm 7-seater pricing is shown publicly.
-- (c) Remove all "machine polish / paint correction" language — confirm.
+- (c) Remove all "machine polish / drywall + paint finishing" language — confirm.
 - (d) Add-on visibility: surface ceramic spray coat, clay bar, iron extraction as add-ons?
 
 ---
@@ -117,7 +117,7 @@ Site currently shows three tiers at wrong prices. Cochrane Master Builders's rea
 | `src/pages/Services.tsx` | 36 | "All services include travel anywhere in Calgary." |
 
 **Decision needed:** confirm we remove Okotoks, Chestermere, Langdon — or are
-some still acceptable? Also confirm vehicle exclusion ("nothing larger than a
+some still acceptable? Also confirm home exclusion ("nothing larger than a
 minivan") should appear here.
 
 ---

@@ -9,11 +9,11 @@
  * CONSTRAINT: No frontend changes. Reference only.
  * 
  * SOURCE: Synthesized from Landor & Fitch, Wolff Olins, and Collateral
- * methodologies, rebranded for premium automotive detailing.
+ * methodologies, rebranded for premium residential finishing.
  */
 
 export const BRAND_IDENTITY_ARCHITECT = {
-  expertise: "Senior Brand Identity Architect with 50+ years of combined identity systems experience at Landor & Fitch, Wolff Olins, Collateral — specializing in strategy-first identity systems that are market-true, customer-true, founder-true, and system-true. Applied to premium automotive detailing and paint protection.",
+  expertise: "Senior Brand Identity Architect with 50+ years of combined identity systems experience at Landor & Fitch, Wolff Olins, Collateral — specializing in strategy-first identity systems that are market-true, customer-true, founder-true, and system-true. Applied to premium residential finishing and long-life finish.",
 
   // ═══════════════════════════════════════════════════════════════════
   // OPERATING SYSTEM (How decisions are made)
@@ -150,12 +150,12 @@ export const BRAND_IDENTITY_ARCHITECT = {
       description: "Visual identity direction tied to Brand Spine strategy.",
       deliverables: [
         "Visual principles (5-10) tied to Brand Spine",
-        "Trust & premium cues specific to automotive detailing",
-        "Photography/art direction rules (before/after, studio-lit, paint correction reveals)",
+        "Trust & premium cues specific to residential finishing",
+        "Photography/art direction rules (before/after, studio-lit, drywall + paint finishing reveals)",
         "Layout philosophy",
         "Typography direction (descriptive usage rules)",
         "Color logic (what it signals + how it's used)",
-        "Iconography/motifs (precision geometry, ceramic sheen, paint depth)",
+        "Iconography/motifs (precision geometry, soft warm sheen, wall build-up depth)",
         "Anti-patterns (what makes it look generic, cheap, or off-market)",
       ],
     },
@@ -189,7 +189,7 @@ export const BRAND_IDENTITY_ARCHITECT = {
         "Design/UX quality of competitor websites",
         "Channel efficacy and reputation",
         "Differentiators and where competitors under-serve customer needs",
-        "White space for differentiation in the automotive detailing market",
+        "White space for differentiation in the residential finishing market",
       ],
     },
     translatingResearchToStrategy: [
@@ -226,9 +226,9 @@ export const BRAND_IDENTITY_ARCHITECT = {
   customerUnderstanding: {
     personaDevelopment: {
       demographics: "Age, gender, income, family status, location",
-      psychographics: "Values, interests, lifestyle, attitudes toward vehicle ownership",
-      behaviours: "Purchase frequency, loyalty, channels used, detailing habits",
-      painPointsAndGoals: "Problems with current detailing options and what they aspire to for their vehicle",
+      psychographics: "Values, interests, lifestyle, attitudes toward homeownership",
+      behaviours: "Purchase frequency, loyalty, channels used, home-care habits",
+      painPointsAndGoals: "Problems with current detailing options and what they aspire to for their home",
     },
     brandArchetypes: {
       description: "Jungian framework — 12 core archetypes linking brand personality to universal human stories. Each driven by a core desire.",
@@ -248,9 +248,9 @@ export const BRAND_IDENTITY_ARCHITECT = {
   visualIdentityPrinciples: {
     groundInPurpose: "Visual elements must reflect mission, vision, values and archetype. Start with brand identity before designing the visual system.",
     simplicityAndVersatility: "Logos must be simple, recognisable and scalable across digital and physical mediums.",
-    colorPsychology: "Choose palette aligned with desired emotions and competitive distinctiveness. For automotive detailing: deep blacks (authority), metallic silvers (precision), accent colors (energy/trust).",
+    colorPsychology: "Choose palette aligned with desired emotions and competitive distinctiveness. For residential finishing: deep blacks (authority), metallic silvers (precision), accent colors (energy/trust).",
     typography: "Typefaces shape personality; must complement tone and remain legible across devices. Balance modern and traditional qualities.",
-    imagery: "Use authentic detailing photography — before/after reveals, studio-quality close-ups, paint correction transformations. No generic stock.",
+    imagery: "Use authentic finished-work photography — before/after reveals, studio-quality close-ups, before/after finishing transformations. No generic stock.",
     consistency: "Comprehensive style guide covering logo usage, colours, typography, imagery and layout. Consistency builds familiarity and revenue.",
     adaptability: "Visual identity must evolve thoughtfully to remain relevant while maintaining recognisable elements.",
     aiReadyGuidelines: "Remove implied knowledge. Structure guidelines with strict taxonomies so AI tools can accurately reproduce brand elements. Document colour codes, proportion ratios and usage rules explicitly.",
@@ -288,15 +288,15 @@ export const BRAND_IDENTITY_ARCHITECT = {
   // ═══════════════════════════════════════════════════════════════════
   brandStorytelling: {
     framework: {
-      step1: "Pinpoint the conflict — identify the customer's pain point and the 'villain' (cheap car washes, inconsistent detailers, fear of damage)",
-      step2: "Position the customer as the hero — the vehicle owner who demands excellence",
+      step1: "Pinpoint the conflict — identify the customer's pain point and the 'villain' (generic handyman patches, inconsistent builders, fear of damage)",
+      step2: "Position the customer as the hero — the homeowner who demands excellence",
       step3: "Develop the plot — hero's journey from frustration to discovering Cochrane Master Builders to transformation",
       step4: "Identify the moral — the brand's deeper purpose (precision craftsmanship protects what matters)",
     },
     storyTypes: [
       "Functional stories — highlight service superiority and technical precision",
       "Underdog stories — origin story, overcoming industry mediocrity",
-      "Lifestyle stories — the life of someone who values their vehicle",
+      "Lifestyle stories — the life of someone who values their home",
       "Social mission stories — caring for craft, community, environment",
     ],
     authenticityRequirements: [
@@ -368,11 +368,11 @@ export const BRAND_IDENTITY_ARCHITECT = {
   // COCHRANE MASTER BUILDERS APPLICATION
   // ═══════════════════════════════════════════════════════════════════
   cochraneWoodApplication: {
-    category: "Premium automotive detailing and paint protection — specifically for discerning vehicle owners who value precision craftsmanship, technical expertise, and white-glove service.",
-    brandTruth: "Cochrane Master Builders exists because most automotive detailing feels either cheap and rushed (drive-through car washes, quick-detail shops) or inconsistent and unreliable (mobile detailers with no standards). They offer a third path: precision craftsmanship with technical expertise and obsessive attention to detail.",
-    audienceIdentity: "For vehicle owners who see their cars as extensions of their identity — not just transportation to maintain. They want to trust the hands touching their vehicle, not gamble on whoever shows up.",
+    category: "Premium residential finishing and long-life finish — specifically for discerning homeowners who value precision craftsmanship, technical expertise, and white-glove service.",
+    brandTruth: "Cochrane Master Builders exists because most residential finishing feels either cheap and rushed (generic handyman patches and franchise contractor templates) or inconsistent and unreliable (mobile builders with no standards). They offer a third path: precision craftsmanship with technical expertise and obsessive attention to detail.",
+    audienceIdentity: "For homeowners who see their cars as extensions of their identity — not just transportation to maintain. They want to trust the hands touching their home, not gamble on whoever shows up.",
     proofMechanics: "Before/after portfolio quality, product and certification partnerships, process transparency and documentation, client testimonials, technical knowledge visible in every touchpoint.",
     personality: "Precise yet passionate. Technical yet approachable. Premium yet personal.",
-    standards: "Every vehicle touchpoint must feel considered. No shortcuts. No generic service packages. No corporate detachment. No rushing.",
+    standards: "Every home touchpoint must feel considered. No shortcuts. No generic service packages. No corporate detachment. No rushing.",
   },
 } as const;

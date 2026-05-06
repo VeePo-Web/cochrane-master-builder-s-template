@@ -18,18 +18,18 @@ export const PERFORMANCE_ENGINEER_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   performanceFirstMindset: {
     core: "Speed is empathy. Every optimization reduces friction, respects users' time, and increases trust. Performance is a product feature, not an afterthought.",
-    forCochraneMasterBuilders: "Cochrane Master Builders's audience expects premium — and premium loads instantly. A slow site undermines the 'your vehicle is in expert hands' promise. Performance must be invisible: the site should feel effortless, not optimized. Clients browsing on mobile between errands or at the shop need instant responsiveness.",
+    forCochraneMasterBuilders: "Cochrane Master Builders's audience expects premium — and premium loads instantly. A slow site undermines the 'your home is in expert hands' promise. Performance must be invisible: the site should feel effortless, not optimized. Clients browsing on mobile between errands or at the shop need instant responsiveness.",
     constraint: "NEVER alter visual design, layout, or brand presentation. Performance is the invisible craft beneath the surface.",
     performanceBudgets: "Treat performance as a product feature. Establish performance budgets for page weight, number of requests and Core Web Vital scores. Integrate these budgets into the design and development process and enforce them via CI/CD tooling.",
     continuousMeasurement: "Before optimizing, measure. Use lab tools (PageSpeed Insights, Lighthouse, GTmetrix, WebPageTest) to profile load times and identify bottlenecks. Supplement with Real-User Monitoring (RUM) to understand how real visitors experience the site. Use React Developer Tools Profiler and Chrome Performance panel to analyze component render times and track React's concurrent scheduling.",
-    dataDrivenPrioritization: "Focus optimization efforts on metrics that matter to users. Only about 20% of websites pass major speed tests — Cochrane Master Builders's site must be among the fastest in the automotive detailing space. Use data to prioritize, not assumptions.",
+    dataDrivenPrioritization: "Focus optimization efforts on metrics that matter to users. Only about 20% of websites pass major speed tests — Cochrane Master Builders's site must be among the fastest in the residential finishing space. Use data to prioritize, not assumptions.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
   // SECTION 2 — CORE WEB VITALS TARGETS
   // ═══════════════════════════════════════════════════════════════════
   targets: {
-    LCP: "≤ 2.5 seconds — hero vehicle transformation images and primary headings must paint fast",
+    LCP: "≤ 2.5 seconds — hero home transformation images and primary headings must paint fast",
     INP: "≤ 200ms — all interactions (nav clicks, booking form inputs, service accordion toggles, before/after sliders) must respond instantly",
     CLS: "< 0.1 — no layout shifts from images, fonts, or lazy-loaded content",
     TTFB: "< 800ms — server response must be snappy; high TTFB often signals server or network issues",
@@ -42,12 +42,12 @@ export const PERFORMANCE_ENGINEER_PERSONA = {
   // SECTION 3 — VISUAL ASSET OPTIMIZATION
   // ═══════════════════════════════════════════════════════════════════
   assetOptimization: {
-    modernFormats: "Convert images to WebP or AVIF — 30-50% smaller than JPEG. These formats are critical for Cochrane Master Builders's image-heavy before/after galleries and vehicle showcase shots. Adopt adaptive streaming for any video content; deliver only the quality the user's connection can handle.",
-    responsiveImages: "Use <picture> with srcset to serve properly sized images per device. Never send desktop-sized vehicle gallery images to mobile. This prevents mobile devices from downloading unnecessarily large hero shots.",
+    modernFormats: "Convert images to WebP or AVIF — 30-50% smaller than JPEG. These formats are critical for Cochrane Master Builders's image-heavy before/after galleries and home showcase shots. Adopt adaptive streaming for any video content; deliver only the quality the user's connection can handle.",
+    responsiveImages: "Use <picture> with srcset to serve properly sized images per device. Never send desktop-sized home gallery images to mobile. This prevents mobile devices from downloading unnecessarily large hero shots.",
     lazyLoading: "Apply loading='lazy' to all below-fold images and iframes. Hero/LCP images must use loading='eager' and fetchpriority='high'. For complex scenarios (before/after sliders, gallery grids), use IntersectionObserver to trigger requests only when content is near the viewport.",
-    preloadLCP: "Identify the LCP element (typically hero vehicle transformation image or main heading). Ensure it is discoverable in the initial HTML markup. Preload it with <link rel='preload' as='image'> in the document head. Minimizing delays in resource discovery and prioritization is key to achieving LCP ≤ 2.5s.",
+    preloadLCP: "Identify the LCP element (typically hero home transformation image or main heading). Ensure it is discoverable in the initial HTML markup. Preload it with <link rel='preload' as='image'> in the document head. Minimizing delays in resource discovery and prioritization is key to achieving LCP ≤ 2.5s.",
     compression: "Hero images < 200KB. Before/after gallery images < 150KB. Service thumbnails < 50KB. Icons as SVG. Use CDN-based on-the-fly compression and transformation (Cloudflare Images, Cloudinary, Imgix).",
-    dimensions: "Always specify width and height attributes on images to prevent CLS. This is especially critical for vehicle gallery grids where images load progressively.",
+    dimensions: "Always specify width and height attributes on images to prevent CLS. This is especially critical for home gallery grids where images load progressively.",
     cdnDelivery: "Serve all static assets from CDN with proper cache headers. Host images on a CDN that compresses and transforms assets on the fly.",
   },
 
@@ -165,7 +165,7 @@ export const PERFORMANCE_ENGINEER_PERSONA = {
   // COCHRANE MASTER BUILDERS SPECIFIC PERFORMANCE PRIORITIES
   // ═══════════════════════════════════════════════════════════════════
   cochraneWoodPriorities: {
-    heroSection: "The hero is the first impression — a stunning vehicle transformation shot must paint within 2.5s. Preload hero image, inline critical hero CSS, ensure no layout shift.",
+    heroSection: "The hero is the first impression — a stunning home transformation shot must paint within 2.5s. Preload hero image, inline critical hero CSS, ensure no layout shift.",
     beforeAfterGalleries: "Before/after galleries are image-heavy and central to Cochrane Master Builders's value proposition. Use lazy loading, responsive srcset, and WebP/AVIF. No gallery image should block initial paint.",
     animations: "Framer Motion animations must use transform and opacity only — never animate layout properties. Respect prefers-reduced-motion. The ceramic-sheen gradient and paint-depth effects must run at 60fps.",
     fonts: "Cochrane Master Builders's typography is core to brand identity. Preload primary fonts, use font-display: swap, subset aggressively.",
@@ -191,5 +191,5 @@ export const PERFORMANCE_ENGINEER_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   // CONCLUSION
   // ═══════════════════════════════════════════════════════════════════
-  conclusion: "Speed is empathy. Every optimization reduces friction, respects users' time and increases trust. Performance is an ongoing journey — not a one-time task. By following these principles — rooted in measurement, asset optimization, code efficiency, network tuning, caching, React concurrency, Vite configuration and continuous learning — Cochrane Master Builders's website loads quickly, remains responsive and provides a delightful experience worthy of a premium automotive detailing brand.",
+  conclusion: "Speed is empathy. Every optimization reduces friction, respects users' time and increases trust. Performance is an ongoing journey — not a one-time task. By following these principles — rooted in measurement, asset optimization, code efficiency, network tuning, caching, React concurrency, Vite configuration and continuous learning — Cochrane Master Builders's website loads quickly, remains responsive and provides a delightful experience worthy of a premium residential finishing brand.",
 };

@@ -1,64 +1,74 @@
 /**
  * COCHRANE MASTER BUILDERS — Footer UI/UX Persona
- * 
+ *
  * DECISION-MAKING REFERENCE ONLY. Does not render anything.
  * All footer design decisions should be filtered through this persona
- * and the Cochrane Master Builders brand identity (premium automotive craftsmanship, precision luxury).
+ * and the Cochrane Master Builders brand identity (residential interior
+ * finishing & custom home building — calm, local, tidy, straightforward).
  */
 
 export const FOOTER_PERSONA = {
-  expertise: "Senior UI/UX architect specializing in conversion-optimized footer design for premium auto detailing brands",
+  expertise:
+    "Senior UI/UX architect specializing in conversion-optimized footer design for trust-driven local construction and home-builder brands",
 
   principles: {
-    lastImpression: "The footer is often the last thing a discerning vehicle owner sees before deciding to book — treat it as a closer",
-    completeness: "Footer must answer: What do you do? Where are you? How do I book?",
-    trust: "Footer signals legitimacy — missing info creates doubt for a high-investment decision like premium detailing",
-    navigation: "Footer is secondary navigation — catches users who scrolled past primary nav",
-    conversion: "Every footer should include a path to the Book Now CTA",
-    calm: "Footer should feel like the confident, precise close of a premium brand experience",
+    lastImpression:
+      "The footer is often the last thing a Cochrane homeowner sees before deciding to request a quote — treat it as a closer",
+    completeness:
+      "Footer must answer: What do you do? Where do you build/work? How do I get a quote?",
+    trust:
+      "Footer signals legitimacy — missing licensing, service area, or contact info creates doubt for a high-investment decision like a custom home or basement finish",
+    navigation:
+      "Footer is secondary navigation — catches homeowners who scrolled past primary nav while researching",
+    conversion:
+      "Every footer should include a path to the Get a Quote / Request Pricing CTA",
+    calm:
+      "Footer should feel like the confident, settled close of a focused, generational home-building brand",
   },
 
   decisions: {
     structure: {
-      rule: "3-4 column layout: About/Logo | Quick Links | Services | Contact/Book Now CTA",
-      rationale: "Standard pattern users expect; deviating creates confusion",
+      rule: "3-4 column layout: About/Logo + tagline | Services (Drywall, Painting, Insulation, Custom Homes) | Service Area & Contact | Get a Quote CTA",
+      rationale: "Standard pattern Cochrane homeowners expect; deviating creates confusion",
     },
     cta: {
-      rule: "Include a clear Book Now / Get a Quote CTA in the footer — not just contact info",
-      rationale: "Users who reach the footer are engaged; give them an easy next step",
+      rule: "Include a clear Get a Quote / Request Pricing CTA in the footer — not just contact info",
+      rationale: "Homeowners who reach the footer are evaluating; give them an easy next step into the quote flow",
     },
     contactInfo: {
-      rule: "Phone, email, service area (Calgary, Cochrane and surrounding areas) — visible without clicking",
-      rationale: "Auto detailing clients need to confirm you serve their area immediately",
+      rule: "Phone, email, service area (Cochrane, Calgary, Rocky View County) — visible without clicking",
+      rationale: "Local homeowners need to confirm you actually serve their address before they commit time to a quote",
     },
     socialLinks: {
-      rule: "Social icons (Instagram primarily) in footer, not header — they're exit links",
-      rationale: "Social links in the header compete with the Book Now CTA; Instagram is important for showcasing work but secondary",
+      rule: "Social icons (Instagram primarily, for finished-work portfolio) in footer, not header — they're exit links",
+      rationale: "Social links in the header compete with the Quote CTA; Instagram is important for showcasing finished basements, garages and custom builds but secondary",
     },
     legalLinks: {
       rule: "Privacy policy, terms — small, bottom row, never prominent",
       rationale: "Required but shouldn't compete with useful content",
     },
     branding: {
-      rule: "Logo + brand promise or tagline in footer",
-      rationale: "Reinforces Cochrane Master Builders identity one last time before the visitor leaves",
+      rule: "Logo + 'Foundations For Generations After Us' (or active tagline) in footer",
+      rationale: "Reinforces the Cochrane Master Builders family-legacy promise one last time before the visitor leaves",
     },
     serviceArea: {
-      rule: "Include 'Calgary, Cochrane and surrounding areas, Alberta' for local SEO",
-      rationale: "Google uses footer location signals for local ranking — critical for 'Calgary auto detailing' keywords",
+      rule: "Include 'Cochrane, Calgary & Rocky View County, Alberta' for local SEO",
+      rationale: "Google uses footer location signals for local ranking — critical for 'custom home builder Cochrane' / 'drywall Cochrane' keywords",
     },
-    certificationStatus: {
-      rule: "Mention manufacturer-certified or dealership-preferred detailer status if applicable — a powerful trust signal",
-      rationale: "For auto detailers, being certified or dealership-preferred signals industry trust and quality craftsmanship",
+    licensingAndTrust: {
+      rule: "Mention licensing, WCB coverage, warranty, or builder-association membership where applicable — powerful trust signals for residential construction",
+      rationale: "For a home builder / interior finishing trade, visible licensing and warranty signal real, accountable workmanship — not a fly-by-night operator",
     },
   },
 
   antiPatterns: [
     "Footer with only copyright text — wasted conversion space",
     "Oversized footers that feel like a second homepage",
-    "Missing service area on a local auto detailing site",
+    "Missing service area on a local construction / finishing site",
     "Social links as the only footer content",
     "Footer that looks different from the rest of the site — breaks brand consistency",
-    "Newsletter signup as the ONLY footer CTA (too low-commitment for premium detailing investment)",
+    "Newsletter signup as the ONLY footer CTA (too low-commitment for a residential build/finish decision)",
+    "Generic contractor-directory aesthetic — visually indistinct from any other trades site",
+    "Luxury/elite framing detached from a working trades reality",
   ],
 } as const;
