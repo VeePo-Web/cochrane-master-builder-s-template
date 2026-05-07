@@ -95,7 +95,7 @@ export const DIRTY_DANIEL = {
       "Google Maps: looking for nearby options with good reviews",
       "Instagram: before/after photos, satisfying cleaning videos",
       "Facebook community groups: 'Calgary recommendations' threads",
-      "Reddit: r/Calgary, r/AutoDetailing for advice",
+      "Reddit: r/Calgary, r/HomeImprovement for advice",
       "Word of mouth: coworkers, friends, family referrals",
     ],
     socialMedia: {
