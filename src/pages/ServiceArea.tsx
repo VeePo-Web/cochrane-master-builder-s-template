@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import Navigation from "@/components/custom home building/Navigation";
-import Footer from "@/components/custom home building/Footer";
-import ScrollReveal from "@/components/custom home building/ScrollReveal";
-import SectionDivider from "@/components/custom home building/SectionDivider";
-import InnerHero from "@/components/custom home building/InnerHero";
+import Navigation from "@/components/detailing/Navigation";
+import Footer from "@/components/detailing/Footer";
+import ScrollReveal from "@/components/detailing/ScrollReveal";
+import SectionDivider from "@/components/detailing/SectionDivider";
+import InnerHero from "@/components/detailing/InnerHero";
 import calgarySkyline from "@/assets/calgary-skyline.jpg";
 import rockies from "@/assets/service-area-rockies.jpg";
 

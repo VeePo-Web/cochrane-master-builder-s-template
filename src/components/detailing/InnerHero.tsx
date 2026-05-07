@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ReactNode, useRef } from "react";
-import RevealText from "@/components/custom home building/RevealText";
+import RevealText from "@/components/detailing/RevealText";
 
 interface InnerHeroProps {
   image: string;

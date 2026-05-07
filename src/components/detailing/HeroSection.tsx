@@ -3,7 +3,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { ChevronDown } from "lucide-react";
 import heroVehicle from "@/assets/hero-project.jpg";
 import { useIsMobile } from "@/hooks/use-mobile";
-import RevealText from "@/components/custom home building/RevealText";
+import RevealText from "@/components/detailing/RevealText";
 
 interface HeroSectionProps {
   onBookClick?: () => void;

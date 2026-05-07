@@ -1,7 +1,7 @@
-import Navigation from "@/components/custom home building/Navigation";
-import Footer from "@/components/custom home building/Footer";
-import ScrollReveal from "@/components/custom home building/ScrollReveal";
-import InnerHero from "@/components/custom home building/InnerHero";
+import Navigation from "@/components/detailing/Navigation";
+import Footer from "@/components/detailing/Footer";
+import ScrollReveal from "@/components/detailing/ScrollReveal";
+import InnerHero from "@/components/detailing/InnerHero";
 import {
   Accordion,
   AccordionContent,
@@ -9,7 +9,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import dividerCoating from "@/assets/divider-coating.jpg";
-import SectionDivider from "@/components/custom home building/SectionDivider";
+import SectionDivider from "@/components/detailing/SectionDivider";
 import dividerMicrofiber from "@/assets/divider-millwork.jpg";
 
 interface FAQProps {
