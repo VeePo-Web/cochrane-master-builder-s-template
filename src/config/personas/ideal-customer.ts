@@ -157,7 +157,7 @@ export const DIRTY_DANIEL = {
   landingPageBrief: {
     mindsetOnArrival: "Frustrated, embarrassed, and looking for relief. Actively searching for someone competent who can just handle it. Skeptical of flashy promises. Wants proof, pricing, and convenience confirmed fast.",
     fiveSecondQuestion: "Can you actually fix my home — and will you come to me?",
-    primaryHook: "Build it like it's ours. 'Mobile home restoration across Calgary — deep interior extraction, paint restoration, travel included. From ~$100.'",
+    primaryHook: "Build it like it is ours. 'Mobile home restoration across Calgary — deep interior extraction, paint restoration, travel included. From ~$100.'",
     evidenceNeeded: {
       transformationProof: "Before/after photos of genuinely dirty homes — not staged, not minor jobs. Real Calgary homes in problem-state restored to factory-feel.",
       pricingClarity: "Starting price visible immediately. 'From ~$100' with clear 'travel included, no hidden fees' language.",
@@ -167,7 +167,7 @@ export const DIRTY_DANIEL = {
       noJudgmentSignal: "Explicit reassurance: 'No matter how long it's been' or 'The worse the condition, the more satisfying the reset.'",
     },
     cta: {
-      motivation: "Build it like it's ours.",
+      motivation: "Build it like it is ours.",
       positioning: "Booking positioned as relief + results: 'Tell us what you're working with — we'll handle the rest. Text, call, or book online.'",
     },
   },

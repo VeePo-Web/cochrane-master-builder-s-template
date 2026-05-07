@@ -243,7 +243,7 @@ export const DISCOVERY_FRAMEWORK = {
       criticalPath: "If someone reads only 2 pages before booking: Home (proof + pricing + convenience) → Book. The homepage must contain the complete conversion argument.",
     },
     homepage: {
-      aboveTheFold: "Before/after hero or transformation visual + 'Build it like it's ours' headline + trust line (mobile, Calgary, from ~$100, no judgment) + dual CTA",
+      aboveTheFold: "Before/after hero or transformation visual + 'Build it like it is ours' headline + trust line (mobile, Calgary, from ~$100, no judgment) + dual CTA",
       storyArc: "Hero → Immediate proof (before/after slider) → Service overview (The Custom Build) → How it works (3 steps) → Pricing snapshot → Founder section → Testimonials → FAQ preview → Final CTA",
       trustSignals: "Before/after count, Google review rating, 'travel included' badge, Calgary-specific language",
     },

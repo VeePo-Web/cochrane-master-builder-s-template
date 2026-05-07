@@ -1040,7 +1040,7 @@ const SuccessState = ({ serviceName, onDone }: { serviceName: string; onDone?: (
       {[
         { step: "1", text: "We'll confirm by text within 2 hours" },
         { step: "2", text: "We show up on your schedule" },
-        { step: "3", text: "You build it like it's ours, transformed" },
+        { step: "3", text: "You build it like it is ours, transformed" },
       ].map((item, i) => (
         <motion.div
           key={item.step}
