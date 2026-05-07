@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Check, MessageCircle, Phone, Sparkles, Armchair, Car, HelpCircle, ArrowRight, Upload, Image as ImageIcon, Film } from "lucide-react";
+import { X, Check, MessageCircle, Phone, Sparkles, Armchair, Home, HelpCircle, ArrowRight, Upload, Image as ImageIcon, Film } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -32,7 +32,7 @@ function buildDraft(args: {
     other: "not-sure",
   };
   const vehicleMap: Record<string, BookingDraft["vehicleType"]> = {
-    sedan: "sedan",
+    townhome: "townhome",
     suv: "suv",
     truck: "truck",
     van: "van",
@@ -56,15 +56,15 @@ interface BookingModalProps {
 }
 
 const services = [
-  { id: "full-reset", name: "The Full Reset", desc: "Interior + exterior — the complete transformation", popular: true, icon: Sparkles },
+  { id: "full-reset", name: "The Custom Build", desc: "Interior + exterior — the complete transformation", popular: true, icon: Sparkles },
   { id: "interior", name: "Basic Wash (Interior)", desc: "Vacuum, shampoo, dash, seats, leather, doors, trunk.", icon: Armchair },
-  { id: "exterior", name: "Exterior Add-On (+$30)", desc: "Hand wash, clay bar, tires/trim, sealant — added to any interior.", icon: Car },
+  { id: "exterior", name: "Exterior Add-On (+$30)", desc: "Hand wash, millwork detail, tires/trim, sealant — added to any interior.", icon: Home },
   { id: "other", name: "Not sure yet", desc: "I'll describe what I need", icon: HelpCircle },
 ];
 
 const vehicleTypes = [
-  { id: "sedan", label: "Sedan / Coupe", emoji: "🚗" },
-  { id: "suv", label: "SUV / Crossover", emoji: "🚙" },
+  { id: "townhome", label: "Townhome / Coupe", emoji: "🚗" },
+  { id: "suv", label: "addition / Crossover", emoji: "🚙" },
   { id: "truck", label: "Truck", emoji: "🛻" },
   { id: "van", label: "Van / Minivan", emoji: "🚐" },
   { id: "other", label: "Other", emoji: "✏️" },
@@ -179,8 +179,8 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
             idempotencyKey: `booking-confirm-${id}`,
             templateData: {
               name: formData.name,
-              service: serviceLabel ?? "The Full Reset",
-              vehicle: vehicleLabel ?? undefined,
+              service: serviceLabel ?? "The Custom Build",
+              project: vehicleLabel ?? undefined,
               phone: formData.phone || undefined,
               message: formData.message || undefined,
             },
@@ -366,14 +366,14 @@ const BookingModal = ({ open, onClose }: BookingModalProps) => {
                     </motion.span>
                   ))}
                 </p>
-                {/* "Detailing" — slides in from right */}
+                {/* "Master Builders" — slides in from right */}
                 <motion.p
                   initial={{ opacity: 0, x: 12 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: 0.6 + "COCHRANE MASTER BUILDERS".length * 0.03 + 0.05, ease: panelEase }}
                   className="font-overline text-caption tracking-[0.3em] text-copper/60 uppercase mt-1"
                 >
-                  Detailing
+                  Master Builders
                 </motion.p>
               </motion.div>
 
@@ -731,7 +731,7 @@ const DirtToCleanAnimation = () => {
       >
         {/* Copper leading edge */}
         <div className="w-full h-px bg-copper/60" />
-        {/* Cloth body with microfiber texture lines */}
+        {/* Cloth body with millwork texture lines */}
         <div className="relative w-full h-full bg-gradient-to-b from-stone/30 via-stone/15 to-transparent overflow-hidden">
           <div className="absolute inset-0 flex flex-col justify-evenly">
             <div className="w-full h-px bg-foreground/[0.03]" />
@@ -805,7 +805,7 @@ const StepServices = ({ selectedService, onSelect }: { selectedService: string; 
   </motion.div>
 );
 
-/* ─── Step 2: Vehicle ─── */
+/* ─── Step 2: Project ─── */
 const StepVehicle = ({ selectedVehicle, onSelect, customVehicle, setCustomVehicle, onContinue }: { selectedVehicle: string; onSelect: (id: string) => void; customVehicle: string; setCustomVehicle: (v: string) => void; onContinue: () => void }) => (
   <motion.div key="step2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.25 }}>
     <div className="grid grid-cols-2 gap-3">
@@ -912,7 +912,7 @@ const StepDetails = ({ formData, setFormData, nameRef, selectedServiceData, sele
       </div>
       <div className="input-copper-focus">
         <label className="text-body-sm text-foreground/70 mb-1.5 block">Anything else? (optional)</label>
-        <Textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder="Tell us about your vehicle's condition..." rows={3} className="rounded-sm bg-white/5 border-border/50 focus:translate-y-[-1px] transition-all" />
+        <Textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder="Tell us about your project's condition..." rows={3} className="rounded-sm bg-white/5 border-border/50 focus:translate-y-[-1px] transition-all" />
       </div>
     </div>
   </motion.div>
@@ -1040,7 +1040,7 @@ const SuccessState = ({ serviceName, onDone }: { serviceName: string; onDone?: (
       {[
         { step: "1", text: "We'll confirm by text within 2 hours" },
         { step: "2", text: "We show up on your schedule" },
-        { step: "3", text: "You get your car back, transformed" },
+        { step: "3", text: "You build it like it is ours, transformed" },
       ].map((item, i) => (
         <motion.div
           key={item.step}

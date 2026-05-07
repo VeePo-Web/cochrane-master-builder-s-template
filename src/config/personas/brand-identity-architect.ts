@@ -194,7 +194,7 @@ export const BRAND_IDENTITY_ARCHITECT = {
     },
     translatingResearchToStrategy: [
       "Define segments and needs — use data to create customer personas",
-      "Identify market gaps — highlight unmet needs or emotional drivers neglected by competitors",
+      "Identify market gaps — highlight unmet needs or emotional homeowners neglected by competitors",
       "Inform positioning and USP — determine what makes the offering unique",
       "Select language and tone — record phrases and emotions that resonate",
       "Track evolving trends — ensure the brand adapts to shifting expectations",
@@ -228,7 +228,7 @@ export const BRAND_IDENTITY_ARCHITECT = {
       demographics: "Age, gender, income, family status, location",
       psychographics: "Values, interests, lifestyle, attitudes toward homeownership",
       behaviours: "Purchase frequency, loyalty, channels used, home-care habits",
-      painPointsAndGoals: "Problems with current detailing options and what they aspire to for their home",
+      painPointsAndGoals: "Problems with current custom home building options and what they aspire to for their home",
     },
     brandArchetypes: {
       description: "Jungian framework — 12 core archetypes linking brand personality to universal human stories. Each driven by a core desire.",
@@ -370,7 +370,7 @@ export const BRAND_IDENTITY_ARCHITECT = {
   cochraneWoodApplication: {
     category: "Premium residential finishing and long-life finish — specifically for discerning homeowners who value precision craftsmanship, technical expertise, and white-glove service.",
     brandTruth: "Cochrane Master Builders exists because most residential finishing feels either cheap and rushed (generic handyman patches and franchise contractor templates) or inconsistent and unreliable (mobile builders with no standards). They offer a third path: precision craftsmanship with technical expertise and obsessive attention to detail.",
-    audienceIdentity: "For homeowners who see their cars as extensions of their identity — not just transportation to maintain. They want to trust the hands touching their home, not gamble on whoever shows up.",
+    audienceIdentity: "For homeowners who see their homes as extensions of their identity — not just transportation to maintain. They want to trust the hands touching their home, not gamble on whoever shows up.",
     proofMechanics: "Before/after portfolio quality, product and certification partnerships, process transparency and documentation, client testimonials, technical knowledge visible in every touchpoint.",
     personality: "Precise yet passionate. Technical yet approachable. Premium yet personal.",
     standards: "Every home touchpoint must feel considered. No shortcuts. No generic service packages. No corporate detachment. No rushing.",

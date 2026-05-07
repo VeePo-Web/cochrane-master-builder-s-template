@@ -30,7 +30,7 @@ export interface BookingDraft {
   package?: PackageOption;
   addOns?: AddOnOption[];
 
-  // Vehicle
+  // Project
   vehicleType?: VehicleTypeOption;
   customVehicle?: string;
 
@@ -162,7 +162,7 @@ export function validateBookingDraft(
     if (!r.success) setError(errors, "package", r.error.issues[0].message);
   }
 
-  // ── Vehicle
+  // ── Project
   if (draft.vehicleType !== undefined) {
     const r = vehicleTypeSchema.safeParse(draft.vehicleType);
     if (!r.success) setError(errors, "vehicleType", r.error.issues[0].message);
@@ -256,11 +256,11 @@ export function validateBookingDraft(
 
 /* ─── Step + summary helpers ───────────────────────────────────────────── */
 
-export type BookingStepKey = "scope" | "vehicle" | "schedule" | "location" | "readiness" | "contact";
+export type BookingStepKey = "scope" | "project" | "schedule" | "location" | "readiness" | "contact";
 
 const STEP_FIELDS: Record<BookingStepKey, RequiredFieldKey[]> = {
   scope: ["package"],
-  vehicle: ["vehicleType"],
+  project: ["vehicleType"],
   schedule: ["date", "time", "flexibility15min"],
   location: ["street", "city"],
   readiness: ["waterAccess", "powerOutlet", "driveway", "keysHandoff"],

@@ -7,7 +7,7 @@ import InnerHero from "@/components/detailing/InnerHero";
 import RevealImage from "@/components/detailing/RevealImage";
 import servicesHero from "@/assets/services-equipment-flatlay.jpg";
 import vendorDetail from "@/assets/vendor-detail.jpg";
-import dividerMicrofiber from "@/assets/divider-microfiber.jpg";
+import dividerMicrofiber from "@/assets/divider-millwork.jpg";
 import dividerInterior from "@/assets/divider-interior.jpg";
 
 interface ServicesProps {

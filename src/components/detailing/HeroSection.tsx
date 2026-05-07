@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { ChevronDown } from "lucide-react";
-import heroVehicle from "@/assets/hero-vehicle.jpg";
+import heroVehicle from "@/assets/hero-project.jpg";
 import { useIsMobile } from "@/hooks/use-mobile";
 import RevealText from "@/components/detailing/RevealText";
 
@@ -133,7 +133,7 @@ const HeroSection = ({ onBookClick, initialDelay = 0 }: HeroSectionProps) => {
 
             {/* Headline */}
             <RevealText
-              text="Build it like it's ours."
+              text="Build it like it is ours."
               as="h1"
               className="font-display text-display-xl text-white mb-8"
               delay={skip ? 0 : initialDelay + 1.2}

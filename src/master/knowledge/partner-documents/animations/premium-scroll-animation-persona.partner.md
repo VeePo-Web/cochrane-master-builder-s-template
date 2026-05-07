@@ -141,7 +141,7 @@ Consult whenever the request touches scroll mechanics, perceived smoothness, or 
 | Duplicated headings ("Performance principles…" twice, "GSAP GSAP & ScrollTrigger", leading-space headings " Example: Next.js…", " Scroll-driven animation API", " Igloo Inc case study") | Paste artefacts from the original DOCX. Read past them. |
 | `<mark>` tags around config keys / values | Treat as inline highlights of code identifiers. |
 | Mention of "Work Work & Co" | Likely refers to Work & Co. Treat as such, but do not edit the source. |
-| References to "weddings" or any non-detailing/non-construction context if encountered | Treat as out-of-scope. The active brand's identity (Cochrane Master Builders residential finishing or CMB construction) governs all output decisions. |
+| References to "weddings" or any non-custom home building/non-construction context if encountered | Treat as out-of-scope. The active brand's identity (Cochrane Master Builders residential finishing or CMB construction) governs all output decisions. |
 
 ## 11. Dependencies / related documents
 

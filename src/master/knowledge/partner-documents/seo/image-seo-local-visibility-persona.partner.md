@@ -138,10 +138,10 @@ Hard rules:
 ### Cochrane Master Builders (current active brand)
 
 - **Subject discipline** — extreme macro automotive: paint, leather, water
-  beads, microfiber, copper-lit detail (`mem://design/image-content-direction`).
+  beads, millwork, copper-lit detail (`mem://design/image-content-direction`).
   **Never human imagery** (`mem://constraints/image-content-restrictions`).
-  Alt text describes surface, finish, light, texture — never "person detailing
-  a car."
+  Alt text describes surface, finish, light, texture — never "person custom home building
+  a home."
 - **Filename convention** —
   ```
   {subject}-{finish-or-context}-{view}-{location?}.{ext}
@@ -155,7 +155,7 @@ Hard rules:
   `messaging/round-two-copywrite-storytelling-persona`. Quiet, sensory,
   specific. No exclamation marks, no "stunning", no "amazing", no "image of."
   - Good: `Hand-polished black paint reflecting overhead studio lights, post-correction`
-  - Bad: `Image of a shiny car`
+  - Bad: `Image of a shiny home`
 - **Hero image** (`mem://design/hero-section-lock`) — visual is locked. May
   add `width`/`height`, `fetchpriority="high"`, refined alt, `<picture>` AVIF
   source with JPEG fallback at the same dimensions. Do **not** swap the asset,
@@ -205,7 +205,7 @@ Hard rules:
 | Generic example filenames (`calgary-cafe-400w.jpg`, `latte-art-blue-cup.jpg`, `nike-air-max-97-silver-sku12345.jpg`, `croissant-paris-fr.jpg`) | Inspiration only. Use Cochrane Master Builders naming conventions above. |
 | "Calgary coffee shop interior with plants" example alt | Translate the *pattern*, not the content. Use Cochrane Master Builders subjects. |
 | Wedding / café / restaurant / coffee references | Out of scope. Cochrane Master Builders = residential finishing. |
-| "Diverse ethnicities, ages, genders and abilities" inclusive-imagery guidance | Methodology valid; specific application blocked by `mem://constraints/image-content-restrictions` (no human imagery). Cochrane Master Builders inclusivity expresses through subject access (cars across budgets, not just exotics) and copy (`messaging/`), not human portraiture. |
+| "Diverse ethnicities, ages, genders and abilities" inclusive-imagery guidance | Methodology valid; specific application blocked by `mem://constraints/image-content-restrictions` (no human imagery). Cochrane Master Builders inclusivity expresses through subject access (homes across budgets, not just exotics) and copy (`messaging/`), not human portraiture. |
 | "Encourage user-generated photos" | Aspirational. Don't invent UGC. Possible future feature. |
 | "Recipe schema" | N/A — not a food site. |
 | "Multilingual sites", `og:locale:alternate` | Cochrane Master Builders is currently English/Canada only. Methodology stays for future expansion. |

@@ -160,7 +160,7 @@ export const MARKET_RESEARCH = {
         responds_to: "Deep interior reset and mobile convenience.",
       },
       tradespeopleAndWorkTrucks: {
-        name: "Tradespeople and work truck owners",
+        name: "Tradespeople and legacy estate owners",
         description: "Dirt-heavy, utility-driven homes. Respond better to straightforward, no-nonsense messaging.",
         responds_to: "Direct value proposition, not premium luxury language.",
       },
@@ -237,7 +237,7 @@ export const MARKET_RESEARCH = {
       "Get your homes back",
       "We come to you",
       "From neglected to refreshed",
-      "A full reset for dirty homes",
+      "A custom build for dirty homes",
       "Deep interior restoration without the hassle",
       "Calgary residential finishing for homes that need more than a wash",
     ],
@@ -486,7 +486,7 @@ export const MARKET_RESEARCH = {
     leadMessage: "Get your homes back.",
     bestMarketPosition: "Calgary's mobile builder for dirty, neglected, and heavily used homes that need a true reset.",
     emotionalPromise: "From stale, dirty, and overdue to fresh, restored, and satisfying.",
-    practicalPromise: "We come to you anywhere in Calgary and handle the full reset without adding friction.",
+    practicalPromise: "We come to you anywhere in Calgary and handle the custom build without adding friction.",
     coreNarrative: "Cochrane Master Builders exists to restore pride of ownership: you get your homes back because someone capable came to you and handled the full transformation — from neglected and overdue to fresh, clean, and satisfying.",
   },
 } as const;

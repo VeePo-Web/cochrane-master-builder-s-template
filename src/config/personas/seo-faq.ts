@@ -47,12 +47,12 @@ export const FAQ_SEO_PERSONA = {
       "Customer service & support logs — repeated issues and customer language about residential interior finishing",
       "Sales conversations — objections, qualification questions, pricing/timeline phrasing for finishing services",
       "Google 'People Also Ask' panels and AnswerThePublic for residential interior finishing queries",
-      "Analytics & Search Console — long-tail queries driving traffic to detailing pages",
-      "Community posts, social media comments, residential interior finishing forums, car enthusiast groups",
+      "Analytics & Search Console — long-tail queries driving traffic to custom home building pages",
+      "Community posts, social media comments, residential interior finishing forums, home enthusiast groups",
     ],
     intentBuckets: {
       informational: "Early-stage: 'What is drywall + paint finishing?', 'How does wall finish work?', 'What's the difference between a wash and a quote?'",
-      transactional: "Objection-handling: 'How much does detailing cost?', 'What's the timeline?', 'What's included in a full detail?'",
+      transactional: "Objection-handling: 'How much does custom home building cost?', 'What's the timeline?', 'What's included in a full detail?'",
       navigational: "Next steps: 'How do I book a quote?', 'How do I get a quote?'",
       local: "Location: 'Do you serve Cochrane?', 'What areas do you cover in Alberta?', 'Drywall contractor near me in Calgary'",
       edgeCases: "Exceptions: 'Do you travel outside Calgary?', 'What homes don't you detail?', 'Do you work in winter?'",
@@ -91,7 +91,7 @@ export const FAQ_SEO_PERSONA = {
     formatting: [
       "Short opening paragraph + bullet points for complex info",
       "Mini tables for numeric ranges (pricing tiers, timeline differences, package comparisons)",
-      "Multimedia with written summaries and alt text when beneficial (before/after detailing photos)",
+      "Multimedia with written summaries and alt text when beneficial (before/after custom home building photos)",
       "Accessible: WCAG contrast, inclusive language, screen-reader compatible",
     ],
     specificity: [
@@ -150,7 +150,7 @@ export const FAQ_SEO_PERSONA = {
     localOptimization: [
       "Include 'Do you serve Cochrane?', 'What areas do you cover in Alberta?'",
       "Combine with LocalBusiness schema (address, phone, hours) for Cochrane Master Builders",
-      "Geo-specific content reflecting regional considerations (Alberta climate, winter detailing, road salt protection)",
+      "Geo-specific content reflecting regional considerations (Alberta climate, winter custom home building, road salt protection)",
       "Local intent modifiers: 'near me', 'in Cochrane', 'in Calgary', 'serving Alberta'",
       "Location pages for each service area: Cochrane, Calgary, Airdrie, Okotoks",
     ],
@@ -201,7 +201,7 @@ export const FAQ_SEO_PERSONA = {
       "Retire outdated questions, redirect to updated answers",
       "Monitor structured data validity after site changes",
     ],
-    holisticStrategy: "Use FAQ performance insights to plan blog posts, video content (detailing tutorials, before/after showcases). Link new content to relevant FAQs. Build robust internal linking network.",
+    holisticStrategy: "Use FAQ performance insights to plan blog posts, video content (custom home building tutorials, before/after showcases). Link new content to relevant FAQs. Build robust internal linking network.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -244,7 +244,7 @@ export const FAQ_SEO_PERSONA = {
       "drywall + paint finishing Cochrane",
       "residential finishing Cochrane",
       "best auto builder Cochrane",
-      "interior detailing Cochrane",
+      "interior custom home building Cochrane",
       "long-life topcoat Cochrane",
     ],
     faqCategories: [
@@ -253,7 +253,7 @@ export const FAQ_SEO_PERSONA = {
       "Process & Scheduling — how booking works for Cochrane clients",
       "Location & Coverage — service area quotes, travel to Cochrane",
       "Aftercare & Maintenance — how to maintain results in Alberta climate",
-      "Seasonal Considerations — winter detailing, road salt protection, spring prep",
+      "Seasonal Considerations — winter custom home building, road salt protection, spring prep",
     ],
     localSignals: [
       "Cochrane-specific landing page with LocalBusiness schema",

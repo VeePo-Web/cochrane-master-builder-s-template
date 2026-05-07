@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/accordion";
 import dividerCoating from "@/assets/divider-coating.jpg";
 import SectionDivider from "@/components/detailing/SectionDivider";
-import dividerMicrofiber from "@/assets/divider-microfiber.jpg";
+import dividerMicrofiber from "@/assets/divider-millwork.jpg";
 
 interface FAQProps {
   onBookClick?: () => void;

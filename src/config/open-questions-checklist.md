@@ -1,29 +1,17 @@
-# Open Questions Checklist — Mapped to Exact UI Text
+# Open Questions Checklist — Cochrane Master Builders
 
-This is a confirmation checklist, not a code change. Each open item from
-`SOURCE_OF_TRUTH.openQuestions` (see `questionnaire-answers.ts`) is paired
-with the exact strings on the site that depend on Cochrane Master Builders's answer.
+This is a confirmation checklist, not a code change. Each open item below is
+paired with the exact strings on the site that depend on the client's answer.
 
-Once Cochrane Master Builders confirms each item, we update every linked location in one pass.
+Once Cochrane Master Builders confirms each item, every linked location is
+updated in one pass.
 
 ---
 
-## 1. Brand Name — "Cochrane Master Builders" vs "StreetSmart Detailing"
+## 1. Brand Name — confirmed
 
-| File | Line | Current text |
-|---|---|---|
-| `src/components/detailing/Footer.tsx` | 35 | `Cochrane Master Builders` (footer brand H3) |
-| `src/components/detailing/Footer.tsx` | 127 | `Cochrane Master Builders` (monumental sign-off) |
-| `src/components/detailing/Footer.tsx` | 136 | `© {year} Cochrane Master Builders · Calgary, Alberta` |
-| `src/components/detailing/BookingModal.tsx` | 220 | `COCHRANE MASTER BUILDERS` (animated brand stack) |
-| `src/components/detailing/BookingModal.tsx` | 241 | `Detailing` (overline under COCHRANE MASTER BUILDERS) |
-| `src/pages/Terms.tsx` | 12 | `By booking a service with Cochrane Master Builders…` |
-| `src/pages/Privacy.tsx` | header | brand references |
-| `index.html` | `<title>` / meta | site title + OG name |
-| `src/components/detailing/LogoMark.tsx` | — | confirm logomark still applies if name changes |
-
-**Decision needed:** keep `Cochrane Master Builders`, switch to `StreetSmart Detailing`,
-or run them as parent/sub-brand (e.g. "StreetSmart Detailing — by Cochrane Master Builders").
+The brand is **Cochrane Master Builders** across all surfaces. No sub-brand.
+The booking modal overline reads `MASTER BUILDERS`. No further decision needed.
 
 ---
 
@@ -50,15 +38,14 @@ or run them as parent/sub-brand (e.g. "StreetSmart Detailing — by Cochrane Mas
 |---|---|---|
 | `src/components/detailing/Footer.tsx` | 105 | `https://instagram.com/cochranemasterbuilders` |
 
-**Decision needed:** real phone, real email (does the domain `cochranemasterbuilders.ca`
-exist or is it `streetsmartdetailing.ca`?), real IG handle.
+**Decision needed:** real phone, real email (does the domain
+`cochranemasterbuilders.ca` exist?), real IG handle.
 
 ---
 
 ## 3. Cancellation / Reschedule Window
 
-Cochrane Master Builders did not state a window — current "24 hours" is invented and must be
-confirmed or removed.
+The current "24 hours" notice is a placeholder and must be confirmed or removed.
 
 | File | Line | Current text |
 |---|---|---|
@@ -71,70 +58,67 @@ confirmed or removed.
 |---|---|---|
 | `src/pages/FAQ.tsx` | 34, 111 | "We respond within 2 hours…" / "text us anytime — we respond within 2 hours." |
 | `src/components/detailing/BookingModal.tsx` | 906 | "We'll confirm by text within 2 hours" |
-| `src/pages/Results.tsx` | 194 | "Book your reset today. We'll confirm within 2 hours." |
+| `src/pages/Results.tsx` | 194 | "Book your consultation today. We'll confirm within 2 hours." |
 | `src/pages/ThankYou.tsx` | 7, 74 | "…within 2 hours via text or email." |
 
 **Decisions needed:**
-- (a) cancellation window (24h? 48h? none?)
-- (b) is there a rebooking fee?
-- (c) realistic confirmation SLA
+- (a) cancellation / reschedule window for confirmed builds (24h? 48h? project-stage dependent?)
+- (b) is there a rebooking / re-mobilization fee for site-prepped trades?
+- (c) realistic confirmation SLA for new project enquiries
 
 ---
 
-## 4. Pricing Display Model — "Interior + $30 add-on" vs Bundled "Full Detail"
+## 4. Pricing Display Model — Project quote vs published tiers
 
-Site currently shows three tiers at wrong prices. Cochrane Master Builders's real model is
-**Interior base + $30 exterior add-on**.
+Cochrane Master Builders works on a **per-project quoted basis** (custom build,
+renovation, addition, basement, kitchen, bath). Any "tiered" pricing in the
+site copy is a placeholder and must either be removed or replaced with
+representative ranges.
 
 | File | Line | Current text |
 |---|---|---|
-| `src/pages/Services.tsx` | 45–48 | `The Full Reset` · `From $349` · `4–6 hours` |
-| `src/pages/Services.tsx` | 49–52 | "Everything in the Interior Deep Clean, plus hand wash, clay bar treatment, **machine polish**, paint sealant…" *(machine polish — Cochrane Master Builders does not offer)* |
-| `src/pages/Services.tsx` | 76–82 | `Interior Deep Clean` · `From $199` · `2–3 hours` |
-| `src/pages/Services.tsx` | 97–103 | `Exterior Restoration` · `From $199` · "one-step **machine polish**…" |
-| `src/components/detailing/FullResetSection.tsx` | 135–136 | `From $349` · `Sedans from $349 · SUVs & trucks from $399` |
-| `src/components/detailing/FullResetSection.tsx` | 242–247 | `From $349` · `Sedans from $349` · `SUVs & trucks from $399` |
-| `src/pages/FAQ.tsx` | 32 | "Starts at $349 for sedans. SUVs and trucks start at $399." |
-| `src/components/detailing/BookingModal.tsx` | 14–19 | `services[]`: Full Reset / Interior Deep Clean / Exterior Restoration |
-| `src/components/detailing/BookingModal.tsx` | 17 | "Hand wash, clay bar, **polish**, sealant" *(remove polish)* |
+| `src/pages/Services.tsx` | 45–48 | `The Custom Build` flagship tier — confirm representative range |
+| `src/pages/Services.tsx` | 76–82 | Renovation package tier — confirm range |
+| `src/pages/Services.tsx` | 97–103 | Interior finishing tier — confirm range |
+| `src/components/detailing/FullResetSection.tsx` | 135–136, 242–247 | Flagship "from" pricing displayed on hero block |
+| `src/pages/FAQ.tsx` | 32 | FAQ pricing answer |
+| `src/components/detailing/BookingModal.tsx` | 14–19 | `services[]`: Custom Build / Renovation / Addition |
 
 **Decisions needed:**
-- (a) Display as `Interior $139 + $30 exterior` or as bundled `Full Detail from $169 sedan / $189 SUV / $229 7-seater`?
-- (b) Confirm 7-seater pricing is shown publicly.
-- (c) Remove all "machine polish / drywall + paint finishing" language — confirm.
-- (d) Add-on visibility: surface ceramic spray coat, clay bar, iron extraction as add-ons?
+- (a) Show indicative ranges ("Renovations from $X / Custom builds from $Y")
+      or replace all pricing with "Quoted on consultation"?
+- (b) Confirm which project types should appear in the booking modal
+      service list.
+- (c) Confirm published lead-time / build-window expectations.
 
 ---
 
-## 5. Service Area — Calgary + Airdrie + Cochrane only?
+## 5. Service Area — Cochrane + Calgary + Rocky View County?
 
 | File | Line | Current text |
 |---|---|---|
 | `src/pages/ServiceArea.tsx` | 19 | `Surrounding: ["Airdrie", "Cochrane", "Okotoks", "Chestermere", "Langdon"]` |
-| `src/pages/ServiceArea.tsx` | 31 | "Mobile service across Calgary and surrounding areas." |
+| `src/pages/ServiceArea.tsx` | 31 | "On-site builds across Calgary and surrounding areas." |
 | `src/pages/ServiceArea.tsx` | 41–42 | "…anywhere in Calgary and surrounding communities." |
 | `src/components/detailing/Footer.tsx` | 39 | `Calgary & Surrounding Areas · Alberta` |
-| `src/pages/Services.tsx` | 36 | "All services include travel anywhere in Calgary." |
+| `src/pages/Services.tsx` | 36 | "All projects include site supervision anywhere in Calgary." |
 
-**Decision needed:** confirm we remove Okotoks, Chestermere, Langdon — or are
-some still acceptable? Also confirm home exclusion ("nothing larger than a
-minivan") should appear here.
+**Decision needed:** confirm the canonical service area list — Cochrane,
+Calgary, Rocky View County, plus which surrounding communities (Airdrie,
+Bragg Creek, Springbank, etc.) qualify.
 
 ---
 
 ## Bonus — Unsupported Claims to Flag with Cochrane Master Builders
 
-These conflict with `stage: "Just starting"` and `proofAvailable: "None yet"`:
-
 | File | Line | Current text |
 |---|---|---|
-| `src/components/detailing/FullResetSection.tsx` | 233 | "Before and after photos on every reset." *(future-true; confirm framing)* |
+| `src/components/detailing/FullResetSection.tsx` | 233 | "Before and after photos on every project." *(confirm framing)* |
 | `src/pages/Results.tsx` | page | confirm whether real before/after exists or page should be deferred |
-| `src/components/detailing/BookingModal.tsx` | 17 | mentions "polish" — unsupported service claim |
 
 ---
 
-## Deliverable after Cochrane Master Builders confirms
+## Deliverable after confirmation
 
 A single follow-up pass that updates every row above in lockstep, so brand,
 contact, pricing, service area, and policy are consistent across:

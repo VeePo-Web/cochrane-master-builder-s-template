@@ -16,13 +16,13 @@ export const BUSINESS_OVERVIEW = {
   // ═══════════════════════════════════════════════════════════════════
   snapshot: {
     description: "Cochrane Master Builders is building a residential finishing business in Calgary focused on restoring homes that have been heavily used, neglected, or simply not maintained to a high standard over time.",
-    currentOffer: "A full car detail for approximately $100, with gas and travel included anywhere in Calgary.",
+    currentOffer: "A full home detail for approximately $100, with gas and travel included anywhere in Calgary.",
     serviceIncludes: [
       "Interior shampooing and extraction using a dirt extractor",
       "Deep cleaning beyond surface-level tidiness — addressing embedded grime, stains, debris, and odor-causing buildup",
-      "Exterior detailing and paint restoration for visual recovery",
+      "Exterior custom home building and paint restoration for visual recovery",
     ],
-    serviceModel: "Fully mobile across Calgary — removing the biggest friction point in traditional detailing: inconvenience.",
+    serviceModel: "Fully mobile across Calgary — removing the biggest friction point in traditional custom home building: inconvenience.",
     travelPolicy: "Travel and gas are included, reinforcing a straightforward, customer-friendly offer.",
     priceSignal: "~$100 for a full detail — strong value positioning for customers who want a meaningful reset without entering a luxury price bracket",
   },
@@ -32,9 +32,9 @@ export const BUSINESS_OVERVIEW = {
   // ═══════════════════════════════════════════════════════════════════
   coreOpportunity: {
     statement: "Own the space between practical convenience and high-satisfaction transformation.",
-    insight: "Many car cleaning services compete on generic promises: quality, fast service, attention to detail. Cochrane Master Builders's advantage is more emotionally resonant — serving the customer who has let their car go too far, feels the friction of fixing it themselves, and wants someone else to come in and completely reset the situation.",
+    insight: "Many home cleaning services compete on generic promises: quality, fast service, attention to detail. Cochrane Master Builders's advantage is more emotionally resonant — serving the customer who has let their home go too far, feels the friction of fixing it themselves, and wants someone else to come in and completely reset the situation.",
     narrativeShift: [
-      "Not just 'we detail cars' → 'we bring your home back'",
+      "Not just 'we detail homes' → 'we bring your home back'",
       "Not just 'mobile convenience' → 'we remove the effort and deliver the payoff'",
       "Not just 'cleaning' → 'restoration to a standard you can feel proud of again'",
     ],
@@ -45,7 +45,7 @@ export const BUSINESS_OVERVIEW = {
   // 3. BRAND ESSENCE
   // ═══════════════════════════════════════════════════════════════════
   brandEssence: {
-    working: "A convenient, high-satisfaction residential finishing service that restores neglected homes and gives owners the feeling of getting their car back.",
+    working: "A convenient, high-satisfaction residential finishing service that restores neglected homes and gives owners the feeling of getting their home back.",
     oneSentence: "Cochrane Master Builders brings dirty, heavily used homes back to life through residential finishing that feels easy to book and deeply satisfying to experience.",
     emotionalTerritory: ["relief", "reset", "pride", "freshness", "satisfaction", "transformation"],
     functionalTerritory: ["mobile service", "deep interior extraction", "exterior improvement", "paint restoration", "all-Calgary coverage", "straightforward value"],
@@ -55,15 +55,15 @@ export const BUSINESS_OVERVIEW = {
   // 4. AUDIENCE
   // ═══════════════════════════════════════════════════════════════════
   audience: {
-    primary: "Homeowners in Calgary whose cars have become visibly dirty, cluttered, stained, worn-down, or unpleasant to be in, and who want a professional to restore the home rather than doing it themselves.",
+    primary: "Homeowners in Calgary whose homes have become visibly dirty, cluttered, stained, worn-down, or unpleasant to be in, and who want a professional to restore the home rather than doing it themselves.",
     highFitSegments: [
-      { name: "Busy professionals", description: "Care about their car but do not have the time, energy, or tools to clean it properly." },
-      { name: "Parents / family homeowners", description: "Cars that accumulate mess fast and are difficult to keep on top of." },
+      { name: "Busy professionals", description: "Care about their home but do not have the time, energy, or tools to clean it properly." },
+      { name: "Parents / family homeowners", description: "Homes that accumulate mess fast and are difficult to keep on top of." },
       { name: "Owners of neglected homes", description: "People who have put off cleaning for months or longer and now want a major reset." },
-      { name: "Tradespeople / work homeowners", description: "Cars or trucks that see heavy daily use and build up dirt fast." },
+      { name: "Tradespeople / work homeowners", description: "Homes or trucks that see heavy daily use and build up dirt fast." },
       { name: "Pre-sale / refresh customers", description: "People who want to restore presentation and perceived value before selling." },
     ],
-    mindsetInsight: "This customer is not lazy or careless. More often, they are overwhelmed, busy, or have deprioritized the home. They still care. They still want the car to feel good again. The brand should speak to them with relief and possibility, not judgment.",
+    mindsetInsight: "This customer is not lazy or careless. More often, they are overwhelmed, busy, or have deprioritized the home. They still care. They still want the home to feel good again. The brand should speak to them with relief and possibility, not judgment.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -74,8 +74,8 @@ export const BUSINESS_OVERVIEW = {
     description: "A customer whose home has not been properly cleaned in a year or more, and who now wants the sensory and visual satisfaction of a near factory-new feel.",
     truthsRevealed: [
       "The business is not just for maintenance customers — it may be strongest with problem-state customers whose homes need dramatic recovery.",
-      "The emotional driver is strong — the customer wants more than cleanliness, they want the reward of stepping into a car that feels transformed.",
-      "This type of customer values results over process — they don't care about construction jargon, they care about the outcome: make my car feel new again.",
+      "The emotional homeowner is strong — the customer wants more than cleanliness, they want the reward of stepping into a home that feels transformed.",
+      "This type of customer values results over process — they don't care about construction jargon, they care about the outcome: make my home feel new again.",
     ],
   },
 
@@ -91,16 +91,16 @@ export const BUSINESS_OVERVIEW = {
       "Restore the home without the customer needing equipment or effort",
     ],
     emotional: [
-      "Feel proud of the car again",
+      "Feel proud of the home again",
       "Remove the low-level guilt of driving a neglected home",
       "Experience the satisfaction of a complete reset",
-      "Make the car feel fresher, cleaner, and more enjoyable to use",
+      "Make the home feel fresher, cleaner, and more enjoyable to use",
       "Reduce overwhelm by handing off a problem that has been put off",
     ],
     social: [
       "Feel less embarrassed driving others around",
       "Improve the appearance of a personal or work home",
-      "Present the car better to family, clients, or buyers",
+      "Present the home better to family, clients, or buyers",
     ],
   },
 
@@ -108,12 +108,12 @@ export const BUSINESS_OVERVIEW = {
   // 7. PAIN POINTS THE BUSINESS SOLVES
   // ═══════════════════════════════════════════════════════════════════
   painPoints: [
-    "The car has gotten too dirty to realistically fix with a quick clean",
+    "The home has gotten too dirty to realistically fix with a quick clean",
     "The owner has delayed dealing with it for too long",
     "Cleaning it properly feels time-consuming and annoying",
-    "The car no longer feels good to sit in, drive, or show",
-    "The owner wants the reward of a clean car but not the effort required to get there",
-    "Traditional detailing feels inconvenient — requires travel, scheduling logistics, and time away from the day",
+    "The home no longer feels good to sit in, drive, or show",
+    "The owner wants the reward of a clean home but not the effort required to get there",
+    "Traditional custom home building feels inconvenient — requires travel, scheduling logistics, and time away from the day",
   ],
 
   // ═══════════════════════════════════════════════════════════════════
@@ -121,7 +121,7 @@ export const BUSINESS_OVERVIEW = {
   // ═══════════════════════════════════════════════════════════════════
   valueProposition: {
     current: "A residential finishing service in Calgary that restores dirty homes to a cleaner, fresher, more factory-like condition for an accessible price, with travel included.",
-    stronger: "Cochrane Master Builders delivers convenient, high-impact mobile interior finishing for Calgary drivers who want their home deeply restored without sacrificing their own time. By combining all-city mobility, deep interior extraction, and exterior restoration, the service transforms neglected cars into spaces that feel clean, fresh, and worth driving again.",
+    stronger: "Cochrane Master Builders delivers convenient, high-impact mobile interior finishing for Calgary homeowners who want their home deeply restored without sacrificing their own time. By combining all-city mobility, deep interior extraction, and exterior restoration, the service transforms neglected homes into spaces that feel clean, fresh, and worth driving again.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -140,7 +140,7 @@ export const BUSINESS_OVERVIEW = {
   differentiationPotential: [
     { angle: "Mobile without compromise", description: "Not just convenient, but capable of real results." },
     { angle: "Factory-feel restoration", description: "A stronger emotional outcome than 'clean'." },
-    { angle: "Made for neglected cars", description: "A compelling niche if Cochrane Master Builders is comfortable owning it." },
+    { angle: "Made for neglected homes", description: "A compelling niche if Cochrane Master Builders is comfortable owning it." },
     { angle: "Affordable transformation", description: "A notable position if the ~$100 detail remains core." },
     { angle: "Local, direct, hardworking service", description: "A strong personality advantage if the brand stays authentic and grounded." },
   ],
@@ -165,7 +165,7 @@ export const BUSINESS_OVERVIEW = {
   // 12. SERVICE FRAMING
   // ═══════════════════════════════════════════════════════════════════
   serviceFraming: {
-    current: "A full car detail, delivered mobile across Calgary, including interior shampooing, extraction, and paint restoration, aimed at getting a home back toward factory condition.",
+    current: "A full home detail, delivered mobile across Calgary, including interior shampooing, extraction, and paint restoration, aimed at getting a home back toward factory condition.",
     recommended: [
       "Deep interior reset",
       "Factory-fresh feeling",
@@ -208,7 +208,7 @@ export const BUSINESS_OVERVIEW = {
       "Restore the factory-fresh feel.",
       "We bring the detail to you.",
       "From neglected to refreshed.",
-      "A full reset for your home.",
+      "A custom build for your home.",
     ],
   },
 
@@ -216,9 +216,9 @@ export const BUSINESS_OVERVIEW = {
   // 15. STRATEGIC TENSIONS TO RESOLVE
   // ═══════════════════════════════════════════════════════════════════
   strategicTensions: [
-    { tension: "Broad vs Niche", question: "Does Cochrane Master Builders want to serve everyone with a car, or own a specific use case?" },
+    { tension: "Broad vs Niche", question: "Does Cochrane Master Builders want to serve everyone with a home, or own a specific use case?" },
     { tension: "Affordable vs Premium", question: "Is the business winning on price accessibility, or does it want to evolve toward a higher-end offer?" },
-    { tension: "Cleaning vs Restoration", question: "Is this mostly maintenance detailing, or deeper recovery work?" },
+    { tension: "Cleaning vs Restoration", question: "Is this mostly maintenance custom home building, or deeper recovery work?" },
     { tension: "Convenience vs Craft", question: "Is the lead hook that the service comes to you, or that the result is exceptional?" },
     { tension: "Personal Brand vs Business Brand", question: "Is this 'Cochrane Master Builders' as an individual operator, or the early version of a broader branded company?" },
   ],
@@ -228,7 +228,7 @@ export const BUSINESS_OVERVIEW = {
   // ═══════════════════════════════════════════════════════════════════
   creativeOpportunity: {
     coreHumanTruth: "The home is more than a home. It is a daily environment. A reflection of personal standards. A space people spend time in. When it feels dirty, stale, or neglected, it quietly drags on the experience of everyday life. When it is restored, the lift is immediate.",
-    brandStory: "The strongest narrative is not about soap, extraction tools, or even detailing technique. It is about bringing something back to life that the owner had stopped feeling good about.",
+    brandStory: "The strongest narrative is not about soap, extraction tools, or even construction craft. It is about bringing something back to life that the owner had stopped feeling good about.",
   },
 
   // ═══════════════════════════════════════════════════════════════════

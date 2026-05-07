@@ -49,7 +49,7 @@ Document these in `src/index.css` and reference everywhere. **Do not hand-type c
 ## Per-surface motion specs
 
 ### Page transitions
-- Master cloth-wipe (per existing memory) — full-screen asphalt overlay sweeps across viewport, mimics microfiber wipe
+- Master cloth-wipe (per existing memory) — full-screen asphalt overlay sweeps across viewport, mimics millwork wipe
 - Duration 700ms entry + 600ms exit
 - `prefers-reduced-motion`: instant cross-fade
 
