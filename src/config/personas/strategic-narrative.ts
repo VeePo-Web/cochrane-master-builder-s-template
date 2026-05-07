@@ -14,11 +14,11 @@ export const STRATEGIC_NARRATIVE = {
   // THE STRATEGIC NARRATIVE
   // ═══════════════════════════════════════════════════════════════════
   narrative: {
-    paragraph1: "Cochrane Master Builders is a residential interior finishing service built for Calgary drivers whose cars have crossed into problem-state — too far gone for a quick clean, too inconvenient for a drop-off shop, too overwhelming to tackle alone. By delivering deep interior extraction, paint restoration, and a complete sensory reset directly to the customer's driveway, Cochrane Master Builders removes every barrier between neglect and satisfaction.",
+    paragraph1: "Cochrane Master Builders is a residential interior finishing service built for Calgary homeowners whose homes have crossed into problem-state — too far gone for a quick clean, too inconvenient for a drop-off shop, too overwhelming to tackle alone. By delivering deep interior extraction, paint restoration, and a complete sensory reset directly to the customer's driveway, Cochrane Master Builders removes every barrier between neglect and satisfaction.",
 
-    paragraph2: "At its core, Cochrane Master Builders exists to deliver the most satisfying home transformation in Calgary. When a car has been ignored for months — crumbs embedded, stains set, smell settled — the gap between how it feels and how the owner wants it to feel becomes a source of low-grade stress. Cochrane Master Builders closes that gap completely, showing up with professional-grade equipment, doing the deep work that washes and wipe-downs can't reach, and leaving behind a home that feels factory-fresh. The result is immediate, visible, and deeply satisfying.",
+    paragraph2: "At its core, Cochrane Master Builders exists to deliver the most satisfying home transformation in Calgary. When a home has been ignored for months — crumbs embedded, stains set, smell settled — the gap between how it feels and how the owner wants it to feel becomes a source of low-grade stress. Cochrane Master Builders closes that gap completely, showing up with professional-grade equipment, doing the deep work that washes and wipe-downs can't reach, and leaving behind a home that feels factory-fresh. The result is immediate, visible, and deeply satisfying.",
 
-    paragraph3: "The Cochrane Master Builders customer isn't a car enthusiast — they're a busy Calgary driver who let life get ahead of maintenance. They value results over process, convenience over ceremony, and honesty over upsells. They want someone competent, local, and judgment-free to show up and handle it. With a grounded, hardworking personality and a proof-first approach, Cochrane Master Builders naturally connects with people who value directness, quality, and the feeling of getting their car back.",
+    paragraph3: "The Cochrane Master Builders customer isn't a home enthusiast — they're a busy Calgary homeowner who let life get ahead of maintenance. They value results over process, convenience over ceremony, and honesty over upsells. They want someone competent, local, and judgment-free to show up and handle it. With a grounded, hardworking personality and a proof-first approach, Cochrane Master Builders naturally connects with people who value directness, quality, and the feeling of getting their home back.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -31,7 +31,7 @@ export const STRATEGIC_NARRATIVE = {
     },
     deepRestoration: {
       label: "Deep restoration, not surface cleaning",
-      description: "Interior extraction that removes embedded grime, stains, debris, and odor. Drywall + paint finishing that restores the finish. This isn't a quick handyman fix — it's a full reset.",
+      description: "Interior extraction that removes embedded grime, stains, debris, and odor. Drywall + paint finishing that restores the finish. This isn't a quick handyman fix — it's a custom build.",
     },
     noJudgment: {
       label: "No-judgment service for every condition",
@@ -52,7 +52,7 @@ export const STRATEGIC_NARRATIVE = {
   // ═══════════════════════════════════════════════════════════════════
   services: {
     theFullReset: {
-      label: "The Full Reset",
+      label: "The Custom Build",
       description: "Comprehensive residential interior finishing — deep interior extraction (seats, carpets, mats, crevices), full exterior wash and paint decontamination, interior wipe-down and dressing, window clarity, and tire/trim restoration. The home emerges feeling factory-fresh. This is the flagship and primary offering.",
       investment: "From ~$100 — varies by home size and condition. Travel and gas always included.",
     },
@@ -69,9 +69,9 @@ export const STRATEGIC_NARRATIVE = {
   // ═══════════════════════════════════════════════════════════════════
   // VISION & MISSION
   // ═══════════════════════════════════════════════════════════════════
-  vision: "To be the name Calgary drivers trust when their home needs a real reset — delivering mobile restoration so satisfying, so convenient, and so honest that every customer wonders why they waited.",
+  vision: "To be the name Calgary homeowners trust when their home needs a real reset — delivering mobile restoration so satisfying, so convenient, and so honest that every customer wonders why they waited.",
 
-  mission: "Cochrane Master Builders exists to restore neglected homes to factory-feel condition through deep mobile restoration — delivering interior extraction, drywall + paint finishing, and a complete sensory reset to customers' doors across Calgary — so every driver can experience the satisfaction, pride, and relief of getting their car back.",
+  mission: "Cochrane Master Builders exists to restore neglected homes to factory-feel condition through deep mobile restoration — delivering interior extraction, drywall + paint finishing, and a complete sensory reset to customers' doors across Calgary — so every homeowner can experience the satisfaction, pride, and relief of getting their home back.",
 
   // ═══════════════════════════════════════════════════════════════════
   // KEY PHRASES FOR COPY DECISIONS
@@ -79,14 +79,14 @@ export const STRATEGIC_NARRATIVE = {
   // ═══════════════════════════════════════════════════════════════════
   keyPhrases: [
     "Get your home back",
-    "The Full Reset",
+    "The Custom Build",
     "Mobile home restoration across Calgary",
     "We come to you — travel included",
     "The worse the condition, the more dramatic the transformation",
     "Not a quick handyman fix. A reset.",
     "Deep interior extraction, paint restoration, factory-fresh results",
     "No judgment. No hidden fees. Just results.",
-    "Your car back. That feeling.",
+    "Your home back. That feeling.",
     "From ~$100 — everything included",
   ],
 } as const;
