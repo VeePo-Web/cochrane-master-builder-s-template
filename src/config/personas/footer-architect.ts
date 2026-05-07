@@ -52,7 +52,7 @@ export const FOOTER_ARCHITECT_PERSONA = {
       "Social media feeds or heavy embeds — link to profiles instead",
       "Keyword-stuffed link farms — write naturally",
       "Duplicate header navigation — provide supplemental value",
-      "Newsletter signup (unless brand-justified) — too low-commitment for premium detailing",
+      "Newsletter signup (unless brand-justified) — too low-commitment for premium custom home building",
       "Heavy imagery or video in footer — link out instead",
       "Before/after galleries in footer — these belong in portfolio sections",
     ],
@@ -266,7 +266,7 @@ export const FOOTER_ARCHITECT_PERSONA = {
     contactClarity: "Easy-to-find contact information — phone, email, Calgary/Cochrane location.",
     legalMinimalism: "Privacy and terms present but not prominent — clean and accessible.",
     brandSignature: "A small, delightful detail that rewards attentive visitors — the wall build-up depth gradient connecting footer to nav.",
-    certificationTrust: "Mention manufacturer certifications or dealership-preferred status if applicable — powerful trust signal for premium detailing.",
+    certificationTrust: "Mention manufacturer certifications or dealership-preferred status if applicable — powerful trust signal for premium custom home building.",
   },
 
   // ═══════════════════════════════════════════════════════════════════

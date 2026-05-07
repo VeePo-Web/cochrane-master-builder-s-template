@@ -21,7 +21,7 @@ export const SCROLL_MOTION_PERSONA = {
   philosophy: {
     core: "Scrolling has evolved from viewport movement to a primary storytelling device. Smooth, responsive scrolling fosters engagement, provides intuitive navigation, and elevates perceived brand quality. The rebirth of scrolling was driven by mobile dominance and high-speed internet — long scroll allows continuous narrative, reducing disruptive page changes.",
     forCochraneMasterBuilders: "The scroll experience must feel like a luxury detail reveal — controlled, precise, satisfying. Every transition should reinforce the meticulous craftsmanship of Cochrane Master Builders's finishing process. The user should feel the same confidence and calm they'd feel watching a master builder transform a home.",
-    warning: "Poorly executed scroll experiences harm usability. Laggy animations, scrolljacking, or overwhelming motion cause jank and frustration — antithetical to the precision and control that defines premium detailing.",
+    warning: "Poorly executed scroll experiences harm usability. Laggy animations, scrolljacking, or overwhelming motion cause jank and frustration — antithetical to the precision and control that defines premium custom home building.",
     longScrollAdvantages: [
       "Encourages interaction — dynamic content draws users into a narrative",
       "Speed — continuous scroll is faster than navigating multiple pages",
@@ -72,7 +72,7 @@ export const SCROLL_MOTION_PERSONA = {
     storytelling: "Use scroll as storytelling device. Evocative introduction → narrative development → clear CTA. Guide the user, don't just showcase effects.",
     hierarchy: "Scroll emphasizes important content at each point. Use size, color, and motion to signal importance.",
     consistency: "Consistent pacing and style across sections. Same easing function family, similar timings for micro-animations.",
-    forCochraneMasterBuilders: "The scroll narrative should mirror the detailing journey: home transformation → craftsmanship process → stunning results → trust signals → booking. Controlled, editorial pacing that lets the work speak for itself.",
+    forCochraneMasterBuilders: "The scroll narrative should mirror the building journey: home transformation → craftsmanship process → stunning results → trust signals → booking. Controlled, editorial pacing that lets the work speak for itself.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -170,7 +170,7 @@ export const SCROLL_MOTION_PERSONA = {
       "Nested scroll containers require careful configuration",
     ],
     gaspIntegration: "Attach Lenis scroll event to ScrollTrigger.update and feed Lenis rAF into GSAP ticker. Set gsap.ticker.lagSmoothing(0) to prevent lag compensation from interfering.",
-    forCochraneMasterBuilders: "Use lerp: 0.07, smoothWheel: true, wheelMultiplier: 1.2 for a controlled, premium feel that mirrors the precision of professional detailing. Skip smooth scroll on touch devices (pointer: coarse) for native performance.",
+    forCochraneMasterBuilders: "Use lerp: 0.07, smoothWheel: true, wheelMultiplier: 1.2 for a controlled, premium feel that mirrors the precision of professional home building. Skip smooth scroll on touch devices (pointer: coarse) for native performance.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -227,7 +227,7 @@ export const SCROLL_MOTION_PERSONA = {
       "Define goals and narrative — identify core story/message, determine which content benefits from scroll-driven presentation",
       "Research audience devices, preferences, accessibility needs",
       "Competitive analysis — study benchmark sites (Fantasy.co, Igloo Inc, Apple) for effective transitions, parallax, orientation",
-      "Develop moodboards aligned with Cochrane Master Builders's premium detailing aesthetic",
+      "Develop moodboards aligned with Cochrane Master Builders's premium custom home building aesthetic",
       "Use grayscale sketches to map user journey before adding detail",
     ],
     phase2Prototyping: [

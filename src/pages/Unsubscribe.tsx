@@ -3,7 +3,7 @@ import { useSearchParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Check, AlertCircle, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import LogoMark from "@/components/detailing/LogoMark";
+import LogoMark from "@/components/custom home building/LogoMark";
 import { setPageMeta } from "@/lib/seo";
 
 type ViewState =

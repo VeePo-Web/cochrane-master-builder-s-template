@@ -144,7 +144,7 @@ export const VISUAL_PERSONA = {
     philosophy: "Recurring visual devices tie the brand story together. Centre Church's 'fibre' motif connected every element back to core values. Cochrane Master Builders needs equally intentional visual connective tissue.",
     motifs: {
       paintDepthLayers: "Layered gradients suggesting the multiple layers of long-life finish — topcoat, wall finish, PPF. Use as subtle background elements or section dividers.",
-      ceramicSheen: "Subtle reflective highlights and glossy gradients that evoke the mirror-finish result of professional detailing.",
+      ceramicSheen: "Subtle reflective highlights and glossy gradients that evoke the mirror-finish result of professional home building.",
       precisionGeometry: "Clean lines, exact angles, mathematical spacing. Grid systems that feel engineered, not artistic. The visual equivalent of tape lines on a home.",
       lightReflection: "Controlled light sources creating highlights and shadows that mimic how light plays across a perfectly corrected paint surface.",
       warmWoodGrainTexture: "Subtle woven patterns for backgrounds or cards, referencing high-performance building materials.",
@@ -235,7 +235,7 @@ export const VISUAL_PERSONA = {
     "Hero sections with no clear visual hierarchy or CTA",
     "Decorative elements that don't serve the precision craftsmanship brand",
     "Generic contractor template template aesthetic — cluttered, loud, unprofessional",
-    "Low-quality car photos — phone snapshots, poor lighting, cluttered backgrounds",
+    "Low-quality home photos — phone snapshots, poor lighting, cluttered backgrounds",
     "Stock imagery of homes that aren't representative of actual work",
     "Performative luxury that feels cold, impersonal or corporate",
     "Cluttered service lists with no visual hierarchy or explanation of value",

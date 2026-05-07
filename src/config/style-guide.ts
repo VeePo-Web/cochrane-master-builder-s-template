@@ -202,7 +202,7 @@ export const TYPOGRAPHY = {
       letterSpacing: "-0.03em",
       fontWeight: 700,
       fontFamily: "display",
-      usage: "Large pricing numbers. The Full Reset price hero.",
+      usage: "Large pricing numbers. The Custom Build price hero.",
     },
     bodyLg: {
       fontSize: "1.0625rem",                       // 17px
@@ -675,7 +675,7 @@ export const COMPONENTS = {
     },
     contentHierarchy: [
       "1. Contact info: phone, email, hours (prominent)",
-      "2. Service links: The Full Reset, Interior Only, Exterior Only, Add-ons",
+      "2. Service links: The Custom Build, Interior Only, Exterior Only, Add-ons",
       "3. Service areas: Calgary neighborhoods list",
       "4. Booking CTA: secondary button 'Book Your Reset'",
       "5. Social links: Instagram, Google Business",
@@ -970,11 +970,11 @@ export const ICONS = {
     "Droplets — extraction, cleaning",
     "Sparkles — results (used sparingly, only in proof context)",
     "Star — ratings, reviews",
-    "Car — home type selector only",
+    "Home — home type selector only",
     "Camera — before/after",
   ],
   prohibitedMotifs: [
-    "Shield — implies security/insurance, not detailing",
+    "Shield — implies security/insurance, not custom home building",
     "Award/Trophy — feels inauthentic for a solo operator",
     "Ornate decorative icons — conflicts with industrial aesthetic",
     "Animated emoji/icons — breaks premium tone",
@@ -1153,9 +1153,9 @@ export const IMAGERY = {
     "Extraction evidence: dirty water bucket, what came OUT",
   ],
   avoid: [
-    "Spinning car GIFs or animations",
+    "Spinning home GIFs or animations",
     "Water-droplet-on-hood stock photos",
-    "Generic man-wiping-car-with-cloth imagery",
+    "Generic man-wiping-home-with-cloth imagery",
     "Sparkle/shine particle effects",
     "Checkered racing patterns",
     "Glossy black backgrounds with lens flares",
@@ -1178,10 +1178,10 @@ export const IMAGERY = {
     founderPortrait: "< 120KB (WebP, quality 85)",
   },
   altTextPatterns: {
-    beforeAfter: "'Before: [condition description]. After: [result description].' Example: 'Before: Coffee-stained grey fabric car seat with visible discoloration. After: Clean grey fabric seat restored to original color.'",
-    founder: "'Cochrane Master Builders [action] [context].' Example: 'Cochrane Master Builders extracting carpet fibers in a client\u2019s SUV.'",
+    beforeAfter: "'Before: [condition description]. After: [result description].' Example: 'Before: Coffee-stained grey fabric home seat with visible discoloration. After: Clean grey fabric seat restored to original color.'",
+    founder: "'Cochrane Master Builders [action] [context].' Example: 'Cochrane Master Builders extracting carpet fibers in a client\u2019s addition.'",
     texture: "'Close-up of [material] [condition].' Example: 'Close-up of restored leather steering wheel with natural grain visible.'",
-    service: "'[Service name]: [what\u2019s shown].' Example: 'The Full Reset: complete interior deep clean in progress.'",
+    service: "'[Service name]: [what\u2019s shown].' Example: 'The Custom Build: complete interior deep clean in progress.'",
   },
 
   /** Responsive image delivery strategy */
@@ -1230,9 +1230,9 @@ export const ANTI_PATTERNS = {
   ],
   copy: [
     "NEVER use 'luxury', 'premium', 'elite', 'VIP' — let the craft speak.",
-    "NEVER use construction jargon: 'wall finish', 'drywall + paint finishing', 'clay bar' without explanation.",
+    "NEVER use construction jargon: 'wall finish', 'drywall + paint finishing', 'millwork detail' without explanation.",
     "NEVER use pushy sales language: 'Act now!', 'Limited spots!', 'Don't miss out!'",
-    "NEVER use gendered language: 'man cave', 'dad car', 'mom's minivan'.",
+    "NEVER use gendered language: 'man cave', 'dad home', 'mom's starter home'.",
     "NEVER reference competitors or other finishing services.",
     "NEVER promise specific timelines that can't be met.",
     "NEVER use exclamation marks in headings. Period or no punctuation.",
@@ -1271,7 +1271,7 @@ export const PAGE_BLUEPRINTS = {
   },
 
   services: {
-    title: "Services — Explain The Full Reset + tiers",
+    title: "Services — Explain The Custom Build + tiers",
     sections: [
       { name: "Hero",              verticalPadding: "0", containerWidth: "full" },
       { name: "TheFullReset",      verticalPadding: "sectionPadding", containerWidth: "narrow (960px)" },
@@ -1343,7 +1343,7 @@ export const COPY_SYSTEM = {
     },
     servicesHero: {
       pattern: "[Service name]. [What it includes in one breath].",
-      resolved: "The Full Reset. Interior deep clean + exterior restoration, at your door.",
+      resolved: "The Custom Build. Interior deep clean + exterior restoration, at your door.",
     },
     resultsHero: {
       pattern: "[Proof quantity]. [Emotional outcome].",
@@ -1411,12 +1411,12 @@ export const COPY_SYSTEM = {
   toneCalibration: [
     {
       wrong: "We offer premium luxury finishing services for discerning homeowners!",
-      right: "We deep clean your car\u2019s interior and restore the exterior. We come to you.",
+      right: "We deep clean your home\u2019s interior and restore the exterior. We come to you.",
       why: "No puffery. State what you do, directly.",
     },
     {
-      wrong: "Don\u2019t let your dirty car embarrass you any longer!",
-      right: "Life gets messy. Your car doesn\u2019t have to stay that way.",
+      wrong: "Don\u2019t let your dirty home embarrass you any longer!",
+      right: "Life gets messy. Your home doesn\u2019t have to stay that way.",
       why: "Empathy without shame. Normalize the problem, offer the solution.",
     },
     {
@@ -1432,7 +1432,7 @@ export const COPY_SYSTEM = {
     "You\u2019ve been meaning to deal with it. Life keeps happening.",
     "No judgment. Just results.",
     "We\u2019ve seen it all. Truly.",
-    "Your car used to feel like yours. Let\u2019s get it back.",
+    "Your home used to feel like yours. Let\u2019s get it back.",
   ],
 
   resolvedPageCopy: {
@@ -1452,8 +1452,8 @@ export const COPY_SYSTEM = {
       },
       serviceOverview: {
         overline: "Our Flagship",
-        headline: "The Full Reset",
-        body: "Interior deep clean + exterior restoration. We show up at your door with professional-grade equipment, extract every crumb and stain, restore your paint, and leave your car feeling factory-fresh. From ~$100, travel included.",
+        headline: "The Custom Build",
+        body: "Interior deep clean + exterior restoration. We show up at your door with professional-grade equipment, extract every crumb and stain, restore your paint, and leave your home feeling factory-fresh. From ~$100, travel included.",
       },
       founderTeaser: {
         overline: "Meet Cochrane Master Builders",
@@ -1462,13 +1462,13 @@ export const COPY_SYSTEM = {
       },
       cta: {
         overline: "Ready?",
-        headline: "Your car is next.",
-        body: "Book your reset. We\u2019ll come to you, handle everything, and leave your car feeling like yours again.",
+        headline: "Your home is next.",
+        body: "Book your reset. We\u2019ll come to you, handle everything, and leave your home feeling like yours again.",
       },
     },
     services: {
       hero: {
-        headline: "The Full Reset.",
+        headline: "The Custom Build.",
         subline: "Interior deep clean + exterior restoration, at your door.",
       },
     },
@@ -1486,7 +1486,7 @@ export const COPY_SYSTEM = {
       manifesto: [
         "I started Cochrane Master Builders because I couldn\u2019t find a mobile service in Calgary that actually did deep work. Most places do a surface wipe and call it done. That wasn\u2019t good enough.",
         "Every home I touch gets the same treatment: full interior extraction, paint decontamination, and a complete sensory reset. I bring everything to your driveway\u2014no drop-offs, no coordination, no wasted time.",
-        "I\u2019ve seen it all. Pet hair carpets, years-old coffee stains, cars people are embarrassed to show. That\u2019s exactly where I do my best work. The worse the condition, the more dramatic the transformation.",
+        "I\u2019ve seen it all. Pet hair carpets, years-old coffee stains, homes people are embarrassed to show. That\u2019s exactly where I do my best work. The worse the condition, the more dramatic the transformation.",
         "This isn\u2019t a quick handyman fix. It\u2019s a reset. And I\u2019m building the most trusted name in Calgary to deliver it.",
       ],
     },
@@ -1531,7 +1531,7 @@ export const BOOKING_FLOW = {
     step1_home: {
       title: "Your Home",
       fields: [
-        { name: "homeType", type: "visual-radio-grid", label: "Home Type", options: ["Sedan", "SUV", "Truck", "Van/Minivan"], iconSize: "48px", gridColumns: "2 mobile / 4 desktop" },
+        { name: "homeType", type: "visual-radio-grid", label: "Home Type", options: ["Townhome", "addition", "Truck", "Van/Minivan"], iconSize: "48px", gridColumns: "2 mobile / 4 desktop" },
         { name: "homeYear", type: "select", label: "Approximate Year", placeholder: "Select year range", options: ["2020+", "2015\u20132019", "2010\u20132014", "Pre-2010"] },
         { name: "condition", type: "radio-cards", label: "Current Condition", options: [
           { value: "light", label: "Light", description: "Regular use, minor dust and crumbs" },
@@ -1543,7 +1543,7 @@ export const BOOKING_FLOW = {
     step2_service: {
       title: "Choose Your Service",
       fields: [
-        { name: "service", type: "service-cards", label: "Service", options: ["The Full Reset", "Interior Only", "Exterior Only"], note: "Cards show price range, key features, estimated duration" },
+        { name: "service", type: "service-cards", label: "Service", options: ["The Custom Build", "Interior Only", "Exterior Only"], note: "Cards show price range, key features, estimated duration" },
         { name: "addOns", type: "checkbox-list", label: "Add-Ons (optional)", options: ["Engine Bay Clean", "Headlight Restoration", "Odor Elimination", "Leather Conditioning"] },
       ],
     },
@@ -1642,7 +1642,7 @@ export const TRUST_BAR = {
     mobile: "2×2 grid, gap 24px",
   },
   stats: [
-    { value: "200+", label: "Homes Reset", icon: "lucide Car" },
+    { value: "200+", label: "Homes Reset", icon: "lucide Home" },
     { value: "4.9\u2605", label: "Google Rating", icon: "lucide Star" },
     { value: "< 2hr", label: "Response Time", icon: "lucide Clock" },
     { value: "\u2713", label: "Travel Included", icon: "lucide MapPin" },
@@ -1696,7 +1696,7 @@ export const PROCESS_STEPS = {
     {
       number: "03",
       icon: "lucide Sparkles",
-      heading: "Get Your Car Back",
+      heading: "Get Your Home Back",
       description: "Drive away in a home that feels like yours again.",
     },
   ],
@@ -1910,7 +1910,7 @@ export const CTA_SECTION = {
     maxWidth: "20ch",
   },
   sensoryCopy: {
-    text: "That new-car feeling. The clean-seat exhale. The pride when someone gets in your car. It\u2019s all one booking away.",
+    text: "That new-home feeling. The clean-seat exhale. The pride when someone gets in your home. It\u2019s all one booking away.",
     typography: "body-lg, Jost 300, hsl(0 0% 100% / 0.7), max-width 48ch",
     marginTop: "16px",
   },
@@ -2084,7 +2084,7 @@ export const NOT_FOUND_PAGE = {
     secondary: { label: "View Services", variant: "secondaryOnDark (white border)", href: "/services" },
   },
   seoMeta: {
-    title: "Page Not Found | Cochrane Master Builders — Calgary Mobile Detailing",
+    title: "Page Not Found | Cochrane Master Builders — Cochrane & Calgary Master Builder — Custom Homes & Renovations",
     description: "The page you\u2019re looking for doesn\u2019t exist. Head back to Cochrane Master Builders for Calgary\u2019s best mobile home reset.",
     statusCode: 404,
     noIndex: true,
@@ -2146,19 +2146,19 @@ export const FAQ_CONTENT = {
       label: "The Service",
       items: [
         {
-          q: "What exactly is The Full Reset?",
-          a: "A complete interior deep clean plus exterior wash and restoration. We vacuum, shampoo, steam, wipe every surface — then wash, clay, and protect the outside. It\u2019s the whole car, done right.",
+          q: "What exactly is The Custom Build?",
+          a: "A complete interior deep clean plus exterior wash and restoration. We vacuum, shampoo, steam, wipe every surface — then wash, clay, and protect the outside. It\u2019s the whole home, done right.",
         },
         {
           q: "How long does it take?",
-          a: "Most Full Resets take 3\u20134 hours depending on home size and condition. We\u2019ll give you a time estimate when we confirm your booking.",
+          a: "Most Custom Builds take 3\u20134 hours depending on home size and condition. We\u2019ll give you a time estimate when we confirm your booking.",
         },
         {
           q: "Do you come to my location?",
-          a: "Yes. We\u2019re fully mobile. We come to your home, office, or wherever your car is parked in Calgary. All we need is access to the home and ideally a power outlet nearby.",
+          a: "Yes. We\u2019re fully mobile. We come to your home, office, or wherever your home is parked in Calgary. All we need is access to the home and ideally a power outlet nearby.",
         },
         {
-          q: "What if my car is really dirty?",
+          q: "What if my home is really dirty?",
           a: "That\u2019s literally what we do. No judgment — the worse it is, the more satisfying the reset. We\u2019ve seen it all.",
         },
       ],
@@ -2168,7 +2168,7 @@ export const FAQ_CONTENT = {
       items: [
         {
           q: "How much does it cost?",
-          a: "The Full Reset starts at $250 for sedans. SUVs and trucks are $300+. We\u2019ll confirm exact pricing based on your home and add-ons when you book.",
+          a: "The Custom Build starts at $250 for townhomes. additions and trucks are $300+. We\u2019ll confirm exact pricing based on your home and add-ons when you book.",
         },
         {
           q: "Is travel included in the price?",
@@ -2189,7 +2189,7 @@ export const FAQ_CONTENT = {
       items: [
         {
           q: "What do I need to do to prepare?",
-          a: "Remove personal items and valuables from the car. That\u2019s it. We handle everything else.",
+          a: "Remove personal items and valuables from the home. That\u2019s it. We handle everything else.",
         },
         {
           q: "Do I need to be home?",
@@ -2206,15 +2206,15 @@ export const FAQ_CONTENT = {
       items: [
         {
           q: "Will you damage my paint or interior?",
-          a: "No. We use tested techniques and quality products. Cochrane Master Builders personally handles every home with care. Your car is in good hands.",
+          a: "No. We use tested techniques and quality products. Cochrane Master Builders personally handles every home with care. Your home is in good hands.",
         },
         {
           q: "Can you remove pet hair?",
           a: "Yes. Pet hair removal is part of every interior service. We use specialized tools designed for embedded hair in fabric and carpet.",
         },
         {
-          q: "Do you work on trucks and SUVs?",
-          a: "Absolutely. Trucks, SUVs, vans, sedans — we handle all home and project types. Pricing adjusts for size.",
+          q: "Do you work on trucks and additions?",
+          a: "Absolutely. Trucks, additions, vans, townhomes — we handle all home and project types. Pricing adjusts for size.",
         },
         {
           q: "What about stains that won\u2019t come out?",

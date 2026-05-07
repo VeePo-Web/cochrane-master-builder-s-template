@@ -341,7 +341,7 @@ User trust depends on safeguarding data. While our research emphasises design, s
 
 ## 15. Do Not Underestimate Cross-Device Consistency
 
-Users interact with brands across devices—phones, tablets, desktops, wearables and emerging platforms like VR. Ustwo’s work on mobile apps and in-car systems highlights the need for cross-platform thinking. **Avoid**:
+Users interact with brands across devices—phones, tablets, desktops, wearables and emerging platforms like VR. Ustwo’s work on mobile apps and in-home systems highlights the need for cross-platform thinking. **Avoid**:
 
 *   **Inconsistent experiences**: Differences in navigation, content or functionality can confuse users.
 *   **Unoptimized layouts**: Designs must adapt to varied screen sizes and input methods (touch, mouse, voice).

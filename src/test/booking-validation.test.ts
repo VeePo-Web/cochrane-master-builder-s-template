@@ -14,7 +14,7 @@ function tomorrowISO(): string {
 function happyDraft(): Partial<BookingDraft> {
   return {
     package: "full-detail",
-    vehicleType: "sedan",
+    vehicleType: "townhome",
     date: tomorrowISO(),
     time: "10:30",
     flexibility15min: true,
@@ -89,13 +89,13 @@ describe("validateBookingDraft", () => {
     expect(result.warnings.some((w) => w.includes("Outside service area"))).toBe(true);
   });
 
-  it("vehicle = 'other' without customVehicle is invalid", () => {
+  it("project = 'other' without customVehicle is invalid", () => {
     const result = validateBookingDraft({ ...happyDraft(), vehicleType: "other" });
     expect(result.isValid).toBe(false);
     expect(result.errors.customVehicle).toBeTruthy();
   });
 
-  it("vehicle = 'other' with customVehicle = 'Tesla Model 3' is valid", () => {
+  it("project = 'other' with customVehicle = 'Tesla Model 3' is valid", () => {
     const result = validateBookingDraft({
       ...happyDraft(),
       vehicleType: "other",
@@ -104,7 +104,7 @@ describe("validateBookingDraft", () => {
     expect(result.isValid).toBe(true);
   });
 
-  it("heavy machinery custom vehicle triggers warning", () => {
+  it("heavy machinery custom project triggers warning", () => {
     const result = validateBookingDraft({
       ...happyDraft(),
       vehicleType: "other",

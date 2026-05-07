@@ -47,7 +47,7 @@ export const NAV_ARCHITECT_PERSONA = {
   // PSYCHOLOGICAL PRINCIPLES
   // ═══════════════════════════════════════════════════════════════════
   psychologicalPrinciples: {
-    hicksLaw: "Simplify choices in top-level navigation. For Cochrane Master Builders: 5-7 items max on desktop, 3-5 on mobile. Homeowners seeking premium detailing are busy professionals — don't add decision fatigue.",
+    hicksLaw: "Simplify choices in top-level navigation. For Cochrane Master Builders: 5-7 items max on desktop, 3-5 on mobile. Homeowners seeking premium custom home building are busy professionals — don't add decision fatigue.",
     fittsLaw: "Large, reachable targets. Touch targets 44-48px minimum. Generous spacing between items prevents mis-clicks and communicates luxury through breathing room — the same way Cochrane Master Builders's workspace has room for precision work.",
     serialPositionEffect: "Place critical items at beginning (brand/home) and end (Get a Quote CTA). Users remember first and last items best.",
     millersMagicalNumber: "7±2 items for working memory. Navigation should never exceed this cognitive load.",

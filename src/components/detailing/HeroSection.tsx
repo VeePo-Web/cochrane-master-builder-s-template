@@ -1,9 +1,9 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { ChevronDown } from "lucide-react";
-import heroVehicle from "@/assets/hero-vehicle.jpg";
+import heroVehicle from "@/assets/hero-project.jpg";
 import { useIsMobile } from "@/hooks/use-mobile";
-import RevealText from "@/components/detailing/RevealText";
+import RevealText from "@/components/custom home building/RevealText";
 
 interface HeroSectionProps {
   onBookClick?: () => void;

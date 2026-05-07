@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
-import Navigation from "@/components/detailing/Navigation";
-import Footer from "@/components/detailing/Footer";
-import ScrollReveal from "@/components/detailing/ScrollReveal";
-import SectionDivider from "@/components/detailing/SectionDivider";
-import InnerHero from "@/components/detailing/InnerHero";
-import RevealImage from "@/components/detailing/RevealImage";
+import Navigation from "@/components/custom home building/Navigation";
+import Footer from "@/components/custom home building/Footer";
+import ScrollReveal from "@/components/custom home building/ScrollReveal";
+import SectionDivider from "@/components/custom home building/SectionDivider";
+import InnerHero from "@/components/custom home building/InnerHero";
+import RevealImage from "@/components/custom home building/RevealImage";
 import servicesHero from "@/assets/services-equipment-flatlay.jpg";
 import vendorDetail from "@/assets/vendor-detail.jpg";
-import dividerMicrofiber from "@/assets/divider-microfiber.jpg";
+import dividerMicrofiber from "@/assets/divider-millwork.jpg";
 import dividerInterior from "@/assets/divider-interior.jpg";
 
 interface ServicesProps {

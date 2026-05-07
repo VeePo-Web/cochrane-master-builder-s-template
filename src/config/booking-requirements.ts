@@ -19,7 +19,7 @@ export type PackageOption = (typeof PACKAGE_OPTIONS)[number];
 export const ADD_ON_OPTIONS = ["ceramic-spray", "clay-bar", "iron-extraction"] as const;
 export type AddOnOption = (typeof ADD_ON_OPTIONS)[number];
 
-export const VEHICLE_TYPE_OPTIONS = ["sedan", "suv", "truck", "van", "other"] as const;
+export const VEHICLE_TYPE_OPTIONS = ["townhome", "suv", "truck", "van", "other"] as const;
 export type VehicleTypeOption = (typeof VEHICLE_TYPE_OPTIONS)[number];
 
 /**
@@ -29,7 +29,7 @@ export type VehicleTypeOption = (typeof VEHICLE_TYPE_OPTIONS)[number];
 export const REQUIRED_FIELD_KEYS = [
   // Job scope (Q2.3, Q2.4 — basic wash + full detail are the lead services)
   "package",
-  // Vehicle (Q2.6, Q2.11 — pricing varies by vehicle type)
+  // Project (Q2.6, Q2.11 — pricing varies by project type)
   "vehicleType",
   // Schedule (Q11 — booking flow)
   "date",
@@ -79,16 +79,16 @@ export const BOOKING_REQUIREMENTS = {
     addOns: {
       required: false,
       options: ADD_ON_OPTIONS,
-      // Q2.7 + Q2.8 — Ceramic spray coat, clay bar, iron extraction
+      // Q2.7 + Q2.8 — Ceramic spray coat, millwork detail, iron extraction
       source: "Q2.8_addOnsList",
     },
   },
 
-  vehicle: {
+  project: {
     vehicleType: {
       required: true,
       options: VEHICLE_TYPE_OPTIONS,
-      // Q2.6 — "the budget may change by the difference of vehicle type"
+      // Q2.6 — "the budget may change by the difference of project type"
       source: "Q2.6_variableByVehicle",
     },
     customVehicle: {

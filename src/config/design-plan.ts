@@ -18,7 +18,7 @@ export const MASTER_DESIGN_PLAN = {
   // 0. CURRENT STATE AUDIT
   // ═══════════════════════════════════════════════════════════════════
   currentStateAudit: {
-    problem: "The current site is built as a luxury wedding planning brand ('Hickory & Rose'). Cochrane Master Builders is a residential interior finishing service in Calgary. The entire design system, content, architecture, and emotional tone must be rebuilt to serve a grounded, proof-driven, industrial-premium brand that converts Calgary drivers with overdue homes into bookings.",
+    problem: "The current site is built as a luxury wedding planning brand ('Hickory & Rose'). Cochrane Master Builders is a residential interior finishing service in Calgary. The entire design system, content, architecture, and emotional tone must be rebuilt to serve a grounded, proof-driven, industrial-premium brand that converts Calgary homeowners with overdue homes into bookings.",
     stackConfirmation: {
       framework: "React 18 ✓",
       buildTool: "Vite ✓",
@@ -36,10 +36,10 @@ export const MASTER_DESIGN_PLAN = {
       "Sage/cream wedding palette → Asphalt Black, Stone Gray, Warm Porcelain, Burnished Copper",
       "Cormorant Garamond + Great Vibes → Industrial premium sans-serif type system",
       "Editorial wedding photography → Before/after restoration photography, close-up textures, founder-at-work",
-      "Service tiers (Day-Of, Partial, Full) → Single flagship 'Full Reset' offer",
+      "Service tiers (Day-Of, Partial, Full) → Single flagship 'Custom Build' offer",
       "Inquiry/consultation form → Minimal booking form + text/call alternative",
       "Wedding narrative arc → Transformation proof narrative arc",
-      "Polished Paige persona → Calgary driver with overdue home persona",
+      "Polished Paige persona → Calgary homeowner with overdue home persona",
       "Calm luxury emotional tone → Grounded confidence, deeply satisfying, no-judgment",
     ],
   },
@@ -48,25 +48,25 @@ export const MASTER_DESIGN_PLAN = {
   // 1. STRATEGIC ANALYSIS
   // ═══════════════════════════════════════════════════════════════════
   strategicAnalysis: {
-    marketPositioning: "Cochrane Master Builders occupies the 'most satisfying, most convenient, most honest full reset in Calgary' position. Competitors own either 'cheap mobile wash' or 'luxury wall finish for exotics.' The underserved void is everyday drivers whose homes have crossed into problem-state — people who need a genuine restoration, not a wipe-down, delivered to their door without judgment.",
+    marketPositioning: "Cochrane Master Builders occupies the 'most satisfying, most convenient, most honest custom build in Calgary' position. Competitors own either 'cheap mobile wash' or 'luxury wall finish for exotics.' The underserved void is everyday homeowners whose homes have crossed into problem-state — people who need a genuine restoration, not a wipe-down, delivered to their door without judgment.",
 
-    primaryConversionObjective: "Convert a Calgary driver with an overdue home from website visitor to booking. The path: see transformation proof → feel desire for the reset → understand convenience (mobile, travel included) → book or text.",
+    primaryConversionObjective: "Convert a Calgary homeowner with an overdue home from website visitor to booking. The path: see transformation proof → feel desire for the reset → understand convenience (mobile, travel included) → book or text.",
 
     trustBuildingMechanisms: [
       "Before/after photography of real Calgary homes in genuinely bad condition",
       "Founder presence — Cochrane Master Builders's name, face, standards declaration",
       "Transparent pricing — starting from ~$100, travel included, no hidden fees",
       "No-judgment language — explicit reassurance that all conditions are welcome",
-      "Service clarity — single 'Full Reset' offer, clear inclusions/exclusions",
+      "Service clarity — single 'Custom Build' offer, clear inclusions/exclusions",
       "Calgary-specific locality — real neighborhoods, real driveways, real homes",
     ],
 
-    emotionalTone: "Deeply satisfying and capable. The visitor should feel: 'These people do serious work, and they'll come to me.' Not luxury, not cheap, not corporate. Grounded confidence with immediate proof of transformation. A parent with a trashed minivan should feel just as welcome as someone with a neglected sedan.",
+    emotionalTone: "Deeply satisfying and capable. The visitor should feel: 'These people do serious work, and they'll come to me.' Not luxury, not cheap, not corporate. Grounded confidence with immediate proof of transformation. A parent with a fixer-upper should feel just as welcome as someone with a neglected townhome.",
 
     designDifferentiation: [
       "Proof-forward — before/after slider as the signature interaction, not buried in a gallery",
       "Editorial restraint — not a sales page, a curated transformation experience",
-      "Real photography exclusively — no stock, no shiny showroom cars",
+      "Real photography exclusively — no stock, no shiny showroom homes",
       "Industrial premium aesthetic — not luxury-coded, not budget, not masculine-aggressive",
       "Shape language — precision corners, elongated panels, inset windows, not templated",
       "No-judgment tone — explicitly welcoming to overdue, messy, embarrassing homes",
@@ -149,7 +149,7 @@ export const MASTER_DESIGN_PLAN = {
       },
       antiPatterns: [
         "No black-and-gold luxury coding",
-        "No bright detailing blue",
+        "No bright contractor-blue",
         "No harsh red racing accents",
         "No all-dark heaviness without light relief",
         "No pastel softness",
@@ -226,9 +226,9 @@ export const MASTER_DESIGN_PLAN = {
         "Extraction evidence: what came OUT of the seats, the dirty water bucket",
       ],
       avoid: [
-        "Spinning car GIFs",
+        "Spinning home GIFs",
         "Water-droplet-on-hood stock photos",
-        "Generic man-wiping-car-with-cloth imagery",
+        "Generic man-wiping-home-with-cloth imagery",
         "Sparkle/shine particle effects",
         "Checkered racing patterns",
         "Glossy black backgrounds with lens flares",
@@ -288,7 +288,7 @@ export const MASTER_DESIGN_PLAN = {
       home: {
         route: "/",
         purpose: "Primary conversion engine. Complete emotional arc from awareness to desire to action in a single scroll. Compress proof, offer, trust, and convenience into one cinematic flow.",
-        h1: "Get Your Car Back — Residential Interior Finishing in Calgary",
+        h1: "Get Your Home Back — Residential Interior Finishing in Calgary",
         metaDescription: "Calgary's residential interior finishing service. Deep interior extraction, paint restoration, travel included. Full resets from ~$100. We come to you — no judgment, just results.",
         sections: [
           {
@@ -306,14 +306,14 @@ export const MASTER_DESIGN_PLAN = {
             id: "immediate-proof",
             type: "Bespoke before/after slider — THE signature interaction",
             content: "Full-width, edge-to-edge drag-to-reveal before/after with annotated callouts",
-            design: "The defining moment of the site. Tactile wipe interaction. Annotated labels ('embedded grime,' 'extraction result,' 'restored finish'). Touch-optimized. Zero-latency drag. Caption with condition context ('This SUV hadn't been cleaned in 14 months. Here's the reset.').",
+            design: "The defining moment of the site. Tactile wipe interaction. Annotated labels ('embedded grime,' 'extraction result,' 'restored finish'). Touch-optimized. Zero-latency drag. Caption with condition context ('This addition hadn't been cleaned in 14 months. Here's the reset.').",
           },
           {
             id: "service-overview",
             type: "Outcome-led single service presentation",
-            content: "The Full Reset — what you get, not how we do it. Interior + exterior outcomes.",
+            content: "The Custom Build — what you get, not how we do it. Interior + exterior outcomes.",
             interiorCopy: "A deep interior reset — stains extracted, buildup removed, odor eliminated, and every surface restored to a fresh, factory-like standard. Not a wipe-down. A reset you can feel the moment you sit down.",
-            exteriorCopy: "Paint restoration that brings back the finish your car started with — swirl marks reduced, grime removed, and a clean, even surface that catches light the way it used to.",
+            exteriorCopy: "Paint restoration that brings back the finish your home started with — site-finish blemishes reduced, grime removed, and a clean, even surface that catches light the way it used to.",
             design: "Light background. Clean layout with outcome-focused copy. Close-up texture photography. 80% outcome language, 20% process detail.",
           },
           {
@@ -323,7 +323,7 @@ export const MASTER_DESIGN_PLAN = {
             steps: [
               { number: "01", title: "Book", description: "Pick a time. Tell us your home and condition." },
               { number: "02", title: "We Come to You", description: "Cochrane Master Builders arrives at your location with everything needed." },
-              { number: "03", title: "Full Reset", description: "Deep extraction. Drywall + paint finishing. You get your home back." },
+              { number: "03", title: "Custom Build", description: "Deep extraction. Drywall + paint finishing. You get your home back." },
             ],
             design: "Warm Porcelain background. Numbered steps with editorial typography. Horizontal on desktop, vertical stack on mobile. Subtle connector lines between steps.",
           },
@@ -354,19 +354,19 @@ export const MASTER_DESIGN_PLAN = {
             type: "Top 4 objection-handling questions",
             content: "The questions that block booking decisions",
             questions: [
-              "Can you handle really dirty cars?",
+              "Can you handle really dirty homes?",
               "What does the detail include?",
               "Do you come to me anywhere in Calgary?",
               "Do I need to provide water or power?",
             ],
-            design: "Light background. Accordion style. Opens with 'Your car isn't too dirty' reassurance note.",
+            design: "Light background. Accordion style. Opens with 'Your home isn't too dirty' reassurance note.",
           },
           {
             id: "final-cta",
             type: "Emotional close with before/after background",
             content: "Permission to act",
-            headline: "Your car is next.",
-            sensoryCopy: "The smell of a car that's been reset — clean fabric, fresh air, no trace of what was there before.",
+            headline: "Your home is next.",
+            sensoryCopy: "The smell of a home that's been reset — clean fabric, fresh air, no trace of what was there before.",
             cta: "Book Your Reset",
             secondaryCta: "Text Cochrane Master Builders",
             design: "Dark background with single powerful before/after. Sensory copy. Dual CTA. Should feel like a permission to finally act.",
@@ -377,10 +377,10 @@ export const MASTER_DESIGN_PLAN = {
       services: {
         route: "/services",
         purpose: "Go deeper into what's included, what affects pricing, what to expect. Answer practical questions. Problem-state framing.",
-        h1: "The Full Reset — Residential Interior Finishing in Calgary",
+        h1: "The Custom Build — Residential Interior Finishing in Calgary",
         sections: [
-          "Hero with 'The Full Reset' positioning",
-          "Problem-state framing: 'Daily driver that needs a refresh' vs 'Home that hasn't been touched in a year' vs 'Work truck with heavy-use buildup'",
+          "Hero with 'The Custom Build' positioning",
+          "Problem-state framing: 'Daily homeowner that needs a refresh' vs 'Home that hasn't been touched in a year' vs 'Work truck with heavy-use buildup'",
           "Detailed inclusions: interior extraction, drywall + paint finishing, trim restoration",
           "What affects pricing: home size, condition level, add-ons",
           "Realistic expectations: restoration vs repair, condition-dependent results",
@@ -397,7 +397,7 @@ export const MASTER_DESIGN_PLAN = {
           "Curated before/after portfolio with condition tags and home and project types",
           "Annotated before/after sliders with callout labels",
           "Condition-level categories: moderate, heavy, severe",
-          "Home-type variety: sedans, SUVs, trucks, minivans",
+          "Home-type variety: townhomes, additions, trucks, starter homes",
           "Outcome captions: blend of practical + emotional",
           "Booking CTA",
         ],
@@ -406,7 +406,7 @@ export const MASTER_DESIGN_PLAN = {
       about: {
         route: "/about",
         purpose: "Build trust through founder authenticity. Convert skeptics through realness, not persuasion.",
-        h1: "About Cochrane Master Builders — Calgary Mobile Detailing",
+        h1: "About Cochrane Master Builders — Cochrane & Calgary Master Builder — Custom Homes & Renovations",
         sections: [
           "Short manifesto — what Cochrane Master Builders believes, why he does this, what his standard is",
           "At-work photography and environmental portraits",
@@ -419,7 +419,7 @@ export const MASTER_DESIGN_PLAN = {
       book: {
         route: "/book",
         purpose: "Convert. Minimal friction booking. Like a premium app checkout.",
-        h1: "Book Your Reset — Mobile Detailing in Calgary",
+        h1: "Book Your Reset — Custom Home Building in Calgary",
         sections: [
           "Warm welcome copy — calm, reassuring",
           "Minimal form: location, home type, condition level, preferred date",
@@ -432,9 +432,9 @@ export const MASTER_DESIGN_PLAN = {
       faq: {
         route: "/faq",
         purpose: "Answer objections. Reduce friction. Handle embarrassment and practical concerns.",
-        h1: "Frequently Asked Questions — Calgary Mobile Detailing",
+        h1: "Frequently Asked Questions — Cochrane & Calgary Master Builder — Custom Homes & Renovations",
         sections: [
-          "'Your car isn't too dirty' reassurance header before accordion",
+          "'Your home isn't too dirty' reassurance header before accordion",
           "Grouped FAQ accordion: Service, Pricing, Process, Coverage Area",
           "Condition-level questions answered with before/after thumbnails inline",
           "Booking CTA at bottom",
@@ -493,7 +493,7 @@ export const MASTER_DESIGN_PLAN = {
     sections: {
       HeroSection: "Full-screen dark with before/after, headline, trust line, dual CTA. Light-sweep reveal.",
       BeforeAfterSlider: "Bespoke drag-to-reveal with annotated callouts. Touch-optimized. Zero-latency. THE signature component.",
-      ServiceOverviewSection: "Outcome-led 'Full Reset' presentation with texture photography.",
+      ServiceOverviewSection: "Outcome-led 'Custom Build' presentation with texture photography.",
       HowItWorksSection: "3-step numbered process with connector lines.",
       PricingSnapshotSection: "Large price figure + visual factor explainer.",
       FounderSection: "Dark background manifesto with at-work photography.",
@@ -552,17 +552,17 @@ export const MASTER_DESIGN_PLAN = {
     canonicalBase: "https://cochranemasterbuilders.com",
     structuredData: [
       "LocalBusiness — site-wide (name, address, areaServed: Calgary, priceRange)",
-      "Service — services page (The Full Reset)",
+      "Service — services page (The Custom Build)",
       "FAQPage — FAQ sections",
       "BreadcrumbList — all pages",
     ],
     primaryKeywords: [
       "Calgary residential finishing",
       "mobile interior finishing Calgary",
-      "interior car cleaning Calgary",
+      "interior home cleaning Calgary",
       "home restoration Calgary",
       "mobile residential interior finishing Calgary",
-      "car detail Calgary",
+      "home detail Calgary",
     ],
     localSignals: [
       "Calgary, Alberta in footer, about page, meta descriptions",
@@ -570,7 +570,7 @@ export const MASTER_DESIGN_PLAN = {
       "LocalBusiness schema with Calgary geo coordinates",
       "Real Calgary neighborhood context in proof captions",
     ],
-    imageAlt: "Descriptive with condition/home context: 'Before and after interior extraction of a heavily soiled Calgary family SUV' not 'car cleaning'",
+    imageAlt: "Descriptive with condition/home context: 'Before and after interior extraction of a heavily soiled Calgary family addition' not 'home cleaning'",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -611,7 +611,7 @@ export const MASTER_DESIGN_PLAN = {
   // 9. SIGNATURE MOMENTS
   // ═══════════════════════════════════════════════════════════════════
   signatureMoments: {
-    defining: "The before/after slider — a bespoke, tactile, drag-to-reveal experience with annotated callouts that feels unlike any other detailing site's generic gallery. This is the moment that proves the brand.",
+    defining: "The before/after slider — a bespoke, tactile, drag-to-reveal experience with annotated callouts that feels unlike any other builder site's generic gallery. This is the moment that proves the brand.",
     moments: [
       {
         name: "Hero light-sweep reveal",
@@ -646,7 +646,7 @@ export const MASTER_DESIGN_PLAN = {
   // ═══════════════════════════════════════════════════════════════════
   antiPatterns: {
     visual: [
-      "Generic — if it could be any detailing company's website, it has failed",
+      "Generic — if it could be any builder's website, it has failed",
       "Stock photography dependent",
       "Blue-gradient quick handyman fix aesthetic",
       "Black-and-gold luxury coded",
@@ -661,8 +661,8 @@ export const MASTER_DESIGN_PLAN = {
       "'Premium experience'",
       "'Customer satisfaction guaranteed'",
       "'Showroom perfection'",
-      "'Your car deserves the best'",
-      "'We treat every car like our own'",
+      "'Your home deserves the best'",
+      "'We treat every home like our own'",
       "'No job too big or too small'",
       "Any superlative without proof",
       "Any luxury-coded language",
@@ -683,7 +683,7 @@ export const MASTER_DESIGN_PLAN = {
     ],
     emotional: [
       "Making the visitor feel judged for their home's condition",
-      "Implying a dirty car is unusual or shameful",
+      "Implying a dirty home is unusual or shameful",
       "Feeling corporate or franchise-like",
       "Feeling too small or amateur",
       "Feeling like a luxury service that excludes normal homes",
@@ -701,8 +701,8 @@ export const MASTER_DESIGN_PLAN = {
     everyCopy: "Must sound like a real person — direct, warm, sensory, no-judgment, never a brochure",
     everyImage: "Must be real proof from real Calgary homes — evidence over decoration",
     everyInteraction: "Must feel confident and calm — never playful, bouncy, or theatrical",
-    successTest: "When the before/after slider makes you want to book a quote for your own car. When the copy sounds like a real person. When the whole experience feels like one cohesive object — not assembled from sections. When you forget you're looking at a local service website.",
-    failureTest: "If it looks like it could be any detailing company's website. If it uses stock photography. If the copy contains 'quality service' or 'attention to detail.' If the pricing is hidden. If it feels luxury-coded. If a parent with a trashed minivan would feel out of place.",
+    successTest: "When the before/after slider makes you want to book a quote for your own home. When the copy sounds like a real person. When the whole experience feels like one cohesive object — not assembled from sections. When you forget you're looking at a local service website.",
+    failureTest: "If it looks like it could be any builder's website. If it uses stock photography. If the copy contains 'quality service' or 'attention to detail.' If the pricing is hidden. If it feels luxury-coded. If a parent with a fixer-upper would feel out of place.",
     neverFinished: "There is always a refinement to make. No element is ever 'done.'",
   },
 
@@ -738,7 +738,7 @@ export const MASTER_DESIGN_PLAN = {
       tasks: [
         "Dark hero with 'Get your home back' headline + trust line + dual CTA",
         "Bespoke before/after slider (signature interaction)",
-        "Outcome-led 'Full Reset' service overview",
+        "Outcome-led 'Custom Build' service overview",
         "3-step 'How it works' section",
         "Pricing snapshot (~$100)",
         "Founder manifesto section",

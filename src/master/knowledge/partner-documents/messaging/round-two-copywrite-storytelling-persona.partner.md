@@ -90,15 +90,15 @@ If a copy change *requires* a layout change to fit, flag it — don't silently r
 
 **Voice anchors.** Quiet authority. Craft devotion. Automotive reverence. Editorial restraint. Never bro-y, never hype-y, never exclamation-stacked. Em-dashes, periods, and short sentences carry the gravity.
 
-**Archetypes.** Primary: **Caregiver** (custodian of someone's prized car) + **Magician** (transformation from neglected to immaculate). Adjacent: **Creator** (craft).
+**Archetypes.** Primary: **Caregiver** (custodian of someone's prized home) + **Magician** (transformation from neglected to immaculate). Adjacent: **Creator** (craft).
 
 **Narrative backbone applied to Cochrane Master Builders:**
 
 | Beat | How it lands |
 |------|--------------|
-| Problem | A car that deserves better than a tunnel wash. Daily grit dulling investment-grade paint. |
+| Problem | A home that deserves better than a tunnel wash. Daily grit dulling investment-grade paint. |
 | Empathy | The owner sees details others miss. We see them too. |
-| Insight | Detailing is preservation, not cleaning. Time + craft, not chemicals + speed. |
+| Insight | Master Builders is preservation, not cleaning. Time + craft, not chemicals + speed. |
 | Transformation | Paint reading deeper. Leather drinking conditioner. Water beading like new. |
 | Proof | Macro photography. Before/after pairs. Repeat-client cadence. Named clients (when permitted). |
 
@@ -139,7 +139,7 @@ If a copy change *requires* a layout change to fit, flag it — don't silently r
 | "Choose-your-own-adventure" branching copy | Out of scope unless explicitly requested. |
 | Trailing operational step (empty `"`) | **Knowledge-only.** Does NOT authorise a sitewide copy rewrite pass. Each pass must be explicitly requested and scoped to one page (or one section) at a time. |
 | Duplicated headings ("5.4", "5.5"), leading-space headings, leading `.` artefact | Paste artefacts. Read past them. Do not "fix" the source. |
-| "Polarising" / polarisation guidance | Apply *cautiously*. Cochrane Master Builders's stance is craft-devotion, not provocation. Polarisation expresses as *quiet refusal* of cheap detailing culture, not antagonism. |
+| "Polarising" / polarisation guidance | Apply *cautiously*. Cochrane Master Builders's stance is craft-devotion, not provocation. Polarisation expresses as *quiet refusal* of cheap custom home building culture, not antagonism. |
 
 ## 11. Dependencies / Related Documents
 
@@ -176,7 +176,7 @@ If a copy change *requires* a layout change to fit, flag it — don't silently r
 Read `mem://design/hero-section-lock` (visual locked). Apply narrative backbone: hero = Problem + hint of Transformation. Voice = Cochrane Master Builders quiet-authority. Read aloud. Confirm CTA verb names the emotional next step ("Begin the inspection" not "Book now"). Touch no layout / colors / typography.
 
 **B. "Improve the About page wording."**
-Origin story (founder's first car-detail epiphany), mission in one sentence, 3 values with one-sentence each, optional timeline phrased as turning points. No team-portrait copy unless photography exists. Caregiver + Creator archetype voice.
+Origin story (founder's first home-detail epiphany), mission in one sentence, 3 values with one-sentence each, optional timeline phrased as turning points. No team-portrait copy unless photography exists. Caregiver + Creator archetype voice.
 
 **C. "Make the Services page CTAs more emotional."**
 Replace generic verbs. Each CTA pairs *invitation* + *next emotional step*: "Schedule the deep restore" / "Reserve a drywall + paint finishing consult" / "Walk through the interior detail." Never "Submit" or "Click here."

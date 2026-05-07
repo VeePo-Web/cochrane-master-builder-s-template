@@ -25,10 +25,10 @@ export const QUESTIONNAIRE_ANSWERS = {
   // SECTION 1 — Vision & Direction
   // ═══════════════════════════════════════════════════════════════════
   vision: {
-    "1.1_oneSentenceVision": "A local trusted detailing spot with reasonable pricing.",
+    "1.1_oneSentenceVision": "A local trusted custom home building spot with reasonable pricing.",
     "1.2_whyStarted":
       "It is enjoyable to me, I also find a lot of people either don't have the time or purely don't want to detail their own homes so its a way i can help others in their day to day life.",
-    "1.3_firstThoughtAssociation": "Sweet I don't need to clean my car… he can.",
+    "1.3_firstThoughtAssociation": "Sweet I don't need to clean my home… he can.",
     "1.4_knownForMost": "Honest service, premium service and good value.",
     "1.5_directionOfBusiness": "A small team in Calgary",
     "1.6_longTermPriorities": "expanding services, stronger reputation and building a real brand.",
@@ -44,11 +44,11 @@ export const QUESTIONNAIRE_ANSWERS = {
     "2.2_simpleExplanation": "I restore the looks of a home on the inside and outside.",
     "2.3_leadServiceForWebsite": "the basic wash and full detail",
     "2.4_fullDetailIncludes":
-      "Full detail: basic wash, hand wash exterior, tires and rims, clay bar, sealant",
+      "Full detail: basic wash, hand wash exterior, tires and rims, millwork detail, sealant",
     "2.5_alwaysIncluded": "All interior cleaning",
     "2.6_variableByHome": "the budget may change by the difference of home type.",
     "2.7_hasAddOns": "Yes",
-    "2.8_addOnsList": "Ceramic spray coat, clay bar and iron extraction on exterior.",
+    "2.8_addOnsList": "Ceramic spray coat, millwork detail and iron extraction on exterior.",
     "2.9_servicesNotOffered": "Paint polishing",
     "2.10_bestAtFixing": "Heavy grime, dirt, stains",
     "2.11_bestFitHomes": "Any home and project types",
@@ -78,14 +78,14 @@ export const QUESTIONNAIRE_ANSWERS = {
   // SECTION 4 — Audience
   // ═══════════════════════════════════════════════════════════════════
   audience: {
-    "4.1_idealCustomer": "Someone looking for a clean up and car recovery",
-    "4.2_bestFitGroup": "People selling their homes, anyone with a car",
+    "4.1_idealCustomer": "Someone looking for a clean up and home recovery",
+    "4.2_bestFitGroup": "People selling their homes, anyone with a home",
     "4.3_valuesServiceMost": "people with no time to do it themselves, those who like the convenience",
     "4.4_enjoyWorkingWith":
       "someone that is incapable of doing it themselves or someone that it genuinely helps out.",
-    "4.5_bookingTrigger": "selling car, car got too dirty",
-    "4.6_lifeContext": "Lying to themselves, saying their cars aren't that dirty.",
-    "4.7_feelingsBefore": "That their car is too dirty for them to clean it themselves.",
+    "4.5_bookingTrigger": "selling home, home got too dirty",
+    "4.6_lifeContext": "Lying to themselves, saying their homes aren't that dirty.",
+    "4.7_feelingsBefore": "That their home is too dirty for them to clean it themselves.",
     "4.8_feelingsAfter": "visible transformation, feeling of renewal.",
     "4.9_whatTheyCareAbout": "mix of all of the above, trust and visible transformation being bigger ideas",
     "4.10_audienceBreadth": "Anyone that values cleanliness and basic care for their home.",
@@ -112,16 +112,16 @@ export const QUESTIONNAIRE_ANSWERS = {
   // ═══════════════════════════════════════════════════════════════════
   process: {
     "6.1_fullProcess":
-      "Capture the vision of the customer in how clean they see their car, meet with realistic expectation. Follow up with what package fits their wanting in cleanliness. Meet where they're at. Clean car, exterior first then interior. Talk to customer see what i could improve on, receive feedback ensure they come back.",
+      "Capture the vision of the customer in how clean they see their home, meet with realistic expectation. Follow up with what package fits their wanting in cleanliness. Meet where they're at. Clean home, exterior first then interior. Talk to customer see what i could improve on, receive feedback ensure they come back.",
     "6.2_currentBookingMethod":
       "Receive my contact from friend or someone close, text my personal number to set up date and time and package.",
-    "6.3_infoNeededToConfirm": "date, time, location, and what package detailing they want.",
+    "6.3_infoNeededToConfirm": "date, time, location, and what package custom home building they want.",
     "6.4_commonPreBookingQuestions": "how much does this it cost, what do the packages include",
-    "6.5_customerProvides": "water access, power and driveway, car keys",
+    "6.5_customerProvides": "water access, power and driveway, home keys",
     "6.6_cochraneHandles": "Equipment, attention to detail, result",
     "6.7_typicalDuration": "3-5 hours",
     "6.8_durationVariables":
-      "if the car is very dirty in the interior, muddy, filled with stains, in need to move stuff around.",
+      "if the home is very dirty in the interior, muddy, filled with stains, in need to move stuff around.",
     "6.9_priceVariables": "dirtiness of home or distance in which i need to travel, if it's urgent",
     "6.10_handlingDirtyCars":
       "depending on how much dirtier they are ill ask the customer if they are ok with extra charge of time and product.",
@@ -136,7 +136,7 @@ export const QUESTIONNAIRE_ANSWERS = {
   // ═══════════════════════════════════════════════════════════════════
   pricing: {
     "7.1_currentPricing":
-      "Interiors: sedans $139, SUV/Trucks $159, 7 Seaters $199 and then an additional $30 for exterior cleaning.",
+      "Interiors: townhomes $139, addition/Trucks $159, 7 Seaters $199 and then an additional $30 for exterior cleaning.",
     "7.2_priceTier100": "Only for certain people",
     "7.3_sizeAffectsPricing": "yes",
     "7.4_conditionAffectsPricing": "Only in extreme cases",
@@ -171,7 +171,7 @@ export const QUESTIONNAIRE_ANSWERS = {
       "My services are valuable, the work i do is worth the cost, im reliable, consistent",
     "9.3_neverUsePhrases": "\"the work i do is perfect.\"",
     "9.4_friendDescription":
-      "I clean cars, i make them look like they just came off the dealership lot or as close to that as possible",
+      "I clean homes, i make them look like they just came off the dealership lot or as close to that as possible",
     "9.5_cochraneWoodHelpsPeopleWho": "cant or don't have time to keep their homes clean themselves.",
     "9.6_realValueIs": "to serve people at a good price.",
     "9.7_worthPayingForBecause":
@@ -190,10 +190,10 @@ export const QUESTIONNAIRE_ANSWERS = {
       "Understand services, book right away, see before and agrees, compare packages",
     "10.4_neededPages": "services, about, homepage, reviews, contact",
     "10.5_questionsToAnswer":
-      "how long it take for details, 3-5 hours\n\"How do i prepare my car?\" Take all personal items out of home\n\"What kind of payments are accepted?\" Cash, E-transfer, Card\n\"Do you deal with dog hair and stains?\" Yes, i deal with both as well as i can.",
+      "how long it take for details, 3-5 hours\n\"How do i prepare my home?\" Take all personal items out of home\n\"What kind of payments are accepted?\" Cash, E-transfer, Card\n\"Do you deal with dog hair and stains?\" Yes, i deal with both as well as i can.",
     "10.6_questionsToAnswerPersonally": "any thing to do with results, after services.",
     "10.7_preBookingUnderstanding":
-      "price may vary from packages based on home and project types, sedan, SUV/trucks, minivans\nIt's as close to perfection as possible",
+      "price may vary from packages based on home and project types, townhome, addition/trucks, starter homes\nIt's as close to perfection as possible",
     "10.8_bounceRisk": "im not sure",
   },
 
@@ -206,10 +206,10 @@ export const QUESTIONNAIRE_ANSWERS = {
     "11.3_topWorries": "not sure",
     "11.4_mobileServiceExplanation": "I go to them, can be just as good as going to a finishing trade.",
     "11.5_timingAccessPrep":
-      "I need access to exterior water and electricity. Need about 15 mins flexibility from selected times for work. The car must not have any personal items in it.",
+      "I need access to exterior water and electricity. Need about 15 mins flexibility from selected times for work. The home must not have any personal items in it.",
     "11.6_pricingConditionRules":
       "the prices are firm, other than extreme cases like excess hair or mud.",
-    "11.7_whatIsAndIsntPossible": "Any state of a car can be recovered.",
+    "11.7_whatIsAndIsntPossible": "Any state of a home can be recovered.",
   },
 
   // ═══════════════════════════════════════════════════════════════════
@@ -219,7 +219,7 @@ export const QUESTIONNAIRE_ANSWERS = {
     "12.1_areasServed": "???",
     "12.2_hasExclusions": "yes",
     "12.3_exclusions":
-      "anything bigger than a minivan like semis or buses etc. Anywhere located outside Calgary, Airdrie and Cochrane.",
+      "anything bigger than a starter home like semis or buses etc. Anywhere located outside Calgary, Airdrie and Cochrane.",
     "12.4_contactMethods": "Phone or text or instagram",
   },
 
@@ -261,7 +261,7 @@ export const QUESTIONNAIRE_ANSWERS = {
     "15.5_obviousButNotObvious":
       "the vision is to build something reliable and trustworthy right out of the gate. Something with straight forward and honest feel.",
     "15.6_aboutMeMemo":
-      "Hi, i am Cochrane Master Builders, the owner of StreetSmart detailing. I started this company to serve people with high-quality interior finishing with affordable prices and trustworthy results. When i was young (10-15years old) my parents would let me clean their cars for a quick buck. I didn't mind that it was cheap for a car cleaning, i still did my best with the equipment provided. As my parents trusted me to do a good job for something affordable for them with StreetSmart detailing I hope to keep that same feeling. I strive to be trust worthy, reliable, affordable, and satisfactory for all customers. Outside of work I spend time with friends and family. I love serving at church, and I am a student at tehillah Ministry school. I keep Jesus at the centre of all the work i do, assuring everything is done to the best of my ability. If you are someone looking to get your car detailed and value affordability and premium quality please consider booking with me today.",
+      "Hi, i am Cochrane Master Builders, the owner of StreetSmart custom home building. I started this company to serve people with high-quality interior finishing with affordable prices and trustworthy results. When i was young (10-15years old) my parents would let me clean their homes for a quick buck. I didn't mind that it was cheap for a home cleaning, i still did my best with the equipment provided. As my parents trusted me to do a good job for something affordable for them with StreetSmart custom home building I hope to keep that same feeling. I strive to be trust worthy, reliable, affordable, and satisfactory for all customers. Outside of work I spend time with friends and family. I love serving at church, and I am a student at tehillah Ministry school. I keep Jesus at the centre of all the work i do, assuring everything is done to the best of my ability. If you are someone looking to get your home detailed and value affordability and premium quality please consider booking with me today.",
   },
 } as const;
 
@@ -273,7 +273,7 @@ export const SOURCE_OF_TRUTH = {
   // ─── BRAND ─────────────────────────────────────────────────────────
   brand: {
     currentSiteName: "Cochrane Master Builders",
-    founderStatedName: "StreetSmart detailing",
+    founderStatedName: "StreetSmart custom home building",
     conflict: "OPEN QUESTION — confirm with Cochrane Master Builders which name is the public brand.",
     founder: "Cochrane Master Builders",
     voice: ["confident", "straightforward", "trustworthy", "excited to be of service"],
@@ -303,26 +303,26 @@ export const SOURCE_OF_TRUTH = {
           "Everything in Basic Wash",
           "Hand wash exterior",
           "Tires and rims",
-          "Clay bar",
+          "Millwork detail",
           "Sealant",
         ],
       },
     ],
-    addOns: ["Ceramic spray coat", "Clay bar (standalone)", "Iron extraction (exterior)"],
-    doesNotOffer: ["Paint polishing", "Drywall + paint finishing (machine polish)"],
+    addOns: ["Ceramic spray coat", "Millwork detail (standalone)", "Iron extraction (exterior)"],
+    doesNotOffer: ["Paint polishing", "Drywall + paint finishing (hand-sanded finish)"],
     leadWith: "Basic Wash and Full Detail",
   },
 
   // ─── PRICING (founder-stated, exact) ───────────────────────────────
   pricing: {
     interior: {
-      sedan: 139,
+      townhome: 139,
       suvOrTruck: 159,
       sevenSeater: 199,
     },
     exteriorAddOn: 30,
     fullDetailDerived: {
-      sedan: 169, // 139 + 30
+      townhome: 169, // 139 + 30
       suvOrTruck: 189, // 159 + 30
       sevenSeater: 229, // 199 + 30
     },
@@ -344,7 +344,7 @@ export const SOURCE_OF_TRUTH = {
       "Exterior water access",
       "Power outlet (electricity)",
       "Driveway space",
-      "Car keys",
+      "Home keys",
       "All personal items removed from the home",
     ],
     cleaningOrder: "Exterior first, then interior",
@@ -367,8 +367,8 @@ export const SOURCE_OF_TRUTH = {
 
   // ─── VEHICLE SCOPE ─────────────────────────────────────────────────
   homeScope: {
-    accepted: "Any home up to and including a minivan",
-    rejected: ["Anything larger than a minivan", "Semis", "Buses", "Heavy machinery"],
+    accepted: "Any home up to and including a starter home",
+    rejected: ["Anything larger than a starter home", "Semis", "Buses", "Heavy machinery"],
     bestFitProblems: ["Heavy grime", "Embedded dirt", "Stains"],
   },
 
@@ -393,7 +393,7 @@ export const SOURCE_OF_TRUTH = {
 
   // ─── OPEN QUESTIONS FOR COCHRANE MASTER BUILDERS ──────────────────────────────────────
   openQuestions: [
-    "Brand name: Cochrane Master Builders or StreetSmart Detailing? (or both?)",
+    "Brand name: Cochrane Master Builders or StreetSmart Master Builders? (or both?)",
     "Real phone number for the site.",
     "Real email address for the site.",
     "Real Instagram handle for the site.",

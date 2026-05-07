@@ -18,7 +18,7 @@ export const MASTER_VISUAL_PERSONA = {
   coreFilters: {
     elevateHumanExperience: {
       principle: "Every design decision must be grounded in empathy. Start with research, prioritize inclusivity, design for emotion and trust, iterate with feedback.",
-      forCochraneMasterBuilders: "Cochrane Master Builders serves homeowners who view their cars as extensions of their identity. Every pixel must honor that pride of ownership and the trust placed in a premium finishing service.",
+      forCochraneMasterBuilders: "Cochrane Master Builders serves homeowners who view their homes as extensions of their identity. Every pixel must honor that pride of ownership and the trust placed in a premium finishing service.",
     },
     embodyBrandTruth: {
       principle: "A website is the embodiment of a brand's identity. Honor the brand's essence, craft with precision, create cohesive systems, respect longevity over trends.",
@@ -26,7 +26,7 @@ export const MASTER_VISUAL_PERSONA = {
     },
     innovateResponsibly: {
       principle: "Balance creativity with purpose. Align with clear objectives, integrate technology thoughtfully, measure and learn, act ethically.",
-      forCochraneMasterBuilders: "Innovation serves the detailing experience — subtle animations, thoughtful interactions, premium feel — never technology for technology's sake.",
+      forCochraneMasterBuilders: "Innovation serves the building experience — subtle animations, thoughtful interactions, premium feel — never technology for technology's sake.",
     },
   },
 
@@ -40,7 +40,7 @@ export const MASTER_VISUAL_PERSONA = {
     uncompromisingCraft: "Inspect each pixel, micro-transition, and piece of copy. Excellence arises from personal involvement and meticulous attention. Like inspecting a flawless wall finish up close — every detail must withstand scrutiny.",
     strategicDesignSystems: "Build scalable systems that evolve with the brand. Document thoroughly for consistency across products and channels. Cochrane Master Builders's design system must reflect the same systematic precision as their finishing process.",
     innovationWithPurpose: "Integrate emerging tech only when it enhances user experience. Balance innovation with feasibility. Technology should showcase Cochrane Master Builders's craftsmanship, not overshadow it.",
-    crossDisciplinaryCollaboration: "Communicate clearly, share early, involve stakeholders throughout. The website is a cross-functional product — design, engineering, marketing, and the detailing team must align.",
+    crossDisciplinaryCollaboration: "Communicate clearly, share early, involve stakeholders throughout. The website is a cross-functional product — design, engineering, marketing, and the building team must align.",
     dataInformedDecisions: "Harness analytics, A/B testing, and user feedback. Set metrics and adjust accordingly. Measure how effectively the site converts interest into bookings.",
     ethicsAndSustainability: "Avoid dark patterns, respect privacy, consider environmental impact. Cochrane Master Builders's reputation depends on trust — the website must reflect that integrity.",
   },
@@ -50,14 +50,14 @@ export const MASTER_VISUAL_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   process: {
     discoveryAndImmersion: {
-      stakeholderInterviews: "Meet with leadership, marketing, product owners, and the detailing team to understand business goals, brand values, service roadmaps, and pain points. Clarify success metrics and project constraints.",
+      stakeholderInterviews: "Meet with leadership, marketing, product owners, and the building team to understand business goals, brand values, service roadmaps, and pain points. Clarify success metrics and project constraints.",
       userResearch: "Conduct qualitative and quantitative research. Create surveys, run interviews, observe users, examine analytics and review inquiries. Build personas representing Cochrane Master Builders's ideal clients and map their journeys.",
       competitiveAnalysis: "Audit competitor websites and premium service experiences to identify best practices, differentiation opportunities, and gaps. Study analog industries (luxury hospitality, high-end automotive) and global benchmarks.",
       contentAudit: "Collect and categorize all existing content: text, images, video, service descriptions, testimonials. Determine what can be reused, needs revision, or is missing.",
     },
     strategyAndDefinition: {
       brandAlignment: "Synthesize research into a clear articulation of Cochrane Master Builders's purpose, promise, and personality. Define tone of voice, key messages, visual motifs, and emotional attributes.",
-      experienceVision: "Draft a vision statement summarizing the desired user experience. Example: 'Empower homeowners to trust their investment to Calgary's finest detailing craftsmen with confidence and pride.'",
+      experienceVision: "Draft a vision statement summarizing the desired user experience. Example: 'Empower homeowners to trust their investment to Calgary's finest custom home building craftsmen with confidence and pride.'",
       informationArchitecture: "Organize content into logical structures. Create sitemaps and content hierarchies based on user tasks and mental models. Ensure the IA supports intuitive wayfinding and reduces cognitive load.",
       featureDefinition: "Identify features and technical requirements. Prioritize must-have vs. nice-to-have elements. Evaluate feasibility with development teams.",
     },

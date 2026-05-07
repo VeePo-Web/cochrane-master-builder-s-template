@@ -276,7 +276,7 @@ Research insights directly inform brand identity:
 
 1. **Define segments and needs** – Use demographic and psychographic data to create **customer personas** (e.g., the Health-Conscious, Family-Lover and Hen-Hugger segments in the Pete & Gerry’s case).
 
-2. **Identify market gaps** – Highlight unmet needs or emotional drivers neglected by competitors; these become the **conflict** in your brand story (see section 7).
+2. **Identify market gaps** – Highlight unmet needs or emotional homeowners neglected by competitors; these become the **conflict** in your brand story (see section 7).
 
 3. **Inform positioning and USP** – Determine what makes your offering unique and valuable compared to competitors (section 3).
 

@@ -350,7 +350,7 @@ This report is grounded in multi-source research. Primary sources include publis
 
 *    **Usability research** from the Mission Lab UX study, which surveyed dozens of churches to identify best practices for navigation, homepage content and user segmentation. This study emphasises simple navigation, mobile-first design, and delivering clear information within 50 milliseconds.
 
-*    **Liturgical color guides** detailing the biblical and historical meanings of colors such as blue, purple, gold and red.
+*    **Liturgical color guides** custom home building the biblical and historical meanings of colors such as blue, purple, gold and red.
 
 ## Page 21
 

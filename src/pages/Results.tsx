@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import Navigation from "@/components/detailing/Navigation";
-import Footer from "@/components/detailing/Footer";
-import ScrollReveal from "@/components/detailing/ScrollReveal";
-import InnerHero from "@/components/detailing/InnerHero";
-import RevealImage from "@/components/detailing/RevealImage";
-import SectionDivider from "@/components/detailing/SectionDivider";
+import Navigation from "@/components/custom home building/Navigation";
+import Footer from "@/components/custom home building/Footer";
+import ScrollReveal from "@/components/custom home building/ScrollReveal";
+import InnerHero from "@/components/custom home building/InnerHero";
+import RevealImage from "@/components/custom home building/RevealImage";
+import SectionDivider from "@/components/custom home building/SectionDivider";
 import dividerMitt from "@/assets/divider-mitt.jpg";
 import beforeInterior from "@/assets/before-interior-dirty.jpg";
 import afterInterior from "@/assets/after-interior-clean.jpg";
