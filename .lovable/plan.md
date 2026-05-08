@@ -1,39 +1,35 @@
-## Plan: Embed `GENERAL_ANTI_GRAVITY_OPENING_PROMPT-2.docx` as Anti-Gravity Opening Engineer v2
+## Plan: Embed "Mermaid Diagram + Systems Mapping Mode" persona
 
-This document is an expanded v2 of the Anti-Gravity Opening / cinematic intro engineer persona already embedded as v1 (`anti-gravity-opening-engineer.source.md`). Same embed pattern used for the prior v2 personas (master-design-persona, brand-identity-architect, colours-and-shapes): verbatim source + a partner doc that maps the expanded methodology onto Masters / VeePo with explicit firewalls and routing rules.
+Following the established pattern (verbatim source + partner interpretation + INDEX entry). No frontend changes.
 
-### Files to create
+### 1. Create source document (verbatim, untouched)
+**File:** `src/master/knowledge/source-documents/experience-prompts/mermaid-systems-mapping-mode.source.md`
 
-1. **`src/master/knowledge/source-documents/experience-prompts/anti-gravity-opening-engineer.v2.source.md`**
-   - Full verbatim markdown of the parsed `.docx` — preserve smart quotes, soft hyphens, page breaks, duplicated tokens, and original wording exactly as parsed.
-   - Frontmatter: status `partnered (expanded persona)`, immutable, backend-only, pointer to v1 + v2 partner pair as routing surface.
+- Full markdown of the parsed `.docx`, preserved exactly as provided (no edits, cleanup, or summarization inside the file).
+- Frontmatter: `type: source`, `status: immutable`, `category: experience-prompts/systems-mapping`, `backend-only: true`, pointer to partner file.
 
-2. **`src/master/knowledge/partner-documents/experience-prompts/anti-gravity-opening-engineer.v2.partner.md`**
-   - Title: "Anti-Gravity Opening Engineer — v2 (Partner)"
-   - Category: `Experience Prompts / Persona / Cinematic Hero & First-Scroll Choreography`
-   - Status: `partnered — consulted IN ADDITION to v1`
-   - Purpose: extract the **transferable craft layer** from v2 (cinematic opening philosophy, weight/anti-gravity choreography, scroll-triggered reveals, perceived-performance + accessibility discipline, decision filters for hero/loading/first-scroll moments).
-   - **VeePo / Masters adaptation rules (firewall):**
-     - All choreography proposals must defer to the locked **Hero Section Lock**, **Loading Sequence**, **Cloth Wipe Transition**, **Motion Philosophy**, **Hero Interactive Shine**, and **Parallax Coverage Specs** memories. Never override.
-     - Brand palette/typography/imagery rules from existing brand identity always win (Asphalt/Graphite + copper, Space Grotesk/Jost, no human imagery, no rounded cards, filled copper CTAs only).
-     - Strip any wedding / unrelated category illustrations when reasoning — confine to luxury automotive context.
-     - Honor `prefers-reduced-motion` and the project's mobile constraints (390px, 92dvh, safe-area).
-     - This embed is decision-shaping only — it does NOT authorize edits to hero, loading, or transition components.
-   - Trigger keywords: "hero section", "opening", "first scroll", "intro animation", "loading sequence", "cinematic reveal", "anti-gravity", "weight", "split-curtain", "ken burns", "parallax", "scroll choreography", "first impression".
-   - Routing relationship: v1 partner remains primary; v2 partner is consulted **in addition** when prompts touch the deeper operating-system mechanics introduced or expanded in v2.
-   - Out of scope: no front-end changes; no edits to v1 source/partner, motion/loading/hero components, or any decision-router/brand-identity TS modules.
+### 2. Create partner document (interpretation layer)
+**File:** `src/master/knowledge/partner-documents/experience-prompts/mermaid-systems-mapping-mode.partner.md`
 
-### Files to edit
+Contents:
+- **Title / Category:** Experience Prompts → Systems Mapping & Diagramming
+- **Purpose:** Backend reasoning aid for when Lovable needs to externalize architecture, flows, states, object models, or exception paths as Mermaid diagrams to expose hidden complexity.
+- **What it influences:** Decisions about when to produce diagrams vs prose; choice of diagram type (flowchart / sequence / state / ER / journey / gantt); diagram packs (System Context, Workflow, State, Object, Exception); naming consistency; bug-revelation discipline.
+- **Trigger prompts:** "map the system / flow / lifecycle", "show me how X works", "audit this workflow", "diagram the booking funnel / admin ops / portal handoff", branching logic, multi-actor interactions, state transitions.
+- **Mode orchestration:** Defines the Architect → Mapper → Auditor handoff (with Mapper as this persona's primary agent role).
+- **VeePo / Masters Concierge adaptation (firewall):**
+  - Strip any unrelated context (weddings, generic SaaS, foreign portals); apply only to Masters' domain — booking funnel, detailing service flow, customer ↔ concierge ↔ technician handoffs, photo upload review, status lifecycle.
+  - Honor locked memories: Booking Funnel (4-step right-panel), Booking Submission Animation, Modal Lifecycle Management, Loading Sequence — diagrams describe these flows, never propose redesigns of them.
+  - Backend-only intelligence: never render Mermaid diagrams in the live UI unless explicitly requested; this persona shapes reasoning, planning docs, and chat responses, not user-facing components.
+  - Brand-tone diagram naming: use Masters' operational vocabulary (Concierge, Detail Bay, Intake, Reveal) over generic placeholder names when authoring examples.
+- **Dependencies / related docs:** Brand Identity Architect v1+v2, Anti-Gravity Opening Engineer v1+v2, Booking Funnel feature memory, Modal Lifecycle Management memory.
+- **Scope:** Global (applies whenever structural visualization is useful), but invoked selectively per the doc's "If a diagram does not improve reasoning, do not make it" rule.
+- **Practical examples:** Mapping the booking-modal state machine; diagramming intake → triage → assignment → reveal; ER for Customer / Vehicle / Service / Booking / Photo objects; exception map for failed uploads or rejected bookings.
 
-3. **`src/master/knowledge/INDEX.md`** — add a `↳` sub-row under the v1 `anti-gravity-opening-engineer.source.md` entry pointing at v2 source + partner, noting it as the expanded persona consulted in addition to v1.
+### 3. Update INDEX
+**File:** `src/master/knowledge/INDEX.md`
 
-### Verification
-
-- v1 anti-gravity files remain byte-identical.
-- All other v1/v2/v3 embeds untouched.
-- No front-end / TypeScript / decision-router files modified.
-- 3 expected references to `anti-gravity-opening-engineer.v2` (source, partner, INDEX entry).
+Add a new row under Experience Prompts pointing to both source and partner files, with keywords: *mermaid, diagram, systems mapping, flowchart, state diagram, ER, sequence, workflow, audit, architecture visualization*.
 
 ### Out of scope
-
-No edits to any front-end, motion, hero, loading, decision-router, or brand-identity TypeScript modules. No front-end output changes triggered by this embed.
+No edits to any frontend component, route, hero, modal, motion, or design token. No new dependencies. `.lovable/plan.md` may be touched as part of the existing knowledge-system bookkeeping pattern, consistent with prior persona embeds.
