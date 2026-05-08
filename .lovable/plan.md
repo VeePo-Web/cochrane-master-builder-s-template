@@ -1,35 +1,36 @@
-## Plan: Embed "Mermaid Diagram + Systems Mapping Mode" persona
+## Plan: Embed "Systems Audit Mode" persona (Auditor agent)
 
-Following the established pattern (verbatim source + partner interpretation + INDEX entry). No frontend changes.
+Following established pattern (verbatim source + partner interpretation + INDEX entry). No frontend changes. Companion to the previously-embedded Mermaid Mapping Mode (Mapper) — together they form the 3-mode OS with Architect (still pending future upload).
 
-### 1. Create source document (verbatim, untouched)
-**File:** `src/master/knowledge/source-documents/experience-prompts/mermaid-systems-mapping-mode.source.md`
+### 1. Source document (verbatim, untouched)
+**File:** `src/master/knowledge/source-documents/experience-prompts/systems-audit-mode.source.md`
 
-- Full markdown of the parsed `.docx`, preserved exactly as provided (no edits, cleanup, or summarization inside the file).
-- Frontmatter: `type: source`, `status: immutable`, `category: experience-prompts/systems-mapping`, `backend-only: true`, pointer to partner file.
+- Full markdown of the parsed `.docx`, preserved exactly — no edits.
+- Frontmatter: `type: source`, `status: immutable`, `category: experience-prompts/systems-audit`, `backend-only: true`, pointer to partner.
 
-### 2. Create partner document (interpretation layer)
-**File:** `src/master/knowledge/partner-documents/experience-prompts/mermaid-systems-mapping-mode.partner.md`
+### 2. Partner document (interpretation layer)
+**File:** `src/master/knowledge/partner-documents/experience-prompts/systems-audit-mode.partner.md`
 
 Contents:
-- **Title / Category:** Experience Prompts → Systems Mapping & Diagramming
-- **Purpose:** Backend reasoning aid for when Lovable needs to externalize architecture, flows, states, object models, or exception paths as Mermaid diagrams to expose hidden complexity.
-- **What it influences:** Decisions about when to produce diagrams vs prose; choice of diagram type (flowchart / sequence / state / ER / journey / gantt); diagram packs (System Context, Workflow, State, Object, Exception); naming consistency; bug-revelation discipline.
-- **Trigger prompts:** "map the system / flow / lifecycle", "show me how X works", "audit this workflow", "diagram the booking funnel / admin ops / portal handoff", branching logic, multi-actor interactions, state transitions.
-- **Mode orchestration:** Defines the Architect → Mapper → Auditor handoff (with Mapper as this persona's primary agent role).
+- **Title / Category:** Experience Prompts → Systems Audit & Diagnostic
+- **Purpose:** Defines the **Auditor** agent — pressure-tests systems for hidden manual work, broken transitions, missing states, permission flaws, scale fragility, and operator burden.
+- **Influences:** When to enter audit mode; the 10 audit layers (Business Logic, Object Model, State Model, Workflow, Permissions, UI/UX, Operator Burden, Exception/Failure, Scalability, Traceability); 7 sub-modes (Flow / State / Portal UX / Operator Load / Data-Object / Scale-Stress / Edge Case); Bug Classification (Critical/High/Medium/Low + 11 type tags); 9-section output standard (Executive Diagnosis → Next Actions); the failure-mode detection checklist.
+- **Triggers:** "audit / pressure-test / find bugs / what breaks at scale / review this workflow / inspect the booking funnel / what's fragile / edge cases" — plus auto-trigger when a workflow has hidden complexity.
+- **Mode orchestration:** Architect → Mapper → Auditor → Mapper → Architect. Pairs explicitly with Mermaid Mapping Mode for visual evidence (per the source's "Mermaid Audit Requirement").
 - **VeePo / Masters Concierge adaptation (firewall):**
-  - Strip any unrelated context (weddings, generic SaaS, foreign portals); apply only to Masters' domain — booking funnel, detailing service flow, customer ↔ concierge ↔ technician handoffs, photo upload review, status lifecycle.
-  - Honor locked memories: Booking Funnel (4-step right-panel), Booking Submission Animation, Modal Lifecycle Management, Loading Sequence — diagrams describe these flows, never propose redesigns of them.
-  - Backend-only intelligence: never render Mermaid diagrams in the live UI unless explicitly requested; this persona shapes reasoning, planning docs, and chat responses, not user-facing components.
-  - Brand-tone diagram naming: use Masters' operational vocabulary (Concierge, Detail Bay, Intake, Reveal) over generic placeholder names when authoring examples.
-- **Dependencies / related docs:** Brand Identity Architect v1+v2, Anti-Gravity Opening Engineer v1+v2, Booking Funnel feature memory, Modal Lifecycle Management memory.
-- **Scope:** Global (applies whenever structural visualization is useful), but invoked selectively per the doc's "If a diagram does not improve reasoning, do not make it" rule.
-- **Practical examples:** Mapping the booking-modal state machine; diagramming intake → triage → assignment → reveal; ER for Customer / Vehicle / Service / Booking / Photo objects; exception map for failed uploads or rejected bookings.
+  - Strip generic SaaS / construction / wedding / portal-CRM vocabulary; apply only to Masters surfaces — booking funnel, modal lifecycle, photo upload, concierge handoff, reveal day, future admin/portal if added.
+  - Honor locked memories: Booking Funnel (4-step), Modal Lifecycle Management, Booking Submission Animation, Loading Sequence, Hero Section Lock, Booking Modal Architecture. Audit findings that contradict these surface as **memory-conflict flags**, never silent design changes.
+  - Backend-only: audits live in chat / planning docs, never restyle the UI.
+  - Use Masters' nouns: Customer, Concierge, Technician, Detail Bay, Booking, Vehicle, Service, Reveal, Photo Asset.
+  - Honor brand UI Strict rules (no rounded cards, ghost buttons, human imagery) — audits never propose violations.
+- **Dependencies:** Mermaid Systems Mapping Mode (for evidence diagrams), Brand Identity Architect v1+v2, Anti-Gravity Opening Engineer v1+v2, Booking Funnel + Modal Lifecycle memories.
+- **Scope:** Global, invoked selectively when system-truth pressure-testing is needed.
+- **Practical examples:** Audit booking funnel for conversion leaks; pressure-test modal singleton + AnimatePresence exit logic; portal UX audit of photo upload step; scale audit ("what breaks at 500 concurrent bookings"); edge-case audit ("user closes modal mid-submission while splatter animation is playing").
 
-### 3. Update INDEX
+### 3. INDEX update
 **File:** `src/master/knowledge/INDEX.md`
 
-Add a new row under Experience Prompts pointing to both source and partner files, with keywords: *mermaid, diagram, systems mapping, flowchart, state diagram, ER, sequence, workflow, audit, architecture visualization*.
+Add row under Experience Prompts after the Mermaid Mapping entry. Keywords: *audit, diagnostic, pressure-test, failure mode, edge case, scale, fragility, permissions, state model, operator burden, traceability, bug classification.*
 
 ### Out of scope
-No edits to any frontend component, route, hero, modal, motion, or design token. No new dependencies. `.lovable/plan.md` may be touched as part of the existing knowledge-system bookkeeping pattern, consistent with prior persona embeds.
+No frontend, motion, route, modal, design-token, or dependency changes.
