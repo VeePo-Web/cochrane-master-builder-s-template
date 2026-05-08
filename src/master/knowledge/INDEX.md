@@ -31,6 +31,7 @@ the brand-specific layers below. P0 within their topical area.
 | `source-documents/experience-prompts/seo-virtuoso-persona.source.md` | Markdown (verbatim DOCX) | partnered | 50-year SEO virtuoso persona + 15 core principles + "what not to do" checklist + GEO/AI-search methodology + 5-step working process |
 | `source-documents/experience-prompts/seo-faq-optimization-persona.source.md` | Markdown (verbatim DOCX) | partnered | World-class SEO FAQ optimization playbook (8 principles + 10-section process + intent buckets + FAQPage JSON-LD rules + voice/local + performance + monitoring) |
 | `source-documents/experience-prompts/master-design-persona-fantasy.source.md` | Markdown (verbatim DOCX) | partnered | Fantasy.co-level master design persona |
+| ↳ `source-documents/experience-prompts/master-design-persona-fantasy.v2.source.md` | Markdown (verbatim DOCX) | partnered | v2 snapshot of `General_Design_Prompt-2.docx` — adds 3-pillar mission filter (Elevate Human Experience / Embody Brand Truth / Innovate Responsibly), 8-phase methodology, and 15-section "What Not To Do" boundaries report. Canonical v1 remains primary; v2 consulted in addition for methodology, ethics, and quality-bar QA. |
 | `source-documents/experience-prompts/anti-gravity-opening-engineer.source.md` | Markdown (verbatim DOCX) | partnered | Anti-gravity opening / cinematic intro engineer persona |
 
 ---
