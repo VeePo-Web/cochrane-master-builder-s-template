@@ -1,36 +1,36 @@
-# Embed `General_FOOTER_Prompt-3.docx` into Backend Knowledge
+# Embed `General_Design_Prompt-2.docx` into Backend Knowledge
 
-A footer-architect source already exists at `src/master/knowledge/source-documents/footer/footer-architect.source.md` (with partner doc and INDEX entry). The new upload is a **v3 iteration** of the same persona — substantively expanded with output format, governance, QA, and final directive sections.
+This upload is a **v2 iteration** of the canonical Master Design Persona (already embedded as `master-design-persona-fantasy.source.md` + partner doc, registered in the routing layer). The new doc significantly expands the persona with: a 3-pillar mission/values filter ("Elevate the Human Experience" / "Embody Brand Truth with Excellence" / "Innovate Responsibly for Impact"), Deep Beliefs and Values, the 7-phase methodology (Discovery → Strategy → IA → Design & Prototyping → Systems → Build & QA → Launch & Optimization), and a full "What Not to Do" boundaries report (sections 1–14).
 
-Mirroring the precedent set by `navigation-architect-persona.v3.source.md`, this will be embedded as a parallel v3 snapshot (verbatim, untouched) with its own partner doc, while the canonical v2 partner remains the active routing target.
+Mirroring the precedent set by `navigation-architect-persona.v3.source.md` and `footer-architect.v3.source.md`, this is embedded as a parallel v2 snapshot — verbatim, untouched — with its own partner doc. Canonical v1 partner remains the active routing target.
 
 ## Files to create
 
-1. **`src/master/knowledge/source-documents/footer/footer-architect.v3.source.md`**
-   - Verbatim markdown of `General_FOOTER_Prompt-3.docx`, full 771-line parse, no edits, no cleanup, no summarization.
-   - Brand-context references kept untouched per the immutability rule (the partner doc handles adaptation to Cochrane Master Builders).
+1. **`src/master/knowledge/source-documents/experience-prompts/master-design-persona-fantasy.v2.source.md`**
+   - Verbatim markdown from the parsed `.docx`. No edits, no cleanup, no summarization. Exotic punctuation, soft hyphens, and stray formatting preserved.
+   - Frontmatter: source filename, immutability note.
 
-2. **`src/master/knowledge/partner-documents/footer/footer-architect.v3.partner.md`**
-   - Title, category (Footer / Cross-brand persona — v3 snapshot).
-   - Purpose: explains this is a v3 iteration of the canonical Footer Architect persona, expanded with output-format scaffolding, governance rules, QA plan, and a final-directive contract.
-   - Trigger keywords: footer, fat footer, sticky mini-footer, footer IA, footer SEO, footer governance, footer QA, footer output format.
-   - Routing rule: canonical v2 (`footer-architect.partner.md`) remains the primary routing target; v3 is consulted when prompts ask for **structured footer output**, **governance/QA checklists**, or **bespoke brand-moment scaffolding**.
-   - Adaptation notes for Cochrane Master Builders: map "brand moment" to the family-legacy/Strong-Foundations motif; NAP/local SEO cues route through Cochrane + Rocky View + Calgary CMA; never import generic template vocabulary.
-   - Conflict rule: brand-specific Cochrane docs win on aesthetics/voice; this v3 wins on structural footer rigor and QA discipline.
-   - Dependencies: links to `footer-architect.partner.md` (v2), `colours-and-shapes-experience-philosophy.partner.md`, brand-identity north-star partner doc.
+2. **`src/master/knowledge/partner-documents/experience-prompts/master-design-persona-fantasy.v2.partner.md`**
+   - Title, category (Experience Prompts / Cross-brand persona — v2 snapshot).
+   - Purpose: explains v2 adds the **3-pillar decision filter**, the **7-phase methodology**, and the **14-section "What Not To Do" boundaries report** on top of v1.
+   - Trigger keywords: design persona, world-class design, fantasy.co, master design, design methodology, what not to do, design boundaries, design ethics, design principles, design quality bar, design QA, dark patterns, accessibility floor.
+   - Routing rule: v1 (`master-design-persona-fantasy.partner.md`) remains primary; v2 is consulted **in addition** when the request needs structured methodology, ethical/anti-pattern boundaries, or filtering decisions through the 3 mission pillars.
+   - Adaptation notes for Cochrane Master Builders: map "Brand Truth" to the Family Legacy / Strong Foundations North Star; "Elevate Human Experience" routes through the Mothers/Grandfathers/Subcontractor ICP docs; never import generic agency vocabulary or non-builder examples (Balenciaga, Slack, Coinbase) into front-end copy.
+   - Conflict rule: brand-specific Cochrane docs win on aesthetics/voice/palette/motifs; v2 wins on methodology rigor, ethical boundaries, and the 3-pillar filter; performance/mobile partner docs win on perf budgets and breakpoints.
+   - Dependencies: v1 partner, brand-identity-architect partner, colours-and-shapes partner, footer + navigation v3 partners, performance + mobile partners, and the Cochrane Master Builders Family Legacy / North Star partner docs.
 
 3. **Update `src/master/knowledge/INDEX.md`**
-   - Under the existing `Footer` shelf, add a sub-row for the v3 snapshot following the navigation v3 precedent (`provenance-only` style entry pointing routing back to v2, plus a note that v3 adds the structured output format / governance / QA layer).
+   - Under the existing **Experience Prompts — Cross-Brand Personas** shelf, add a `↳` sub-row beneath the canonical `master-design-persona-fantasy.source.md` row pointing to the v2 snapshot, following the same convention used for the navigation v3 entry.
 
 ## Out of scope
 
-- No edits to existing v2 source or partner docs.
-- No edits to `src/master/knowledge/GENERAL_INTELLIGENCE_INDEX.md` content rules — only an additive v3 line if needed for parity.
-- No front-end changes. No component, page, config, or styling edits.
-- No changes to `decision-index.ts`, `decision-input.ts`, or `DECISION_ROUTER.md` (matches navigation v3 precedent — registration deferred to a separate pass).
+- No edits to v1 source or partner docs.
+- No edits to `decision-index.ts`, `decision-input.ts`, `DECISION_ROUTER.md` (matches v3 precedent — registration deferred).
+- No front-end changes. No component, page, config, styling, or token edits.
+- No edits to `GENERAL_INTELLIGENCE_INDEX.md` content rules.
 
 ## Verification
 
-- `rg -n "footer-architect.v3"` returns the 3 expected references (source, partner, INDEX).
-- v2 source file unchanged (byte-identical).
+- `rg -n "master-design-persona-fantasy.v2"` returns the 3 expected references (source, partner, INDEX).
+- v1 source byte-identical.
 - No file under `src/components/`, `src/pages/`, `src/config/`, or `src/index.css` modified.
