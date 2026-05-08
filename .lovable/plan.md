@@ -1,46 +1,33 @@
-# Embed `General_CHRISTIAN_Colours_and_shapes_PROMPT-2.docx` as v2 of Colours & Shapes
+## Plan: Embed `General_CHRISTIAN_Colours_and_shapes_PROMPT-3.docx` as v3 audit snapshot
 
-This is a deeply different document from the existing v1 (`colours-and-shapes-experience-philosophy.source.md`). The v2 upload is a 27-page Christian-centered UI/UX & visual design playbook drawn from Colours & Shapes' church/ministry case studies (The Pastorate, Centre Church, Practicing the Way, Smith Creative, Wagenmaker & Oberly), liturgical color theory, mobile/accessibility/performance guidance, and an 8-phase delivery process.
+This document is substantively the same Christian-centered UI/UX & visual design playbook already embedded as v1 and v2 of the Colours & Shapes experience philosophy. v3 will be embedded as a **provenance-only snapshot** — identical pattern to the Master Design Persona v3 snapshot already in the system. v1 + v2 partner pair remain canonical; v3 adds no new routing.
 
-Per the user's immutability rule, the source is embedded **verbatim**. Per the conflict rule, all church/liturgical/Gospel-specific references stay in the source and are translated by the partner document into brand-agnostic craft principles for the active project (Cochrane Master Builders / luxury automotive editorial). **None of the Christian-specific subject matter is permitted in front-end output.**
+### Files to create
 
-## Files to create
+1. **`src/master/knowledge/source-documents/brand-identity/colours-and-shapes-experience-philosophy.v3.source.md`**
+   - Verbatim markdown of the parsed `.docx` — preserve all smart quotes, soft hyphens, page breaks, duplicated "Colours" tokens, and original wording exactly as parsed.
+   - Frontmatter notes: status `provenance/audit-snapshot`, "substantially identical to v2", hard backend-only flag, immutability, pointer to v1 + v2 partner pair as canonical routing target.
 
-1. **`src/master/knowledge/source-documents/brand-identity/colours-and-shapes-experience-philosophy.v2.source.md`**
-   - Verbatim markdown of the parsed `.docx`. No edits, no cleanup, no summarization. Smart quotes / soft hyphens / page break markers / duplicated "Colours" tokens preserved exactly.
-   - Frontmatter: source filename, immutability note, status, hard backend-only flag, pointer to partner for adaptation.
+2. **`src/master/knowledge/partner-documents/brand-identity/colours-and-shapes-experience-philosophy.v3.partner.md`**
+   - Title: "Colours & Shapes Experience Philosophy — v3 Audit Snapshot (Partner)"
+   - Category: `Audit/Provenance`
+   - Status: `provenance-only`
+   - Explicitly states: v1 partner is primary, v2 partner is consulted in addition, v3 adds **no** new guidance and MUST NOT be routed to for decisions.
+   - Re-asserts the v2 firewall rules (Christian/liturgical content stays backend-only; never reaches front-end output).
+   - Trigger keywords scoped to audit only: "audit trail", "provenance", "v3 snapshot", "diff between v2 and v3".
+   - Out of scope: no front-end changes; no edits to v1/v2 source/partner, `brand-identity-northstar.ts`, `style-guide.ts`, `decision-index.ts`, `decision-input.ts`, `DECISION_ROUTER.md`, `GENERAL_INTELLIGENCE_INDEX.md`.
 
-2. **`src/master/knowledge/partner-documents/brand-identity/colours-and-shapes-experience-philosophy.v2.partner.md`**
-   - Title, category (Brand Identity → Experience Philosophy → v2 extension).
-   - Purpose: extract the *transferable craft layer* (start-with-why, manifesto-and-behaviours, story-driven experiences, recurring visual motif as theme thread, scannable hierarchy, mobile-first, motion under 300 ms with natural easing, accessibility/performance/security as trust signals, 8-phase delivery process) and explicitly **firewall** the Christian-specific subject matter (liturgical palettes, cross/dove/flame iconography, scripture quotes, prayer/donate buttons, sermon archives, church personas).
-   - Routing: consult **in addition to** v1 for any decision about brand manifesto, recurring motif systems, hero narrative flow, motion timing, palette discipline, typography hierarchy, accessibility standards, and the 8-phase delivery cadence. v1 remains canonical for the cross-brand experience philosophy.
-   - Brand translation table for Cochrane Master Builders (and VeePo where the user's instructions explicitly mention it):
-     - "theological why" → brand-truth why (legacy, craft, family).
-     - "manifesto + behaviours" → brand manifesto + behaviour set already in `brand-identity-northstar.ts`.
-     - "fibre motif" → recurring copper hairline / CW monogram thread.
-     - "liturgical palette" → Asphalt/Graphite + copper accent system (NEVER substitute liturgical colors).
-     - "cross / dove / flame" → FORBIDDEN in front-end output.
-     - "scripture quotes" → editorial pull-quotes from brand voice, NEVER scripture.
-     - "church personas (seekers/members/volunteers)" → existing ICP personas (homeowner, fleet, dealership, etc.).
-     - "sermon archive / prayer button / donate button" → not applicable; do not port.
-   - Trigger keywords: "manifesto", "behaviours", "recurring motif", "narrative flow", "8-phase delivery", "mobile-first hierarchy", "motion timing under 300ms", "accessibility as trust", "performance budget".
-   - Anti-trigger keywords (must NOT route here): "Christian", "church", "liturgical", "scripture", "prayer", "donate", "Gospel", "sermon".
-   - Conflict resolution: if any prompt seems to pull Christian iconography or copy from this source into front-end output, **stop and use v1 + brand-identity-northstar instead**.
-   - Dependencies: v1 source/partner, `brand-identity-northstar.ts`, `style-guide.ts`, master design persona v1 + v2 partners.
+### Files to edit
 
-3. **Update `src/master/knowledge/INDEX.md`**
-   - Add a `↳` sub-row under the existing v1 Colours & Shapes entry in the **Brand Identity** shelf:
-     `↳ source-documents/brand-identity/colours-and-shapes-experience-philosophy.v2.source.md | Markdown (verbatim DOCX) | partnered (firewalled) | v2 — Christian-centered UI/UX playbook from General_CHRISTIAN_Colours_and_shapes_PROMPT-2.docx. BACKEND-ONLY. Partner doc extracts transferable craft layer (manifesto, recurring motif, narrative flow, 8-phase delivery, motion under 300 ms, accessibility/performance) and firewalls all liturgical/scripture/iconography content from front-end output.`
+3. **`src/master/knowledge/INDEX.md`** — add a `↳` sub-row under the v2 entry pointing at v3 source + partner, marked as provenance/audit-only and substantively identical to v2.
 
-## Out of scope
+### Verification
 
-- No edits to v1 source/partner.
-- No edits to `brand-identity-northstar.ts`, `style-guide.ts`, `decision-index.ts`, `decision-input.ts`, `DECISION_ROUTER.md`, or `GENERAL_INTELLIGENCE_INDEX.md`.
-- No front-end changes anywhere in `src/components/`, `src/pages/`, `src/index.css`, or assets.
-
-## Verification
-
-- `rg -n "colours-and-shapes-experience-philosophy.v2"` returns the 3 expected references (source, partner, INDEX).
-- v1 source/partner files unchanged (byte-identical).
+- v1 and v2 source/partner files remain byte-identical.
 - No front-end files modified.
-- Partner doc explicitly enumerates the firewalled tokens (Christian, church, liturgical, scripture, prayer, donate, Gospel, sermon, cross, dove, flame).
+- 3 expected references to `colours-and-shapes-experience-philosophy.v3` found (source, partner, INDEX entry).
+- Partner doc explicitly enumerates the firewall (no Christian/liturgical tokens in front-end output).
+
+### Out of scope
+
+No edits to any decision router, brand-identity TypeScript modules, components, pages, styles, or any other front-end or routing infrastructure.
