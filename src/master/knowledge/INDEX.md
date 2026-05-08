@@ -87,6 +87,23 @@ read as one composition** (the "Easter egg" coincidence).
 
 ---
 
+## Footer — End-of-Scroll Surface & Nav Coherence (`footer/`)
+
+Function-scoped playbooks for footer IA, signature brand moments, footer-only
+SEO + LocalBusiness schema, governance/QA, and the binding "footer ↔ scrolled
+navbar must read as one composition" mandate. Hard binding rule from the
+source: **never alter anything outside the footer as a side-effect of footer
+work** (no nav, copy, layout, tokens, or motion changes). Brand-specific
+Cochrane Master Builders docs win on aesthetics/voice; these footer sources
+win on structure, governance, and anti-pattern discipline.
+
+| File | Format | Status | One-line label |
+|------|--------|--------|----------------|
+| `source-documents/footer/footer-architect.source.md` | Markdown (verbatim DOCX) | partnered | Footer Architect persona (canonical v2) — bespoke footer craft, 4-discipline framing (brand / UX / perf / SEO), Lovable.dev workflow, jobs-to-be-done IA, signature brand moment, governance. Primary routing target. |
+| ↳ `source-documents/footer/footer-architect.v3.source.md` | Markdown (verbatim DOCX) | partnered | v3 snapshot of `General_FOOTER_Prompt-3.docx`. Adds: Required 9-section Output (Objective Map → IA → Layout → Bespoke Brand Layer → Trust & Compliance → Footer-only SEO → Perf+a11y hardening → 15+ anti-patterns → QA Plan), Absolute Constraints, full "World-Class Custom Footers" reference report (sections 1–12 + future trends + 13 anti-patterns), and Final Directive scoping footer-first then nav-second as one bespoke composition. Consulted alongside v2 for structured deliverables, governance/QA gating, brand-moment scaffolding, and the footer↔scrolled-nav coherence mandate. |
+
+---
+
 ## Performance & Speed (`performance/`)
 
 Function-scoped technical playbooks for Core Web Vitals, asset/bundle/network
