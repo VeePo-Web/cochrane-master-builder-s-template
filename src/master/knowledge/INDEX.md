@@ -49,6 +49,24 @@ and partner docs.
 
 ---
 
+## Brand Identity — Cross-Brand Foundations (`brand-identity/`)
+
+Cross-brand brand-identity / experience-philosophy methodology. Cochrane Master
+Builders (and any brand-specific identity docs under `brands/<slug>/brand-identity/`)
+always wins on aesthetics, palette, voice, and iconography. These cross-brand
+sources govern *how* identity work is reasoned about (manifesto + behaviours,
+recurring motif systems, narrative flow, scannable hierarchy, motion timing,
+8-phase delivery cadence). Subject-matter content from any source whose primary
+context is unrelated to the active brand is FIREWALLED — see partner docs.
+
+| File | Format | Status | One-line label |
+|------|--------|--------|----------------|
+| `source-documents/brand-identity/brand-identity-architect.source.md` | Markdown (verbatim DOCX) | partnered | Brand Identity Architect persona — cross-brand identity-system authoring methodology |
+| `source-documents/brand-identity/colours-and-shapes-experience-philosophy.source.md` | Markdown (verbatim DOCX) | partnered | Colours & Shapes experience philosophy (v1) — cross-brand canonical reference for narrative-driven, story-led experience design |
+| ↳ `source-documents/brand-identity/colours-and-shapes-experience-philosophy.v2.source.md` | Markdown (verbatim DOCX) | partnered (firewalled) | v2 — Christian-centered UI/UX playbook from `General_CHRISTIAN_Colours_and_shapes_PROMPT-2.docx`. **BACKEND-ONLY.** Partner doc extracts the transferable craft layer (manifesto + behaviours, recurring motif, narrative flow, 8-phase delivery, motion under 300 ms, accessibility/performance/security as trust) and **firewalls** all liturgical / scripture / iconography / persona content from front-end output. v1 remains primary routing; v2 consulted in addition for craft-layer prompts only. |
+
+---
+
 ## Messaging — Copy, Narrative, Voice (`messaging/`)
 
 Methodology brains for copywriting and brand storytelling. Govern wording only —
