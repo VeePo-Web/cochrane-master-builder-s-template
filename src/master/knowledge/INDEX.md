@@ -26,6 +26,8 @@ is embedded, stored, and consulted. P0 — foundational.
 Cross-brand expertise personas. Methodology brains that get applied through
 the brand-specific layers below. P0 within their topical area.
 
+> **3-mode Backend OS callout:** the Architect (`systems-architect-copilot`), Mapper (`mermaid-systems-mapping-mode`), and Auditor (`systems-audit-mode`) personas form a single unified operating system. Default loop: Architect → Mapper → Auditor → Mapper → Architect. Architect first when *building*, Auditor first when *inspecting*, Mapper first when *visualizing*.
+
 | File | Format | Status | One-line label |
 |------|--------|--------|----------------|
 | `source-documents/experience-prompts/seo-virtuoso-persona.source.md` | Markdown (verbatim DOCX) | partnered | 50-year SEO virtuoso persona + 15 core principles + "what not to do" checklist + GEO/AI-search methodology + 5-step working process |
