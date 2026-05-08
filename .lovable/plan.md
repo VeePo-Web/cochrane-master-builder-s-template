@@ -1,36 +1,35 @@
-# Embed `General_Design_Prompt-2.docx` into Backend Knowledge
+# Embed `General_Design_Prompt-3.docx` as v3 Audit Snapshot
 
-This upload is a **v2 iteration** of the canonical Master Design Persona (already embedded as `master-design-persona-fantasy.source.md` + partner doc, registered in the routing layer). The new doc significantly expands the persona with: a 3-pillar mission/values filter ("Elevate the Human Experience" / "Embody Brand Truth with Excellence" / "Innovate Responsibly for Impact"), Deep Beliefs and Values, the 7-phase methodology (Discovery → Strategy → IA → Design & Prototyping → Systems → Build & QA → Launch & Optimization), and a full "What Not to Do" boundaries report (sections 1–14).
+This upload appears substantively identical to `General_Design_Prompt-2.docx` (just embedded as `master-design-persona-fantasy.v2.source.md`): same 352 parsed lines, same Role/Persona, same 3-pillar Mission Filter, same Deep Beliefs, same 8-Phase Methodology, same 15-section "What Not To Do" boundaries report, same Final Directive.
 
-Mirroring the precedent set by `navigation-architect-persona.v3.source.md` and `footer-architect.v3.source.md`, this is embedded as a parallel v2 snapshot — verbatim, untouched — with its own partner doc. Canonical v1 partner remains the active routing target.
+Following the precedent set by `navigation-architect-persona.v3.source.md` (which was also a near-duplicate of canonical v2 and registered as **provenance-only**), this is embedded as a verbatim audit snapshot. **Routing stays on the canonical v1 partner**, with v2 consulted in addition; v3 is provenance-only.
 
 ## Files to create
 
-1. **`src/master/knowledge/source-documents/experience-prompts/master-design-persona-fantasy.v2.source.md`**
-   - Verbatim markdown from the parsed `.docx`. No edits, no cleanup, no summarization. Exotic punctuation, soft hyphens, and stray formatting preserved.
-   - Frontmatter: source filename, immutability note.
+1. **`src/master/knowledge/source-documents/experience-prompts/master-design-persona-fantasy.v3.source.md`**
+   - Verbatim markdown of the parsed `.docx`. No edits, no cleanup, no summarization. Smart quotes / soft hyphens preserved exactly.
+   - Frontmatter: source filename, immutability note, status = audit/provenance snapshot, note that v2 is the active extension and v1 is the primary routing target.
 
-2. **`src/master/knowledge/partner-documents/experience-prompts/master-design-persona-fantasy.v2.partner.md`**
-   - Title, category (Experience Prompts / Cross-brand persona — v2 snapshot).
-   - Purpose: explains v2 adds the **3-pillar decision filter**, the **7-phase methodology**, and the **14-section "What Not To Do" boundaries report** on top of v1.
-   - Trigger keywords: design persona, world-class design, fantasy.co, master design, design methodology, what not to do, design boundaries, design ethics, design principles, design quality bar, design QA, dark patterns, accessibility floor.
-   - Routing rule: v1 (`master-design-persona-fantasy.partner.md`) remains primary; v2 is consulted **in addition** when the request needs structured methodology, ethical/anti-pattern boundaries, or filtering decisions through the 3 mission pillars.
-   - Adaptation notes for Cochrane Master Builders: map "Brand Truth" to the Family Legacy / Strong Foundations North Star; "Elevate Human Experience" routes through the Mothers/Grandfathers/Subcontractor ICP docs; never import generic agency vocabulary or non-builder examples (Balenciaga, Slack, Coinbase) into front-end copy.
-   - Conflict rule: brand-specific Cochrane docs win on aesthetics/voice/palette/motifs; v2 wins on methodology rigor, ethical boundaries, and the 3-pillar filter; performance/mobile partner docs win on perf budgets and breakpoints.
-   - Dependencies: v1 partner, brand-identity-architect partner, colours-and-shapes partner, footer + navigation v3 partners, performance + mobile partners, and the Cochrane Master Builders Family Legacy / North Star partner docs.
+2. **`src/master/knowledge/partner-documents/experience-prompts/master-design-persona-fantasy.v3.partner.md`**
+   - Title, category (Experience Prompts → Cross-Brand Master Personas — v3 audit snapshot).
+   - Purpose: explicitly states v3 is provenance-only and is substantively identical to v2.
+   - Routing: do **not** route here — v1 partner is primary, v2 partner is consulted in addition. v3 exists for traceability, diff/audit, and to confirm no new content was added by the user upload.
+   - Cross-references v2 partner for adaptation notes, Cochrane Master Builders translation, conflict resolution, and dependencies.
+   - Trigger keywords: "audit", "provenance", "v3 design persona snapshot" only.
 
 3. **Update `src/master/knowledge/INDEX.md`**
-   - Under the existing **Experience Prompts — Cross-Brand Personas** shelf, add a `↳` sub-row beneath the canonical `master-design-persona-fantasy.source.md` row pointing to the v2 snapshot, following the same convention used for the navigation v3 entry.
+   - Add a `↳` sub-row under the existing v2 entry in the **Experience Prompts — Cross-Brand Personas** shelf, mirroring the navigation v3 entry style:
+     `↳ source-documents/experience-prompts/master-design-persona-fantasy.v3.source.md | … | provenance-only | v3 snapshot of \`General_Design_Prompt-3.docx\` — substantively identical to v2. Routing stays on v1 + v2 partners; this entry exists for audit trail only.`
 
 ## Out of scope
 
-- No edits to v1 source or partner docs.
-- No edits to `decision-index.ts`, `decision-input.ts`, `DECISION_ROUTER.md` (matches v3 precedent — registration deferred).
-- No front-end changes. No component, page, config, styling, or token edits.
+- No edits to v1 or v2 source/partner docs.
+- No edits to `decision-index.ts`, `decision-input.ts`, `DECISION_ROUTER.md`.
+- No front-end changes.
 - No edits to `GENERAL_INTELLIGENCE_INDEX.md` content rules.
 
 ## Verification
 
-- `rg -n "master-design-persona-fantasy.v2"` returns the 3 expected references (source, partner, INDEX).
-- v1 source byte-identical.
+- `rg -n "master-design-persona-fantasy.v3"` returns the 3 expected references (source, partner, INDEX).
+- v1 and v2 source files byte-identical.
 - No file under `src/components/`, `src/pages/`, `src/config/`, or `src/index.css` modified.
