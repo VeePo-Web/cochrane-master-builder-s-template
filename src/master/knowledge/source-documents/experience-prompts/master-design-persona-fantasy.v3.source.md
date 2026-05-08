@@ -1,8 +1,8 @@
 ---
-source_filename: General_Design_Prompt-2.docx
+source_filename: General_Design_Prompt-3.docx
 embedded_at: 2026-05-08
 immutability: VERBATIM — DO NOT EDIT, REWRITE, CLEAN, OR SUMMARIZE.
-status: v2 snapshot of the Master Design Persona. v1 (`master-design-persona-fantasy.source.md`) remains canonical for routing; this snapshot is consulted in addition for the 3-pillar mission filter, 8-phase methodology, and 15-section "What Not To Do" boundaries report.
+status: v3 audit/provenance snapshot of the Master Design Persona. Substantively identical to the v2 snapshot (`master-design-persona-fantasy.v2.source.md`). Routing remains on v1 (`master-design-persona-fantasy.source.md`) as canonical, with v2 consulted in addition. v3 exists for traceability and diff/audit only — do NOT route decisions here.
 adaptation_notes: See `partner-documents/experience-prompts/master-design-persona-fantasy.v2.partner.md` for Cochrane Master Builders adaptation. Source references to non-builder brands (Balenciaga, Slack, Coinbase, Robinhood, USA Today, etc.) are preserved verbatim per the immutability rule and must NOT appear in front-end output.
 ---
 
