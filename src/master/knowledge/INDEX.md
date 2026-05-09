@@ -174,11 +174,15 @@ After Us."* Family-legacy / generational-craft positioning.
 
 ### Strategy
 
+> **Family-of-sites callout:** `1.0_..._UPGRADED_SEO_Master_Plan_family_legacy_column.xlsm` is the **canonical family-of-sites master plan** for the entire Cochrane Master Builders ecosystem (hub + every planned service spin-off). It is the **first reference any new Cochrane spin-off site must consult** — domain pattern, cluster, hub↔spoke SEO map, launch phase, and per-site keyword targets all live there. Live `.ca` availability is NOT verified in the sheet — always WHOIS-check before recommending purchase.
+
 | File | Format | Status | One-line label |
 |------|--------|--------|----------------|
 | `source-documents/brands/cochrane-master-builders/strategy/1.0_Cochrane_Master_Builders_Strategic_Business_SEO_UX_Report.pdf` | PDF | source-only | Top-level strategic business + SEO + UX report (v1.0) |
 | `source-documents/brands/cochrane-master-builders/strategy/1.2_Cochrane_Master_Builders_Strategic_Business_SEO_UX_Report_1.pdf` | PDF | source-only | Strategic business + SEO + UX report (v1.2 iteration) |
 | `source-documents/brands/cochrane-master-builders/strategy/1.3_Cochrane_Master_Builders_Backend_Strategy_Design_SEO_Legacy_Report_1.pdf` | PDF | source-only | Backend strategy / design / SEO / legacy report (v1.3) |
+| `source-documents/brands/cochrane-master-builders/strategy/1.0_cochrane_masters_UPGRADED_SEO_Master_Plan_family_legacy_column.xlsm` | XLSM (binary, verbatim) | source-only | **Canonical family-of-sites master plan.** 6 sheets: Audit Summary, Master Tracker (116 rows × 24 cols of every planned site), Service Clusters (21), Hub SEO Map (anchor-text architecture), Domain Rules (`Cochrane + Service + Masters + .ca`), Launch Roadmap (phased rollout). |
+| `source-documents/brands/cochrane-master-builders/strategy/1.0_cochrane_masters_UPGRADED_SEO_Master_Plan_family_legacy_column.source.md` | Markdown (verbatim mirror of .xlsm) | partnered | 1:1 textual mirror of the .xlsm so non-Excel tools can consult it. **Keywords:** family of sites, spin-off, sister site, new service site, domain pattern, hub and spoke, internal linking, anchor text, cluster, launch phase, P0/P1/P2, master tracker, Cochrane domain, remix base, multi-site SEO, family legacy column. |
 
 ### SEO & Market Research
 
