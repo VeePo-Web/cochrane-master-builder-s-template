@@ -1,72 +1,68 @@
-## Plan: Embed `6._cochrane_masters_all_115_ux_experience.xlsx` as the per-site UX Experience companion
+## Plan: Embed `7._cochrane_masters_all_115_performance_audit_specs.xlsx` as the per-site Performance / Audit Spec companion
 
-Fifth file in the Cochrane family-of-sites paired set. Same 116-row spine, joined on `Master Row` to v1.0 (SEO/positioning), v2.0 (services/pricing), v4.0 (ICP brain), and v5.0 (color/UX direction). This file supplies the **per-site UX experience theme + strategy** — how each spin-off should *feel* to use, beyond just what it looks like.
+Sixth file in the Cochrane family-of-sites paired set. Same 116-row spine joined on `Master Row` to v1.0 (SEO/positioning) · v2.0 (services/pricing) · v4.0 (ICP brain) · v5.0 (color/UX) · v6.0 (UX experience). This file supplies the **per-site performance audit spec + specific optimization plan** — Core Web Vitals stance, asset/script/render strategy, trust + speed posture per site.
 
 ### Where it lives
 
 ```
 src/master/knowledge/
   source-documents/brands/cochrane-master-builders/strategy/
-    6.0_cochrane_masters_all_115_ux_experience.xlsx        ← verbatim binary
-    6.0_cochrane_masters_all_115_ux_experience.source.md   ← verbatim 1:1 markdown mirror
+    7.0_cochrane_masters_all_115_performance_audit_specs.xlsx        ← verbatim binary
+    7.0_cochrane_masters_all_115_performance_audit_specs.source.md   ← verbatim 1:1 markdown mirror
   partner-documents/brands/cochrane-master-builders/strategy/
-    6.0_cochrane_masters_all_115_ux_experience.partner.md
+    7.0_cochrane_masters_all_115_performance_audit_specs.partner.md
 ```
 
-(Filename normalized to `6.0_…` to match the v1.0 / v2.0 / v4.0 / v5.0 numbering.)
+(Filename normalized to `7.0_…` to match v1.0 / v2.0 / v4.0 / v5.0 / v6.0 numbering.)
 
 ### Sheet inventory (1 sheet · 116 rows × 3 cols, captured verbatim)
 
-`UX Experience` columns:
+`Performance Specs` columns:
 
-1. **Master Row** — join key to v1.0 / v2.0 / v4.0 / v5.0.
-2. **Recommended Domain** — same `.ca` domain (must stay in sync across all five files).
-3. **UX Experience For Each One** — per-site UX Experience Theme + Experience Strategy narrative (mood of interaction, pacing, motion temperament, trust-building rhythm).
+1. **Master Row** — join key.
+2. **Recommended Domain** — same `.ca` domain (must stay in sync across all six files).
+3. **Performance Audit Spec Write-Up / Specific Optimization** — per-site narrative covering posture (clean/fast/local/trustworthy), Core Web Vitals targets, asset/script/render strategy, mobile-first plan.
 
 ### Partner document — what it tells the system
 
-- **Title:** Cochrane Masters — All-115 UX Experience Companion.
-- **Category:** brands → cochrane-master-builders → strategy → per-site UX experience direction (fifth file in the paired set).
-- **Purpose:** Canonical per-site **UX experience theme + strategy** for the Cochrane family. The "interaction temperament" leg of the remix pentapod (v1.0 SEO · v2.0 Services/Pricing · v4.0 ICP Brain · v5.0 Color/UX · **v6.0 UX Experience**). Distinct from v5.0: v5.0 is *what it looks like*, v6.0 is *how it behaves and feels under the cursor*.
+- **Title:** Cochrane Masters — All-115 Performance Audit Spec Companion.
+- **Category:** brands → cochrane-master-builders → strategy → per-site performance + Core Web Vitals direction (sixth file in the paired set).
+- **Purpose:** Canonical per-site **performance posture + audit spec**. The "speed, weight, and Core Web Vitals" leg of the remix hexapod (v1.0 SEO · v2.0 Services/Pricing · v4.0 ICP Brain · v5.0 Color/UX · v6.0 UX Experience · **v7.0 Performance**). Must be reconciled against the cross-brand React/Vite Performance Engineer persona before being shipped as actual budgets / config / code.
 - **What it influences:**
-  - Page rhythm and pacing (how fast sections reveal, how dense or breathy the IA is).
-  - Motion temperament (calm-control vs. confident-craft vs. quiet-authority, etc.).
-  - Section ordering and emotional arc (where to place trust, proof, friction-reducers).
-  - Hover/scroll/transition character — easing curves, durations, restraint level.
-  - Density of content per fold; whether to lean into negative space or proof density.
-  - Form behavior tone (gentle nudges vs. crisp directness).
-  - Loading / empty / success state personality.
-- **Triggers (when AI should consult this):** any prompt about *UX, experience, feel, vibe, pacing, rhythm, motion temperament, interaction style, scroll behavior, hover personality, transitions, micro-interactions, density, breathing room, section ordering, emotional arc, trust pacing, "how should this site feel."*
+  - Per-site performance budgets (LCP / INP / CLS targets, JS/CSS/image weight ceilings).
+  - Asset strategy (image formats, responsive crops, lazy-loading rules, font subsetting).
+  - Render strategy (above-the-fold simplicity, hydration discipline, deferred third-party scripts).
+  - Mobile-first posture (4G budget, touch latency, network-aware behavior).
+  - Trust + speed pairing (no perf move that costs the trust/legitimacy posture from v4.0/v6.0).
+  - Audit checklists for each spin-off (what Auditor mode must verify before launch).
+- **Triggers — when to consult:** *performance, speed, Core Web Vitals, LCP, INP, CLS, TTFB, page weight, bundle size, image optimization, lazy load, font loading, hydration, third-party scripts, render blocking, perf budget, audit, lighthouse, mobile speed, 4G, network-aware, perf checklist.*
 - **Adaptation rules / firewall:**
-  - Brand context = **Cochrane Master Builders** only. **No** automotive vocabulary firewall.
-  - These are **directional UX themes**, not finished motion specs. They must be reconciled against the cross-brand Cochrane brand-identity + UX docs (`1.2.1` Family Legacy Standard, `1.2.2` Foundations, `1.3.1` Bespoke / Traditional UX Design Phase Report) and the cross-brand motion / scroll-craftsperson personas before being shipped as actual easings, durations, or component behaviors.
-  - **v5.0 vs. v6.0 split:** v5.0 = palette + visual mood; v6.0 = interaction temperament + experience pacing. Use both together for any new spin-off; do not let one silently override the other.
-  - **Per-site only** — never blend rows. Always look up by `Master Row` and stay inside it.
-  - **Join discipline:** any per-site UX work must reference the same `Master Row` across v1.0 + v2.0 + v4.0 + v5.0 + v6.0. Drift in `Recommended Domain` between any of the five = Sync Discrepancy.
-  - This document is **backend intelligence only**. Embedding it must not change any front-end output on its own — VeePo / Masters Detailing front-end stays untouched and no Cochrane spin-off sites currently exist in this codebase.
+  - Brand context = **Cochrane Master Builders** only. No automotive vocabulary firewall.
+  - These are **directional posture specs**, not finished perf budgets. Reconcile against the cross-brand React/Vite Performance Engineer persona and the locked memories (Hero Section Lock, Motion Philosophy, Loading Sequence, Cloth Wipe, Parallax Coverage Specs, Booking Modal Architecture).
+  - **Hard rule (inherited from Performance Engineer source):** never alter design, layout, motion, copy, or hierarchy as a side-effect of performance work.
+  - **Per-site only** — never blend rows. Always look up by `Master Row`.
+  - **Join discipline:** any per-site work must reference the same `Master Row` across all six files. Drift in `Recommended Domain` between any two = Sync Discrepancy.
+  - **Backend intelligence only.** Embedding does not change any front-end output. VeePo / Masters Detailing front-end stays untouched and no Cochrane spin-off sites currently exist in this codebase.
 - **Mode-OS pairing:**
-  - **Architect** — uses the row's experience theme + strategy when scaffolding the IA, section order, and motion spec for a new spin-off.
-  - **Mapper** — can render per-cluster experience-temperament matrices (e.g., calm-control vs. confident-craft) or per-site emotional-journey flows.
-  - **Auditor** — pressure-tests generated UX against (a) the row's experience theme (does the page actually *feel* like this?) and (b) the join across all five files. Temperament mismatch with the row's UX strategy = **Medium**–**High** bug.
+  - **Architect** — uses the row's perf spec when scaffolding the perf budget, asset strategy, and render plan for a new spin-off.
+  - **Mapper** — can render per-cluster perf-posture matrices or per-site critical-render-path flows.
+  - **Auditor** — pressure-tests built sites against (a) the row's perf spec and (b) the cross-brand Performance Engineer's 11-section playbook. Failing the row's stated posture = **High** bug; failing CWV thresholds = **Critical**.
 - **Dependencies:**
-  - v1.0 Master Plan, v2.0 Services & Pricing, v4.0 ICP Brain, v5.0 Color + UX Direction (paired set).
-  - Cochrane brand-identity: `1.2.1` Family Legacy Standard, `1.2.2` Foundations.
-  - Cochrane UX: `1.3.1` Bespoke / Traditional UX Design Phase Report.
-  - Cross-brand: master design persona (Fantasy.co v1/v2), Anti-Gravity Opening Engineer (v1/v2), Premium Scroll Animation persona, Brand Identity Architect (v1/v2), Colours & Shapes experience philosophy, Navigation Architect, Footer Architect, Mobile Wrapping persona, Performance Engineer, the 3-mode OS personas.
+  - **Paired set (consult together):** v1.0 · v2.0 · v4.0 · v5.0 · v6.0 · **v7.0 (this file)**.
+  - Cross-brand: React 18 + Vite Performance Engineer persona, Premium Scroll Animation persona (motion budget), Mobile Wrapping persona (4G budget), Image SEO + Local Visibility persona (image format/sitemap), the 3-mode OS personas.
+  - Cochrane brand-identity: `1.2.1`, `1.2.2`. Cochrane UX: `1.3.1`.
 - **Guidance type:** Brand-global for Cochrane Master Builders only.
 - **Practical examples:**
-  - *"Design the section order + motion temperament for the Basement Suite Masters site."* → Pull row's experience theme + strategy; pair with v4.0 ICP narrative for emotional arc; route motion specifics through the scroll-animation persona.
-  - *"Should this site feel dense or breathy?"* → The row's Experience Strategy answers density + pacing.
-  - *"Audit this spin-off's UX feel."* → Compare current pacing/motion vs. the row's experience strategy; surface mismatches as Auditor findings.
-  - *"What should the form-submit success state feel like?"* → Use the row's temperament (e.g., quiet-authority → understated confirmation, no confetti).
+  - *"What's the perf budget for the Basement Suite Masters site?"* → Pull the row's posture; reconcile with Performance Engineer 11-section playbook.
+  - *"Audit this spin-off's CWV."* → Compare measured LCP/INP/CLS vs. row spec; classify gaps via Auditor.
+  - *"Should we lazy-load the hero image?"* → Hero Section Lock + row's render strategy decide; Performance Engineer enforces no design-side-effect rule.
 
 ### INDEX update
 
-Update the existing **Strategy** table for Cochrane and the family-of-sites callout:
-
-- Extend the callout to name **five paired files** joined on `Master Row` (v1.0 SEO/positioning · v2.0 services/pricing/compliance · v4.0 ICP brain · v5.0 color + UX direction · **v6.0 UX experience theme + strategy**). All five must be consulted together for any new spin-off site.
-- Add two rows for the new `.xlsx` (`source-only`) and `.source.md` + partner (`partnered`), with keywords: *UX, experience, feel, vibe, pacing, rhythm, motion temperament, interaction style, scroll behavior, hover personality, transitions, micro-interactions, density, breathing room, section ordering, emotional arc, trust pacing, calm control, confident craft, quiet authority, "how should this site feel".*
+- Extend the family-of-sites callout to **six paired files** (v1.0 · v2.0 · v4.0 · v5.0 · v6.0 · **v7.0 perf audit specs**); all six joined on `Master Row`; drift = Sync Discrepancy.
+- Add two rows for the new `.xlsx` (`source-only`) and `.source.md` + partner (`partnered`).
+- Keywords: *performance, speed, Core Web Vitals, LCP, INP, CLS, TTFB, page weight, bundle size, image optimization, lazy load, font loading, hydration, third-party scripts, render blocking, perf budget, audit, lighthouse, mobile speed, 4G, network-aware, perf checklist, trust + speed.*
 
 ### Out of scope
 
-No frontend changes. No edits to the `.xlsx`. The `.source.md` is a 1:1 cell mirror — no synthesis, no re-interpretation. No motion specs or component behaviors are shipped from this embed; it only powers future UX-direction decisions.
+No frontend changes. No edits to the `.xlsx`. The `.source.md` is a 1:1 cell mirror — no synthesis. No actual perf budgets, configs, or code shipped from this embed; it only powers future perf decisions.
