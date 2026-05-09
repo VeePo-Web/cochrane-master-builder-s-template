@@ -1,68 +1,75 @@
-## Plan: Embed Cochrane Masters Upgraded SEO Master Plan (.xlsm) as the master service-ecosystem source
+## Plan: Embed `2._cochrane_masters_all_115_services_pricing_EXPANDED_AUDITED.xlsx` as the canonical services + pricing companion to the Master Plan
 
-This is a brand-specific (not cross-brand) source — the master spreadsheet for the Cochrane Master Builders family of sites: hub + every planned service-specific site, with domains, clusters, SEO map, domain rules, and launch roadmap. It will become the **canonical base** that every service-specific site is remixed from.
+This is the **pricing/services companion** to the previously embedded Master Plan. Same brand (Cochrane Master Builders), same row structure (116 rows × 6 cols, one row per planned site/service), but the data is *what each site sells and what it charges* — keyed by Master Row number so it joins back to the Master Plan's `01 Master Tracker`.
 
 ### Where it lives
 
-Brand-scoped under the existing Cochrane Master Builders shelf:
+Brand-scoped under the Cochrane Master Builders strategy shelf, paired with the Master Plan it joins to:
 
 ```
 src/master/knowledge/
   source-documents/brands/cochrane-master-builders/strategy/
-    1.0_cochrane_masters_UPGRADED_SEO_Master_Plan_family_legacy_column.xlsm    ← verbatim binary
-    1.0_cochrane_masters_UPGRADED_SEO_Master_Plan_family_legacy_column.source.md ← verbatim markdown export of all 6 sheets (so AI tools can read it without xlsx tooling)
+    2.0_cochrane_masters_all_115_services_pricing_EXPANDED_AUDITED.xlsx        ← verbatim binary
+    2.0_cochrane_masters_all_115_services_pricing_EXPANDED_AUDITED.source.md   ← verbatim 1:1 markdown mirror of the single sheet
   partner-documents/brands/cochrane-master-builders/strategy/
-    1.0_cochrane_masters_UPGRADED_SEO_Master_Plan_family_legacy_column.partner.md
+    2.0_cochrane_masters_all_115_services_pricing_EXPANDED_AUDITED.partner.md
 ```
 
-The `.xlsm` is preserved byte-for-byte (the immutable source). The `.source.md` is a faithful, lossless markdown rendering of every sheet (no edits, no summaries, no opinions inserted) — purely a textual mirror so non-Excel tools can consult it. Both are flagged `immutable` in frontmatter; the partner doc is the only place interpretation lives.
+### Sheet inventory (1 sheet, 116 rows × 6 cols, captured verbatim)
 
-### Sheet inventory captured (all 6 sheets, verbatim, in `.source.md`)
+`Services & Pricing` columns:
 
-1. **00 Audit Summary** — purpose, limitations, contact, brand promise.
-2. **01 Master Tracker** — 116 rows × 24 cols. Every planned site: brand name, recommended `.ca` domain, canonical hub URL slug, primary + secondary keywords, buyer intent, offer type, revenue potential, lead urgency, launch priority (P0–Pn), cluster, status, etc.
-3. **02 Service Clusters** — 21 service clusters with priority role, best first-wave services, SEO notes.
-4. **03 Hub SEO Map** — internal-link / anchor-text architecture between hub and every specialist site.
-5. **04 Domain Rules** — naming pattern (`Cochrane + Service + Masters + .ca`), spelling rules, anti-patterns.
-6. **05 Launch Roadmap** — Phase 0 foundation → Phase N rollout, with goals + launch criteria per phase.
+1. **Master Row** — join key back to `01 Master Tracker` of the v1.0 Master Plan.
+2. **Recommended Domain** — same `.ca` domain as the Master Tracker (must stay in sync).
+3. **Website / Brand** — site/brand name.
+4. **Cluster** — same cluster taxonomy as Master Plan sheet `02 Service Clusters`.
+5. **Detailed Services & Mid-High Pricing (CAD)** — bulleted list of services + CAD price ranges (the operational catalog).
+6. **Pricing Notes / Compliance Guardrails** — typical job size, audit/compliance rules, what to disclose, what NOT to claim, scope boundaries.
 
 ### Partner document — what it tells the system
 
-- **Title:** Cochrane Masters Upgraded SEO Master Plan — Family-of-Sites Source of Truth.
-- **Category:** brands/cochrane-master-builders → strategy.
-- **Purpose:** Single canonical reference for the entire Cochrane Master Builders ecosystem — hub site + every service-specific spin-off. Defines brand naming, domain pattern, cluster structure, hub↔spoke SEO map, launch sequence, and per-site SEO targets.
-- **Primary use as a "remix base":** When a new service-specific site is being planned or built, this doc dictates: which row of the Master Tracker that site corresponds to, which cluster it belongs to, which domain pattern to use, which canonical hub URL slug links into the hub, which primary/secondary keywords to target, which buyer-intent and offer-type framing to apply, which launch phase it belongs to, and which trust/anchor-text relationship it must have with `CochraneMasterBuilders.ca`.
+- **Title:** Cochrane Masters — All-115 Services & Pricing (Expanded + Audited) Companion.
+- **Category:** brands/cochrane-master-builders → strategy → pricing & services catalog.
+- **Purpose:** The canonical operational catalog of *what each Cochrane site sells, at what price, with what compliance guardrails*. It is the join-table partner to the v1.0 Master Plan: identical row count, joinable on `Master Row` ↔ Master Tracker row, identical Recommended Domain + Website/Brand + Cluster columns. Together they form the complete remix base.
+- **Primary use as remix base:** When a new Cochrane spin-off site is being built, this doc supplies the **services-offered list, price ranges, typical job size, and compliance guardrails** for that site's row. The Master Plan supplies *positioning + SEO + linking*; this file supplies *offers + pricing + risk language*.
 - **What it influences:**
-  - Domain selection (must follow rule sheet — `Cochrane + Service + Masters + .ca`).
-  - Brand/site naming for every spin-off.
-  - SEO targeting (primary keyword, secondary keywords, buyer intent, urgency).
-  - Internal linking between hub and specialist sites (anchor text + purpose from sheet 03).
-  - Launch order (use sheet 05 phases — never skip Phase 0 foundation work).
-  - Cluster groupings for content cross-linking and IA decisions.
-  - Trust signals on every specialist site ("Part of Cochrane Master Builders" anchor + footer attribution).
-- **Triggers (when AI should consult this):** any prompt mentioning *new service site, sister site, spin-off, domain choice, hub/spoke, internal link strategy, launch phase, which keyword, cluster, family of sites, naming, "next site to build," remix base, multi-site SEO, anchor text between Cochrane sites, P0/P1/P2 priority*.
+  - Service-page content (the bulleted services + price ranges).
+  - Pricing UI (ranges, "from $X" framing, compliance footnotes).
+  - Compliance / disclaimer copy (the Pricing Notes column is the source of truth for what may and may not be claimed — e.g., scope, licensing, third-party, audit caveats).
+  - Quote/inquiry form scoping (typical job size shapes which fields to ask).
+  - Lead-qualification logic (price floor/ceiling sets the qualification threshold).
+  - "Get a quote" CTA copy on each spin-off (must align with pricing notes).
+  - Cross-sell / cluster bundling (Cluster column joins to Master Plan `02 Service Clusters`).
+- **Triggers (when AI should consult this):** any prompt mentioning *price, pricing, "how much," cost, range, quote, estimate, disclaimer, compliance, scope, what does X site offer, service list, service catalog, typical job size, qualify the lead, pricing UI, tier, "from $", CAD, guardrail, what we can/can't claim, what's included.*
 - **Adaptation rules (firewall):**
-  - Brand context is **Cochrane Master Builders**, not Masters Concierge / VeePo. Do not apply the Masters/VeePo automotive vocabulary firewall to this doc — it operates exclusively under the Cochrane brand identity layer (`brands/cochrane-master-builders/brand-identity/...`).
-  - Treat the `.xlsm` as ground truth; if a future Cochrane brand-identity or strategy doc conflicts, surface a memory-conflict flag rather than silently overriding.
-  - Live `.ca` domain availability was NOT verified in the sheet — this caveat must be repeated whenever the system recommends a domain from the tracker.
-  - The sheet is the **structural plan**, not visual or motion direction. Visual/motion direction still routes through the brand identity, design persona, and motion personas.
+  - Brand context is **Cochrane Master Builders**, not Masters Concierge / VeePo. Do not apply automotive vocabulary firewalls here.
+  - **Prices are mid-high CAD ranges**, not quotes. Always present as ranges or "from $X" — never as a fixed quote. Always pair with the row's Pricing Notes when surfacing a number.
+  - **Compliance Guardrails column is binding.** If it says something must be disclosed, scoped, or NOT claimed, the system must respect that in any generated copy. Conflicts get a memory-conflict flag, never silent overrides.
+  - **Join discipline:** any reference to a site's pricing must use the same `Master Row` it has in the v1.0 Master Plan. If a row appears here but not in the Master Plan (or vice versa), surface a Sync Discrepancy flag — both files must move together.
+  - Currency is **CAD** explicitly; never display without the currency.
+  - The file is the *current audited snapshot* — flag pricing as "indicative, audited [date]" wherever surfaced; never as a binding quote.
+  - Live `.ca` availability still NOT verified (inherits the caveat from the Master Plan).
 - **Mode-OS pairing:**
-  - **Architect** uses this as the object-model + state inputs for the family-of-sites system.
-  - **Mapper** uses it to render hub↔spoke diagrams and per-cluster ER/journey diagrams on demand.
-  - **Auditor** pressure-tests proposed new sites against the Domain Rules + Hub SEO Map + Launch Roadmap before any build is approved.
-- **Dependencies:** Cochrane Master Builders strategy reports v1.0 / 1.2 / 1.3, Family Legacy Standard, "Foundations For Generations After Us," brand-identity layer; cross-brand SEO Virtuoso, FAQ-SEO, Image-SEO, Navigation Architect, Footer Architect, Knowledge System Charter.
-- **Guidance type:** **Brand-global** for Cochrane Master Builders (every spin-off site inherits from it); **not applicable** to other brands (Masters Concierge / VeePo / etc.).
-- **Practical examples:** picking the next site to launch (read Phase column on sheet 05 + Launch Priority on sheet 01); naming a new spin-off (apply sheet 04 rules); writing the homepage anchor block for a specialist site that links back to the hub (use sheet 03 anchor-text guidance); deciding cluster cross-linking on a service page (use sheet 02 cluster groupings).
+  - **Architect** uses this as the offer/pricing data model when designing pricing pages, quote forms, or service-list components.
+  - **Mapper** uses it to render per-cluster pricing-tier comparison diagrams or per-site offer maps.
+  - **Auditor** pressure-tests any generated pricing UI or copy against the Compliance Guardrails column and against the Master Plan join (row count, domain match, brand-name match, cluster match). Any mismatch = Critical bug.
+- **Dependencies:** v1.0 Master Plan `.xlsm` (joined on Master Row), Cochrane brand identity (Family Legacy Standard, "Foundations For Generations After Us"), strategy reports v1.0/1.2/1.3, cross-brand SEO Virtuoso + FAQ-SEO + Image-SEO + Footer Architect + Knowledge System Charter, 3-mode OS personas.
+- **Guidance type:** **Brand-global** for Cochrane Master Builders only.
+- **Practical examples:**
+  - *"Build a pricing section for the Basement Suite Masters site."* → Look up that brand's row, render the Detailed Services bullets as the catalog, the price ranges as "From $X CAD" rows, and the Pricing Notes as compliance footnotes below the table.
+  - *"Write the disclaimer under the price."* → Pull verbatim language from the Pricing Notes column for that row.
+  - *"What should the quote-form scope ask?"* → Use "typical job size" from the Pricing Notes to set min/max budget fields.
+  - *"Recommend a bundled package."* → Group rows by Cluster and surface the highest-revenue offers in that cluster.
 
 ### INDEX update
 
-Update `src/master/knowledge/INDEX.md` Cochrane Master Builders → **Strategy** table with two rows:
+Add two rows to Cochrane Master Builders → **Strategy** table:
 
-- the verbatim `.xlsm` (status: `source-only` for the binary)
-- the `.source.md` mirror + partner doc (status: `partnered`)
+- the verbatim `.xlsx` (status: `source-only`).
+- the `.source.md` mirror + partner doc (status: `partnered`), with keywords: *pricing, price, cost, CAD, ranges, quote, estimate, services list, service catalog, compliance, guardrails, disclaimer, scope, typical job size, lead qualification, cluster, join key, Master Row, audited snapshot.*
 
-Plus a one-line callout at the top of that brand's Strategy section noting this `.xlsm` is the **canonical family-of-sites master plan** and is the first reference any new Cochrane spin-off site must consult.
+Update the existing family-of-sites callout above the table to note that the v1.0 Master Plan and v2.0 Services & Pricing files are a **paired set, joined on `Master Row`**, and must always be consulted together when building a new spin-off site.
 
 ### Out of scope
 
-No frontend changes. No new routes, components, tokens, motion, or SEO meta edits. No domain purchases or DNS changes. No edits to the `.xlsm`. The `.source.md` is a 1:1 textual mirror of cell contents only — no synthesis, no opinions, no reordering.
+No frontend changes. No price changes. No edits to the `.xlsx`. The `.source.md` is a 1:1 cell-content mirror only — no synthesis, no reordering, no opinions inside it.
