@@ -6,7 +6,7 @@ This is the controlling overview for the 12-file Cochrane Master Builders Master
 
 ---
 
-## The 12 authority files
+## The authority files
 
 | # | File | Owner persona | Locks |
 |---|------|---------------|-------|
@@ -22,6 +22,8 @@ This is the controlling overview for the 12-file Cochrane Master Builders Master
 | 09 | `09_voice_messaging_lexicon` | Master Copywriter | Voice formula, pillars, banned words |
 | 10 | `10_seo_schema_local` | SEO Virtuoso + SEO FAQ | Title/meta + JSON-LD blueprints |
 | 11 | `11_performance_accessibility_governance` | Performance Engineer + Auditor | Budget + grep bundle + sign-off chain |
+| 12 | `12_landing_page_style_guide_persona` | Colours & Shapes Experience persona (v3) | Visual-experience persona for every landing page |
+| 13 | `13_landing_page_operating_manual` | Master Style Guide Architect | Concrete typography, spacing, and section-layout decisions for landing pages |
 
 ## Children of v2.0
 
@@ -64,6 +66,7 @@ This is the controlling overview for the 12-file Cochrane Master Builders Master
 | Date | Change | Author |
 |------|--------|--------|
 | 2026-05-10 | v2.0 authority set established. v1 superseded. Process Page child re-parented. | Master Style Guide Architect |
+| 2026-05-10 | Added 12 (landing page persona, byte-locked from Colours & Shapes v3) and 13 (landing page operating manual). | Master Style Guide Architect |
 
 ## Pass/Fail audit
 
