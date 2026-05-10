@@ -28,6 +28,11 @@ const TemplatePrivacy = lazy(() => import("./pages/template/Privacy"));
 const TemplateTerms = lazy(() => import("./pages/template/Terms"));
 const TemplateNotFound = lazy(() => import("./pages/template/NotFound"));
 
+// ── AREAS WE SERVE — Local SEO engine (3-tier: hub → region → community) ──
+const AreasHub = lazy(() => import("./pages/AreasHub"));
+const RegionPage = lazy(() => import("./pages/RegionPage"));
+const CommunityPage = lazy(() => import("./pages/CommunityPage"));
+
 const queryClient = new QueryClient();
 
 const AnimatedRoutes = ({ onBookClick }: { onBookClick: BookingClickHandler }) => {
@@ -51,6 +56,10 @@ const AnimatedRoutes = ({ onBookClick }: { onBookClick: BookingClickHandler }) =
         <Route path="/contact" element={<PageTransition><TemplateContact onBookClick={onBookClick} /></PageTransition>} />
         <Route path="/privacy" element={<PageTransition><TemplatePrivacy onBookClick={onBookClick} /></PageTransition>} />
         <Route path="/terms" element={<PageTransition><TemplateTerms onBookClick={onBookClick} /></PageTransition>} />
+        {/* Areas We Serve — 3-tier local SEO system */}
+        <Route path="/areas-we-serve" element={<PageTransition><AreasHub onBookClick={onBookClick} /></PageTransition>} />
+        <Route path="/areas-we-serve/:region" element={<PageTransition><RegionPage onBookClick={onBookClick} /></PageTransition>} />
+        <Route path="/areas-we-serve/:region/:community" element={<PageTransition><CommunityPage onBookClick={onBookClick} /></PageTransition>} />
         <Route path="*" element={<PageTransition><TemplateNotFound onBookClick={onBookClick} /></PageTransition>} />
       </Routes>
     </Suspense>
