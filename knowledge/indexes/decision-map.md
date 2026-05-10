@@ -6,6 +6,18 @@ When an AI assistant (Lovable, Claude Code, Antigravity, etc.) is asked to make 
 - **Consult Target:** `1.5_Brand_Identity_North_Star_Report_Partner.md`
 - **Output Goal:** Override any modern, fast, or cheap design trends. Force all output to conform to the ultimate philosophical boundaries of the brand: untempered luxury, generational durability, and elite, authoritative tradition.
 
+### 💰 Conversion Stack — Grand Slam Offer, Guarantees, Objections, Social Proof
+- **Consult Target:** `1.5.8_Hormozi_Brunson_Conversion_Stack_Partner.md`
+- **Output Goal:** Apply Hormozi's GSO formula (named offer + value stack + risk reversal) and Brunson's Hook/Story/Offer structure when building any CTA, offer page, guarantee section, or testimonial block. Use the three-tier guarantee language verbatim. Structure testimonials as Before/After with specific outcomes. Use price anchoring before showing any price. Display capacity signals with real data from `capacity.config.ts`. Never use fake urgency. Every page must pass the Conversion Stack Checklist.
+
+### 🔥 Trade Manifesto — "Why We Love [X]" Passion Content
+- **Consult Target:** `1.5.7_Trade_Manifesto_Template_Partner.md`
+- **Output Goal:** Use the `ManifestoConfig` template and tone guidelines when generating or reviewing "Why We Love [X]" content for any sub-brand. The manifesto must contain specific technical details (not generic "quality" language), at least one genuinely funny/specific callout fact, an origin story with a real year and location, and a two-line "kicker" closing. Pull the Tile Masters example for reference when writing a new trade manifesto. Never use the banned words list. Never say "passionate" — show it.
+
+### 📖 StoryBrand Narrative & Emotional Identity
+- **Consult Target:** `1.5.6_StoryBrand_Identity_System_Partner.md`
+- **Output Goal:** Use the 7-part StoryBrand framework (Character → Problem → Guide → Plan → Call to Action → Failure → Success) when generating hero copy, About Us sections, emotional CTAs, process descriptions, or any content meant to connect with the ICP at a narrative level. Pull approved headlines, body paragraphs, and CTA text from the copy library in this document. Never write conversion copy from scratch without consulting the StoryBrand script first. The north-star slogan — "Building strong foundations for those who come after us." — must be traceable in every major page.
+
 ### 🧠 Global Conversion Psychology & Trust Architecture
 - **Consult Target:** `1.4_Deep_ICP_Psychology_Report_Partner.md`
 - **Output Goal:** Establish the macro emotional triggers (heritage, elite craftsmanship, ultimate safety) that govern all global layouts, testimonials, and high-ticket service setups before segmenting into specific personas.

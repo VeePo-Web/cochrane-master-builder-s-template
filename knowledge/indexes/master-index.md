@@ -3,6 +3,10 @@
 Welcome to the Backend Knowledge System for the Cochrane Master Builders project. This index acts as the central router for all intelligence documents embedded in the system.
 
 ## Brand Identity & Personas
+- **[1.5.7 Trade Manifesto Template System — "Why We Love [X]"](../partner-documents/brand-identity/1.5.7_Trade_Manifesto_Template_Partner.md)**
+  - **Purpose:** The passion layer for all 150 VeePo sub-sites. Contains the `ManifestoConfig` fill-in template, field-by-field tone guidelines, complete Tile Masters example, banned word list, and the full 150-site brand identity ecosystem roadmap. Consult when writing any "Why We Love [X]" page or passion-led brand content.
+- **[1.5.6 Cochrane Master Builders StoryBrand Identity System](../partner-documents/brand-identity/1.5.6_StoryBrand_Identity_System_Partner.md)**
+  - **Purpose:** The 7-part StoryBrand narrative engine. Contains the complete brand story script (Character → Problem → Guide → Plan → CTA → Failure → Success), approved copy library (20+ headlines, 10 body paragraphs), tone rules, banned words, and the cross-site transferability protocol for all VeePo Master Builder sub-websites. North-star slogan: "Building strong foundations for those who come after us."
 - **[1.5 Cochrane Master Builders Brand Identity North Star](../partner-documents/brand-identity/1.5_Brand_Identity_North_Star_Report_Partner.md)**
   - **Source Material:** `/knowledge/source-documents/brand-identity/1.5_Brand_Identity_North_Star_Report.pdf`
   - **Purpose:** The Ultimate North Star. Establishes the absolute boundaries of what the brand IS and IS NOT. The final arbiter for tone-of-voice, aesthetic luxury, and traditional Master Builders philosophy.
@@ -39,6 +43,8 @@ Welcome to the Backend Knowledge System for the Cochrane Master Builders project
   - **Purpose:** The Master Intersection Document. Bridges the gap between backend SEO logic, luxury visual design, and long-term generational messaging.
 
 ## Conversion, CRM & Governance
+- **[1.5.8 Hormozi + Brunson Conversion Stack](../partner-documents/conversion/1.5.8_Hormozi_Brunson_Conversion_Stack_Partner.md)**
+  - **Purpose:** The complete Hormozi ($100M Offers) + Brunson (DotCom/Expert Secrets) framework applied to construction services. Governs: Grand Slam Offer formula, 3-tier guarantee architecture, value ladder, Hook/Story/Offer page structure, Three Core Beliefs, Attractive Character definition, Epiphany Bridge About page, email Soap Opera Sequence, conversion copy library, and the Conversion Stack Checklist every page must pass.
 - **[1.5.5 Volume 6 Conversion, CRM, Proof & Governance System](../partner-documents/conversion/1.5.5_Volume_6_Conversion_CRM_Proof_Governance_System_Partner.md)**
   - **Source Material:** `/knowledge/source-documents/conversion/1.5.5_Volume_6_Conversion_CRM_Proof_Governance_System.md`
   - **Purpose:** The complete operational conversion engine. Governs CTA hierarchy, form architecture, lead qualification scoring, 15-stage CRM pipeline, follow-up cadences, proposal governance, review generation, proof library management, analytics dashboards, claims handling, reputation recovery, and post-project lifecycle nurture. Consult for any decision that moves a lead from site visit to signed contract to brand advocate.

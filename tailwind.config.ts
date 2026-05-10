@@ -18,8 +18,9 @@ export default {
       },
       fontFamily: {
         display: ["'Cormorant Garamond'", "Georgia", "serif"],
-        body: ["'Inter'", "system-ui", "sans-serif"],
+        body: ["'Plus Jakarta Sans'", "system-ui", "sans-serif"],
         serif: ["'Cormorant Garamond'", "Georgia", "serif"],
+        mono: ["'JetBrains Mono'", "monospace"],
       },
       fontSize: {
         // Editorial serif scale — line-heights tuned for Cormorant Garamond
