@@ -1,83 +1,54 @@
 ## Goal
 
-Guarantee every file under `src/master/knowledge/source-documents/` is a **byte-for-byte verbatim copy** of the original pasted/uploaded text. Any drift (whitespace cleanup, smart-quote conversion, markdown reformatting, truncation) is detected and blocks the commit before it lands.
+Embed the **Colours & Shapes Experience Philosophy v3** persona as the official **Landing Page Style Guide** for Cochrane Master Builders, then write a deep operating-manual partner doc that uses it to govern typography, spacing, and section-layout decisions for every future page.
 
-## Approach
+## What gets created
 
-Pair each `.source.md` (and `.reference.md`, `.pdf`) with a sidecar manifest containing the SHA-256 hash, byte length, and line count of the original paste. A validator script recomputes the hash on demand and fails loudly on mismatch, missing manifest, or unregistered file.
+All paths under `src/master/knowledge/...`.
 
-```text
-source-documents/
-  └── strategy/
-      ├── homepage_service_page_style_guide.source.md
-      └── homepage_service_page_style_guide.source.md.sha256   ← sidecar
-```
+### 1. Embed source (byte-for-byte copy via integrity gate)
 
-Plus a single registry at `src/master/knowledge/source-documents/.integrity/manifest.json` that lists every tracked source for fast bulk audit.
+- **From:** `source-documents/brand-identity/colours-and-shapes-experience-philosophy.v3.source.md` (522 lines, already integrity-tracked)
+- **To:** `source-documents/brands/cochrane-master-builders/brand-identity/landing-page-style-guide-persona.source.md`
 
-## Deliverables
+Captured with `node scripts/source-docs/capture-source.mjs <target> <source>` so a fresh `.sha256` sidecar lands in `.integrity/manifest.json`. No edits, no rewrites — passes `verify:sources`.
 
-### 1. Capture script — `scripts/source-docs/capture-source.mjs`
-- Usage: `node scripts/source-docs/capture-source.mjs <target-path> <input-file>`
-- Copies `<input-file>` to `<target-path>` using `fs.copyFile` (no transform, binary-safe).
-- Writes `<target-path>.sha256` sidecar:
-  ```json
-  { "sha256": "...", "bytes": 12345, "lines": 678, "capturedAt": "2026-05-10T...", "sourceName": "original-paste.txt" }
-  ```
-- Updates `.integrity/manifest.json` (append/replace entry).
-- For pasted text (no file), accept `--stdin` and read raw bytes from stdin without normalization.
+### 2. Mirror as a CMB partner authority
 
-### 2. Validator script — `scripts/source-docs/validate-source-docs.mjs`
-Three checks, exits non-zero on any failure:
+- `partner-documents/brands/cochrane-master-builders/brand-identity/v2/12_landing_page_style_guide_persona.partner.md`
 
-1. **Hash match** — every file with a sidecar must recompute to the same SHA-256 + byte length.
-2. **Coverage** — every file under `source-documents/` (except `.integrity/`) must have a sidecar; orphans are flagged.
-3. **Sidecar orphans** — every sidecar must point to an existing file.
+Frontmatter declares it as the v2.0 landing-page persona, lists upstream source (with hash), states scope (homepage + every service/process landing page), and defers to the higher-priority north star + voice docs on conflict.
 
-Output: human-readable diff summary (file, expected vs actual hash, byte delta, first differing line via `diff` when a `.original` snapshot exists in `.integrity/originals/`).
+### 3. Operating manual — the partner doc you asked for
 
-### 3. Optional original snapshot — `.integrity/originals/<hash>.bin`
-When capturing, also store a gzipped copy of the original bytes keyed by hash. Lets the validator show a real diff (not just "hash mismatch") when something drifts. Gitignored size cap warning at 5 MB per file.
+- `partner-documents/brands/cochrane-master-builders/brand-identity/v2/13_landing_page_operating_manual.partner.md`
 
-### 4. Pre-commit / CI gate
-- Add an npm script: `"verify:sources": "node scripts/source-docs/validate-source-docs.mjs"`.
-- Wire it into the existing knowledge-base audit pipeline (mentioned in the v2 governance doc) so the Auditor persona's grep bundle runs `verify:sources` as check #0.
-- Document the manual run in `src/master/knowledge/partner-documents/governance/source-document-integrity.partner.md` (new), including:
-  - "How to add a new source document" (always go through `capture-source.mjs`, never paste directly into the editor).
-  - "What to do on mismatch" (do not auto-fix — re-capture from the original).
+Deep, prescriptive (~600–900 lines). Sections:
 
-### 5. Backfill existing 75 source files
-One-time script `scripts/source-docs/backfill-manifests.mjs`:
-- Walks current source-documents tree.
-- For each file with no sidecar, computes hash and writes sidecar marked `"capturedAt": "backfill", "trusted": false`.
-- Prints a report so you know which files are "trusted as-is" vs newly captured. Future re-captures flip `trusted: true`.
+1. **Purpose & priority** — where this sits in the v2 hierarchy (below 01 north star, above component-level decisions); conflict-resolution order.
+2. **Typography authority extension** — full modular scale (clamp() values) per role: eyebrow, H1–H6, lede, body, caption, micro. Per-archetype line-height, tracking, max-measure (ch), weight rules. Decision table: "if section is X, headline uses Y." Bans (no all-caps body, no italics for emphasis, etc.).
+3. **Spacing grid & rhythm** — 8pt base, section padding tokens (py-24/32/48/64), inter-block gaps, container max-widths per archetype, breakpoint behavior at 390 / 768 / 1024 / 1440 / 1920. Tables mapping persona "breath" cues → spacing tokens.
+4. **Section layout playbook** — locked archetype catalog (Hero, Manifesto, Proof Strip, Grid-of-Three, Long-Read, Editorial Image Slab, Process Steps, Pricing, Testimonial Quiet-Block, FAQ, Closing CTA). Each: structure diagram (ASCII), required tokens, do/don't, copy slot contract, mobile collapse rule.
+5. **Decision rules** — "If you must choose between density and breath, choose breath." 12–15 rules with worked examples drawn from the persona's color/shape vocabulary.
+6. **Per-cluster overrides** — short hooks pointing at Roofing/Concrete/etc. cluster overlays from `03_color_authority`, so future cluster pages know where to deviate.
+7. **Worked examples** — 3 fully-specified landing pages (a generic service hub, a process page, a service-area page) showing chosen tokens for every section.
+8. **Pass/Fail audit checklist** — 25-item grep + visual checklist (e.g. "no font-size below 13px", "no section padding < py-24 desktop", "every H1 has eyebrow", "max-measure ≤ 72ch").
+9. **Auditor grep bundle** — ripgrep snippets that catch violations in JSX/CSS.
+10. **Sign-off chain** — extends the existing 8-step chain from `11_performance_accessibility_governance`.
 
-## Technical Notes
+### 4. Index updates
 
-- Pure Node ESM, no new dependencies (uses `node:crypto`, `node:fs/promises`, `node:zlib`).
-- Binary-safe: reads as `Buffer`, never as utf8 string, so smart quotes / BOM / CRLF survive untouched.
-- PDFs handled the same way — hash + byte length only, no parsing.
-- Sidecars are tiny JSON, safe to commit, diff-friendly.
-- Validator is idempotent and runs in <1s for the current 75 files.
+- `partner-documents/brands/cochrane-master-builders/brand-identity/v2/00_master_style_guide_v2_overview.partner.md` — add entries 12 + 13.
+- `src/master/knowledge/INDEX.md` — register the new source + 2 partner docs under the CMB v2.0 authority set.
+- `.lovable/plan.md` — append a short note recording this addition.
 
-## What this does NOT do
+## What does NOT change
 
-- Does not validate the *partner-documents* (those are intentionally edited interpretations).
-- Does not auto-repair drift — by design, the human re-pastes via `capture-source.mjs`.
-- Does not block the dev server; it's an audit/CI step, not a runtime check.
+- No frontend/runtime code.
+- No edits to the source persona text (integrity gate enforces this).
+- No changes to existing v2 authority docs 01–11 beyond the overview index.
+- No memory updates (this is documentation, not a new core rule).
 
-## File list
+## Verification
 
-Create:
-- `scripts/source-docs/capture-source.mjs`
-- `scripts/source-docs/validate-source-docs.mjs`
-- `scripts/source-docs/backfill-manifests.mjs`
-- `src/master/knowledge/source-documents/.integrity/manifest.json` (generated)
-- `src/master/knowledge/source-documents/.integrity/.gitkeep`
-- `src/master/knowledge/partner-documents/governance/source-document-integrity.partner.md`
-- 75 × `*.sha256` sidecars (generated by backfill)
-
-Modify:
-- `package.json` — add `verify:sources` script.
-- `src/master/knowledge/INDEX.md` — link the new governance doc.
-- `.lovable/plan.md` — log the integrity gate.
+After file writes, run `node scripts/source-docs/validate-source-docs.mjs` and confirm zero hash mismatches, zero missing sidecars, zero orphans.
