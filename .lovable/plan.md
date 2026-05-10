@@ -83,3 +83,17 @@ Single delivery note summarizing files created, persona added, and the v1.0 → 
 - No runtime `brand-identity.ts` / `colors.ts` token files (knowledge-base lives in markdown only).
 - No new image generation.
 - No per-site (115 spin-off) Homepage or Service page implementations yet — only the v2 master authority set + the existing Process Page child.
+
+---
+
+## Delivery — 2026-05-10 (Brand Identity Architect v3 + CMB Style Guide v2.0)
+
+**Embedded** the user-uploaded `cochrane_master_builders_home_service_styleguide_howto.md` as a CMB-authored asset under `source-documents/brands/cochrane-master-builders/strategy/` plus partner wrapper that anchors it as the **Homepage + Service Page legs** of the Style Axis (sibling to the Process Page leg).
+
+**Authored** the Brand Identity Architect v3 source + CMB partner — explicit conflict-resolution order, 9-step method, 12-section North Star output contract.
+
+**Authored CMB Master Style Guide v2.0** — 12 specialist authority files under `brand-identity/v2/`, each ending in Pass/Fail audit checks: 00 overview, 01 North Star, 02 design philosophy, 03 color, 04 typography, 05 spacing/grid, 06 components, 07 motion, 08 imagery, 09 voice/lexicon, 10 SEO/schema, 11 performance/accessibility/governance (with 18-item Auditor grep bundle, 5-question decision filter, 8-step sign-off chain). v1.0 marked superseded; Process Page Sub-Style-Guide re-parented unchanged.
+
+**INDEX.md** updated with the new strategy rows, the v3 source row, and a new `Brand Identity v2.0` subsection listing all 12 authority files.
+
+No live frontend / VeePo edits.
