@@ -225,6 +225,14 @@ After Us."* Family-legacy / generational-craft positioning.
 | `source-documents/brands/cochrane-master-builders/personas-icp/1.4.2_Cochrane_Master_Builders_Mothers_ICP_UX_Report.docx` | DOCX | source-only | Mothers ICP + UX report (v1.4.2) |
 | `source-documents/brands/cochrane-master-builders/personas-icp/1.4.3_Cochrane_Master_Builders_Grandfathers_ICP_UX_Report.pdf` | PDF | source-only | Grandfathers ICP + UX report (v1.4.3) |
 
+### Service Areas
+
+> **Geographic axis callout:** the v1.0–v10.0 paired set is the **service axis** (joined on `Master Row`). The communities registry below is the **geographic axis** (joined on `Community`). Together they form the **service × geography matrix** that powers per-community programmatic SEO pages on every Cochrane spin-off site. The source `.xlsx` is immutable — selective rendering of off-brand fragments happens at copy-generation time only.
+
+| File | Format | Status | One-line label |
+|------|--------|--------|----------------|
+| `source-documents/brands/cochrane-master-builders/service-areas/communities_master_v3.xlsx` | XLSX (binary, verbatim) | source-only | **Canonical service-area communities registry (v3).** 1 sheet `Sheet1` (132 rows × 2 cols): `Community`, `Details` (SEO-grade local narrative per community — feeds page bodies, meta descriptions, LocalBusiness/Place schema). 131 communities across Cochrane region + Calgary CMA + Rocky View County + Springbank + Bearspaw + Bragg Creek + inner-city Calgary. |
+| `source-documents/brands/cochrane-master-builders/service-areas/communities_master_v3.source.md` | Markdown (verbatim mirror of .xlsx) | partnered | 1:1 textual mirror so non-Excel tools can consult it. Geographic axis of the Cochrane family-of-sites. Reconcile against Image SEO + Local Visibility persona, v9.0 layout, and v10.0 style guide before shipping per-community pages. **Keywords:** community, neighbourhood, area served, service area, location, where we work, "do you serve [X]," geographic SEO, local landing page, programmatic SEO, hub-and-spoke local, Calgary CMA, Cochrane region, Springbank, Bearspaw, Bragg Creek, Rocky View County, acreage, estate community, Place schema, LocalBusiness areaServed. |
 ---
 
 ## Cross-brand / Global
