@@ -53,3 +53,12 @@ Run `node scripts/source-docs/validate-source-docs.mjs` and confirm green before
 
 - No code changes to components, tokens, or build config. File 14 only declares the budgets and routing; wiring Lighthouse CI / size-limit is a separate follow-up.
 - No edits to files 11, 12, 13, or the original persona source.
+
+---
+
+## 2026-05-10 — Performance Decision Routing (CMB, file 14)
+
+- Re-embedded `react-vite-performance-engineer-persona.source.md` byte-for-byte under CMB scope at `source-documents/brands/cochrane-master-builders/performance/` (sha `dd84af5a9575…`, 17163 bytes, integrity-tracked).
+- Created `partner-documents/brands/cochrane-master-builders/brand-identity/v2/14_performance_decision_routing.partner.md` — design-neutral CWV router with tighter premium budgets (LCP <2.0s, CLS <0.02, INP <150ms; JS ≤170KB gz, CSS ≤60KB gz, hero ≤140KB AVIF, fonts ≤80KB), allow/conditional/deny matrices for 8 asset classes, per-route budget table, build + runtime gates, 25-item Pass/Fail audit, 10-pattern ripgrep bundle, escalation chain that routes design conflicts back to file 13.
+- Registered file 14 in `00_master_style_guide_v2_overview.partner.md` and `INDEX.md`.
+- `validate-source-docs.mjs` → green (all source documents byte-for-byte intact).
