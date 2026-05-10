@@ -23,3 +23,7 @@ This is a **new content category** — not a v-numbered companion to the 115-spi
 - No edits to v1.0–v10.0 paired companions.
 - No content edits to the spreadsheet — stored verbatim (including any wedding/unrelated references; the firewall lives in the partner doc only).
 - No new programmatic-SEO pages built yet — this only embeds the source-of-truth.
+
+
+## Communities embed
+Added Cochrane service-area communities registry (v3) under a new `service-areas/` axis: xlsx + source.md mirror + partner doc. INDEX.md gained a Service Areas subsection with a geographic-axis callout. Source preserved verbatim.
