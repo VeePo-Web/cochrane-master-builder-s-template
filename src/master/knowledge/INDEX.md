@@ -246,12 +246,14 @@ Supersedes v1.0. 12 specialist authority files; each ends with Pass/Fail audit. 
 | `brand-identity/v2/11_performance_accessibility_governance.partner.md` | Hard perf budget, axe gates, **18-item Auditor grep bundle**, 5-question decision filter, 8-step sign-off chain. |
 | `brand-identity/v2/12_landing_page_style_guide_persona.partner.md` | **Landing-page visual-experience persona** — embeds `Colours & Shapes Experience Philosophy v3` byte-for-byte (source: `source-documents/brands/cochrane-master-builders/brand-identity/landing-page-style-guide-persona.source.md`) as the official CMB landing-page persona. Conflict order locked. |
 | `brand-identity/v2/13_landing_page_operating_manual.partner.md` | **Landing-page operating manual** — translates persona (12) into concrete decisions: full modular type scale (clamp tokens, line-height, max-measure), 8pt spacing system + per-archetype padding tables, 11-archetype section playbook with ASCII diagrams + locked composition order, 15 decision rules, 3 worked examples (service hub / process / service-area), 25-item Pass/Fail audit, 10-item ripgrep bundle, L1–L3 sign-off gates extending the 8-step chain in `11`. Governs typography, spacing, and section layout for every CMB landing page. |
+| `brand-identity/v2/14_performance_decision_routing.partner.md` | **Performance-only decision router (design-neutral).** Embeds `react-vite-performance-engineer-persona` byte-for-byte under CMB scope (source: `source-documents/brands/cochrane-master-builders/performance/react-vite-performance-engineer-persona.source.md`). Tighter premium CWV floors (LCP <2.0s, CLS <0.02, INP <150ms), per-route payload caps, allow/conditional/deny matrices for images/fonts/JS/CSS/animations/third-parties, design-neutrality clause that auto-rejects design-altering "optimisations", build-time + runtime gates, 25-item audit, 10-pattern ripgrep bundle, escalation chain that routes design conflicts back to file 13. |
 
-Source mirror for the persona embed:
+Source mirror for persona embeds:
 
 | File | Format | Status | One-line label |
 |------|--------|--------|----------------|
 | `source-documents/brands/cochrane-master-builders/brand-identity/landing-page-style-guide-persona.source.md` | Markdown (byte-for-byte copy of `source-documents/brand-identity/colours-and-shapes-experience-philosophy.v3.source.md`, captured 2026-05-10) | partnered | CMB-scoped capture of the Colours & Shapes Experience Philosophy v3 persona, adopted as the official CMB Landing Page Style Guide persona. Integrity-locked via `.integrity/manifest.json`. |
+| `source-documents/brands/cochrane-master-builders/performance/react-vite-performance-engineer-persona.source.md` | Markdown (byte-for-byte copy of `source-documents/performance/react-vite-performance-engineer-persona.source.md`, captured 2026-05-10) | partnered | CMB-scoped capture of the React + Vite Performance Engineer persona, adopted as the upstream source for the CMB Performance Decision Routing authority (file 14). Integrity-locked via `.integrity/manifest.json`. |
 
 ### UX Design
 
