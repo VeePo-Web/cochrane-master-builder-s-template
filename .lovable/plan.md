@@ -1,6 +1,6 @@
 ## Goal
 
-Treat the uploaded `Cochrane_Master_Builders_-_Universal_Website_Template_Wireframe_Plan.pdf` as the **foundational template spec** every Cochrane spin-off site filters through. Embed it verbatim, then write a Mode-OS persona brief — the **Template Architect** — that tells the system *how* to apply it alongside v1.0–v10.0, the communities registry, brand-identity, UX, and the existing personas (Fantasy design, SEO Virtuoso, FAQ Optimization, Anti-Gravity, Systems Architect, Mapper, Auditor).
+Embed the **Universal Website Copywriting Template Plan** PDF as a foundational backend doc (matching how the wireframe was treated last turn), author a sibling Mode-OS persona — the **Master Copywriter** — and then *begin writing* the actual universal base copy manuscript that every Cochrane spin-off site remixes from.
 
 Backend-only. No edits to the live VeePo / Masters Detailing front end.
 
@@ -9,76 +9,81 @@ Backend-only. No edits to the live VeePo / Masters Detailing front end.
 ## Files to create
 
 ### 1. Source (binary, verbatim)
-`src/master/knowledge/source-documents/brands/cochrane-master-builders/strategy/universal_website_template_wireframe_plan.pdf`
-- Direct copy of the upload. Source of truth, immutable.
+`src/master/knowledge/source-documents/brands/cochrane-master-builders/strategy/universal_website_copywriting_template_plan.pdf`
+- Direct copy of the upload. Immutable.
 
 ### 2. Source (markdown mirror)
-`src/master/knowledge/source-documents/brands/cochrane-master-builders/strategy/universal_website_template_wireframe_plan.source.md`
-- 1:1 markdown extraction (already produced by parse_document, ~1700 lines).
-- No edits, no reordering. Page markers preserved.
+`src/master/knowledge/source-documents/brands/cochrane-master-builders/strategy/universal_website_copywriting_template_plan.source.md`
+- 1:1 verbatim text via `pdftotext -layout`. Page markers preserved.
 
-### 3. Partner doc — foundational
-`src/master/knowledge/partner-documents/brands/cochrane-master-builders/strategy/universal_website_template_wireframe_plan.partner.md`
+### 3. Partner doc — foundational (copy axis)
+`src/master/knowledge/partner-documents/brands/cochrane-master-builders/strategy/universal_website_copywriting_template_plan.partner.md`
 
-Promotes the wireframe to **foundational status**: every Cochrane spin-off scaffolding decision must reconcile against it.
-
-Contents:
-- **Role**: canonical universal template wireframe — the structural spine the v1.0–v10.0 spreadsheets and communities registry render through.
-- **Triggers**: "scaffold a site", "page architecture", "homepage sections", "navbar", "mega menu", "service page template", "areas-we-serve template", "pricing page", "contact form", "FAQ accordion", "sticky mobile CTA", "URL structure", "schema (LocalBusiness/FAQPage/BreadcrumbList)", "performance budget", any of the 115 Cochrane domains.
-- **Joins**:
-  - v1.0 (master 115 list) → which site is being built
-  - v5.0 color, v6.0 experience, v9.0 layout, v10.0 style guide → per-site theming
-  - communities_master_v3 → service-area pages and `/areas-we-serve/[community]`
-  - brand-identity 1.2.1 / 1.2.2, UX 1.3.1 → tone + interaction baseline
-- **Adaptation rules**: Cochrane Master Builders only; automotive firewall (no VeePo/Masters Detailing styling bleed); structure is fixed, copy/imagery adapts per service category (Roofing/Tile/Basement Suites/Landscaping/Custom Homes etc.); "Strong Foundations For Those Who Come After Us" must appear in some form on every site.
-- **Section index**: bulleted map of every section in the wireframe (Trust Bar, Hero, Trust Strip, Services Grid, Pricing Preview, Process, Family Legacy, Project Proof, Areas We Serve, FAQ, Final CTA, Footer) with line refs back to source.md so the system can deep-link.
-- **Mode-OS pairing**: Architect scaffolds, Mapper renders cluster matrices, Auditor verifies against this doc + brand-identity + v9.0/v10.0.
-- **Out of scope**: this doc never edits the current VeePo front end.
-
-### 4. Persona brief — Template Architect
-`src/master/knowledge/partner-documents/experience-prompts/template-architect-persona.partner.md`
-
-A new Mode-OS persona that operationalizes the wireframe. Sibling to the existing Fantasy design persona, SEO Virtuoso, FAQ Optimization, Anti-Gravity, and Systems Architect briefs.
+Promotes this plan to **foundational status as the COPY axis** of the system, sitting on top of the wireframe (structural axis) the way v1.0–v10.0 sit on the content/style axis.
 
 Contents:
-- **Identity**: 50+ years of UX/IA experience, fantasy.co lineage, owns the universal wireframe.
-- **Mandate**: turn any one of the 115 Cochrane domains into a complete site spec by composing the wireframe with the right rows from v1.0–v10.0 and the right communities subset.
-- **Inputs it consults** (explicit list with paths): wireframe partner doc, v1.0–v10.0 partner docs, communities partner doc, brand-identity 1.2.1/1.2.2, UX 1.3.1, Fantasy design persona, SEO Virtuoso, FAQ Optimization, Image SEO + Local Visibility, Navigation/Footer Architect, Mode-OS Architect/Mapper/Auditor.
-- **Output contract**: per-site spec containing — chosen v1.0 row, domain, hero copy formula filled, services grid items, pricing tiers, process steps, family-legacy line tailored to the service, areas-we-serve cluster lists, FAQs, schema bundle, performance budget, mobile sticky CTA copy.
-- **Service-category overlays**: Custom Homes / Renovations / Roofing / Concrete / HVAC / Repairs etc. — what shifts in emphasis (matches §"Service Category Template Variations" in the source).
-- **Guardrails**: never collapse the wireframe section order; never substitute human imagery (per existing memory); never bleed automotive editorial language into Cochrane builders copy; always reconcile with the locked brand-identity memories.
-- **Mode-OS pairing**: runs in Architect mode for scaffolding, hands off to Mapper for matrix renders, then Auditor for compliance pass.
+- **Role**: canonical copy framework — message structure, section purpose, emotional goal, customer psychology, voice/tone, microcopy, SEO meta patterns, word counts. Sits *on top of* the wireframe — wireframe defines section *positions*, this defines section *words*.
+- **Triggers**: "write the hero", "headline", "subhead", "CTA", "microcopy", "tone of voice", "FAQ copy", "pricing intro", "process step copy", "legacy block", "areas-we-serve copy", "title tag", "meta description", "service-category copy angle" (Roofing/Tile/Decks/Concrete/Renovations etc.), "what should this page say".
+- **Joins**: pairs 1:1 with the wireframe partner doc (every wireframe section has a copy-template counterpart here); reads voice/fears from v4.0 ICP brain; respects v10.0 style guide; respects brand-identity 1.2.1/1.2.2 anchor ("Strong Foundations For Those Who Come After Us").
+- **Adaptation rules**: Cochrane Master Builders only; automotive firewall; never use banned words ("cheap", "lowest price", "world-class" overused, "guaranteed" unless legally true, vague "quality/excellence/solutions" without proof); always lean on the master-narrative arc (Problem → Empathy → Insight → Transformation → Proof); always answer the one customer question — *"Can I trust this company with something my family, property, money, or future depends on?"*
+- **Universal copy variables** registered: `[Brand Name]`, `[Service]`, `[Service Category]`, `[Primary Customer]`, `[Main Outcome]`, `[Pain Point]`, `[Community]`, `[Price Range]`, `[CTA]`.
+- **Section index** with line refs back into `source.md` (Trust Bar → Hero → Trust Strip → Services → Pricing → Process → Legacy → Proof → Areas → FAQ → Final CTA → Footer + Services / Pricing / Process / Areas / About / Contact / FAQ / Projects / Blog page templates + Service Category Copy Angles + Microcopy System + SEO Meta Patterns + Word Count Targets).
+- **Mode-OS pairing**: Master Copywriter (Architect mode of copy), Mapper (renders cluster × section copy matrix), Auditor (verifies against banned words, voice attributes, master message presence, word counts).
 
-### 5. Index updates
+### 4. Persona brief — Master Copywriter
+`src/master/knowledge/partner-documents/experience-prompts/master-copywriter-persona.partner.md`
+
+A new Mode-OS persona, sibling to Template Architect / Fantasy Design / SEO Virtuoso / Anti-Gravity / Systems Architect / Mapper / Auditor.
+
+Contents:
+- **Identity**: 50+ years in conversion-grade local-service copy; fantasy.co studio lineage; owns the universal copy template.
+- **Mandate**: produce per-site *copy specs* on top of the per-site *structural specs* the Template Architect emits.
+- **Inputs it consults**: copy template partner doc (this), wireframe partner doc, v1.0/v2.0/v4.0/v5.0/v6.0/v9.0/v10.0, communities registry, brand-identity 1.2.1/1.2.2, UX 1.3.1, sibling personas.
+- **Output contract** (per page): Headline option set (3) → Subhead → Body slots → CTA primary + secondary → trust microcopy → meta title + description → word-count check → banned-word check → master-message echo confirmation.
+- **Service-category overlays**: Custom Homes / Renovations / Roofing / Concrete / HVAC / Repairs / Tile / Decks / Landscaping / Basement Suites — each with the unique fear, outcome, and copy angle pulled verbatim from §"Service Category Copy Angles" in source.
+- **Guardrails**: hard NOs (cheap, lowest price, generic SEO contractor language, hard sell, hyped guarantees, unsupported superlatives, automotive editorial voice).
+- **Mode-OS pairing**: works in Architect-of-Copy mode → hand off to Mapper (matrix renders) and Auditor (banned-word + voice + master-message audit).
+
+### 5. **Start writing** — Universal Base Copy Manuscript
+`src/master/knowledge/partner-documents/brands/cochrane-master-builders/copy/universal_base_copy_manuscript.partner.md`
+
+This is the **remix base** the user asked for. A complete, generic-with-variables manuscript covering the homepage end-to-end + the 9 sub-page templates (Services / Pricing / Process / Areas / About / Contact / FAQ / Projects / Blog), written in the master voice, slotted with `[Variables]` so any of the 115 spin-offs can be produced by find-and-replace + per-site polish.
+
+Structure:
+- Homepage manuscript: Trust Bar → Hero (3 headline options + subhead + 2 CTAs + trust microcopy) → Trust Signal Strip (4 cards) → Services (intro + 6 sample cards) → Pricing Transparency (intro + 3 tier cards) → Process (5 steps) → Legacy Block (3 headline options + body) → Project Proof (intro + card template) → Areas We Serve (intro + cluster lists) → FAQ (intro + 8 starter Q&A) → Final CTA (3 options + body + dual CTA) → Footer (brand line + 4 columns + slogan).
+- Sub-page manuscripts: each gets hero options + intro + section-by-section copy slots per the source template.
+- Microcopy system: button library, form labels, helper text, error messages, success states.
+- SEO meta library: Title tag patterns, meta descriptions, OpenGraph patterns.
+- Word-count compliance notes per section (35–70 / 15–30 / 100–180 etc.).
+- Master message echo distributed across at least 4 sections per the rule.
+
+Length budget: aim for ~600–900 lines of copy markdown. No code, no React, no styling decisions.
+
+### 6. INDEX updates
 `src/master/knowledge/INDEX.md`
-- Under Cochrane Master Builders → Strategy: add a **Foundational** callout for the wireframe (xlsx-set is the *content* axis, communities is the *geographic* axis, this wireframe is the *structural* axis).
-- Add row for the new pdf + source.md + partner.md.
-- Under experience-prompts: add a row for the Template Architect persona, with keywords (scaffold, universal template, page architecture, per-site spec).
+- Strategy: extend the existing Foundational callout to acknowledge a **two-axis foundation** (wireframe = structural; copy template = copy). Add 2 rows for the new pdf + source.md.
+- Add a new **### Copy** subsection under Cochrane Master Builders pointing at the manuscript file.
+- Cross-brand experience-prompts table: add the Master Copywriter persona row.
 
-### 6. Plan log
-`.lovable/plan.md` — append a short note recording this embed + persona authoring.
+### 7. Plan log
+`.lovable/plan.md` — append note.
 
 ---
 
 ## Out of scope
 
-- No edits to `src/`, `index.css`, `tailwind.config.ts`, or any React component.
-- No edits to v1.0–v10.0 or communities files.
-- No new routes, no scaffolding of actual Cochrane pages — that's a future build phase the Template Architect persona will drive when invoked.
-- No changes to the live VeePo / Masters Detailing preview.
+- No edits to `src/`, React, Tailwind, index.css, or any front-end code.
+- No edits to v1.0–v10.0, communities registry, wireframe doc, or any prior file.
+- No per-site (per-Master-Row) drafts yet — just the **universal remix base manuscript**. Per-site drafts are a future invocation of the Master Copywriter persona.
+- No new routes; no scaffolding.
 
 ---
 
 ## Acceptance
 
-- `code--view` on the new partner docs returns the full briefs.
-- INDEX.md lists the wireframe as Foundational and the persona under experience-prompts.
-- Front-end preview is byte-identical to before.
-
-## Universal Website Template Wireframe Plan — embedded as FOUNDATIONAL (build mode)
-- Copied PDF verbatim → `source-documents/brands/cochrane-master-builders/strategy/universal_website_template_wireframe_plan.pdf`
-- Wrote 1:1 markdown mirror via `pdftotext -layout` → `.../universal_website_template_wireframe_plan.source.md`
-- Authored foundational partner brief → `partner-documents/brands/cochrane-master-builders/strategy/universal_website_template_wireframe_plan.partner.md` (structural axis; joins to v1.0–v10.0 + communities; section index back to source.md; adaptation rules incl. automotive firewall)
-- Authored new Mode-OS persona → `partner-documents/experience-prompts/template-architect-persona.partner.md` (Template Architect; per-site spec output contract; service-category overlays; activation phrases; pairs with Architect / Mapper / Auditor)
-- INDEX.md: added Foundational callout under Cochrane Strategy + 2 new rows (pdf + source.md) + Template Architect persona row in cross-brand experience-prompts table
-- No frontend changes; VeePo / Masters Detailing live preview unchanged
+- New PDF + source.md mirror present and verbatim.
+- Foundational copy partner doc references the wireframe and the v1.0–v10.0 stack.
+- Master Copywriter persona present in experience-prompts.
+- Universal base copy manuscript present and ready to remix (variables in `[brackets]`, master message echoed, banned words absent).
+- INDEX.md lists all four new files.
+- Live preview byte-identical to before.
