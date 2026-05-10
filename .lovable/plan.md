@@ -74,3 +74,11 @@ Contents:
 - `code--view` on the new partner docs returns the full briefs.
 - INDEX.md lists the wireframe as Foundational and the persona under experience-prompts.
 - Front-end preview is byte-identical to before.
+
+## Universal Website Template Wireframe Plan — embedded as FOUNDATIONAL (build mode)
+- Copied PDF verbatim → `source-documents/brands/cochrane-master-builders/strategy/universal_website_template_wireframe_plan.pdf`
+- Wrote 1:1 markdown mirror via `pdftotext -layout` → `.../universal_website_template_wireframe_plan.source.md`
+- Authored foundational partner brief → `partner-documents/brands/cochrane-master-builders/strategy/universal_website_template_wireframe_plan.partner.md` (structural axis; joins to v1.0–v10.0 + communities; section index back to source.md; adaptation rules incl. automotive firewall)
+- Authored new Mode-OS persona → `partner-documents/experience-prompts/template-architect-persona.partner.md` (Template Architect; per-site spec output contract; service-category overlays; activation phrases; pairs with Architect / Mapper / Auditor)
+- INDEX.md: added Foundational callout under Cochrane Strategy + 2 new rows (pdf + source.md) + Template Architect persona row in cross-brand experience-prompts table
+- No frontend changes; VeePo / Masters Detailing live preview unchanged
