@@ -3,8 +3,8 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
+import { prefetchIdle } from "./components/template/PrefetchLink";
 import SmoothScrollProvider from "./components/drywall/SmoothScrollProvider";
 import PageTransition from "./components/drywall/PageTransition";
 import BookingModal from "./components/drywall/BookingModal";
@@ -32,27 +32,28 @@ const queryClient = new QueryClient();
 
 const AnimatedRoutes = ({ onBookClick }: { onBookClick: BookingClickHandler }) => {
   const location = useLocation();
+  useEffect(() => {
+    prefetchIdle(["/services", "/pricing", "/contact", "/gallery", "/about"]);
+  }, []);
   return (
-    <AnimatePresence mode="wait">
-      <Suspense fallback={null}>
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<PageTransition><TemplateHome onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/brand-story" element={<PageTransition><TemplateBrandStory onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/why-we-love" element={<PageTransition><TemplateWhyWeLove onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/services" element={<PageTransition><TemplateServices onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/services/:slug" element={<PageTransition><TemplateServiceDetail onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/services/detail" element={<PageTransition><TemplateServiceDetail onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/pricing" element={<PageTransition><TemplatePricing onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/gallery" element={<PageTransition><TemplateGallery onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/reviews" element={<PageTransition><TemplateReviews onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/about" element={<PageTransition><TemplateAbout onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/contact" element={<PageTransition><TemplateContact onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/privacy" element={<PageTransition><TemplatePrivacy onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/terms" element={<PageTransition><TemplateTerms onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="*" element={<PageTransition><TemplateNotFound onBookClick={onBookClick} /></PageTransition>} />
-        </Routes>
-      </Suspense>
-    </AnimatePresence>
+    <Suspense fallback={null}>
+      <Routes location={location}>
+        <Route path="/" element={<PageTransition><TemplateHome onBookClick={onBookClick} /></PageTransition>} />
+        <Route path="/brand-story" element={<PageTransition><TemplateBrandStory onBookClick={onBookClick} /></PageTransition>} />
+        <Route path="/why-we-love" element={<PageTransition><TemplateWhyWeLove onBookClick={onBookClick} /></PageTransition>} />
+        <Route path="/services" element={<PageTransition><TemplateServices onBookClick={onBookClick} /></PageTransition>} />
+        <Route path="/services/:slug" element={<PageTransition><TemplateServiceDetail onBookClick={onBookClick} /></PageTransition>} />
+        <Route path="/services/detail" element={<PageTransition><TemplateServiceDetail onBookClick={onBookClick} /></PageTransition>} />
+        <Route path="/pricing" element={<PageTransition><TemplatePricing onBookClick={onBookClick} /></PageTransition>} />
+        <Route path="/gallery" element={<PageTransition><TemplateGallery onBookClick={onBookClick} /></PageTransition>} />
+        <Route path="/reviews" element={<PageTransition><TemplateReviews onBookClick={onBookClick} /></PageTransition>} />
+        <Route path="/about" element={<PageTransition><TemplateAbout onBookClick={onBookClick} /></PageTransition>} />
+        <Route path="/contact" element={<PageTransition><TemplateContact onBookClick={onBookClick} /></PageTransition>} />
+        <Route path="/privacy" element={<PageTransition><TemplatePrivacy onBookClick={onBookClick} /></PageTransition>} />
+        <Route path="/terms" element={<PageTransition><TemplateTerms onBookClick={onBookClick} /></PageTransition>} />
+        <Route path="*" element={<PageTransition><TemplateNotFound onBookClick={onBookClick} /></PageTransition>} />
+      </Routes>
+    </Suspense>
   );
 };
 

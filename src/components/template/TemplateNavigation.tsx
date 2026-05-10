@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import PrefetchLink from "./PrefetchLink";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { MasterLogo } from "@/master";
@@ -55,7 +56,7 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
           {desktop.map((link) => {
             const active = pathname === link.path;
             return (
-              <Link
+              <PrefetchLink
                 key={link.path}
                 to={link.path}
                 className={`relative px-4 py-2 text-caption uppercase tracking-[0.18em] transition-colors ${
@@ -64,7 +65,7 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
               >
                 {link.label}
                 {active && <span className="absolute -bottom-0.5 left-4 right-4 h-px bg-forest" />}
-              </Link>
+              </PrefetchLink>
             );
           })}
         </nav>
@@ -95,12 +96,12 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
           <ul className="container mx-auto flex flex-col gap-px bg-seam px-0">
             {TEMPLATE_COPY.nav.map((link) => (
               <li key={link.path} className="bg-bone">
-                <Link
+                <PrefetchLink
                   to={link.path}
                   className={`block px-6 py-4 text-body ${pathname === link.path ? "text-forest" : "text-charcoal"}`}
                 >
                   {link.label}
-                </Link>
+                </PrefetchLink>
               </li>
             ))}
             <li className="bg-bone p-6">

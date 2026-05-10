@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PrefetchLink from "./PrefetchLink";
 import { MasterLogo } from "@/master";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
