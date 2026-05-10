@@ -12,7 +12,9 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "verify:sources": "node scripts/source-docs/validate-source-docs.mjs",
+    "capture:source": "node scripts/source-docs/capture-source.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

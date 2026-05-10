@@ -18,6 +18,7 @@ is embedded, stored, and consulted. P0 — foundational.
 | File | Format | Status | One-line label |
 |------|--------|--------|----------------|
 | `source-documents/governance/knowledge-system-charter.source.md` | Markdown (verbatim DOCX) | partnered | Master charter: dual-layer rule, folder taxonomy, immutability, partner template, conflict rule, fantasy.co quality bar |
+| `partner-documents/governance/source-document-integrity.partner.md` | Markdown (partner) | active | **Integrity gate.** Every source file is byte-for-byte verified via SHA-256 sidecars. Run `npm run verify:sources`. Capture only via `scripts/source-docs/capture-source.mjs` — never paste into the editor. |
 
 ---
 
