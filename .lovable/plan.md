@@ -171,3 +171,5 @@ Section maps mirror existing CMB drywall pages (already locked in `SITE_STRUCTUR
 
 One decision affects the structure of file 15 — please confirm:
 
+
+- 2026-05-10: File 15 (Universal Template Wireframe) shipped. Locks the structural spine for all 150 CMB spin-off sites.
