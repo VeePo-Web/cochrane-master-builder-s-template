@@ -1,64 +1,64 @@
+# Performance-Only Decision Routing — CMB
+
 ## Goal
 
-Embed the **Colours & Shapes Experience Philosophy v3** persona as the official **Landing Page Style Guide** for Cochrane Master Builders, then write a deep operating-manual partner doc that uses it to govern typography, spacing, and section-layout decisions for every future page.
+Make Core Web Vitals enforceable for Cochrane Master Builders via a dedicated partner authority that routes every performance-impacting decision (assets, scripts, fonts, images, third parties) through a strict, design-neutral checklist. Design tokens, archetypes, and visual rules from files 12 & 13 are untouched.
 
-## What gets created
+## Deliverables
 
-All paths under `src/master/knowledge/...`.
+### 1. Re-embed source under CMB scope (byte-for-byte)
 
-### 1. Embed source (byte-for-byte copy via integrity gate)
+Use `node scripts/source-docs/capture-source.mjs` to copy:
 
-- **From:** `source-documents/brand-identity/colours-and-shapes-experience-philosophy.v3.source.md` (522 lines, already integrity-tracked)
-- **To:** `source-documents/brands/cochrane-master-builders/brand-identity/landing-page-style-guide-persona.source.md`
+- From: `src/master/knowledge/source-documents/performance/react-vite-performance-engineer-persona.source.md`
+- To:   `src/master/knowledge/source-documents/brands/cochrane-master-builders/performance/react-vite-performance-engineer-persona.source.md`
 
-Captured with `node scripts/source-docs/capture-source.mjs <target> <source>` so a fresh `.sha256` sidecar lands in `.integrity/manifest.json`. No edits, no rewrites — passes `verify:sources`.
+This produces a sibling `.sha256` and updates `.integrity/manifest.json`. Validates via `node scripts/source-docs/validate-source-docs.mjs`. No edits to the original.
 
-### 2. Mirror as a CMB partner authority
+### 2. New CMB partner authority — file 14
 
-- `partner-documents/brands/cochrane-master-builders/brand-identity/v2/12_landing_page_style_guide_persona.partner.md`
+Path: `src/master/knowledge/partner-documents/brands/cochrane-master-builders/brand-identity/v2/14_performance_decision_routing.partner.md`
 
-Frontmatter declares it as the v2.0 landing-page persona, lists upstream source (with hash), states scope (homepage + every service/process landing page), and defers to the higher-priority north star + voice docs on conflict.
+Sits next to `11_performance_accessibility_governance.partner.md` but plays a different role: 11 = governance posture; 14 = decision router with hard numeric budgets and a routing tree that every PR must pass.
 
-### 3. Operating manual — the partner doc you asked for
+Structure (~700–900 lines):
 
-- `partner-documents/brands/cochrane-master-builders/brand-identity/v2/13_landing_page_operating_manual.partner.md`
+1. **Authority header** — upstream source SHA, scope (CMB only), non-goals (explicitly: "this document does NOT change design — see files 12 & 13 for visual rules; if a perf fix would change design, it is rejected and the request is escalated").
+2. **Tighter premium CWV budgets** (hard floors, not targets):
+   - LCP < 2.0s (mobile 4G), CLS < 0.02, INP < 150ms, TBT < 150ms, TTFB < 600ms.
+   - JS shipped per route < 170 KB gz, CSS < 60 KB gz, hero image ≤ 140 KB AVIF, total route weight ≤ 900 KB.
+   - Font payload ≤ 80 KB total (subset, woff2, two families max — Space Grotesk + Jost).
+3. **Decision routing tree** — flowchart in ```text``` ASCII: New asset / new script / new third party / new font weight / new animation → routed to allow / conditional / deny with the exact owner.
+4. **Allow / Conditional / Deny matrices** for: images, video, fonts, JS libs, CSS, animations, third-party tags, analytics.
+5. **Design-neutrality clause** — any optimisation must preserve files 12 & 13 outputs pixel-equivalent at 390/768/1280/1920. Lists forbidden "optimisations" (removing a section, swapping the hero, killing motion, downgrading typography).
+6. **Per-route budget table** — homepage, service detail, community detail, contact. Each row: LCP target, JS gz cap, image cap, font cap.
+7. **Build-time gates** — Lighthouse CI thresholds, bundle-size check (size-limit), `vite build` chunk analysis rules, image audit (any `>140KB` hero blocks merge).
+8. **Runtime gates** — RUM thresholds, alerting rules.
+9. **Pass/Fail audit checklist** (~25 items, mirror file 13's format).
+10. **Auditor ripgrep bundle** (~10 patterns) — e.g. unsubsetted fonts, unoptimised `<img>` without `loading="lazy"` outside hero, `import` of known-heavy libs (moment, lodash full), inline `<script>`, third-party domains not on allowlist.
+11. **Escalation chain** — when a perf fix would violate design: route to design owner, never auto-apply.
+12. **Sign-off chain** — performance lead → design lead (neutrality check) → brand lead.
 
-Deep, prescriptive (~600–900 lines). Sections:
+### 3. Index + governance updates
 
-1. **Purpose & priority** — where this sits in the v2 hierarchy (below 01 north star, above component-level decisions); conflict-resolution order.
-2. **Typography authority extension** — full modular scale (clamp() values) per role: eyebrow, H1–H6, lede, body, caption, micro. Per-archetype line-height, tracking, max-measure (ch), weight rules. Decision table: "if section is X, headline uses Y." Bans (no all-caps body, no italics for emphasis, etc.).
-3. **Spacing grid & rhythm** — 8pt base, section padding tokens (py-24/32/48/64), inter-block gaps, container max-widths per archetype, breakpoint behavior at 390 / 768 / 1024 / 1440 / 1920. Tables mapping persona "breath" cues → spacing tokens.
-4. **Section layout playbook** — locked archetype catalog (Hero, Manifesto, Proof Strip, Grid-of-Three, Long-Read, Editorial Image Slab, Process Steps, Pricing, Testimonial Quiet-Block, FAQ, Closing CTA). Each: structure diagram (ASCII), required tokens, do/don't, copy slot contract, mobile collapse rule.
-5. **Decision rules** — "If you must choose between density and breath, choose breath." 12–15 rules with worked examples drawn from the persona's color/shape vocabulary.
-6. **Per-cluster overrides** — short hooks pointing at Roofing/Concrete/etc. cluster overlays from `03_color_authority`, so future cluster pages know where to deviate.
-7. **Worked examples** — 3 fully-specified landing pages (a generic service hub, a process page, a service-area page) showing chosen tokens for every section.
-8. **Pass/Fail audit checklist** — 25-item grep + visual checklist (e.g. "no font-size below 13px", "no section padding < py-24 desktop", "every H1 has eyebrow", "max-measure ≤ 72ch").
-9. **Auditor grep bundle** — ripgrep snippets that catch violations in JSX/CSS.
-10. **Sign-off chain** — extends the existing 8-step chain from `11_performance_accessibility_governance`.
+- Append entry 14 to `00_master_style_guide_v2_overview.partner.md` with one-line scope and "design-neutral" tag.
+- Register source + partner in `src/master/knowledge/INDEX.md`.
+- Append to `.lovable/plan.md`.
 
-### 4. Index updates
+### 4. Validation
 
-- `partner-documents/brands/cochrane-master-builders/brand-identity/v2/00_master_style_guide_v2_overview.partner.md` — add entries 12 + 13.
-- `src/master/knowledge/INDEX.md` — register the new source + 2 partner docs under the CMB v2.0 authority set.
-- `.lovable/plan.md` — append a short note recording this addition.
+Run `node scripts/source-docs/validate-source-docs.mjs` and confirm green before finishing.
 
-## What does NOT change
+## Out of scope
 
-- No frontend/runtime code.
-- No edits to the source persona text (integrity gate enforces this).
-- No changes to existing v2 authority docs 01–11 beyond the overview index.
-- No memory updates (this is documentation, not a new core rule).
-
-## Verification
-
-After file writes, run `node scripts/source-docs/validate-source-docs.mjs` and confirm zero hash mismatches, zero missing sidecars, zero orphans.
+- No code changes to components, tokens, or build config. File 14 only declares the budgets and routing; wiring Lighthouse CI / size-limit is a separate follow-up.
+- No edits to files 11, 12, 13, or the original persona source.
 
 ---
 
-## 2026-05-10 — Landing Page Style Guide persona embedded
+## 2026-05-10 — Performance Decision Routing (CMB, file 14)
 
-- Captured `colours-and-shapes-experience-philosophy.v3` as `brands/cochrane-master-builders/brand-identity/landing-page-style-guide-persona.source.md` (byte-for-byte, sha=eca6f5cae359, 45175 bytes, 522 lines).
-- Added `12_landing_page_style_guide_persona.partner.md` (CMB authority wrapper).
-- Added `13_landing_page_operating_manual.partner.md` (deep operating manual: clamp type scale, 8pt spacing tables, 11-archetype playbook, 15 decision rules, 25-item audit, 10-item grep bundle, L1–L3 sign-off gates).
-- Updated `00_master_style_guide_v2_overview.partner.md` and `INDEX.md`.
-- `node scripts/source-docs/validate-source-docs.mjs` → clean.
+- Re-embedded `react-vite-performance-engineer-persona.source.md` byte-for-byte under CMB scope at `source-documents/brands/cochrane-master-builders/performance/` (sha `dd84af5a9575…`, 17163 bytes, integrity-tracked).
+- Created `partner-documents/brands/cochrane-master-builders/brand-identity/v2/14_performance_decision_routing.partner.md` — design-neutral CWV router with tighter premium budgets (LCP <2.0s, CLS <0.02, INP <150ms; JS ≤170KB gz, CSS ≤60KB gz, hero ≤140KB AVIF, fonts ≤80KB), allow/conditional/deny matrices for 8 asset classes, per-route budget table, build + runtime gates, 25-item Pass/Fail audit, 10-pattern ripgrep bundle, escalation chain that routes design conflicts back to file 13.
+- Registered file 14 in `00_master_style_guide_v2_overview.partner.md` and `INDEX.md`.
+- `validate-source-docs.mjs` → green (all source documents byte-for-byte intact).

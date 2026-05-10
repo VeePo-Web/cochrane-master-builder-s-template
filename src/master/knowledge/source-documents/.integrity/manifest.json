@@ -608,6 +608,14 @@
       "capturedAt": "2026-05-10T01:30:16.208Z",
       "sourceName": "colours-and-shapes-experience-philosophy.v3.source.md",
       "trusted": true
+    },
+    "brands/cochrane-master-builders/performance/react-vite-performance-engineer-persona.source.md": {
+      "sha256": "dd84af5a957545eba3fb0ca96711cfd2861d7704c07e9eb6c47cf689b2762e2a",
+      "bytes": 17163,
+      "lines": 165,
+      "capturedAt": "2026-05-10T04:08:16.612Z",
+      "sourceName": "react-vite-performance-engineer-persona.source.md",
+      "trusted": true
     }
   }
 }
