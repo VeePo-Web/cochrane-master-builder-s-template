@@ -1,100 +1,122 @@
-# Plan — Master Style Guide Axis (Reference + Persona + Our Guide)
+# Plan — Process Page Style Guide (embed + author + audit)
 
-Backend / knowledge-base only. Zero changes to live React, Tailwind, index.css, or VeePo preview code. Clear firewall: the uploaded `STYLE_GUIDE.md` is **Royal Mechanical Services**' brand — used as a *structural reference template only*. All authored content is for **Cochrane Master Builders**.
+Backend / knowledge-base only. Extends the **Style Axis** with a page-specific sub-guide for the Process page. Style Architect + Master Copywriter + Auditor work together. No edits to live React, Tailwind, index.css, or VeePo preview.
 
 ---
 
-## 1. Embed reference (clearly marked NOT OURS)
+## 1. Embed the upload (verbatim, ours)
 
-Save the upload **verbatim** in two places, both with prominent "REFERENCE ONLY — NOT OUR BRAND" banners at the top:
+This PDF is **a Cochrane Master Builders document**, not an external reference. It belongs inside the CMB strategy folder, not under `_external-references/`.
 
-- `src/master/knowledge/source-documents/_external-references/royal-mechanical/STYLE_GUIDE.reference.md`
-  - 1:1 copy of the upload
-  - Front-matter + H1 banner: *"⚠ EXTERNAL REFERENCE — Royal Mechanical Services. NOT a Cochrane Master Builders document. Used for structural inspiration only. Do not copy voice, colors, typography, or copy verbatim."*
+- Source PDF (binary): `src/master/knowledge/source-documents/brands/cochrane-master-builders/strategy/process_page_style_guide_template_and_service_specific_how_to.pdf`
+- Markdown mirror (1:1, via `pdftotext -layout` for parity with prior strategy embeds): `src/master/knowledge/source-documents/brands/cochrane-master-builders/strategy/process_page_style_guide_template_and_service_specific_how_to.source.md`
+- Partner-doc wrapper: `src/master/knowledge/partner-documents/brands/cochrane-master-builders/strategy/process_page_style_guide_template_and_service_specific_how_to.partner.md`
+  - Anchors the doc as the **Process Page leg** of the Style Axis
+  - Joins: Wireframe (Process step-section), Copy Plan (microcopy), `communities_master_v3` (areas-served), v6.0 temperament + v9.0 layout + v10.0 style guides
+  - Cross-links to the Master Style Guide v1.0, Master Copywriter persona, Style Guide Architect persona, SEO Virtuoso, SEO FAQ, Premium Scroll persona, Mermaid Mapper, Auditor
 
-- `src/master/knowledge/partner-documents/_external-references/royal-mechanical/STYLE_GUIDE.reference.partner.md`
-  - Partner-doc wrapper that catalogs the reference's 16-section table of contents
-  - Lists what we **borrow structurally** (TOC depth, governance section, token quick-reference idea) vs. what we **explicitly reject** (their colors, their voice, their personality spectrum, their service list, "Explain before we replace" promise — all are theirs, not ours)
+## 2. Author the deeper, more premium Process Page Sub-Style-Guide v1.0
 
-A new top-level folder `_external-references/` makes the firewall obvious in both `source-documents/` and `partner-documents/` trees.
+`src/master/knowledge/partner-documents/brands/cochrane-master-builders/brand-identity/cochrane_master_builders_process_page_style_guide_v1.partner.md`
 
-## 2. New persona — Master Style Guide Architect
+A full sub-style-guide that **inherits** every locked token from the Master Style Guide v1.0 (typography, color primitives, spacing, components, motion) and adds Process-page-specific specs. Sections (each ends with a Pass/Fail audit check):
 
-`src/master/knowledge/partner-documents/experience-prompts/master-style-guide-architect-persona.partner.md`
+1. Purpose & Anti-Gravity Principle
+2. Brand Standard ("Old-school accountability made usable through modern-day clarity")
+3. Master Section Order (15 sections from the source PDF)
+4. Visual Direction (palette mapping into our HSL tokens; texture rules; banned imagery)
+5. Typography rules for Process pages (H1/H2/labels, "Step 01", "Price Driver", "Home Protection Note")
+6. Layout System (timeline shapes, asymmetric grids, mobile stepper)
+7. Motion & Interaction (anti-flashy: clarity-unfolds, no parallax in timeline, reduced-motion mandatory)
+8. Voice (Plainspoken + Reassuring + Specific + Local + Action-Oriented; banned-word grep mirrors Master Copywriter)
+9. Section-by-section component specs (Trust Bar → Final CTA)
+10. Service-Specific overlays (Custom Homes, Roofing, Bath/Kitchen/Interior, Basement, Concrete, Landscaping, Flooring, HVAC, Repairs)
+11. Service Process Config schema (`serviceName`, `serviceSteps[]`, `priceDrivers[]`, `protectionNotes[]`, `microcopy{}`, `finalCTACopy`, `seoTitle`, `metaDescription`)
+12. SEO template (title `Our [Service] Process In Cochrane | [Brand Name]`, meta description, FAQPage JSON-LD)
+13. Cross-Site Consistency Matrix (process-page locked vs. variable across the 115 spin-offs)
+14. Variable-Driven Theming knobs for service-specific palettes (concrete vs. landscaping vs. interior)
+15. Brand Anchor Enforcement on Process pages (master line echo + "begins with a clear scope" paraphrase rule)
+16. **Performance Audit (mandatory)** — see §3 below
+17. Accessibility audit (keyboard accordions, visible focus, alt text on diagrams, AAA body contrast)
+18. Governance + Process Page Token Quick Reference + Auditor checklist greps
 
-Mode-OS persona, sibling to Template Architect and Master Copywriter. Responsibilities:
+## 3. Performance audit baked into the guide (this is the user's explicit ask)
 
-- Owns the **Style Axis** (joins with Structural Axis = wireframe, Copy Axis = copywriter, Geographic Axis = communities)
-- Generates per-brand style guides that are **deeper and more premium** than the Royal Mechanical reference
-- Hard NOs: copying any Royal Mechanical token, voice line, or section verbatim; using "Explain before we replace"; using their color palette
-- Required outputs: 18+ section style guide (vs. their 16), with added sections for **Brand Anchor Enforcement**, **Cross-Site Consistency Matrix**, and **Variable-Driven Theming** (so 115 spin-off sites stay consistent)
-- Pairs with Auditor mode for banned-token + voice + contrast checks
+Every Process page spec will be evaluated against a hard performance budget. The guide itself will list the budget AND the failure modes that violate it, so the Auditor can mechanically reject bad designs *before* they get built.
 
-## 3. Author Cochrane Master Builders Style Guide v1.0
+### Budget (inherits Master Style Guide §13, tightened for Process pages)
 
-`src/master/knowledge/partner-documents/brands/cochrane-master-builders/brand-identity/cochrane_master_builders_style_guide_v1.partner.md`
+| Metric | Budget | Why tighter on Process |
+|---|---|---|
+| LCP | ≤ 1.8s mobile (vs. 2.0s default) | Process page is high-intent; latency kills trust |
+| CLS | ≤ 0.02 | Timeline shifting is fatal for trust |
+| INP | ≤ 150ms | Accordion FAQs must feel instant |
+| TBT | ≤ 120ms | — |
+| JS (first load) | ≤ 140kb gz | No heavy timeline libraries |
+| Hero image | ≤ 180kb AVIF/WebP, responsive `srcset`, `fetchpriority="high"` | — |
+| Fonts | 2 families × max 2 weights = 4 face files | — |
+| Images below the fold | `loading="lazy"`, `decoding="async"` | — |
+| Third-party JS | 0 (no chat widget, no analytics that block paint) | — |
 
-A from-scratch, deeper-than-reference style guide aligned to existing CMB foundations (Strong Foundations For Those Who Come After Us; legacy-craft voice; v1.0–v10.0 content axis). Sections (~18, deeper than the 16-section reference):
+### Performance audit checklist (Auditor will grep + Lighthouse)
 
-1. Brand Foundations (identity, promise = legacy/foundations, three filters tuned to CMB, personality spectrum)
-2. Design Philosophy (editorial-craft, generational, restrained luxury)
-3. Color System (HSL tokens; stone, structural-steel, heritage accent — distinct from Royal's palette)
-4. Typography (display + body pairing matched to CMB editorial voice; full scale + line-height matrix)
-5. Spacing & Layout
-6. Grid, Containers & Breakpoints
-7. Iconography & Imagery (no humans rule, build-craft macro shots)
-8. Components (buttons, cards, navs, dividers — token-driven, no rounded cards, filled CTAs)
-9. Motion & Interaction (cinematic reveals, no gimmicks)
-10. Forms & Inputs
-11. Voice, Tone & Copywriting (cross-references Master Copywriter persona; banned-word list)
-12. Accessibility (WCAG 2.2 AA, 4.5:1 minimum, motion-reduce)
-13. Performance Standards (LCP/CLS/INP budgets)
-14. SEO & Metadata (cross-references SEO Virtuoso persona)
-15. **NEW vs reference — Cross-Site Consistency Matrix** (how the 115 spin-offs share tokens)
-16. **NEW — Variable-Driven Theming** (which tokens are locked vs. per-site swappable)
-17. **NEW — Brand Anchor Enforcement** (master-message echo rules, audit hooks)
-18. Governance & Maintenance + Token Quick Reference appendix
+A standing checklist of **anti-patterns that fail performance** on Process pages, with the fix:
 
-Explicit footer: *"This style guide is the Cochrane Master Builders Style Axis. The Royal Mechanical reference at `_external-references/royal-mechanical/` informed structure only — no tokens, copy, or voice are shared."*
+- ❌ Stacking multiple Framer Motion `<motion>` components inside a long timeline → use CSS keyframes + `IntersectionObserver` reveal
+- ❌ Loading icon libraries client-side for tiny step icons → inline SVG sprites
+- ❌ Animating `width`/`height`/`top`/`left` (layout thrash) → only `transform` and `opacity`
+- ❌ Long-running scroll-linked animations without `will-change` cleanup → only declare `will-change` for the active animation, remove on completion
+- ❌ Accordion that mounts/unmounts heavy children → use CSS `[hidden]` + `aria-expanded`, keep DOM mounted
+- ❌ Hero `<video>` autoplay > 1MB → static AVIF + Ken Burns CSS
+- ❌ Service-specific palette swaps that re-fetch fonts → all variants live within the existing 4 font files
+- ❌ FAQs without `details/summary` semantic fallback → SEO + perf + a11y win
+- ❌ Background parallax on the timeline → fails Process Page Motion rule (§7)
+- ❌ Importing `lottie` or 3D libraries → forbidden on Process pages
+- ❌ Image `srcset` missing `sizes` → bandwidth waste
+- ❌ JSON-LD inserted via JS instead of SSR → wrong for SEO + INP
+- ❌ Auto-playing carousel of proof images → CLS + INP risk; use static grid
+- ❌ Web fonts loading without `font-display: swap` → fail
+- ❌ Unsized images/iframes (no width/height attrs) → CLS fail
+- ❌ Heavy CSS-in-JS runtime (emotion runtime, etc.) on this page → use Tailwind tokens only
+- ❌ Hydrating the entire page when only the FAQ + form need interactivity → island pattern; static-render the timeline
+
+Each item is paired with a one-line **Auditor grep / Lighthouse check** so it can be checked mechanically.
 
 ## 4. Index + plan updates
 
-- Update `src/master/knowledge/INDEX.md`:
-  - Add `_external-references/` section with firewall callout
-  - Add Style Guide Architect persona row
-  - Add CMB Style Guide v1.0 row under brand-identity
-- Append to `.lovable/plan.md`: Style Axis is now operational; four-axis model = Structural × Copy × Style × Geographic.
+- Update `INDEX.md`:
+  - Add the source PDF + source.md rows under Cochrane Strategy (alongside the wireframe and copywriting plans)
+  - Add the strategy partner row
+  - Add the Process Page Sub-Style-Guide v1.0 row under Cochrane Brand Identity (right after the Master Style Guide v1.0)
+- Append to `.lovable/plan.md` under "Style Axis" → "Process Page Sub-Guide v1.0 + performance audit"
 
 ## Technical Details
 
-- All files are markdown / pdf in `src/master/knowledge/`. None are imported by Vite or any React route, so the live preview is untouched.
-- Folder convention: `_external-references/` (underscore prefix) sorts to top and visually flags non-ours.
-- Every external-reference file gets a YAML front-matter `external_reference: true` and `owner_brand: "Royal Mechanical Services"` for future scripted audits.
-- Cochrane style guide tokens stay token-name-compatible with the existing `index.css` semantic-token philosophy (HSL, semantic naming) so they can later be ported into a real theme without rewrites.
+- All four new files are markdown / pdf in `src/master/knowledge/`. None are imported by Vite or referenced by any React route.
+- The Process Page guide **inherits** from the Master Style Guide and only adds page-specific deltas — it does not redefine tokens.
+- Performance audit checks are written so an LLM operator (Auditor mode) or a CI script can run them: each is either a `grep` over component code or a Lighthouse metric threshold.
+- Style Architect + Master Copywriter co-author the sub-guide; Auditor runs the performance + accessibility + voice audits.
 
 ## Out of scope
 
 - No edits to live components, `index.css`, `tailwind.config.ts`, or any VeePo front-end code.
-- No per-site (115 spin-off) style guides yet — only the master CMB v1.0.
+- No actual Process page React implementation yet — only the guide that governs it.
+- No per-site (115 spin-off) Process pages yet — only the master sub-guide and service-category overlays.
 - No image generation.
 
 ---
 
-## Style Axis — operational (v1.0)
+## Style Axis — Process Page Sub-Guide v1.0 (delivered)
 
-The four-axis Mode-OS model is now fully scaffolded:
-
-```
-Structural Axis  ×  Copy Axis  ×  Style Axis  ×  Geographic Axis
-   (wireframe)     (copy plan)   (NEW v1.0)    (communities)
-```
-
-**Files added:**
-- `src/master/knowledge/source-documents/_external-references/royal-mechanical/STYLE_GUIDE.reference.md` — verbatim Royal Mechanical upload, banner-wrapped as REFERENCE ONLY (NOT OUR BRAND).
-- `src/master/knowledge/partner-documents/_external-references/royal-mechanical/STYLE_GUIDE.reference.partner.md` — firewall wrapper cataloging borrow-vs-reject.
-- `src/master/knowledge/partner-documents/experience-prompts/master-style-guide-architect-persona.partner.md` — Mode-OS persona owning the Style Axis.
-- `src/master/knowledge/partner-documents/brands/cochrane-master-builders/brand-identity/cochrane_master_builders_style_guide_v1.partner.md` — 18-section CMB Style Guide v1.0 (deeper than the 16-section reference; adds Cross-Site Consistency Matrix, Variable-Driven Theming, Brand Anchor Enforcement). Pass/Fail audit check at the end of every section.
-
-**Firewall:** zero tokens, copy, or voice inherited from any external reference. No edits to live React/Tailwind/CSS or VeePo preview. Backend knowledge-base only.
-
-**Side fix:** loosened `CAPACITY` literal types in `src/config/capacity.config.ts` to clear an unrelated TS narrowing build error.
+- Embedded source PDF + verbatim `.source.md` mirror under Cochrane strategy folder (this is OUR brand, not an external reference).
+- Authored partner wrapper (`process_page_style_guide_template_and_service_specific_how_to.partner.md`) routing the work through Style Architect, Master Copywriter, SEO Virtuoso/FAQ, Performance Engineer, Mobile Wrapping, Premium Scroll, Mermaid Mapper, and Auditor.
+- Authored **Process Page Sub-Style-Guide v1.0** (`cochrane_master_builders_process_page_style_guide_v1.partner.md`) as a child of Master Style Guide v1.0:
+  - 18 sections, each gated by a Pass/Fail audit check.
+  - 15-section master page order locked across all 115 spin-offs.
+  - 9 service-category overlays (Roofing / Bath-Kitchen / Basement / Concrete / Decks / Flooring / HVAC / Commercial / Handyman).
+  - `ProcessConfig` schema for typed per-site config files.
+  - Hard performance budget (LCP ≤ 1.8s mobile, CLS ≤ 0.02, INP ≤ 150ms, JS ≤ 140 kB gz, Lighthouse ≥ 95).
+  - 17 anti-pattern greps (motion stacking, layout-thrash animations, autoplay video, JSON-LD via JS, parallax on timeline, etc.) with paste-ready Auditor grep bundle.
+  - Banned-word list + required-phrase list for voice enforcement.
+  - 15-point QA gate from source §30, audit-ready.
+- INDEX.md updated with all four new rows; no front-end code touched.
