@@ -1,3 +1,36 @@
+---
+external_reference: true
+owner_brand: "Royal Mechanical Services"
+source: "user upload (STYLE_GUIDE.md)"
+status: "REFERENCE ONLY — NOT OUR BRAND"
+do_not_copy:
+  - colors
+  - tokens
+  - voice
+  - copy
+  - personality_spectrum
+  - brand_promise
+borrow_structurally:
+  - table_of_contents_depth
+  - governance_section_pattern
+  - token_quick_reference_pattern
+---
+
+# ⚠ EXTERNAL REFERENCE — NOT A COCHRANE MASTER BUILDERS DOCUMENT
+
+> This file is the verbatim style guide of **Royal Mechanical Services Ltd.**, uploaded by the user as a *structural inspiration template only*.
+>
+> **Do NOT** copy any color value, token name, typography pairing, voice line, brand promise ("Explain before we replace"), personality spectrum, or service description from this document.
+>
+> The Cochrane Master Builders Style Guide lives at:
+> `src/master/knowledge/partner-documents/brands/cochrane-master-builders/brand-identity/cochrane_master_builders_style_guide_v1.partner.md`
+>
+> Use this reference only to study **structure and depth** (TOC layout, governance pattern, token quick-reference appendix). Our authored guide must be deeper, more premium, and uniquely CMB.
+
+---
+
+## VERBATIM REFERENCE CONTENT BELOW (Royal Mechanical Services)
+
 # Royal Mechanical Services — Brand & Web Style Guide
 
 > **A complete reference for the visual, typographic, motion, and interaction language of royalmechanical.ca**
