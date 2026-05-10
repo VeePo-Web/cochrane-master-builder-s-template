@@ -81,8 +81,8 @@ const TemplateFooter = ({ onBookClick }: Props) => {
       <div className="container mx-auto flex flex-wrap items-baseline justify-between gap-4 px-6 py-8 text-caption text-mist">
         <p>© {new Date().getFullYear()} {MASTER_REMIX.BRAND_NAME}. Built for the families who'll inherit it.</p>
         <div className="flex gap-6">
-          <Link to="/privacy" className="hover:text-charcoal">Privacy</PrefetchLink>
-          <Link to="/terms" className="hover:text-charcoal">Terms</PrefetchLink>
+          <PrefetchLink to="/privacy" className="hover:text-charcoal">Privacy</PrefetchLink>
+          <PrefetchLink to="/terms" className="hover:text-charcoal">Terms</PrefetchLink>
         </div>
       </div>
 
