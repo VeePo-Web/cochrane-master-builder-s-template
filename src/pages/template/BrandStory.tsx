@@ -11,7 +11,7 @@ import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 import type { BookingClickHandler } from "@/config/drywall-booking";
 
-const MasterBuilderSeal = lazy(() => import("@/components/master/MasterBuilderSeal"));
+const MasterBuilderSeal = lazy(() => import("@/components/master/MasterBuilderSeal").then(m => ({ default: m.MasterBuilderSeal })));
 
 interface Props { onBookClick?: BookingClickHandler }
 

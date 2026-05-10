@@ -19,8 +19,8 @@ import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 import type { BookingClickHandler } from "@/config/drywall-booking";
 
-const SocialProofEngine = lazy(() => import("@/components/master/SocialProofEngine"));
-const GuaranteeBlock = lazy(() => import("@/components/master/GuaranteeBlock"));
+const SocialProofEngine = lazy(() => import("@/components/master/SocialProofEngine").then(m => ({ default: m.SocialProofEngine })));
+const GuaranteeBlock = lazy(() => import("@/components/master/GuaranteeBlock").then(m => ({ default: m.GuaranteeBlock })));
 
 interface Props { onBookClick?: BookingClickHandler }
 

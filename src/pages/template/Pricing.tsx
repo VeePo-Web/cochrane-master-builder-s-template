@@ -11,8 +11,8 @@ import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 import type { BookingClickHandler } from "@/config/drywall-booking";
 
-const ValueLadder = lazy(() => import("@/components/master/ValueLadder"));
-const ObjectionSection = lazy(() => import("@/components/master/ObjectionSection"));
+const ValueLadder = lazy(() => import("@/components/master/ValueLadder").then(m => ({ default: m.ValueLadder })));
+const ObjectionSection = lazy(() => import("@/components/master/ObjectionSection").then(m => ({ default: m.ObjectionSection })));
 
 interface Props { onBookClick?: BookingClickHandler }
 

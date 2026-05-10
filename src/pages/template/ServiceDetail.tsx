@@ -14,8 +14,8 @@ import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 import type { BookingClickHandler } from "@/config/drywall-booking";
 
-const GuaranteeBlock = lazy(() => import("@/components/master/GuaranteeBlock"));
-const ObjectionSection = lazy(() => import("@/components/master/ObjectionSection"));
+const GuaranteeBlock = lazy(() => import("@/components/master/GuaranteeBlock").then(m => ({ default: m.GuaranteeBlock })));
+const ObjectionSection = lazy(() => import("@/components/master/ObjectionSection").then(m => ({ default: m.ObjectionSection })));
 
 interface Props { onBookClick?: BookingClickHandler }
 

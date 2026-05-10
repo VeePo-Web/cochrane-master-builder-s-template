@@ -10,7 +10,7 @@ import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 import type { BookingClickHandler } from "@/config/drywall-booking";
 
-const SocialProofEngine = lazy(() => import("@/components/master/SocialProofEngine"));
+const SocialProofEngine = lazy(() => import("@/components/master/SocialProofEngine").then(m => ({ default: m.SocialProofEngine })));
 
 interface Props { onBookClick?: BookingClickHandler }
 
