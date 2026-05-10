@@ -24,6 +24,7 @@ This is the controlling overview for the 12-file Cochrane Master Builders Master
 | 11 | `11_performance_accessibility_governance` | Performance Engineer + Auditor | Budget + grep bundle + sign-off chain |
 | 12 | `12_landing_page_style_guide_persona` | Colours & Shapes Experience persona (v3) | Visual-experience persona for every landing page |
 | 13 | `13_landing_page_operating_manual` | Master Style Guide Architect | Concrete typography, spacing, and section-layout decisions for landing pages |
+| 14 | `14_performance_decision_routing` | React + Vite Performance Engineer (CMB) | **Design-neutral.** Hard CWV floors, per-route budgets, allow/conditional/deny routing for assets, scripts, fonts, third parties. |
 
 ## Children of v2.0
 
