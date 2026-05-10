@@ -48,7 +48,7 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
       </a>
       <div className="container mx-auto flex h-20 items-center justify-between px-6">
         <Link to="/template" aria-label="Cochrane Master Builders — home" className="inline-flex items-center">
-          <MasterLogo slot="navigation" />
+          <MasterLogo slot="nav" />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
