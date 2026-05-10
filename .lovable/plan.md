@@ -87,3 +87,12 @@ Length budget: aim for ~600–900 lines of copy markdown. No code, no React, no 
 - Universal base copy manuscript present and ready to remix (variables in `[brackets]`, master message echoed, banned words absent).
 - INDEX.md lists all four new files.
 - Live preview byte-identical to before.
+
+## Universal Website Copywriting Template Plan — embedded as FOUNDATIONAL COPY axis (build mode)
+- Copied PDF verbatim → `source-documents/.../strategy/universal_website_copywriting_template_plan.pdf`
+- Wrote 1:1 markdown mirror → `.../universal_website_copywriting_template_plan.source.md`
+- Authored foundational COPY-axis partner brief → `partner-documents/.../strategy/universal_website_copywriting_template_plan.partner.md` (One Customer Question, master narrative arc, voice, banned words, variables, joins, section index)
+- Authored Master Copywriter Mode-OS persona → `partner-documents/experience-prompts/master-copywriter-persona.partner.md` (per-page output contract, service-category overlays, hard NOs, activation phrases, Mode-OS handoffs)
+- BEGAN WRITING the universal base copy manuscript → `partner-documents/brands/cochrane-master-builders/copy/universal_base_copy_manuscript.partner.md` (full homepage + 9 sub-pages + service-category overlays + microcopy + SEO meta + word counts + master-message echo + audit checklist; variables in [brackets] for find-and-replace remix)
+- INDEX.md: extended Strategy Foundational callout to "two-axis spine" (structural + copy), added 2 strategy rows, added new ### Copy subsection with manuscript row, added Master Copywriter persona row in cross-brand experience-prompts table
+- No frontend changes; VeePo / Masters Detailing live preview unchanged
