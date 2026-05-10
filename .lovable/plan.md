@@ -28,3 +28,7 @@ The new upload is byte-identical to v8.0 (`d91cbed1...`). Per your decision, v9.
 ## Join discipline (unchanged)
 
 All eight paired files join on `Master Row`. Any drift in `Recommended Domain` between v9.0 and any other companion = **Sync Discrepancy** and must be resolved before downstream use.
+
+
+## v8.0 → v9.0 supersession
+Replaced v8.0 Theme Layout / Bespoke UX Components files with v9.0 (byte-identical payload, new lineage number). v8.0 source xlsx, source.md mirror, and partner doc removed; v9.0 equivalents created; INDEX.md updated.
