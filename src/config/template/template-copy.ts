@@ -16,15 +16,15 @@ export const TEMPLATE_COPY = {
   },
 
   nav: [
-    { label: "Home", path: "/template" },
-    { label: "Brand Story", path: "/template/brand-story" },
-    { label: "Why We Love {SERVICE}", path: "/template/why-we-love" },
-    { label: "Services", path: "/template/services" },
-    { label: "Pricing", path: "/template/pricing" },
-    { label: "Gallery", path: "/template/gallery" },
-    { label: "Reviews", path: "/template/reviews" },
-    { label: "About", path: "/template/about" },
-    { label: "Contact", path: "/template/contact" },
+    { label: "Home", path: "/" },
+    { label: "Brand Story", path: "/brand-story" },
+    { label: "Why We Love {SERVICE}", path: "/why-we-love" },
+    { label: "Services", path: "/services" },
+    { label: "Pricing", path: "/pricing" },
+    { label: "Gallery", path: "/gallery" },
+    { label: "Reviews", path: "/reviews" },
+    { label: "About", path: "/about" },
+    { label: "Contact", path: "/contact" },
   ],
 
   cta: {

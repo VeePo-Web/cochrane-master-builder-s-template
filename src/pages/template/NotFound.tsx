@@ -17,13 +17,13 @@ const TemplateNotFound = ({ onBookClick }: Props) => {
           <p className="mt-6 text-body-lg text-graphite">{c.lede}</p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <Link
-              to="/template"
+              to="/"
               className="cta-forest rounded-sm bg-forest px-6 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-forest-deep"
             >
               Back to home
             </Link>
             <Link
-              to="/template/services"
+              to="/services"
               className="rounded-sm border border-charcoal/20 px-6 py-3.5 text-sm font-medium text-charcoal transition-colors hover:bg-charcoal hover:text-bone"
             >
               See services

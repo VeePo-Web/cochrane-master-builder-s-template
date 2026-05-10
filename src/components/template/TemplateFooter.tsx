@@ -10,10 +10,10 @@ interface Props {
 
 const TemplateFooter = ({ onBookClick }: Props) => {
   const services = TEMPLATE_COPY.nav.filter((n) =>
-    ["/template/services", "/template/pricing", "/template/why-we-love"].includes(n.path),
+    ["/services", "/pricing", "/why-we-love"].includes(n.path),
   );
   const company = TEMPLATE_COPY.nav.filter((n) =>
-    ["/template/brand-story", "/template/about", "/template/gallery", "/template/reviews", "/template/contact"].includes(n.path),
+    ["/brand-story", "/about", "/gallery", "/reviews", "/contact"].includes(n.path),
   );
 
   return (
@@ -22,7 +22,7 @@ const TemplateFooter = ({ onBookClick }: Props) => {
       <div className="container mx-auto px-6 pt-20 pb-12">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <Link to="/template" aria-label={`${MASTER_REMIX.BRAND_NAME} — home`} className="inline-flex">
+            <Link to="/" aria-label={`${MASTER_REMIX.BRAND_NAME} — home`} className="inline-flex">
               <MasterLogo slot="footer" />
             </Link>
             <p className="mt-6 max-w-md text-graphite">
@@ -80,8 +80,8 @@ const TemplateFooter = ({ onBookClick }: Props) => {
       <div className="container mx-auto flex flex-wrap items-baseline justify-between gap-4 px-6 py-8 text-caption text-mist">
         <p>© {new Date().getFullYear()} {MASTER_REMIX.BRAND_NAME}. Built for the families who'll inherit it.</p>
         <div className="flex gap-6">
-          <Link to="/template/privacy" className="hover:text-charcoal">Privacy</Link>
-          <Link to="/template/terms" className="hover:text-charcoal">Terms</Link>
+          <Link to="/privacy" className="hover:text-charcoal">Privacy</Link>
+          <Link to="/terms" className="hover:text-charcoal">Terms</Link>
         </div>
       </div>
 

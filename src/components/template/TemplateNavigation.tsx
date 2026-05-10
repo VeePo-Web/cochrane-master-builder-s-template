@@ -31,7 +31,7 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
 
   // Desktop trims to the load-bearing pages; mobile drawer carries the full set.
   const desktop = TEMPLATE_COPY.nav.filter((n) =>
-    ["/template", "/template/services", "/template/pricing", "/template/gallery", "/template/reviews", "/template/about"].includes(n.path),
+    ["/", "/services", "/pricing", "/gallery", "/reviews", "/about"].includes(n.path),
   );
 
   return (
@@ -47,7 +47,7 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
         Skip to content
       </a>
       <div className="container mx-auto flex h-20 items-center justify-between px-6">
-        <Link to="/template" aria-label="Cochrane Master Builders — home" className="inline-flex items-center">
+        <Link to="/" aria-label="Cochrane Master Builders — home" className="inline-flex items-center">
           <MasterLogo slot="nav" />
         </Link>
 
