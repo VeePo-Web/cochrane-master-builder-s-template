@@ -1,99 +1,83 @@
-# Plan — Embed Homepage + Service Page Style Guide & author Cochrane Style Guide v2.0 (Royal-Mechanical-grade depth)
+## Goal
 
-Backend knowledge-base only. No edits to live VeePo / Masters Detailing front end. Operates the **Brand Identity Architect** persona (Landor & Fitch / Wolff Olins method) over the existing Style Axis.
+Guarantee every file under `src/master/knowledge/source-documents/` is a **byte-for-byte verbatim copy** of the original pasted/uploaded text. Any drift (whitespace cleanup, smart-quote conversion, markdown reformatting, truncation) is detected and blocks the commit before it lands.
 
----
+## Approach
 
-## 1. Embed the upload (verbatim, ours)
+Pair each `.source.md` (and `.reference.md`, `.pdf`) with a sidecar manifest containing the SHA-256 hash, byte length, and line count of the original paste. A validator script recomputes the hash on demand and fails loudly on mismatch, missing manifest, or unregistered file.
 
-This `.md` is **a Cochrane Master Builders document.** It belongs inside the CMB strategy folder, not under `_external-references/`.
+```text
+source-documents/
+  └── strategy/
+      ├── homepage_service_page_style_guide.source.md
+      └── homepage_service_page_style_guide.source.md.sha256   ← sidecar
+```
 
-- Source mirror (verbatim, normalized — strips the WYSIWYG `<table>` wrappers but preserves all heading/bullet/copy text 1:1): `src/master/knowledge/source-documents/brands/cochrane-master-builders/strategy/homepage_service_page_style_guide_template_and_how_to.source.md`
-- Partner wrapper: `src/master/knowledge/partner-documents/brands/cochrane-master-builders/strategy/homepage_service_page_style_guide_template_and_how_to.partner.md`
-  - Anchors this doc as the **Homepage + Service Page legs** of the Style Axis (siblings to the Process Page leg already shipped).
-  - Composes with: Wireframe (Structural Axis), Universal Copywriting Plan (Copy Axis), Master Style Guide v1.0, Process Page Sub-Style-Guide v1.0, `communities_master_v3` (Geographic Axis), v2.0 services/pricing, v4.0 ICP, v5.0 color, v6.0 temperament, v7.0 perf, v9.0 layout, v10.0 style.
-  - Routes work to: Brand Identity Architect (new), Master Style Guide Architect, Master Copywriter, Template Architect, SEO Virtuoso + SEO FAQ, Performance Engineer, Mobile Wrapping persona, Navigation Architect, Footer Architect, Auditor, Mermaid Mapper.
-  - Encodes the doc's 9-cluster cheat sheet, the 12 homepage blocks, the 12 service-page blocks, the 10-step bespoke-domain workflow, and the 13-point Service-Page QA + 10-point Homepage QA gates.
+Plus a single registry at `src/master/knowledge/source-documents/.integrity/manifest.json` that lists every tracked source for fast bulk audit.
 
-## 2. Brand Identity Architect — new cross-brand persona
+## Deliverables
 
-`src/master/knowledge/source-documents/experience-prompts/brand-identity-architect-landor-wolff-olins.source.md` (verbatim embed of the user's pasted prompt block, including the "Experience & Operating System" preamble, the 9-step methodology, the conflict-resolution hierarchy, and the required 12-section "Brand Identity North Star — [Company]" output format).
+### 1. Capture script — `scripts/source-docs/capture-source.mjs`
+- Usage: `node scripts/source-docs/capture-source.mjs <target-path> <input-file>`
+- Copies `<input-file>` to `<target-path>` using `fs.copyFile` (no transform, binary-safe).
+- Writes `<target-path>.sha256` sidecar:
+  ```json
+  { "sha256": "...", "bytes": 12345, "lines": 678, "capturedAt": "2026-05-10T...", "sourceName": "original-paste.txt" }
+  ```
+- Updates `.integrity/manifest.json` (append/replace entry).
+- For pasted text (no file), accept `--stdin` and read raw bytes from stdin without normalization.
 
-`src/master/knowledge/partner-documents/experience-prompts/brand-identity-architect-landor-wolff-olins.partner.md` — operationalizes it for CMB:
-- Conflict order: **Customer truth + category reality → founder truth → operational constraints → visual taste.**
-- Hard refusals: no invented offerings/credentials/pricing/locations; no generic positioning; no "premium" without proof mechanics; one direction (no option lists); one Brand Spine artifact per brand.
-- Output contract: the 12-section North Star Report, paired with a **Brand Truth Table** (Truth | Source | Implication) and a controlling **Brand Spine** (category stance / enemy / audience / promise / proof / personality / standards).
-- Hand-off: Brand Identity Architect → Master Style Guide Architect → Master Copywriter → Template Architect → SEO + Performance → Auditor.
-- Firewall: strictly Cochrane Master Builders scope; never edits VeePo / Masters Detailing front end.
+### 2. Validator script — `scripts/source-docs/validate-source-docs.mjs`
+Three checks, exits non-zero on any failure:
 
-## 3. Cochrane Master Builders Style Guide v2.0 — Royal-Mechanical-grade depth
+1. **Hash match** — every file with a sidecar must recompute to the same SHA-256 + byte length.
+2. **Coverage** — every file under `source-documents/` (except `.integrity/`) must have a sidecar; orphans are flagged.
+3. **Sidecar orphans** — every sidecar must point to an existing file.
 
-The user pointed at `RoyalMechanical.com` as the depth bar. That project's pattern is:
+Output: human-readable diff summary (file, expected vs actual hash, byte delta, first differing line via `diff` when a `.original` snapshot exists in `.integrity/originals/`).
 
-- `src/docs/personas/` — 11 authority briefs (BRAND_IDENTITY, DESIGN_PHILOSOPHY, COPYWRITING_NARRATIVE, NAVIGATION_UX, FOOTER_ARCHITECTURE, FOOTER_BESPOKE_UX, IMAGE_SEO, SEO_FAQ, SCROLL_MOTION_UX, PERFORMANCE_ENGINEERING, PERFORMANCE_TARGETS).
-- Runtime token authorities (`brand-identity.ts`, `colors.ts`, `typography.ts`, `spacing.ts`, `animations.ts`) + a live `/style-guide` page rendering them.
+### 3. Optional original snapshot — `.integrity/originals/<hash>.bin`
+When capturing, also store a gzipped copy of the original bytes keyed by hash. Lets the validator show a real diff (not just "hash mismatch") when something drifts. Gitignored size cap warning at 5 MB per file.
 
-We mirror **the depth, not the runtime**. CMB lives only in the knowledge base — no React, no `/style-guide` route, no token TS files. We author a structurally-equivalent 11-document set under `partner-documents/brands/cochrane-master-builders/brand-identity/v2/`, each one is a deep authority brief with Pass/Fail audit checks and paste-ready Auditor greps.
+### 4. Pre-commit / CI gate
+- Add an npm script: `"verify:sources": "node scripts/source-docs/validate-source-docs.mjs"`.
+- Wire it into the existing knowledge-base audit pipeline (mentioned in the v2 governance doc) so the Auditor persona's grep bundle runs `verify:sources` as check #0.
+- Document the manual run in `src/master/knowledge/partner-documents/governance/source-document-integrity.partner.md` (new), including:
+  - "How to add a new source document" (always go through `capture-source.mjs`, never paste directly into the editor).
+  - "What to do on mismatch" (do not auto-fix — re-capture from the original).
 
-### Files to create (all under `partner-documents/brands/cochrane-master-builders/brand-identity/v2/`)
+### 5. Backfill existing 75 source files
+One-time script `scripts/source-docs/backfill-manifests.mjs`:
+- Walks current source-documents tree.
+- For each file with no sidecar, computes hash and writes sidecar marked `"capturedAt": "backfill", "trusted": false`.
+- Prints a report so you know which files are "trusted as-is" vs newly captured. Future re-captures flip `trusted: true`.
 
-1. `00_master_style_guide_v2_overview.partner.md` — index + how all 11 authorities compose; Brand Spine summary; conflict-resolution order; v1.0 → v2.0 migration notes (v2 supersedes v1; Process Page Sub-Style-Guide remains a child of v2).
-2. `01_brand_identity_north_star.partner.md` — full 12-section Brand Identity North Star Report (Truth Table → Brand Spine → Positioning → Differentiation/Proof → Customer Identity Mirror → Story System → Messaging Pillars → Verbal Identity → Visual Direction → Governance → What Not To Do).
-3. `02_design_philosophy.partner.md` — three-value decision filter (Old-School Accountability / Modern Clarity / Family Legacy), precision rituals, anti-decoration stance, RevealItem-equivalent timing tables.
-4. `03_color_authority.partner.md` — full HSL token system (Heritage Navy, Warm White, Charcoal, Stone, Muted Green, Timber, Aged Brass) with semantic token map (`--bone`, `--stone-50/100/200/300/400`, `--graphite-100..900`, `--heritage-500/600/700`, `--timber-500`, `--brass-500`), accessibility contrast matrix (AAA body, AA large), per-cluster palette overrides table.
-5. `04_typography_authority.partner.md` — Space Grotesk + Jost pairing, 9-step modular scale, line-height + letter-spacing tables, Numerals system (Space Grotesk 300 for prices/steps), banned typographic patterns (no all-caps body, no decorative scripts, no italic emphasis chains).
-6. `05_spacing_grid_layout.partner.md` — 4/8/16/24/32/48/64/96/128 spacing scale, 12-col desktop / 4-col mobile grid, container widths, section padding rhythm (homepage 12 sections, service page 12 sections, process page 15 sections), whitespace minimums.
-7. `06_components_authority.partner.md` — every block from §10 of the upload, expanded into component contracts: Hero, Cards, Buttons, Forms (multi-step + photo upload), Pricing Cards (ranges + drivers + assumptions), Accordions (`<details>` semantic), Proof Cards, Area Chips, Trust Bar, Service Finder, Mega-Menu (cluster-grouped, never flat 115-link list).
-8. `07_motion_scroll_authority.partner.md` — duration/easing/delay-sequence tables, scroll-reveal recipe (`IntersectionObserver` + `transform/opacity` only), reduced-motion mandate, banned patterns (scroll-hijack, parallax on timelines, autoplay video above fold).
-9. `08_imagery_photography.partner.md` — real materials / real homes / process details / hands working / warm natural light; banned: stock family photos, generic contractor truck shots, AI faces, glossy hero composites; per-cluster visual anchor table (roofline / tile detail / formwork / deck framing / cabinet joinery / duct diagram / landscape plan).
-10. `09_voice_messaging_lexicon.partner.md` — voice formula (Plainspoken + Reassuring + Specific + Local + Action-Oriented), 5 messaging pillars (each with 10 headlines + 10 subheads + 10 CTAs), claims-allowed vs claims-banned list, banned-word grep extending the sitewide ban, 5–10 "You are our people if…" + 5–10 "Not for you if…" lines from the upload's H1 directions.
-11. `10_seo_schema_local.partner.md` — Title/Meta patterns for Home + Service + Process + Areas pages, FAQPage / Service / LocalBusiness / BreadcrumbList JSON-LD blueprints, internal-link bundle, geographic-axis matrix join.
-12. `11_performance_accessibility_governance.partner.md` — hard budget (LCP ≤ 2.0s desktop / 2.5s mobile, CLS ≤ 0.05, INP ≤ 200ms, JS ≤ 160 kB gz first-load), 18-item anti-pattern grep list, Lighthouse ≥ 95 publish gate, axe-core 0-critical gate, 12-question decision filter, paste-ready Auditor grep bundle, sitewide governance protocol (versioning, sign-off chain, change-log).
+## Technical Notes
 
-### Cross-cutting features in every v2 file
-- Each section ends with a **Pass/Fail audit check.**
-- Each file states what it inherits from / locks for child page-specific guides (Process v1.0 already exists; Homepage and Service Page sub-guides are referenced as future deliverables, not built now).
-- Each file states its **service-cluster overlay** rules using the upload's §9 cheat-sheet table.
-- No token, copy, or voice line is borrowed from any external reference (Royal Mechanical pattern = depth/structure inspiration only).
+- Pure Node ESM, no new dependencies (uses `node:crypto`, `node:fs/promises`, `node:zlib`).
+- Binary-safe: reads as `Buffer`, never as utf8 string, so smart quotes / BOM / CRLF survive untouched.
+- PDFs handled the same way — hash + byte length only, no parsing.
+- Sidecars are tiny JSON, safe to commit, diff-friendly.
+- Validator is idempotent and runs in <1s for the current 75 files.
 
-## 4. INDEX.md updates
+## What this does NOT do
 
-- Add the new source.md + partner.md rows under Cochrane Strategy.
-- Add the Brand Identity Architect persona row under Experience Prompts.
-- Add a new **`### Brand Identity v2.0 (deep authority set)`** subsection under Cochrane Master Builders with all 12 v2 files.
-- Mark the existing Master Style Guide v1.0 row as **superseded by v2.0** (kept for provenance).
+- Does not validate the *partner-documents* (those are intentionally edited interpretations).
+- Does not auto-repair drift — by design, the human re-pastes via `capture-source.mjs`.
+- Does not block the dev server; it's an audit/CI step, not a runtime check.
 
-## 5. `.lovable/plan.md` append
+## File list
 
-Single delivery note summarizing files created, persona added, and the v1.0 → v2.0 supersession.
+Create:
+- `scripts/source-docs/capture-source.mjs`
+- `scripts/source-docs/validate-source-docs.mjs`
+- `scripts/source-docs/backfill-manifests.mjs`
+- `src/master/knowledge/source-documents/.integrity/manifest.json` (generated)
+- `src/master/knowledge/source-documents/.integrity/.gitkeep`
+- `src/master/knowledge/partner-documents/governance/source-document-integrity.partner.md`
+- 75 × `*.sha256` sidecars (generated by backfill)
 
----
-
-## Technical Details
-
-- All files are markdown / pdf in `src/master/knowledge/`. None are imported by Vite or referenced by any React route.
-- The Process Page Sub-Style-Guide v1.0 is **re-parented** under MSG v2.0 in its index entry — its content does not change.
-- Royal Mechanical's runtime token files (`src/lib/colors.ts`, etc.) and `/style-guide` page are studied only for **structural depth**. Zero CSS / TS / palette / voice copied.
-- Brand Identity Architect persona pasted prompt is preserved verbatim in source.md; partner doc adds CMB-specific operating rules.
-
-## Out of scope
-
-- No live front-end edits.
-- No actual `/style-guide` React route in this project.
-- No runtime `brand-identity.ts` / `colors.ts` token files (knowledge-base lives in markdown only).
-- No new image generation.
-- No per-site (115 spin-off) Homepage or Service page implementations yet — only the v2 master authority set + the existing Process Page child.
-
----
-
-## Delivery — 2026-05-10 (Brand Identity Architect v3 + CMB Style Guide v2.0)
-
-**Embedded** the user-uploaded `cochrane_master_builders_home_service_styleguide_howto.md` as a CMB-authored asset under `source-documents/brands/cochrane-master-builders/strategy/` plus partner wrapper that anchors it as the **Homepage + Service Page legs** of the Style Axis (sibling to the Process Page leg).
-
-**Authored** the Brand Identity Architect v3 source + CMB partner — explicit conflict-resolution order, 9-step method, 12-section North Star output contract.
-
-**Authored CMB Master Style Guide v2.0** — 12 specialist authority files under `brand-identity/v2/`, each ending in Pass/Fail audit checks: 00 overview, 01 North Star, 02 design philosophy, 03 color, 04 typography, 05 spacing/grid, 06 components, 07 motion, 08 imagery, 09 voice/lexicon, 10 SEO/schema, 11 performance/accessibility/governance (with 18-item Auditor grep bundle, 5-question decision filter, 8-step sign-off chain). v1.0 marked superseded; Process Page Sub-Style-Guide re-parented unchanged.
-
-**INDEX.md** updated with the new strategy rows, the v3 source row, and a new `Brand Identity v2.0` subsection listing all 12 authority files.
-
-No live frontend / VeePo edits.
+Modify:
+- `package.json` — add `verify:sources` script.
+- `src/master/knowledge/INDEX.md` — link the new governance doc.
+- `.lovable/plan.md` — log the integrity gate.
