@@ -1,84 +1,79 @@
-## Goal
+# Plan — Master Style Guide Axis (Reference + Persona + Our Guide)
 
-Treat the uploaded `Cochrane_Master_Builders_-_Universal_Website_Template_Wireframe_Plan.pdf` as the **foundational template spec** every Cochrane spin-off site filters through. Embed it verbatim, then write a Mode-OS persona brief — the **Template Architect** — that tells the system *how* to apply it alongside v1.0–v10.0, the communities registry, brand-identity, UX, and the existing personas (Fantasy design, SEO Virtuoso, FAQ Optimization, Anti-Gravity, Systems Architect, Mapper, Auditor).
-
-Backend-only. No edits to the live VeePo / Masters Detailing front end.
+Backend / knowledge-base only. Zero changes to live React, Tailwind, index.css, or VeePo preview code. Clear firewall: the uploaded `STYLE_GUIDE.md` is **Royal Mechanical Services**' brand — used as a *structural reference template only*. All authored content is for **Cochrane Master Builders**.
 
 ---
 
-## Files to create
+## 1. Embed reference (clearly marked NOT OURS)
 
-### 1. Source (binary, verbatim)
-`src/master/knowledge/source-documents/brands/cochrane-master-builders/strategy/universal_website_template_wireframe_plan.pdf`
-- Direct copy of the upload. Source of truth, immutable.
+Save the upload **verbatim** in two places, both with prominent "REFERENCE ONLY — NOT OUR BRAND" banners at the top:
 
-### 2. Source (markdown mirror)
-`src/master/knowledge/source-documents/brands/cochrane-master-builders/strategy/universal_website_template_wireframe_plan.source.md`
-- 1:1 markdown extraction (already produced by parse_document, ~1700 lines).
-- No edits, no reordering. Page markers preserved.
+- `src/master/knowledge/source-documents/_external-references/royal-mechanical/STYLE_GUIDE.reference.md`
+  - 1:1 copy of the upload
+  - Front-matter + H1 banner: *"⚠ EXTERNAL REFERENCE — Royal Mechanical Services. NOT a Cochrane Master Builders document. Used for structural inspiration only. Do not copy voice, colors, typography, or copy verbatim."*
 
-### 3. Partner doc — foundational
-`src/master/knowledge/partner-documents/brands/cochrane-master-builders/strategy/universal_website_template_wireframe_plan.partner.md`
+- `src/master/knowledge/partner-documents/_external-references/royal-mechanical/STYLE_GUIDE.reference.partner.md`
+  - Partner-doc wrapper that catalogs the reference's 16-section table of contents
+  - Lists what we **borrow structurally** (TOC depth, governance section, token quick-reference idea) vs. what we **explicitly reject** (their colors, their voice, their personality spectrum, their service list, "Explain before we replace" promise — all are theirs, not ours)
 
-Promotes the wireframe to **foundational status**: every Cochrane spin-off scaffolding decision must reconcile against it.
+A new top-level folder `_external-references/` makes the firewall obvious in both `source-documents/` and `partner-documents/` trees.
 
-Contents:
-- **Role**: canonical universal template wireframe — the structural spine the v1.0–v10.0 spreadsheets and communities registry render through.
-- **Triggers**: "scaffold a site", "page architecture", "homepage sections", "navbar", "mega menu", "service page template", "areas-we-serve template", "pricing page", "contact form", "FAQ accordion", "sticky mobile CTA", "URL structure", "schema (LocalBusiness/FAQPage/BreadcrumbList)", "performance budget", any of the 115 Cochrane domains.
-- **Joins**:
-  - v1.0 (master 115 list) → which site is being built
-  - v5.0 color, v6.0 experience, v9.0 layout, v10.0 style guide → per-site theming
-  - communities_master_v3 → service-area pages and `/areas-we-serve/[community]`
-  - brand-identity 1.2.1 / 1.2.2, UX 1.3.1 → tone + interaction baseline
-- **Adaptation rules**: Cochrane Master Builders only; automotive firewall (no VeePo/Masters Detailing styling bleed); structure is fixed, copy/imagery adapts per service category (Roofing/Tile/Basement Suites/Landscaping/Custom Homes etc.); "Strong Foundations For Those Who Come After Us" must appear in some form on every site.
-- **Section index**: bulleted map of every section in the wireframe (Trust Bar, Hero, Trust Strip, Services Grid, Pricing Preview, Process, Family Legacy, Project Proof, Areas We Serve, FAQ, Final CTA, Footer) with line refs back to source.md so the system can deep-link.
-- **Mode-OS pairing**: Architect scaffolds, Mapper renders cluster matrices, Auditor verifies against this doc + brand-identity + v9.0/v10.0.
-- **Out of scope**: this doc never edits the current VeePo front end.
+## 2. New persona — Master Style Guide Architect
 
-### 4. Persona brief — Template Architect
-`src/master/knowledge/partner-documents/experience-prompts/template-architect-persona.partner.md`
+`src/master/knowledge/partner-documents/experience-prompts/master-style-guide-architect-persona.partner.md`
 
-A new Mode-OS persona that operationalizes the wireframe. Sibling to the existing Fantasy design persona, SEO Virtuoso, FAQ Optimization, Anti-Gravity, and Systems Architect briefs.
+Mode-OS persona, sibling to Template Architect and Master Copywriter. Responsibilities:
 
-Contents:
-- **Identity**: 50+ years of UX/IA experience, fantasy.co lineage, owns the universal wireframe.
-- **Mandate**: turn any one of the 115 Cochrane domains into a complete site spec by composing the wireframe with the right rows from v1.0–v10.0 and the right communities subset.
-- **Inputs it consults** (explicit list with paths): wireframe partner doc, v1.0–v10.0 partner docs, communities partner doc, brand-identity 1.2.1/1.2.2, UX 1.3.1, Fantasy design persona, SEO Virtuoso, FAQ Optimization, Image SEO + Local Visibility, Navigation/Footer Architect, Mode-OS Architect/Mapper/Auditor.
-- **Output contract**: per-site spec containing — chosen v1.0 row, domain, hero copy formula filled, services grid items, pricing tiers, process steps, family-legacy line tailored to the service, areas-we-serve cluster lists, FAQs, schema bundle, performance budget, mobile sticky CTA copy.
-- **Service-category overlays**: Custom Homes / Renovations / Roofing / Concrete / HVAC / Repairs etc. — what shifts in emphasis (matches §"Service Category Template Variations" in the source).
-- **Guardrails**: never collapse the wireframe section order; never substitute human imagery (per existing memory); never bleed automotive editorial language into Cochrane builders copy; always reconcile with the locked brand-identity memories.
-- **Mode-OS pairing**: runs in Architect mode for scaffolding, hands off to Mapper for matrix renders, then Auditor for compliance pass.
+- Owns the **Style Axis** (joins with Structural Axis = wireframe, Copy Axis = copywriter, Geographic Axis = communities)
+- Generates per-brand style guides that are **deeper and more premium** than the Royal Mechanical reference
+- Hard NOs: copying any Royal Mechanical token, voice line, or section verbatim; using "Explain before we replace"; using their color palette
+- Required outputs: 18+ section style guide (vs. their 16), with added sections for **Brand Anchor Enforcement**, **Cross-Site Consistency Matrix**, and **Variable-Driven Theming** (so 115 spin-off sites stay consistent)
+- Pairs with Auditor mode for banned-token + voice + contrast checks
 
-### 5. Index updates
-`src/master/knowledge/INDEX.md`
-- Under Cochrane Master Builders → Strategy: add a **Foundational** callout for the wireframe (xlsx-set is the *content* axis, communities is the *geographic* axis, this wireframe is the *structural* axis).
-- Add row for the new pdf + source.md + partner.md.
-- Under experience-prompts: add a row for the Template Architect persona, with keywords (scaffold, universal template, page architecture, per-site spec).
+## 3. Author Cochrane Master Builders Style Guide v1.0
 
-### 6. Plan log
-`.lovable/plan.md` — append a short note recording this embed + persona authoring.
+`src/master/knowledge/partner-documents/brands/cochrane-master-builders/brand-identity/cochrane_master_builders_style_guide_v1.partner.md`
 
----
+A from-scratch, deeper-than-reference style guide aligned to existing CMB foundations (Strong Foundations For Those Who Come After Us; legacy-craft voice; v1.0–v10.0 content axis). Sections (~18, deeper than the 16-section reference):
+
+1. Brand Foundations (identity, promise = legacy/foundations, three filters tuned to CMB, personality spectrum)
+2. Design Philosophy (editorial-craft, generational, restrained luxury)
+3. Color System (HSL tokens; stone, structural-steel, heritage accent — distinct from Royal's palette)
+4. Typography (display + body pairing matched to CMB editorial voice; full scale + line-height matrix)
+5. Spacing & Layout
+6. Grid, Containers & Breakpoints
+7. Iconography & Imagery (no humans rule, build-craft macro shots)
+8. Components (buttons, cards, navs, dividers — token-driven, no rounded cards, filled CTAs)
+9. Motion & Interaction (cinematic reveals, no gimmicks)
+10. Forms & Inputs
+11. Voice, Tone & Copywriting (cross-references Master Copywriter persona; banned-word list)
+12. Accessibility (WCAG 2.2 AA, 4.5:1 minimum, motion-reduce)
+13. Performance Standards (LCP/CLS/INP budgets)
+14. SEO & Metadata (cross-references SEO Virtuoso persona)
+15. **NEW vs reference — Cross-Site Consistency Matrix** (how the 115 spin-offs share tokens)
+16. **NEW — Variable-Driven Theming** (which tokens are locked vs. per-site swappable)
+17. **NEW — Brand Anchor Enforcement** (master-message echo rules, audit hooks)
+18. Governance & Maintenance + Token Quick Reference appendix
+
+Explicit footer: *"This style guide is the Cochrane Master Builders Style Axis. The Royal Mechanical reference at `_external-references/royal-mechanical/` informed structure only — no tokens, copy, or voice are shared."*
+
+## 4. Index + plan updates
+
+- Update `src/master/knowledge/INDEX.md`:
+  - Add `_external-references/` section with firewall callout
+  - Add Style Guide Architect persona row
+  - Add CMB Style Guide v1.0 row under brand-identity
+- Append to `.lovable/plan.md`: Style Axis is now operational; four-axis model = Structural × Copy × Style × Geographic.
+
+## Technical Details
+
+- All files are markdown / pdf in `src/master/knowledge/`. None are imported by Vite or any React route, so the live preview is untouched.
+- Folder convention: `_external-references/` (underscore prefix) sorts to top and visually flags non-ours.
+- Every external-reference file gets a YAML front-matter `external_reference: true` and `owner_brand: "Royal Mechanical Services"` for future scripted audits.
+- Cochrane style guide tokens stay token-name-compatible with the existing `index.css` semantic-token philosophy (HSL, semantic naming) so they can later be ported into a real theme without rewrites.
 
 ## Out of scope
 
-- No edits to `src/`, `index.css`, `tailwind.config.ts`, or any React component.
-- No edits to v1.0–v10.0 or communities files.
-- No new routes, no scaffolding of actual Cochrane pages — that's a future build phase the Template Architect persona will drive when invoked.
-- No changes to the live VeePo / Masters Detailing preview.
-
----
-
-## Acceptance
-
-- `code--view` on the new partner docs returns the full briefs.
-- INDEX.md lists the wireframe as Foundational and the persona under experience-prompts.
-- Front-end preview is byte-identical to before.
-
-## Universal Website Template Wireframe Plan — embedded as FOUNDATIONAL (build mode)
-- Copied PDF verbatim → `source-documents/brands/cochrane-master-builders/strategy/universal_website_template_wireframe_plan.pdf`
-- Wrote 1:1 markdown mirror via `pdftotext -layout` → `.../universal_website_template_wireframe_plan.source.md`
-- Authored foundational partner brief → `partner-documents/brands/cochrane-master-builders/strategy/universal_website_template_wireframe_plan.partner.md` (structural axis; joins to v1.0–v10.0 + communities; section index back to source.md; adaptation rules incl. automotive firewall)
-- Authored new Mode-OS persona → `partner-documents/experience-prompts/template-architect-persona.partner.md` (Template Architect; per-site spec output contract; service-category overlays; activation phrases; pairs with Architect / Mapper / Auditor)
-- INDEX.md: added Foundational callout under Cochrane Strategy + 2 new rows (pdf + source.md) + Template Architect persona row in cross-brand experience-prompts table
-- No frontend changes; VeePo / Masters Detailing live preview unchanged
+- No edits to live components, `index.css`, `tailwind.config.ts`, or any VeePo front-end code.
+- No per-site (115 spin-off) style guides yet — only the master CMB v1.0.
+- No image generation.
