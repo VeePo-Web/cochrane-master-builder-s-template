@@ -13,29 +13,6 @@ import StickyCTA from "./components/drywall/StickyCTA";
 import ScrollToTop from "./components/ScrollToTop";
 import type { BookingClickHandler, BookingPrefill } from "./config/drywall-booking";
 
-const Index = lazy(() => import("./pages/Index"));
-const DrywallRepair = lazy(() => import("./pages/DrywallRepair"));
-const DrywallInstallation = lazy(() => import("./pages/DrywallInstallation"));
-const Painting = lazy(() => import("./pages/Painting"));
-const GaragePackages = lazy(() => import("./pages/GaragePackages"));
-const BasementPackages = lazy(() => import("./pages/BasementPackages"));
-const PricingProcess = lazy(() => import("./pages/PricingProcess"));
-const Gallery = lazy(() => import("./pages/Gallery"));
-const Reviews = lazy(() => import("./pages/Reviews"));
-const FavouriteThings = lazy(() => import("./pages/FavouriteThings"));
-const About = lazy(() => import("./pages/About"));
-const Contact = lazy(() => import("./pages/Contact"));
-const ThankYou = lazy(() => import("./pages/ThankYou"));
-const Privacy = lazy(() => import("./pages/Privacy"));
-const Terms = lazy(() => import("./pages/Terms"));
-const NotFound = lazy(() => import("./pages/NotFound"));
-const Brand = lazy(() => import("./pages/Brand"));
-const StoryBrand = lazy(() => import("./pages/StoryBrand"));
-const WhyWeLove = lazy(() => import("./pages/WhyWeLove"));
-const TheOffer = lazy(() => import("./pages/TheOffer"));
-const Knowledge = lazy(() => import("./pages/Knowledge"));
-const Preflight = lazy(() => import("./pages/Preflight"));
-
 // ── MASTER TEMPLATE (universal — basis for all 150 sub-brand remixes) ──
 const TemplateHome = lazy(() => import("./pages/template/Home"));
 const TemplateBrandStory = lazy(() => import("./pages/template/BrandStory"));
@@ -59,45 +36,20 @@ const AnimatedRoutes = ({ onBookClick }: { onBookClick: BookingClickHandler }) =
     <AnimatePresence mode="wait">
       <Suspense fallback={null}>
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<PageTransition><Index onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/drywall-repair" element={<PageTransition><DrywallRepair onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/drywall-installation" element={<PageTransition><DrywallInstallation onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/painting" element={<PageTransition><Painting onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/garage-packages" element={<PageTransition><GaragePackages onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/basement-packages" element={<PageTransition><BasementPackages onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/pricing-process" element={<PageTransition><PricingProcess onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/gallery" element={<PageTransition><Gallery onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/reviews" element={<PageTransition><Reviews onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/favourite-things" element={<PageTransition><FavouriteThings onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/about" element={<PageTransition><About onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/contact" element={<PageTransition><Contact onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/thank-you" element={<PageTransition><ThankYou /></PageTransition>} />
-          <Route path="/privacy" element={<PageTransition><Privacy onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/terms" element={<PageTransition><Terms onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/brand" element={<PageTransition><Brand /></PageTransition>} />
-          <Route path="/our-story" element={<PageTransition><StoryBrand onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/why-we-love" element={<PageTransition><WhyWeLove onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/the-offer" element={<PageTransition><TheOffer onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/knowledge" element={<PageTransition><Knowledge /></PageTransition>} />
-          <Route path="/knowledge/preflight" element={<PageTransition><Preflight /></PageTransition>} />
-
-          {/* ── MASTER TEMPLATE ROUTES (remix base) ── */}
-          <Route path="/template" element={<PageTransition><TemplateHome onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/template/brand-story" element={<PageTransition><TemplateBrandStory onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/template/why-we-love" element={<PageTransition><TemplateWhyWeLove onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/template/services" element={<PageTransition><TemplateServices onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/template/services/:slug" element={<PageTransition><TemplateServiceDetail onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/template/services/detail" element={<PageTransition><TemplateServiceDetail onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/template/pricing" element={<PageTransition><TemplatePricing onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/template/gallery" element={<PageTransition><TemplateGallery onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/template/reviews" element={<PageTransition><TemplateReviews onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/template/about" element={<PageTransition><TemplateAbout onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/template/contact" element={<PageTransition><TemplateContact onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/template/privacy" element={<PageTransition><TemplatePrivacy onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/template/terms" element={<PageTransition><TemplateTerms onBookClick={onBookClick} /></PageTransition>} />
-          <Route path="/template/*" element={<PageTransition><TemplateNotFound onBookClick={onBookClick} /></PageTransition>} />
-
-          <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+          <Route path="/" element={<PageTransition><TemplateHome onBookClick={onBookClick} /></PageTransition>} />
+          <Route path="/brand-story" element={<PageTransition><TemplateBrandStory onBookClick={onBookClick} /></PageTransition>} />
+          <Route path="/why-we-love" element={<PageTransition><TemplateWhyWeLove onBookClick={onBookClick} /></PageTransition>} />
+          <Route path="/services" element={<PageTransition><TemplateServices onBookClick={onBookClick} /></PageTransition>} />
+          <Route path="/services/:slug" element={<PageTransition><TemplateServiceDetail onBookClick={onBookClick} /></PageTransition>} />
+          <Route path="/services/detail" element={<PageTransition><TemplateServiceDetail onBookClick={onBookClick} /></PageTransition>} />
+          <Route path="/pricing" element={<PageTransition><TemplatePricing onBookClick={onBookClick} /></PageTransition>} />
+          <Route path="/gallery" element={<PageTransition><TemplateGallery onBookClick={onBookClick} /></PageTransition>} />
+          <Route path="/reviews" element={<PageTransition><TemplateReviews onBookClick={onBookClick} /></PageTransition>} />
+          <Route path="/about" element={<PageTransition><TemplateAbout onBookClick={onBookClick} /></PageTransition>} />
+          <Route path="/contact" element={<PageTransition><TemplateContact onBookClick={onBookClick} /></PageTransition>} />
+          <Route path="/privacy" element={<PageTransition><TemplatePrivacy onBookClick={onBookClick} /></PageTransition>} />
+          <Route path="/terms" element={<PageTransition><TemplateTerms onBookClick={onBookClick} /></PageTransition>} />
+          <Route path="*" element={<PageTransition><TemplateNotFound onBookClick={onBookClick} /></PageTransition>} />
         </Routes>
       </Suspense>
     </AnimatePresence>
@@ -108,7 +60,6 @@ const App = () => {
   const [bookingOpen, setBookingOpen] = useState(false);
   const [prefill, setPrefill] = useState<BookingPrefill | undefined>(undefined);
 
-  // Accept either a click event (legacy onClick={onBookClick}) or a prefill object.
   const openBooking: BookingClickHandler = (input) => {
     const next =
       input && typeof input === "object" && !("nativeEvent" in input) && !("currentTarget" in input)
