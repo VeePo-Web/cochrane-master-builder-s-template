@@ -10,7 +10,7 @@
  */
 
 import { motion } from "framer-motion";
-import type { Review } from "@/config/reviews";
+import { REVIEWS, type Review } from "@/config/reviews";
 
 interface EnrichedReview extends Review {
   before: string;
@@ -154,8 +154,6 @@ export const SocialProofEngine = ({
   maxItems = 6,
   className = "",
 }: SocialProofEngineProps) => {
-  // Import default reviews if none provided
-  const { REVIEWS } = require("@/config/reviews");
   const source = rawReviews ?? REVIEWS;
   const enriched = enrichReviews(source).slice(0, maxItems);
 
