@@ -77,3 +77,24 @@ Explicit footer: *"This style guide is the Cochrane Master Builders Style Axis. 
 - No edits to live components, `index.css`, `tailwind.config.ts`, or any VeePo front-end code.
 - No per-site (115 spin-off) style guides yet — only the master CMB v1.0.
 - No image generation.
+
+---
+
+## Style Axis — operational (v1.0)
+
+The four-axis Mode-OS model is now fully scaffolded:
+
+```
+Structural Axis  ×  Copy Axis  ×  Style Axis  ×  Geographic Axis
+   (wireframe)     (copy plan)   (NEW v1.0)    (communities)
+```
+
+**Files added:**
+- `src/master/knowledge/source-documents/_external-references/royal-mechanical/STYLE_GUIDE.reference.md` — verbatim Royal Mechanical upload, banner-wrapped as REFERENCE ONLY (NOT OUR BRAND).
+- `src/master/knowledge/partner-documents/_external-references/royal-mechanical/STYLE_GUIDE.reference.partner.md` — firewall wrapper cataloging borrow-vs-reject.
+- `src/master/knowledge/partner-documents/experience-prompts/master-style-guide-architect-persona.partner.md` — Mode-OS persona owning the Style Axis.
+- `src/master/knowledge/partner-documents/brands/cochrane-master-builders/brand-identity/cochrane_master_builders_style_guide_v1.partner.md` — 18-section CMB Style Guide v1.0 (deeper than the 16-section reference; adds Cross-Site Consistency Matrix, Variable-Driven Theming, Brand Anchor Enforcement). Pass/Fail audit check at the end of every section.
+
+**Firewall:** zero tokens, copy, or voice inherited from any external reference. No edits to live React/Tailwind/CSS or VeePo preview. Backend knowledge-base only.
+
+**Side fix:** loosened `CAPACITY` literal types in `src/config/capacity.config.ts` to clear an unrelated TS narrowing build error.
