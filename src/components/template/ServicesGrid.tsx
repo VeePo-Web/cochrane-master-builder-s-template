@@ -16,7 +16,7 @@ const ServicesGrid = ({ services, hrefFor }: ServicesGridProps) => {
   return (
     <div className="grid gap-px bg-seam md:grid-cols-2 lg:grid-cols-3">
       {services.map((s, i) => {
-        const href = hrefFor ? hrefFor(s) : "/template/services";
+        const href = hrefFor ? hrefFor(s) : "/services";
         return (
           <Link
             key={i}

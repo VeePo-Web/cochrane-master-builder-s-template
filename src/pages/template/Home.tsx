@@ -57,7 +57,7 @@ const TemplateHome = ({ onBookClick }: Props) => {
                       {TEMPLATE_COPY.cta.primary}
                     </button>
                     <Link
-                      to="/template/pricing"
+                      to="/pricing"
                       className="rounded-sm border border-charcoal/20 px-6 py-3.5 text-sm font-medium text-charcoal transition-colors hover:bg-charcoal hover:text-bone"
                     >
                       {TEMPLATE_COPY.cta.secondary}
@@ -100,7 +100,7 @@ const TemplateHome = ({ onBookClick }: Props) => {
         <SectionTitle eyebrow={c.services.eyebrow} headline={c.services.headline} lede={c.services.lede} />
         <div className="mt-12">
           <RemixSlot name="SUB_SERVICES">
-            <ServicesGrid services={MASTER_REMIX.SUB_SERVICES} hrefFor={() => "/template/services"} />
+            <ServicesGrid services={MASTER_REMIX.SUB_SERVICES} hrefFor={() => "/services"} />
           </RemixSlot>
         </div>
       </SectionFrame>
@@ -156,7 +156,7 @@ const TemplateHome = ({ onBookClick }: Props) => {
               lede="See the full scope on /pricing — including the philosophy, the process, and the objections we've already heard."
             />
             <Link
-              to="/template/pricing"
+              to="/pricing"
               className="mt-8 inline-flex rounded-sm border border-charcoal/20 px-6 py-3.5 text-sm font-medium text-charcoal transition-colors hover:bg-charcoal hover:text-bone"
             >
               See the full pricing page

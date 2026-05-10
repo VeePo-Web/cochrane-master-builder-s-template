@@ -107,7 +107,7 @@ const ServiceDetail = ({ onBookClick }: Props) => {
         <SectionTitle eyebrow={c.relatedServices.eyebrow} headline={c.relatedServices.headline} />
         <div className="mt-10 grid gap-px bg-seam md:grid-cols-3">
           {MASTER_REMIX.SUB_SERVICES.slice(1, 4).map((s) => (
-            <Link key={s.title} to="/template/services/detail" className="block bg-paper p-8 transition-colors hover:bg-bone">
+            <Link key={s.title} to="/services/detail" className="block bg-paper p-8 transition-colors hover:bg-bone">
               <h3 className="font-display text-display-sm text-charcoal">{s.title}</h3>
               <p className="mt-3 text-graphite">{s.summary}</p>
             </Link>

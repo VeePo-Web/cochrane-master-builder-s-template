@@ -22,7 +22,7 @@ const Services = ({ onBookClick }: Props) => {
 
       <SectionFrame tone="paper" size="lg">
         <RemixSlot name="SUB_SERVICES">
-          <ServicesGrid services={MASTER_REMIX.SUB_SERVICES} hrefFor={() => "/template/services/detail"} />
+          <ServicesGrid services={MASTER_REMIX.SUB_SERVICES} hrefFor={() => "/services/detail"} />
         </RemixSlot>
       </SectionFrame>
 
