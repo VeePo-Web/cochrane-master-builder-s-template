@@ -52,3 +52,13 @@ Deep, prescriptive (~600–900 lines). Sections:
 ## Verification
 
 After file writes, run `node scripts/source-docs/validate-source-docs.mjs` and confirm zero hash mismatches, zero missing sidecars, zero orphans.
+
+---
+
+## 2026-05-10 — Landing Page Style Guide persona embedded
+
+- Captured `colours-and-shapes-experience-philosophy.v3` as `brands/cochrane-master-builders/brand-identity/landing-page-style-guide-persona.source.md` (byte-for-byte, sha=eca6f5cae359, 45175 bytes, 522 lines).
+- Added `12_landing_page_style_guide_persona.partner.md` (CMB authority wrapper).
+- Added `13_landing_page_operating_manual.partner.md` (deep operating manual: clamp type scale, 8pt spacing tables, 11-archetype playbook, 15 decision rules, 25-item audit, 10-item grep bundle, L1–L3 sign-off gates).
+- Updated `00_master_style_guide_v2_overview.partner.md` and `INDEX.md`.
+- `node scripts/source-docs/validate-source-docs.mjs` → clean.
