@@ -25,7 +25,7 @@ const TemplateFooter = ({ onBookClick }: Props) => {
           <div className="md:col-span-5">
             <Link to="/" aria-label={`${MASTER_REMIX.BRAND_NAME} — home`} className="inline-flex">
               <MasterLogo slot="footer" />
-            </PrefetchLink>
+            </Link>
             <p className="mt-6 max-w-md text-graphite">
               {TEMPLATE_COPY.brand.promise}
             </p>
