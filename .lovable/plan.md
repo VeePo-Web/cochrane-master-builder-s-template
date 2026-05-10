@@ -103,3 +103,20 @@ Each item is paired with a one-line **Auditor grep / Lighthouse check** so it ca
 - No actual Process page React implementation yet — only the guide that governs it.
 - No per-site (115 spin-off) Process pages yet — only the master sub-guide and service-category overlays.
 - No image generation.
+
+---
+
+## Style Axis — Process Page Sub-Guide v1.0 (delivered)
+
+- Embedded source PDF + verbatim `.source.md` mirror under Cochrane strategy folder (this is OUR brand, not an external reference).
+- Authored partner wrapper (`process_page_style_guide_template_and_service_specific_how_to.partner.md`) routing the work through Style Architect, Master Copywriter, SEO Virtuoso/FAQ, Performance Engineer, Mobile Wrapping, Premium Scroll, Mermaid Mapper, and Auditor.
+- Authored **Process Page Sub-Style-Guide v1.0** (`cochrane_master_builders_process_page_style_guide_v1.partner.md`) as a child of Master Style Guide v1.0:
+  - 18 sections, each gated by a Pass/Fail audit check.
+  - 15-section master page order locked across all 115 spin-offs.
+  - 9 service-category overlays (Roofing / Bath-Kitchen / Basement / Concrete / Decks / Flooring / HVAC / Commercial / Handyman).
+  - `ProcessConfig` schema for typed per-site config files.
+  - Hard performance budget (LCP ≤ 1.8s mobile, CLS ≤ 0.02, INP ≤ 150ms, JS ≤ 140 kB gz, Lighthouse ≥ 95).
+  - 17 anti-pattern greps (motion stacking, layout-thrash animations, autoplay video, JSON-LD via JS, parallax on timeline, etc.) with paste-ready Auditor grep bundle.
+  - Banned-word list + required-phrase list for voice enforcement.
+  - 15-point QA gate from source §30, audit-ready.
+- INDEX.md updated with all four new rows; no front-end code touched.
