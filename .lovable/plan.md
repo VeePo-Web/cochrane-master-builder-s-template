@@ -22,3 +22,7 @@ New eighth content leg in the Cochrane family-of-sites (paired set grows from se
 ## Join discipline (unchanged)
 
 All eight paired files join on `Master Row`. Drift in `Recommended Domain` between v10.0 and any other companion = **Sync Discrepancy**.
+
+
+## v10.0 embed
+Added v10.0 UX Theme Style Guides as the eighth Cochrane companion file (xlsx + source.md mirror + partner doc). INDEX.md callout updated from seven to eight paired files.
