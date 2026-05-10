@@ -1,98 +1,100 @@
-## Goal
+# Plan — Master Style Guide Axis (Reference + Persona + Our Guide)
 
-Embed the **Universal Website Copywriting Template Plan** PDF as a foundational backend doc (matching how the wireframe was treated last turn), author a sibling Mode-OS persona — the **Master Copywriter** — and then *begin writing* the actual universal base copy manuscript that every Cochrane spin-off site remixes from.
-
-Backend-only. No edits to the live VeePo / Masters Detailing front end.
+Backend / knowledge-base only. Zero changes to live React, Tailwind, index.css, or VeePo preview code. Clear firewall: the uploaded `STYLE_GUIDE.md` is **Royal Mechanical Services**' brand — used as a *structural reference template only*. All authored content is for **Cochrane Master Builders**.
 
 ---
 
-## Files to create
+## 1. Embed reference (clearly marked NOT OURS)
 
-### 1. Source (binary, verbatim)
-`src/master/knowledge/source-documents/brands/cochrane-master-builders/strategy/universal_website_copywriting_template_plan.pdf`
-- Direct copy of the upload. Immutable.
+Save the upload **verbatim** in two places, both with prominent "REFERENCE ONLY — NOT OUR BRAND" banners at the top:
 
-### 2. Source (markdown mirror)
-`src/master/knowledge/source-documents/brands/cochrane-master-builders/strategy/universal_website_copywriting_template_plan.source.md`
-- 1:1 verbatim text via `pdftotext -layout`. Page markers preserved.
+- `src/master/knowledge/source-documents/_external-references/royal-mechanical/STYLE_GUIDE.reference.md`
+  - 1:1 copy of the upload
+  - Front-matter + H1 banner: *"⚠ EXTERNAL REFERENCE — Royal Mechanical Services. NOT a Cochrane Master Builders document. Used for structural inspiration only. Do not copy voice, colors, typography, or copy verbatim."*
 
-### 3. Partner doc — foundational (copy axis)
-`src/master/knowledge/partner-documents/brands/cochrane-master-builders/strategy/universal_website_copywriting_template_plan.partner.md`
+- `src/master/knowledge/partner-documents/_external-references/royal-mechanical/STYLE_GUIDE.reference.partner.md`
+  - Partner-doc wrapper that catalogs the reference's 16-section table of contents
+  - Lists what we **borrow structurally** (TOC depth, governance section, token quick-reference idea) vs. what we **explicitly reject** (their colors, their voice, their personality spectrum, their service list, "Explain before we replace" promise — all are theirs, not ours)
 
-Promotes this plan to **foundational status as the COPY axis** of the system, sitting on top of the wireframe (structural axis) the way v1.0–v10.0 sit on the content/style axis.
+A new top-level folder `_external-references/` makes the firewall obvious in both `source-documents/` and `partner-documents/` trees.
 
-Contents:
-- **Role**: canonical copy framework — message structure, section purpose, emotional goal, customer psychology, voice/tone, microcopy, SEO meta patterns, word counts. Sits *on top of* the wireframe — wireframe defines section *positions*, this defines section *words*.
-- **Triggers**: "write the hero", "headline", "subhead", "CTA", "microcopy", "tone of voice", "FAQ copy", "pricing intro", "process step copy", "legacy block", "areas-we-serve copy", "title tag", "meta description", "service-category copy angle" (Roofing/Tile/Decks/Concrete/Renovations etc.), "what should this page say".
-- **Joins**: pairs 1:1 with the wireframe partner doc (every wireframe section has a copy-template counterpart here); reads voice/fears from v4.0 ICP brain; respects v10.0 style guide; respects brand-identity 1.2.1/1.2.2 anchor ("Strong Foundations For Those Who Come After Us").
-- **Adaptation rules**: Cochrane Master Builders only; automotive firewall; never use banned words ("cheap", "lowest price", "world-class" overused, "guaranteed" unless legally true, vague "quality/excellence/solutions" without proof); always lean on the master-narrative arc (Problem → Empathy → Insight → Transformation → Proof); always answer the one customer question — *"Can I trust this company with something my family, property, money, or future depends on?"*
-- **Universal copy variables** registered: `[Brand Name]`, `[Service]`, `[Service Category]`, `[Primary Customer]`, `[Main Outcome]`, `[Pain Point]`, `[Community]`, `[Price Range]`, `[CTA]`.
-- **Section index** with line refs back into `source.md` (Trust Bar → Hero → Trust Strip → Services → Pricing → Process → Legacy → Proof → Areas → FAQ → Final CTA → Footer + Services / Pricing / Process / Areas / About / Contact / FAQ / Projects / Blog page templates + Service Category Copy Angles + Microcopy System + SEO Meta Patterns + Word Count Targets).
-- **Mode-OS pairing**: Master Copywriter (Architect mode of copy), Mapper (renders cluster × section copy matrix), Auditor (verifies against banned words, voice attributes, master message presence, word counts).
+## 2. New persona — Master Style Guide Architect
 
-### 4. Persona brief — Master Copywriter
-`src/master/knowledge/partner-documents/experience-prompts/master-copywriter-persona.partner.md`
+`src/master/knowledge/partner-documents/experience-prompts/master-style-guide-architect-persona.partner.md`
 
-A new Mode-OS persona, sibling to Template Architect / Fantasy Design / SEO Virtuoso / Anti-Gravity / Systems Architect / Mapper / Auditor.
+Mode-OS persona, sibling to Template Architect and Master Copywriter. Responsibilities:
 
-Contents:
-- **Identity**: 50+ years in conversion-grade local-service copy; fantasy.co studio lineage; owns the universal copy template.
-- **Mandate**: produce per-site *copy specs* on top of the per-site *structural specs* the Template Architect emits.
-- **Inputs it consults**: copy template partner doc (this), wireframe partner doc, v1.0/v2.0/v4.0/v5.0/v6.0/v9.0/v10.0, communities registry, brand-identity 1.2.1/1.2.2, UX 1.3.1, sibling personas.
-- **Output contract** (per page): Headline option set (3) → Subhead → Body slots → CTA primary + secondary → trust microcopy → meta title + description → word-count check → banned-word check → master-message echo confirmation.
-- **Service-category overlays**: Custom Homes / Renovations / Roofing / Concrete / HVAC / Repairs / Tile / Decks / Landscaping / Basement Suites — each with the unique fear, outcome, and copy angle pulled verbatim from §"Service Category Copy Angles" in source.
-- **Guardrails**: hard NOs (cheap, lowest price, generic SEO contractor language, hard sell, hyped guarantees, unsupported superlatives, automotive editorial voice).
-- **Mode-OS pairing**: works in Architect-of-Copy mode → hand off to Mapper (matrix renders) and Auditor (banned-word + voice + master-message audit).
+- Owns the **Style Axis** (joins with Structural Axis = wireframe, Copy Axis = copywriter, Geographic Axis = communities)
+- Generates per-brand style guides that are **deeper and more premium** than the Royal Mechanical reference
+- Hard NOs: copying any Royal Mechanical token, voice line, or section verbatim; using "Explain before we replace"; using their color palette
+- Required outputs: 18+ section style guide (vs. their 16), with added sections for **Brand Anchor Enforcement**, **Cross-Site Consistency Matrix**, and **Variable-Driven Theming** (so 115 spin-off sites stay consistent)
+- Pairs with Auditor mode for banned-token + voice + contrast checks
 
-### 5. **Start writing** — Universal Base Copy Manuscript
-`src/master/knowledge/partner-documents/brands/cochrane-master-builders/copy/universal_base_copy_manuscript.partner.md`
+## 3. Author Cochrane Master Builders Style Guide v1.0
 
-This is the **remix base** the user asked for. A complete, generic-with-variables manuscript covering the homepage end-to-end + the 9 sub-page templates (Services / Pricing / Process / Areas / About / Contact / FAQ / Projects / Blog), written in the master voice, slotted with `[Variables]` so any of the 115 spin-offs can be produced by find-and-replace + per-site polish.
+`src/master/knowledge/partner-documents/brands/cochrane-master-builders/brand-identity/cochrane_master_builders_style_guide_v1.partner.md`
 
-Structure:
-- Homepage manuscript: Trust Bar → Hero (3 headline options + subhead + 2 CTAs + trust microcopy) → Trust Signal Strip (4 cards) → Services (intro + 6 sample cards) → Pricing Transparency (intro + 3 tier cards) → Process (5 steps) → Legacy Block (3 headline options + body) → Project Proof (intro + card template) → Areas We Serve (intro + cluster lists) → FAQ (intro + 8 starter Q&A) → Final CTA (3 options + body + dual CTA) → Footer (brand line + 4 columns + slogan).
-- Sub-page manuscripts: each gets hero options + intro + section-by-section copy slots per the source template.
-- Microcopy system: button library, form labels, helper text, error messages, success states.
-- SEO meta library: Title tag patterns, meta descriptions, OpenGraph patterns.
-- Word-count compliance notes per section (35–70 / 15–30 / 100–180 etc.).
-- Master message echo distributed across at least 4 sections per the rule.
+A from-scratch, deeper-than-reference style guide aligned to existing CMB foundations (Strong Foundations For Those Who Come After Us; legacy-craft voice; v1.0–v10.0 content axis). Sections (~18, deeper than the 16-section reference):
 
-Length budget: aim for ~600–900 lines of copy markdown. No code, no React, no styling decisions.
+1. Brand Foundations (identity, promise = legacy/foundations, three filters tuned to CMB, personality spectrum)
+2. Design Philosophy (editorial-craft, generational, restrained luxury)
+3. Color System (HSL tokens; stone, structural-steel, heritage accent — distinct from Royal's palette)
+4. Typography (display + body pairing matched to CMB editorial voice; full scale + line-height matrix)
+5. Spacing & Layout
+6. Grid, Containers & Breakpoints
+7. Iconography & Imagery (no humans rule, build-craft macro shots)
+8. Components (buttons, cards, navs, dividers — token-driven, no rounded cards, filled CTAs)
+9. Motion & Interaction (cinematic reveals, no gimmicks)
+10. Forms & Inputs
+11. Voice, Tone & Copywriting (cross-references Master Copywriter persona; banned-word list)
+12. Accessibility (WCAG 2.2 AA, 4.5:1 minimum, motion-reduce)
+13. Performance Standards (LCP/CLS/INP budgets)
+14. SEO & Metadata (cross-references SEO Virtuoso persona)
+15. **NEW vs reference — Cross-Site Consistency Matrix** (how the 115 spin-offs share tokens)
+16. **NEW — Variable-Driven Theming** (which tokens are locked vs. per-site swappable)
+17. **NEW — Brand Anchor Enforcement** (master-message echo rules, audit hooks)
+18. Governance & Maintenance + Token Quick Reference appendix
 
-### 6. INDEX updates
-`src/master/knowledge/INDEX.md`
-- Strategy: extend the existing Foundational callout to acknowledge a **two-axis foundation** (wireframe = structural; copy template = copy). Add 2 rows for the new pdf + source.md.
-- Add a new **### Copy** subsection under Cochrane Master Builders pointing at the manuscript file.
-- Cross-brand experience-prompts table: add the Master Copywriter persona row.
+Explicit footer: *"This style guide is the Cochrane Master Builders Style Axis. The Royal Mechanical reference at `_external-references/royal-mechanical/` informed structure only — no tokens, copy, or voice are shared."*
 
-### 7. Plan log
-`.lovable/plan.md` — append note.
+## 4. Index + plan updates
 
----
+- Update `src/master/knowledge/INDEX.md`:
+  - Add `_external-references/` section with firewall callout
+  - Add Style Guide Architect persona row
+  - Add CMB Style Guide v1.0 row under brand-identity
+- Append to `.lovable/plan.md`: Style Axis is now operational; four-axis model = Structural × Copy × Style × Geographic.
+
+## Technical Details
+
+- All files are markdown / pdf in `src/master/knowledge/`. None are imported by Vite or any React route, so the live preview is untouched.
+- Folder convention: `_external-references/` (underscore prefix) sorts to top and visually flags non-ours.
+- Every external-reference file gets a YAML front-matter `external_reference: true` and `owner_brand: "Royal Mechanical Services"` for future scripted audits.
+- Cochrane style guide tokens stay token-name-compatible with the existing `index.css` semantic-token philosophy (HSL, semantic naming) so they can later be ported into a real theme without rewrites.
 
 ## Out of scope
 
-- No edits to `src/`, React, Tailwind, index.css, or any front-end code.
-- No edits to v1.0–v10.0, communities registry, wireframe doc, or any prior file.
-- No per-site (per-Master-Row) drafts yet — just the **universal remix base manuscript**. Per-site drafts are a future invocation of the Master Copywriter persona.
-- No new routes; no scaffolding.
+- No edits to live components, `index.css`, `tailwind.config.ts`, or any VeePo front-end code.
+- No per-site (115 spin-off) style guides yet — only the master CMB v1.0.
+- No image generation.
 
 ---
 
-## Acceptance
+## Style Axis — operational (v1.0)
 
-- New PDF + source.md mirror present and verbatim.
-- Foundational copy partner doc references the wireframe and the v1.0–v10.0 stack.
-- Master Copywriter persona present in experience-prompts.
-- Universal base copy manuscript present and ready to remix (variables in `[brackets]`, master message echoed, banned words absent).
-- INDEX.md lists all four new files.
-- Live preview byte-identical to before.
+The four-axis Mode-OS model is now fully scaffolded:
 
-## Universal Website Copywriting Template Plan — embedded as FOUNDATIONAL COPY axis (build mode)
-- Copied PDF verbatim → `source-documents/.../strategy/universal_website_copywriting_template_plan.pdf`
-- Wrote 1:1 markdown mirror → `.../universal_website_copywriting_template_plan.source.md`
-- Authored foundational COPY-axis partner brief → `partner-documents/.../strategy/universal_website_copywriting_template_plan.partner.md` (One Customer Question, master narrative arc, voice, banned words, variables, joins, section index)
-- Authored Master Copywriter Mode-OS persona → `partner-documents/experience-prompts/master-copywriter-persona.partner.md` (per-page output contract, service-category overlays, hard NOs, activation phrases, Mode-OS handoffs)
-- BEGAN WRITING the universal base copy manuscript → `partner-documents/brands/cochrane-master-builders/copy/universal_base_copy_manuscript.partner.md` (full homepage + 9 sub-pages + service-category overlays + microcopy + SEO meta + word counts + master-message echo + audit checklist; variables in [brackets] for find-and-replace remix)
-- INDEX.md: extended Strategy Foundational callout to "two-axis spine" (structural + copy), added 2 strategy rows, added new ### Copy subsection with manuscript row, added Master Copywriter persona row in cross-brand experience-prompts table
-- No frontend changes; VeePo / Masters Detailing live preview unchanged
+```
+Structural Axis  ×  Copy Axis  ×  Style Axis  ×  Geographic Axis
+   (wireframe)     (copy plan)   (NEW v1.0)    (communities)
+```
+
+**Files added:**
+- `src/master/knowledge/source-documents/_external-references/royal-mechanical/STYLE_GUIDE.reference.md` — verbatim Royal Mechanical upload, banner-wrapped as REFERENCE ONLY (NOT OUR BRAND).
+- `src/master/knowledge/partner-documents/_external-references/royal-mechanical/STYLE_GUIDE.reference.partner.md` — firewall wrapper cataloging borrow-vs-reject.
+- `src/master/knowledge/partner-documents/experience-prompts/master-style-guide-architect-persona.partner.md` — Mode-OS persona owning the Style Axis.
+- `src/master/knowledge/partner-documents/brands/cochrane-master-builders/brand-identity/cochrane_master_builders_style_guide_v1.partner.md` — 18-section CMB Style Guide v1.0 (deeper than the 16-section reference; adds Cross-Site Consistency Matrix, Variable-Driven Theming, Brand Anchor Enforcement). Pass/Fail audit check at the end of every section.
+
+**Firewall:** zero tokens, copy, or voice inherited from any external reference. No edits to live React/Tailwind/CSS or VeePo preview. Backend knowledge-base only.
+
+**Side fix:** loosened `CAPACITY` literal types in `src/config/capacity.config.ts` to clear an unrelated TS narrowing build error.
