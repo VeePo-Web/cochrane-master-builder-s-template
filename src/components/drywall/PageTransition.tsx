@@ -1,21 +1,14 @@
-import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface PageTransitionProps {
   children: ReactNode;
 }
 
-const PageTransition = ({ children }: PageTransitionProps) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -8 }}
-      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-    >
-      {children}
-    </motion.div>
-  );
-};
+/**
+ * No-op page transition. Routes mount instantly with zero fade or motion
+ * to keep navigation feeling native-app fast. Per-section reveals still
+ * handle visual polish on scroll.
+ */
+const PageTransition = ({ children }: PageTransitionProps) => <>{children}</>;
 
 export default PageTransition;

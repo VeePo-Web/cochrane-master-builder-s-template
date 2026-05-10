@@ -10,7 +10,8 @@ const SmoothScrollProvider = ({ children }: SmoothScrollProviderProps) => {
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) return;
+    const isTouch = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+    if (prefersReducedMotion || isTouch) return;
 
     const lenis = new Lenis({
       duration: 1.1,
