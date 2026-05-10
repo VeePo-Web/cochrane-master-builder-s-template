@@ -28,6 +28,11 @@ Welcome to the Backend Knowledge System for the Cochrane Master Builders project
 - **[1.4.3 Cochrane Master Builders Grandfathers ICP UX Report](../partner-documents/personas/1.4.3_Grandfathers_ICP_UX_Report_Partner.md)**
   - **Source Material:** `/knowledge/source-documents/personas/1.4.3_Grandfathers_ICP_UX_Report.pdf`
   - **Purpose:** Heritage logic profile (The Patriarch). Dictates "About Us" layouts, high-legibility UX, and copy that prioritizes longevity, durability, and handshake trust.
+## Local SEO Architecture
+- **[AWS-1.0 Areas We Serve — SEO Architecture Design Plan](../partner-documents/strategy/areas-we-serve-seo-design-plan-partner.md)**
+  - **Source Material:** `/knowledge/source-documents/strategy/areas-we-serve-seo-design-plan.md`
+  - **Purpose:** THE PRIMARY LOCAL SEO ENGINE. Complete 3-tier page architecture (Hub → Region → Community), URL structure, TypeScript data model, street-level content strategy, schema markup (LocalBusiness + BreadcrumbList + FAQPage + Service), internal linking engine, cross-site brand injection system, and phased build roadmap for all 150 VeePo sites × 131 communities. Consult for EVERY decision about `/areas-we-serve/` pages, community pages, geographic content, or local SEO.
+
 ## Strategy, SEO & Architecture
 - **[1.0 Cochrane Master Builders Strategic Business, SEO & UX Report](../partner-documents/strategy/1.0_Strategic_Business_SEO_UX_Report_Partner.md)**
   - **Source Material:** `/knowledge/source-documents/strategy/1.0_Strategic_Business_SEO_UX_Report.pdf`

@@ -2,6 +2,10 @@
 
 When an AI assistant (Lovable, Claude Code, Antigravity, etc.) is asked to make a design, UX, or structural decision, it MUST use this map to find the appropriate backend intelligence file to filter its output.
 
+### 🗺️ Areas We Serve — Local SEO Architecture (Primary SEO Engine)
+- **Consult Target:** `areas-we-serve-seo-design-plan-partner.md`
+- **Output Goal:** Apply the 3-tier page architecture (Hub → Region → Community) for ALL `/areas-we-serve/` work. Every community page must include: H1 with service + community + city, 770+ words of content, named streets woven into prose (minimum 4–12 depending on tier), minimum 3 named landmarks, BreadcrumbList + LocalBusiness + FAQPage + Service schema, internal links to 3–5 nearest communities and 4–6 service pages, and a community-specific CTA. Use the `Community` TypeScript interface from the plan. Never collapse tiers. Always inject the brand via `BrandConfig`. Consult for: community page design, URL decisions, schema on area pages, street-level content, internal linking, cross-site geographic adaptation, `communities.config.ts` building, or any question about ranking "[service] [community] Alberta."
+
 ### ⭐️ Ultimate Brand Identity North Star (Final Arbiter)
 - **Consult Target:** `1.5_Brand_Identity_North_Star_Report_Partner.md`
 - **Output Goal:** Override any modern, fast, or cheap design trends. Force all output to conform to the ultimate philosophical boundaries of the brand: untempered luxury, generational durability, and elite, authoritative tradition.
