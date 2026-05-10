@@ -1,64 +1,175 @@
-# Performance-Only Decision Routing — CMB
 
-## Goal
+# Cochrane Master Builders — Universal Template Wireframe (file 15)
 
-Make Core Web Vitals enforceable for Cochrane Master Builders via a dedicated partner authority that routes every performance-impacting decision (assets, scripts, fonts, images, third parties) through a strict, design-neutral checklist. Design tokens, archetypes, and visual rules from files 12 & 13 are untouched.
+Goal: lock a single, Apple-grade wireframe spine that every one of the 150 service-specific Cochrane sites will remix. Structure first, copy second, visuals third. No code changes in this pass — we only author the wireframe authority document and register it.
 
-## Deliverables
+## What this plan delivers
 
-### 1. Re-embed source under CMB scope (byte-for-byte)
+A new partner authority document:
 
-Use `node scripts/source-docs/capture-source.mjs` to copy:
+- `src/master/knowledge/partner-documents/brands/cochrane-master-builders/brand-identity/v2/15_universal_template_wireframe.partner.md`
 
-- From: `src/master/knowledge/source-documents/performance/react-vite-performance-engineer-persona.source.md`
-- To:   `src/master/knowledge/source-documents/brands/cochrane-master-builders/performance/react-vite-performance-engineer-persona.source.md`
+Plus index/governance updates so it joins the v2 authority chain alongside files 12 (style guide), 13 (operating manual), and 14 (performance routing).
 
-This produces a sibling `.sha256` and updates `.integrity/manifest.json`. Validates via `node scripts/source-docs/validate-source-docs.mjs`. No edits to the original.
+This is a **wireframe doc**, not code. It defines pages, sections, slots, variables, CTA map, schema map, and remix rules — so when we generate copy and then code per-service, every site is structurally identical and only the variables change.
 
-### 2. New CMB partner authority — file 14
+## Page set (locked for every remix)
 
-Path: `src/master/knowledge/partner-documents/brands/cochrane-master-builders/brand-identity/v2/14_performance_decision_routing.partner.md`
+```text
+/                    Home
+/our-story           Brand story (founder + family legacy + master-builder ethos)
+/why-we-love         Why we love {SERVICE}  ← remix variable
+/services            Services index (catalogue of everything CMB does)
+/services/{slug}     Service detail (one per offer in the spin-off)
+/areas               Areas-we-serve SEO hub (index)
+/areas/{community}   Per-community SEO page (one per community in communities_master_v3)
+/pricing-process     Pricing transparency + how quoting works
+/gallery             Proof / before-after
+/reviews             Social proof
+/about               Company, license, insurance, warranty, team
+/contact             Contact + booking entry
+/faq                 Master FAQ
+/privacy /terms /warranty /accessibility   Legal/trust
+/brand               Internal brand kit (noindex)
+```
 
-Sits next to `11_performance_accessibility_governance.partner.md` but plays a different role: 11 = governance posture; 14 = decision router with hard numeric budgets and a routing tree that every PR must pass.
+Booking is a **singleton modal** mounted in `App.tsx`, opened from any CTA on any page (matches current `BookingModal` architecture).
 
-Structure (~700–900 lines):
+## Remix variables (the only things that change per site)
 
-1. **Authority header** — upstream source SHA, scope (CMB only), non-goals (explicitly: "this document does NOT change design — see files 12 & 13 for visual rules; if a perf fix would change design, it is rejected and the request is escalated").
-2. **Tighter premium CWV budgets** (hard floors, not targets):
-   - LCP < 2.0s (mobile 4G), CLS < 0.02, INP < 150ms, TBT < 150ms, TTFB < 600ms.
-   - JS shipped per route < 170 KB gz, CSS < 60 KB gz, hero image ≤ 140 KB AVIF, total route weight ≤ 900 KB.
-   - Font payload ≤ 80 KB total (subset, woff2, two families max — Space Grotesk + Jost).
-3. **Decision routing tree** — flowchart in ```text``` ASCII: New asset / new script / new third party / new font weight / new animation → routed to allow / conditional / deny with the exact owner.
-4. **Allow / Conditional / Deny matrices** for: images, video, fonts, JS libs, CSS, animations, third-party tags, analytics.
-5. **Design-neutrality clause** — any optimisation must preserve files 12 & 13 outputs pixel-equivalent at 390/768/1280/1920. Lists forbidden "optimisations" (removing a section, swapping the hero, killing motion, downgrading typography).
-6. **Per-route budget table** — homepage, service detail, community detail, contact. Each row: LCP target, JS gz cap, image cap, font cap.
-7. **Build-time gates** — Lighthouse CI thresholds, bundle-size check (size-limit), `vite build` chunk analysis rules, image audit (any `>140KB` hero blocks merge).
-8. **Runtime gates** — RUM thresholds, alerting rules.
-9. **Pass/Fail audit checklist** (~25 items, mirror file 13's format).
-10. **Auditor ripgrep bundle** (~10 patterns) — e.g. unsubsetted fonts, unoptimised `<img>` without `loading="lazy"` outside hero, `import` of known-heavy libs (moment, lodash full), inline `<script>`, third-party domains not on allowlist.
-11. **Escalation chain** — when a perf fix would violate design: route to design owner, never auto-apply.
-12. **Sign-off chain** — performance lead → design lead (neutrality check) → brand lead.
+```text
+{BRAND_NAME}         e.g. "Cochrane Tile Co." (sub-brand under CMB family)
+{SERVICE}            e.g. "tiling", "flooring", "drywall"
+{SERVICE_PLURAL}     "tile installations"
+{SERVICE_VERB}       "tile", "install flooring"
+{SERVICE_CATEGORY}   interior-finish | structural | exterior | mechanical | landscape
+{HERO_IMAGE}         service-specific macro photograph
+{COMMUNITIES[]}      pulled from communities_master_v3
+{SUB_SERVICES[]}     catalogue rows for this brand
+{PRICE_BANDS[]}      starter ranges per sub-service
+{FAQS[]}             ≥20 service-specific
+{PROOF[]}            before/after sets
+{TRUST_NUMBERS}      license #, insurance #, years, warranty length
+```
 
-### 3. Index + governance updates
+Every wireframe slot below is annotated with which variables fill it, so copy and code can be generated deterministically.
 
-- Append entry 14 to `00_master_style_guide_v2_overview.partner.md` with one-line scope and "design-neutral" tag.
-- Register source + partner in `src/master/knowledge/INDEX.md`.
-- Append to `.lovable/plan.md`.
+## Section spine per page
 
-### 4. Validation
+### Home (12 sections — locked order)
+1. Hero — H1 with {SERVICE} + {AREA_PRIMARY}, sub, primary CTA (opens booking with `prefill.service={slug}`), phone, scroll cue
+2. Trust bar — license, insurance, warranty, years, BBB/HomeStars
+3. Problems we solve — 3–6 problem chips (remix from {SERVICE} pain map)
+4. Core services overview — cards → `/services/{slug}`
+5. Why we love {SERVICE} teaser → links to `/why-we-love`
+6. Before/after preview (3 pairs from {PROOF})
+7. Why choose us — 3–5 differentiators (Master Builder seal, family legacy, focused trade)
+8. Simple process (3–6 steps)
+9. Starter packages / offers — links to `/pricing-process`
+10. Testimonials (3 from {REVIEWS})
+11. FAQ top 5 → `/faq`
+12. Final CTA band + Footer
 
-Run `node scripts/source-docs/validate-source-docs.mjs` and confirm green before finishing.
+### `/our-story` — Brand Story (8 sections)
+1. Inner hero — "Built by a family of builders" (universal across all 150 sites; only the trade noun shifts)
+2. Origin — founder narrative slot
+3. Family legacy block — ties to Master Builders parent brand (uses Family_Legacy_Standard partner doc)
+4. Why this trade — connects family story to {SERVICE}
+5. Values (3) — pulled from CMB v2 voice authority
+6. Team / craftsmen (optional slot, hide if empty)
+7. Manifesto block (TradeManifesto component, remixed per {SERVICE})
+8. CTA band + Footer
 
-## Out of scope
+### `/why-we-love` — Why We Love {SERVICE} (7 sections)
+1. Inner hero — "Why we love {SERVICE}" + editorial sub
+2. The craft — what makes {SERVICE} satisfying (sensory / material / outcome)
+3. Materials & tools we love — visual grid
+4. Moments that matter — micro-stories (3 short)
+5. What clients feel after — outcome-focused
+6. Editorial quote pull
+7. CTA band → booking + Footer
 
-- No code changes to components, tokens, or build config. File 14 only declares the budgets and routing; wiring Lighthouse CI / size-limit is a separate follow-up.
-- No edits to files 11, 12, 13, or the original persona source.
+### `/services` (index) (5 sections)
+1. Inner hero
+2. Service catalogue grid (all {SUB_SERVICES})
+3. "Not sure which?" decision aid
+4. Trust strip
+5. CTA + Footer
 
----
+### `/services/{slug}` (11 sections — mirrors current drywall pages)
+1. Hero with breadcrumb
+2. Scope (included / not included)
+3. Materials & timeline
+4. Price band
+5. Process for THIS service
+6. Before/after for THIS service
+7. FAQ × 5 (FAQPage JSON-LD)
+8. Related services (2 siblings)
+9. Areas served chips → `/areas/{community}`
+10. Final CTA
+11. Footer
 
-## 2026-05-10 — Performance Decision Routing (CMB, file 14)
+### `/areas` — SEO Hub Index (6 sections)
+1. Inner hero — "{SERVICE} across the Bow Valley & Calgary region"
+2. Region map (static SVG, no JS) with {COMMUNITIES} pins
+3. Community grid — alphabetical, grouped by region cluster
+4. "How we serve outside our home base" trust note
+5. LocalBusiness JSON-LD `areaServed: [all communities]`
+6. CTA + Footer
 
-- Re-embedded `react-vite-performance-engineer-persona.source.md` byte-for-byte under CMB scope at `source-documents/brands/cochrane-master-builders/performance/` (sha `dd84af5a9575…`, 17163 bytes, integrity-tracked).
-- Created `partner-documents/brands/cochrane-master-builders/brand-identity/v2/14_performance_decision_routing.partner.md` — design-neutral CWV router with tighter premium budgets (LCP <2.0s, CLS <0.02, INP <150ms; JS ≤170KB gz, CSS ≤60KB gz, hero ≤140KB AVIF, fonts ≤80KB), allow/conditional/deny matrices for 8 asset classes, per-route budget table, build + runtime gates, 25-item Pass/Fail audit, 10-pattern ripgrep bundle, escalation chain that routes design conflicts back to file 13.
-- Registered file 14 in `00_master_style_guide_v2_overview.partner.md` and `INDEX.md`.
-- `validate-source-docs.mjs` → green (all source documents byte-for-byte intact).
+### `/areas/{community}` — Per-Community Page (8 sections — UNIQUE intro is mandatory)
+1. Hero — "{SERVICE} in {COMMUNITY}"
+2. **80–150-word UNIQUE intro** referencing real {COMMUNITY} landmarks/neighborhoods (templated prompts in copy phase to enforce uniqueness)
+3. Services we provide in {COMMUNITY} (chips)
+4. Local proof — photo + testimonial if available (graceful empty state)
+5. Drive-time / response-time line from base of operations
+6. LocalBusiness JSON-LD with `areaServed: {COMMUNITY}`
+7. Final CTA
+8. Footer
+
+### `/pricing-process`, `/gallery`, `/reviews`, `/about`, `/contact`, `/faq`
+Section maps mirror existing CMB drywall pages (already locked in `SITE_STRUCTURE.pages`) — wireframe doc references them verbatim and tags each section with remix variables.
+
+## Cross-page systems (defined once, applied everywhere)
+
+- **Navigation** — 80px nav, ≤7 desktop items, mobile drawer with sticky CTA, sequence: Home / Services / Why We Love / Our Story / Areas / Pricing / Gallery / Reviews / About / Contact. Locked by file 13 + Navigation Architect persona.
+- **Footer** — 3-tier (brand+CTA / 5-col link grid / NAP+license+VeePo credit+©). Footer ↔ scrolled nav must read as one composition.
+- **Booking modal** — singleton in `App.tsx`. Every CTA passes `prefill: { service, source_page, source_section }`. Modal lifecycle rules from the Modal Lifecycle memory apply unchanged.
+- **CTA entry-point map** — table with row per CTA: `page | section | button copy slot | prefill.service`. Phase 7 audits against this table.
+- **Schema bundle** — Organization (sitewide), LocalBusiness (sitewide + per-area), Service (per service page), FAQPage (any page with FAQ), BreadcrumbList (level-2+).
+- **Performance budget** — inherits file 14 (LCP <2.0s, CLS <0.02, JS ≤170KB gz, hero ≤140KB AVIF).
+- **Accessibility budget** — WCAG 2.2 AA, 48px touch, visible focus, reduced-motion honored.
+
+## Remix workflow (how the 150 sites get built from this)
+
+```text
+1. Pick {SERVICE} + sub-brand identity
+2. Bind variables from communities_master_v3 + service catalogue
+3. Generate copy section-by-section using file 15 slot prompts
+4. Generate code by mapping slots → existing components
+   (Hero, InnerHero, ServiceCard, BeforeAfterPair, FAQAccordion,
+    PricingTable, CTABand, Footer, BookingModal, JsonLd)
+5. Run preflight: nav coherence, CTA map, schema, perf, a11y
+6. Family-resemblance audit — confirm visual + structural sibling match
+```
+
+## Out of scope (explicitly)
+
+- No copy writing in this pass. Slot prompts only.
+- No new React components. Wireframe maps to the existing component library.
+- No edits to files 11, 12, 13, 14, or any source persona.
+- No changes to `App.tsx`, routing, or `SITE_STRUCTURE` yet — those land when we begin the first remix.
+
+## Files this plan will touch (when approved)
+
+- **Create** `src/master/knowledge/partner-documents/brands/cochrane-master-builders/brand-identity/v2/15_universal_template_wireframe.partner.md`
+- **Edit** `src/master/knowledge/partner-documents/brands/cochrane-master-builders/brand-identity/v2/00_master_style_guide_v2_overview.partner.md` — add row 15
+- **Edit** `src/master/knowledge/INDEX.md` — register file 15 under brand identity v2
+- **Edit** `.lovable/plan.md` — append milestone
+
+## Open question before I write the doc
+
+One decision affects the structure of file 15 — please confirm:
+
+
+- 2026-05-10: File 15 (Universal Template Wireframe) shipped. Locks the structural spine for all 150 CMB spin-off sites.
