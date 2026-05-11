@@ -107,43 +107,60 @@ const RegionPage = ({ onBookClick }: RegionPageProps) => {
   const tier1 = communities.filter((c) => c.tier === 1);
   const tier2 = communities.filter((c) => c.tier === 2);
   const tier3 = communities.filter((c) => c.tier === 3);
+  const heroImg = region.heroImage; // verified copyright-free from communities.ts
 
   return (
     <TemplateLayout onBookClick={onBookClick}>
 
-      {/* ── Hero ── */}
-      <SectionFrame tone="forest" size="xl" grain>
-        {/* Breadcrumb */}
-        <nav aria-label="Breadcrumb" className="mb-8">
-          <ol className="flex flex-wrap items-center gap-2 text-caption text-primary-foreground/50">
-            <li><Link to="/" className="hover:text-primary-foreground/80 transition-colors">Home</Link></li>
-            <li aria-hidden>/</li>
-            <li><Link to="/areas-we-serve" className="hover:text-primary-foreground/80 transition-colors">Areas We Serve</Link></li>
-            <li aria-hidden>/</li>
-            <li className="text-primary-foreground/80">{region.name}</li>
-          </ol>
-        </nav>
+      {/* ── Hero — real photo background where available, solid forest fallback ── */}
+      <section className="relative overflow-hidden bg-forest text-primary-foreground py-32 md:py-48">
+        {heroImg && (
+          <>
+            <img
+              src={heroImg.url}
+              alt={heroImg.alt}
+              className="absolute inset-0 w-full h-full object-cover object-center"
+              loading="eager"
+              width="1920"
+              height="1080"
+            />
+            <div className="absolute inset-0 bg-forest/80" aria-hidden />
+          </>
+        )}
 
-        <p className="font-eyebrow text-primary-foreground/60 mb-4">
-          {communities.length} Communities
-        </p>
-        <h1 className="font-display text-display-xl text-primary-foreground mb-5">
-          {sc} in {region.name}, Alberta
-        </h1>
-        <p className="text-body-lg text-primary-foreground/75 max-w-[52ch] mb-10">
-          {region.description} We bring master-craft {s} to every community in this region —
-          with a team based in Cochrane, minutes from most of these areas.
-        </p>
-        <button
-          onClick={onBookClick}
-          className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-clay text-white
-                     font-body text-label uppercase tracking-[0.15em]
-                     hover:bg-clay/90 transition-colors duration-300"
-        >
-          {TEMPLATE_COPY.cta.primary}
-          <ArrowRight size={16} />
-        </button>
-      </SectionFrame>
+        <div className="container relative z-10 mx-auto px-6">
+          {/* Breadcrumb */}
+          <nav aria-label="Breadcrumb" className="mb-8">
+            <ol className="flex flex-wrap items-center gap-2 text-caption text-primary-foreground/50">
+              <li><Link to="/" className="hover:text-primary-foreground/80 transition-colors">Home</Link></li>
+              <li aria-hidden>/</li>
+              <li><Link to="/areas-we-serve" className="hover:text-primary-foreground/80 transition-colors">Areas We Serve</Link></li>
+              <li aria-hidden>/</li>
+              <li className="text-primary-foreground/80">{region.name}</li>
+            </ol>
+          </nav>
+
+          <p className="font-eyebrow text-primary-foreground/60 mb-4">
+            {communities.length} Communities
+          </p>
+          <h1 className="font-display text-display-xl text-primary-foreground mb-5">
+            {sc} in {region.name}, Alberta
+          </h1>
+          <p className="text-body-lg text-primary-foreground/75 max-w-[52ch] mb-10">
+            {region.description} We bring master-craft {s} to every community in this region —
+            with a team based in Cochrane, minutes from most of these areas.
+          </p>
+          <button
+            onClick={onBookClick}
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-clay text-white
+                       font-body text-label uppercase tracking-[0.15em]
+                       hover:bg-clay/90 transition-colors duration-300"
+          >
+            {TEMPLATE_COPY.cta.primary}
+            <ArrowRight size={16} />
+          </button>
+        </div>
+      </section>
 
       {/* ── Region Context ── */}
       <SectionFrame tone="paper" size="sm">

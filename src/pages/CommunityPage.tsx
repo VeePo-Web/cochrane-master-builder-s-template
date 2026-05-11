@@ -144,6 +144,9 @@ const CommunityPage = ({ onBookClick }: CommunityPageProps) => {
     source: `areas-we-serve/${community.region}/${community.slug}`,
   };
 
+  // Hero image: community-specific override, or region fallback, or solid forest color
+  const heroImg = community.heroImage ?? region.heroImage;
+
   return (
     <TemplateLayout onBookClick={onBookClick}>
 
@@ -160,60 +163,79 @@ const CommunityPage = ({ onBookClick }: CommunityPageProps) => {
       {/* ══════════════════════════════════════════════════════════════════════
           SECTION 1 — BREADCRUMB + HERO
           H1 pattern: "{serviceCategory} in {Community}, {City}"
+          Hero image: community.heroImage → region.heroImage → solid forest fallback
       ══════════════════════════════════════════════════════════════════════ */}
-      <SectionFrame tone="forest" size="xl" grain>
+      <section className="relative overflow-hidden bg-forest text-primary-foreground py-32 md:py-48">
+        {/* Real copyright-free photo as background — SEO: image alt text adds geo signal */}
+        {heroImg && (
+          <>
+            <img
+              src={heroImg.url}
+              alt={heroImg.alt}
+              className="absolute inset-0 w-full h-full object-cover object-center"
+              loading="eager"
+              width="1920"
+              height="1080"
+            />
+            {/* Forest overlay keeps all text readable against any photo */}
+            <div className="absolute inset-0 bg-forest/80" aria-hidden />
+          </>
+        )}
 
-        {/* Breadcrumb — also generates BreadcrumbList schema via AreasSEOSchema */}
-        <nav aria-label="Breadcrumb" className="mb-8">
-          <ol className="flex flex-wrap items-center gap-2 text-caption text-primary-foreground/50">
-            <li><Link to="/" className="hover:text-primary-foreground/80 transition-colors">Home</Link></li>
-            <li aria-hidden>/</li>
-            <li><Link to="/areas-we-serve" className="hover:text-primary-foreground/80 transition-colors">Areas We Serve</Link></li>
-            <li aria-hidden>/</li>
-            <li><Link to={`/areas-we-serve/${regionSlug}`} className="hover:text-primary-foreground/80 transition-colors">{region.name}</Link></li>
-            <li aria-hidden>/</li>
-            <li className="text-primary-foreground/80">{community.name}</li>
-          </ol>
-        </nav>
+        <div className="container relative z-10 mx-auto px-6">
 
-        {/* Location eyebrow */}
-        <div className="flex items-center gap-2 mb-4">
-          <MapPin size={14} className="text-primary-foreground/50" />
-          <p className="font-eyebrow text-primary-foreground/60 uppercase tracking-[0.18em]">
-            {community.name} · {region.name} · {community.city}, Alberta
+          {/* Breadcrumb — also generates BreadcrumbList schema via AreasSEOSchema */}
+          <nav aria-label="Breadcrumb" className="mb-8">
+            <ol className="flex flex-wrap items-center gap-2 text-caption text-primary-foreground/50">
+              <li><Link to="/" className="hover:text-primary-foreground/80 transition-colors">Home</Link></li>
+              <li aria-hidden>/</li>
+              <li><Link to="/areas-we-serve" className="hover:text-primary-foreground/80 transition-colors">Areas We Serve</Link></li>
+              <li aria-hidden>/</li>
+              <li><Link to={`/areas-we-serve/${regionSlug}`} className="hover:text-primary-foreground/80 transition-colors">{region.name}</Link></li>
+              <li aria-hidden>/</li>
+              <li className="text-primary-foreground/80">{community.name}</li>
+            </ol>
+          </nav>
+
+          {/* Location eyebrow */}
+          <div className="flex items-center gap-2 mb-4">
+            <MapPin size={14} className="text-primary-foreground/50" />
+            <p className="font-eyebrow text-primary-foreground/60 uppercase tracking-[0.18em]">
+              {community.name} · {region.name} · {community.city}, Alberta
+            </p>
+          </div>
+
+          {/* H1 — the money SEO tag */}
+          <h1 className="font-display text-display-xl text-primary-foreground mb-5">
+            {sc} in {community.name}, {community.city}
+          </h1>
+
+          <p className="text-body-lg text-primary-foreground/75 max-w-[52ch] mb-10">
+            {community.shortDescription}
           </p>
+
+          <div className="flex flex-col sm:flex-row gap-4">
+            <button
+              onClick={() => onBookClick?.(prefill)}
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full
+                         bg-clay text-white font-body text-label uppercase tracking-[0.15em]
+                         hover:bg-clay/90 transition-colors duration-300"
+            >
+              {TEMPLATE_COPY.cta.primary}
+              <ArrowRight size={16} />
+            </button>
+            <Link to={`/areas-we-serve/${regionSlug}`}
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full
+                         border border-primary-foreground/30 text-primary-foreground/70
+                         font-body text-label uppercase tracking-[0.15em]
+                         hover:border-primary-foreground/60 hover:text-primary-foreground
+                         transition-all duration-300">
+              <ArrowLeft size={16} /> Back to {region.shortName}
+            </Link>
+          </div>
+
         </div>
-
-        {/* H1 — the money SEO tag */}
-        <h1 className="font-display text-display-xl text-primary-foreground mb-5">
-          {sc} in {community.name}, {community.city}
-        </h1>
-
-        <p className="text-body-lg text-primary-foreground/75 max-w-[52ch] mb-10">
-          {community.shortDescription}
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-4">
-          <button
-            onClick={() => onBookClick?.(prefill)}
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full
-                       bg-clay text-white font-body text-label uppercase tracking-[0.15em]
-                       hover:bg-clay/90 transition-colors duration-300"
-          >
-            {TEMPLATE_COPY.cta.primary}
-            <ArrowRight size={16} />
-          </button>
-          <Link to={`/areas-we-serve/${regionSlug}`}
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full
-                       border border-primary-foreground/30 text-primary-foreground/70
-                       font-body text-label uppercase tracking-[0.15em]
-                       hover:border-primary-foreground/60 hover:text-primary-foreground
-                       transition-all duration-300">
-            <ArrowLeft size={16} /> Back to {region.shortName}
-          </Link>
-        </div>
-
-      </SectionFrame>
+      </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
           SECTION 2 — ABOUT THIS COMMUNITY  (The Primary SEO Content Section)

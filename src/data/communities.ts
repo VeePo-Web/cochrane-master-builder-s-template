@@ -9,6 +9,12 @@ export interface FAQ {
   answer: string;
 }
 
+/** Copyright-free hero image — Wikimedia Commons (CC BY / CC BY-SA / Public Domain) or Unsplash License */
+export interface HeroImage {
+  url: string;
+  alt: string;
+}
+
 export interface Community {
   slug: string;
   name: string;
@@ -24,6 +30,7 @@ export interface Community {
   primaryKeywords: string[];
   faqs: FAQ[];
   nearestCommunities: string[]; // community slugs, 4-5 nearest
+  heroImage?: HeroImage; // community-specific override; falls back to Region.heroImage
 }
 
 export interface Region {
@@ -32,6 +39,7 @@ export interface Region {
   shortName: string;
   description: string;
   adjacentRegions: string[]; // region slugs
+  heroImage?: HeroImage; // used by all communities in this region unless overridden
 }
 
 // =============================================================================
@@ -45,6 +53,11 @@ export const REGIONS: Region[] = [
     shortName: "Cochrane",
     description: "Cochrane's established neighbourhoods — from riverside Riversong to the hilltop views of GlenEagles and Heritage Hills.",
     adjacentRegions: ["rocky-view", "springbank", "bow-valley"],
+    // Wikimedia Commons — CC BY 2.0 — panoramic view of Cochrane Ranch and town, Rocky Mountains beyond
+    heroImage: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/8/80/Cochrane_Wikivoyage_banner.jpg",
+      alt: "Cochrane, Alberta — panoramic view of the town and Cochrane Ranch with the Rocky Mountains",
+    },
   },
   {
     slug: "rocky-view",
@@ -52,6 +65,11 @@ export const REGIONS: Region[] = [
     shortName: "Rocky View",
     description: "Rocky View County's acreage estates — Bearspaw, Watermark, Silverhorn, and Heritage Pointe.",
     adjacentRegions: ["cochrane", "springbank", "calgary-sw"],
+    // Wikimedia Commons — CC BY-SA 3.0 — Bearspaw landscape, rolling hills and foothills
+    heroImage: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Bearspaw_-_panoramio.jpg",
+      alt: "Bearspaw, Rocky View County, Alberta — rolling foothills acreage landscape",
+    },
   },
   {
     slug: "springbank",
@@ -59,6 +77,11 @@ export const REGIONS: Region[] = [
     shortName: "Springbank",
     description: "Springbank's 40+ acreage communities — estate homes, golf-course enclaves, and mountain-view parcels west of Calgary.",
     adjacentRegions: ["rocky-view", "elbow-valley", "calgary-sw"],
+    // Wikimedia Commons — CC BY-SA — Springbank Road facing west toward the Rocky Mountains
+    heroImage: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Springbank_Road_Facing_West.jpg",
+      alt: "Springbank Road facing west toward the Rocky Mountains, Alberta foothills acreage country",
+    },
   },
   {
     slug: "elbow-valley",
@@ -66,6 +89,11 @@ export const REGIONS: Region[] = [
     shortName: "Elbow Valley",
     description: "Elbow Valley's 600 acres of protected land — private lakes, wetlands, Stonepine, and the Glencoe Golf corridor.",
     adjacentRegions: ["springbank", "calgary-sw", "rocky-view"],
+    // Wikimedia Commons — CC BY-SA — Rocky Mountains morning landscape representing the foothills corridor
+    heroImage: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/14/Rockies_in_the_morning.jpg",
+      alt: "Rocky Mountains at dawn — Alberta foothills and mountain landscape west of Calgary",
+    },
   },
   {
     slug: "calgary-sw",
@@ -73,6 +101,11 @@ export const REGIONS: Region[] = [
     shortName: "Calgary SW",
     description: "Calgary's premium southwest — Aspen Woods, Springbank Hill, Discovery Ridge, Signal Hill, and inner-city estates.",
     adjacentRegions: ["springbank", "elbow-valley", "calgary-nw"],
+    // Unsplash License (free commercial use) — Calgary Peace Bridge over Bow River, city skyline
+    heroImage: {
+      url: "https://images.unsplash.com/photo-1597288253816-54ea162cdf0d?auto=format&fit=crop&w=1920&q=80",
+      alt: "Calgary, Alberta — Peace Bridge over the Bow River with city skyline and western mountain backdrop",
+    },
   },
   {
     slug: "calgary-nw",
@@ -80,6 +113,11 @@ export const REGIONS: Region[] = [
     shortName: "Calgary NW",
     description: "Calgary's northwest communities — Arbour Lake, Crestmont, Rockland Park, and Livingston.",
     adjacentRegions: ["cochrane", "calgary-sw", "rocky-view"],
+    // Unsplash License — Calgary skyline across the Bow River, northwest framing
+    heroImage: {
+      url: "https://images.unsplash.com/photo-1601704598796-d00260db4977?auto=format&fit=crop&w=1920&q=80",
+      alt: "Calgary, Alberta — city skyline across the Bow River with foothills and Rocky Mountains beyond",
+    },
   },
   {
     slug: "calgary-se",
@@ -87,6 +125,11 @@ export const REGIONS: Region[] = [
     shortName: "Calgary SE",
     description: "Calgary's southeast lake communities — Auburn Bay, Mahogany, Cranston, and Seton.",
     adjacentRegions: ["calgary-sw", "calgary-nw"],
+    // Unsplash License — Calgary aerial view, southeast lake communities framing
+    heroImage: {
+      url: "https://images.unsplash.com/photo-1607636205817-80ea100d78e7?auto=format&fit=crop&w=1920&q=80",
+      alt: "Calgary, Alberta — aerial view of the city showing southeast communities, trees, and river corridor",
+    },
   },
   {
     slug: "bow-valley",
@@ -94,6 +137,11 @@ export const REGIONS: Region[] = [
     shortName: "Bow Valley",
     description: "The Bow Valley's mountain hamlets — Ghost Lake, CottageClub, Exshaw, Harvie Heights, and Waiparous.",
     adjacentRegions: ["cochrane", "canmore"],
+    // Wikimedia Commons — CC BY-SA 3.0 — Ghost Lake panoramic, Bow Valley corridor
+    heroImage: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/38/Ghost_Lake_-_panoramio.jpg",
+      alt: "Ghost Lake, Alberta — Bow Valley corridor with the Rocky Mountains reflected in the reservoir",
+    },
   },
   {
     slug: "canmore",
@@ -101,6 +149,11 @@ export const REGIONS: Region[] = [
     shortName: "Canmore",
     description: "Canmore's luxury mountain communities — Silvertip, Three Sisters, Benchlands, Eagle Terrace, and Quarry Pines.",
     adjacentRegions: ["bow-valley"],
+    // Wikimedia Commons — CC BY-SA — Three Sisters Mountains, iconic Canmore landmark
+    heroImage: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/d/df/Three_Sister_Mountains%2C_Canmore%2C_Alberta.jpg",
+      alt: "Three Sisters Mountains, Canmore, Alberta — iconic Rocky Mountain peaks above the Bow Valley",
+    },
   },
 ];
 
@@ -180,6 +233,11 @@ const cochraneCommunities: Community[] = [
     province: "Alberta",
     coordinates: { lat: 51.175, lng: -114.4517 },
     tier: 1,
+    // Wikimedia Commons — CC BY-SA 3.0 — dawn over Cochrane showing Rockies and Bow Valley
+    heroImage: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/9/97/Dawn_in_Cochrane_-_panoramio.jpg",
+      alt: "Dawn over Cochrane, Alberta — GlenEagles overlooks the Bow River valley and Rocky Mountains",
+    },
     shortDescription: "Cochrane's hillside golf community with panoramic Rocky Mountain and Bow River valley views, adjacent to the Links of GlenEagles.",
     fullDescription: "GlenEagles sits on Cochrane's eastern hillside and is defined by two things: the Links of GlenEagles golf course, which winds through the community, and the panoramic views of the Rocky Mountains and Bow River valley that almost every home enjoys. The neighbourhood was developed in phases and features a mix of architectural styles — Tudor influences, Craftsman details, and contemporary prairie designs — all held to a consistent quality standard by the community's architectural controls. Homes range from the mid-$600s to well above $1.2 million for the premium golf-course lots, and the elevated terrain means that even mid-range properties enjoy mountain sightlines that would cost considerably more in other markets. An extensive hiking and biking trail network connects GlenEagles to the broader Cochrane trail system and down to the Bow River. For drywall and finishing contractors, GlenEagles presents some of the more interesting work in Cochrane — homes with dramatic ceiling heights over double-height foyers, stair walls that run two full storeys, and feature rooms designed to showcase the view rather than compete with it. Level 5 smooth finishes for feature walls and vaulted ceiling detail work are regular requests from homeowners who have invested in the architecture and want the finishing to match.",
     streets: ["GlenEagles Drive", "GlenEagles View", "GlenEagles Estates Boulevard", "Eagle View Court", "Glencreek Place", "GlenEagles Landing"],
@@ -334,6 +392,11 @@ const rockyViewCommunities: Community[] = [
     province: "Alberta",
     coordinates: { lat: 51.1317, lng: -114.3167 },
     tier: 1,
+    // Wikimedia Commons — CC BY-SA 2.5 / 3.0 — actual Bearspaw, Alberta landscape
+    heroImage: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/2/22/Bearspaw%2C_Alberta.JPG",
+      alt: "Bearspaw, Alberta — rolling acreage landscape between Calgary and Cochrane with mountain views",
+    },
     shortDescription: "Rocky View's premier estate community between Calgary and Cochrane — rolling hills, mountain views, Bearspaw and Watermark golf clubs.",
     fullDescription: "Bearspaw is Rocky View County's most established rural estate community, occupying rolling hill terrain between Calgary and Cochrane with some of the region's most commanding mountain and prairie views. The area encompasses multiple sub-communities including the nationally award-winning Watermark development — a 287-acre master-planned enclave with 479 estate-size single-family lots and 101 semi-detached villas centred around cascading ponds, a central plaza, and sports courts. Beyond Watermark, the broader Bearspaw area is characterised by acreage lots on which homeowners have built custom luxury residences, many with equestrian facilities, private ponds, and extensive outdoor amenity. Golf is central to the Bearspaw lifestyle — the Bearspaw Golf Club and Watermark Golf Club both serve the community. Trails and equestrian paths wind throughout. For high-end drywall and finishing contractors, Bearspaw and Watermark represent some of the most demanding and rewarding work in the region. Custom estate homes with 12-foot coffered ceilings, barrel-vault corridors, wainscoting detail work, and built-in cabinetry surrounds require a level of finishing craft that differentiates serious contractors from volume builders. We've completed projects across Bearspaw including complete interior renovation of estate homes and full new-build finishing packages.",
     streets: ["Bearspaw Drive", "Bearspaw Meadows Way", "Watermark Avenue", "Watermark Boulevard", "Bearspaw Village Road", "Bearspaw Downs Drive", "Bearspaw Ridge Road"],
@@ -2142,6 +2205,11 @@ const bowValleyCommunities: Community[] = [
     province: "Alberta",
     coordinates: { lat: 51.2, lng: -114.6917 },
     tier: 1,
+    // Wikimedia Commons — CC BY-SA 3.0 — Ghost Lake panoramic showing the reservoir and Rocky Mountains
+    heroImage: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/38/Ghost_Lake_-_panoramio.jpg",
+      alt: "Ghost Lake, Alberta — panoramic view of the reservoir with the Rocky Mountains, Bow Valley corridor",
+    },
     shortDescription: "Fully established private gated lake community 40 minutes west of Calgary with private beaches, boat launch, 11,000 sq ft recreation centre, and 350 cottage lots.",
     fullDescription: "CottageClub is one of Alberta's most remarkable private lake communities — a fully established, gated recreational development 40 minutes west of Calgary featuring private sandy beaches, a private boat launch, tennis and pickleball courts, kilometres of walking trails, and an 11,000 square foot recreation centre with pool, hot tub, gym, and library. The development has approximately 350 lots and is family-oriented with about 70% second-home ownership and year-round recreation including swimming, boating, and ice skating. Lots are serviced and purchasers build custom cottages — custom finishing work on cottages and secondary residences in a recreational setting is a specific skill set, and we bring that expertise to CottageClub projects.",
     streets: ["CottageClub Drive", "Lakefront Road", "Beach Access Drive", "Marina Way", "CottageClub Boulevard", "Cottage Lane"],
@@ -2163,6 +2231,11 @@ const bowValleyCommunities: Community[] = [
     province: "Alberta",
     coordinates: { lat: 51.2, lng: -114.7 },
     tier: 2,
+    // Wikimedia Commons — Public Domain — Ghost Lake autumn landscape
+    heroImage: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/8/8a/Ghost_Lake-autumn01.Alberta.CA.jpg",
+      alt: "Ghost Lake, Alberta in autumn — lakeside village landscape in the Bow Valley",
+    },
     shortDescription: "Serene lakeside community between the Bow Valley Trail and Ghost Lake Reservoir — a peaceful retreat with boating access near Calgary.",
     fullDescription: "Ghost Lake Village is a serene lakeside community nestled between the Bow Valley Trail and the northern shore of the Ghost Lake Reservoir. The community offers stunning natural beauty, a peaceful retreat atmosphere, and year-round outdoor recreation including boating, fishing, and hiking. Located a short drive from Calgary (45 minutes) and Cochrane (15 minutes), it provides a close-knit cottage-country community feel. Custom cottages and recreational residences are the primary housing type.",
     streets: ["Ghost Lake Drive", "Lakefront Crescent", "Lake Shore Drive", "Ghost River Road", "Cottage Lane", "Reservoir View Road"],
@@ -2296,6 +2369,11 @@ const canmoreCommunities: Community[] = [
     province: "Alberta",
     coordinates: { lat: 51.0917, lng: -115.35 },
     tier: 2,
+    // Wikimedia Commons — CC BY-SA — Grotto Mountain above Canmore, the Benchlands' defining peak
+    heroImage: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/5/55/Grotto_Mountain_-_Canmore_-_panoramio.jpg",
+      alt: "Grotto Mountain, Canmore, Alberta — the peak that rises directly above the Benchlands community",
+    },
     shortDescription: "Canmore micro-neighbourhood on a ridge at the base of Grotto Mountain with large homes, valley views, and trail access.",
     fullDescription: "Benchlands is a Canmore micro-neighbourhood located on a ridge at the base of Grotto Mountain, containing just two streets lined with large single-family homes and tasteful duplexes. Residents enjoy spectacular valley views and quick access to downtown Canmore, with abundant walking, running, and biking trails, parks, and a golf course. The small community size and dramatic setting create a distinctive residential experience — homes here are positioned for maximum view exposure, and interior finishing quality must match the setting.",
     streets: ["Benchlands Terrace", "Benchlands Drive", "Grotto Mountain Road", "Grotto Crescent", "Valley View Drive", "Ridge Road"],
@@ -2317,6 +2395,11 @@ const canmoreCommunities: Community[] = [
     province: "Alberta",
     coordinates: { lat: 51.0783, lng: -115.3533 },
     tier: 1,
+    // Wikimedia Commons — CC BY-SA — Bow Valley viewed from Silvertip elevation, Canmore panorama
+    heroImage: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/5/58/Bow_Valley_from_Silver_Tip_-_panoramio.jpg",
+      alt: "Bow Valley panoramic view from Silvertip, Canmore — mountain resort elevation perspective",
+    },
     shortDescription: "600-acre luxury mountain resort community at the foot of Lady Macdonald with a championship golf course and exclusive residential offerings.",
     fullDescription: "Silvertip Resort covers approximately 600 acres of mountain, grassland, and valley terrain and is recognised as one of Canada's premier communities for luxury resort real estate. The resort blends mountain scenery with refined hospitality, offering an 18-hole championship golf course rated among the best new courses in Canada, two restaurants, event venues, and an exclusive residential community. Lady Macdonald Mountain frames the development from above. Interior finishing at Silvertip reflects the resort's premium positioning — Level 5 smooth throughout, custom ceiling features, and the kind of precision craft that a national luxury address demands.",
     streets: ["Silvertip Trail", "Silvertip Drive", "Silvertip Boulevard", "Lady Macdonald Drive", "Golf Course Road", "Summit View Drive"],
@@ -2338,6 +2421,11 @@ const canmoreCommunities: Community[] = [
     province: "Alberta",
     coordinates: { lat: 51.085, lng: -115.3467 },
     tier: 1,
+    // Wikimedia Commons — CC BY-SA — the Three Sisters peaks, defining Canmore landmark
+    heroImage: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/d/df/Three_Sister_Mountains%2C_Canmore%2C_Alberta.jpg",
+      alt: "Three Sisters Mountains, Canmore, Alberta — the iconic triple peaks above Three Sisters Mountain Village",
+    },
     shortDescription: "Master-planned Canmore community at the foot of the Three Sisters peaks with pedestrian-first village, diverse housing, and extensive trail access.",
     fullDescription: "Three Sisters Mountain Village is a master-planned community at the foot of the Three Sisters peaks, designed around pedestrian-first principles with cafés, shops, wellness centres, and residences. The Gateway provides a mixed-use hub with grocery, retail, dining, and staff accommodation. Neighbourhoods like Stewart Creek feature low to high-density housing connected by walking and biking trails and recreation spaces. The community offers abundant outdoor activities — hiking, biking, golfing, and cross-country skiing. Housing includes condos, townhomes, and single-family homes with open-concept layouts and large windows for mountain views.",
     streets: ["Three Sisters Parkway", "Three Sisters Drive", "Three Sisters Boulevard", "Stewart Creek Way", "Village Gateway Drive", "Mountain View Road"],
@@ -2443,6 +2531,11 @@ const canmoreCommunities: Community[] = [
     province: "Alberta",
     coordinates: { lat: 51.0833, lng: -115.36 },
     tier: 2,
+    // Wikimedia Commons — CC BY-SA — Downtown Canmore and Trans-Canada, Spring Creek's immediate context
+    heroImage: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Downtown_Canmore_%5E_Trans_Canada_Highway_-_panoramio.jpg",
+      alt: "Downtown Canmore, Alberta — Spring Creek Mountain Village sits within this mountain resort town",
+    },
     shortDescription: "Master-planned resort community within downtown Canmore featuring luxury condos, Bow River walkways, boutique shops, and spa resorts.",
     fullDescription: "Spring Creek Mountain Village is a master-planned resort community within downtown Canmore featuring luxury condominiums, riverwalks along the Bow River, boutique shops, and spa resorts. The community is designed as a walkable, resort-lifestyle destination within walking distance of Canmore's Main Street. Luxury condo interior renovation and new suite finishing are the primary project types here — Level 5 smooth, premium finish packages, and the kind of work that a Canmore resort address demands.",
     streets: ["Spring Creek Drive", "Riverwalk Way", "Spring Creek Boulevard", "Bow Avenue", "Resort Way", "Spa Drive"],
