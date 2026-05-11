@@ -32,7 +32,7 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
 
   // Desktop trims to the load-bearing pages; mobile drawer carries the full set.
   const desktop = TEMPLATE_COPY.nav.filter((n) =>
-    ["/", "/services", "/pricing", "/gallery", "/reviews", "/about"].includes(n.path),
+    ["/", "/services", "/areas-we-serve", "/pricing", "/gallery", "/reviews", "/about"].includes(n.path),
   );
 
   return (

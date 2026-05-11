@@ -1,24 +1,41 @@
 import { useEffect } from "react";
 import type { Community } from "@/data/communities";
+import type { FAQ } from "@/config/template/remix-variables";
 
 const BASE_URL = "https://cochranedrywall.ca";
-const BRAND_NAME = "Cochrane Drywall Masters";
-const PHONE = "+1-403-XXX-XXXX";
+const PHONE = "+1-403-000-0000";
 const ADDRESS_LOCALITY = "Cochrane";
 const ADDRESS_REGION = "AB";
 
+/**
+ * Injects 4 JSON-LD schema types into document.head for a community page.
+ * Service-agnostic: brandName, service, and FAQs are injected as props
+ * so every remix gets accurate, trade-specific structured data.
+ */
 interface AreasSEOSchemaProps {
   community: Community;
   regionName: string;
+  brandName: string;       // e.g. "Cochrane Tile Masters"
+  service: string;         // e.g. "tile" — from MASTER_REMIX.SERVICE
+  serviceCategory: string; // e.g. "Interior Finishing"
+  faqs: FAQ[];             // generated dynamically by the page
 }
 
-const AreasSEOSchema = ({ community, regionName }: AreasSEOSchemaProps) => {
+const AreasSEOSchema = ({
+  community,
+  regionName,
+  brandName,
+  service,
+  serviceCategory,
+  faqs,
+}: AreasSEOSchemaProps) => {
   useEffect(() => {
     const schemas = [
+      // 1. LocalBusiness — declares this community as a served area
       {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        name: BRAND_NAME,
+        name: brandName,
         telephone: PHONE,
         address: {
           "@type": "PostalAddress",
@@ -37,9 +54,11 @@ const AreasSEOSchema = ({ community, regionName }: AreasSEOSchemaProps) => {
         },
         hasOfferCatalog: {
           "@type": "OfferCatalog",
-          name: `Drywall Services in ${community.name}`,
+          name: `${serviceCategory} in ${community.name}`,
         },
       },
+
+      // 2. BreadcrumbList — 4-level breadcrumb
       {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -50,23 +69,25 @@ const AreasSEOSchema = ({ community, regionName }: AreasSEOSchemaProps) => {
           { "@type": "ListItem", position: 4, name: community.name, item: `${BASE_URL}/areas-we-serve/${community.region}/${community.slug}` },
         ],
       },
+
+      // 3. FAQPage — generated dynamically, always service-accurate
       {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        mainEntity: community.faqs.map((faq) => ({
+        mainEntity: faqs.map((faq) => ({
           "@type": "Question",
           name: faq.question,
           acceptedAnswer: { "@type": "Answer", text: faq.answer },
         })),
       },
+
+      // 4. Service — with geo coordinates for local pack ranking
       {
         "@context": "https://schema.org",
         "@type": "Service",
-        name: `Drywall Services in ${community.name}`,
-        provider: {
-          "@type": "LocalBusiness",
-          name: BRAND_NAME,
-        },
+        name: `${serviceCategory} in ${community.name}`,
+        serviceType: serviceCategory,
+        provider: { "@type": "LocalBusiness", name: brandName },
         areaServed: {
           "@type": "Place",
           name: community.name,
@@ -82,16 +103,14 @@ const AreasSEOSchema = ({ community, regionName }: AreasSEOSchemaProps) => {
             longitude: community.coordinates.lng,
           },
         },
-        serviceType: "Drywall Installation and Finishing",
       },
     ];
 
-    const removeExisting = () => {
-      document.querySelectorAll('script[data-areas-schema="true"]').forEach((el) => el.remove());
+    const cleanup = () => {
+      document.querySelectorAll('[data-areas-schema="true"]').forEach((el) => el.remove());
     };
 
-    removeExisting();
-
+    cleanup();
     schemas.forEach((schema) => {
       const script = document.createElement("script");
       script.type = "application/ld+json";
@@ -100,8 +119,8 @@ const AreasSEOSchema = ({ community, regionName }: AreasSEOSchemaProps) => {
       document.head.appendChild(script);
     });
 
-    return removeExisting;
-  }, [community, regionName]);
+    return cleanup;
+  }, [community, regionName, brandName, service, serviceCategory, faqs]);
 
   return null;
 };

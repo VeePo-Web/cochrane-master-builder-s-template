@@ -20,6 +20,7 @@ export const TEMPLATE_COPY = {
     { label: "Brand Story", path: "/brand-story" },
     { label: "Why We Love {SERVICE}", path: "/why-we-love" },
     { label: "Services", path: "/services" },
+    { label: "Areas We Serve", path: "/areas-we-serve" },
     { label: "Pricing", path: "/pricing" },
     { label: "Gallery", path: "/gallery" },
     { label: "Reviews", path: "/reviews" },

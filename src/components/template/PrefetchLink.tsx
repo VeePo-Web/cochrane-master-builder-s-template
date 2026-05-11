@@ -10,6 +10,7 @@ const ROUTE_PREFETCHERS: Record<string, Prefetcher> = {
   "/brand-story": () => import("@/pages/template/BrandStory"),
   "/why-we-love": () => import("@/pages/template/WhyWeLoveService"),
   "/services": () => import("@/pages/template/Services"),
+  "/areas-we-serve": () => import("@/pages/AreasHub"),
   "/pricing": () => import("@/pages/template/Pricing"),
   "/gallery": () => import("@/pages/template/Gallery"),
   "/reviews": () => import("@/pages/template/Reviews"),
