@@ -2610,6 +2610,162 @@ export const COMMUNITIES: Community[] = [
 ];
 
 // =============================================================================
+// COMMUNITY HERO IMAGE LOOKUP MAP
+// =============================================================================
+// All 120+ communities mapped to verified copyright-free hero images.
+// Existing community-level heroImage overrides take priority (via getCommunity ??).
+// Image sources: Wikimedia Commons (CC BY 2.0 / CC BY-SA 3.0) + Unsplash License.
+// Alt text = geographic context only. The page prepends {SERVICE_CATEGORY} at render.
+// See: knowledge/source-documents/strategy/image-seo-metadata-remix-guide.md
+// =============================================================================
+
+// Shared URL constants
+const _COCHRANE_BANNER   = "https://upload.wikimedia.org/wikipedia/commons/8/80/Cochrane_Wikivoyage_banner.jpg";          // CC BY 2.0
+const _COCHRANE_RANCH    = "https://upload.wikimedia.org/wikipedia/commons/5/50/Cochrane_Ranch_Alberta_Canada_%2827358014540%29.jpg"; // CC BY 2.0
+const _BEARSPAW_PANO     = "https://upload.wikimedia.org/wikipedia/commons/c/c9/Bearspaw_-_panoramio.jpg";               // CC BY-SA 3.0
+const _SPRINGBANK_ROAD   = "https://upload.wikimedia.org/wikipedia/commons/f/fa/Springbank_Road_Facing_West.jpg";        // CC BY-SA
+const _ROCKIES_MORNING   = "https://upload.wikimedia.org/wikipedia/commons/1/14/Rockies_in_the_morning.jpg";             // CC BY-SA
+const _CALGARY_BRIDGE    = "https://images.unsplash.com/photo-1597288253816-54ea162cdf0d?auto=format&fit=crop&w=1920&q=80"; // Unsplash License
+const _CALGARY_SKYLINE   = "https://images.unsplash.com/photo-1601704598796-d00260db4977?auto=format&fit=crop&w=1920&q=80"; // Unsplash License
+const _CALGARY_AERIAL    = "https://images.unsplash.com/photo-1607636205817-80ea100d78e7?auto=format&fit=crop&w=1920&q=80"; // Unsplash License
+const _GHOST_LAKE_PANO   = "https://upload.wikimedia.org/wikipedia/commons/3/38/Ghost_Lake_-_panoramio.jpg";             // CC BY-SA 3.0
+const _THREE_SISTERS     = "https://upload.wikimedia.org/wikipedia/commons/d/df/Three_Sister_Mountains%2C_Canmore%2C_Alberta.jpg"; // CC BY-SA
+const _WEST_SPRINGS_SUNSET = "https://upload.wikimedia.org/wikipedia/commons/1/14/West_Springs_Sunset_%2815914229875%29.jpg"; // CC BY 2.0
+
+const COMMUNITY_HERO_IMAGES: Record<string, HeroImage> = {
+
+  // ── COCHRANE ───────────────────────────────────────────────────────────────
+  "heritage-hills":         { url: _COCHRANE_BANNER, alt: "Heritage Hills, Cochrane Alberta — elevated northwest community with Rocky Mountain vistas and upscale estate homes" },
+  "sunset-ridge":           { url: _COCHRANE_BANNER, alt: "Sunset Ridge, Cochrane Alberta — north-of-highway community with 6-acre freshwater pond and 5km of connected pathways" },
+  "riversong":              { url: _COCHRANE_RANCH,  alt: "Riversong, Cochrane Alberta — Bow River valley community with 19km of natural reserve pathways adjacent to the Historic Cochrane Ranche" },
+  "heartland":              { url: _COCHRANE_BANNER, alt: "Heartland, Cochrane Alberta — west-end community with 45 acres of open green space and direct Ghost Lake recreational access" },
+  "cochrane-heights":       { url: _COCHRANE_RANCH,  alt: "Cochrane Heights, Cochrane Alberta — elevated hilltop community overlooking the Historic Cochrane Ranche and Bow River valley" },
+  "glenbow":                { url: _COCHRANE_RANCH,  alt: "Glenbow, Cochrane Alberta — established community adjacent to the Cochrane Ranche Historic Site and Riverfront Park" },
+  "east-end-downtown-cochrane": { url: _COCHRANE_BANNER, alt: "Downtown Cochrane, Alberta — historic Main Street community with heritage architecture and walkable civic character" },
+  "west-terrace-west-pointe": { url: _COCHRANE_BANNER, alt: "West Terrace, Cochrane Alberta — Bow River community with Mitford Park sports fields, fishing access, and riverside pathways" },
+  "fireside":               { url: _COCHRANE_RANCH,  alt: "Fireside, Cochrane Alberta — Cochrane's newest community adjacent to Heritage Hills with modern open-plan estate homes" },
+
+  // ── ROCKY VIEW COUNTY ─────────────────────────────────────────────────────
+  "silverhorn":             { url: _BEARSPAW_PANO, alt: "Silverhorn, Bearspaw Alberta — master-planned acreage community with 50% preserved natural open space and rolling hill terrain" },
+  "heritage-pointe":        { url: _BEARSPAW_PANO, alt: "Heritage Pointe, Rocky View County Alberta — upscale south Calgary estate community with Heritage Pointe Golf Club and park trails" },
+
+  // ── SPRINGBANK ────────────────────────────────────────────────────────────
+  "springbank-hill":        { url: _SPRINGBANK_ROAD, alt: "Springbank Hill, Calgary Alberta — prestigious west Calgary estate community with panoramic Rocky Mountain and foothill views" },
+  "aventerra-estates":      { url: _SPRINGBANK_ROAD, alt: "Aventerra Estates, Springbank Alberta — exclusive two-acre estate community near Bingham Crossing and Springbank Links Golf Club" },
+  "devonian-ridge-estates": { url: _SPRINGBANK_ROAD, alt: "Devonian Ridge Estates, Springbank Alberta — intimate 10-lot estate community with 32 acres of preserved parkland and Bow River valley views" },
+  "morning-vista-estates":  { url: _SPRINGBANK_ROAD, alt: "Morning Vista Estates, Springbank Alberta — 42 custom estate homes on two-acre lots with breathtaking Rocky Mountain views" },
+  "pinnacle-ridge":         { url: _SPRINGBANK_ROAD, alt: "Pinnacle Ridge, Springbank Alberta — ridge-top estate community with sweeping panoramic mountain and valley views and mature tree canopy" },
+  "mackenas-country-estates": { url: _SPRINGBANK_ROAD, alt: "Mackenas Country Estates, Springbank Alberta — gated enclave of 21 estate homes behind iron and stone entry gates with golf course access" },
+  "swift-creek-estates":    { url: _SPRINGBANK_ROAD, alt: "Swift Creek Estates, Springbank Alberta — 63 estate homes on two-acre lots five minutes west of Calgary with 32 acres of preserved wildlife habitat" },
+  "morgan-rise":            { url: _SPRINGBANK_ROAD, alt: "Morgan's Rise, Springbank Alberta — stately western-heritage estate community with two-acre parcels and manicured mountain-view gardens" },
+  "rodeo-ridge":            { url: _SPRINGBANK_ROAD, alt: "Rodeo Ridge, Springbank Alberta — intimate golf-corridor community of fewer than 50 homes nestled within Springbank Links Golf Club" },
+  "villosa-ridge":          { url: _SPRINGBANK_ROAD, alt: "Villosa Ridge, Springbank Alberta — premier estate community minutes from Springbank Links Golf Club and top-rated schools" },
+  "windhorse-manor":        { url: _SPRINGBANK_ROAD, alt: "Windhorse Manor, Springbank Alberta — serene acreage community on rolling hills with architectural harmony standards and equestrian facilities" },
+  "pinebrook-estates":      { url: _SPRINGBANK_ROAD, alt: "Pinebrook Estates, Springbank Alberta — mature estate community among spruce and poplar trees adjacent to Pinebrook Golf & Country Club" },
+  "sterling-springs":       { url: _SPRINGBANK_ROAD, alt: "Sterling Springs, Springbank Alberta — quiet acreage enclave with one to two acre lots, mountain vistas, and equestrian trail access" },
+  "westbluff":              { url: _SPRINGBANK_ROAD, alt: "Westbluff, Springbank Alberta — estate enclave on Calgary's western boundary with mountain views and proximity to private schools" },
+  "westview":               { url: _SPRINGBANK_ROAD, alt: "Westview, Springbank Alberta — acreage estate community adjacent to Calgary's western edge with mountain views and city access" },
+  "river-ridge-estates":    { url: _SPRINGBANK_ROAD, alt: "River Ridge Estates, Springbank Alberta — ridge-top enclave of luxury homes above the Bow River valley with privacy and natural views" },
+  "alandale-estates":       { url: _SPRINGBANK_ROAD, alt: "Alandale Estates, Springbank Alberta — acreage estate community with one to two acre luxury lots and mountain views near Highway 8" },
+  "aventerra":              { url: _SPRINGBANK_ROAD, alt: "Aventerra, Springbank Alberta — acreage estate community with luxury custom homes and Rocky Mountain views west of Calgary" },
+  "crocus-ridge":           { url: _SPRINGBANK_ROAD, alt: "Crocus Ridge, Springbank Alberta — acreage estate community with luxury custom homes and mountain views along the Springbank golf corridor" },
+  "escarpment-estates":     { url: _SPRINGBANK_ROAD, alt: "Escarpment Estates, Springbank Alberta — ridge-top acreage community with dramatic valley and mountain vistas on luxury estate lots" },
+  "gracewood-estates":      { url: _SPRINGBANK_ROAD, alt: "Gracewood Estates, Springbank Alberta — acreage estate community with luxury custom homes and convenient Highway 8 Calgary access" },
+  "grandview-park":         { url: _SPRINGBANK_ROAD, alt: "Grandview Park, Springbank Alberta — two-acre estate community overlooking the Elbow River valley with unobstructed mountain panoramas" },
+  "hillcrest":              { url: _SPRINGBANK_ROAD, alt: "Hillcrest, Springbank Alberta — elevated acreage estate community with luxury custom homes positioned for mountain and valley views" },
+  "idlewind":               { url: _SPRINGBANK_ROAD, alt: "Idlewind, Springbank Alberta — quiet acreage estate community with luxury custom homes and mountain views near Springbank golf" },
+  "livingstone":            { url: _SPRINGBANK_ROAD, alt: "Livingstone, Springbank Alberta — acreage estate community with luxury homes near the Elbow River valley corridor" },
+  "morning-vista":          { url: _SPRINGBANK_ROAD, alt: "Morning Vista, Springbank Alberta — acreage micro-community with estate homes and mountain view living west of Calgary" },
+  "panorama":               { url: _SPRINGBANK_ROAD, alt: "Panorama, Springbank Alberta — aptly named acreage community with expansive mountain and valley panoramas on luxury estate lots" },
+  "partridge-estates":      { url: _SPRINGBANK_ROAD, alt: "Partridge Estates, Springbank Alberta — acreage estate community with luxury custom homes and Springbank Links golf proximity" },
+  "pradera-springs":        { url: _SPRINGBANK_ROAD, alt: "Pradera Springs, Springbank Alberta — acreage micro-community with luxury estate lots and mountain views near Calgary" },
+  "riverfront-estates":     { url: _SPRINGBANK_ROAD, alt: "Riverfront Estates, Springbank Alberta — river-facing acreage community with luxury estate lots and Bow River valley views" },
+  "rosewood-estates":       { url: _SPRINGBANK_ROAD, alt: "Rosewood Estates, Springbank Alberta — acreage estate community with luxury custom homes and mountain view living in the Springbank corridor" },
+  "spring-shire":           { url: _SPRINGBANK_ROAD, alt: "Spring Shire, Springbank Alberta — acreage micro-community with luxury estate homes and mountain view living west of Calgary" },
+  "spring-view-estates":    { url: _SPRINGBANK_ROAD, alt: "Spring View Estates, Springbank Alberta — acreage estate community with luxury custom homes and golf corridor access" },
+  "springbank-creek":       { url: _SPRINGBANK_ROAD, alt: "Springbank Creek, Springbank Alberta — creek-adjacent acreage community with luxury estate lots and natural corridor privacy" },
+  "springbank-heights":     { url: _SPRINGBANK_ROAD, alt: "Springbank Heights, Springbank Alberta — elevated acreage community with sweeping mountain and valley views on luxury estate lots" },
+  "springbank-links":       { url: _SPRINGBANK_ROAD, alt: "Springbank Links, Springbank Alberta — golf-corridor acreage community directly adjacent to Springbank Links Golf Club" },
+  "springbank-meadows":     { url: _SPRINGBANK_ROAD, alt: "Springbank Meadows, Springbank Alberta — meadow-setting acreage estate community with mountain views and Springbank lifestyle access" },
+  "springland":             { url: _SPRINGBANK_ROAD, alt: "Springland, Springbank Alberta — acreage estate community with luxury custom homes and mountain views in the Springbank golf corridor" },
+  "uplands":                { url: _SPRINGBANK_ROAD, alt: "Uplands, Springbank Alberta — elevated acreage estate community with commanding mountain and valley views" },
+  "vantage-ridge-estates":  { url: _SPRINGBANK_ROAD, alt: "Vantage Ridge Estates, Springbank Alberta — ridge-position acreage community with commanding vantage views and luxury estate homes" },
+
+  // ── ELBOW VALLEY ──────────────────────────────────────────────────────────
+  "elbow-valley":           { url: _ROCKIES_MORNING, alt: "Elbow Valley, Rocky View County Alberta — master-planned estate community with 600 acres of protected land, private lakes, and Glencoe Golf corridor" },
+  "stone-pine":             { url: _ROCKIES_MORNING, alt: "Stone Pine, Elbow Valley Alberta — contemporary open-concept estate community adjacent to Stonepine above the Glencoe Golf valley" },
+  "swift-creek-villas":     { url: _ROCKIES_MORNING, alt: "Swift Creek Villas, Elbow Valley Alberta — maintenance-free lock-and-leave villas with Fisherman's Pond skating and pathway access" },
+  "lott-creek-estates":     { url: _ROCKIES_MORNING, alt: "Lott Creek Estates, Elbow Valley Alberta — estate community walkable to Elbow Springs Golf Club with Fisherman's Pond and pathway access" },
+  "lott-creek":             { url: _ROCKIES_MORNING, alt: "Lott Creek, Springbank Alberta — established community with traditional architecture on large treed lots adjacent to Elbow Springs Golf Club" },
+  "braemar-ranch":          { url: _ROCKIES_MORNING, alt: "Braemar Ranch, Elbow Valley Alberta — rustic-modern estate community with large floor plans and natural stone and wood materials" },
+  "clearwater-estates":     { url: _ROCKIES_MORNING, alt: "Clearwater Estates, Elbow Valley Alberta — contemporary and traditional community with ponds, green space, and family-friendly streets" },
+  "elbow-ridge":            { url: _ROCKIES_MORNING, alt: "Elbow Ridge, Elbow Valley Alberta — ridge-positioned estates with sweeping Elbow River valley views and architectural quality controls" },
+  "elbow-river-estates":    { url: _ROCKIES_MORNING, alt: "Elbow River Estates, Elbow Valley Alberta — established community with Tudor Revival and French Country homes on large spacious lots" },
+  "elbow-valley-west":      { url: _ROCKIES_MORNING, alt: "Elbow Valley West, Alberta — family-focused sub-community with pathway network, diverse housing, and Springbank Park for All Seasons" },
+  "west-meadows":           { url: _ROCKIES_MORNING, alt: "West Meadows, Elbow Valley Alberta — diverse housing community with modern open-concept designs amid green spaces and walking paths" },
+
+  // ── CALGARY SOUTHWEST ────────────────────────────────────────────────────
+  "aspen-woods":            { url: _CALGARY_BRIDGE,  alt: "Aspen Woods, Calgary Alberta — upscale west Calgary community with mountain views, Aspen Landing Shopping, and top-rated schools" },
+  "discovery-ridge":        { url: _CALGARY_BRIDGE,  alt: "Discovery Ridge, Calgary Alberta — nature-focused community bordering Griffith Woods Park and the Elbow River in southwest Calgary" },
+  "signal-hill":            { url: _CALGARY_BRIDGE,  alt: "Signal Hill, Calgary Alberta — large southwest Calgary community with estate homes, Westhills shopping, and community recreation amenities" },
+  "west-springs":           { url: _WEST_SPRINGS_SUNSET, alt: "West Springs, Calgary Alberta — family-focused west Calgary community with excellent schools, mountain views, and West 85th Shopping District" },
+  "cougar-ridge":           { url: _CALGARY_BRIDGE,  alt: "Cougar Ridge, Calgary Alberta — hillside community with Canada Olympic Park views and Craftsman-style estate homes near Paskapoo Slopes" },
+  "crestmont":              { url: _CALGARY_BRIDGE,  alt: "Crestmont, Calgary Alberta — hilltop community with 30% protected aspen forest, estate architecture, and Kananaskis trail access" },
+  "crestmont-view":         { url: _CALGARY_BRIDGE,  alt: "Crestmont View, Calgary Alberta — custom estate development with 0.25 to 1.65 acre lots and aspen forest mountain views within Calgary" },
+  "altadore-marda-loop":    { url: _CALGARY_BRIDGE,  alt: "Altadore and Marda Loop, Calgary Alberta — vibrant inner-city southwest community with Sandy Beach, River Park, and independent shops" },
+  "elbow-park":             { url: _CALGARY_BRIDGE,  alt: "Elbow Park, Calgary Alberta — inner-city community along the Elbow River with renovated heritage homes and river trail access" },
+  "britannia":              { url: _CALGARY_BRIDGE,  alt: "Britannia, Calgary Alberta — prestigious neighbourhood adjacent to Calgary Golf & Country Club with estate homes and Elbow River pathways" },
+  "bel-aire":               { url: _CALGARY_BRIDGE,  alt: "Bel-Aire, Calgary Alberta — exclusive enclave adjacent to Calgary Golf & Country Club with Glenmore Reservoir views and estate homes" },
+  "eagle-ridge":            { url: _CALGARY_BRIDGE,  alt: "Eagle Ridge, Calgary Alberta — exclusive community bordering Glenmore Reservoir and Heritage Park with boat launch and hiking access" },
+  "pump-hill":              { url: _CALGARY_BRIDGE,  alt: "Pump Hill, Calgary Alberta — luxury community with expansive estate homes and Bow River valley views in southwest Calgary" },
+  "elboya":                 { url: _CALGARY_BRIDGE,  alt: "Elboya, Calgary Alberta — high-end inner-city community along the Elbow River with premium properties and park access" },
+  "upper-mount-royal":      { url: _CALGARY_BRIDGE,  alt: "Upper Mount Royal, Calgary Alberta — historic inner-city neighbourhood with heritage and modern estate homes near 17 Avenue" },
+  "roxboro":                { url: _CALGARY_BRIDGE,  alt: "Roxboro, Calgary Alberta — elegant inner-city community with luxury infill homes and Elbow River pathway access" },
+  "parkhill":               { url: _CALGARY_BRIDGE,  alt: "Parkhill, Calgary Alberta — established southwest community with detached homes, condos, and Macleod Trail convenience" },
+  "patterson":              { url: _CALGARY_BRIDGE,  alt: "Patterson, Calgary Alberta — hillside west-side community with elevated panoramic views and diverse housing options" },
+  "strathcona-park":        { url: _CALGARY_BRIDGE,  alt: "Strathcona Park, Calgary Alberta — luxurious single-family community with central park, tennis courts, and outdoor recreational amenities" },
+  "shaganappi":             { url: _CALGARY_BRIDGE,  alt: "Shaganappi, Calgary Alberta — established inner-city community near Shaganappi Point Golf Course and Westbrook Mall" },
+  "inglewood":              { url: _CALGARY_BRIDGE,  alt: "Inglewood, Calgary Alberta — Calgary's oldest neighbourhood with heritage character, arts district, and Bow River parks" },
+  "beltline":               { url: _CALGARY_BRIDGE,  alt: "Beltline, Calgary Alberta — urban inner-city neighbourhood south of downtown with condo living, Central Memorial Park, and eclectic dining" },
+
+  // ── CALGARY NORTHWEST ─────────────────────────────────────────────────────
+  "arbour-lake":            { url: _CALGARY_SKYLINE, alt: "Arbour Lake, Calgary Alberta — northwest Calgary's only private lake community with year-round recreation on the 43-acre lake" },
+  "livingston":             { url: _CALGARY_SKYLINE, alt: "Livingston, Calgary Alberta — new sustainability-focused northeast community with parks, sports fields, and walkable town centre design" },
+  "rockland-park":          { url: _CALGARY_SKYLINE, alt: "Rockland Park, Calgary Alberta — master-planned northwest community with Bow River views, cross-country skiing, and four-season recreation" },
+
+  // ── CALGARY SOUTHEAST ─────────────────────────────────────────────────────
+  "auburn-bay":             { url: _CALGARY_AERIAL,  alt: "Auburn Bay, Calgary Alberta — master-planned lake community with 43-acre freshwater lake, sandy beach, and Auburn House recreation lodge" },
+  "cranston":               { url: _CALGARY_AERIAL,  alt: "Cranston, Calgary Alberta — family-friendly southeast community along the Bow River with Fish Creek Provincial Park access" },
+  "mahogany":               { url: _CALGARY_AERIAL,  alt: "Mahogany, Calgary Alberta — southeast Calgary's premier lake community with beachfront access and waterfront estate living" },
+  "seton":                  { url: _CALGARY_AERIAL,  alt: "Seton, Calgary Alberta — master-planned South Urban District integrating residential, commercial, and South Health Campus in southeast Calgary" },
+
+  // ── BOW VALLEY CORRIDOR ───────────────────────────────────────────────────
+  "waiparous-village":      { url: _GHOST_LAKE_PANO, alt: "Waiparous Village, Alberta — secluded summer village along the Ghost River with rural cottage-country character and wilderness access" },
+  "exshaw":                 { url: _GHOST_LAKE_PANO, alt: "Exshaw, Alberta — Bow Valley hamlet at the base of Heart Mountain with hiking trail access to Jura Creek and Yamnuska" },
+  "dead-mans-flats":        { url: _GHOST_LAKE_PANO, alt: "Dead Man's Flats, Alberta — Bow Valley hamlet east of Canmore with Pigeon Creek trails and Trans Canada Trail connectivity" },
+  "lac-des-arcs":           { url: _GHOST_LAKE_PANO, alt: "Lac des Arcs, Alberta — Bow Valley seasonal community with Heart Creek trail access and Trans Canada Trail proximity" },
+  "harvie-heights":         { url: _GHOST_LAKE_PANO, alt: "Harvie Heights, Alberta — mountain hamlet five minutes from Canmore with Legacy Trail access connecting to Banff National Park" },
+
+  // ── CANMORE & AREA ────────────────────────────────────────────────────────
+  "quarry-pines":           { url: _THREE_SISTERS, alt: "Quarry Pines, Canmore Alberta — intimate forested mountain community with rustic aesthetic and Ha Ling Peak views" },
+  "eagle-terrace":          { url: _THREE_SISTERS, alt: "Eagle Terrace, Canmore Alberta — hillside community with expansive Bow Valley views and trail connections to the Canmore wilderness" },
+  "cougar-creek-canmore":   { url: _THREE_SISTERS, alt: "Cougar Creek, Canmore Alberta — mature residential area adjacent to the Canmore Nordic Centre with ski and mountain trail access" },
+  "rundleview":             { url: _THREE_SISTERS, alt: "Rundleview, Canmore Alberta — established community adjacent to the Nordic Centre with mountain biking and Bow Valley wilderness access" },
+  "larch":                  { url: _THREE_SISTERS, alt: "Larch, Canmore Alberta — established neighbourhood with tree-lined streets and proximity to Quarry Lake and Grassi Lakes trails" },
+  "peaks-of-grassi":        { url: _THREE_SISTERS, alt: "Peaks of Grassi, Canmore Alberta — hillside community near Grassi Lakes Trail and Quarry Lake with mountain condo and home options" },
+};
+
+/**
+ * Resolves the hero image for a community using this priority:
+ * 1. community.heroImage (community-specific, set inline in the data)
+ * 2. COMMUNITY_HERO_IMAGES[slug] (this lookup map — all 120+ covered)
+ * 3. undefined (page then falls back to region.heroImage, then solid forest colour)
+ */
+export function resolveCommunityHeroImage(community: Community): HeroImage | undefined {
+  return community.heroImage ?? COMMUNITY_HERO_IMAGES[community.slug];
+}
+
+// =============================================================================
 // HELPER FUNCTIONS
 // =============================================================================
 

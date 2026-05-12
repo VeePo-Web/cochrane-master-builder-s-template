@@ -118,7 +118,7 @@ const RegionPage = ({ onBookClick }: RegionPageProps) => {
           <>
             <img
               src={heroImg.url}
-              alt={heroImg.alt}
+              alt={`${sc} services across ${region.name}, Alberta — ${heroImg.alt}`}
               className="absolute inset-0 w-full h-full object-cover object-center"
               loading="eager"
               width="1920"

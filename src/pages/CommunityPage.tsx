@@ -28,7 +28,7 @@ import SectionFrame from "@/components/template/SectionFrame";
 import GoogleMapEmbed from "@/components/areas/GoogleMapEmbed";
 import NearbyAreasWidget from "@/components/areas/NearbyAreasWidget";
 import AreasSEOSchema from "@/components/areas/AreasSEOSchema";
-import { getCommunity, getRegion, getCommunity as gc } from "@/data/communities";
+import { getCommunity, getRegion, getCommunity as gc, resolveCommunityHeroImage } from "@/data/communities";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { setPageMeta } from "@/lib/seo";
@@ -144,8 +144,8 @@ const CommunityPage = ({ onBookClick }: CommunityPageProps) => {
     source: `areas-we-serve/${community.region}/${community.slug}`,
   };
 
-  // Hero image: community-specific override, or region fallback, or solid forest color
-  const heroImg = community.heroImage ?? region.heroImage;
+  // Hero image priority: community inline → lookup map → region → solid forest colour
+  const heroImg = resolveCommunityHeroImage(community) ?? region.heroImage;
 
   return (
     <TemplateLayout onBookClick={onBookClick}>
@@ -171,7 +171,7 @@ const CommunityPage = ({ onBookClick }: CommunityPageProps) => {
           <>
             <img
               src={heroImg.url}
-              alt={heroImg.alt}
+              alt={`${sc} in ${community.name}, ${community.city} Alberta — ${heroImg.alt}`}
               className="absolute inset-0 w-full h-full object-cover object-center"
               loading="eager"
               width="1920"
