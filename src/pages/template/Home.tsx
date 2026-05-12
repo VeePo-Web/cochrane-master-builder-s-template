@@ -134,9 +134,9 @@ const TemplateHome = ({ onBookClick }: Props) => {
           <div className="md:col-span-5">
             <RemixSlot name="HERO_IMAGE" hint="Editorial detail shot of {SERVICE}">
               <EditorialImage
-                src={MASTER_REMIX.HERO_IMAGE || "/placeholder.svg"}
-                alt="Detail of completed {SERVICE} surface"
-                caption="A finished {SERVICE} surface — taken on sign-off day."
+                src={MASTER_REMIX.HERO_IMAGE}
+                alt={`${MASTER_REMIX.SERVICE} surface detail in ${MASTER_REMIX.COMMUNITIES[0]} — completed, sign-off day`}
+                caption="A finished surface — taken on sign-off day."
               />
             </RemixSlot>
           </div>
@@ -168,7 +168,7 @@ const TemplateHome = ({ onBookClick }: Props) => {
         <EditorialQuote
           quote="The standard is the standard. We do not lower it for a smaller job, a tighter budget, or a faster timeline."
           attribution="The {BRAND_NAME} crew"
-          image={MASTER_REMIX.HERO_IMAGE || "/placeholder.svg"}
+          image={MASTER_REMIX.MANIFESTO_BACKDROP || MASTER_REMIX.HERO_IMAGE}
         />
       </RemixSlot>
 

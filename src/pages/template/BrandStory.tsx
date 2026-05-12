@@ -28,10 +28,12 @@ const BrandStory = ({ onBookClick }: Props) => {
               <SectionTitle eyebrow={chapter.eyebrow} headline={chapter.headline} lede={chapter.body} />
             </div>
             <div className="md:col-span-5">
+              {/* Universal brand story assets — same across all 150 trade sites.
+                  Alt text is trade-specific for image SEO; image path is fixed. */}
               <RemixSlot name={`STORY_IMAGE_${i + 1}`} hint="Archival or craft detail">
                 <EditorialImage
-                  src="/placeholder.svg"
-                  alt={`Brand story chapter ${i + 1}`}
+                  src={MASTER_REMIX.STORY_IMAGES[i] ?? ""}
+                  alt={`${MASTER_REMIX.SERVICE} craft detail — ${chapter.eyebrow.toLowerCase()}`}
                   caption={chapter.eyebrow}
                 />
               </RemixSlot>
@@ -60,7 +62,12 @@ const BrandStory = ({ onBookClick }: Props) => {
       </SectionFrame>
 
       <RemixSlot name="HERO_IMAGE" hint="Editorial workshop / hands">
-        <EditorialQuote quote={c.founderQuote} attribution="— The third generation" image="/placeholder.svg" />
+        {/* Universal brand story hero — same across all trade sites; alt text is SEO-trade-specific */}
+        <EditorialQuote
+          quote={c.founderQuote}
+          attribution="— The third generation"
+          image={MASTER_REMIX.BRAND_STORY_HERO}
+        />
       </RemixSlot>
 
       <CTABand

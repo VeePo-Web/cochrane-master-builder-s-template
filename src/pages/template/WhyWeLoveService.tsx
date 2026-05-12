@@ -38,7 +38,7 @@ const WhyWeLoveService = ({ onBookClick }: Props) => {
       </SectionFrame>
 
       <RemixSlot name="HERO_IMAGE" hint="Macro detail of {SERVICE} surface">
-        <EditorialQuote quote={c.quote} attribution="House rule" image="/placeholder.svg" height="44vh" />
+        <EditorialQuote quote={c.quote} attribution="House rule" image={MASTER_REMIX.WHY_HERO_MACRO} height="44vh" />
       </RemixSlot>
 
       <SectionFrame tone="bone" size="lg">

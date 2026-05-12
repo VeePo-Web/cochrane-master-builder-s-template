@@ -31,7 +31,10 @@ const About = ({ onBookClick }: Props) => {
           </div>
           <div className="md:col-span-5">
             <RemixSlot name="FOUNDER_IMAGE" hint="Hands at work, not posed portraits">
-              <EditorialImage src="/placeholder.svg" alt="Founder hands at work" />
+              <EditorialImage
+                src={MASTER_REMIX.FOUNDER_IMAGE}
+                alt={`${MASTER_REMIX.SERVICE} craftwork in ${MASTER_REMIX.COMMUNITIES[0]} — gloved hand, material detail`}
+              />
             </RemixSlot>
           </div>
         </div>

@@ -30,7 +30,7 @@ const Reviews = ({ onBookClick }: Props) => {
         <EditorialQuote
           quote="The crack other contractors kept calling 'just settling' is gone. The wall reads as one unbroken surface."
           attribution="Jordan M. — Sunset Ridge"
-          image="/placeholder.svg"
+          image={MASTER_REMIX.REVIEWS_HERO}
         />
       </RemixSlot>
 

@@ -33,6 +33,13 @@ export interface ProofPoint {
   caption: string;
 }
 
+export interface GalleryImage {
+  src: string;
+  alt: string;
+  aspect?: "3:2" | "1:1";
+  caption?: string;
+}
+
 export interface TrustNumber {
   number: string;
   label: string;
@@ -71,6 +78,47 @@ export interface RemixVariables {
   FOUNDATION_YEAR: number;
   /** Three monogram letters — parent brand is CMB; remix trade may show e.g. CTM in its own badge. */
   MONOGRAM_LETTERS: [string, string, string];
+
+  // ── Per-trade image library (populated by scripts/regenerate-images.ts) ──
+  /**
+   * URL-safe slug for the trade — used as the output path prefix.
+   * e.g. "cochrane-drywall", "cochrane-tile", "cochrane-flooring"
+   * Default: "master" (template preview mode).
+   */
+  TRADE_SLUG: string;
+  /** Gallery lookbook — 6–9 images for /gallery ImageMosaic. Generated per trade. */
+  GALLERY_IMAGES: GalleryImage[];
+  /** Founder / hands-at-work editorial image for /about. Never shows faces. */
+  FOUNDER_IMAGE: string;
+  /** WHY page editorial quote backdrop — macro detail of service surface. */
+  WHY_HERO_MACRO: string;
+  /** Reviews page editorial quote backdrop — quiet finished room. */
+  REVIEWS_HERO: string;
+  /** Home manifesto editorial quote backdrop — atmospheric workshop wide. */
+  MANIFESTO_BACKDROP: string;
+  /** 404 page backdrop — quiet workshop wall, copper-leaning palette. */
+  NOT_FOUND_BACKDROP: string;
+  /** Contact page static map image (stylized hand-drawn, no satellite). */
+  MAP_IMAGE: string;
+  /**
+   * UNIVERSAL BRAND ASSETS — do NOT override per-trade.
+   * These are the same images on every Cochrane Master Builders sub-brand site.
+   * Generated once with: npx tsx scripts/regenerate-images.ts --brand-only
+   * Stored at /brand/story/ not /remix/{TRADE_SLUG}/
+   */
+  STORY_IMAGES: [string, string, string, string];
+  BRAND_STORY_HERO: string;
+
+  // ── Image generation metadata (used by scripts/regenerate-images.ts) ─────
+  /**
+   * Hex color of the brand accent for image prompt color direction.
+   * Default: copper #C47D26
+   */
+  PALETTE_ACCENT_HEX?: string;
+  /** Primary material vocabulary for the trade — injected into image prompts. */
+  MATERIAL_PRIMARY?: string;
+  /** Sub-surface / specialty material for detail shots. */
+  MATERIAL_SUBSURFACE?: string;
 }
 
 /**
@@ -143,6 +191,7 @@ export const MASTER_REMIX: RemixVariables = {
   PROOF: [
     { before: "", after: "", caption: "{PROOF_1_CAPTION} — describe the transformation in one sentence." },
     { before: "", after: "", caption: "{PROOF_2_CAPTION} — pull the specific number into the line." },
+    { before: "", after: "", caption: "{PROOF_3_CAPTION} — new-build or whole-home scope." },
   ],
   TRUST_NUMBERS: [
     { number: "15", label: "Year structural guarantee" },
@@ -152,9 +201,35 @@ export const MASTER_REMIX: RemixVariables = {
   ],
 
   // ── Heirloom defaults ───────────────────────────────────────────────────
-  // "Building Strong Foundations For Those Who Come After Us" — the north-star
-  // generational promise that governs every design decision.
   BRAND_SLOGAN: "Building Strong Foundations For Those Who Come After Us",
   FOUNDATION_YEAR: 1958,
   MONOGRAM_LETTERS: ["C", "M", "B"],
+
+  // ── Image library defaults ───────────────────────────────────────────────
+  // Empty strings = no image yet. Components render a styled aspect-ratio
+  // placeholder (blueprint grain + copper hairline) when src is "".
+  // Run scripts/regenerate-images.ts to populate these for your trade.
+  TRADE_SLUG: "master",
+  GALLERY_IMAGES: [],
+  FOUNDER_IMAGE: "",
+  WHY_HERO_MACRO: "",
+  REVIEWS_HERO: "",
+  MANIFESTO_BACKDROP: "",
+  NOT_FOUND_BACKDROP: "",
+  MAP_IMAGE: "",
+
+  // Universal brand story assets — same on every sub-brand site.
+  // Generated once with: npx tsx scripts/regenerate-images.ts --brand-only
+  STORY_IMAGES: [
+    "/brand/story/story-1.avif",
+    "/brand/story/story-2.avif",
+    "/brand/story/story-3.avif",
+    "/brand/story/story-4.avif",
+  ],
+  BRAND_STORY_HERO: "/brand/story/brand-story-hero.avif",
+
+  // Image generation metadata
+  PALETTE_ACCENT_HEX: "#C47D26",
+  MATERIAL_PRIMARY: "joint compound, drywall board, skim coat, Level-5 finish",
+  MATERIAL_SUBSURFACE: "mesh tape, corner bead, fiberglass compound",
 };

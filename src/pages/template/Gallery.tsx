@@ -11,21 +11,32 @@ import type { BookingClickHandler } from "@/config/drywall-booking";
 
 interface Props { onBookClick?: BookingClickHandler }
 
-const PLACEHOLDER_ITEMS = Array.from({ length: 6 }, (_, i) => ({
-  src: "/placeholder.svg",
-  alt: `Completed {SERVICE} surface — image ${i + 1}`,
-  caption: `{GALLERY_CAPTION_${i + 1}} — name the wall, the timeline, and the outcome.`,
-}));
-
 const Gallery = ({ onBookClick }: Props) => {
   const c = TEMPLATE_COPY.gallery;
+  // Use manifest-generated images from MASTER_REMIX; fall back to empty mosaic
+  // (no placeholder.svg — run scripts/regenerate-images.ts to populate).
+  const galleryItems = MASTER_REMIX.GALLERY_IMAGES.length > 0
+    ? MASTER_REMIX.GALLERY_IMAGES.map(img => ({
+        src: img.src,
+        alt: img.alt,
+        caption: img.caption,
+        aspect: img.aspect,
+      }))
+    : [];
+
   return (
     <TemplateLayout onBookClick={onBookClick}>
       <InnerHero eyebrow={c.hero.eyebrow} title={c.hero.title} lede={c.hero.lede} />
 
       <SectionFrame tone="paper" size="lg">
         <RemixSlot name="GALLERY_IMAGES">
-          <ImageMosaic items={PLACEHOLDER_ITEMS} layout="3-up" />
+          {galleryItems.length > 0 ? (
+            <ImageMosaic items={galleryItems} layout="3-up" />
+          ) : (
+            <div className="flex aspect-[3/2] items-center justify-center border border-copper/20 bg-paper text-caption text-mist">
+              Gallery images not yet generated — run scripts/regenerate-images.ts
+            </div>
+          )}
         </RemixSlot>
       </SectionFrame>
 
