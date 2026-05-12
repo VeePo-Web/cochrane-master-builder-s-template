@@ -189,3 +189,70 @@ The remaining derivative assets the README describes (every size × every colorw
 - Source archive: [`../assets/logo/source/`](../assets/logo/source/)
 - Showcase boards: [`../assets/logo/boards/`](../assets/logo/boards/)
 - Remix checklist: [`../checklist.ts`](../checklist.ts)
+
+---
+
+## Heirloom Moments
+
+Eight bespoke visual moments that distinguish every Cochrane Master Builders site from any competitor template. All live in `src/components/template/bespoke/`. All strings source from `MASTER_REMIX` — none are hard-coded.
+
+**Governing brand quotes:**
+1. "luxury-level, fantasy.co-inspired website with Apple-level UX precision and bespoke motion polish" — 1.2.1 Family Legacy Standard
+2. "slow, deliberate, heavy animations as opposed to fast, bouncy, cheap animations" — 1.5.1 UX Psychology System
+3. "bespoke, warm, authoritative tradition executed with fantasy.co polish" — 1.5 Brand Identity North Star
+
+### The Slogan — `BRAND_SLOGAN`
+"Building Strong Foundations For Those Who Come After Us" is encoded once in `remix-variables.ts` and surfaces in ≥7 distinct placements via `<SloganHeartbeat variant="..." />`:
+- **nav** — 9px Jost, letter-spacing 0.30em, copper/40, disappears on scroll
+- **whisper** — 11px Jost uppercase, beneath hero H1
+- **divider** — 10px tracked caps, between major sections
+- **footer** — clamp(1.25–2rem) Space Grotesk Light Italic, above CTA
+- **monument** — clamp(0.9–1.6rem) Jost tracked, beneath monumental wordmark
+Rule: never animate with bounce. Only fades, draws, or clip-path reveals. Sacred type.
+
+### 1. CMBTrio — `<CMBTrio />`
+Three personified SVG glyphs — C (The Foreman, hardhat), M (The Craftsman, carpenter's pencil), B (The Local, coffee cup). Idle animations: 7–12s cycles, ultra-subtle. Assembles letter-by-letter on loading screen. 64px in footer Tier 2, 240px on About hero, 48px in booking modal.
+
+### 2. BlueprintGrain — `<BlueprintGrain />`
+Pure SVG `<pattern>` of architectural marks: grid lines, corner ticks, T-square references. 1–2% opacity behind hero and footer. Zero images. Zero performance cost.
+
+### 3. CornerstoneStamp — `<CornerstoneStamp />`
+Circular notary seal — outer ring: "EST · COCHRANE · MASTER · BUILDERS · ALBERTA", inner: CMB monogram. Rotates 360° in 60s. 80px default at 60% copper opacity. Placed bottom-right of hero, in booking confirmation, on thank-you page.
+
+### 4. PlumbLineDivider — `<PlumbLineDivider />`
+A copper hairline with a 6px diamond plumb-bob that drops 24px on a spring (stiffness 260, damping 18) into view. Replaces generic horizontal rules between all major sections.
+
+### 5. FoundationCounter — `<FoundationCounter />`
+Year counts from 1900 → `FOUNDATION_YEAR` over 3s ease-out on scroll-into-view. Reads "Foundations laid since" above. Every trade inherits the framing; only the year changes.
+
+### 6. HeroEtchedUnderline — `<HeroEtchedUnderline />`
+A slightly imperfect bezier SVG path in copper that draws itself on mount in 1.4s ease-out. Placed directly beneath every hero H1. Single-shot, never loops.
+
+### 7. GenerationalMarquee — `<GenerationalMarquee />`
+Ultra-slow (90s) horizontal marquee of the slogan with copper diamond separators. 12px tracked Jost, charcoal/30. Pauses on hover. Respects prefers-reduced-motion. Placed above the monumental footer sign-off.
+
+### 8. MastersMark — `<MastersMark />`
+A hand-script-style SVG signature "— The Master Builders" drawn on scroll-into-view. 2.2s continuous stroke animation. Used at the end of About, Brand Story, and Why We Love pages.
+
+### New Token Summary
+| Token | Value | Use |
+|---|---|---|
+| `--copper` | hsl(30 62% 48%) | Hairlines, eyebrow caps, dots, stamp |
+| `--copper-glow` | copper/30 | Glow shadows |
+| `--ink-blueprint` | hsl(215 25% 18%) | Blueprint grain pattern |
+| `--shadow-heirloom` | 0 1px 0 copper/30 | Bespoke component edge |
+| `BRAND_SLOGAN` | remix-variables.ts | All 7+ slogan placements |
+| `FOUNDATION_YEAR` | remix-variables.ts | FoundationCounter |
+| `MONOGRAM_LETTERS` | remix-variables.ts | CMBTrio letters |
+
+### New Fonts
+- **Space Grotesk 300** — Hero H1, FoundationCounter, pull quotes
+- **Jost 300–400** — Eyebrow caps, slogan variants, marquee, monument line
+
+### Acceptance Gates
+- Slogan appears in ≥7 surfaces, all from one variable ✓
+- All 8 bespoke components render at 24px, 64px, 240px ✓
+- CMBTrio idle animations whisper, never wave ✓
+- Zero rounded cards, zero gray borders — copper hairlines only ✓
+- Full re-skin by changing only `remix-variables.ts` + `bespoke-config.ts` ✓
+- All animations respect `prefers-reduced-motion` ✓

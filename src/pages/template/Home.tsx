@@ -17,6 +17,15 @@ import HeroImage from "@/components/drywall/HeroImage";
 import ScrollReveal from "@/components/drywall/ScrollReveal";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
+import {
+  HeroEtchedUnderline,
+  SloganHeartbeat,
+  CornerstoneStamp,
+  FoundationCounter,
+  CMBTrio,
+  PlumbLineDivider,
+  BlueprintGrain,
+} from "@/components/template/bespoke";
 import type { BookingClickHandler } from "@/config/drywall-booking";
 
 const SocialProofEngine = lazy(() => import("@/components/master/SocialProofEngine").then(m => ({ default: m.SocialProofEngine })));
@@ -37,7 +46,8 @@ const TemplateHome = ({ onBookClick }: Props) => {
     <TemplateLayout onBookClick={onBookClick}>
       {/* HERO */}
       <RemixSlot name="HERO_IMAGE" hint="Bind a service-specific AVIF (≤140KB)">
-        <section className="paper-grain relative overflow-hidden bg-bone">
+        <section className="relative overflow-hidden bg-bone">
+          <BlueprintGrain opacity={0.018} />
           {MASTER_REMIX.HERO_IMAGE && (
             <HeroImage src={MASTER_REMIX.HERO_IMAGE} alt="" gradientFrom="left" opacity={32} />
           )}
@@ -45,20 +55,43 @@ const TemplateHome = ({ onBookClick }: Props) => {
             <div className="grid items-end gap-12 md:grid-cols-12">
               <div className="md:col-span-8">
                 <ScrollReveal>
-                  <p className="font-eyebrow mb-5">{c.hero.eyebrow}</p>
-                  <h1 className="text-display-xl text-charcoal">{c.hero.headline}</h1>
-                  <p className="mt-6 max-w-2xl text-body-lg text-graphite">{c.hero.sub}</p>
+                  {/* Eyebrow: 24px copper hairline + Jost caps */}
+                  <div className="flex items-center gap-3 mb-5">
+                    <span className="hairline-copper w-6 flex-shrink-0" />
+                    <p className="eyebrow-copper">{c.hero.eyebrow}</p>
+                  </div>
+                  <h1
+                    className="text-charcoal"
+                    style={{
+                      fontFamily: "'Space Grotesk', system-ui, sans-serif",
+                      fontSize: "clamp(2.75rem, 6.5vw, 5.5rem)",
+                      fontWeight: 300,
+                      letterSpacing: "-0.025em",
+                      lineHeight: 0.98,
+                    }}
+                  >
+                    {c.hero.headline}
+                  </h1>
+
+                  {/* Hand-etched copper underline — draws itself on mount */}
+                  <HeroEtchedUnderline className="mt-3 mb-4 block" />
+
+                  {/* Slogan whisper — beneath the H1 */}
+                  <SloganHeartbeat variant="whisper" className="mb-6 block" />
+
+                  <p className="mt-2 max-w-[56ch] text-body-lg text-graphite">{c.hero.sub}</p>
                   <div className="mt-10 flex flex-wrap gap-3">
                     <button
                       type="button"
                       onClick={() => onBookClick?.({ source: "Home hero" })}
-                      className="cta-forest rounded-sm bg-forest px-6 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-forest-deep"
+                      className="rounded-none bg-forest px-6 py-3.5 text-sm font-medium tracking-[0.12em] uppercase text-primary-foreground transition-colors hover:bg-forest-deep"
                     >
                       {TEMPLATE_COPY.cta.primary}
                     </button>
                     <Link
                       to="/pricing"
-                      className="rounded-sm border border-charcoal/20 px-6 py-3.5 text-sm font-medium text-charcoal transition-colors hover:bg-charcoal hover:text-bone"
+                      className="rounded-none px-6 py-3.5 text-sm font-medium tracking-[0.12em] uppercase text-charcoal transition-all duration-300 hover:text-forest"
+                      style={{ border: "1px solid hsl(var(--copper) / 0.20)" }}
                     >
                       {TEMPLATE_COPY.cta.secondary}
                     </Link>
@@ -67,14 +100,29 @@ const TemplateHome = ({ onBookClick }: Props) => {
               </div>
             </div>
           </div>
+
+          {/* Cornerstone stamp — bottom-right of hero */}
+          <div className="absolute bottom-6 right-6 md:bottom-10 md:right-10 z-10">
+            <CornerstoneStamp size={72} />
+          </div>
         </section>
       </RemixSlot>
 
-      {/* TRUST BAR */}
+      {/* TRUST BAR — with CMBTrio and FoundationCounter */}
       <SectionFrame tone="paper" size="sm">
-        <RemixSlot name="TRUST_NUMBERS">
-          <TrustNumbers items={MASTER_REMIX.TRUST_NUMBERS} />
-        </RemixSlot>
+        <div className="grid items-center gap-8 md:grid-cols-12">
+          <div className="md:col-span-8">
+            <RemixSlot name="TRUST_NUMBERS">
+              <TrustNumbers items={MASTER_REMIX.TRUST_NUMBERS} />
+            </RemixSlot>
+          </div>
+          <div className="md:col-span-2 flex justify-center md:justify-start">
+            <FoundationCounter />
+          </div>
+          <div className="md:col-span-2 flex justify-end">
+            <CMBTrio size={36} mode="inline" className="opacity-60" />
+          </div>
+        </div>
       </SectionFrame>
 
       {/* PROMISE */}

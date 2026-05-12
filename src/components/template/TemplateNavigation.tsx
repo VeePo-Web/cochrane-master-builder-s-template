@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { MasterLogo } from "@/master";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
+import { SloganHeartbeat } from "@/components/template/bespoke";
 import type { BookingClickHandler } from "@/config/drywall-booking";
 
 interface Props {
@@ -47,6 +48,17 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
       >
         Skip to content
       </a>
+      {/* Slogan micro-eyebrow — visible only when NOT scrolled, fades on scroll */}
+      <div
+        className="overflow-hidden transition-all duration-500"
+        style={{ maxHeight: scrolled ? 0 : 24, opacity: scrolled ? 0 : 1 }}
+        aria-hidden
+      >
+        <div className="container mx-auto px-6 pt-1.5">
+          <SloganHeartbeat variant="nav" />
+        </div>
+      </div>
+
       <div className="container mx-auto flex h-20 items-center justify-between px-6">
         <Link to="/" aria-label="Cochrane Master Builders — home" className="inline-flex items-center">
           <MasterLogo slot="nav" />

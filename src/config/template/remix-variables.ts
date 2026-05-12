@@ -63,6 +63,14 @@ export interface RemixVariables {
   PROOF: ProofPoint[];
   /** Trust numbers shown in the hero TrustBar + Reviews page. */
   TRUST_NUMBERS: TrustNumber[];
+
+  // ── Heirloom Brand Identity ─────────────────────────────────────────────
+  /** The generational slogan — surfaces in ≥7 places, never hard-coded in components. */
+  BRAND_SLOGAN: string;
+  /** Year the parent company / this trade was established. Feeds FoundationCounter. */
+  FOUNDATION_YEAR: number;
+  /** Three monogram letters — parent brand is CMB; remix trade may show e.g. CTM in its own badge. */
+  MONOGRAM_LETTERS: [string, string, string];
 }
 
 /**
@@ -142,4 +150,11 @@ export const MASTER_REMIX: RemixVariables = {
     { number: "$5M", label: "Liability coverage" },
     { number: "Level 5", label: "Finish standard" },
   ],
+
+  // ── Heirloom defaults ───────────────────────────────────────────────────
+  // "Building Strong Foundations For Those Who Come After Us" — the north-star
+  // generational promise that governs every design decision.
+  BRAND_SLOGAN: "Building Strong Foundations For Those Who Come After Us",
+  FOUNDATION_YEAR: 1958,
+  MONOGRAM_LETTERS: ["C", "M", "B"],
 };

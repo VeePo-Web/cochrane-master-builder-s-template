@@ -79,7 +79,7 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // ── Cochrane Drywall brand tokens ────────────────────────────
+        // ── Cochrane Master Builders brand tokens ─────────────────────
         bone: "hsl(var(--bone))",
         paper: "hsl(var(--paper))",
         seam: "hsl(var(--seam))",
@@ -92,6 +92,12 @@ export default {
         },
         clay: "hsl(var(--clay))",
         sage: "hsl(var(--sage))",
+        // ── Heirloom tokens — bespoke moments only ─────────────────────
+        copper: {
+          DEFAULT: "hsl(var(--copper))",
+          glow:    "hsl(var(--copper) / 0.30)",
+        },
+        "ink-blueprint": "hsl(var(--ink-blueprint))",
       },
       borderRadius: {
         lg: "var(--radius)",
