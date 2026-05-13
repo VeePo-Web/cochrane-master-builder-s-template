@@ -7,7 +7,7 @@
 
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 import { CMBTrio, SloganHeartbeat } from "@/components/template/bespoke";
-import type { BookingPrefill } from "@/config/drywall-booking";
+import type { BookingPrefill } from "@/config/template/booking-schema";
 
 interface Props {
   prefill?: BookingPrefill;

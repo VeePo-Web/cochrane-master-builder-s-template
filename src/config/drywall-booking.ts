@@ -1,13 +1,15 @@
 /**
- * COCHRANE DRYWALL — Booking Schema (single source of truth for the form)
+ * COCHRANE DRYWALL — Legacy booking config for the drywall-specific modal.
  *
- * Simplified single-screen quote request:
- *  - what they need
- *  - where they are
- *  - when works
- *  - optional photos / video
- *  - contact
+ * BookingPrefill and BookingClickHandler are the universal types — re-exported
+ * from booking-schema.ts. Any component that only needs those types should
+ * import directly from "@/config/template/booking-schema" instead.
+ *
+ * Drywall-specific fields (TIME_WINDOWS, DrywallBookingDraft, etc.) stay here.
  */
+
+// Re-export universal types so existing drywall components keep working
+export type { BookingPrefill, BookingClickHandler } from "@/config/template/booking-schema";
 
 export const TIME_WINDOWS = [
   { id: "morning", label: "Morning", desc: "8 AM – 12 PM" },
@@ -42,18 +44,4 @@ export const EMPTY_DRAFT: DrywallBookingDraft = {
   phone: "",
 };
 
-/**
- * Lightweight prefill payload — passed from any CTA into the booking modal.
- * `source` is recorded so the team can see which CTA / page generated the lead.
- */
-export interface BookingPrefill {
-  /** Pre-filled "What do you need done?" text. */
-  description?: string;
-  /** Internal label (e.g. "Garage Packages → Full starter") prepended to the description as `[via: …]`. */
-  source?: string;
-  /** Slug of the service page that triggered the modal — used for cross-sell on /thank-you. */
-  serviceSlug?: string;
-}
-
-/** Anything that opens the modal accepts an optional prefill. */
-export type BookingClickHandler = (prefill?: BookingPrefill) => void;
+// BookingPrefill and BookingClickHandler are now defined in booking-schema.ts (above re-export).

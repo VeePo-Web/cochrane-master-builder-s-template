@@ -12,7 +12,7 @@ import SectionFrame from "@/components/template/SectionFrame";
 import { PlumbLineDivider, BlueprintGrain } from "@/components/template/bespoke";
 import { getCrossSell } from "@/config/template/cross-sell-map";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
-import type { BookingClickHandler } from "@/config/drywall-booking";
+import type { BookingClickHandler } from "@/config/template/booking-schema";
 
 interface Props { onBookClick?: BookingClickHandler }
 

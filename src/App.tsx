@@ -12,7 +12,7 @@ import { BookingModal } from "./components/template/BookingModal";
 import BackToTop from "./components/drywall/BackToTop";
 import StickyCTA from "./components/drywall/StickyCTA";
 import ScrollToTop from "./components/ScrollToTop";
-import type { BookingClickHandler, BookingPrefill } from "./config/drywall-booking";
+import type { BookingClickHandler, BookingPrefill } from "./config/template/booking-schema";
 
 // ── MASTER TEMPLATE (universal — basis for all 150 sub-brand remixes) ──
 const TemplateHome = lazy(() => import("./pages/template/Home"));

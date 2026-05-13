@@ -22,7 +22,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { BookingBrandStack } from "./BookingBrandStack";
 import { BookingForm } from "./BookingForm";
-import type { BookingPrefill } from "@/config/drywall-booking";
+import type { BookingPrefill } from "@/config/template/booking-schema";
 
 interface Props {
   open: boolean;
