@@ -51,6 +51,8 @@ export interface BookingPrefill {
   description?: string;
   /** Internal label (e.g. "Garage Packages → Full starter") prepended to the description as `[via: …]`. */
   source?: string;
+  /** Slug of the service page that triggered the modal — used for cross-sell on /thank-you. */
+  serviceSlug?: string;
 }
 
 /** Anything that opens the modal accepts an optional prefill. */

@@ -7,7 +7,8 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import { prefetchIdle } from "./components/template/PrefetchLink";
 import SmoothScrollProvider from "./components/drywall/SmoothScrollProvider";
 import PageTransition from "./components/drywall/PageTransition";
-import BookingModal from "./components/drywall/BookingModal";
+// Universal template booking modal — imported statically (NOT lazy) for < 1 frame mount
+import { BookingModal } from "./components/template/BookingModal";
 import BackToTop from "./components/drywall/BackToTop";
 import StickyCTA from "./components/drywall/StickyCTA";
 import ScrollToTop from "./components/ScrollToTop";
@@ -27,6 +28,7 @@ const TemplateContact = lazy(() => import("./pages/template/Contact"));
 const TemplatePrivacy = lazy(() => import("./pages/template/Privacy"));
 const TemplateTerms = lazy(() => import("./pages/template/Terms"));
 const TemplateNotFound = lazy(() => import("./pages/template/NotFound"));
+const TemplateThankYou = lazy(() => import("./pages/template/ThankYou"));
 
 // ── AREAS WE SERVE — Local SEO engine (3-tier: hub → region → community) ──
 const AreasHub = lazy(() => import("./pages/AreasHub"));
@@ -60,6 +62,7 @@ const AnimatedRoutes = ({ onBookClick }: { onBookClick: BookingClickHandler }) =
         <Route path="/areas-we-serve" element={<PageTransition><AreasHub onBookClick={onBookClick} /></PageTransition>} />
         <Route path="/areas-we-serve/:region" element={<PageTransition><RegionPage onBookClick={onBookClick} /></PageTransition>} />
         <Route path="/areas-we-serve/:region/:community" element={<PageTransition><CommunityPage onBookClick={onBookClick} /></PageTransition>} />
+        <Route path="/thank-you" element={<PageTransition><TemplateThankYou onBookClick={onBookClick} /></PageTransition>} />
         <Route path="*" element={<PageTransition><TemplateNotFound onBookClick={onBookClick} /></PageTransition>} />
       </Routes>
     </Suspense>
