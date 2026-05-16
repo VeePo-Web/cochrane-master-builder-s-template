@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import type { Community } from "@/data/communities";
 import type { FAQ } from "@/config/template/remix-variables";
+import { MASTER_REMIX } from "@/config/template/remix-variables";
 
-const BASE_URL = "https://cochranedrywall.ca";
-const PHONE = "+1-403-000-0000";
 const ADDRESS_LOCALITY = "Cochrane";
 const ADDRESS_REGION = "AB";
+// Resolved at runtime so every trade site gets its own domain + phone
+const BASE_URL = MASTER_REMIX.BRAND_URL;
+const PHONE    = MASTER_REMIX.PHONE;
 
 /**
  * Injects 4 JSON-LD schema types into document.head for a community page.

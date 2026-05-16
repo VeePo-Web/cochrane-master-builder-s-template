@@ -100,6 +100,26 @@ export interface RemixVariables {
   NOT_FOUND_BACKDROP: string;
   /** Contact page static map image (stylized hand-drawn, no satellite). */
   MAP_IMAGE: string;
+  // ── Contact + Canonical ─────────────────────────────────────────────────
+  /**
+   * Canonical origin for this trade site. No trailing slash.
+   * e.g. "https://cochranetile.ca"
+   * Used by: MetaTags canonical, seo.ts, AreasSEOSchema, JSON-LD schemas.
+   * MUST be overridden per trade — every site has a different domain.
+   */
+  BRAND_URL: string;
+  /**
+   * Contact phone in E.164 format. e.g. "+14031234567"
+   * Used by: JSON-LD LocalBusiness telephone field (required for rich results).
+   */
+  PHONE: string;
+  /**
+   * OG share image absolute path (served from /public).
+   * e.g. "/share/og-1200x630-tile.jpg"
+   * Must be 1200×630 JPEG/PNG. Used by MetaTags og:image + twitter:image.
+   */
+  OG_IMAGE: string;
+
   /**
    * UNIVERSAL BRAND ASSETS — do NOT override per-trade.
    * These are the same images on every Cochrane Master Builders sub-brand site.
@@ -199,6 +219,11 @@ export const MASTER_REMIX: RemixVariables = {
     { number: "$5M", label: "Liability coverage" },
     { number: "Level 5", label: "Finish standard" },
   ],
+
+  // ── Contact + Canonical defaults ────────────────────────────────────────
+  BRAND_URL: "https://cochranemasterbuilders.ca",
+  PHONE: "+14030000000",
+  OG_IMAGE: "/share/og-1200x630-navybg.jpg",
 
   // ── Heirloom defaults ───────────────────────────────────────────────────
   BRAND_SLOGAN: "Building Strong Foundations For Those Who Come After Us",

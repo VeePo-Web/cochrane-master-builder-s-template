@@ -1,25 +1,18 @@
 /**
  * SocialProofEngine — Hormozi's Before/After results testimonial format.
  *
- * Hormozi: testimonials must have Before state + After state + Specific number.
- * Weak: "Great work, very professional."
- * Strong: "Had a crack in the hallway for 2 years. Patched in an afternoon. Can't find it."
- *
- * Derives Before/After from the review quote + service type.
- * Grid variant: equal cards, 3-column. Featured: 1 large + 2 small.
+ * Data source: useReviews() → Supabase (approved rows) with static fallback.
+ * Visual code: pixel-identical to pre-migration version.
+ * Schema: mounts <AggregateRatingSchema> when ≥ 3 approved reviews exist.
  */
 
 import { motion } from "framer-motion";
+import { useReviews } from "@/hooks/use-reviews";
+import { AggregateRatingSchema } from "@/components/template/AggregateRatingSchema";
 import { REVIEWS, type Review } from "@/config/reviews";
 
-interface EnrichedReview extends Review {
-  before: string;
-  after: string;
-  timeframe?: string;
-}
-
 interface SocialProofEngineProps {
-  reviews?: Review[];
+  reviews?: Review[];           // optional override (bypasses Supabase)
   variant?: "grid" | "featured";
   maxItems?: number;
   className?: string;
@@ -28,17 +21,16 @@ interface SocialProofEngineProps {
 const EASE: [number, number, number, number] = [0.32, 0.72, 0, 1];
 
 // ─── Enrich reviews with Before/After derived from quote + service ────────────
-const enrichReviews = (reviews: Review[]): EnrichedReview[] =>
+const enrichReviews = (reviews: Review[]) =>
   reviews.map((r) => {
-    // Derive Before/After by service type — maps to common pain states
-    const befores: Record<Review["service"], string> = {
+    const befores: Record<string, string> = {
       Repair: "Visible wall or ceiling damage — left unaddressed.",
       Installation: "Exposed framing, unfinished interior space.",
       Painting: "Worn, scuffed, or patched walls needing refresh.",
       Garage: "Bare garage framing — not functional living space.",
       Basement: "Unfinished basement — cold, unusable, uninsulated.",
     };
-    const afters: Record<Review["service"], string> = {
+    const afters: Record<string, string> = {
       Repair: "Repair invisible. Wall reads as one unbroken surface.",
       Installation: "Boarded, taped, finished. Space transformed.",
       Painting: "Clean, fresh, sharp edges. Room reads as new.",
@@ -46,20 +38,19 @@ const enrichReviews = (reviews: Review[]): EnrichedReview[] =>
       Basement: "Warm, finished, usable. The room you wanted.",
     };
 
-    // Try to extract a timeframe from the quote
     const timeMatch = r.quote.match(
       /\b(an? \w+day|one \w+day|\d+ days?|a week|\w+ hour[s]?|the \w+end)\b/i
     );
 
     return {
       ...r,
-      before: befores[r.service],
-      after: afters[r.service],
+      before: befores[r.service] ?? "Prior condition requiring attention.",
+      after: afters[r.service] ?? "Project complete. Result as specified.",
       timeframe: timeMatch ? timeMatch[0] : undefined,
     };
   });
 
-// ─── Star rating ─────────────────────────────────────────────────────────────
+// ─── Star rating ──────────────────────────────────────────────────────────────
 const Stars = ({ rating }: { rating: number }) => (
   <div
     className="flex items-center gap-0.5"
@@ -83,12 +74,12 @@ const Stars = ({ rating }: { rating: number }) => (
   </div>
 );
 
-// ─── Single review card ───────────────────────────────────────────────────────
+// ─── Single review card (visual unchanged) ────────────────────────────────────
 const ReviewCard = ({
   review,
   large = false,
 }: {
-  review: EnrichedReview;
+  review: ReturnType<typeof enrichReviews>[number];
   large?: boolean;
 }) => (
   <div className="ring-1 ring-[#1F2F4D]/06 rounded-[1.5rem] p-1.5 bg-white/80 h-full">
@@ -149,12 +140,15 @@ const ReviewCard = ({
 
 // ─── Export component ─────────────────────────────────────────────────────────
 export const SocialProofEngine = ({
-  reviews: rawReviews,
+  reviews: reviewsProp,
   variant = "grid",
   maxItems = 6,
   className = "",
 }: SocialProofEngineProps) => {
-  const source = rawReviews ?? REVIEWS;
+  // If reviews are passed as props, skip the hook (used in Storybook / tests)
+  const hookResult = useReviews({ maxItems });
+  const source = reviewsProp ?? hookResult.reviews;
+  const { aggregate } = hookResult;
   const enriched = enrichReviews(source).slice(0, maxItems);
 
   return (
@@ -231,8 +225,16 @@ export const SocialProofEngine = ({
           transition={{ duration: 0.7, delay: 0.3 }}
           className="mt-8 font-mono text-[10px] uppercase tracking-[0.22em] text-[#7A8BAA] text-center"
         >
-          {source.length} reviews · All real · All from Cochrane and area
+          {(aggregate?.totalReviews ?? REVIEWS.length)} reviews · All real · All from Cochrane and area
         </motion.p>
+
+        {/* Aggregate rating schema — only when ≥ 3 approved reviews exist */}
+        {aggregate && aggregate.totalReviews >= 3 && (
+          <AggregateRatingSchema
+            aggregate={aggregate}
+            reviews={source}
+          />
+        )}
       </div>
     </section>
   );

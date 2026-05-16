@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { prefetchIdle } from "./components/template/PrefetchLink";
 import SmoothScrollProvider from "./components/drywall/SmoothScrollProvider";
@@ -12,6 +13,7 @@ import { BookingModal } from "./components/template/BookingModal";
 import BackToTop from "./components/drywall/BackToTop";
 import StickyCTA from "./components/drywall/StickyCTA";
 import ScrollToTop from "./components/ScrollToTop";
+import { MetaTags } from "./components/template/MetaTags";
 import type { BookingClickHandler, BookingPrefill } from "./config/template/booking-schema";
 
 // ── MASTER TEMPLATE (universal — basis for all 150 sub-brand remixes) ──
@@ -83,21 +85,25 @@ const App = () => {
   };
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <ScrollToTop />
-          <SmoothScrollProvider>
-            <AnimatedRoutes onBookClick={openBooking} />
-            <BackToTop />
-            <StickyCTA onBookClick={openBooking} />
-            <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} prefill={prefill} />
-          </SmoothScrollProvider>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            {/* MetaTags must be inside BrowserRouter so useLocation works */}
+            <MetaTags />
+            <ScrollToTop />
+            <SmoothScrollProvider>
+              <AnimatedRoutes onBookClick={openBooking} />
+              <BackToTop />
+              <StickyCTA onBookClick={openBooking} />
+              <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} prefill={prefill} />
+            </SmoothScrollProvider>
+          </BrowserRouter>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </HelmetProvider>
   );
 };
 
