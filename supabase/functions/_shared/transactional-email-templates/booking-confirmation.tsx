@@ -315,6 +315,32 @@ const BookingConfirmationEmail = ({
             </Text>
           </Section>
 
+          {/* ─── 7b. GOOGLE REVIEW INVITE ─────────────────────────── */}
+          {/*
+            This section renders in every confirmation email.
+            When the project is complete and the homeowner is happy,
+            this is the lowest-friction path to a 5-star Google review.
+            The websiteUrl placeholder will be replaced with the real
+            Google review link once the Business Profile is live.
+            To activate: replace EMAIL_BRAND.websiteUrl below with
+            the g.page/r/XXXX/review link from Google Business Profile.
+          */}
+          <Section style={reviewInviteSection} className="px-outer">
+            <Hr style={reviewDivider} className="dm-rule" />
+            <Text style={reviewEyebrow}>ONE SMALL FAVOUR</Text>
+            <Text style={reviewBody} className="dm-text">
+              Once your project is complete, a brief Google review — even
+              a single sentence — helps the next Cochrane homeowner find
+              a crew they can trust. It takes about a minute and means
+              more than any ad we could run.
+            </Text>
+            {/* Uncomment and replace href when Google Business Profile is live:
+            <a href="https://g.page/r/XXXXX/review" style={reviewLink}>
+              Leave a Google review →
+            </a>
+            */}
+          </Section>
+
           {/* ─── 8. SCRIPTURE SEAL ────────────────────────────────── */}
           <Section
             style={scriptureSection}
@@ -726,6 +752,48 @@ const contactCaption = {
   color: C.mist,
   margin: 0,
   lineHeight: 1.6,
+}
+
+/* ─── Review invite ─── */
+const reviewInviteSection = {
+  padding: '4px 40px 32px',
+}
+
+const reviewDivider = {
+  border: 'none',
+  borderTop: `1px solid ${C.seam}`,
+  margin: '0 0 28px',
+  height: '1px',
+}
+
+const reviewEyebrow = {
+  fontSize: '10px',
+  fontWeight: 600,
+  letterSpacing: '0.22em',
+  color: C.forest,
+  margin: '0 0 10px',
+  textTransform: 'uppercase' as const,
+}
+
+const reviewBody = {
+  fontSize: '14px',
+  color: C.graphite,
+  lineHeight: 1.65,
+  margin: '0 0 14px',
+  fontWeight: 300,
+  maxWidth: '460px',
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const reviewLink = {
+  fontSize: '12px',
+  fontWeight: 500,
+  letterSpacing: '0.14em',
+  textTransform: 'uppercase' as const,
+  color: C.forest,
+  textDecoration: 'none',
+  borderBottom: `1px solid ${C.forest}`,
+  paddingBottom: '2px',
 }
 
 /* ─── Scripture seal ─── */

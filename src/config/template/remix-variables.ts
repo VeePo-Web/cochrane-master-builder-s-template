@@ -102,6 +102,14 @@ export interface RemixVariables {
   MAP_IMAGE: string;
   // ── Contact + Canonical ─────────────────────────────────────────────────
   /**
+   * Google Business Profile review link for this trade.
+   * Format: "https://g.page/r/XXXXX/review"
+   * Leave as "" until the Google Business Profile is created.
+   * Used by: ThankYou page review CTA, email footer review invite.
+   */
+  GOOGLE_REVIEW_URL: string;
+
+  /**
    * Canonical origin for this trade site. No trailing slash.
    * e.g. "https://cochranetile.ca"
    * Used by: MetaTags canonical, seo.ts, AreasSEOSchema, JSON-LD schemas.
@@ -221,6 +229,7 @@ export const MASTER_REMIX: RemixVariables = {
   ],
 
   // ── Contact + Canonical defaults ────────────────────────────────────────
+  GOOGLE_REVIEW_URL: "",
   BRAND_URL: "https://cochranemasterbuilders.ca",
   PHONE: "+14030000000",
   OG_IMAGE: "/share/og-1200x630-navybg.jpg",

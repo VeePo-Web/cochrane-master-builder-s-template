@@ -22,7 +22,6 @@ import {
   SloganHeartbeat,
   CornerstoneStamp,
   FoundationCounter,
-  CMBTrio,
   PlumbLineDivider,
   BlueprintGrain,
 } from "@/components/template/bespoke";
@@ -108,19 +107,16 @@ const TemplateHome = ({ onBookClick }: Props) => {
         </section>
       </RemixSlot>
 
-      {/* TRUST BAR — with CMBTrio and FoundationCounter */}
+      {/* TRUST BAR */}
       <SectionFrame tone="paper" size="sm">
         <div className="grid items-center gap-8 md:grid-cols-12">
-          <div className="md:col-span-8">
+          <div className="md:col-span-9">
             <RemixSlot name="TRUST_NUMBERS">
               <TrustNumbers items={MASTER_REMIX.TRUST_NUMBERS} />
             </RemixSlot>
           </div>
-          <div className="md:col-span-2 flex justify-center md:justify-start">
+          <div className="md:col-span-3 flex justify-center md:justify-end">
             <FoundationCounter />
-          </div>
-          <div className="md:col-span-2 flex justify-end">
-            <CMBTrio size={36} mode="inline" className="opacity-60" />
           </div>
         </div>
       </SectionFrame>

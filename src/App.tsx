@@ -31,6 +31,8 @@ const TemplatePrivacy = lazy(() => import("./pages/template/Privacy"));
 const TemplateTerms = lazy(() => import("./pages/template/Terms"));
 const TemplateNotFound = lazy(() => import("./pages/template/NotFound"));
 const TemplateThankYou = lazy(() => import("./pages/template/ThankYou"));
+const TemplateGuarantee = lazy(() => import("./pages/template/Guarantee"));
+const TemplateFAQ = lazy(() => import("./pages/template/FAQ"));
 
 // ── AREAS WE SERVE — Local SEO engine (3-tier: hub → region → community) ──
 const AreasHub = lazy(() => import("./pages/AreasHub"));
@@ -58,6 +60,8 @@ const AnimatedRoutes = ({ onBookClick }: { onBookClick: BookingClickHandler }) =
         <Route path="/reviews" element={<PageTransition><TemplateReviews onBookClick={onBookClick} /></PageTransition>} />
         <Route path="/about" element={<PageTransition><TemplateAbout onBookClick={onBookClick} /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><TemplateContact onBookClick={onBookClick} /></PageTransition>} />
+        <Route path="/guarantee" element={<PageTransition><TemplateGuarantee onBookClick={onBookClick} /></PageTransition>} />
+        <Route path="/faq" element={<PageTransition><TemplateFAQ onBookClick={onBookClick} /></PageTransition>} />
         <Route path="/privacy" element={<PageTransition><TemplatePrivacy onBookClick={onBookClick} /></PageTransition>} />
         <Route path="/terms" element={<PageTransition><TemplateTerms onBookClick={onBookClick} /></PageTransition>} />
         {/* Areas We Serve — 3-tier local SEO system */}

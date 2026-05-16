@@ -164,6 +164,52 @@ const ThankYou = ({ onBookClick }: Props) => {
         </div>
       </SectionFrame>
 
+      {/* ── Review invite — only renders when Google URL is configured ── */}
+      {MASTER_REMIX.GOOGLE_REVIEW_URL && (
+        <SectionFrame tone="bone" size="md">
+          <div
+            className="max-w-lg border-l-2 pl-6"
+            style={{ borderColor: "hsl(var(--copper) / 0.35)" }}
+          >
+            <p
+              className="text-charcoal mb-3 leading-snug"
+              style={{
+                fontFamily: "'Space Grotesk', system-ui",
+                fontSize: "clamp(1.1rem, 2.5vw, 1.35rem)",
+                fontWeight: 300,
+                letterSpacing: "-0.01em",
+              }}
+            >
+              If the work exceeded your expectations — a Google review helps the next homeowner find a crew they can trust.
+            </p>
+            <p
+              className="text-graphite mb-5"
+              style={{ fontFamily: "'Jost', system-ui", fontSize: 13, fontWeight: 300, lineHeight: 1.6 }}
+            >
+              One sentence. 45 seconds. That is all it takes.
+            </p>
+            <a
+              href={MASTER_REMIX.GOOGLE_REVIEW_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 transition-colors duration-300"
+              style={{
+                fontFamily: "'Jost', system-ui",
+                fontSize: 12,
+                fontWeight: 500,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: "hsl(var(--forest))",
+                borderBottom: "1px solid hsl(var(--forest) / 0.25)",
+                paddingBottom: 2,
+              }}
+            >
+              Leave a Google review →
+            </a>
+          </div>
+        </SectionFrame>
+      )}
+
       {/* ── Quiet back link ─────────────────────────────────────────── */}
       <SectionFrame tone="paper" size="sm">
         <div className="flex items-center gap-6">

@@ -6,7 +6,7 @@
  */
 
 import { MASTER_REMIX } from "@/config/template/remix-variables";
-import { CMBTrio, SloganHeartbeat } from "@/components/template/bespoke";
+import { SloganHeartbeat } from "@/components/template/bespoke";
 import type { BookingPrefill } from "@/config/template/booking-schema";
 
 interface Props {
@@ -34,9 +34,22 @@ export const BookingBrandStack = ({ prefill }: Props) => {
         }}
       />
 
-      {/* Top: CMBTrio + service name */}
+      {/* Top: monogram + service name */}
       <div className="relative z-10">
-        <CMBTrio size={48} mode="inline" className="opacity-80" />
+        {/* Brand monogram — three letters, Cormorant italic */}
+        <p
+          className="text-bone/40"
+          style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: 36,
+            fontStyle: "italic",
+            fontWeight: 300,
+            letterSpacing: "0.18em",
+            lineHeight: 1,
+          }}
+        >
+          {MASTER_REMIX.MONOGRAM_LETTERS.join("")}
+        </p>
 
         <p
           className="mt-10 text-bone/40 uppercase tracking-[0.22em]"

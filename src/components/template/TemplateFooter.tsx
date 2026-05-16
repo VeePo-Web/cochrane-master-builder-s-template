@@ -20,7 +20,6 @@ import { MasterLogo } from "@/master";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 import {
-  CMBTrio,
   GenerationalMarquee,
   SloganHeartbeat,
   PlumbLineDivider,
@@ -111,12 +110,7 @@ const TemplateFooter = ({ onBookClick }: Props) => {
       {/* ── PlumbLine Divider ── */}
       <PlumbLineDivider className="py-2" />
 
-      {/* ── Tier 2 — CMBTrio at 64px, centered between divider and sign-off ── */}
-      <div className="flex justify-center py-10">
-        <CMBTrio size={64} mode="inline" />
-      </div>
-
-      {/* ── Tier 3 — Generational Marquee ── */}
+      {/* ── Generational Marquee ── */}
       <div className="border-t border-y" style={{ borderColor: "hsl(var(--copper) / 0.08)" }}>
         <div className="py-5">
           <GenerationalMarquee />

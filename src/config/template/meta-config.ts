@@ -125,6 +125,22 @@ export const META_CONFIG: Record<string, PageMeta> = {
     canonical: `${ORIGIN}/thank-you`,
   },
 
+  "/guarantee": {
+    title: "Tile Installation Guarantee | Cochrane Tile Masters",
+    description:
+      "The Generational Finish Guarantee: clean worksite or work is free, 14-day zero-cost touch-up, 15-year structural warranty. In writing on every invoice. Send photos for a quote.",
+    ogTitle: "Three Guarantees. Every Project. In Writing.",
+    canonical: `${ORIGIN}/guarantee`,
+  },
+
+  "/faq": {
+    title: "Tile Installation FAQ | Cochrane Tile Masters",
+    description:
+      "Answers to the most common tile installation questions — pricing, process, timeline, guarantees, and service areas. Written quotes within 24 hours. Send photos for a quote.",
+    ogTitle: "Tile Installation FAQ — Cochrane Tile Masters.",
+    canonical: `${ORIGIN}/faq`,
+  },
+
   "/privacy": {
     title: "Privacy Policy | Cochrane Tile Masters",
     // 140 chars
