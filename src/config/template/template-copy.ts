@@ -16,16 +16,19 @@ export const TEMPLATE_COPY = {
   },
 
   nav: [
-    { label: "Home", path: "/" },
-    { label: "Brand Story", path: "/brand-story" },
+    { label: "Home",              path: "/" },
+    { label: "Services",          path: "/services" },
+    { label: "Areas We Serve",    path: "/areas-we-serve" },
+    { label: "Pricing",           path: "/pricing" },
+    { label: "Guarantee",         path: "/guarantee" },
+    { label: "Reviews",           path: "/reviews" },
+    { label: "Gallery",           path: "/gallery" },
+    { label: "FAQ",               path: "/faq" },
+    { label: "About",             path: "/about" },
+    { label: "Contact",           path: "/contact" },
+    // Hidden from main nav but kept for footer columns:
+    { label: "Brand Story",       path: "/brand-story" },
     { label: "Why We Love {SERVICE}", path: "/why-we-love" },
-    { label: "Services", path: "/services" },
-    { label: "Areas We Serve", path: "/areas-we-serve" },
-    { label: "Pricing", path: "/pricing" },
-    { label: "Gallery", path: "/gallery" },
-    { label: "Reviews", path: "/reviews" },
-    { label: "About", path: "/about" },
-    { label: "Contact", path: "/contact" },
   ],
 
   cta: {

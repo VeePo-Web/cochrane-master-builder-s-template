@@ -102,6 +102,14 @@ export interface RemixVariables {
   MAP_IMAGE: string;
   // ── Contact + Canonical ─────────────────────────────────────────────────
   /**
+   * Parent brand canonical URL — used for JSON-LD sameAs network entity linking.
+   * Every sub-site declares this as its parent, telling Google all 150 sites
+   * belong to the same organisation family. Compounds authority across the network.
+   * e.g. "https://cochranemasterbuilders.ca"
+   */
+  PARENT_BRAND_URL: string;
+
+  /**
    * Google Business Profile review link for this trade.
    * Format: "https://g.page/r/XXXXX/review"
    * Leave as "" until the Google Business Profile is created.
@@ -229,6 +237,7 @@ export const MASTER_REMIX: RemixVariables = {
   ],
 
   // ── Contact + Canonical defaults ────────────────────────────────────────
+  PARENT_BRAND_URL: "https://cochranemasterbuilders.ca",
   GOOGLE_REVIEW_URL: "",
   BRAND_URL: "https://cochranemasterbuilders.ca",
   PHONE: "+14030000000",
