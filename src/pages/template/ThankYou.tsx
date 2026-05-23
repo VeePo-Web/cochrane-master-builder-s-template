@@ -9,7 +9,7 @@
 import { useSearchParams, Link } from "react-router-dom";
 import TemplateLayout from "@/components/template/TemplateLayout";
 import SectionFrame from "@/components/template/SectionFrame";
-import { PlumbLineDivider, BlueprintGrain } from "@/components/template/bespoke";
+import { PlumbLineDivider, BlueprintGrain, SloganHeartbeat } from "@/components/template/bespoke";
 import { getCrossSell } from "@/config/template/cross-sell-map";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 import type { BookingClickHandler } from "@/config/template/booking-schema";

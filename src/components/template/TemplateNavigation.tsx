@@ -105,6 +105,10 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
 
       {open && (
         <div className="lg:hidden border-t border-seam bg-bone">
+          {/* Slogan — first line of the mobile drawer */}
+          <div className="container mx-auto px-6 py-4 border-b border-seam">
+            <SloganHeartbeat variant="nav" />
+          </div>
           <ul className="container mx-auto flex flex-col gap-px bg-seam px-0">
             {TEMPLATE_COPY.nav.map((link) => (
               <li key={link.path} className="bg-bone">
