@@ -90,7 +90,7 @@ const ReviewCard = ({
           <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-[#7A8BAA] mb-1">
             Before
           </p>
-          <p className="font-body text-[0.8125rem] leading-[1.5] text-[#7A8BAA] font-light truncate">
+          <p className="font-body text-[0.8125rem] leading-[1.5] text-[#7A8BAA] font-light line-clamp-2">
             {review.before}
           </p>
         </div>
@@ -99,14 +99,14 @@ const ReviewCard = ({
           <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-[#8B6B4A] mb-1">
             After
           </p>
-          <p className="font-body text-[0.8125rem] leading-[1.5] text-[#1F2F4D] font-light truncate">
+          <p className="font-body text-[0.8125rem] leading-[1.5] text-[#1F2F4D] font-light line-clamp-2">
             {review.after}
           </p>
         </div>
       </div>
 
       {/* Divider */}
-      <div className="w-full h-px bg-[#EDE9E1] mb-5" aria-hidden />
+      <div className="w-full h-px bg-[#EDE9E1] mb-6" aria-hidden />
 
       {/* Quote */}
       <blockquote
@@ -153,11 +153,11 @@ export const SocialProofEngine = ({
 
   return (
     <section
-      className={["bg-[#FDFBF7] py-20 md:py-28 overflow-hidden", className].join(
+      className={["bg-[#FDFBF7] py-20 md:py-32 overflow-hidden", className].join(
         " "
       )}
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="container mx-auto px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -166,7 +166,7 @@ export const SocialProofEngine = ({
           transition={{ duration: 0.8, ease: EASE }}
           className="mb-12"
         >
-          <div className="inline-block rounded-full border border-[#1F2F4D]/12 bg-[#1F2F4D]/06 px-4 py-1.5 mb-6">
+          <div className="inline-block rounded-full border border-[#1F2F4D]/12 bg-[#1F2F4D]/06 px-4 py-2 mb-6">
             <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#5C6B8A]">
               Real results
             </span>
@@ -178,7 +178,7 @@ export const SocialProofEngine = ({
 
         {/* Featured: 1 large + 2 smaller */}
         {variant === "featured" && enriched.length >= 3 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -202,7 +202,7 @@ export const SocialProofEngine = ({
           </div>
         ) : (
           /* Grid: equal cards */
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {enriched.map((r, i) => (
               <motion.div
                 key={r.name}

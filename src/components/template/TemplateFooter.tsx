@@ -41,16 +41,25 @@ const TemplateFooter = ({ onBookClick }: Props) => {
   return (
     <footer className="border-t border-copper/10 bg-paper relative overflow-hidden">
 
+      {/* ── Atmospheric type — founding year as depth element ── */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute right-0 top-8 font-display text-charcoal leading-none"
+        style={{ fontSize: "clamp(12rem, 25vw, 22rem)", opacity: 0.035, lineHeight: 1 }}
+      >
+        {MASTER_REMIX.FOUNDATION_YEAR}
+      </span>
+
       {/* ── Tier 1 — Brand + Slogan + CTA + Nav ── */}
-      <div className="container mx-auto px-6 pt-20 pb-12">
-        <div className="grid gap-12 md:grid-cols-12">
+      <div className="container mx-auto px-6 pt-20 pb-20">
+        <div className="grid gap-8 md:gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <Link to="/" aria-label={`${MASTER_REMIX.BRAND_NAME} — home`} className="inline-flex">
               <MasterLogo slot="footer" />
             </Link>
 
             {/* Slogan — footer large variant with copper square bullet */}
-            <div className="mt-7 mb-6">
+            <div className="mt-8 mb-6">
               <SloganHeartbeat variant="footer" />
             </div>
 
@@ -61,7 +70,7 @@ const TemplateFooter = ({ onBookClick }: Props) => {
             <button
               type="button"
               onClick={() => onBookClick?.({ source: "Footer → Send photos" })}
-              className="mt-8 inline-flex items-center rounded-none px-5 py-3 text-sm font-medium tracking-[0.12em] uppercase text-charcoal transition-all duration-300 hover:text-forest"
+              className="mt-8 w-full sm:w-auto inline-flex items-center rounded-none px-5 py-3 text-sm font-medium tracking-[0.15em] uppercase text-charcoal transition-all duration-300 hover:text-forest"
               style={{
                 border: "1px solid hsl(var(--copper) / 0.20)",
                 boxShadow: "var(--shadow-heirloom)",
@@ -71,38 +80,41 @@ const TemplateFooter = ({ onBookClick }: Props) => {
             </button>
           </div>
 
-          <div className="md:col-span-3">
-            <h4 className="eyebrow-copper mb-4">Services</h4>
-            <ul className="space-y-2.5">
-              {services.map((s) => (
-                <li key={s.path}>
-                  <PrefetchLink to={s.path} className="text-graphite text-body-sm transition-colors hover:text-charcoal">
-                    {s.label}
-                  </PrefetchLink>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Link columns — 2-col sub-grid on mobile, individual 12-col columns on desktop */}
+          <div className="grid grid-cols-2 gap-8 md:contents">
+            <div className="md:col-span-3">
+              <h4 className="eyebrow-copper mb-4">Services</h4>
+              <ul className="space-y-3">
+                {services.map((s) => (
+                  <li key={s.path}>
+                    <PrefetchLink to={s.path} className="text-graphite text-body-sm transition-colors hover:text-charcoal">
+                      {s.label}
+                    </PrefetchLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div className="md:col-span-2">
-            <h4 className="eyebrow-copper mb-4">Company</h4>
-            <ul className="space-y-2.5">
-              {company.map((c) => (
-                <li key={c.path}>
-                  <PrefetchLink to={c.path} className="text-graphite text-body-sm transition-colors hover:text-charcoal">
-                    {c.label}
-                  </PrefetchLink>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <div className="md:col-span-2">
+              <h4 className="eyebrow-copper mb-4">Company</h4>
+              <ul className="space-y-3">
+                {company.map((c) => (
+                  <li key={c.path}>
+                    <PrefetchLink to={c.path} className="text-graphite text-body-sm transition-colors hover:text-charcoal">
+                      {c.label}
+                    </PrefetchLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div className="md:col-span-2">
-            <h4 className="eyebrow-copper mb-4">Cochrane &amp; area</h4>
-            <ul className="space-y-2.5 text-graphite text-body-sm">
-              <li>{MASTER_REMIX.COMMUNITIES.slice(0, 4).join(" · ")}</li>
-              <li>Mon–Sat · 7am–6pm</li>
-            </ul>
+            <div className="md:col-span-2 col-span-2">
+              <h4 className="eyebrow-copper mb-4">Cochrane &amp; area</h4>
+              <ul className="space-y-3 text-graphite text-body-sm leading-relaxed">
+                <li>{MASTER_REMIX.COMMUNITIES.slice(0, 4).join(" · ")}</li>
+                <li>Mon–Sat · 7am–6pm</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -119,7 +131,7 @@ const TemplateFooter = ({ onBookClick }: Props) => {
 
       {/* ── Legal strip ── */}
       <div style={{ borderTop: "1px solid hsl(var(--copper) / 0.08)" }}>
-        <div className="container mx-auto flex flex-wrap items-baseline justify-between gap-4 px-6 py-5 text-caption text-mist">
+        <div className="container mx-auto flex flex-wrap items-center justify-between gap-4 px-6 py-5 text-caption text-mist">
           <p>© {new Date().getFullYear()} {MASTER_REMIX.BRAND_NAME}. Built for the families who'll inherit it.</p>
           <div className="flex gap-6">
             <PrefetchLink to="/privacy" className="hover:text-charcoal transition-colors">Privacy</PrefetchLink>
@@ -129,11 +141,11 @@ const TemplateFooter = ({ onBookClick }: Props) => {
       </div>
 
       {/* ── Tier 4 — Monumental sign-off ── */}
-      <div className="py-12 text-center" style={{ borderTop: "1px solid hsl(var(--copper) / 0.08)" }}>
+      <div className="py-16 text-center" style={{ borderTop: "1px solid hsl(var(--copper) / 0.08)" }}>
         <p
           className="font-display text-charcoal/90"
           style={{
-            fontSize: "clamp(2.5rem, 10vw, 8rem)",
+            fontSize: "clamp(3rem, 10vw, 8rem)",
             lineHeight: 0.95,
             letterSpacing: "-0.02em",
           }}

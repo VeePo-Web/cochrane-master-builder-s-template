@@ -31,10 +31,10 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
     return () => { document.body.style.overflow = prev; };
   }, [open]);
 
-  // Desktop trims to the load-bearing pages; mobile drawer carries the full set.
-  const desktop = TEMPLATE_COPY.nav.filter((n) =>
-    ["/", "/services", "/areas-we-serve", "/pricing", "/gallery", "/reviews", "/about"].includes(n.path),
-  );
+  // Load-bearing pages only — excludes footer-only hidden links.
+  const navPages = ["/", "/services", "/areas-we-serve", "/pricing", "/guarantee", "/reviews", "/gallery", "/faq", "/about"];
+  const desktop = TEMPLATE_COPY.nav.filter((n) => navPages.includes(n.path));
+  const mobile  = TEMPLATE_COPY.nav.filter((n) => navPages.includes(n.path));
 
   return (
     <header
@@ -54,17 +54,17 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
         style={{ maxHeight: scrolled ? 0 : 24, opacity: scrolled ? 0 : 1 }}
         aria-hidden
       >
-        <div className="container mx-auto px-6 pt-1.5">
+        <div className="container mx-auto px-6 pt-2">
           <SloganHeartbeat variant="nav" />
         </div>
       </div>
 
-      <div className="container mx-auto flex h-20 items-center justify-between px-6">
+      <div className="container mx-auto grid h-20 grid-cols-[auto_1fr_auto] items-center gap-4 px-6">
         <Link to="/" aria-label="Cochrane Master Builders — home" className="inline-flex items-center">
           <MasterLogo slot="nav" />
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center justify-center gap-3 xl:gap-4 lg:flex" aria-label="Primary">
           {desktop.map((link) => {
             const active = pathname === link.path;
             return (
@@ -82,11 +82,11 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
           })}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden justify-self-end lg:block">
           <button
             type="button"
             onClick={() => onBookClick?.({ source: "Nav → Book Now" })}
-            className="cta-forest inline-flex rounded-sm bg-forest px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-forest-deep"
+            className="cta-forest inline-flex rounded-sm bg-forest px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-forest-deep"
           >
             Book Now
           </button>
@@ -95,7 +95,7 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="-mr-2 inline-flex items-center justify-center p-3 text-charcoal lg:hidden"
+          className="-mr-3 inline-flex h-12 w-12 items-center justify-center text-charcoal lg:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
         >
@@ -104,23 +104,23 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-seam bg-bone">
+        <div className="min-h-[calc(100vh-5rem)] border-t border-seam bg-bone lg:hidden">
           {/* Slogan — first line of the mobile drawer */}
-          <div className="container mx-auto px-6 py-4 border-b border-seam">
-            <SloganHeartbeat variant="nav" />
-          </div>
-          <ul className="container mx-auto flex flex-col gap-px bg-seam px-0">
-            {TEMPLATE_COPY.nav.map((link) => (
+          <ul className="container mx-auto flex min-h-[calc(100vh-5rem)] flex-col gap-px bg-seam px-0">
+            <li className="border-b border-seam bg-bone px-6 py-4">
+              <SloganHeartbeat variant="nav" />
+            </li>
+            {mobile.map((link) => (
               <li key={link.path} className="bg-bone">
                 <PrefetchLink
                   to={link.path}
-                  className={`block px-6 py-4 text-body ${pathname === link.path ? "text-forest" : "text-charcoal"}`}
+                  className={`flex min-h-14 items-center px-6 text-body ${pathname === link.path ? "text-forest" : "text-charcoal"}`}
                 >
                   {link.label}
                 </PrefetchLink>
               </li>
             ))}
-            <li className="bg-bone p-6">
+            <li className="safe-bottom mt-auto border-t border-seam bg-bone px-6 pt-6 pb-6">
               <button
                 type="button"
                 onClick={() => { setOpen(false); onBookClick?.({ source: "Mobile nav → Book Now" }); }}

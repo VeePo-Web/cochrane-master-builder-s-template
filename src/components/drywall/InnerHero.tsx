@@ -16,14 +16,24 @@ const InnerHero = ({ eyebrow, title, lede, backgroundImage, backgroundAlt = "" }
       {backgroundImage && (
         <HeroImage src={backgroundImage} alt={backgroundAlt} gradientFrom="left" opacity={28} />
       )}
-      <div className="container relative z-10 mx-auto px-6 py-20 md:py-28 max-md:py-14">
-        <div className="max-w-4xl">
-          {eyebrow && <p className="font-eyebrow mb-5">{eyebrow}</p>}
+      {/* Atmospheric ghost word — depth at Z exit point */}
+      {eyebrow && (
+        <span
+          aria-hidden="true"
+          className="pointer-events-none select-none absolute bottom-0 right-0 font-display text-charcoal leading-none uppercase"
+          style={{ fontSize: "clamp(6rem,16vw,14rem)", opacity: 0.04, lineHeight: 1 }}
+        >
+          {eyebrow}
+        </span>
+      )}
+      <div className="container relative z-10 mx-auto px-6 py-24 md:py-40 max-md:py-16">
+        <div className="max-w-3xl">
+          {eyebrow && <p className="font-eyebrow mb-6">{eyebrow}</p>}
           <h1 className="text-display-xl text-charcoal">{title}</h1>
           {/* Generational slogan — heartbeat beneath every inner-page title */}
           <SloganHeartbeat variant="whisper" className="mt-5 block" />
           {lede && (
-            <p className="mt-5 max-w-2xl text-body-lg text-graphite max-md:mt-4 max-md:text-base max-md:leading-relaxed">
+            <p className="mt-8 max-w-2xl text-body-lg text-graphite max-md:mt-6 max-md:text-base max-md:leading-relaxed">
               {lede}
             </p>
           )}

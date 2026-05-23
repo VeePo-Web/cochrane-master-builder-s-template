@@ -25,11 +25,16 @@ const TrustNumbers = ({ items, variant = "row" }: TrustNumbersProps) => {
   }
 
   return (
-    <ul className="flex flex-wrap items-baseline justify-center gap-x-12 gap-y-6 text-center md:justify-between">
+    <ul className="grid grid-cols-2 gap-x-8 gap-y-8 sm:grid-cols-4 md:gap-x-10">
       {items.map((it) => (
-        <li key={it.label} className="min-w-[8rem]">
-          <p className="font-display text-display-sm text-forest md:text-display-md">{it.number}</p>
-          <p className="mt-2 text-caption uppercase tracking-[0.18em] text-mist">{it.label}</p>
+        <li key={it.label} className="border-t border-seam pt-4">
+          <p
+            className="font-display tabular-nums text-forest"
+            style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)", lineHeight: 1.1, letterSpacing: "-0.02em" }}
+          >
+            {it.number}
+          </p>
+          <p className="mt-2 min-h-10 text-caption uppercase tracking-[0.18em] text-mist md:mt-3">{it.label}</p>
         </li>
       ))}
     </ul>

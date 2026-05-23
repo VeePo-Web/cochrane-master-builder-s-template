@@ -30,18 +30,28 @@ const Pricing = ({ onBookClick }: Props) => {
       <InnerHero eyebrow={c.hero.eyebrow} title={c.hero.title} lede={c.hero.lede} />
 
       <SectionFrame tone="bone" size="lg" grain>
-        <div className="grid gap-12 md:grid-cols-12 md:items-start">
-          <div className="md:col-span-5">
-            <SectionTitle eyebrow="Philosophy" headline={c.philosophy.headline} lede={c.philosophy.body} />
-          </div>
-          <div className="md:col-span-7">
-            <RemixSlot name="PRICE_BANDS">
-              <PriceBandsTable
-                title="{SERVICE} — honest bands"
-                bands={MASTER_REMIX.PRICE_BANDS}
-                note="Final invoice = band + material grade you select. Nothing else moves the number."
-              />
-            </RemixSlot>
+        <div className="relative">
+          {/* Atmospheric ghost number — depth on the diagonal */}
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute bottom-0 right-0 font-display text-charcoal leading-none"
+            style={{ fontSize: "clamp(8rem,18vw,16rem)", opacity: 0.04, lineHeight: 1 }}
+          >
+            02
+          </span>
+          <div className="relative grid gap-16 md:gap-20 md:grid-cols-12 md:items-start">
+            <div className="md:col-span-5">
+              <SectionTitle eyebrow="Philosophy" headline={c.philosophy.headline} lede={c.philosophy.body} />
+            </div>
+            <div className="md:col-span-7">
+              <RemixSlot name="PRICE_BANDS">
+                <PriceBandsTable
+                  title="{SERVICE} — honest bands"
+                  bands={MASTER_REMIX.PRICE_BANDS}
+                  note="Final invoice = band + material grade you select. Nothing else moves the number."
+                />
+              </RemixSlot>
+            </div>
           </div>
         </div>
       </SectionFrame>

@@ -12,9 +12,14 @@ const ProcessSteps = ({ steps }: ProcessStepsProps) => {
     <ol className="grid gap-px bg-seam md:grid-cols-2 lg:grid-cols-4">
       {steps.map((step, i) => (
         <li key={i} className="flex flex-col bg-paper p-8">
-          <span className="font-display text-5xl text-forest/40">{String(i + 1).padStart(2, "0")}</span>
+          <span
+            className="font-display text-forest/40"
+            style={{ fontSize: "clamp(2.5rem,4vw,4rem)", lineHeight: 1 }}
+          >
+            {String(i + 1).padStart(2, "0")}
+          </span>
           <h3 className="mt-4 font-display text-display-sm text-charcoal">{step.title}</h3>
-          <p className="mt-3 text-graphite">{step.description}</p>
+          <p className="mt-4 text-body leading-relaxed text-graphite">{step.description}</p>
         </li>
       ))}
     </ol>

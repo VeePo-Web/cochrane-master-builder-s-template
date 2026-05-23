@@ -233,7 +233,7 @@ export const MASTER_REMIX: RemixVariables = {
     { number: "15", label: "Year structural guarantee" },
     { number: "24h", label: "Written quote turnaround" },
     { number: "$5M", label: "Liability coverage" },
-    { number: "Level 5", label: "Finish standard" },
+    { number: "1", label: "Quality standard" },
   ],
 
   // ── Contact + Canonical defaults ────────────────────────────────────────

@@ -55,11 +55,11 @@ const GUARANTEES = [
 // ─── Full 3-panel variant ────────────────────────────────────────────────────
 const FullGuarantee = ({ className = "" }: { className?: string }) => (
   <section
-    className={["bg-[#1F2F4D] py-20 md:py-28 overflow-hidden", className].join(
+    className={["bg-[#1F2F4D] py-20 md:py-32 overflow-hidden", className].join(
       " "
     )}
   >
-    <div className="max-w-7xl mx-auto px-6">
+    <div className="container mx-auto px-6">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -68,7 +68,7 @@ const FullGuarantee = ({ className = "" }: { className?: string }) => (
         transition={{ duration: 0.8, ease: EASE }}
         className="mb-12"
       >
-        <div className="inline-block rounded-full border border-[#8B6B4A]/35 bg-[#8B6B4A]/10 px-4 py-1.5 mb-6">
+        <div className="inline-block rounded-full border border-[#8B6B4A]/35 bg-[#8B6B4A]/10 px-4 py-2 mb-6">
           <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#C9A87C]">
             The Guarantee
           </span>
@@ -84,7 +84,7 @@ const FullGuarantee = ({ className = "" }: { className?: string }) => (
         whileInView="show"
         viewport={{ once: true, margin: "-60px" }}
         variants={staggerContainer}
-        className="grid grid-cols-1 md:grid-cols-3 gap-4"
+        className="grid grid-cols-1 md:grid-cols-3 gap-6"
       >
         {GUARANTEES.map(({ num, name, promise, note }) => (
           <motion.div key={num} variants={staggerChild}>
@@ -94,7 +94,8 @@ const FullGuarantee = ({ className = "" }: { className?: string }) => (
               <div className="rounded-[calc(1.5rem-0.375rem)] p-8 bg-[#0B1120] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] h-full flex flex-col justify-between">
                 <div>
                   <span
-                    className="font-display text-[4.5rem] leading-none italic text-[#8B6B4A]/25 select-none block"
+                    className="font-display leading-none italic text-[#8B6B4A]/25 select-none block"
+                    style={{ fontSize: "clamp(3.5rem,6vw,5rem)" }}
                     aria-hidden
                   >
                     {num}
@@ -102,11 +103,11 @@ const FullGuarantee = ({ className = "" }: { className?: string }) => (
                   <h3 className="font-display text-[1.375rem] leading-[1.2] tracking-[-0.01em] text-white font-light italic mt-[-0.5rem]">
                     {name}
                   </h3>
-                  <p className="mt-5 font-body text-[1rem] leading-[1.75] text-white/65 font-light">
+                  <p className="mt-6 font-body text-[1rem] leading-[1.75] text-white/65 font-light">
                     {promise}
                   </p>
                 </div>
-                <p className="mt-6 font-mono text-[9px] uppercase tracking-[0.22em] text-white/28">
+                <p className="mt-6 font-mono text-[9px] uppercase tracking-[0.22em] text-white/35">
                   {note}
                 </p>
               </div>
@@ -121,7 +122,7 @@ const FullGuarantee = ({ className = "" }: { className?: string }) => (
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7, delay: 0.4 }}
-        className="mt-6 rounded-xl bg-[#8B6B4A]/12 py-4 px-6"
+        className="mt-6 rounded-[1rem] bg-[#8B6B4A]/12 py-4 px-6"
       >
         <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/55 text-center">
           All three guarantees are in writing. On every invoice.

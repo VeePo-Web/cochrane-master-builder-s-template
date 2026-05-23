@@ -24,12 +24,20 @@ const CTABand = ({
   onSecondaryClick,
 }: CTABandProps) => {
   return (
-    <section data-cta-band className="bg-forest text-primary-foreground">
-      <div className="container mx-auto px-6 py-20 md:py-28 max-md:py-14">
+    <section data-cta-band className="relative overflow-hidden bg-forest text-primary-foreground">
+      {/* Atmospheric ghost year — depth at Z exit point */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute right-0 bottom-0 font-display text-primary-foreground leading-none"
+        style={{ fontSize: "clamp(8rem,22vw,20rem)", opacity: 0.06, lineHeight: 1 }}
+      >
+        1958
+      </span>
+      <div className="container relative mx-auto px-6 py-16 md:py-32">
         <div className="max-w-3xl">
           <p className="font-eyebrow text-primary-foreground/70">{eyebrow}</p>
-          <h2 className="mt-4 text-display-lg text-primary-foreground">{headline}</h2>
-          {body && <p className="mt-5 max-w-2xl text-body-lg text-primary-foreground/85">{body}</p>}
+          <h2 className="mt-3 text-display-lg text-primary-foreground">{headline}</h2>
+          {body && <p className="mt-6 max-w-2xl text-body-lg text-primary-foreground/85">{body}</p>}
           <div className="mt-8 flex flex-wrap gap-3 max-md:flex-col">
             <button
               type="button"

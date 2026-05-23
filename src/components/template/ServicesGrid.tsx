@@ -21,15 +21,18 @@ const ServicesGrid = ({ services, hrefFor }: ServicesGridProps) => {
           <Link
             key={i}
             to={href}
-            className="group flex flex-col bg-paper p-8 transition-colors hover:bg-bone"
+            className={`group flex flex-col bg-paper p-8 transition-colors hover:bg-bone${i === 4 ? " lg:col-span-2" : ""}`}
           >
-            <span className="font-display text-5xl text-forest/40">
+            <span
+              className="font-display text-forest/40"
+              style={{ fontSize: "clamp(2.5rem,4vw,4rem)", lineHeight: 1 }}
+            >
               {String(i + 1).padStart(2, "0")}
             </span>
             <h3 className="mt-4 font-display text-display-sm text-charcoal">{s.title}</h3>
-            {s.range && <p className="font-eyebrow mt-3 text-mist">{s.range}</p>}
-            <p className="mt-4 flex-1 text-graphite">{s.summary}</p>
-            <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-forest">
+            {s.range && <p className="font-eyebrow mt-4 text-mist">{s.range}</p>}
+            <p className="mt-4 flex-1 text-body leading-relaxed text-graphite">{s.summary}</p>
+            <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium tracking-[0.08em] text-forest">
               See the scope
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </span>

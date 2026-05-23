@@ -50,12 +50,14 @@ const TemplateHome = ({ onBookClick }: Props) => {
           {MASTER_REMIX.HERO_IMAGE && (
             <HeroImage src={MASTER_REMIX.HERO_IMAGE} alt="" gradientFrom="left" opacity={32} />
           )}
-          <div className="container relative z-10 mx-auto px-6 pt-24 pb-20 md:pt-36 md:pb-28">
-            <div className="grid items-end gap-12 md:grid-cols-12">
+          <div className="container relative z-10 mx-auto px-6 pt-24 pb-16 md:pt-40 md:pb-32">
+            <div className="grid items-center gap-12 md:grid-cols-12">
+
+              {/* Left column — headline + copy + CTAs */}
               <div className="md:col-span-8">
                 <ScrollReveal>
-                  {/* Eyebrow: 24px copper hairline + Jost caps */}
-                  <div className="flex items-center gap-3 mb-5">
+                  {/* Eyebrow: copper hairline + Jost caps */}
+                  <div className="flex items-center gap-3 mb-6">
                     <span className="hairline-copper w-6 flex-shrink-0" />
                     <p className="eyebrow-copper">{c.hero.eyebrow}</p>
                   </div>
@@ -64,32 +66,32 @@ const TemplateHome = ({ onBookClick }: Props) => {
                     style={{
                       fontFamily: "'Space Grotesk', system-ui, sans-serif",
                       fontSize: "clamp(2.75rem, 6.5vw, 5.5rem)",
-                      fontWeight: 300,
+                      fontWeight: 400,
                       letterSpacing: "-0.025em",
-                      lineHeight: 0.98,
+                      lineHeight: 1.0,
                     }}
                   >
                     {c.hero.headline}
                   </h1>
 
                   {/* Hand-etched copper underline — draws itself on mount */}
-                  <HeroEtchedUnderline className="mt-3 mb-4 block" />
+                  <HeroEtchedUnderline className="mt-4 mb-4 block" />
 
                   {/* Slogan whisper — beneath the H1 */}
                   <SloganHeartbeat variant="whisper" className="mb-6 block" />
 
-                  <p className="mt-2 max-w-[56ch] text-body-lg text-graphite">{c.hero.sub}</p>
-                  <div className="mt-10 flex flex-wrap gap-3">
+                  <p className="mt-4 md:max-w-[56ch] text-body-lg text-graphite leading-relaxed">{c.hero.sub}</p>
+                  <div className="mt-10 flex flex-col sm:flex-row gap-4">
                     <button
                       type="button"
                       onClick={() => onBookClick?.({ source: "Home hero" })}
-                      className="rounded-none bg-forest px-6 py-3.5 text-sm font-medium tracking-[0.12em] uppercase text-primary-foreground transition-colors hover:bg-forest-deep"
+                      className="w-full sm:w-auto rounded-none bg-forest px-6 py-3.5 text-sm font-medium tracking-[0.15em] uppercase text-primary-foreground transition-colors hover:bg-forest-deep"
                     >
                       {TEMPLATE_COPY.cta.primary}
                     </button>
                     <Link
                       to="/pricing"
-                      className="rounded-none px-6 py-3.5 text-sm font-medium tracking-[0.12em] uppercase text-charcoal transition-all duration-300 hover:text-forest"
+                      className="w-full sm:w-auto rounded-none px-6 py-3.5 text-sm font-medium tracking-[0.15em] uppercase text-charcoal transition-all duration-300 hover:text-forest text-center"
                       style={{ border: "1px solid hsl(var(--copper) / 0.20)" }}
                     >
                       {TEMPLATE_COPY.cta.secondary}
@@ -97,37 +99,58 @@ const TemplateHome = ({ onBookClick }: Props) => {
                   </div>
                 </ScrollReveal>
               </div>
+
+              {/* Right column — image or placeholder + cornerstone stamp */}
+              <div className="hidden md:flex md:col-span-4 flex-col items-center gap-8">
+                {MASTER_REMIX.HERO_IMAGE ? (
+                  <div className="w-full aspect-[3/4] overflow-hidden rounded-sm">
+                    <img
+                      src={MASTER_REMIX.HERO_IMAGE}
+                      alt=""
+                      className="w-full h-full object-cover"
+                      aria-hidden="true"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className="w-full aspect-[3/4] rounded-sm bg-charcoal/5 animate-pulse"
+                    aria-hidden="true"
+                  />
+                )}
+                <CornerstoneStamp size={72} />
+              </div>
+
             </div>
           </div>
 
-          {/* Cornerstone stamp — bottom-right of hero */}
-          <div className="absolute bottom-6 right-6 md:bottom-10 md:right-10 z-10">
-            <CornerstoneStamp size={72} />
+          {/* Cornerstone stamp — mobile only, absolute bottom-right */}
+          <div className="absolute bottom-6 right-6 z-10 md:hidden">
+            <CornerstoneStamp size={56} />
           </div>
         </section>
       </RemixSlot>
 
       {/* TRUST BAR */}
-      <SectionFrame tone="paper" size="sm">
-        <div className="grid items-center gap-8 md:grid-cols-12">
-          <div className="md:col-span-9">
+      <SectionFrame tone="paper" size="sm" className="!py-16 md:!py-20">
+        <div className="grid items-center gap-10 md:grid-cols-12 md:gap-12">
+          <div className="md:col-span-8">
             <RemixSlot name="TRUST_NUMBERS">
               <TrustNumbers items={MASTER_REMIX.TRUST_NUMBERS} />
             </RemixSlot>
           </div>
-          <div className="md:col-span-3 flex justify-center md:justify-end">
-            <FoundationCounter />
+          <div className="flex justify-start md:col-span-4 md:justify-end md:border-l md:border-seam md:pl-10 lg:pl-12">
+            <FoundationCounter className="w-full max-w-xs md:max-w-none" />
           </div>
         </div>
       </SectionFrame>
 
       {/* PROMISE */}
-      <SectionFrame tone="bone" size="lg" grain>
-        <div className="grid gap-16 md:grid-cols-12 md:items-center">
+      <SectionFrame tone="bone" size="lg" grain className="md:!py-32">
+        <div className="grid gap-12 md:gap-16 md:grid-cols-12 md:items-center">
           <div className="md:col-span-7">
             <SectionTitle eyebrow={c.promise.eyebrow} headline={c.promise.headline} lede={c.promise.body} />
           </div>
-          <div className="md:col-span-5">
+          <div className="md:col-span-5 md:-mr-6">
             <RemixSlot name="HERO_IMAGE" hint="Editorial detail shot of {SERVICE}">
               <EditorialImage
                 src={MASTER_REMIX.HERO_IMAGE}
@@ -140,17 +163,26 @@ const TemplateHome = ({ onBookClick }: Props) => {
       </SectionFrame>
 
       {/* SERVICES */}
-      <SectionFrame tone="paper" size="lg">
-        <SectionTitle eyebrow={c.services.eyebrow} headline={c.services.headline} lede={c.services.lede} />
-        <div className="mt-12">
-          <RemixSlot name="SUB_SERVICES">
-            <ServicesGrid services={MASTER_REMIX.SUB_SERVICES} hrefFor={() => "/services"} />
-          </RemixSlot>
+      <SectionFrame tone="paper" size="lg" className="md:!py-32">
+        <div className="relative">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute right-0 top-0 font-display text-charcoal leading-none"
+            style={{ fontSize: "clamp(8rem,18vw,16rem)", opacity: 0.04, lineHeight: 1 }}
+          >
+            05
+          </span>
+          <SectionTitle eyebrow={c.services.eyebrow} headline={c.services.headline} lede={c.services.lede} />
+          <div className="mt-12">
+            <RemixSlot name="SUB_SERVICES">
+              <ServicesGrid services={MASTER_REMIX.SUB_SERVICES} hrefFor={() => "/services"} />
+            </RemixSlot>
+          </div>
         </div>
       </SectionFrame>
 
       {/* PROOF */}
-      <SectionFrame tone="bone" size="lg">
+      <SectionFrame tone="bone" size="lg" className="md:!py-32">
         <SectionTitle eyebrow={c.proof.eyebrow} headline={c.proof.headline} lede={c.proof.lede} />
         <div className="mt-12">
           <RemixSlot name="PROOF" hint="Before/after image pairs">
@@ -169,62 +201,93 @@ const TemplateHome = ({ onBookClick }: Props) => {
       </RemixSlot>
 
       {/* PROCESS */}
-      <SectionFrame tone="paper" size="lg">
-        <SectionTitle eyebrow={c.process.eyebrow} headline={c.process.headline} />
-        <div className="mt-12">
-          <ProcessSteps steps={HOME_PROCESS} />
+      <SectionFrame tone="paper" size="lg" className="md:!py-32">
+        <div className="relative">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute right-0 top-0 font-display text-charcoal leading-none"
+            style={{ fontSize: "clamp(8rem,18vw,16rem)", opacity: 0.04, lineHeight: 1 }}
+          >
+            08
+          </span>
+          <SectionTitle eyebrow={c.process.eyebrow} headline={c.process.headline} />
+          <div className="mt-12">
+            <ProcessSteps steps={HOME_PROCESS} />
+          </div>
         </div>
       </SectionFrame>
 
       {/* SOCIAL PROOF */}
-      <SectionFrame tone="bone" size="lg">
+      <SectionFrame tone="bone" size="sm" className="!py-0">
         <Suspense fallback={null}>
           <SocialProofEngine variant="grid" maxItems={3} />
         </Suspense>
       </SectionFrame>
 
       {/* GUARANTEE */}
-      <SectionFrame tone="paper" size="lg">
+      <SectionFrame tone="paper" size="sm" className="!py-0">
         <Suspense fallback={null}>
           <GuaranteeBlock variant="full" />
         </Suspense>
       </SectionFrame>
 
       {/* PRICING PREVIEW */}
-      <SectionFrame tone="bone" size="lg">
-        <div className="grid gap-12 md:grid-cols-12 md:items-start">
-          <div className="md:col-span-5">
-            <SectionTitle
-              eyebrow="Pricing preview"
-              headline="The bands are public. The number is the number."
-              lede="See the full scope on /pricing — including the philosophy, the process, and the objections we've already heard."
-            />
-            <Link
-              to="/pricing"
-              className="mt-8 inline-flex rounded-sm border border-charcoal/20 px-6 py-3.5 text-sm font-medium text-charcoal transition-colors hover:bg-charcoal hover:text-bone"
-            >
-              See the full pricing page
-            </Link>
-          </div>
-          <div className="md:col-span-7">
-            <RemixSlot name="PRICE_BANDS">
-              <PriceBandsTable
-                title="{SERVICE} — honest bands"
-                bands={MASTER_REMIX.PRICE_BANDS}
-                note="Final number on the invoice equals the band; only material grade selected by you adjusts it."
+      <SectionFrame tone="bone" size="lg" className="md:!py-32">
+        <div className="relative">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute right-0 top-0 font-display text-charcoal leading-none"
+            style={{ fontSize: "clamp(8rem,18vw,16rem)", opacity: 0.04, lineHeight: 1 }}
+          >
+            04
+          </span>
+          <div className="relative grid gap-12 md:gap-16 md:grid-cols-12 md:items-start">
+            <div className="md:col-span-5">
+              <SectionTitle
+                eyebrow="Pricing preview"
+                headline="The bands are public. The number is the number."
+                lede="See the full scope on /pricing — including the philosophy, the process, and the objections we've already heard."
               />
-            </RemixSlot>
+              <Link
+                to="/pricing"
+                className="mt-8 inline-flex w-full sm:w-auto rounded-sm border border-charcoal/20 px-6 py-3.5 text-sm font-medium text-charcoal transition-colors hover:bg-charcoal hover:text-bone"
+              >
+                See the full pricing page
+              </Link>
+            </div>
+            <div className="md:col-span-7">
+              <RemixSlot name="PRICE_BANDS">
+                <PriceBandsTable
+                  title="{SERVICE} — honest bands"
+                  bands={MASTER_REMIX.PRICE_BANDS}
+                  note="Final number on the invoice equals the band; only material grade selected by you adjusts it."
+                />
+              </RemixSlot>
+            </div>
           </div>
         </div>
       </SectionFrame>
 
       {/* FAQ */}
-      <SectionFrame tone="paper" size="lg">
-        <SectionTitle eyebrow={c.faq.eyebrow} headline={c.faq.headline} />
-        <div className="mt-10">
-          <RemixSlot name="FAQS">
-            <FAQAccordion items={MASTER_REMIX.FAQS.slice(0, 6)} />
-          </RemixSlot>
+      <SectionFrame tone="paper" size="lg" className="md:!py-32">
+        <div className="relative">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute right-0 top-0 font-display text-charcoal leading-none"
+            style={{ fontSize: "clamp(8rem,18vw,16rem)", opacity: 0.04, lineHeight: 1 }}
+          >
+            06
+          </span>
+          <div className="relative grid md:grid-cols-12 gap-12 md:gap-16 md:items-start">
+            <div className="md:col-span-4">
+              <SectionTitle eyebrow={c.faq.eyebrow} headline={c.faq.headline} />
+            </div>
+            <div className="md:col-span-8">
+              <RemixSlot name="FAQS">
+                <FAQAccordion items={MASTER_REMIX.FAQS.slice(0, 6)} />
+              </RemixSlot>
+            </div>
+          </div>
         </div>
       </SectionFrame>
 

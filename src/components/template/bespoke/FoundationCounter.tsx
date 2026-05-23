@@ -50,15 +50,19 @@ const FoundationCounter = ({ className = "" }: FoundationCounterProps) => {
   }, [inView, done, endYear]);
 
   return (
-    <div ref={ref} className={`flex flex-col items-start gap-0.5 ${className}`}>
+    <div
+      ref={ref}
+      className={`flex flex-col items-start gap-2 border-t pt-4 ${className}`}
+      style={{ borderColor: "hsl(var(--copper) / 0.30)" }}
+    >
       <p
         className="tabular-nums"
         style={{
           fontFamily: "'Space Grotesk', system-ui, sans-serif",
-          fontSize: "clamp(2rem, 5vw, 3.5rem)",
+          fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
           fontWeight: 300,
           letterSpacing: "-0.02em",
-          lineHeight: 1,
+          lineHeight: 1.1,
           color: "hsl(var(--charcoal))",
           fontVariantNumeric: "tabular-nums lining-nums",
         }}

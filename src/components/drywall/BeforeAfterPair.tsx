@@ -11,11 +11,11 @@ interface BeforeAfterPairProps {
 /** Two stacked images with labels — works without uploaded photos via gradient placeholders. */
 const BeforeAfterPair = ({ pairs }: BeforeAfterPairProps) => {
   return (
-    <div className="grid gap-12 md:grid-cols-2">
+    <div className="grid gap-8 md:gap-12 md:grid-cols-2 lg:grid-cols-3">
       {pairs.map((pair, i) => (
         <figure key={i} className="space-y-4">
-          <div className="grid grid-cols-2 gap-px bg-seam max-md:grid-cols-1 max-md:gap-3 max-md:bg-transparent border border-seam shadow-sm transition-shadow hover:shadow-md">
-            <div className="relative aspect-[4/5] bg-gradient-to-br from-mist/40 to-graphite/30 overflow-hidden">
+          <div className="grid grid-cols-2 gap-px bg-seam max-md:grid-cols-1 max-md:gap-4 max-md:bg-transparent border border-seam shadow-sm transition-shadow hover:shadow-md">
+            <div className="relative aspect-[4/5] max-md:aspect-[3/2] bg-gradient-to-br from-mist/40 to-graphite/30 animate-pulse overflow-hidden">
               {pair.before.startsWith("/") || pair.before.startsWith("http") || pair.before.includes("assets") || pair.before.includes("/src/") ? (
                 <img src={pair.before} alt="Before" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
               ) : null}
@@ -23,7 +23,7 @@ const BeforeAfterPair = ({ pairs }: BeforeAfterPairProps) => {
                 Before
               </span>
             </div>
-            <div className="relative aspect-[4/5] bg-gradient-to-br from-bone to-paper overflow-hidden">
+            <div className="relative aspect-[4/5] max-md:aspect-[3/2] bg-gradient-to-br from-bone to-paper animate-pulse overflow-hidden">
               {pair.after.startsWith("/") || pair.after.startsWith("http") || pair.after.includes("assets") || pair.after.includes("/src/") ? (
                 <img src={pair.after} alt="After" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
               ) : null}

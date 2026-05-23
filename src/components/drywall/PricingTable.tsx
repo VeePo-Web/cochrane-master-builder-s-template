@@ -13,13 +13,13 @@ const PricingTable = ({ title, tiers, note }: PricingTableProps) => {
   return (
     <div className="border border-seam bg-paper">
       {title && (
-        <div className="border-b border-seam px-6 py-4">
+        <div className="border-b border-seam px-6 py-5 md:py-6">
           <h3 className="font-display text-display-sm text-charcoal">{title}</h3>
         </div>
       )}
       <ul className="divide-y divide-seam">
         {tiers.map((tier, i) => (
-          <li key={i} className="flex flex-col gap-1 px-6 py-5 sm:flex-row sm:items-baseline sm:justify-between">
+          <li key={i} className="flex flex-col gap-1 px-6 py-6 sm:flex-row sm:items-baseline sm:justify-between">
             <span className="text-body text-graphite">{tier.scope}</span>
             <span className="font-display text-display-sm text-forest">{tier.range}</span>
           </li>

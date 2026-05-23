@@ -28,28 +28,32 @@ const EditorialImage = ({
   const reduced = useReducedMotion();
 
   return (
-    <figure className={`space-y-3 ${className}`}>
+    <figure className={`space-y-4 ${className}`}>
       <div
         ref={ref}
         className={`relative overflow-hidden border border-seam ${aspect}`}
       >
-        <motion.img
-          src={src}
-          alt={alt}
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 h-full w-full object-cover will-change-[clip-path]"
-          initial={{
-            clipPath: reduced ? "inset(0)" : "inset(100% 0 0 0)",
-            scale: reduced ? 1 : 1.04,
-          }}
-          animate={
-            inView
-              ? { clipPath: "inset(0% 0 0 0)", scale: 1 }
-              : { clipPath: "inset(100% 0 0 0)", scale: 1.04 }
-          }
-          transition={{ duration: reduced ? 0 : 1.0, ease: EASE }}
-        />
+        {src ? (
+          <motion.img
+            src={src}
+            alt={alt}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover will-change-[clip-path]"
+            initial={{
+              clipPath: reduced ? "inset(0)" : "inset(100% 0 0 0)",
+              scale: reduced ? 1 : 1.04,
+            }}
+            animate={
+              inView
+                ? { clipPath: "inset(0% 0 0 0)", scale: 1 }
+                : { clipPath: "inset(100% 0 0 0)", scale: 1.04 }
+            }
+            transition={{ duration: reduced ? 0 : 1.0, ease: EASE }}
+          />
+        ) : (
+          <div className="absolute inset-0 bg-charcoal/5 animate-pulse" aria-hidden="true" />
+        )}
       </div>
       {caption && (
         <figcaption className="text-caption text-mist">{caption}</figcaption>

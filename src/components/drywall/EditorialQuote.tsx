@@ -18,7 +18,7 @@ const EditorialQuote = ({
   quote,
   attribution,
   image,
-  height = "48vh",
+  height = "clamp(320px, 48vh, 640px)",
 }: EditorialQuoteProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
@@ -33,7 +33,7 @@ const EditorialQuote = ({
     <figure
       ref={ref}
       className="relative w-full overflow-hidden bg-bone"
-      style={{ height }}
+      style={{ minHeight: height }}
     >
       <motion.div
         className="absolute inset-x-0"
@@ -45,14 +45,18 @@ const EditorialQuote = ({
         }}
         aria-hidden="true"
       >
-        <img
-          src={image}
-          alt=""
-          loading="lazy"
-          decoding="async"
-          className="h-full w-full object-cover"
-          style={{ opacity: 0.28 }}
-        />
+        {image ? (
+          <img
+            src={image}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-cover"
+            style={{ opacity: 0.28 }}
+          />
+        ) : (
+          <div className="h-full w-full bg-charcoal/10 animate-pulse" aria-hidden="true" />
+        )}
       </motion.div>
 
       {/* Bone wash for legibility */}
@@ -62,7 +66,7 @@ const EditorialQuote = ({
 
       <div className="relative z-10 flex h-full items-center">
         <div className="container mx-auto px-6 text-center">
-          <blockquote className="mx-auto max-w-3xl">
+          <blockquote className="mx-auto max-w-4xl">
             <p className="font-display text-pull-quote text-forest">“{quote}”</p>
             {attribution && (
               <footer className="font-eyebrow mt-6">{attribution}</footer>
