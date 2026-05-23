@@ -81,6 +81,22 @@ const ThankYou = ({ onBookClick }: Props) => {
           >
             No action is needed on your end. We have everything we need to reach you.
           </p>
+
+          {/* Generational slogan — closing inscription */}
+          <div className="mt-12 pt-8 border-t border-copper/15 max-w-xl">
+            <p
+              className="uppercase text-bone/55"
+              style={{
+                fontFamily: "'Jost', system-ui",
+                fontSize: 12,
+                fontWeight: 400,
+                letterSpacing: "0.26em",
+              }}
+            >
+              <span aria-hidden style={{ color: "hsl(var(--copper))", marginRight: "0.6em" }}>▪</span>
+              {MASTER_REMIX.BRAND_SLOGAN}
+            </p>
+          </div>
         </div>
       </section>
 
