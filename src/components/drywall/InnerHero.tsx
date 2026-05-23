@@ -1,4 +1,5 @@
 import HeroImage from "./HeroImage";
+import { SloganHeartbeat } from "@/components/template/bespoke";
 
 interface InnerHeroProps {
   eyebrow?: string;
@@ -19,8 +20,10 @@ const InnerHero = ({ eyebrow, title, lede, backgroundImage, backgroundAlt = "" }
         <div className="max-w-4xl">
           {eyebrow && <p className="font-eyebrow mb-5">{eyebrow}</p>}
           <h1 className="text-display-xl text-charcoal">{title}</h1>
+          {/* Generational slogan — heartbeat beneath every inner-page title */}
+          <SloganHeartbeat variant="whisper" className="mt-5 block" />
           {lede && (
-            <p className="mt-6 max-w-2xl text-body-lg text-graphite max-md:mt-4 max-md:text-base max-md:leading-relaxed">
+            <p className="mt-5 max-w-2xl text-body-lg text-graphite max-md:mt-4 max-md:text-base max-md:leading-relaxed">
               {lede}
             </p>
           )}

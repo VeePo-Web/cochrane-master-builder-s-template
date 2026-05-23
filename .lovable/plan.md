@@ -1,75 +1,62 @@
-# Performance & Instant-Feel Plan
 
-Goal: every navigation feels instant (≤100 ms perceived), no white flash, no layout shift, and idle CPU stays low. Hits the v2 budgets (LCP ≤2.0 s desktop / 2.5 s mobile, INP ≤200 ms, CLS ≤0.05).
+# Slogan Saturation Plan — "Building Strong Foundations For Those Who Come After Us"
 
-## 1. Page transitions → instant
+Goal: make the slogan an inescapable, brand-consistent presence across the template — hero, headers, CTAs, footer, and every page section — without turning it into visual noise. Use the existing `SloganHeartbeat` bespoke component as the single source of truth so typography, copper bullet, and motion stay consistent.
 
-- Replace the current `framer-motion` fade in `src/components/drywall/PageTransition.tsx` with a no-op pass-through (or a 80 ms opacity-only fade respecting `prefers-reduced-motion`). Removes the perceived 400 ms delay between routes.
-- Drop `AnimatePresence mode="wait"` in `src/App.tsx` — `mode="wait"` blocks the new page until the old one's exit finishes. New page mounts immediately.
-- Keep `ScrollToTop` behaviour but use `behavior: "auto"` so route change snaps to top with no smooth-scroll wait.
+## Source of truth
 
-## 2. Route-level prefetch on hover/focus
+- Copy lives in `MASTER_REMIX.SLOGAN` / `TEMPLATE_COPY.brand.slogan` (already present).
+- Render via `@/components/template/bespoke` → `SloganHeartbeat` (variants: `hero`, `section`, `footer`, `monument`, plus a new `inline` + `micro` variant for tight spots).
+- Zero hard-coded slogan strings in pages — always pull from config.
 
-- Each `lazy(() => import(...))` chunk currently only loads when navigated to — that's why first hop to a page feels slow.
-- Add a tiny `usePrefetchRoute()` helper and a `<PrefetchLink>` wrapper around `react-router`'s `Link` that fires the dynamic import on `mouseenter`/`focus`/`touchstart`. Use it in `TemplateNavigation` and `TemplateFooter`. By the time the click lands, the chunk is already in cache.
-- Also kick off `requestIdleCallback`-based prefetch of the top 3 most-likely next routes (Services, Pricing, Contact) from `Home` after first paint.
+## Placement matrix
 
-## 3. Eager-load above-the-fold, lazy below
+Chrome (global, edit once):
+1. `TemplateNavigation` — add a `SloganHeartbeat variant="micro"` ticker beneath the top bar on `/` only (desktop), and as the first item inside the mobile drawer.
+2. `TemplateFooter` — already has `footer` + `monument` variants. Add a `section` variant inside the Tier-1 brand column under the logo (replaces the current promise paragraph spacing) and confirm the `GenerationalMarquee` is the slogan.
+3. `BookingModal` — add `variant="inline"` under the left-side brand-identity stack, and on the Thank-You step as the closing inscription.
+4. `StickyBookingBar` (mobile) — slogan as the eyebrow above the CTA at `micro` size.
 
-- In `Home`, the hero + first section components (`HeroImage`, `SectionTitle`, `TrustNumbers`, `ServicesGrid`) stay statically imported. They already are.
-- Move heavier below-the-fold blocks (`SocialProofEngine`, `GuaranteeBlock`, `BeforeAfterPair`, `FAQAccordion`, `ProcessSteps`) behind `React.lazy` + `IntersectionObserver` mount (a `<LazyMount>` wrapper). They render `null`/skeleton until ~600 px before scroll, then hydrate.
-- Same treatment for `Services`, `Pricing`, `Gallery`, `Reviews`, `BrandStory`, `WhyWeLoveService`.
+Pages (one slogan beat per page, placed where it reinforces the section's intent — never two in a row):
+5. `Home.tsx` — Hero eyebrow (`hero` variant), Trust strip closer (`inline`), Founder/Finale section monument (`monument`).
+6. `Services.tsx` — section header eyebrow + closing band.
+7. `ServiceDetail.tsx` — hero eyebrow + above-CTA inline beat.
+8. `WhyWeLoveService.tsx` — opening eyebrow + cornerstone monument near the bottom.
+9. `Pricing.tsx` — eyebrow above the ladder + inline between tiers and guarantee.
+10. `Guarantee.tsx` — monument variant as the seal caption.
+11. `BrandStory.tsx` — recurring `section` beat between chapters (max 3, rhythmic).
+12. `About.tsx` — eyebrow + founder-quote monument.
+13. `Gallery.tsx` — eyebrow above grid + inline footer band.
+14. `Reviews.tsx` — eyebrow + closing inscription.
+15. `AreasWeServe.tsx` — eyebrow + monument under the map.
+16. `Contact.tsx` — eyebrow + inline above form + monument after submit success.
+17. `FAQ.tsx` — eyebrow + closing inscription.
+18. `ThankYou.tsx` — full `monument` variant as the page sign-off.
+19. `NotFound.tsx` — `section` variant under the 404 message.
 
-## 4. Drop scroll/motion overhead
+## Component work
 
-- `SmoothScrollProvider` (Lenis) adds RAF cost on every frame. Keep it, but:
-  - Disable on touch devices (already heavy + native momentum is better).
-  - Disable when `prefers-reduced-motion`.
-- Audit `ScrollReveal` usage: ensure single shared `IntersectionObserver` (per the v2 motion spec recipe), not one per element. Refactor `src/components/drywall/ScrollReveal.tsx` if it currently creates an observer per instance.
-- Remove `framer-motion` from any component that only fades on mount — replace with pure CSS `data-reveal` + 240 ms transition. Cuts `framer-motion` usage on cold pages.
+- Extend `SloganHeartbeat` with two new variants:
+  - `inline` — single-line, 14–16px, copper square bullet, used inside body sections.
+  - `micro` — 11–12px tracked uppercase, for nav/sticky bar.
+- Add an `as` prop (default `p`, allow `span`/`h2`) so it can serve as a section eyebrow without breaking semantics.
+- Add an optional `aria-hidden` when the slogan repeats within a short distance of another instance, so screen readers hear it once per page (count instances via a lightweight context or simple prop).
 
-## 5. Font loading
+## Rhythm & guardrails (so it doesn't feel spammy)
 
-- `index.html` currently loads 3 families with many weights from Google Fonts. Trim to the weights actually used (per v2 typography: 300/400/500/600). Self-host via `@fontsource` or keep Google but with `&display=swap` already set + a `<link rel="preload" as="font" type="font/woff2" crossorigin>` for the one display weight used in the hero H1.
-- Subset to `latin` only with `&text=` for the brand wordmark if applicable (deferred — only if a single hero word remains heavy).
-
-## 6. Image discipline
-
-- Confirm every `EditorialImage`/`HeroImage` sets explicit `width`/`height` (or aspect-ratio) to keep CLS = 0.
-- Hero image gets `fetchpriority="high"` and `loading="eager"`; everything else `loading="lazy"` + `decoding="async"`.
-- Add a `<link rel="preload" as="image" href={MASTER_REMIX.HERO_IMAGE} fetchpriority="high">` injected from `Home` via `react-helmet`-style head tag (or directly mutate `document.head` in a `useEffect` keyed on the hero src).
-
-## 7. Build-side wins
-
-- Add a manual `rollupOptions.output.manualChunks` split in `vite.config.ts`: vendor (react/react-dom/router), `motion` (framer-motion + lenis), `ui` (radix). Keeps initial JS small and lets the browser cache vendor across deploys.
-- Confirm `compilerOptions.target` is modern (`ES2020`+) so SWC doesn't ship transpile bloat. (Read-only check.)
-
-## 8. Misc
-
-- Remove the dev-only `preflightDevWarning` from production builds — it already gates on `apply: "serve"`, but verify no preflight cost leaks into the client bundle via accidental imports from `src/master/knowledge/preflight`.
-- Ensure `BookingModal` is mounted but its heavy children (form, validation, supabase client) are inside the modal's `open` branch only, so they don't load until first open. Audit `src/components/drywall/BookingModal.tsx`.
-
-## Files to touch
-
-- `src/App.tsx` — drop `AnimatePresence mode="wait"`, simplify Suspense fallback.
-- `src/components/drywall/PageTransition.tsx` — neutralize.
-- `src/components/ScrollToTop.tsx` — `behavior: auto`.
-- `src/components/template/TemplateNavigation.tsx`, `TemplateFooter.tsx` — use new `<PrefetchLink>`.
-- `src/components/template/PrefetchLink.tsx` (new) + `src/components/template/LazyMount.tsx` (new).
-- `src/pages/template/*` — wrap below-the-fold sections in `<LazyMount>`; lazy-import heavy blocks.
-- `src/components/drywall/SmoothScrollProvider.tsx` — touch + reduced-motion guards.
-- `src/components/drywall/ScrollReveal.tsx` — shared observer if not already.
-- `src/components/drywall/HeroImage.tsx` — `fetchpriority`, dimensions.
-- `index.html` — trim font weights, add hero font preload.
-- `vite.config.ts` — `manualChunks`.
-- `src/components/drywall/BookingModal.tsx` — gate heavy deps behind `open`.
+- Max 3 visible slogan beats per page body (plus chrome).
+- Never place two beats inside the same viewport at desktop 1440×900.
+- Alternate variants down the page: `hero → section → inline → monument`.
+- All beats use copper bullet + Space Grotesk display weight 300; only `monument` and `hero` get the breathing animation, others are static.
+- No color/copy/font changes outside what `SloganHeartbeat` already defines.
 
 ## Out of scope
 
-- No new dependencies. No design changes. No copy changes. Per-remix image swapping stays as-is.
+- No copy edits to other headings, no new sections, no route changes, no backend/email changes.
+- No edits to the legacy `src/components/drywall/*` or `src/components/detailing/*` trees — template only.
 
-## Verification
+## Technical notes
 
-- After build, eyeball Network tab: hero + nav chunk only on first paint; route chunks fetched on hover.
-- Lighthouse on `/` and `/services`: Perf ≥95 desktop / ≥90 mobile, CLS ≤0.05, LCP ≤2.0 s desktop.
-- Click between every nav item and confirm zero white flash, no fade delay.
+- Files touched: `src/components/template/bespoke/SloganHeartbeat.tsx` (variant extension), `TemplateNavigation.tsx`, `TemplateFooter.tsx` (minor), `BookingModal` template, `StickyBookingBar` (template version), and each page under `src/pages/template/*`.
+- All copy via `MASTER_REMIX.SLOGAN` — confirm the constant, otherwise read `TEMPLATE_COPY.brand.slogan`.
+- Verify with a build + a quick visual pass on `/`, `/services`, `/pricing`, `/thank-you`.

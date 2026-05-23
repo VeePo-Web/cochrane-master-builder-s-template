@@ -1,4 +1,5 @@
 import type { BookingPrefill } from "@/config/drywall-booking";
+import { MASTER_REMIX } from "@/config/template/remix-variables";
 
 interface CTABandProps {
   eyebrow?: string;
@@ -47,6 +48,19 @@ const CTABand = ({
               </button>
             )}
           </div>
+          {/* Generational slogan — sealing every CTA band with the brand promise */}
+          <p
+            className="mt-10 uppercase text-primary-foreground/55"
+            style={{
+              fontFamily: "'Jost', system-ui, sans-serif",
+              fontSize: 11,
+              fontWeight: 400,
+              letterSpacing: "0.24em",
+            }}
+          >
+            <span aria-hidden style={{ color: "hsl(var(--copper))", marginRight: "0.6em" }}>▪</span>
+            {MASTER_REMIX.BRAND_SLOGAN}
+          </p>
         </div>
       </div>
     </section>

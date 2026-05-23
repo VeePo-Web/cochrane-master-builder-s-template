@@ -9,7 +9,7 @@
 import { useSearchParams, Link } from "react-router-dom";
 import TemplateLayout from "@/components/template/TemplateLayout";
 import SectionFrame from "@/components/template/SectionFrame";
-import { PlumbLineDivider, BlueprintGrain } from "@/components/template/bespoke";
+import { PlumbLineDivider, BlueprintGrain, SloganHeartbeat } from "@/components/template/bespoke";
 import { getCrossSell } from "@/config/template/cross-sell-map";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 import type { BookingClickHandler } from "@/config/template/booking-schema";
@@ -81,6 +81,22 @@ const ThankYou = ({ onBookClick }: Props) => {
           >
             No action is needed on your end. We have everything we need to reach you.
           </p>
+
+          {/* Generational slogan — closing inscription */}
+          <div className="mt-12 pt-8 border-t border-copper/15 max-w-xl">
+            <p
+              className="uppercase text-bone/55"
+              style={{
+                fontFamily: "'Jost', system-ui",
+                fontSize: 12,
+                fontWeight: 400,
+                letterSpacing: "0.26em",
+              }}
+            >
+              <span aria-hidden style={{ color: "hsl(var(--copper))", marginRight: "0.6em" }}>▪</span>
+              {MASTER_REMIX.BRAND_SLOGAN}
+            </p>
+          </div>
         </div>
       </section>
 
