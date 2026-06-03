@@ -151,7 +151,7 @@ const RegionPage = ({ onBookClick }: RegionPageProps) => {
             with a team based in Cochrane, minutes from most of these areas.
           </p>
           <button
-            onClick={onBookClick}
+            onClick={() => onBookClick?.()}
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-clay text-white
                        font-body text-label uppercase tracking-[0.15em]
                        hover:bg-clay/90 transition-colors duration-300"
@@ -303,7 +303,7 @@ const RegionPage = ({ onBookClick }: RegionPageProps) => {
             scope — we'll get back to you within hours.
           </p>
           <button
-            onClick={onBookClick}
+            onClick={() => onBookClick?.()}
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-clay text-white
                        font-body text-label uppercase tracking-[0.15em]
                        hover:bg-clay/90 transition-colors duration-300"
