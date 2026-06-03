@@ -109,17 +109,17 @@ const TemplateHome = ({ onBookClick }: Props) => {
 
       {/* TRUST BAR */}
       <SectionFrame tone="paper" size="sm">
-        <div className="grid items-center gap-8 md:grid-cols-12">
-          <div className="md:col-span-9">
-            <RemixSlot name="TRUST_NUMBERS">
-              <TrustNumbers items={MASTER_REMIX.TRUST_NUMBERS} />
-            </RemixSlot>
-          </div>
-          <div className="md:col-span-3 flex justify-center md:justify-end">
-            <FoundationCounter />
-          </div>
+        <RemixSlot name="TRUST_NUMBERS">
+          <TrustNumbers items={MASTER_REMIX.TRUST_NUMBERS} />
+        </RemixSlot>
+        <div className="mt-6 flex flex-col items-start justify-between gap-4 border-t border-seam/60 pt-6 md:flex-row md:items-center">
+          <p className="font-eyebrow text-[10px] tracking-[0.18em] text-mist md:text-[11px]">
+            Since 1958 · Cochrane, AB
+          </p>
+          <FoundationCounter />
         </div>
       </SectionFrame>
+
 
       {/* PROMISE */}
       <SectionFrame tone="bone" size="lg" grain>

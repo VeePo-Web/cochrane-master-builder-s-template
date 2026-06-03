@@ -1,62 +1,38 @@
+## Problem
 
-# Slogan Saturation Plan — "Building Strong Foundations For Those Who Come After Us"
+At the current viewport (928px), the Home trust bar wraps numbers onto one line and labels onto the next, with "Liability coverage" clipping to "Liabi". Root causes:
 
-Goal: make the slogan an inescapable, brand-consistent presence across the template — hero, headers, CTAs, footer, and every page section — without turning it into visual noise. Use the existing `SloganHeartbeat` bespoke component as the single source of truth so typography, copper bullet, and motion stay consistent.
+1. `TrustNumbers` row variant uses `flex-wrap` with `justify-between` and `min-w-[8rem]` per item — 4 items + `FoundationCounter` in a 9/3 grid collapse below ~1024px.
+2. Labels use `text-caption` with `tracking-[0.18em]` — wide letter-spacing pushes "Liability coverage" past the cell.
+3. No vertical hairlines, no eyebrow framing — far from a Fantasy.co / Locomotive editorial bar.
 
-## Source of truth
+## Fix — Fantasy.co–grade trust strip
 
-- Copy lives in `MASTER_REMIX.SLOGAN` / `TEMPLATE_COPY.brand.slogan` (already present).
-- Render via `@/components/template/bespoke` → `SloganHeartbeat` (variants: `hero`, `section`, `footer`, `monument`, plus a new `inline` + `micro` variant for tight spots).
-- Zero hard-coded slogan strings in pages — always pull from config.
+Rebuild `src/components/template/TrustNumbers.tsx` row variant only (grid variant stays untouched — used on Reviews page).
 
-## Placement matrix
+**Structure (row variant):**
+- CSS Grid, `grid-cols-2 md:grid-cols-4`, hairline `divide-x divide-seam/60` between cells, `divide-y md:divide-y-0` for the mobile 2×2.
+- Each cell: vertical stack — number on top, copper square bullet rule (12px), then label.
+- Numbers: `font-display`, `text-[clamp(2.25rem,4vw,3.25rem)]`, `leading-[0.95]`, `tracking-[-0.02em]`, `text-forest`, `tabular-nums`.
+- Labels: `font-eyebrow` reduced to `text-[10px] md:text-[11px]`, `tracking-[0.14em]` (was .18), `text-mist`, `leading-[1.35]`, `max-w-[14ch]`, balanced — no clipping.
+- Cell padding: `px-5 py-6 md:px-8 md:py-8`, first/last cell flush.
+- Add subtle copper underline accent under each number: `h-px w-6 bg-copper/60 my-3`.
 
-Chrome (global, edit once):
-1. `TemplateNavigation` — add a `SloganHeartbeat variant="micro"` ticker beneath the top bar on `/` only (desktop), and as the first item inside the mobile drawer.
-2. `TemplateFooter` — already has `footer` + `monument` variants. Add a `section` variant inside the Tier-1 brand column under the logo (replaces the current promise paragraph spacing) and confirm the `GenerationalMarquee` is the slogan.
-3. `BookingModal` — add `variant="inline"` under the left-side brand-identity stack, and on the Thank-You step as the closing inscription.
-4. `StickyBookingBar` (mobile) — slogan as the eyebrow above the CTA at `micro` size.
+**Home page layout (`src/pages/template/Home.tsx` ~line 110–122):**
+- Drop the 9/3 grid that squeezes 4 numbers into 9 columns next to FoundationCounter.
+- Stack: `TrustNumbers` full-width on its own row, then a slim row below with eyebrow ("Since 1958 · Cochrane, AB") on the left and `FoundationCounter` on the right, separated by a hairline.
+- Section padding stays `size="sm"`.
 
-Pages (one slogan beat per page, placed where it reinforces the section's intent — never two in a row):
-5. `Home.tsx` — Hero eyebrow (`hero` variant), Trust strip closer (`inline`), Founder/Finale section monument (`monument`).
-6. `Services.tsx` — section header eyebrow + closing band.
-7. `ServiceDetail.tsx` — hero eyebrow + above-CTA inline beat.
-8. `WhyWeLoveService.tsx` — opening eyebrow + cornerstone monument near the bottom.
-9. `Pricing.tsx` — eyebrow above the ladder + inline between tiers and guarantee.
-10. `Guarantee.tsx` — monument variant as the seal caption.
-11. `BrandStory.tsx` — recurring `section` beat between chapters (max 3, rhythmic).
-12. `About.tsx` — eyebrow + founder-quote monument.
-13. `Gallery.tsx` — eyebrow above grid + inline footer band.
-14. `Reviews.tsx` — eyebrow + closing inscription.
-15. `AreasWeServe.tsx` — eyebrow + monument under the map.
-16. `Contact.tsx` — eyebrow + inline above form + monument after submit success.
-17. `FAQ.tsx` — eyebrow + closing inscription.
-18. `ThankYou.tsx` — full `monument` variant as the page sign-off.
-19. `NotFound.tsx` — `section` variant under the 404 message.
-
-## Component work
-
-- Extend `SloganHeartbeat` with two new variants:
-  - `inline` — single-line, 14–16px, copper square bullet, used inside body sections.
-  - `micro` — 11–12px tracked uppercase, for nav/sticky bar.
-- Add an `as` prop (default `p`, allow `span`/`h2`) so it can serve as a section eyebrow without breaking semantics.
-- Add an optional `aria-hidden` when the slogan repeats within a short distance of another instance, so screen readers hear it once per page (count instances via a lightweight context or simple prop).
-
-## Rhythm & guardrails (so it doesn't feel spammy)
-
-- Max 3 visible slogan beats per page body (plus chrome).
-- Never place two beats inside the same viewport at desktop 1440×900.
-- Alternate variants down the page: `hero → section → inline → monument`.
-- All beats use copper bullet + Space Grotesk display weight 300; only `monument` and `hero` get the breathing animation, others are static.
-- No color/copy/font changes outside what `SloganHeartbeat` already defines.
+**Result:** four numbers breathe across full width at 928px, "Liability coverage" sits on one line under "$5M", FoundationCounter no longer fights for space, and the bar reads like Fantasy.co's editorial stat rows.
 
 ## Out of scope
 
-- No copy edits to other headings, no new sections, no route changes, no backend/email changes.
-- No edits to the legacy `src/components/drywall/*` or `src/components/detailing/*` trees — template only.
+- No copy changes to numbers or labels.
+- No edits to `TrustNumbers` grid variant (Reviews page).
+- No color, font, or token additions.
+- No other sections touched.
 
-## Technical notes
+## Files
 
-- Files touched: `src/components/template/bespoke/SloganHeartbeat.tsx` (variant extension), `TemplateNavigation.tsx`, `TemplateFooter.tsx` (minor), `BookingModal` template, `StickyBookingBar` (template version), and each page under `src/pages/template/*`.
-- All copy via `MASTER_REMIX.SLOGAN` — confirm the constant, otherwise read `TEMPLATE_COPY.brand.slogan`.
-- Verify with a build + a quick visual pass on `/`, `/services`, `/pricing`, `/thank-you`.
+- `src/components/template/TrustNumbers.tsx` — rewrite row variant.
+- `src/pages/template/Home.tsx` — restructure trust bar block (~lines 110–122).
