@@ -25,11 +25,19 @@ const TrustNumbers = ({ items, variant = "row" }: TrustNumbersProps) => {
   }
 
   return (
-    <ul className="flex flex-wrap items-baseline justify-center gap-x-12 gap-y-6 text-center md:justify-between">
+    <ul className="grid grid-cols-2 divide-x divide-y divide-seam/60 border-y border-seam/60 md:grid-cols-4 md:divide-y-0">
       {items.map((it) => (
-        <li key={it.label} className="min-w-[8rem]">
-          <p className="font-display text-display-sm text-forest md:text-display-md">{it.number}</p>
-          <p className="mt-2 text-caption uppercase tracking-[0.18em] text-mist">{it.label}</p>
+        <li
+          key={it.label}
+          className="flex flex-col items-start px-5 py-7 md:px-8 md:py-8"
+        >
+          <p className="font-display tabular-nums leading-[0.95] tracking-[-0.02em] text-forest text-[clamp(2rem,4vw,3.25rem)]">
+            {it.number}
+          </p>
+          <span aria-hidden className="my-3 block h-px w-6 bg-copper/60" />
+          <p className="font-eyebrow max-w-[16ch] text-[10px] uppercase leading-[1.35] tracking-[0.14em] text-mist md:text-[11px]">
+            {it.label}
+          </p>
         </li>
       ))}
     </ul>
