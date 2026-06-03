@@ -100,7 +100,7 @@ const AreasHub = ({ onBookClick }: AreasHubProps) => {
           120 communities across Alberta.
         </p>
         <button
-          onClick={onBookClick}
+          onClick={() => onBookClick?.()}
           className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-clay text-white
                      font-body text-label uppercase tracking-[0.15em]
                      hover:bg-clay/90 transition-colors duration-300"
@@ -188,7 +188,7 @@ const AreasHub = ({ onBookClick }: AreasHubProps) => {
             Don't see your community? Browse all {COMMUNITIES.length} communities above, or just ask.
           </p>
           <button
-            onClick={onBookClick}
+            onClick={() => onBookClick?.()}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-forest
                        text-forest text-label uppercase tracking-[0.15em]
                        hover:bg-forest hover:text-white transition-all duration-300"
@@ -259,7 +259,7 @@ const AreasHub = ({ onBookClick }: AreasHubProps) => {
             work there. Send your address and project scope. We'll confirm within hours.
           </p>
           <button
-            onClick={onBookClick}
+            onClick={() => onBookClick?.()}
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-clay text-white
                        font-body text-label uppercase tracking-[0.15em]
                        hover:bg-clay/90 transition-colors duration-300"

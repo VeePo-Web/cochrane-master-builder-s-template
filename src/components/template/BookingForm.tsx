@@ -41,7 +41,7 @@ const STEP_VARIANTS = {
   center: { x: 0, opacity: 1 },
   exit: (dir: number) => ({ x: dir > 0 ? -40 : 40, opacity: 0 }),
 };
-const STEP_TRANSITION = { duration: 0.22, ease: [0.16, 1, 0.3, 1] };
+const STEP_TRANSITION = { duration: 0.22, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] };
 
 function loadDraft(): Partial<BookingFormData> {
   try {

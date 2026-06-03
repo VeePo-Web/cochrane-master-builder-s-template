@@ -522,7 +522,7 @@ const GuaranteePage = ({ onBookClick }: Props) => {
           DARK GUARANTEE BLOCK (visual component)
       ══════════════════════════════════════════════════════════════════ */}
       <Suspense fallback={null}>
-        <GuaranteeBlock variant="dark" />
+        <GuaranteeBlock variant="full" />
       </Suspense>
 
       {/* ══════════════════════════════════════════════════════════════════
