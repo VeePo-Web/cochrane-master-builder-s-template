@@ -5,6 +5,11 @@
  * Hormozi: "The guarantee should scare you a little. If it doesn't,
  * it's not strong enough."
  *
+ * Palette: template tokens only. This is the page's deliberate DARK
+ * emphasis peak (design bible §16.2 — "dark sections are for emphasis,
+ * for your most important call to action"), built from ink-blueprint +
+ * copper so it reads as the same product as the rest of the page.
+ *
  * Place on: service pages, contact page, hero sections, /the-offer.
  * Use compact variant in trust bars and CTA bands.
  */
@@ -31,31 +36,31 @@ const staggerChild = {
 const GUARANTEES = [
   {
     num: "01",
-    name: "The Worksite Guarantee",
+    name: "The Workmanship Guarantee",
     promise:
-      "If our site is not visibly cleaner than we found it when we arrived, the work is free.",
+      "If our work doesn't meet the standard we quoted, we make it right — at zero cost to you.",
     note: "Not a canned exception. Just the rule.",
   },
   {
     num: "02",
-    name: "The Touch-Up Guarantee",
+    name: "The Follow-Up Guarantee",
     promise:
-      "Any finish issue within 14 days: we return at zero cost. No argument. No second invoice.",
+      "Any issue within 14 days: we return at zero cost. No argument. No second invoice.",
     note: "In writing on every quote.",
   },
   {
     num: "03",
-    name: "The 15-Year Structural Guarantee",
+    name: "The Invoice Guarantee",
     promise:
-      "Any structural work we complete is warranted for 15 years in writing on every invoice.",
-    note: "Industry standard is 1–2 years.",
+      "The price on the quote is the price on the invoice. No additions without your explicit approval.",
+    note: "Agreed before we start.",
   },
 ] as const;
 
 // ─── Full 3-panel variant ────────────────────────────────────────────────────
 const FullGuarantee = ({ className = "" }: { className?: string }) => (
   <section
-    className={["bg-[#1F2F4D] py-20 md:py-32 overflow-hidden", className].join(
+    className={["bg-ink-blueprint py-20 md:py-32 overflow-hidden", className].join(
       " "
     )}
   >
@@ -68,12 +73,12 @@ const FullGuarantee = ({ className = "" }: { className?: string }) => (
         transition={{ duration: 0.8, ease: EASE }}
         className="mb-12"
       >
-        <div className="inline-block rounded-full border border-[#8B6B4A]/35 bg-[#8B6B4A]/10 px-4 py-2 mb-6">
-          <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#C9A87C]">
+        <div className="inline-block rounded-full border border-copper/35 bg-copper/10 px-4 py-2 mb-6">
+          <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-copper">
             The Guarantee
           </span>
         </div>
-        <h2 className="font-display text-[clamp(1.75rem,3vw,2.75rem)] leading-[1.1] tracking-[-0.015em] text-white font-light italic max-w-xl">
+        <h2 className="font-display text-[clamp(1.75rem,3vw,2.75rem)] leading-[1.1] tracking-[-0.015em] text-bone font-light italic max-w-xl">
           Three guarantees. All of them in writing. None of them negotiable.
         </h2>
       </motion.div>
@@ -89,25 +94,25 @@ const FullGuarantee = ({ className = "" }: { className?: string }) => (
         {GUARANTEES.map(({ num, name, promise, note }) => (
           <motion.div key={num} variants={staggerChild}>
             {/* Outer bezel */}
-            <div className="ring-1 ring-white/08 rounded-[1.5rem] p-1.5 bg-white/[0.03] h-full">
-              {/* Inner core */}
-              <div className="rounded-[calc(1.5rem-0.375rem)] p-8 bg-[#0B1120] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] h-full flex flex-col justify-between">
+            <div className="ring-1 ring-bone/10 rounded-[1.5rem] p-1.5 bg-bone/5 h-full">
+              {/* Inner core — deeper shade of the ink hue */}
+              <div className="rounded-[calc(1.5rem-0.375rem)] p-8 bg-[hsl(215_30%_11%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] h-full flex flex-col justify-between">
                 <div>
                   <span
-                    className="font-display leading-none italic text-[#8B6B4A]/25 select-none block"
+                    className="font-display leading-none italic text-copper/25 select-none block"
                     style={{ fontSize: "clamp(3.5rem,6vw,5rem)" }}
                     aria-hidden
                   >
                     {num}
                   </span>
-                  <h3 className="font-display text-[1.375rem] leading-[1.2] tracking-[-0.01em] text-white font-light italic mt-[-0.5rem]">
+                  <h3 className="font-display text-[1.375rem] leading-[1.2] tracking-[-0.01em] text-bone font-light italic mt-[-0.5rem]">
                     {name}
                   </h3>
-                  <p className="mt-6 font-body text-[1rem] leading-[1.75] text-white/65 font-light">
+                  <p className="mt-6 font-body text-[1rem] leading-[1.75] text-bone/65 font-light">
                     {promise}
                   </p>
                 </div>
-                <p className="mt-6 font-mono text-[9px] uppercase tracking-[0.22em] text-white/35">
+                <p className="mt-6 font-mono text-[9px] uppercase tracking-[0.22em] text-bone/40">
                   {note}
                 </p>
               </div>
@@ -122,9 +127,9 @@ const FullGuarantee = ({ className = "" }: { className?: string }) => (
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7, delay: 0.4 }}
-        className="mt-6 rounded-[1rem] bg-[#8B6B4A]/12 py-4 px-6"
+        className="mt-6 rounded-[1rem] bg-copper/12 py-4 px-6"
       >
-        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/55 text-center">
+        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-bone/55 text-center">
           All three guarantees are in writing. On every invoice.
           Non-negotiable.
         </p>
@@ -145,13 +150,13 @@ const CompactGuarantee = ({ className = "" }: { className?: string }) => (
       <div
         key={name}
         className="inline-flex items-center gap-2 rounded-full
-          border border-[#8B6B4A]/30 bg-[#8B6B4A]/08 px-4 py-1.5"
+          border border-copper/30 bg-copper/8 px-4 py-1.5"
       >
         {/* Shield check icon */}
         <svg
           viewBox="0 0 16 16"
           fill="none"
-          className="w-3.5 h-3.5 text-[#C9A87C] flex-shrink-0"
+          className="w-3.5 h-3.5 text-copper flex-shrink-0"
           aria-hidden
         >
           <path
@@ -168,7 +173,7 @@ const CompactGuarantee = ({ className = "" }: { className?: string }) => (
             strokeLinejoin="round"
           />
         </svg>
-        <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#C9A87C]">
+        <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-copper">
           {name}
         </span>
       </div>

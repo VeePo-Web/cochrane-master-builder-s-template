@@ -33,7 +33,7 @@ const ServicesGrid = ({ services, hrefFor }: ServicesGridProps) => {
             {s.range && <p className="font-eyebrow mt-4 text-mist">{s.range}</p>}
             <p className="mt-4 flex-1 text-body leading-relaxed text-graphite">{s.summary}</p>
             <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium tracking-[0.08em] text-forest">
-              See the scope
+              See details
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </span>
           </Link>

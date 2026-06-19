@@ -48,7 +48,7 @@ const Pricing = ({ onBookClick }: Props) => {
                 <PriceBandsTable
                   title="{SERVICE} — honest bands"
                   bands={MASTER_REMIX.PRICE_BANDS}
-                  note="Final invoice = band + material grade you select. Nothing else moves the number."
+                  note="The invoice equals the band you see — the only thing that adjusts it is an option you choose. Nothing else moves the number."
                 />
               </RemixSlot>
             </div>
@@ -56,9 +56,7 @@ const Pricing = ({ onBookClick }: Props) => {
         </div>
       </SectionFrame>
 
-      <SectionFrame tone="paper" size="lg">
-        <Suspense fallback={null}><ValueLadder /></Suspense>
-      </SectionFrame>
+      <Suspense fallback={null}><ValueLadder /></Suspense>
 
       <SectionFrame tone="bone" size="lg">
         <SectionTitle eyebrow="Process" headline="What happens between yes and sign-off." />

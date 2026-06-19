@@ -84,7 +84,7 @@ const ServiceDetail = ({ onBookClick }: Props) => {
           </div>
           <div className="md:col-span-7">
             <RemixSlot name="PRICE_BANDS">
-              <PriceBandsTable bands={MASTER_REMIX.PRICE_BANDS} note="Final invoice = band + material grade you select." />
+              <PriceBandsTable bands={MASTER_REMIX.PRICE_BANDS} note="The invoice equals the band you see — the only thing that adjusts it is an option you choose." />
             </RemixSlot>
           </div>
         </div>

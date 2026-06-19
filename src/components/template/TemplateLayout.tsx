@@ -17,7 +17,7 @@ const TemplateLayout = ({ onBookClick, children }: TemplateLayoutProps) => {
   return (
     <div className="min-h-screen bg-bone text-graphite antialiased">
       <TemplateNavigation onBookClick={onBookClick} />
-      <main id="main" className="pt-20">
+      <main id="main" className="pt-14 md:pt-20">
         {children}
       </main>
       <TemplateFooter onBookClick={onBookClick} />

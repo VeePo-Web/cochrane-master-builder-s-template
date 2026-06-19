@@ -25,7 +25,7 @@ const TrustNumbers = ({ items, variant = "row" }: TrustNumbersProps) => {
   }
 
   return (
-    <ul className="grid grid-cols-2 gap-x-8 gap-y-8 sm:grid-cols-4 md:gap-x-10">
+    <ul className="grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-4 md:gap-x-8">
       {items.map((it) => (
         <li key={it.label} className="border-t border-seam pt-4">
           <p

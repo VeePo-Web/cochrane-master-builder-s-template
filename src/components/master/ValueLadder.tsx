@@ -31,30 +31,30 @@ const DEFAULT_TIERS: LadderTier[] = [
   {
     label: "The Repair Visit",
     priceRange: "$150–$450",
-    description: "Patches, cracks, holes, water-damaged sections. In and out in a day.",
+    description: "Targeted repairs and surface corrections. In and out in a day.",
     idealFor: "First project. Fast fix. See the standard first-hand.",
-    href: "/drywall-repair",
+    href: "/services",
   },
   {
     label: "The Installation Job",
     priceRange: "$900–$3,500",
-    description: "New walls, ceilings, boarding over framing. The step up from repair.",
+    description: "New work built from scratch. The step up from repair.",
     idealFor: "Unfinished spaces, renovation sections, full rooms.",
-    href: "/drywall-installation",
+    href: "/services",
   },
   {
     label: "The Starter Package",
     priceRange: "$1,800–$4,500",
-    description: "Insulation + boarding + finishing. A complete functional space.",
-    idealFor: "Basement or garage transformation from scratch.",
-    href: "/garage-packages",
+    description: "A complete, functional space — delivered on a predictable window.",
+    idealFor: "Full-space transformation from scratch.",
+    href: "/services",
   },
   {
     label: "The Full Project",
     priceRange: "$3,500–$8,000+",
-    description: "Full scope: framing, insulation, drywall, tape, finish, paint.",
-    idealFor: "Complete basement or multi-room renovation.",
-    href: "/basement-packages",
+    description: "Full scope, start to finish. One crew, one invoice, one guarantee.",
+    idealFor: "Complete multi-room or whole-property renovation.",
+    href: "/services",
   },
 ];
 
@@ -221,7 +221,7 @@ export const ValueLadder = ({
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-30px" }}
                   transition={{ duration: 0.7, ease: EASE, delay: i * 0.08 }}
-                  className="flex-1 pb-4"
+                  className="flex-1 pb-6"
                 >
                   <div className={[
                     "ring-1 rounded-[1.25rem] p-1.5",
@@ -268,7 +268,7 @@ export const ValueLadder = ({
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="mt-8 font-mono text-[10px] uppercase tracking-[0.22em] text-[#7A8BAA] text-center"
+            className="mt-12 font-mono text-[10px] uppercase tracking-[0.22em] text-[#7A8BAA] text-center"
           >
             Most clients start with 01. Most come back for 02 and 03.
           </motion.p>

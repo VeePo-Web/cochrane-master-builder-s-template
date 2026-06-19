@@ -196,32 +196,32 @@ export const MASTER_REMIX: RemixVariables = {
     {
       question: "How do you price a {SERVICE} job?",
       answer:
-        "We quote against scope, never against the client. Every quote is itemised, written, and tied to a 15-year structural guarantee where the work qualifies. The bands on /pricing are the honest truth — you do not pay more because you can.",
+        "We quote against scope, never against the client. Every quote is itemised, written, and backed by our guarantee. The bands on our pricing page are the honest truth — you do not pay more because you can.",
     },
     {
       question: "Do you handle small {SERVICE_PLURAL} jobs?",
       answer:
-        "Yes. The smallest job we take is the same as the largest in standard. A 30-minute repair gets the same Level-5 finish a whole-home install gets, because the standard is the standard.",
+        "Yes. The smallest job we take is held to the same standard as the largest. A 30-minute fix gets the same finish a whole-home project gets, because the standard is the standard.",
     },
     {
       question: "What is your timeline for {SERVICE} work?",
       answer:
-        "Most {SERVICE} engagements begin within two to four weeks. Heritage and whole-home schedules quote a window honestly — we do not sell timelines we cannot keep.",
+        "Most {SERVICE} engagements begin within two to four weeks. Larger and whole-home schedules quote a window honestly — we do not sell timelines we cannot keep.",
     },
     {
       question: "Are you insured and certified?",
       answer:
-        "$5M general liability, WCB-covered crews, manufacturer-certified on every material we install. Certificates available on request before any work begins.",
+        "Fully insured, with covered crews and manufacturer-certified materials. Certificates are available on request before any work begins.",
     },
     {
       question: "What guarantees come with the work?",
       answer:
-        "The Worksite Guarantee, the 14-Day Touch-Up Guarantee, and the 15-Year Structural Guarantee — all in writing on the invoice. If the standard is not met, we return at zero cost.",
+        "The Workmanship Guarantee, the Follow-Up Guarantee, and the Invoice Guarantee — all in writing. If the work doesn't meet the standard we quoted, we make it right at zero cost.",
     },
     {
       question: "How do I start?",
       answer:
-        "Send three or four photos through the booking form. You receive a written estimate within 24 hours. No sales call. No pressure. The next step is yours.",
+        "Share a few photos and the scope through the booking form. You receive a written estimate within 24 hours. No sales call. No pressure. The next step is yours.",
     },
   ],
   PROOF: [

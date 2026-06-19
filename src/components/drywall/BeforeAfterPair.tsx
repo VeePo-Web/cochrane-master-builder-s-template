@@ -14,7 +14,7 @@ const BeforeAfterPair = ({ pairs }: BeforeAfterPairProps) => {
     <div className="grid gap-8 md:gap-12 md:grid-cols-2 lg:grid-cols-3">
       {pairs.map((pair, i) => (
         <figure key={i} className="space-y-4">
-          <div className="grid grid-cols-2 gap-px bg-seam max-md:grid-cols-1 max-md:gap-4 max-md:bg-transparent border border-seam shadow-sm transition-shadow hover:shadow-md">
+          <div className="grid grid-cols-2 gap-px bg-seam max-md:grid-cols-1 max-md:gap-4 max-md:bg-transparent border border-seam">
             <div className="relative aspect-[4/5] max-md:aspect-[3/2] bg-gradient-to-br from-mist/40 to-graphite/30 animate-pulse overflow-hidden">
               {pair.before.startsWith("/") || pair.before.startsWith("http") || pair.before.includes("assets") || pair.before.includes("/src/") ? (
                 <img src={pair.before} alt="Before" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />

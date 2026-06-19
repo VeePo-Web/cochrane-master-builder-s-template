@@ -19,7 +19,7 @@ const FAQAccordion = ({ items }: FAQAccordionProps) => {
     <Accordion type="single" collapsible className="w-full">
       {items.map((item, i) => (
         <AccordionItem key={i} value={`item-${i}`} className="border-b border-seam">
-          <AccordionTrigger className="py-5 text-left font-display text-display-sm text-charcoal hover:no-underline">
+          <AccordionTrigger className="py-5 text-left font-display text-display-sm text-charcoal transition-colors hover:text-forest hover:no-underline data-[state=open]:text-forest">
             {item.question}
           </AccordionTrigger>
           <AccordionContent className="pb-6 text-body-lg text-graphite">

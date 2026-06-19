@@ -32,7 +32,7 @@ export const TEMPLATE_COPY = {
   ],
 
   cta: {
-    primary: "Send photos for a quote",
+    primary: "Get my free quote",
     secondary: "See pricing & process",
     contact: "Speak with a builder",
   },
@@ -46,22 +46,22 @@ export const TEMPLATE_COPY = {
     },
     promise: {
       eyebrow: "The promise",
-      headline: "One trade. One standard. One invoice you'll keep.",
-      body: "Most {SERVICE} work in this country is a race to the bottom on price and finish. Ours isn't. We {SERVICE_VERB} a single category at master-builder grade — every line of every quote tied to the 15-year structural guarantee on the invoice.",
+      headline: "One team. One standard. Every quote in writing.",
+      body: "Most {SERVICE} work in this industry is a race to the bottom on price and quality. Ours isn't. We {SERVICE_VERB} at a single, consistent standard — every line of every quote is honest, itemised, and backed by our guarantee.",
     },
     services: {
       eyebrow: "What we {SERVICE_VERB}",
-      headline: "Five {SERVICE} engagements. Five honest price bands.",
-      lede: "Pick the scope closest to your home. The price you see on /pricing is the price on the invoice — the only adjustment is for material you select.",
+      headline: "Our {SERVICE_PLURAL}. One honest price band each.",
+      lede: "Pick the scope that fits your project. The price you see on our pricing page is the price on the invoice — no surprises.",
     },
     proof: {
       eyebrow: "The work",
       headline: "Before. After. The number that mattered.",
-      lede: "We don't show portfolio shots. We show the wall the previous contractor told someone to live with — and the wall after we left.",
+      lede: "We don't show portfolio shots. We show the problem the previous provider left behind — and the result after we left.",
     },
     process: {
       eyebrow: "How we work",
-      headline: "Four steps. No surprises. The first three are free.",
+      headline: "Clear steps. Honest timeline. No surprises.",
     },
     faq: {
       eyebrow: "Common questions",
@@ -69,7 +69,7 @@ export const TEMPLATE_COPY = {
     },
     cta: {
       eyebrow: "Begin",
-      headline: "Send three photos. Receive a written quote within 24 hours.",
+      headline: "Tell us about your project. Get a written quote within 24 hours.",
       body: "No sales call. No pressure. The next move is entirely yours.",
     },
   },

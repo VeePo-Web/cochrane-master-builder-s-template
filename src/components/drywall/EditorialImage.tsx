@@ -24,7 +24,7 @@ const EditorialImage = ({
   className = "",
 }: EditorialImageProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-60px" });
   const reduced = useReducedMotion();
 
   return (

@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import PrefetchLink from "./PrefetchLink";
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { MasterLogo } from "@/master";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
@@ -38,7 +39,7 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 ${
         scrolled ? "bg-bone/95 backdrop-blur-md border-b border-seam" : "bg-transparent"
       }`}
     >
@@ -50,7 +51,7 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
       </a>
       {/* Slogan micro-eyebrow — visible only when NOT scrolled, fades on scroll */}
       <div
-        className="overflow-hidden transition-all duration-500"
+        className="overflow-hidden transition-all duration-300"
         style={{ maxHeight: scrolled ? 0 : 24, opacity: scrolled ? 0 : 1 }}
         aria-hidden
       >
@@ -59,8 +60,8 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
         </div>
       </div>
 
-      <div className="container mx-auto grid h-20 grid-cols-[auto_1fr_auto] items-center gap-4 px-6">
-        <Link to="/" aria-label="Cochrane Master Builders — home" className="inline-flex items-center">
+      <div className="container mx-auto grid h-14 md:h-20 grid-cols-[auto_1fr_auto] items-center gap-4 px-6">
+        <Link to="/" aria-label="Home" className="inline-flex items-center">
           <MasterLogo slot="nav" />
         </Link>
 
@@ -103,10 +104,17 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
         </button>
       </div>
 
+      <AnimatePresence>
       {open && (
-        <div className="min-h-[calc(100vh-5rem)] border-t border-seam bg-bone lg:hidden">
+        <motion.div
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.2, ease: [0.32, 0.72, 0, 1] }}
+          className="min-h-[calc(100vh-3.5rem)] border-t border-seam bg-bone lg:hidden"
+        >
           {/* Slogan — first line of the mobile drawer */}
-          <ul className="container mx-auto flex min-h-[calc(100vh-5rem)] flex-col gap-px bg-seam px-0">
+          <ul className="container mx-auto flex min-h-[calc(100vh-3.5rem)] flex-col gap-px bg-seam px-0">
             <li className="border-b border-seam bg-bone px-6 py-4">
               <SloganHeartbeat variant="nav" />
             </li>
@@ -130,8 +138,9 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
               </button>
             </li>
           </ul>
-        </div>
+        </motion.div>
       )}
+      </AnimatePresence>
     </header>
   );
 };

@@ -2,8 +2,14 @@
  * SocialProofEngine — Hormozi's Before/After results testimonial format.
  *
  * Data source: useReviews() → Supabase (approved rows) with static fallback.
- * Visual code: pixel-identical to pre-migration version.
+ * Palette: template tokens only (bone / paper / forest / copper / seam / mist).
  * Schema: mounts <AggregateRatingSchema> when ≥ 3 approved reviews exist.
+ *
+ * Conversion notes:
+ *  - Aggregate rating (avg + stars + count) lives in the header as a Z-pattern
+ *    credential — the fastest-processing trust signal, surfaced first.
+ *  - The "After" result wears the brand colour (forest); "Before" recedes to
+ *    mist. The eye is pulled from problem → resolution.
  */
 
 import { motion } from "framer-motion";
@@ -51,7 +57,7 @@ const enrichReviews = (reviews: Review[]) =>
   });
 
 // ─── Star rating ──────────────────────────────────────────────────────────────
-const Stars = ({ rating }: { rating: number }) => (
+const Stars = ({ rating, size = "sm" }: { rating: number; size?: "sm" | "md" }) => (
   <div
     className="flex items-center gap-0.5"
     role="img"
@@ -62,8 +68,8 @@ const Stars = ({ rating }: { rating: number }) => (
         key={s}
         viewBox="0 0 12 12"
         className={[
-          "w-3 h-3",
-          s <= Math.floor(rating) ? "text-[#8B6B4A]" : "text-[#8B6B4A]/25",
+          size === "md" ? "w-4 h-4" : "w-3 h-3",
+          s <= Math.round(rating) ? "text-copper" : "text-copper/25",
         ].join(" ")}
         fill="currentColor"
         aria-hidden
@@ -74,7 +80,7 @@ const Stars = ({ rating }: { rating: number }) => (
   </div>
 );
 
-// ─── Single review card (visual unchanged) ────────────────────────────────────
+// ─── Single review card ───────────────────────────────────────────────────────
 const ReviewCard = ({
   review,
   large = false,
@@ -82,36 +88,36 @@ const ReviewCard = ({
   review: ReturnType<typeof enrichReviews>[number];
   large?: boolean;
 }) => (
-  <div className="ring-1 ring-[#1F2F4D]/06 rounded-[1.5rem] p-1.5 bg-white/80 h-full">
-    <div className="rounded-[calc(1.5rem-0.375rem)] p-6 md:p-8 bg-[#FDFBF7] shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] h-full flex flex-col">
+  <div className="ring-1 ring-charcoal/5 rounded-[1.5rem] p-1.5 bg-seam/40 h-full">
+    <div className="rounded-[calc(1.5rem-0.375rem)] p-6 md:p-8 bg-paper shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] h-full flex flex-col">
       {/* Before / After strip */}
       <div className="flex gap-4 mb-6">
         <div className="flex-1 min-w-0">
-          <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-[#7A8BAA] mb-1">
+          <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-mist mb-1">
             Before
           </p>
-          <p className="font-body text-[0.8125rem] leading-[1.5] text-[#7A8BAA] font-light line-clamp-2">
+          <p className="font-body text-[0.8125rem] leading-[1.5] text-mist font-light line-clamp-2">
             {review.before}
           </p>
         </div>
-        <div className="w-px bg-[#EDE9E1] flex-shrink-0" aria-hidden />
+        <div className="w-px bg-seam flex-shrink-0" aria-hidden />
         <div className="flex-1 min-w-0">
-          <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-[#8B6B4A] mb-1">
+          <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-copper mb-1">
             After
           </p>
-          <p className="font-body text-[0.8125rem] leading-[1.5] text-[#1F2F4D] font-light line-clamp-2">
+          <p className="font-body text-[0.8125rem] leading-[1.5] text-forest font-light line-clamp-2">
             {review.after}
           </p>
         </div>
       </div>
 
       {/* Divider */}
-      <div className="w-full h-px bg-[#EDE9E1] mb-6" aria-hidden />
+      <div className="w-full h-px bg-seam mb-6" aria-hidden />
 
       {/* Quote */}
       <blockquote
         className={[
-          "font-display leading-[1.45] tracking-[-0.005em] text-[#1F2F4D] font-light flex-1",
+          "font-display leading-[1.45] tracking-[-0.005em] text-charcoal font-light flex-1",
           large ? "text-[1.25rem]" : "text-[1rem]",
         ].join(" ")}
       >
@@ -121,17 +127,17 @@ const ReviewCard = ({
       {/* Attribution + stars */}
       <div className="mt-6 flex items-end justify-between gap-3">
         <div>
-          <p className="font-body text-[0.875rem] font-medium text-[#1F2F4D]">
+          <p className="font-body text-[0.875rem] font-medium text-charcoal">
             {review.name}
           </p>
-          <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#7A8BAA] mt-0.5">
+          <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-mist mt-0.5">
             {review.community} · {review.service}
             {review.timeframe && ` · ${review.timeframe}`}
           </p>
         </div>
         <div className="flex flex-col items-end gap-1">
           <Stars rating={review.rating} />
-          <p className="font-mono text-[8px] text-[#7A8BAA]">{review.date}</p>
+          <p className="font-mono text-[8px] text-mist">{review.date}</p>
         </div>
       </div>
     </div>
@@ -151,29 +157,50 @@ export const SocialProofEngine = ({
   const { aggregate } = hookResult;
   const enriched = enrichReviews(source).slice(0, maxItems);
 
+  const totalReviews = aggregate?.totalReviews ?? REVIEWS.length;
+  const avgRating = aggregate?.averageRating ?? 5;
+
   return (
     <section
-      className={["bg-[#FDFBF7] py-20 md:py-32 overflow-hidden", className].join(
+      className={["bg-bone py-20 md:py-32 overflow-hidden", className].join(
         " "
       )}
     >
       <div className="container mx-auto px-6">
-        {/* Header */}
+        {/* Header — claim on the left, aggregate credential on the right */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8, ease: EASE }}
-          className="mb-12"
+          className="mb-12 flex flex-col gap-8 md:flex-row md:items-end md:justify-between"
         >
-          <div className="inline-block rounded-full border border-[#1F2F4D]/12 bg-[#1F2F4D]/06 px-4 py-2 mb-6">
-            <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#5C6B8A]">
-              Real results
-            </span>
+          <div>
+            <div className="inline-block rounded-full border border-forest/15 bg-forest/5 px-4 py-2 mb-6">
+              <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-forest">
+                Real results
+              </span>
+            </div>
+            <h2 className="font-display text-[clamp(1.75rem,3vw,2.75rem)] leading-[1.1] tracking-[-0.015em] text-charcoal font-light max-w-lg">
+              Before and after. In their words.
+            </h2>
           </div>
-          <h2 className="font-display text-[clamp(1.75rem,3vw,2.75rem)] leading-[1.1] tracking-[-0.015em] text-[#1F2F4D] font-light max-w-lg">
-            Before and after. In their words.
-          </h2>
+
+          {/* Aggregate trust signal — fastest-processing proof, surfaced first */}
+          <div className="flex items-center gap-4 md:flex-col md:items-end md:gap-1.5 md:text-right flex-shrink-0">
+            <p
+              className="font-display text-forest leading-none tabular-nums"
+              style={{ fontSize: "clamp(2.75rem, 4vw, 3.75rem)", letterSpacing: "-0.02em" }}
+            >
+              {avgRating.toFixed(1)}
+            </p>
+            <div className="flex flex-col md:items-end gap-1">
+              <Stars rating={avgRating} size="md" />
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-mist">
+                from {totalReviews} verified reviews
+              </p>
+            </div>
+          </div>
         </motion.div>
 
         {/* Featured: 1 large + 2 smaller */}
@@ -182,7 +209,7 @@ export const SocialProofEngine = ({
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
+              viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.8, ease: EASE }}
               className="md:row-span-2"
             >
@@ -193,7 +220,7 @@ export const SocialProofEngine = ({
                 key={r.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
+                viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.8, ease: EASE, delay: (i + 1) * 0.1 }}
               >
                 <ReviewCard review={r} />
@@ -208,7 +235,7 @@ export const SocialProofEngine = ({
                 key={r.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-30px" }}
+                viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.75, ease: EASE, delay: i * 0.08 }}
               >
                 <ReviewCard review={r} />
@@ -217,15 +244,15 @@ export const SocialProofEngine = ({
           </div>
         )}
 
-        {/* Review count */}
+        {/* Footer reassurance — no longer duplicates the count (now in header) */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="mt-8 font-mono text-[10px] uppercase tracking-[0.22em] text-[#7A8BAA] text-center"
+          className="mt-8 font-mono text-[10px] uppercase tracking-[0.22em] text-mist text-center"
         >
-          {(aggregate?.totalReviews ?? REVIEWS.length)} reviews · All real · All from Cochrane and area
+          Every review verified · Every result real
         </motion.p>
 
         {/* Aggregate rating schema — only when ≥ 3 approved reviews exist */}

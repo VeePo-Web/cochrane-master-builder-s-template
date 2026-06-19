@@ -51,8 +51,8 @@ const TemplateFooter = ({ onBookClick }: Props) => {
       </span>
 
       {/* ── Tier 1 — Brand + Slogan + CTA + Nav ── */}
-      <div className="container mx-auto px-6 pt-20 pb-20">
-        <div className="grid gap-8 md:gap-12 md:grid-cols-12">
+      <div className="container mx-auto px-6 pt-24 pb-20">
+        <div className="grid gap-8 md:gap-16 md:grid-cols-12">
           <div className="md:col-span-5">
             <Link to="/" aria-label={`${MASTER_REMIX.BRAND_NAME} — home`} className="inline-flex">
               <MasterLogo slot="footer" />
@@ -109,7 +109,7 @@ const TemplateFooter = ({ onBookClick }: Props) => {
             </div>
 
             <div className="md:col-span-2 col-span-2">
-              <h4 className="eyebrow-copper mb-4">Cochrane &amp; area</h4>
+              <h4 className="eyebrow-copper mb-4">{MASTER_REMIX.COMMUNITIES[0]} &amp; area</h4>
               <ul className="space-y-3 text-graphite text-body-sm leading-relaxed">
                 <li>{MASTER_REMIX.COMMUNITIES.slice(0, 4).join(" · ")}</li>
                 <li>Mon–Sat · 7am–6pm</li>

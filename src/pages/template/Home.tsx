@@ -33,10 +33,10 @@ const GuaranteeBlock = lazy(() => import("@/components/master/GuaranteeBlock").t
 interface Props { onBookClick?: BookingClickHandler }
 
 const HOME_PROCESS = [
-  { title: "Send three photos", description: "From your phone. Of the {SERVICE} surface, the lighting, and the room context. That is the entire ask." },
-  { title: "Receive a written quote in 24 hours", description: "Itemised. Tied to scope. Bound to the 15-year structural guarantee. No sales call between you and the number." },
-  { title: "We {SERVICE_VERB} on the agreed window", description: "Same crew, start to finish. Worksite cleaner than we found it or the work is free." },
-  { title: "Sign-off and warranty registered", description: "Walk-through with you. Warranty card filed. Touch-up window opens for 14 days at zero cost." },
+  { title: "Share your project details", description: "From your phone or email. A few photos, the scope, and the context. That is the entire ask." },
+  { title: "Receive a written quote in 24 hours", description: "Itemised. Tied to scope. Backed by our guarantee. No sales call between you and the number." },
+  { title: "We {SERVICE_VERB} on the agreed window", description: "Same team, start to finish. We leave things cleaner than we found them — or the work is free." },
+  { title: "Sign-off and warranty registered", description: "Walk-through with you. Warranty registered. A revision window opens for 14 days at zero cost." },
 ];
 
 const TemplateHome = ({ onBookClick }: Props) => {
@@ -45,8 +45,16 @@ const TemplateHome = ({ onBookClick }: Props) => {
     <TemplateLayout onBookClick={onBookClick}>
       {/* HERO */}
       <RemixSlot name="HERO_IMAGE" hint="Bind a service-specific AVIF (≤140KB)">
-        <section className="relative overflow-hidden bg-bone">
+        <section className="relative overflow-hidden bg-bone min-h-[85vh] md:min-h-screen">
           <BlueprintGrain opacity={0.018} />
+          {/* Atmospheric ghost year — depth layer behind the grid */}
+          <span
+            aria-hidden="true"
+            className="pointer-events-none select-none absolute right-0 bottom-0 font-display text-charcoal leading-none"
+            style={{ fontSize: "clamp(10rem, 22vw, 20rem)", opacity: 0.03, lineHeight: 1 }}
+          >
+            {MASTER_REMIX.FOUNDATION_YEAR}
+          </span>
           {MASTER_REMIX.HERO_IMAGE && (
             <HeroImage src={MASTER_REMIX.HERO_IMAGE} alt="" gradientFrom="left" opacity={32} />
           )}
@@ -75,7 +83,7 @@ const TemplateHome = ({ onBookClick }: Props) => {
                   </h1>
 
                   {/* Hand-etched copper underline — draws itself on mount */}
-                  <HeroEtchedUnderline className="mt-4 mb-4 block" />
+                  <HeroEtchedUnderline className="mt-2 mb-4 block" />
 
                   {/* Slogan whisper — beneath the H1 */}
                   <SloganHeartbeat variant="whisper" className="mb-6 block" />
@@ -154,8 +162,8 @@ const TemplateHome = ({ onBookClick }: Props) => {
             <RemixSlot name="HERO_IMAGE" hint="Editorial detail shot of {SERVICE}">
               <EditorialImage
                 src={MASTER_REMIX.HERO_IMAGE}
-                alt={`${MASTER_REMIX.SERVICE} surface detail in ${MASTER_REMIX.COMMUNITIES[0]} — completed, sign-off day`}
-                caption="A finished surface — taken on sign-off day."
+                alt={`${MASTER_REMIX.SERVICE} work in ${MASTER_REMIX.COMMUNITIES[0]} — completed`}
+                caption="Completed work — taken on sign-off day."
               />
             </RemixSlot>
           </div>
@@ -170,7 +178,7 @@ const TemplateHome = ({ onBookClick }: Props) => {
             className="pointer-events-none select-none absolute right-0 top-0 font-display text-charcoal leading-none"
             style={{ fontSize: "clamp(8rem,18vw,16rem)", opacity: 0.04, lineHeight: 1 }}
           >
-            05
+            01
           </span>
           <SectionTitle eyebrow={c.services.eyebrow} headline={c.services.headline} lede={c.services.lede} />
           <div className="mt-12">
@@ -194,8 +202,8 @@ const TemplateHome = ({ onBookClick }: Props) => {
       {/* MANIFESTO QUOTE */}
       <RemixSlot name="HERO_IMAGE" hint="Atmospheric backdrop">
         <EditorialQuote
-          quote="The standard is the standard. We do not lower it for a smaller job, a tighter budget, or a faster timeline."
-          attribution="The {BRAND_NAME} crew"
+          quote="The standard is the standard. We do not lower it for a smaller project, a tighter budget, or a faster timeline."
+          attribution="The {BRAND_NAME} team"
           image={MASTER_REMIX.MANIFESTO_BACKDROP || MASTER_REMIX.HERO_IMAGE}
         />
       </RemixSlot>
@@ -208,7 +216,7 @@ const TemplateHome = ({ onBookClick }: Props) => {
             className="pointer-events-none select-none absolute right-0 top-0 font-display text-charcoal leading-none"
             style={{ fontSize: "clamp(8rem,18vw,16rem)", opacity: 0.04, lineHeight: 1 }}
           >
-            08
+            02
           </span>
           <SectionTitle eyebrow={c.process.eyebrow} headline={c.process.headline} />
           <div className="mt-12">
@@ -239,20 +247,20 @@ const TemplateHome = ({ onBookClick }: Props) => {
             className="pointer-events-none select-none absolute right-0 top-0 font-display text-charcoal leading-none"
             style={{ fontSize: "clamp(8rem,18vw,16rem)", opacity: 0.04, lineHeight: 1 }}
           >
-            04
+            03
           </span>
           <div className="relative grid gap-12 md:gap-16 md:grid-cols-12 md:items-start">
             <div className="md:col-span-5">
               <SectionTitle
                 eyebrow="Pricing preview"
                 headline="The bands are public. The number is the number."
-                lede="See the full scope on /pricing — including the philosophy, the process, and the objections we've already heard."
+                lede="See the full scope on our pricing page — including the philosophy, the process, and the objections we've already heard."
               />
               <Link
                 to="/pricing"
                 className="mt-8 inline-flex w-full sm:w-auto rounded-sm border border-charcoal/20 px-6 py-3.5 text-sm font-medium text-charcoal transition-colors hover:bg-charcoal hover:text-bone"
               >
-                See the full pricing page
+                See every price — and why
               </Link>
             </div>
             <div className="md:col-span-7">
@@ -260,7 +268,7 @@ const TemplateHome = ({ onBookClick }: Props) => {
                 <PriceBandsTable
                   title="{SERVICE} — honest bands"
                   bands={MASTER_REMIX.PRICE_BANDS}
-                  note="Final number on the invoice equals the band; only material grade selected by you adjusts it."
+                  note="The number on the invoice equals the band you see — the only thing that adjusts it is an option you choose."
                 />
               </RemixSlot>
             </div>
@@ -276,7 +284,7 @@ const TemplateHome = ({ onBookClick }: Props) => {
             className="pointer-events-none select-none absolute right-0 top-0 font-display text-charcoal leading-none"
             style={{ fontSize: "clamp(8rem,18vw,16rem)", opacity: 0.04, lineHeight: 1 }}
           >
-            06
+            04
           </span>
           <div className="relative grid md:grid-cols-12 gap-12 md:gap-16 md:items-start">
             <div className="md:col-span-4">
@@ -299,6 +307,7 @@ const TemplateHome = ({ onBookClick }: Props) => {
         primaryLabel={TEMPLATE_COPY.cta.primary}
         onPrimaryClick={onBookClick}
         prefill={{ source: "Home → Final CTA" }}
+        reassurance="Free quote · No obligation · 24-hour reply"
       />
     </TemplateLayout>
   );
