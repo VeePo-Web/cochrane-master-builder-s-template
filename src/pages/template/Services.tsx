@@ -32,21 +32,22 @@ const Services = ({ onBookClick }: Props) => {
         </Suspense>
       </SectionFrame>
 
-      <SectionFrame tone="forest" size="lg">
+      <SectionFrame tone="charcoal" size="lg">
         <div className="max-w-3xl">
-          <p className="font-eyebrow text-primary-foreground/70">Cross-trade guarantee</p>
-          <h2 className="mt-4 text-display-lg text-primary-foreground">{c.crossTradeGuarantee.headline}</h2>
-          <p className="mt-5 text-body-lg text-primary-foreground/85">{c.crossTradeGuarantee.body}</p>
+          <p className="font-eyebrow text-bone/70">Our guarantee</p>
+          <h2 className="mt-4 text-display-lg text-bone">{c.crossTradeGuarantee.headline}</h2>
+          <p className="mt-5 text-body-lg text-bone/85">{c.crossTradeGuarantee.body}</p>
         </div>
       </SectionFrame>
 
       <CTABand
         eyebrow="Pick a scope"
-        headline="Send the photos. We'll match you to the band."
+        headline="Tell us the scope. We'll match you to the band."
         body="No commitment. The quote is yours to keep, with or without us."
         primaryLabel={TEMPLATE_COPY.cta.primary}
         onPrimaryClick={onBookClick}
         prefill={{ source: "Services hub → Final CTA" }}
+        reassurance="Free quote · No obligation · 24-hour reply"
       />
     </TemplateLayout>
   );

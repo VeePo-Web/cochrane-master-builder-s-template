@@ -132,12 +132,12 @@ export const TEMPLATE_COPY = {
   services: {
     hero: {
       eyebrow: "Services",
-      title: "Five {SERVICE} engagements. One standard across all five.",
-      lede: "Every package below carries the same 15-year structural guarantee, the same Level-5 finish, the same crew. The only thing that changes is scope.",
+      title: "Our {SERVICE} engagements. One standard across every one.",
+      lede: "Every package below carries the same guarantee, the same standard, the same team. The only thing that changes is scope.",
     },
     crossTradeGuarantee: {
-      headline: "If we touch it, we warranty it. In writing. For fifteen years.",
-      body: "The guarantee is not a product tier. It is the floor. Every {SERVICE} surface, every package, every invoice.",
+      headline: "If we touch it, we stand behind it. In writing. Every time.",
+      body: "The guarantee is not a product tier. It is the floor. Every {SERVICE} project, every package, every invoice.",
     },
   },
 

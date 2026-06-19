@@ -20,8 +20,8 @@ interface CapacitySignalProps {
 // Pulsing dot — signals live / real-time status
 const PulseDot = () => (
   <span className="relative flex h-2 w-2 flex-shrink-0" aria-hidden>
-    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#8B6B4A] opacity-50" />
-    <span className="relative inline-flex h-2 w-2 rounded-full bg-[#8B6B4A]" />
+    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-copper opacity-50" />
+    <span className="relative inline-flex h-2 w-2 rounded-full bg-copper" />
   </span>
 );
 
@@ -59,12 +59,12 @@ export const CapacitySignal = ({
       <div
         className={[
           "inline-flex items-center gap-2 rounded-full",
-          "border border-[#8B6B4A]/25 bg-[#8B6B4A]/08 px-3 py-1",
+          "border border-copper/25 bg-copper/8 px-3 py-1",
           className,
         ].join(" ")}
       >
         <PulseDot />
-        <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#C9A87C]">
+        <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-copper">
           Booking {weeksText}
         </span>
       </div>
@@ -80,11 +80,11 @@ export const CapacitySignal = ({
           className,
         ].join(" ")}
       >
-        <span className="inline-flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.22em] text-[#C9A87C]/70">
+        <span className="inline-flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.22em] text-copper/70">
           <PulseDot />
           Currently booking {weeksText}
         </span>
-        <span className="inline-flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.22em] text-[#C9A87C]/50">
+        <span className="inline-flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.22em] text-copper/50">
           <CalendarIcon />
           {slotsText} in {CAPACITY.month}
         </span>
@@ -96,20 +96,20 @@ export const CapacitySignal = ({
   return (
     <div
       className={[
-        "w-full border-y border-[#1F2F4D]/08 bg-[#1F2F4D]/04 py-3 px-6",
+        "w-full border-y border-forest/10 bg-forest/5 py-3 px-6",
         className,
       ].join(" ")}
     >
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-10">
-        <span className="inline-flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#8B6B4A]">
+        <span className="inline-flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-copper">
           <PulseDot />
           Currently booking {weeksText}
         </span>
         <span
-          className="hidden sm:block w-px h-4 bg-[#1F2F4D]/15"
+          className="hidden sm:block w-px h-4 bg-seam"
           aria-hidden
         />
-        <span className="inline-flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#8B6B4A]/70">
+        <span className="inline-flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-copper/70">
           <CalendarIcon />
           {slotsText} in {CAPACITY.month}
         </span>
