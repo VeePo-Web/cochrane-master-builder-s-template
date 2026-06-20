@@ -16,18 +16,18 @@
  * All copy/location via MASTER_REMIX tokens; brand palette tokens only.
  */
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { Head } from "vite-react-ssg";
 import { ArrowLeft, ArrowRight, MapPin, ChevronDown } from "lucide-react";
 import TemplateLayout from "@/components/template/TemplateLayout";
 import SectionFrame from "@/components/template/SectionFrame";
 import CTABand from "@/components/drywall/CTABand";
 import GoogleMapEmbed from "@/components/areas/GoogleMapEmbed";
-import MatrixSEOSchema from "@/components/geomatrix/MatrixSEOSchema";
+import { buildMatrixSchemas } from "@/components/geomatrix/MatrixSEOSchema";
 import { getCommunity, getRegion, getNearestCommunities } from "@/data/communities";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
-import { setPageMeta } from "@/lib/seo";
 import { getLocalSignals, evaluateCell, buildLocalContext, buildLocalFaq, type MatrixCell } from "@/lib/geomatrix";
 import type { BookingClickHandler, BookingPrefill } from "@/config/drywall-booking";
 
@@ -49,19 +49,6 @@ const ServiceLocation = ({ onBookClick }: Props) => {
   const eligible = cell ? evaluateCell(cell).eligible : false;
   const intro = cell && signals ? buildLocalContext(cell, signals) : "";
   const faqs = cell && signals ? buildLocalFaq(cell, signals) : [];
-
-  useEffect(() => {
-    if (!sub || !community) return;
-    const desc =
-      `${sub.title} in ${community.name}, ${community.city}. Written quote within one ` +
-      `business day, tied to your scope and backed by our guarantee. Call ${MASTER_REMIX.PHONE}.`;
-    setPageMeta({
-      title: `${sub.title} in ${community.name} | ${bn}`,
-      description: desc.slice(0, 160),
-      path: `/services/${slug}/${communitySlug}`,
-      noindex: !eligible, // thin cells stay out of the index
-    });
-  }, [sub, community, slug, communitySlug, bn, eligible]);
 
   // ── 404 — unknown service or community ──
   if (!sub || !community) {
@@ -96,15 +83,37 @@ const ServiceLocation = ({ onBookClick }: Props) => {
     source: `matrix/${sub.slug}/${community.slug}`,
   };
 
+  const metaTitle = `${sub.title} in ${community.name} | ${bn}`;
+  const metaDescription = (
+    `${sub.title} in ${community.name}, ${community.city}. Written quote within one ` +
+    `business day, tied to your scope and backed by our guarantee. Call ${MASTER_REMIX.PHONE}.`
+  ).slice(0, 160);
+  const canonical = `${MASTER_REMIX.BRAND_URL}/services/${sub.slug}/${community.slug}`;
+  const schemas = buildMatrixSchemas({
+    community,
+    serviceSlug: sub.slug,
+    serviceTitle: sub.title,
+    serviceCategory: sc,
+    faqs,
+  });
+
   return (
     <TemplateLayout onBookClick={onBookClick}>
-      <MatrixSEOSchema
-        community={community}
-        serviceSlug={sub.slug}
-        serviceTitle={sub.title}
-        serviceCategory={sc}
-        faqs={faqs}
-      />
+      {/* Single render-time head — meta + all 5 schemas, baked into static HTML.
+          One <Head> per page → reliable SSR collection. Gate-aware noindex. */}
+      <Head>
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
+        <meta name="robots" content={eligible ? "index, follow" : "noindex, follow"} />
+        <link rel="canonical" href={canonical} />
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:type" content="website" />
+        {schemas.map((schema, i) => (
+          <script key={i} type="application/ld+json">{JSON.stringify(schema)}</script>
+        ))}
+      </Head>
 
       {/* ── HERO — breadcrumb + H1 + deterministic local intro ── */}
       <SectionFrame tone="bone" size="lg" grain>
