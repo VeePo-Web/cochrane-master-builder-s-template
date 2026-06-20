@@ -8,6 +8,7 @@
     "preflight": "bun run scripts/preflight.ts",
     "prebuild": "bun run scripts/preflight.ts --strict",
     "build": "vite-react-ssg build",
+    "postbuild": "npx tsx scripts/generate-discovery.ts",
     "build:spa": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",

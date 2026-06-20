@@ -18,6 +18,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { MetaTags } from "@/components/template/MetaTags";
+import SiteSchema from "@/components/seo/SiteSchema";
 import ScrollToTop from "@/components/ScrollToTop";
 import BackToTop from "@/components/drywall/BackToTop";
 import StickyCTA from "@/components/drywall/StickyCTA";
@@ -60,6 +61,7 @@ const RootLayout = () => (
       <Toaster />
       <Sonner />
       <MetaTags />
+      <SiteSchema />
       <ScrollToTop />
       <BookingProvider>
         <Outlet />

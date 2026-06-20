@@ -1,3 +1,4 @@
+# ─── Search engines ───────────────────────────────────────────────
 User-agent: Googlebot
 Allow: /
 
@@ -10,5 +11,41 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+# ─── AI answer engines (explicit allow = intentional + future-proof) ──
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# ─── Everyone else ────────────────────────────────────────────────
 User-agent: *
 Allow: /
+
+# Sitemap (build's generate-discovery step rewrites dist/robots.txt with
+# the remix's own domain).
+Sitemap: https://cochranemasterbuilders.ca/sitemap.xml
