@@ -13,7 +13,7 @@
  *   catch-all (*)     → generic brand title only
  */
 
-import { Helmet } from "react-helmet-async";
+import { Head } from "vite-react-ssg";
 import { useLocation } from "react-router-dom";
 import { META_CONFIG, META_SERVICE_DETAIL } from "@/config/template/meta-config";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
@@ -75,7 +75,7 @@ export const MetaTags = () => {
     isThankYou || noindex ? "noindex, nofollow" : "index, follow";
 
   return (
-    <Helmet>
+    <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="robots" content={robotsContent} />
@@ -99,6 +99,6 @@ export const MetaTags = () => {
 
       {/* Canonical */}
       {canonical && <link rel="canonical" href={canonical} />}
-    </Helmet>
+    </Head>
   );
 };

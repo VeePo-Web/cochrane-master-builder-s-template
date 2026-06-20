@@ -11,7 +11,7 @@
  * Server-side safe — no window/document access. Helmet handles placement.
  */
 
-import { Helmet } from "react-helmet-async";
+import { Head } from "vite-react-ssg";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 import type { ReviewAggregate, Review } from "@/config/reviews";
 
@@ -64,10 +64,10 @@ export const AggregateRatingSchema = ({
   };
 
   return (
-    <Helmet>
+    <Head>
       <script type="application/ld+json">
         {JSON.stringify(schema)}
       </script>
-    </Helmet>
+    </Head>
   );
 };

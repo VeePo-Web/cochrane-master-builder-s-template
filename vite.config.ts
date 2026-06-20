@@ -35,7 +35,7 @@ function preflightDevWarning(): Plugin {
 }
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig(({ mode, isSsrBuild }) => ({
   server: {
     host: "::",
     port: 8080,
@@ -57,12 +57,16 @@ export default defineConfig(({ mode }) => ({
     target: "es2020",
     cssCodeSplit: true,
     rollupOptions: {
-      output: {
-        manualChunks: {
-          "react-vendor": ["react", "react-dom", "react-router-dom"],
-          "motion-vendor": ["framer-motion", "lenis"],
-        },
-      },
+      // manualChunks only applies to the client build; during the SSR/prerender
+      // build vite-react-ssg externalizes react et al., which cannot be chunked.
+      output: isSsrBuild
+        ? {}
+        : {
+            manualChunks: {
+              "react-vendor": ["react", "react-dom", "react-router-dom"],
+              "motion-vendor": ["framer-motion", "lenis"],
+            },
+          },
     },
   },
 }));
