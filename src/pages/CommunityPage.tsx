@@ -20,18 +20,18 @@
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { Head } from "vite-react-ssg";
 import { ArrowLeft, ArrowRight, MapPin, ChevronDown } from "lucide-react";
 import TemplateLayout from "@/components/template/TemplateLayout";
 import SectionFrame from "@/components/template/SectionFrame";
 import GoogleMapEmbed from "@/components/areas/GoogleMapEmbed";
 import NearbyAreasWidget from "@/components/areas/NearbyAreasWidget";
-import AreasSEOSchema from "@/components/areas/AreasSEOSchema";
+import { buildAreasSchemas } from "@/components/areas/AreasSEOSchema";
 import { getCommunity, getRegion, getCommunity as gc, resolveCommunityHeroImage } from "@/data/communities";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
-import { setPageMeta } from "@/lib/seo";
 import type { BookingClickHandler, BookingPrefill } from "@/config/drywall-booking";
 import type { FAQ } from "@/config/template/remix-variables";
 
@@ -102,23 +102,6 @@ const CommunityPage = ({ onBookClick }: CommunityPageProps) => {
   /* Dynamic FAQs — never reference a specific trade in stored community data */
   const faqs: FAQ[] = community ? buildFAQs(community, s, bn) : [];
 
-  useEffect(() => {
-    if (!community || !region) return;
-
-    const nearest = community.nearestCommunities.slice(0, 2)
-      .map((sl) => gc(sl)?.name)
-      .filter(Boolean);
-
-    setPageMeta({
-      title: `${sc} Contractor ${community.name} ${community.city} | ${bn} | Alberta`,
-      description:
-        `Looking for ${s} in ${community.name}? ${bn} serves ${community.name}` +
-        (nearest.length ? ` and nearby ${nearest.join(", ")}` : "") +
-        `. Family-owned, Cochrane-based. Licensed & insured. Written estimate within 24 hours.`,
-      path: `/areas-we-serve/${regionSlug}/${communitySlug}`,
-    });
-  }, [community, region, regionSlug, communitySlug, s, sc, bn]);
-
   /* ── 404 ── */
   if (!community || !region) {
     return (
@@ -147,18 +130,40 @@ const CommunityPage = ({ onBookClick }: CommunityPageProps) => {
   // Hero image priority: community inline → lookup map → region → solid forest colour
   const heroImg = resolveCommunityHeroImage(community) ?? region.heroImage;
 
+  // ── SEO meta + schema (render-time → baked into static HTML) ──
+  const nearestNames = community.nearestCommunities.slice(0, 2).map((sl) => gc(sl)?.name).filter(Boolean);
+  const metaTitle = `${sc} Contractor ${community.name} ${community.city} | ${bn}`;
+  const metaDescription = (
+    `Looking for ${s} in ${community.name}? ${bn} serves ${community.name}` +
+    (nearestNames.length ? ` and nearby ${nearestNames.join(", ")}` : "") +
+    `. ${MASTER_REMIX.CITY}-based. Licensed & insured. Written estimate within 24 hours.`
+  ).slice(0, 160);
+  const canonical = `${MASTER_REMIX.BRAND_URL.replace(/\/$/, "")}/areas-we-serve/${regionSlug}/${communitySlug}`;
+  const areasSchemas = buildAreasSchemas({
+    community,
+    regionName: region.name,
+    brandName: bn,
+    serviceCategory: sc,
+    faqs,
+  });
+
   return (
     <TemplateLayout onBookClick={onBookClick}>
 
-      {/* ── JSON-LD Schema — 4 types injected into <head> ── */}
-      <AreasSEOSchema
-        community={community}
-        regionName={region.name}
-        brandName={bn}
-        service={s}
-        serviceCategory={sc}
-        faqs={faqs}
-      />
+      {/* ── Head: meta + JSON-LD (4 types), baked into static HTML ── */}
+      <Head>
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={canonical} />
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:type" content="website" />
+        {areasSchemas.map((schema, i) => (
+          <script key={i} type="application/ld+json">{JSON.stringify(schema)}</script>
+        ))}
+      </Head>
 
       {/* ══════════════════════════════════════════════════════════════════════
           SECTION 1 — BREADCRUMB + HERO

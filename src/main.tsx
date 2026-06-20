@@ -2,7 +2,7 @@ import { ViteReactSSG } from "vite-react-ssg";
 import { routes } from "./routes";
 import "./index.css";
 import { MASTER_REMIX } from "./config/template/remix-variables";
-import { COMMUNITIES } from "./data/communities";
+import { COMMUNITIES, REGIONS } from "./data/communities";
 import { matrixEligibilityReport } from "./lib/geomatrix";
 
 /**
@@ -19,6 +19,11 @@ function dynamicMatrixPaths(): string[] {
   const out: string[] = [];
   for (const s of MASTER_REMIX.SUB_SERVICES) out.push(`/services/${s.slug}`);
 
+  // Areas We Serve — region hubs + every community page (location tier).
+  for (const r of REGIONS) out.push(`/areas-we-serve/${r.slug}`);
+  for (const c of COMMUNITIES) out.push(`/areas-we-serve/${c.region}/${c.slug}`);
+
+  // Service × Location matrix — gate-eligible cells only.
   const report = matrixEligibilityReport(MASTER_REMIX.SUB_SERVICES, COMMUNITIES);
   const isTemplatePreview = MASTER_REMIX.SUB_SERVICES.some((s) => s.title.trim().startsWith("{"));
   const cells = isTemplatePreview ? report.eligibleCells.slice(0, 12) : report.eligibleCells;

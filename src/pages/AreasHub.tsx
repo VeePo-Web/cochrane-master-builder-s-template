@@ -12,8 +12,8 @@
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Head } from "vite-react-ssg";
 import { ArrowRight, MapPin, Shield, Users, Wrench, Star } from "lucide-react";
 import TemplateLayout from "@/components/template/TemplateLayout";
 import SectionFrame from "@/components/template/SectionFrame";
@@ -21,7 +21,6 @@ import CommunityCard from "@/components/areas/CommunityCard";
 import { REGIONS, COMMUNITIES, getRegionCommunities, getCommunity } from "@/data/communities";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
-import { setPageMeta } from "@/lib/seo";
 import type { BookingClickHandler } from "@/config/drywall-booking";
 
 interface AreasHubProps {
@@ -52,41 +51,43 @@ const AreasHub = ({ onBookClick }: AreasHubProps) => {
   const bn  = MASTER_REMIX.BRAND_NAME;       // "Cochrane Master Builders"
   const sc  = MASTER_REMIX.SERVICE_CATEGORY; // "{SERVICE_CATEGORY}"
 
-  useEffect(() => {
-    setPageMeta({
-      title: `${sc} Contractor — Areas We Serve | ${bn}`,
-      description:
-        `${bn} provides professional ${s} services to 120+ communities across Cochrane, Calgary SW, Springbank, Elbow Valley, Rocky View County, the Bow Valley, and Canmore. Family-owned and Cochrane-based.`,
-      path: "/areas-we-serve",
-    });
-
-    // Hub-level LocalBusiness schema
-    const schema = {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      name: bn,
-      address: { "@type": "PostalAddress", addressLocality: "Cochrane", addressRegion: "AB", addressCountry: "CA" },
-      areaServed: [
-        { "@type": "City", name: "Cochrane" },
-        { "@type": "City", name: "Calgary" },
-        { "@type": "City", name: "Canmore" },
-        { "@type": "AdministrativeArea", name: "Rocky View County" },
-        { "@type": "AdministrativeArea", name: "Springbank" },
-      ],
-      serviceType: sc,
-    };
-    const el = document.createElement("script");
-    el.type = "application/ld+json";
-    el.setAttribute("data-hub-schema", "true");
-    el.textContent = JSON.stringify(schema);
-    document.head.appendChild(el);
-    return () => { document.querySelectorAll('[data-hub-schema="true"]').forEach((n) => n.remove()); };
-  }, [s, sp, bn, sc]);
-
   const featured = FEATURED_SLUGS.map((sl) => getCommunity(sl)).filter(Boolean) as NonNullable<ReturnType<typeof getCommunity>>[];
+
+  // ── SEO meta + schema (render-time → baked into static HTML) ──
+  const base = MASTER_REMIX.BRAND_URL.replace(/\/$/, "");
+  const metaTitle = `${sc} Contractor — Areas We Serve | ${bn}`;
+  const metaDescription = (
+    `${bn} provides professional ${s} services to ${COMMUNITIES.length}+ communities across ` +
+    `${MASTER_REMIX.CITY}, ${MASTER_REMIX.REGION}, and ${MASTER_REMIX.PROVINCE}. ${MASTER_REMIX.CITY}-based.`
+  ).slice(0, 160);
+  const canonical = `${base}/areas-we-serve`;
+  const hubSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${base}/#organization`,
+    name: bn,
+    url: base,
+    address: { "@type": "PostalAddress", addressLocality: MASTER_REMIX.CITY, addressRegion: MASTER_REMIX.PROVINCE_CODE, addressCountry: MASTER_REMIX.COUNTRY_CODE },
+    areaServed: [
+      { "@type": "City", name: MASTER_REMIX.CITY },
+      ...REGIONS.map((r) => ({ "@type": "AdministrativeArea", name: r.name })),
+    ],
+    serviceType: sc,
+  };
 
   return (
     <TemplateLayout onBookClick={onBookClick}>
+      <Head>
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={canonical} />
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify(hubSchema)}</script>
+      </Head>
 
       {/* ── Hero ── */}
       <SectionFrame tone="forest" size="xl" grain>

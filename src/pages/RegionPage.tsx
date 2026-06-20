@@ -8,8 +8,8 @@
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
-import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { Head } from "vite-react-ssg";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import TemplateLayout from "@/components/template/TemplateLayout";
 import SectionFrame from "@/components/template/SectionFrame";
@@ -17,14 +17,11 @@ import CommunityCard from "@/components/areas/CommunityCard";
 import { getRegion, getRegionCommunities, REGIONS } from "@/data/communities";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
-import { setPageMeta } from "@/lib/seo";
 import type { BookingClickHandler } from "@/config/drywall-booking";
 
 interface RegionPageProps {
   onBookClick?: BookingClickHandler;
 }
-
-const BASE_URL = "https://cochranedrywall.ca";
 
 const RegionPage = ({ onBookClick }: RegionPageProps) => {
   const { region: regionSlug = "" } = useParams<{ region: string }>();
@@ -34,54 +31,6 @@ const RegionPage = ({ onBookClick }: RegionPageProps) => {
   const s  = MASTER_REMIX.SERVICE;
   const sc = MASTER_REMIX.SERVICE_CATEGORY;
   const bn = MASTER_REMIX.BRAND_NAME;
-
-  useEffect(() => {
-    if (!region) return;
-
-    setPageMeta({
-      title: `${sc} — ${region.name} Alberta | ${bn}`,
-      description:
-        `${bn} serves ${communities.length} communities in ${region.name}, Alberta. ` +
-        `Master-craft ${s} — Cochrane-based. ` +
-        communities.slice(0, 4).map((c) => c.name).join(", ") + " and more.",
-      path: `/areas-we-serve/${regionSlug}`,
-    });
-
-    const schemas = [
-      {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home",           item: BASE_URL },
-          { "@type": "ListItem", position: 2, name: "Areas We Serve", item: `${BASE_URL}/areas-we-serve` },
-          { "@type": "ListItem", position: 3, name: region.name,      item: `${BASE_URL}/areas-we-serve/${regionSlug}` },
-        ],
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        name: `${sc} in ${region.name}`,
-        serviceType: sc,
-        provider: { "@type": "LocalBusiness", name: bn },
-        areaServed: {
-          "@type": "AdministrativeArea",
-          name: region.name,
-          containsPlace: communities.slice(0, 10).map((c) => ({ "@type": "Place", name: c.name })),
-        },
-      },
-    ];
-
-    const cleanup = () => { document.querySelectorAll('[data-region-schema="true"]').forEach((el) => el.remove()); };
-    cleanup();
-    schemas.forEach((schema) => {
-      const script = document.createElement("script");
-      script.type = "application/ld+json";
-      script.setAttribute("data-region-schema", "true");
-      script.textContent = JSON.stringify(schema);
-      document.head.appendChild(script);
-    });
-    return cleanup;
-  }, [region, regionSlug, communities, s, sc, bn]);
 
   /* ── 404 for unknown region ── */
   if (!region) {
@@ -109,8 +58,54 @@ const RegionPage = ({ onBookClick }: RegionPageProps) => {
   const tier3 = communities.filter((c) => c.tier === 3);
   const heroImg = region.heroImage; // verified copyright-free from communities.ts
 
+  // ── SEO meta + schema (render-time → baked into static HTML) ──
+  const base = MASTER_REMIX.BRAND_URL.replace(/\/$/, "");
+  const metaTitle = `${sc} — ${region.name} | ${bn}`;
+  const metaDescription = (
+    `${bn} serves ${communities.length} communities in ${region.name}, ${MASTER_REMIX.PROVINCE}. ` +
+    `${MASTER_REMIX.CITY}-based ${s}. ` +
+    communities.slice(0, 4).map((c) => c.name).join(", ") + " and more."
+  ).slice(0, 160);
+  const canonical = `${base}/areas-we-serve/${regionSlug}`;
+  const regionSchemas = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: base },
+        { "@type": "ListItem", position: 2, name: "Areas We Serve", item: `${base}/areas-we-serve` },
+        { "@type": "ListItem", position: 3, name: region.name, item: canonical },
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: `${sc} in ${region.name}`,
+      serviceType: sc,
+      provider: { "@type": "LocalBusiness", "@id": `${base}/#organization` },
+      areaServed: {
+        "@type": "AdministrativeArea",
+        name: region.name,
+        containsPlace: communities.slice(0, 10).map((c) => ({ "@type": "Place", name: c.name })),
+      },
+    },
+  ];
+
   return (
     <TemplateLayout onBookClick={onBookClick}>
+      <Head>
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={canonical} />
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:type" content="website" />
+        {regionSchemas.map((schema, i) => (
+          <script key={i} type="application/ld+json">{JSON.stringify(schema)}</script>
+        ))}
+      </Head>
 
       {/* ── Hero — real photo background where available, solid forest fallback ── */}
       <section className="relative overflow-hidden bg-forest text-primary-foreground py-32 md:py-48">
