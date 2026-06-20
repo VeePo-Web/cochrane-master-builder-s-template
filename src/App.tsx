@@ -22,6 +22,7 @@ const TemplateBrandStory = lazy(() => import("./pages/template/BrandStory"));
 const TemplateWhyWeLove = lazy(() => import("./pages/template/WhyWeLoveService"));
 const TemplateServices = lazy(() => import("./pages/template/Services"));
 const TemplateServiceDetail = lazy(() => import("./pages/template/ServiceDetail"));
+const TemplateServiceLocation = lazy(() => import("./pages/template/ServiceLocation"));
 const TemplatePricing = lazy(() => import("./pages/template/Pricing"));
 const TemplateGallery = lazy(() => import("./pages/template/Gallery"));
 const TemplateReviews = lazy(() => import("./pages/template/Reviews"));
@@ -54,6 +55,7 @@ const AnimatedRoutes = ({ onBookClick }: { onBookClick: BookingClickHandler }) =
         <Route path="/why-we-love" element={<PageTransition><TemplateWhyWeLove onBookClick={onBookClick} /></PageTransition>} />
         <Route path="/services" element={<PageTransition><TemplateServices onBookClick={onBookClick} /></PageTransition>} />
         <Route path="/services/:slug" element={<PageTransition><TemplateServiceDetail onBookClick={onBookClick} /></PageTransition>} />
+        <Route path="/services/:slug/:community" element={<PageTransition><TemplateServiceLocation onBookClick={onBookClick} /></PageTransition>} />
         <Route path="/services/detail" element={<PageTransition><TemplateServiceDetail onBookClick={onBookClick} /></PageTransition>} />
         <Route path="/pricing" element={<PageTransition><TemplatePricing onBookClick={onBookClick} /></PageTransition>} />
         <Route path="/gallery" element={<PageTransition><TemplateGallery onBookClick={onBookClick} /></PageTransition>} />

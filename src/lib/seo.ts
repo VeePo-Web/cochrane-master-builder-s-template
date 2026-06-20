@@ -11,14 +11,17 @@ interface PageMeta {
   description: string;
   path: string;
   ogImage?: string;
+  /** Gate-aware: true keeps the URL out of the index (thin/ineligible matrix cells). */
+  noindex?: boolean;
 }
 
-export function setPageMeta({ title, description, path, ogImage }: PageMeta) {
+export function setPageMeta({ title, description, path, ogImage, noindex = false }: PageMeta) {
   const baseUrl = MASTER_REMIX.BRAND_URL;
   const image = ogImage ?? MASTER_REMIX.OG_IMAGE;
 
   document.title = title;
   setMetaTag("name", "description", description);
+  setMetaTag("name", "robots", noindex ? "noindex, follow" : "index, follow");
   setLinkTag("canonical", `${baseUrl}${path}`);
   setMetaTag("property", "og:title", title);
   setMetaTag("property", "og:description", description);

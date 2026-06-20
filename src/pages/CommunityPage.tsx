@@ -375,12 +375,12 @@ const CommunityPage = ({ onBookClick }: CommunityPageProps) => {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
           {sbs.map((service, i) => (
-            <Link key={i} to="/services"
+            <Link key={i} to={`/services/${service.slug}/${community.slug}`}
               className="group block border border-seam rounded p-5 bg-bone
                          hover:border-forest/40 hover:shadow-subtle transition-all duration-300">
               <h3 className="font-display text-display-sm text-charcoal mb-2
                              group-hover:text-forest transition-colors duration-300">
-                {service.title}
+                {service.title} in {community.name}
               </h3>
               <p className="text-body-sm text-graphite mb-3 leading-relaxed line-clamp-2">
                 {service.summary}

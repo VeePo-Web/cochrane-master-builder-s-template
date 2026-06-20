@@ -23,6 +23,10 @@ const resolveMeta = (pathname: string) => {
   // Exact match
   if (META_CONFIG[pathname]) return { meta: META_CONFIG[pathname], noindex: false };
 
+  // Service × Location matrix (/services/:slug/:community) — page self-manages
+  // meta + schema (gate-aware noindex) via setPageMeta. Check before /services/:slug.
+  if (/^\/services\/[^/]+\/[^/]+$/.test(pathname)) return null;
+
   // /services/:slug
   const serviceMatch = pathname.match(/^\/services\/([^/]+)$/);
   if (serviceMatch) {
