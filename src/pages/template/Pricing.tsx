@@ -17,10 +17,10 @@ const ObjectionSection = lazy(() => import("@/components/master/ObjectionSection
 interface Props { onBookClick?: BookingClickHandler }
 
 const STEPS = [
-  { title: "Quote", description: "Photos in. Itemised quote out within 24 hours. Free." },
+  { title: "Quote", description: "Details in. Itemised quote out within 24 hours. Free." },
   { title: "Schedule", description: "Window agreed in writing. We do not sell timelines we cannot keep." },
-  { title: "Build", description: "Same crew, start to finish. Worksite visibly cleaner than we found it." },
-  { title: "Warranty", description: "14-day touch-up at zero cost. 15-year structural guarantee on the invoice." },
+  { title: "Build", description: "Same team, start to finish. We leave things cleaner than we found them." },
+  { title: "Warranty", description: "14-day follow-up at zero cost. Our guarantee, in writing on the invoice." },
 ];
 
 const Pricing = ({ onBookClick }: Props) => {
@@ -37,7 +37,7 @@ const Pricing = ({ onBookClick }: Props) => {
             className="pointer-events-none select-none absolute bottom-0 right-0 font-display text-charcoal leading-none"
             style={{ fontSize: "clamp(8rem,18vw,16rem)", opacity: 0.04, lineHeight: 1 }}
           >
-            02
+            01
           </span>
           <div className="relative grid gap-16 md:gap-20 md:grid-cols-12 md:items-start">
             <div className="md:col-span-5">
@@ -58,7 +58,7 @@ const Pricing = ({ onBookClick }: Props) => {
 
       <Suspense fallback={null}><ValueLadder /></Suspense>
 
-      <SectionFrame tone="bone" size="lg">
+      <SectionFrame tone="paper" size="lg">
         <SectionTitle eyebrow="Process" headline="What happens between yes and sign-off." />
         <div className="mt-12"><ProcessSteps steps={STEPS} /></div>
       </SectionFrame>
@@ -70,10 +70,11 @@ const Pricing = ({ onBookClick }: Props) => {
       <CTABand
         eyebrow="Begin"
         headline="Find your band. Receive the written number."
-        body="No sales call between you and the quote. Three photos in. The math out."
+        body="No sales call between you and the quote. Your details in. The math out."
         primaryLabel={TEMPLATE_COPY.cta.primary}
         onPrimaryClick={onBookClick}
         prefill={{ source: "Pricing → Final CTA" }}
+        reassurance="Free quote · No obligation · 24-hour reply"
       />
     </TemplateLayout>
   );

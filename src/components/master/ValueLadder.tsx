@@ -4,8 +4,10 @@
  * Shows the customer where they are on the service path and what's next.
  * Brunson: "Every customer should have a clear path from entry to premium."
  *
+ * Palette: template tokens only (bone / paper / ink-blueprint / copper /
+ * graphite / mist / seam) so the ladder reads as the same product everywhere.
  * Desktop: horizontal progression with connecting arrows.
- * Mobile: vertical timeline with left-side bronze connector line.
+ * Mobile: vertical timeline with left-side copper connector line.
  */
 
 import { motion } from "framer-motion";
@@ -31,7 +33,7 @@ const DEFAULT_TIERS: LadderTier[] = [
   {
     label: "The Repair Visit",
     priceRange: "$150–$450",
-    description: "Targeted repairs and surface corrections. In and out in a day.",
+    description: "Targeted repairs and corrections. In and out in a day.",
     idealFor: "First project. Fast fix. See the standard first-hand.",
     href: "/services",
   },
@@ -52,7 +54,7 @@ const DEFAULT_TIERS: LadderTier[] = [
   {
     label: "The Full Project",
     priceRange: "$3,500–$8,000+",
-    description: "Full scope, start to finish. One crew, one invoice, one guarantee.",
+    description: "Full scope, start to finish. One team, one invoice, one guarantee.",
     idealFor: "Complete multi-room or whole-property renovation.",
     href: "/services",
   },
@@ -62,7 +64,7 @@ const ArrowIcon = () => (
   <svg
     viewBox="0 0 24 24"
     fill="none"
-    className="w-5 h-5 text-[#8B6B4A]/40"
+    className="w-5 h-5 text-copper/40"
     aria-hidden
   >
     <path
@@ -83,7 +85,7 @@ export const ValueLadder = ({
 }: ValueLadderProps) => {
   return (
     <section
-      className={["bg-[#FDFBF7] py-20 md:py-28 overflow-hidden", className].join(
+      className={["bg-bone py-20 md:py-28 overflow-hidden", className].join(
         " "
       )}
     >
@@ -96,12 +98,12 @@ export const ValueLadder = ({
           transition={{ duration: 0.8, ease: EASE }}
           className="mb-12"
         >
-          <div className="inline-block rounded-full border border-[#1F2F4D]/12 bg-[#1F2F4D]/06 px-4 py-1.5 mb-6">
-            <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#5C6B8A]">
+          <div className="inline-block rounded-full border border-forest/15 bg-forest/5 px-4 py-1.5 mb-6">
+            <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-forest">
               The Path
             </span>
           </div>
-          <h2 className="font-display text-[clamp(1.75rem,3vw,2.75rem)] leading-[1.1] tracking-[-0.015em] text-[#1F2F4D] font-light max-w-lg">
+          <h2 className="font-display text-[clamp(1.75rem,3vw,2.75rem)] leading-[1.1] tracking-[-0.015em] text-charcoal font-light max-w-lg">
             Start where you need to. Move up when you're ready.
           </h2>
         </motion.div>
@@ -115,69 +117,69 @@ export const ValueLadder = ({
                 <motion.div
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
+                  viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.75, ease: EASE, delay: i * 0.1 }}
                   className="flex-1"
                 >
                   {/* Tier card */}
                   {isHighlighted ? (
-                    /* Highlighted tier — dark navy */
-                    <div className="ring-1 ring-[#1F2F4D]/15 rounded-[1.5rem] p-1.5 bg-[#1F2F4D]/08 h-full">
-                      <div className="rounded-[calc(1.5rem-0.375rem)] p-7 bg-[#1F2F4D] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] h-full flex flex-col">
-                        <span className="font-display text-[3.5rem] leading-none italic text-[#8B6B4A]/40 select-none" aria-hidden>
+                    /* Highlighted tier — dark ink-blueprint */
+                    <div className="ring-1 ring-ink-blueprint/20 rounded-[1.5rem] p-1.5 bg-ink-blueprint/8 h-full">
+                      <div className="rounded-[calc(1.5rem-0.375rem)] p-7 bg-ink-blueprint shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] h-full flex flex-col">
+                        <span className="font-display text-[3.5rem] leading-none italic text-copper/40 select-none" aria-hidden>
                           {String(i + 1).padStart(2, "0")}
                         </span>
-                        <h3 className="font-display text-[1.25rem] leading-[1.2] tracking-[-0.01em] text-white font-light mt-[-0.5rem]">
+                        <h3 className="font-display text-[1.25rem] leading-[1.2] tracking-[-0.01em] text-bone font-light mt-[-0.5rem]">
                           {tier.label}
                         </h3>
-                        <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[#C9A87C]">
+                        <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-copper">
                           {tier.priceRange}
                         </p>
-                        <p className="mt-4 font-body text-[0.875rem] leading-[1.65] text-white/60 font-light flex-1">
+                        <p className="mt-4 font-body text-[0.875rem] leading-[1.65] text-bone/60 font-light flex-1">
                           {tier.description}
                         </p>
-                        <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-white/35">
+                        <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-bone/35">
                           {tier.idealFor}
                         </p>
                         {tier.href && (
                           <a
                             href={tier.href}
                             className="mt-5 inline-flex items-center gap-1 font-mono text-[9px]
-                              uppercase tracking-[0.2em] text-[#C9A87C]/70 hover:text-[#C9A87C]
+                              uppercase tracking-[0.2em] text-copper/70 hover:text-copper
                               transition-colors"
                           >
-                            Learn more ↗
+                            See details ↗
                           </a>
                         )}
                       </div>
                     </div>
                   ) : (
                     /* Non-highlighted tier — light bezel */
-                    <div className="ring-1 ring-[#1F2F4D]/06 rounded-[1.5rem] p-1.5 bg-white/80 h-full">
-                      <div className="rounded-[calc(1.5rem-0.375rem)] p-7 bg-[#FDFBF7] shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] h-full flex flex-col">
-                        <span className="font-display text-[3.5rem] leading-none italic text-[#8B6B4A]/20 select-none" aria-hidden>
+                    <div className="ring-1 ring-charcoal/5 rounded-[1.5rem] p-1.5 bg-seam/40 h-full">
+                      <div className="rounded-[calc(1.5rem-0.375rem)] p-7 bg-paper shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] h-full flex flex-col">
+                        <span className="font-display text-[3.5rem] leading-none italic text-copper/20 select-none" aria-hidden>
                           {String(i + 1).padStart(2, "0")}
                         </span>
-                        <h3 className="font-display text-[1.25rem] leading-[1.2] tracking-[-0.01em] text-[#1F2F4D] font-light mt-[-0.5rem]">
+                        <h3 className="font-display text-[1.25rem] leading-[1.2] tracking-[-0.01em] text-charcoal font-light mt-[-0.5rem]">
                           {tier.label}
                         </h3>
-                        <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[#8B6B4A]">
+                        <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-copper">
                           {tier.priceRange}
                         </p>
-                        <p className="mt-4 font-body text-[0.875rem] leading-[1.65] text-[#5C6B8A] font-light flex-1">
+                        <p className="mt-4 font-body text-[0.875rem] leading-[1.65] text-graphite font-light flex-1">
                           {tier.description}
                         </p>
-                        <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-[#7A8BAA]">
+                        <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-mist">
                           {tier.idealFor}
                         </p>
                         {tier.href && (
                           <a
                             href={tier.href}
                             className="mt-5 inline-flex items-center gap-1 font-mono text-[9px]
-                              uppercase tracking-[0.2em] text-[#8B6B4A]/60 hover:text-[#8B6B4A]
+                              uppercase tracking-[0.2em] text-copper/60 hover:text-copper
                               transition-colors"
                           >
-                            Learn more ↗
+                            See details ↗
                           </a>
                         )}
                       </div>
@@ -208,10 +210,10 @@ export const ValueLadder = ({
                 <div className="flex flex-col items-center flex-shrink-0 pt-6">
                   <div className={[
                     "w-2 h-2 rounded-full flex-shrink-0",
-                    isHighlighted ? "bg-[#8B6B4A]" : "bg-[#8B6B4A]/30",
+                    isHighlighted ? "bg-copper" : "bg-copper/30",
                   ].join(" ")} />
                   {!isLast && (
-                    <div className="w-px flex-1 bg-[#8B6B4A]/20 mt-1 mb-0 min-h-[2rem]" />
+                    <div className="w-px flex-1 bg-copper/20 mt-1 mb-0 min-h-[2rem]" />
                   )}
                 </div>
 
@@ -219,37 +221,37 @@ export const ValueLadder = ({
                 <motion.div
                   initial={{ opacity: 0, x: -12 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-30px" }}
+                  viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.7, ease: EASE, delay: i * 0.08 }}
                   className="flex-1 pb-6"
                 >
                   <div className={[
                     "ring-1 rounded-[1.25rem] p-1.5",
-                    isHighlighted ? "ring-[#1F2F4D]/15 bg-[#1F2F4D]/08" : "ring-[#1F2F4D]/06 bg-white/80",
+                    isHighlighted ? "ring-ink-blueprint/20 bg-ink-blueprint/8" : "ring-charcoal/5 bg-seam/40",
                   ].join(" ")}>
                     <div className={[
                       "rounded-[calc(1.25rem-0.375rem)] p-5",
                       isHighlighted
-                        ? "bg-[#1F2F4D] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]"
-                        : "bg-[#FDFBF7] shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]",
+                        ? "bg-ink-blueprint shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]"
+                        : "bg-paper shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]",
                     ].join(" ")}>
                       <div className="flex items-start justify-between gap-3">
                         <h3 className={[
                           "font-display text-[1.125rem] leading-[1.2] tracking-[-0.01em] font-light",
-                          isHighlighted ? "text-white" : "text-[#1F2F4D]",
+                          isHighlighted ? "text-bone" : "text-charcoal",
                         ].join(" ")}>
                           {tier.label}
                         </h3>
                         <span className={[
                           "font-mono text-[10px] uppercase tracking-[0.2em] flex-shrink-0",
-                          isHighlighted ? "text-[#C9A87C]" : "text-[#8B6B4A]",
+                          isHighlighted ? "text-copper" : "text-copper",
                         ].join(" ")}>
                           {tier.priceRange}
                         </span>
                       </div>
                       <p className={[
                         "mt-3 font-body text-[0.875rem] leading-[1.65] font-light",
-                        isHighlighted ? "text-white/60" : "text-[#5C6B8A]",
+                        isHighlighted ? "text-bone/60" : "text-graphite",
                       ].join(" ")}>
                         {tier.description}
                       </p>
@@ -268,7 +270,7 @@ export const ValueLadder = ({
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="mt-12 font-mono text-[10px] uppercase tracking-[0.22em] text-[#7A8BAA] text-center"
+            className="mt-12 font-mono text-[10px] uppercase tracking-[0.22em] text-mist text-center"
           >
             Most clients start with 01. Most come back for 02 and 03.
           </motion.p>
