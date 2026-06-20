@@ -24,6 +24,8 @@ interface BuildMatrixSchemasArgs {
   serviceTitle: string;
   serviceCategory: string;
   faqs: MatrixFaq[];
+  /** ISO date (YYYY-MM-DD) for the freshness signal. */
+  dateModified: string;
 }
 
 export function buildMatrixSchemas({
@@ -32,6 +34,7 @@ export function buildMatrixSchemas({
   serviceTitle,
   serviceCategory,
   faqs,
+  dateModified,
 }: BuildMatrixSchemasArgs): Record<string, unknown>[] {
   const baseUrl = MASTER_REMIX.BRAND_URL;
   const bn = MASTER_REMIX.BRAND_NAME;
@@ -100,6 +103,13 @@ export function buildMatrixSchemas({
     isPartOf: { "@type": "WebSite", name: bn, url: baseUrl },
     about: { "@type": "Service", name: `${serviceTitle} in ${community.name}` },
     breadcrumb: { "@type": "BreadcrumbList", "@id": `${pageUrl}#breadcrumb` },
+    datePublished: dateModified,
+    dateModified,
+    // Voice-search eligibility: read the local intro + the local FAQ aloud.
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["#matrix-intro", "#matrix-faq"],
+    },
   };
 
   const schemas: Record<string, unknown>[] = [localBusiness, service, breadcrumb, webPage];

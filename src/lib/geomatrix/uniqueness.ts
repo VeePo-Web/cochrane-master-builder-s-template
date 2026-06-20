@@ -56,18 +56,38 @@ export function buildLocalContext(cell: MatrixCell, signals: LocalSignals): stri
 }
 
 /**
- * Local FAQ block for the page — the community's own FAQ plus a generated
- * service-in-town question. Deterministic, never stale.
+ * Local FAQ block — the money long-tail PAA questions people actually type for
+ * "{sub-service} in {town}", plus the community's own FAQ. Each answer leads
+ * with a direct answer in 40–65 words (PAA / AI-Overview extraction format) and
+ * is deterministic, so it powers FAQPage schema town-by-town without churn.
  */
 export function buildLocalFaq(cell: MatrixCell, signals: LocalSignals): { question: string; answer: string }[] {
-  const faqs: { question: string; answer: string }[] = [];
-  faqs.push({
-    question: `Do you provide ${cell.serviceTitle.toLowerCase()} in ${cell.community.name}?`,
-    answer:
-      `Yes — ${cell.community.name} is a core service area. You receive a written quote within ` +
-      `one business day, tied to your scope and backed by our guarantee` +
-      (signals.proximity ? `. We also serve nearby ${signals.proximity}.` : `.`),
-  });
+  const svc = cell.serviceTitle;
+  const svcLower = svc.toLowerCase();
+  const town = cell.community.name;
+  const nearby = signals.proximity ? ` We also serve nearby ${signals.proximity}.` : "";
+
+  const faqs: { question: string; answer: string }[] = [
+    {
+      question: `Do you provide ${svcLower} in ${town}?`,
+      answer:
+        `Yes — ${town} is a core service area. You receive an itemised written quote within one ` +
+        `business day, tied to your exact scope and backed by our guarantee.${nearby}`,
+    },
+    {
+      question: `How much does ${svcLower} cost in ${town}?`,
+      answer:
+        `${svc} in ${town} is quoted by scope, not by the hour. You get an itemised written price ` +
+        `within one business day — and the number on the quote is the number on the invoice, with no ` +
+        `change without your written approval.`,
+    },
+    {
+      question: `How long does ${svcLower} take in ${town}?`,
+      answer:
+        `It depends on scope. Small ${town} jobs are often completed in a day; larger projects get a ` +
+        `specific written timeline in the estimate. We do not promise dates we cannot keep.`,
+    },
+  ];
   if (signals.localFaq) faqs.push(signals.localFaq);
   return faqs;
 }

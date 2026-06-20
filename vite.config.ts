@@ -36,6 +36,12 @@ function preflightDevWarning(): Plugin {
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode, isSsrBuild }) => ({
+  // Build date (YYYY-MM-DD) — powers dateModified + visible "Last updated" for
+  // the freshness signal AI engines weight. Date-only → stable across the
+  // separate client/server SSG builds (no hydration mismatch).
+  define: {
+    __BUILD_DATE__: JSON.stringify(new Date().toISOString().slice(0, 10)),
+  },
   server: {
     host: "::",
     port: 8080,

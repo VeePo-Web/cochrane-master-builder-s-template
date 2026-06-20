@@ -89,12 +89,17 @@ const ServiceLocation = ({ onBookClick }: Props) => {
     `business day, tied to your scope and backed by our guarantee. Call ${MASTER_REMIX.PHONE}.`
   ).slice(0, 160);
   const canonical = `${MASTER_REMIX.BRAND_URL}/services/${sub.slug}/${community.slug}`;
+  // Manual month-year format (no toLocaleDateString — SSR Node lacks full ICU).
+  const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const [updYear, updMonth] = __BUILD_DATE__.split("-");
+  const lastUpdated = `${MONTHS[parseInt(updMonth, 10) - 1]} ${updYear}`;
   const schemas = buildMatrixSchemas({
     community,
     serviceSlug: sub.slug,
     serviceTitle: sub.title,
     serviceCategory: sc,
     faqs,
+    dateModified: __BUILD_DATE__,
   });
 
   return (
@@ -140,7 +145,8 @@ const ServiceLocation = ({ onBookClick }: Props) => {
           {sub.title} in {community.name}, {community.city}
         </h1>
 
-        <p className="mt-6 max-w-[60ch] text-body-lg text-graphite leading-relaxed">{intro}</p>
+        <p id="matrix-intro" className="mt-6 max-w-[60ch] text-body-lg text-graphite leading-relaxed">{intro}</p>
+        <p className="mt-4 text-caption text-mist">Last updated: {lastUpdated}</p>
 
         <div className="mt-10 flex flex-col sm:flex-row gap-4">
           <button
@@ -235,7 +241,7 @@ const ServiceLocation = ({ onBookClick }: Props) => {
       {/* ── LOCAL FAQ (feeds FAQPage schema) ── */}
       {faqs.length > 0 && (
         <SectionFrame tone="paper" size="lg">
-          <div className="max-w-3xl">
+          <div id="matrix-faq" className="max-w-3xl">
             <p className="font-eyebrow text-forest mb-4">Common questions</p>
             <h2 className="font-display text-display-md text-charcoal mb-8">
               {sub.title} in {community.name} — FAQ

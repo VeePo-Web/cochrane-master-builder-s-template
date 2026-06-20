@@ -1,5 +1,5 @@
 /**
- * /faq — [Trade] FAQ — Cochrane & Area
+ * /faq — [Trade] FAQ — {CITY} & Area
  *
  * ── Victorious SEO upgrades applied ─────────────────────────────────────────
  * Answer length: All answers trimmed to 40–65 words (PAA extraction threshold).
@@ -33,7 +33,7 @@ interface Props { onBookClick?: BookingClickHandler }
 // QUESTION BANK — 8 intent clusters
 //
 // VICTORIOUS SEO RULE: Every question is written as the exact search query a
-// Cochrane homeowner types. First sentence of every answer = the direct answer
+// {CITY} homeowner types. First sentence of every answer = the direct answer
 // (40–65 words). Google's PAA algorithm pulls the first complete answer unit.
 // No preamble. No "Great question." Answer immediately.
 //
@@ -42,15 +42,15 @@ interface Props { onBookClick?: BookingClickHandler }
 
 const COST_FAQS = [
   {
-    q: "How much does {SERVICE} cost in Cochrane?",
-    a: "Most residential {SERVICE} projects in Cochrane range from $150 for small repairs to $8,000+ for whole-home or basement work. Single rooms typically run $900–$3,500. Written price ranges specific to your project are provided within one business day of sending photos — no call required.",
+    q: "How much does {SERVICE} cost in {CITY}?",
+    a: "Most residential {SERVICE} projects in {CITY} range from $150 for small repairs to $8,000+ for whole-home or basement work. Single rooms typically run $900–$3,500. Written price ranges specific to your project are provided within one business day of sending photos — no call required.",
   },
   {
-    q: "Do {SERVICE} contractors in Cochrane charge by the hour or by the project?",
+    q: "Do {SERVICE} contractors in {CITY} charge by the hour or by the project?",
     a: "{BRAND} quotes by project scope, not by the hour. Hourly billing incentivises slow work. A fixed written quote means the cost is known before any work begins and does not change unless the scope changes — which requires your written approval.",
   },
   {
-    q: "Is there a minimum job size for {SERVICE} in Cochrane?",
+    q: "Is there a minimum job size for {SERVICE} in {CITY}?",
     a: "No. {BRAND} handles single-patch repairs, crack fills, and small tile replacements — there is no minimum project size. The smallest job receives the same finish standard and written guarantee as the largest.",
   },
   {
@@ -65,19 +65,19 @@ const COST_FAQS = [
 
 const PROCESS_FAQS = [
   {
-    q: "How do I get a {SERVICE} quote in Cochrane?",
+    q: "How do I get a {SERVICE} quote in {CITY}?",
     a: "Send 2–3 photos through the booking form: the surface, the lighting, and the room. You receive a written price range within one business day. No sales call, no site visit required to get a number. The entire process starts with photos.",
   },
   {
-    q: "How long does {SERVICE} work take in Cochrane?",
+    q: "How long does {SERVICE} work take in {CITY}?",
     a: "Small repairs take a single visit. Full-room projects take 2–5 days. Whole-home or basement work is quoted with a specific timeline — we do not give optimistic windows. If the scope is 8 days, the quote says 8 days.",
   },
   {
     q: "Do I need to be home during the {SERVICE} work?",
-    a: "Not required. Many Cochrane homeowners provide access and leave for the day. We send a confirmation before arrival and a sign-off message on completion. If you prefer to be present, we work around your schedule.",
+    a: "Not required. Many {CITY} homeowners provide access and leave for the day. We send a confirmation before arrival and a sign-off message on completion. If you prefer to be present, we work around your schedule.",
   },
   {
-    q: "How far ahead should I book {SERVICE} in Cochrane?",
+    q: "How far ahead should I book {SERVICE} in {CITY}?",
     a: "Currently booking 2–4 weeks out for standard residential projects. Seasonal demand shifts this window. Send your project scope and we confirm the current booking window with your written quote — no obligation to proceed.",
   },
   {
@@ -100,7 +100,7 @@ const QUALITY_FAQS = [
     a: "TCNA is the Tile Council of North America handbook — the industry authority for installation methods, substrate requirements, grout joint widths, and mortar coverage. {BRAND} follows TCNA standards on every tile project. It is not a premium option — it is the baseline.",
   },
   {
-    q: "What is the difference between {SERVICE} contractors in Cochrane?",
+    q: "What is the difference between {SERVICE} contractors in {CITY}?",
     a: "Primarily finish standard, worksite discipline, and what they put in writing. Level 3 work with a verbal assurance is a different product from Level 5 work with a written 15-year structural warranty. The first is cheaper today. The second is cheaper over time.",
   },
   {
@@ -108,71 +108,71 @@ const QUALITY_FAQS = [
     a: "Three indicators: no visible texture variation under raking light, no hollow spots when tapped (for tile or drywall), and no seam lines visible after paint. We walk through these with you at sign-off. If you notice anything within 14 days, we return at zero cost.",
   },
   {
-    q: "What materials does {BRAND} use for {SERVICE} in Cochrane?",
+    q: "What materials does {BRAND} use for {SERVICE} in {CITY}?",
     a: "{BRAND} uses manufacturer-certified materials with documented performance ratings appropriate for each substrate and environment. Material specifications are listed in the written scope before work begins — you know exactly what goes into your home before we order it.",
   },
 ];
 
 const CREDENTIALS_FAQS = [
   {
-    q: "Is {BRAND} licensed and insured for {SERVICE} in Cochrane, Alberta?",
+    q: "Is {BRAND} licensed and insured for {SERVICE} in {CITY}, {PROVINCE}?",
     a: "{BRAND} carries $5M general liability insurance and WCB coverage on all crew members. Manufacturer certifications are current on all installed materials. Insurance certificates and credentials are available before any work begins — just ask.",
   },
   {
-    q: "Does {BRAND} have workers' compensation coverage in Alberta?",
-    a: "Yes. Every {BRAND} crew member is covered under WCB Alberta. This is not optional coverage — it protects you as the homeowner from liability if a worker is injured on your property. We provide the WCB certificate on request.",
+    q: "Does {BRAND} have workers' compensation coverage in {PROVINCE}?",
+    a: "Yes. Every {BRAND} crew member is covered under WCB {PROVINCE}. This is not optional coverage — it protects you as the homeowner from liability if a worker is injured on your property. We provide the WCB certificate on request.",
   },
   {
-    q: "How long has {BRAND} been doing {SERVICE} work in Cochrane?",
-    a: "{BRAND} has been operating in Cochrane and Rocky View County since {YEAR} — {AGE}+ years. In that time we have completed projects across Heritage Hills, Sunset Ridge, Riversong, GlenEagles, Heartland, Fireside, and newer Cochrane developments.",
+    q: "How long has {BRAND} been doing {SERVICE} work in {CITY}?",
+    a: "{BRAND} has been operating in {CITY} and Rocky View County since {YEAR} — {AGE}+ years. In that time we have completed projects across Heritage Hills, Sunset Ridge, Riversong, GlenEagles, Heartland, Fireside, and newer {CITY} developments.",
   },
   {
-    q: "What areas does {BRAND} serve beyond Cochrane?",
-    a: "{BRAND} serves 120+ communities across Cochrane, Rocky View County, Springbank, Elbow Valley, Calgary SW/NW/SE, the Bow Valley, and Canmore. We are based in Cochrane — most service areas are a straightforward drive with no travel delay fees.",
+    q: "What areas does {BRAND} serve beyond {CITY}?",
+    a: "{BRAND} serves 120+ communities across {CITY}, Rocky View County, Springbank, Elbow Valley, Calgary SW/NW/SE, the Bow Valley, and Canmore. We are based in {CITY} — most service areas are a straightforward drive with no travel delay fees.",
   },
 ];
 
 const SEASONAL_FAQS = [
   {
-    q: "Can {SERVICE} work be done in winter in Cochrane, Alberta?",
-    a: "Yes. Interior {SERVICE} work is weather-independent. We work year-round in Cochrane. Winter scheduling is often faster — fewer projects compete for crew time — and interior conditions are controlled regardless of outside temperature.",
+    q: "Can {SERVICE} work be done in winter in {CITY}, {PROVINCE}?",
+    a: "Yes. Interior {SERVICE} work is weather-independent. We work year-round in {CITY}. Winter scheduling is often faster — fewer projects compete for crew time — and interior conditions are controlled regardless of outside temperature.",
   },
   {
-    q: "What time of year is best for {SERVICE} work in Cochrane?",
+    q: "What time of year is best for {SERVICE} work in {CITY}?",
     a: "Interior {SERVICE} work can be completed any time of year. Spring and summer book fastest — schedule 4–6 weeks ahead if possible. Winter and early spring typically have shorter lead times. There is no quality difference by season for interior work.",
   },
   {
-    q: "How far in advance should I book {SERVICE} work in Cochrane?",
+    q: "How far in advance should I book {SERVICE} work in {CITY}?",
     a: "2–4 weeks for most residential projects. Larger projects — basement developments, whole-home installations — benefit from 4–6 weeks advance booking, especially April through September. Send your scope and we confirm the current window immediately.",
   },
 ];
 
 const PERMIT_FAQS = [
   {
-    q: "Do I need a building permit for {SERVICE} work in Cochrane?",
-    a: "Most residential interior {SERVICE} finishing work in Cochrane does not require a permit. Work involving structural modifications or changes to a permitted build may require one. {BRAND} identifies permit requirements during scoping — disclosed in the written quote before signing.",
+    q: "Do I need a building permit for {SERVICE} work in {CITY}?",
+    a: "Most residential interior {SERVICE} finishing work in {CITY} does not require a permit. Work involving structural modifications or changes to a permitted build may require one. {BRAND} identifies permit requirements during scoping — disclosed in the written quote before signing.",
   },
   {
     q: "Who pulls the building permit — the homeowner or the contractor?",
     a: "When a permit is required, {BRAND} pulls it on your behalf. Permit costs are included in the written quote. We handle all associated inspections. You do not need to navigate the permit process — that is part of the service.",
   },
   {
-    q: "What inspections are required for {SERVICE} work in Cochrane?",
+    q: "What inspections are required for {SERVICE} work in {CITY}?",
     a: "Inspection requirements depend on scope and location. Projects requiring a permit will have associated inspections — these are scheduled and managed by {BRAND}. Projects not requiring permits have no mandatory inspections. All work is held to ASTM/TCNA standard regardless.",
   },
   {
     q: "Does {SERVICE} work in Rocky View County require a permit?",
-    a: "Rocky View County has its own permit jurisdiction — requirements can differ from the Town of Cochrane. {BRAND} operates throughout Rocky View County and identifies the applicable permit requirements for each project during scoping, included in the written quote.",
+    a: "Rocky View County has its own permit jurisdiction — requirements can differ from the Town of {CITY}. {BRAND} operates throughout Rocky View County and identifies the applicable permit requirements for each project during scoping, included in the written quote.",
   },
 ];
 
 const COMPARISON_FAQS = [
   {
-    q: "Should I DIY {SERVICE} or hire a contractor in Cochrane?",
+    q: "Should I DIY {SERVICE} or hire a contractor in {CITY}?",
     a: "DIY {SERVICE} is possible for small, non-structural repairs where finish quality is not critical. For anything visible after paint, structural, or warranted work, the quality gap between DIY and professional Level-5 work is significant — and DIY carries no guarantee.",
   },
   {
-    q: "How do I compare {SERVICE} quotes from different Cochrane contractors?",
+    q: "How do I compare {SERVICE} quotes from different {CITY} contractors?",
     a: "Compare three things: whether the quote is written (verbal quotes are unenforceable), what finish level is specified (Level 3 vs Level 5 is a visible, lasting difference), and what guarantee is in writing. A lower quote with no written terms is rarely cheaper over time.",
   },
   {
@@ -180,7 +180,7 @@ const COMPARISON_FAQS = [
     a: "Is the quote in writing? What finish level? Is the structural work warranted, and for how long — in writing? Are you WCB-covered? Do you handle permits? If any of these questions get vague answers, the answers tell you what you need to know.",
   },
   {
-    q: "Why is {BRAND} more expensive than other {SERVICE} contractors in Cochrane?",
+    q: "Why is {BRAND} more expensive than other {SERVICE} contractors in {CITY}?",
     a: "The written 15-year structural guarantee, Level-5 finish standard, same-crew consistency, $5M insurance coverage, and WCB on every crew member are not free to provide. The question is not the upfront cost — it is whether you pay once for work done right, or twice for work redone.",
   },
 ];
@@ -191,7 +191,7 @@ const POSTPROJECT_FAQS = [
     a: "Check surfaces under raking or oblique light for texture variation or visible joints. Tap tiled surfaces — a hollow sound indicates adhesion failure. Inspect corners and edges for clean, tight lines. {BRAND} walks through all of these with you at sign-off.",
   },
   {
-    q: "When can I paint after {SERVICE} work in Cochrane?",
+    q: "When can I paint after {SERVICE} work in {CITY}?",
     a: "Drywall and plaster: primer after 24 hours, paint after 48–72 hours once completely dry. The specific cure window depends on ambient humidity and temperature — noted in your sign-off documentation. Painting too early traps moisture and affects adhesion.",
   },
   {
@@ -205,7 +205,7 @@ const POSTPROJECT_FAQS = [
 ];
 
 // ─── HowTo steps — "How to get a quote" — HowTo schema ───────────────────────
-// Featured snippet target: "how to get a [trade] quote Cochrane"
+// Featured snippet target: "how to get a [trade] quote {CITY}"
 const QUOTE_STEPS = [
   { name: "Take 2–3 photos", text: "The surface you want worked on, the room lighting, and the context around it. Phone camera quality is fine. These are all we need to provide an accurate written range." },
   { name: "Submit through the booking form", text: "Paste or upload the photos. Add one sentence describing the project — 'patch two holes in the hallway' or 'tile the master bathroom shower'. That is the full ask." },
@@ -218,18 +218,20 @@ const QUOTE_STEPS = [
 const DEFINITIONS = [
   { term: "Level 5 finish", definition: "The highest drywall grade (ASTM C840) — a full skim coat applied over the entire board surface, not only at joints. Eliminates texture variation under raking or oblique light. Required by {BRAND} on every project." },
   { term: "Written scope", definition: "A pre-work document listing exactly what will be done, to what standard, and within what price band. Signed before any work begins. No changes made without written homeowner approval." },
-  { term: "15-year structural warranty", definition: "A written guarantee covering structural {SERVICE} work for 15 years from project completion. Named on the signed invoice and enforceable under Alberta's Fair Trading Act." },
+  { term: "15-year structural warranty", definition: "A written guarantee covering structural {SERVICE} work for 15 years from project completion. Named on the signed invoice and enforceable under {PROVINCE}'s Fair Trading Act." },
 ];
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 const FAQPage = ({ onBookClick }: Props) => {
   const [openId, setOpenId] = useState<string | null>(null);
 
-  const s   = MASTER_REMIX.SERVICE;
-  const sc  = MASTER_REMIX.SERVICE_CATEGORY;
-  const bn  = MASTER_REMIX.BRAND_NAME;
-  const yr  = MASTER_REMIX.FOUNDATION_YEAR;
-  const age = new Date().getFullYear() - yr;
+  const s    = MASTER_REMIX.SERVICE;
+  const sc   = MASTER_REMIX.SERVICE_CATEGORY;
+  const bn   = MASTER_REMIX.BRAND_NAME;
+  const yr   = MASTER_REMIX.FOUNDATION_YEAR;
+  const age  = new Date().getFullYear() - yr;
+  const city = MASTER_REMIX.CITY;
+  const province = MASTER_REMIX.PROVINCE;
 
   const resolve = (text: string) =>
     text
@@ -237,17 +239,19 @@ const FAQPage = ({ onBookClick }: Props) => {
       .replace(/\{SC\}/g, sc)
       .replace(/\{BRAND\}/g, bn)
       .replace(/\{YEAR\}/g, String(yr))
-      .replace(/\{AGE\}/g, String(age));
+      .replace(/\{AGE\}/g, String(age))
+      .replace(/\{CITY\}/g, city)
+      .replace(/\{PROVINCE\}/g, province);
 
   // Intent clusters — each targets a distinct PAA/search intent cluster
   const categories = [
-    { id: "cost",        label: "Cost & pricing",           h2: `How much does ${s} cost in Cochrane?`,            faqs: COST_FAQS },
+    { id: "cost",        label: "Cost & pricing",           h2: `How much does ${s} cost in {CITY}?`,            faqs: COST_FAQS },
     { id: "process",     label: "Process & timeline",       h2: `How does the ${s} process work?`,                 faqs: PROCESS_FAQS },
     { id: "quality",     label: "Finish quality",           h2: `What finish standard does ${bn} deliver?`,        faqs: QUALITY_FAQS },
-    { id: "credentials", label: "Credentials & coverage",   h2: `Is ${bn} licensed and insured in Alberta?`,       faqs: CREDENTIALS_FAQS },
-    { id: "seasonal",    label: "Seasonal & timing",        h2: `When is the best time for ${s} work in Cochrane?`, faqs: SEASONAL_FAQS },
-    { id: "permits",     label: "Permits & regulations",    h2: `Do you need a permit for ${s} in Cochrane?`,      faqs: PERMIT_FAQS },
-    { id: "comparison",  label: "Comparing contractors",    h2: `How do you compare ${s} contractors in Cochrane?`, faqs: COMPARISON_FAQS },
+    { id: "credentials", label: "Credentials & coverage",   h2: `Is ${bn} licensed and insured in {PROVINCE}?`,       faqs: CREDENTIALS_FAQS },
+    { id: "seasonal",    label: "Seasonal & timing",        h2: `When is the best time for ${s} work in {CITY}?`, faqs: SEASONAL_FAQS },
+    { id: "permits",     label: "Permits & regulations",    h2: `Do you need a permit for ${s} in {CITY}?`,      faqs: PERMIT_FAQS },
+    { id: "comparison",  label: "Comparing contractors",    h2: `How do you compare ${s} contractors in {CITY}?`, faqs: COMPARISON_FAQS },
     { id: "postproject", label: "After the project",        h2: `What happens after the ${s} project is complete?`, faqs: POSTPROJECT_FAQS },
   ];
 
@@ -281,12 +285,12 @@ const FAQPage = ({ onBookClick }: Props) => {
       },
 
       // HowTo — "How to get a quote"
-      // Featured snippet: "how to get a [trade] quote Cochrane"
+      // Featured snippet: "how to get a [trade] quote {CITY}"
       {
         "@context": "https://schema.org",
         "@type": "HowTo",
-        name: `How to get a written ${s} quote in Cochrane`,
-        description: `Step-by-step process for getting a written ${s} quote from ${bn} in Cochrane, Alberta.`,
+        name: `How to get a written ${s} quote in ${city}`,
+        description: `Step-by-step process for getting a written ${s} quote from ${bn} in ${city}, ${province}.`,
         totalTime: "PT24H",
         step: QUOTE_STEPS.map((step, i) => ({
           "@type": "HowToStep",
@@ -306,15 +310,15 @@ const FAQPage = ({ onBookClick }: Props) => {
         telephone: MASTER_REMIX.PHONE,
         foundingDate: String(yr),
         sameAs: [parentUrl, MASTER_REMIX.GOOGLE_REVIEW_URL].filter(Boolean),
-        description: `${bn} is a licensed and insured ${sc} contractor in Cochrane, AB, serving 120+ communities since ${yr}. Written quotes within 24 hours. 3-tier written guarantee on every project.`,
+        description: `${bn} is a licensed and insured ${sc} contractor in ${city}, ${MASTER_REMIX.PROVINCE_CODE}, serving the surrounding area since ${yr}. Written quotes within 24 hours. Written guarantee on every project.`,
         address: {
           "@type": "PostalAddress",
-          addressLocality: "Cochrane",
-          addressRegion: "AB",
-          addressCountry: "CA",
+          addressLocality: city,
+          addressRegion: MASTER_REMIX.PROVINCE_CODE,
+          addressCountry: MASTER_REMIX.COUNTRY_CODE,
         },
         areaServed: [
-          { "@type": "City", name: "Cochrane" },
+          { "@type": "City", name: city },
           { "@type": "City", name: "Calgary" },
           { "@type": "City", name: "Canmore" },
           { "@type": "AdministrativeArea", name: "Rocky View County" },
@@ -350,7 +354,7 @@ const FAQPage = ({ onBookClick }: Props) => {
     <TemplateLayout onBookClick={onBookClick}>
 
       {/* ══════════════════════════════════════════════════════════════════
-          HERO — H1 keyword: "[Trade] FAQ — Cochrane & Area"
+          HERO — H1 keyword: "[Trade] FAQ — {CITY} & Area"
           Primary keyword in H1 + first 100 words of body.
       ══════════════════════════════════════════════════════════════════ */}
       <section
@@ -367,12 +371,12 @@ const FAQPage = ({ onBookClick }: Props) => {
           </nav>
 
           <h1 className="text-charcoal max-w-[24ch]" style={{ fontFamily: "'Space Grotesk', system-ui", fontSize: "clamp(2.25rem, 5vw, 3.75rem)", fontWeight: 300, letterSpacing: "-0.02em", lineHeight: 1.05 }}>
-            {sc} FAQ — Cochrane &amp; Area
+            {sc} FAQ — {city} &amp; Area
           </h1>
 
           {/* Primary keyword + brand in first 100 words */}
           <p className="mt-5 max-w-[58ch] text-graphite leading-relaxed" style={{ fontFamily: "'Jost', system-ui", fontSize: 16, fontWeight: 300 }}>
-            Every question Cochrane homeowners ask about {s} work — cost, process,
+            Every question {city} homeowners ask about {s} work — cost, process,
             quality standards, permits, and what {bn} puts in writing on every project.
             {categories.length * 4}+ questions across {categories.length} topic areas.
             One answer gets you a written quote.
@@ -413,14 +417,14 @@ const FAQPage = ({ onBookClick }: Props) => {
 
       {/* ══════════════════════════════════════════════════════════════════
           HOW TO GET A QUOTE — HowTo schema + featured snippet
-          Featured snippet: "how to get a [trade] quote Cochrane"
+          Featured snippet: "how to get a [trade] quote {CITY}"
       ══════════════════════════════════════════════════════════════════ */}
       <SectionFrame tone="bone" size="lg">
         <div className="grid md:grid-cols-12 gap-12 items-start">
           <div className="md:col-span-4">
             <p className="eyebrow-copper mb-4">Getting started</p>
             <h2 className="text-charcoal mb-4" style={{ fontFamily: "'Space Grotesk', system-ui", fontSize: "clamp(1.4rem, 2.8vw, 2rem)", fontWeight: 300, letterSpacing: "-0.015em", lineHeight: 1.1 }}>
-              How to get a written {s} quote in Cochrane.
+              How to get a written {s} quote in {city}.
             </h2>
             <p className="text-graphite text-body" style={{ fontFamily: "'Jost', system-ui", fontWeight: 300, lineHeight: 1.65 }}>
               Five steps. The first takes 2 minutes. You get a written
@@ -478,7 +482,7 @@ const FAQPage = ({ onBookClick }: Props) => {
           <div className="max-w-3xl" id={cat.id}>
             <p className="eyebrow-copper mb-3">{cat.label}</p>
             <h2 className="text-charcoal mb-8" style={{ fontFamily: "'Space Grotesk', system-ui", fontSize: "clamp(1.3rem, 2.5vw, 1.75rem)", fontWeight: 300, letterSpacing: "-0.01em", lineHeight: 1.15 }}>
-              {cat.h2}
+              {resolve(cat.h2)}
             </h2>
             <div className="divide-y border border-seam rounded overflow-hidden">
               {cat.faqs.map((faq, i) => (
@@ -503,7 +507,7 @@ const FAQPage = ({ onBookClick }: Props) => {
         <div className="max-w-3xl">
           <div className="p-8 border-l-2 mb-12" style={{ borderColor: "hsl(var(--copper) / 0.35)", background: "hsl(var(--bone))" }}>
             <p className="text-charcoal mb-3" style={{ fontFamily: "'Space Grotesk', system-ui", fontSize: "clamp(1.1rem, 2vw, 1.35rem)", fontWeight: 300, letterSpacing: "-0.01em" }}>
-              Still have a question about {s} work in Cochrane?
+              Still have a question about {s} work in {city}?
             </p>
             <p className="text-graphite text-body mb-5" style={{ fontFamily: "'Jost', system-ui", fontWeight: 300 }}>
               Send it through the booking form or{" "}
@@ -521,9 +525,9 @@ const FAQPage = ({ onBookClick }: Props) => {
             {[
               { to: "/guarantee",      label: "Written Guarantee",   desc: "The 3-tier warranty in full detail." },
               { to: "/pricing",        label: "Transparent Pricing", desc: "Written ranges before work starts." },
-              { to: "/reviews",        label: "Client Reviews",      desc: "Real Cochrane homeowners." },
+              { to: "/reviews",        label: "Client Reviews",      desc: `Real ${city} homeowners.` },
               { to: "/services",       label: `${sc} Services`,      desc: `Every ${s} service we offer.` },
-              { to: "/areas-we-serve", label: "Areas We Serve",      desc: "120+ communities across Cochrane & area." },
+              { to: "/areas-we-serve", label: "Areas We Serve",      desc: `Communities across ${city} & area.` },
               { to: "/about",          label: "About Our Crew",      desc: `${age}+ years. Same standard. Every project.` },
             ].map(({ to, label, desc }) => (
               <Link key={to} to={to}
@@ -540,7 +544,7 @@ const FAQPage = ({ onBookClick }: Props) => {
 
       <CTABand
         eyebrow="Begin"
-        headline={`Get a written ${s} quote in Cochrane within 24 hours.`}
+        headline={`Get a written ${s} quote in ${city} within 24 hours.`}
         body="No call required. Send three photos. Receive a written range specific to your project, with all three guarantees included."
         primaryLabel={TEMPLATE_COPY.cta.primary}
         onPrimaryClick={onBookClick}
