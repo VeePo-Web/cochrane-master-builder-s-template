@@ -22,6 +22,8 @@ export interface FAQ {
 }
 
 export interface SubService {
+  /** URL-safe key — the addressable slug for /services/:slug and the matrix. */
+  slug: string;
   title: string;
   summary: string;
   range?: string;
@@ -197,11 +199,11 @@ export const MASTER_REMIX: RemixVariables = {
     "GlenEagles",
   ],
   SUB_SERVICES: [
-    { title: "{SUB_SERVICE_1}", summary: "Brief client-facing summary of the first specialised offering inside this trade.", range: "$—" },
-    { title: "{SUB_SERVICE_2}", summary: "Second offering — kept tightly scoped so the price band is honest.", range: "$—" },
-    { title: "{SUB_SERVICE_3}", summary: "Third offering. Speak in nouns, not adjectives.", range: "$—" },
-    { title: "{SUB_SERVICE_4}", summary: "Fourth offering. The one most clients underestimate.", range: "$—" },
-    { title: "{SUB_SERVICE_5}", summary: "Fifth offering. Premium tier. Heritage finish.", range: "$—" },
+    { slug: "sub-service-1", title: "{SUB_SERVICE_1}", summary: "Brief client-facing summary of the first specialised offering inside this trade.", range: "$—" },
+    { slug: "sub-service-2", title: "{SUB_SERVICE_2}", summary: "Second offering — kept tightly scoped so the price band is honest.", range: "$—" },
+    { slug: "sub-service-3", title: "{SUB_SERVICE_3}", summary: "Third offering. Speak in nouns, not adjectives.", range: "$—" },
+    { slug: "sub-service-4", title: "{SUB_SERVICE_4}", summary: "Fourth offering. The one most clients underestimate.", range: "$—" },
+    { slug: "sub-service-5", title: "{SUB_SERVICE_5}", summary: "Fifth offering. Premium tier. Heritage finish.", range: "$—" },
   ],
   PRICE_BANDS: [
     { scope: "{PRICE_BAND_1_SCOPE} — small, single-room", range: "$—" },
