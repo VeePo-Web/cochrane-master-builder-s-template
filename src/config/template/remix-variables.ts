@@ -129,6 +129,22 @@ export interface RemixVariables {
    * Used by: JSON-LD LocalBusiness telephone field (required for rich results).
    */
   PHONE: string;
+
+  // ── Geography + Legal (per-trade; powers location-locked pages like /guarantee) ──
+  /** Primary city served, e.g. "Cochrane". */
+  CITY: string;
+  /** Surrounding region / county, e.g. "Rocky View County". */
+  REGION: string;
+  /** Province or state, full name, e.g. "Alberta". */
+  PROVINCE: string;
+  /** Province / state code, e.g. "AB". */
+  PROVINCE_CODE: string;
+  /** ISO country code, e.g. "CA". */
+  COUNTRY_CODE: string;
+  /** Full legal framework that makes a written guarantee enforceable here. */
+  LEGAL_FRAMEWORK: string;
+  /** Short form of the legal framework, e.g. "the Fair Trading Act". */
+  LEGAL_FRAMEWORK_SHORT: string;
   /**
    * OG share image absolute path (served from /public).
    * e.g. "/share/og-1200x630-tile.jpg"
@@ -242,6 +258,15 @@ export const MASTER_REMIX: RemixVariables = {
   BRAND_URL: "https://cochranemasterbuilders.ca",
   PHONE: "+14030000000",
   OG_IMAGE: "/share/og-1200x630-navybg.jpg",
+
+  // ── Geography + Legal defaults ──────────────────────────────────────────
+  CITY: "Cochrane",
+  REGION: "Rocky View County",
+  PROVINCE: "Alberta",
+  PROVINCE_CODE: "AB",
+  COUNTRY_CODE: "CA",
+  LEGAL_FRAMEWORK: "Alberta's Fair Trading Act (RSA 2000, c F-2) and the Consumer Protection Act",
+  LEGAL_FRAMEWORK_SHORT: "the Fair Trading Act",
 
   // ── Heirloom defaults ───────────────────────────────────────────────────
   BRAND_SLOGAN: "Building Strong Foundations For Those Who Come After Us",
