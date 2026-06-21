@@ -101,7 +101,7 @@ const QUALITY_FAQS = [
   },
   {
     q: "What is the difference between {SERVICE} contractors in {CITY}?",
-    a: "Primarily finish standard, worksite discipline, and what they put in writing. Level 3 work with a verbal assurance is a different product from Level 5 work with a written 15-year structural warranty. The first is cheaper today. The second is cheaper over time.",
+    a: "Primarily finish standard, worksite discipline, and what they put in writing. Cut-rate work with a verbal assurance is a different product from a proper job with a written guarantee. The first is cheaper today. The second is cheaper over time.",
   },
   {
     q: "How do I know if my {SERVICE} was done correctly?",
@@ -116,19 +116,19 @@ const QUALITY_FAQS = [
 const CREDENTIALS_FAQS = [
   {
     q: "Is {BRAND} licensed and insured for {SERVICE} in {CITY}, {PROVINCE}?",
-    a: "{BRAND} carries $5M general liability insurance and WCB coverage on all crew members. Manufacturer certifications are current on all installed materials. Insurance certificates and credentials are available before any work begins — just ask.",
+    a: "{BRAND} carries full general liability insurance and workers' compensation coverage on all crew members. Manufacturer certifications are current on all installed materials. Insurance certificates and credentials are available before any work begins — just ask.",
   },
   {
     q: "Does {BRAND} have workers' compensation coverage in {PROVINCE}?",
-    a: "Yes. Every {BRAND} crew member is covered under WCB {PROVINCE}. This is not optional coverage — it protects you as the homeowner from liability if a worker is injured on your property. We provide the WCB certificate on request.",
+    a: "Yes. Every {BRAND} crew member is covered by workers' compensation in {PROVINCE}. This is not optional coverage — it protects you as the homeowner from liability if a worker is injured on your property. We provide the certificate on request.",
   },
   {
     q: "How long has {BRAND} been doing {SERVICE} work in {CITY}?",
-    a: "{BRAND} has been operating in {CITY} and Rocky View County since {YEAR} — {AGE}+ years. In that time we have completed projects across Heritage Hills, Sunset Ridge, Riversong, GlenEagles, Heartland, Fireside, and newer {CITY} developments.",
+    a: "{BRAND} has been operating in {CITY} and {REGION} since {YEAR} — {AGE}+ years. In that time we have completed projects across established neighbourhoods, acreage communities, and newer {CITY} developments.",
   },
   {
     q: "What areas does {BRAND} serve beyond {CITY}?",
-    a: "{BRAND} serves 120+ communities across {CITY}, Rocky View County, Springbank, Elbow Valley, Calgary SW/NW/SE, the Bow Valley, and Canmore. We are based in {CITY} — most service areas are a straightforward drive with no travel delay fees.",
+    a: "{BRAND} serves communities across {CITY}, {REGION}, and the surrounding area. We are based in {CITY} — most service areas are a straightforward drive with no travel delay fees.",
   },
 ];
 
@@ -161,8 +161,8 @@ const PERMIT_FAQS = [
     a: "Inspection requirements depend on scope and location. Projects requiring a permit will have associated inspections — these are scheduled and managed by {BRAND}. Projects not requiring permits have no mandatory inspections. All work is held to ASTM/TCNA standard regardless.",
   },
   {
-    q: "Does {SERVICE} work in Rocky View County require a permit?",
-    a: "Rocky View County has its own permit jurisdiction — requirements can differ from the Town of {CITY}. {BRAND} operates throughout Rocky View County and identifies the applicable permit requirements for each project during scoping, included in the written quote.",
+    q: "Does {SERVICE} work in {REGION} require a permit?",
+    a: "{REGION} has its own permit jurisdiction — requirements can differ from the Town of {CITY}. {BRAND} operates throughout {REGION} and identifies the applicable permit requirements for each project during scoping, included in the written quote.",
   },
 ];
 
@@ -177,11 +177,11 @@ const COMPARISON_FAQS = [
   },
   {
     q: "What questions should I ask a {SERVICE} contractor before hiring?",
-    a: "Is the quote in writing? What finish level? Is the structural work warranted, and for how long — in writing? Are you WCB-covered? Do you handle permits? If any of these questions get vague answers, the answers tell you what you need to know.",
+    a: "Is the quote in writing? What standard? Is the work warranted, and for how long — in writing? Are you insured and covered? Do you handle permits? If any of these questions get vague answers, the answers tell you what you need to know.",
   },
   {
     q: "Why is {BRAND} more expensive than other {SERVICE} contractors in {CITY}?",
-    a: "The written 15-year structural guarantee, Level-5 finish standard, same-crew consistency, $5M insurance coverage, and WCB on every crew member are not free to provide. The question is not the upfront cost — it is whether you pay once for work done right, or twice for work redone.",
+    a: "The written guarantee, the finish standard, same-crew consistency, full insurance coverage, and workers' compensation on every crew member are not free to provide. The question is not the upfront cost — it is whether you pay once for work done right, or twice for work redone.",
   },
 ];
 
@@ -200,7 +200,7 @@ const POSTPROJECT_FAQS = [
   },
   {
     q: "What maintenance does {SERVICE} work require after completion?",
-    a: "Interior {SERVICE} finishing requires no routine maintenance. The 15-year structural guarantee covers failures from workmanship — not from homeowner modification of the work. Normal household use, painting over drywall, and cleaning tiled surfaces do not affect the guarantee.",
+    a: "{SERVICE} work like this requires no routine maintenance. The written guarantee covers failures from workmanship — not from homeowner modification of the work. Normal household use does not affect the guarantee.",
   },
 ];
 
@@ -218,7 +218,7 @@ const QUOTE_STEPS = [
 const DEFINITIONS = [
   { term: "Level 5 finish", definition: "The highest drywall grade (ASTM C840) — a full skim coat applied over the entire board surface, not only at joints. Eliminates texture variation under raking or oblique light. Required by {BRAND} on every project." },
   { term: "Written scope", definition: "A pre-work document listing exactly what will be done, to what standard, and within what price band. Signed before any work begins. No changes made without written homeowner approval." },
-  { term: "15-year structural warranty", definition: "A written guarantee covering structural {SERVICE} work for 15 years from project completion. Named on the signed invoice and enforceable under {PROVINCE}'s Fair Trading Act." },
+  { term: "Written guarantee", definition: "A written guarantee covering {SERVICE} workmanship, named on the signed invoice and enforceable as a written service agreement under applicable consumer-protection law." },
 ];
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
@@ -232,6 +232,7 @@ const FAQPage = ({ onBookClick }: Props) => {
   const age  = new Date().getFullYear() - yr;
   const city = MASTER_REMIX.CITY;
   const province = MASTER_REMIX.PROVINCE;
+  const region = MASTER_REMIX.REGION;
 
   const resolve = (text: string) =>
     text
@@ -241,7 +242,8 @@ const FAQPage = ({ onBookClick }: Props) => {
       .replace(/\{YEAR\}/g, String(yr))
       .replace(/\{AGE\}/g, String(age))
       .replace(/\{CITY\}/g, city)
-      .replace(/\{PROVINCE\}/g, province);
+      .replace(/\{PROVINCE\}/g, province)
+      .replace(/\{REGION\}/g, region);
 
   // Intent clusters — each targets a distinct PAA/search intent cluster
   const categories = [
@@ -319,9 +321,7 @@ const FAQPage = ({ onBookClick }: Props) => {
         },
         areaServed: [
           { "@type": "City", name: city },
-          { "@type": "City", name: "Calgary" },
-          { "@type": "City", name: "Canmore" },
-          { "@type": "AdministrativeArea", name: "Rocky View County" },
+          { "@type": "AdministrativeArea", name: region },
         ],
       },
 
@@ -545,7 +545,7 @@ const FAQPage = ({ onBookClick }: Props) => {
       <CTABand
         eyebrow="Begin"
         headline={`Get a written ${s} quote in ${city} within 24 hours.`}
-        body="No call required. Send three photos. Receive a written range specific to your project, with all three guarantees included."
+        body="No call required. Tell us about your project. Receive a written range specific to your scope, with all three guarantees included."
         primaryLabel={TEMPLATE_COPY.cta.primary}
         onPrimaryClick={onBookClick}
         prefill={{ source: "FAQ → CTA" }}

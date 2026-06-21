@@ -31,6 +31,8 @@ const RegionPage = ({ onBookClick }: RegionPageProps) => {
   const s  = MASTER_REMIX.SERVICE;
   const sc = MASTER_REMIX.SERVICE_CATEGORY;
   const bn = MASTER_REMIX.BRAND_NAME;
+  const city = MASTER_REMIX.CITY;
+  const province = MASTER_REMIX.PROVINCE;
 
   /* ── 404 for unknown region ── */
   if (!region) {
@@ -113,7 +115,7 @@ const RegionPage = ({ onBookClick }: RegionPageProps) => {
           <>
             <img
               src={heroImg.url}
-              alt={`${sc} services across ${region.name}, Alberta — ${heroImg.alt}`}
+              alt={`${sc} services across ${region.name}, ${province} — ${heroImg.alt}`}
               className="absolute inset-0 w-full h-full object-cover object-center"
               loading="eager"
               width="1920"
@@ -139,11 +141,11 @@ const RegionPage = ({ onBookClick }: RegionPageProps) => {
             {communities.length} Communities
           </p>
           <h1 className="font-display text-display-xl text-primary-foreground mb-5">
-            {sc} in {region.name}, Alberta
+            {sc} in {region.name}, {province}
           </h1>
           <p className="text-body-lg text-primary-foreground/75 max-w-[52ch] mb-10">
             {region.description} We bring master-craft {s} to every community in this region —
-            with a team based in Cochrane, minutes from most of these areas.
+            with a team based in {city}, minutes from most of these areas.
           </p>
           <button
             onClick={onBookClick}
@@ -246,7 +248,7 @@ const RegionPage = ({ onBookClick }: RegionPageProps) => {
               </p>
             </div>
             <div>
-              <p className="font-display text-display-sm text-charcoal mb-2">Cochrane-Based. Close By.</p>
+              <p className="font-display text-display-sm text-charcoal mb-2">Locally Based. Close By.</p>
               <p className="text-body-sm text-graphite">
                 No long travel fees, no delayed start times. We're genuinely local to the
                 communities in {region.name} — and it shows in our response time.

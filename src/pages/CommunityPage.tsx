@@ -57,7 +57,7 @@ function buildFAQs(
     {
       question: `Do you provide ${service} services in ${community.name}, ${community.city}?`,
       answer:
-        `Yes — ${community.name} is a core service area for ${brandName}. We're based in Cochrane, ` +
+        `Yes — ${community.name} is a core service area for ${brandName}. We're based in ${MASTER_REMIX.CITY}, ` +
         `so ${community.name} is typically on our schedule within 1–3 weeks of estimate acceptance. ` +
         `We cover the full community, from the established streets to the newest developments.`,
     },
@@ -98,6 +98,8 @@ const CommunityPage = ({ onBookClick }: CommunityPageProps) => {
   const sc  = MASTER_REMIX.SERVICE_CATEGORY;
   const bn  = MASTER_REMIX.BRAND_NAME;
   const sbs = MASTER_REMIX.SUB_SERVICES;
+  const city = MASTER_REMIX.CITY;
+  const province = MASTER_REMIX.PROVINCE;
 
   /* Dynamic FAQs — never reference a specific trade in stored community data */
   const faqs: FAQ[] = community ? buildFAQs(community, s, bn) : [];
@@ -176,7 +178,7 @@ const CommunityPage = ({ onBookClick }: CommunityPageProps) => {
           <>
             <img
               src={heroImg.url}
-              alt={`${sc} in ${community.name}, ${community.city} Alberta — ${heroImg.alt}`}
+              alt={`${sc} in ${community.name}, ${community.city} ${province} — ${heroImg.alt}`}
               className="absolute inset-0 w-full h-full object-cover object-center"
               loading="eager"
               width="1920"
@@ -206,7 +208,7 @@ const CommunityPage = ({ onBookClick }: CommunityPageProps) => {
           <div className="flex items-center gap-2 mb-4">
             <MapPin size={14} className="text-primary-foreground/50" />
             <p className="font-eyebrow text-primary-foreground/60 uppercase tracking-[0.18em]">
-              {community.name} · {region.name} · {community.city}, Alberta
+              {community.name} · {region.name} · {community.city}, {province}
             </p>
           </div>
 
@@ -283,7 +285,7 @@ const CommunityPage = ({ onBookClick }: CommunityPageProps) => {
 
             {/* Distance signal */}
             <p className="text-body text-graphite leading-relaxed">
-              We're based in Cochrane — {community.name} is a straightforward drive for our team.
+              We're based in {city} — {community.name} is a straightforward drive for our team.
               No travel delay fees, no scheduling complications. Just a local contractor who shows
               up on time with a written scope.
             </p>
@@ -355,7 +357,7 @@ const CommunityPage = ({ onBookClick }: CommunityPageProps) => {
             className="shadow-editorial"
           />
           <p className="text-caption text-mist mt-3">
-            {community.name} · {community.city}, Alberta ·{" "}
+            {community.name} · {community.city}, {province} ·{" "}
             {community.coordinates.lat.toFixed(4)}°N, {Math.abs(community.coordinates.lng).toFixed(4)}°W
           </p>
         </div>
@@ -374,7 +376,7 @@ const CommunityPage = ({ onBookClick }: CommunityPageProps) => {
         <p className="text-body text-graphite mb-10 max-w-[48ch]">
           {/* REMIX: Update this sentence to reflect your trade's scope */}
           Every service we offer in {community.name} comes with a written quote,
-          a fixed price band, and the same 15-year structural guarantee that
+          a fixed price band, and the same written guarantee that
           applies across all {bn} projects.
         </p>
 
@@ -468,7 +470,7 @@ const CommunityPage = ({ onBookClick }: CommunityPageProps) => {
           <p className="text-body-lg text-primary-foreground/75 mb-8">
             {/* REMIX: Update to reflect your trade's local credibility signal */}
             We know {community.name} — the streets, the property types, the build standard.
-            Send three photos and receive a written estimate within 24 hours. No sales call.
+            Tell us about your project and receive a written estimate within 24 hours. No sales call.
             No pressure.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
