@@ -38,18 +38,20 @@ const FEATURED_SLUGS = [
 ];
 
 const TRUST_STATS = [
-  { icon: MapPin,   label: "120+ Communities Served" },
-  { icon: Users,    label: "Cochrane-Based, Family Owned" },
-  { icon: Wrench,   label: "{SERVICE_CATEGORY} Specialists" },
+  { icon: MapPin,   label: `${COMMUNITIES.length}+ Communities Served` },
+  { icon: Users,    label: "Locally Based, Family Owned" },
+  { icon: Wrench,   label: `${MASTER_REMIX.SERVICE_CATEGORY} Specialists` },
   { icon: Shield,   label: "Licensed & Insured" },
-  { icon: Star,     label: "15-Year Structural Guarantee" },
+  { icon: Star,     label: "Written Guarantee, Every Project" },
 ];
 
 const AreasHub = ({ onBookClick }: AreasHubProps) => {
-  const s   = MASTER_REMIX.SERVICE;          // "{SERVICE}" in template preview
-  const sp  = MASTER_REMIX.SERVICE_PLURAL;   // "{SERVICE_PLURAL}"
-  const bn  = MASTER_REMIX.BRAND_NAME;       // "Cochrane Master Builders"
-  const sc  = MASTER_REMIX.SERVICE_CATEGORY; // "{SERVICE_CATEGORY}"
+  const s    = MASTER_REMIX.SERVICE;          // "{SERVICE}" in template preview
+  const sp   = MASTER_REMIX.SERVICE_PLURAL;   // "{SERVICE_PLURAL}"
+  const bn   = MASTER_REMIX.BRAND_NAME;       // "Cochrane Master Builders"
+  const sc   = MASTER_REMIX.SERVICE_CATEGORY; // "{SERVICE_CATEGORY}"
+  const city = MASTER_REMIX.CITY;
+  const region = MASTER_REMIX.REGION;
 
   const featured = FEATURED_SLUGS.map((sl) => getCommunity(sl)).filter(Boolean) as NonNullable<ReturnType<typeof getCommunity>>[];
 
@@ -93,12 +95,11 @@ const AreasHub = ({ onBookClick }: AreasHubProps) => {
       <SectionFrame tone="forest" size="xl" grain>
         <p className="font-eyebrow text-primary-foreground/60 mb-4">Where We Work</p>
         <h1 className="font-display text-display-xl text-primary-foreground mb-6 max-w-[18ch]">
-          {sp} Across Cochrane,<br className="hidden sm:block" /> Calgary &amp; the Bow Valley
+          {sp} Across {city}<br className="hidden sm:block" /> &amp; the Surrounding Region
         </h1>
         <p className="text-body-lg text-primary-foreground/75 max-w-[52ch] mb-10">
-          From the foothills of Cochrane to the estate communities of Springbank and the
-          mountain hamlets of the Bow Valley — {bn} brings master-craft {s} to over
-          120 communities across Alberta.
+          From {city} to the communities of {region} and beyond — {bn} brings
+          master-craft {s} to {COMMUNITIES.length}+ communities across the area.
         </p>
         <button
           onClick={onBookClick}
@@ -206,39 +207,26 @@ const AreasHub = ({ onBookClick }: AreasHubProps) => {
           <h2 className="font-display text-display-md text-charcoal mb-6">
             A Local {sc} Contractor You Can Actually Call on Monday Morning
           </h2>
-          {/* ── REMIX NOTE ────────────────────────────────────────────────────────
-              Replace the editorial body below with trade-specific coverage copy
-              when remixing. Keep the geographic references — they are the SEO
-              foundation. Only the service type references need updating.
-              ──────────────────────────────────────────────────────────────────── */}
+          {/* Data-driven coverage — auto-populates from REGIONS + communities.ts,
+              so every remix gets accurate, local SEO copy for its real area. */}
           <div className="space-y-5 text-body text-graphite">
             <p>
-              {bn} is a Cochrane-based {s} contractor serving over 120 communities from
-              the Bow Valley to southeast Calgary. We work in <strong>Cochrane's</strong> established
-              neighbourhoods — Heritage Hills, Sunset Ridge, Riversong, GlenEagles, Heartland,
-              and Fireside — and across <strong>Rocky View County</strong> in Bearspaw, Watermark,
-              Silverhorn, and Heritage Pointe.
+              {bn} is a {city}-based {s} contractor serving {COMMUNITIES.length} communities
+              across {REGIONS.length} regions. We work throughout {city} and the surrounding area —
+              from established neighbourhoods to newer developments and acreage communities.
             </p>
-            <p>
-              West of Calgary, we are one of the most active {s} contractors in <strong>Springbank</strong> —
-              Aventerra Estates, Devonian Ridge, Pinnacle Ridge, Swift Creek, Mackenas Country Estates,
-              Morgan's Rise, and more than 35 additional acreage communities. The <strong>Elbow Valley</strong> corridor —
-              Stonepine, Lott Creek Estates, Pinebrook Estates, Swift Creek Villas — is a regular
-              part of our schedule.
-            </p>
-            <p>
-              In <strong>Calgary's southwest</strong>, we serve Aspen Woods, Springbank Hill, Discovery Ridge,
-              Signal Hill, West Springs, Cougar Ridge, Crestmont, and the inner-city estate communities
-              of Britannia, Bel-Aire, Eagle Ridge, and Upper Mount Royal. <strong>Calgary NW</strong> includes
-              Arbour Lake, Crestmont View, and Rockland Park. <strong>Calgary SE</strong> includes Auburn Bay,
-              Mahogany, Cranston, and Seton.
-            </p>
-            <p>
-              Along the <strong>Bow Valley corridor</strong>, we serve CottageClub at Ghost Lake, Ghost Lake Village,
-              Waiparous Village, Exshaw, Lac des Arcs, Dead Man's Flats, and Harvie Heights. In <strong>Canmore</strong>,
-              we work in Silvertip Resort, Three Sisters Mountain Village, Spring Creek Mountain Village,
-              Benchlands, Eagle Terrace, Quarry Pines, Cougar Creek, Rundleview, Larch, and Peaks of Grassi.
-            </p>
+            {REGIONS.map((r) => {
+              const all = getRegionCommunities(r.slug);
+              const names = all.slice(0, 8).map((c) => c.name);
+              const extra = all.length - names.length;
+              if (names.length === 0) return null;
+              return (
+                <p key={r.slug}>
+                  In <strong>{r.name}</strong>, we serve {names.join(", ")}
+                  {extra > 0 ? `, and ${extra} more` : ""}.
+                </p>
+              );
+            })}
             <p>
               Every community page includes a Google Map, specific street references, local landmarks, and
               frequently asked questions — because knowing the neighbourhood is what separates a genuine
@@ -256,7 +244,7 @@ const AreasHub = ({ onBookClick }: AreasHubProps) => {
             Don't see your community?
           </h2>
           <p className="text-body-lg text-primary-foreground/75 mb-8">
-            If you're in Cochrane, Calgary, Rocky View County, the Bow Valley, or Canmore — we
+            If you're in {city} or anywhere in {region} and the surrounding area — we
             work there. Send your address and project scope. We'll confirm within hours.
           </p>
           <button
