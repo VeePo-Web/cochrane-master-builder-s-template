@@ -19,7 +19,7 @@ const BeforeAfterPair = ({ pairs }: BeforeAfterPairProps) => {
               {pair.before.startsWith("/") || pair.before.startsWith("http") || pair.before.includes("assets") || pair.before.includes("/src/") ? (
                 <img src={pair.before} alt="Before" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
               ) : null}
-              <span className="absolute left-3 top-3 z-10 bg-bone/90 px-2 py-1 font-eyebrow text-charcoal">
+              <span className="absolute left-3 top-3 z-10 bg-bone/80 backdrop-blur-md px-2.5 py-1.5 font-eyebrow text-charcoal">
                 Before
               </span>
             </div>
@@ -27,7 +27,7 @@ const BeforeAfterPair = ({ pairs }: BeforeAfterPairProps) => {
               {pair.after.startsWith("/") || pair.after.startsWith("http") || pair.after.includes("assets") || pair.after.includes("/src/") ? (
                 <img src={pair.after} alt="After" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
               ) : null}
-              <span className="absolute left-3 top-3 z-10 bg-forest/95 px-2 py-1 font-eyebrow text-primary-foreground">
+              <span className="absolute left-3 top-3 z-10 bg-forest/90 backdrop-blur-md px-2.5 py-1.5 font-eyebrow text-primary-foreground">
                 After
               </span>
             </div>
