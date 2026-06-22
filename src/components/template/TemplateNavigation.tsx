@@ -40,7 +40,7 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 ${
-        scrolled ? "bg-bone/95 backdrop-blur-md border-b border-seam" : "bg-transparent"
+        scrolled ? "bg-bone/95 backdrop-blur-md border-b border-copper/15" : "bg-transparent"
       }`}
     >
       <a
@@ -77,7 +77,7 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
                 }`}
               >
                 {link.label}
-                {active && <span className="absolute -bottom-0.5 left-4 right-4 h-px bg-forest" />}
+                {active && <span className="absolute -bottom-0.5 left-4 right-4 h-px bg-copper" />}
               </PrefetchLink>
             );
           })}
@@ -87,7 +87,7 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
           <button
             type="button"
             onClick={() => onBookClick?.({ source: "Nav → Book Now" })}
-            className="cta-forest inline-flex rounded-sm bg-forest px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-forest-deep"
+            className="cta-forest inline-flex rounded-none bg-forest px-6 py-3 text-sm font-medium tracking-[0.08em] text-primary-foreground transition-all duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:bg-forest-deep hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0"
           >
             Book Now
           </button>
@@ -132,7 +132,7 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
               <button
                 type="button"
                 onClick={() => { setOpen(false); onBookClick?.({ source: "Mobile nav → Book Now" }); }}
-                className="cta-forest w-full rounded-sm bg-forest px-5 py-3 text-sm font-medium text-primary-foreground"
+                className="cta-forest w-full rounded-none bg-forest px-5 py-3 text-sm font-medium tracking-[0.08em] text-primary-foreground"
               >
                 Book Now
               </button>

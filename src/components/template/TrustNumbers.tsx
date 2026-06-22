@@ -27,7 +27,9 @@ const TrustNumbers = ({ items, variant = "row" }: TrustNumbersProps) => {
   return (
     <ul className="grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-4 md:gap-x-8">
       {items.map((it) => (
-        <li key={it.label} className="border-t border-seam pt-4">
+        <li key={it.label} className="relative pt-5">
+          <span aria-hidden className="absolute left-0 top-0 h-px w-8 bg-copper" />
+          <span aria-hidden className="absolute left-0 top-0 h-px w-full bg-seam" />
           <p
             className="font-display tabular-nums text-forest"
             style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)", lineHeight: 1.1, letterSpacing: "-0.02em" }}

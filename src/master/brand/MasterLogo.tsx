@@ -66,7 +66,7 @@ interface MasterLogoProps {
 const ALT_DEFAULT = MASTER.brandName; // "Cochrane Master Builders"
 
 const SLOT_HEIGHT: Record<MasterLogoSlot, string> = {
-  nav: "h-9 sm:h-9 lg:h-10",
+  nav: "h-10 sm:h-11 lg:h-12",
   footer: "h-16 md:h-20 lg:h-24",
   hero: "h-auto w-full max-w-xl",
   large: "h-auto w-full max-w-lg",
