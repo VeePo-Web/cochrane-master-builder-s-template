@@ -70,7 +70,7 @@ const TemplateFooter = ({ onBookClick }: Props) => {
             <button
               type="button"
               onClick={() => onBookClick?.({ source: "Footer → Send photos" })}
-              className="mt-8 w-full sm:w-auto inline-flex items-center rounded-none px-5 py-3 text-sm font-medium tracking-[0.15em] uppercase text-charcoal transition-all duration-300 hover:text-forest"
+              className="mt-8 w-full sm:w-auto inline-flex items-center rounded-none px-5 py-3 text-sm font-medium tracking-[0.15em] uppercase text-charcoal transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:text-forest hover:-translate-y-0.5 active:translate-y-0"
               style={{
                 border: "1px solid hsl(var(--copper) / 0.20)",
                 boxShadow: "var(--shadow-heirloom)",

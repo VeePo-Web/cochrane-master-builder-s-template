@@ -93,14 +93,13 @@ const TemplateHome = ({ onBookClick }: Props) => {
                     <button
                       type="button"
                       onClick={() => onBookClick?.({ source: "Home hero" })}
-                      className="w-full sm:w-auto rounded-none bg-forest px-6 py-3.5 text-sm font-medium tracking-[0.15em] uppercase text-primary-foreground transition-colors hover:bg-forest-deep"
+                      className="w-full sm:w-auto rounded-none bg-forest px-6 py-3.5 text-sm font-medium tracking-[0.15em] uppercase text-primary-foreground transition-all duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:bg-forest-deep hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0"
                     >
                       {TEMPLATE_COPY.cta.primary}
                     </button>
                     <Link
                       to="/pricing"
-                      className="w-full sm:w-auto rounded-none px-6 py-3.5 text-sm font-medium tracking-[0.15em] uppercase text-charcoal transition-all duration-300 hover:text-forest text-center"
-                      style={{ border: "1px solid hsl(var(--copper) / 0.20)" }}
+                      className="w-full sm:w-auto rounded-none border border-copper/20 px-6 py-3.5 text-sm font-medium tracking-[0.15em] uppercase text-charcoal transition-all duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:text-forest hover:border-copper/40 hover:-translate-y-0.5 active:translate-y-0 text-center"
                     >
                       {TEMPLATE_COPY.cta.secondary}
                     </Link>
@@ -258,7 +257,7 @@ const TemplateHome = ({ onBookClick }: Props) => {
               />
               <Link
                 to="/pricing"
-                className="mt-8 inline-flex w-full sm:w-auto rounded-sm border border-charcoal/20 px-6 py-3.5 text-sm font-medium text-charcoal transition-colors hover:bg-charcoal hover:text-bone"
+                className="mt-8 inline-flex w-full sm:w-auto rounded-none border border-charcoal/20 px-6 py-3.5 text-sm font-medium text-charcoal transition-all duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:bg-charcoal hover:text-bone hover:-translate-y-0.5 active:translate-y-0"
               >
                 See every price — and why
               </Link>
