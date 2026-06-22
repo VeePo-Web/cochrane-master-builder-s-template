@@ -13,7 +13,7 @@ const ProcessSteps = ({ steps }: ProcessStepsProps) => {
       {steps.map((step, i) => (
         <li key={i} className="flex flex-col bg-paper p-8">
           <span
-            className="font-display text-forest/40"
+            className="font-display text-copper/30"
             style={{ fontSize: "clamp(2.5rem,4vw,4rem)", lineHeight: 1 }}
           >
             {String(i + 1).padStart(2, "0")}

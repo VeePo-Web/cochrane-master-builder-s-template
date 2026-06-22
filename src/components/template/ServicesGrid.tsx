@@ -24,7 +24,7 @@ const ServicesGrid = ({ services, hrefFor }: ServicesGridProps) => {
             className={`group flex flex-col bg-paper p-8 transition-colors hover:bg-bone${i === 4 ? " lg:col-span-2" : ""}`}
           >
             <span
-              className="font-display text-forest/40"
+              className="font-display text-copper/30"
               style={{ fontSize: "clamp(2.5rem,4vw,4rem)", lineHeight: 1 }}
             >
               {String(i + 1).padStart(2, "0")}
