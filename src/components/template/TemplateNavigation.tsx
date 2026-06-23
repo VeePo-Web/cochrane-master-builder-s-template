@@ -72,12 +72,19 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
               <PrefetchLink
                 key={link.path}
                 to={link.path}
-                className={`relative px-4 py-2 text-caption uppercase tracking-[0.18em] transition-colors ${
+                className={`group relative px-4 py-2 text-caption uppercase tracking-[0.18em] transition-colors ${
                   active ? "text-charcoal" : "text-graphite hover:text-charcoal"
                 }`}
               >
                 {link.label}
-                {active && <span className="absolute -bottom-0.5 left-4 right-4 h-px bg-copper" />}
+                {active ? (
+                  <span className="absolute -bottom-0.5 left-4 right-4 h-px bg-copper" />
+                ) : (
+                  <span
+                    aria-hidden
+                    className="absolute -bottom-0.5 left-4 right-4 h-px origin-left scale-x-0 bg-copper/50 transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-x-100"
+                  />
+                )}
               </PrefetchLink>
             );
           })}
