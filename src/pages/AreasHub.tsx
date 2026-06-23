@@ -105,7 +105,7 @@ const AreasHub = ({ onBookClick }: AreasHubProps) => {
           onClick={onBookClick}
           className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-clay text-white
                      font-body text-label uppercase tracking-[0.15em]
-                     hover:bg-clay/90 transition-colors duration-300"
+                     hover:bg-clay/90 transition-all duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0"
         >
           {TEMPLATE_COPY.cta.primary}
           <ArrowRight size={16} />
@@ -251,7 +251,7 @@ const AreasHub = ({ onBookClick }: AreasHubProps) => {
             onClick={onBookClick}
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-clay text-white
                        font-body text-label uppercase tracking-[0.15em]
-                       hover:bg-clay/90 transition-colors duration-300"
+                       hover:bg-clay/90 transition-all duration-200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0"
           >
             {TEMPLATE_COPY.cta.primary}
             <ArrowRight size={16} />
