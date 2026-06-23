@@ -423,7 +423,7 @@ const Step0 = ({
         rows={5}
         maxLength={1000}
         placeholder={`${MASTER_REMIX.SERVICE !== "{SERVICE}" ? MASTER_REMIX.SERVICE.charAt(0).toUpperCase() + MASTER_REMIX.SERVICE.slice(1) : "Describe your"} project — scope, rough size, any quirks worth knowing.`}
-        className="w-full resize-none border-0 border-b bg-transparent px-0 py-2 text-charcoal placeholder:text-mist focus:border-copper focus:outline-none focus:ring-0"
+        className="w-full resize-none border-0 border-b border-seam bg-transparent px-0 py-2 text-charcoal placeholder:text-mist transition-colors duration-200 focus:border-copper focus:outline-none focus:ring-0"
         style={{
           fontFamily: "'Jost', system-ui",
           fontSize: 15,
@@ -602,7 +602,7 @@ const Step3 = ({
 // ── Shared field primitives ────────────────────────────────────────────────
 
 const fieldClass =
-  "w-full border-0 border-b bg-transparent px-0 py-2 text-charcoal placeholder:text-mist focus:outline-none focus:ring-0";
+  "w-full border-0 border-b border-seam bg-transparent px-0 py-2 text-charcoal placeholder:text-mist transition-colors duration-200 focus:border-copper focus:outline-none focus:ring-0";
 
 const fieldStyle: React.CSSProperties = {
   fontFamily: "'Jost', system-ui",
