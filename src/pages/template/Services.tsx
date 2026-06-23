@@ -34,6 +34,7 @@ const Services = ({ onBookClick }: Props) => {
 
       <SectionFrame tone="charcoal" size="lg">
         <div className="max-w-3xl">
+          <span aria-hidden className="mb-4 block h-px w-6 bg-copper/50" />
           <p className="font-eyebrow text-bone/70">Our guarantee</p>
           <h2 className="mt-4 text-display-lg text-bone">{c.crossTradeGuarantee.headline}</h2>
           <p className="mt-5 text-body-lg text-bone/85">{c.crossTradeGuarantee.body}</p>

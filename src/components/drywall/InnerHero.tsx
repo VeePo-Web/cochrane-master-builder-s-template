@@ -28,7 +28,12 @@ const InnerHero = ({ eyebrow, title, lede, backgroundImage, backgroundAlt = "" }
       )}
       <div className="container relative z-10 mx-auto px-6 py-24 md:py-40 max-md:py-16">
         <div className="max-w-3xl">
-          {eyebrow && <p className="font-eyebrow mb-6">{eyebrow}</p>}
+          {eyebrow && (
+            <div className="mb-6 flex items-center gap-3">
+              <span aria-hidden className="h-px w-6 flex-shrink-0 bg-copper/40" />
+              <p className="font-eyebrow">{eyebrow}</p>
+            </div>
+          )}
           <h1 className="text-display-xl text-charcoal">{title}</h1>
           {/* Generational slogan — heartbeat beneath every inner-page title */}
           <SloganHeartbeat variant="whisper" className="mt-5 block" />
