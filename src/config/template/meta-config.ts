@@ -100,10 +100,10 @@ export const META_CONFIG: Record<string, PageMeta> = {
 
   "/about": {
     title: "About Cochrane Tile Masters",
-    // 152 chars
+    // 154 chars
     description:
-      "Cochrane Tile Masters — 26 years tiling Cochrane and Rocky View County. TCNA standard on every substrate. $5M liability coverage. 15-year structural guarantee.",
-    ogTitle: "About Cochrane Tile Masters — 26 Years, One Standard.",
+      "Cochrane Tile Masters builds as the seventh generation in a town shaped by builders since 1881. TCNA standard, $5M liability coverage, 15-year guarantee.",
+    ogTitle: "About Cochrane Tile Masters — The Seventh Generation.",
     canonical: `${ORIGIN}/about`,
   },
 

@@ -44,7 +44,7 @@ const BrandStory = ({ onBookClick }: Props) => {
 
       {/* TIMELINE — values */}
       <SectionFrame tone="bone" size="lg">
-        <SectionTitle eyebrow="What we will not change" headline="Four rules. Sixty-seven years. One {SERVICE} standard." />
+        <SectionTitle eyebrow="What we will not change" headline="Four rules. Six generations. One {SERVICE} standard." />
         <div className="mt-12 grid gap-px bg-seam md:grid-cols-2">
           {c.values.map((v) => (
             <div key={v.title} className="bg-paper p-8">
@@ -65,7 +65,7 @@ const BrandStory = ({ onBookClick }: Props) => {
         {/* Universal brand story hero — same across all trade sites; alt text is SEO-trade-specific */}
         <EditorialQuote
           quote={c.founderQuote}
-          attribution="— The third generation"
+          attribution="— The seventh generation"
           image={MASTER_REMIX.BRAND_STORY_HERO}
         />
       </RemixSlot>

@@ -660,7 +660,7 @@ const GuaranteePage = ({ onBookClick }: Props) => {
             { to: "/faq",            label: "Full FAQ",             desc: `Every ${s} question answered in full.` },
             { to: "/services",       label: `${sc} Services`,       desc: `All ${s} services we guarantee.` },
             { to: "/areas-we-serve", label: "Areas We Serve",       desc: "120+ communities across Cochrane & area." },
-            { to: "/about",          label: "About Our Crew",       desc: `${age}+ years. Same family. Same standard.` },
+            { to: "/about",          label: "About Our Team",       desc: `Six generations. ${age} years. One Cochrane standard.` },
           ].map(({ to, label, desc }) => (
             <Link key={to} to={to}
               className="group block border border-seam rounded p-5 bg-bone hover:border-forest/40 transition-all duration-300">
