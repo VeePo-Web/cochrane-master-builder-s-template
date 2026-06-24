@@ -228,6 +228,15 @@ export const TEMPLATE_COPY = {
           year: "Today",
           label: "The seventh generation",
           body: "We are the seventh generation to lay a foundation in Cochrane. We build to the standard the first six set — square, plumb, warranted in writing.",
+          // Men of Vision statue slot. To activate: drop the photo at
+          // public/heritage/men-of-vision.jpg and set `image` to
+          // "/heritage/men-of-vision.jpg". Empty string renders the template's
+          // native placeholder until then. It is a public Cochrane monument — a
+          // self-taken photo needs no attribution, so there is no `credit` here
+          // and it stays out of the Creative Commons credit line below.
+          image: "",
+          aspect: "aspect-[3/2]",
+          alt: "The Men of Vision statue above the Cochrane Ranche — the bronze rider the town raised to honour the builders who came before",
         },
       ],
       turn: "Every one of them built for someone they would never meet. Today, that someone is you. The next foundation in the line is yours — and we lay it the only way Cochrane ever has. Square. Plumb. Warranted in writing.",
