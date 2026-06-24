@@ -52,9 +52,10 @@ const FoundationCounter = ({ className = "" }: FoundationCounterProps) => {
   return (
     <div
       ref={ref}
-      className={`flex flex-col items-start gap-2 border-t pt-4 ${className}`}
-      style={{ borderColor: "hsl(var(--copper) / 0.30)" }}
+      className={`relative flex flex-col items-start gap-2 pt-5 ${className}`}
     >
+      <span aria-hidden className="absolute left-0 top-0 h-px w-8 bg-copper" />
+      <span aria-hidden className="absolute left-0 top-0 h-px w-full bg-seam" />
       <p
         className="tabular-nums"
         style={{
