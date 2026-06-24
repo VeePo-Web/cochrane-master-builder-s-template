@@ -21,8 +21,8 @@ interface FoundationCounterProps {
 const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
 const FoundationCounter = ({ className = "" }: FoundationCounterProps) => {
-  const startYear = 1900;
   const endYear = MASTER_REMIX.FOUNDATION_YEAR;
+  const startYear = endYear - 30;
   const durationMs = 3000;
 
   const ref = useRef<HTMLDivElement>(null);

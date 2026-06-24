@@ -12,7 +12,7 @@ export const TEMPLATE_COPY = {
   brand: {
     tagline: "Built for the families who'll inherit it.",
     promise:
-      "Three generations of Cochrane homes have been finished by the same standard. The next three will be too.",
+      "Six generations of builders made Cochrane. We build as the seventh — to the standard they set, for the families who'll inherit it.",
   },
 
   nav: [
@@ -40,9 +40,9 @@ export const TEMPLATE_COPY = {
   // ─── HOME ─────────────────────────────────────────────────────────────
   home: {
     hero: {
-      eyebrow: "Cochrane, Alberta — since 1958",
+      eyebrow: "Cochrane, Alberta — building since 1881",
       headline: "{SERVICE_PLURAL} for the families who'll inherit them.",
-      sub: "We {SERVICE_VERB} the way our grandfathers did — square, plumb, and warranted in writing for fifteen years. No shortcuts. No second invoices. The standard is the standard.",
+      sub: "We {SERVICE_VERB} the way Cochrane's builders always have — square, plumb, and warranted in writing for fifteen years. No shortcuts. No second invoices. The standard is the standard.",
     },
     promise: {
       eyebrow: "The promise",
@@ -78,24 +78,24 @@ export const TEMPLATE_COPY = {
   brandStory: {
     hero: {
       eyebrow: "Brand story",
-      title: "Three generations of one standard.",
-      lede: "{BRAND_NAME} is the {SERVICE} arm of a Cochrane family of master builders that started in 1958. Our standard didn't change because the business model did.",
+      title: "Six generations of one standard.",
+      lede: "{BRAND_NAME} stands in a line of Cochrane builders that began in 1881, with the first foundation laid in this town. The trade changed. The standard never did.",
     },
     chapters: [
       {
-        eyebrow: "Chapter 01 — 1958",
-        headline: "The first nail.",
-        body: "A grandfather, a hammer, a Cochrane farmhouse, and the rule that has carried us for sixty-seven years: if your name is on the invoice, your name is on the wall.",
+        eyebrow: "Chapter 01 — 1881",
+        headline: "The first foundation.",
+        body: "The first foundation in Cochrane went down on the Bow in 1881. The winters that followed were brutal. It held anyway — and set the rule that still runs this town: if your name is on the invoice, your name is on the wall.",
       },
       {
-        eyebrow: "Chapter 02 — 1986",
-        headline: "The second generation took over a standard, not a business.",
-        body: "Our father refused to scale by lowering the standard. He scaled by raising the price floor. Every {SERVICE} client we've worked with since has been quoted against scope, never against budget.",
+        eyebrow: "Chapter 02 — 1885",
+        headline: "The builders raised a town, not just a trade.",
+        body: "Steel reached the valley and set a town where the river met the grassland. Quarry, sawmill, brick plant. The sandstone those hands cut still carries First Street West — a century after the hands that set it were gone.",
       },
       {
         eyebrow: "Chapter 03 — Today",
-        headline: "We {SERVICE_VERB} like it's our family's home.",
-        body: "Because in two of the three Cochrane neighbourhoods we work in, it literally is. We will not finish a {SERVICE} surface in your home that we wouldn't finish in our mother's.",
+        headline: "We {SERVICE_VERB} like the people who built this town.",
+        body: "{BRAND_NAME} is the seventh generation to lay a foundation in Cochrane. We {SERVICE_VERB} to the standard the first six set. We will not finish a {SERVICE} surface in your home that wouldn't have passed them.",
       },
     ],
     values: [
@@ -105,7 +105,7 @@ export const TEMPLATE_COPY = {
       { title: "One trade, mastered.", body: "We {SERVICE_VERB}. We don't dabble. The depth is what makes the price honest." },
     ],
     founderQuote:
-      "My grandfather built houses for families he knew by name. Sixty-seven years later we're still finishing rooms in some of those same houses — for the grandchildren of the people who first hired him. That's the math that runs this company.",
+      "The people who built this town built for families they would never meet — and a century later we're still finishing rooms in the houses they raised. Each generation hands the next a standard, not just a town. We're the seventh to carry it. That's the math that runs this company.",
   },
 
   // ─── WHY WE LOVE {SERVICE} ────────────────────────────────────────────
@@ -189,17 +189,29 @@ export const TEMPLATE_COPY = {
   about: {
     hero: {
       eyebrow: "About",
-      title: "A {SERVICE} company that has refused to scale for sixty-seven years.",
-      lede: "We chose depth over breadth on purpose. One trade, mastered, in one town, for three generations of the same families.",
+      title: "A {SERVICE} company holding a standard six generations of Cochrane builders set.",
+      lede: "We chose depth over breadth on purpose. One trade, mastered, in one town — to the standard six generations of Cochrane builders set before us.",
+    },
+    story: {
+      eyebrow: "The ground beneath Cochrane",
+      headline: "Built by people who built for people they'd never meet.",
+      lede: "Every foundation in this town sits on one someone laid first. We didn't begin that. We inherited it — and we build to carry it forward.",
+      beats: [
+        { year: "1881", label: "The first foundation", body: "The first foundation in Cochrane went down on the Bow. The winters that followed were brutal. It held anyway. The rule it set still runs this town: build to outlast the builder." },
+        { year: "1885", label: "The town the builders raised", body: "Steel reached the valley and set a town where the river met the grassland. They named it Cochrane. The hands that laid that track were building a place most of them would never live in." },
+        { year: "Early 1900s", label: "The masons", body: "Quarry, sawmill, brick plant — the trades of foundation and frame. The sandstone those hands cut still carries First Street West, a hundred years after they were gone." },
+        { year: "Today", label: "The seventh generation", body: "We are the seventh generation to lay a foundation in Cochrane. We build to the standard the first six set — square, plumb, warranted in writing." },
+      ],
+      turn: "Every one of them built for someone they would never meet. Today, that someone is you. The next foundation in the line is yours — and we lay it the only way Cochrane ever has. Square. Plumb. Warranted in writing.",
     },
     values: [
-      { title: "Family business.", body: "Owned and operated by the third generation. The fourth is on the crew already." },
+      { title: "Seventh generation.", body: "We build to the standard six generations of Cochrane builders set before us. The work outlasts the builder." },
       { title: "Local first.", body: "Cochrane and the eight surrounding communities. Nothing further. Nothing dispatched." },
       { title: "Transparent always.", body: "Pricing public. Guarantees written. Mistakes named. Invoices itemised." },
       { title: "Standard before scale.", body: "We will turn down a job before we will compromise the {SERVICE} standard on a finished surface." },
     ],
     communityRoots:
-      "We finish {SERVICE_PLURAL} in the same Cochrane neighbourhoods our parents and grandparents did. Our crew lives within ten minutes of every house we work in.",
+      "We finish {SERVICE_PLURAL} in the same Cochrane neighbourhoods builders have worked for six generations. Our crew lives within ten minutes of every house we work in.",
   },
 
   // ─── CONTACT ──────────────────────────────────────────────────────────

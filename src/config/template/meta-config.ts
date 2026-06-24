@@ -47,7 +47,7 @@ export const META_CONFIG: Record<string, PageMeta> = {
   },
   "/brand-story": {
     title: t(`Our Story | ${BN}`),
-    description: d(`The craft behind ${BN} — why we do ${S} work the way we do, and the standard we have held in ${CITY} for ${AGE}+ years.`),
+    description: d(`The line behind ${BN} — why our ${S} work holds to the standard six generations of Cochrane builders set. ${AGE}+ years, one town.`),
     ogTitle: t(`The ${BN} Story`),
     canonical: url("/brand-story"),
   },
@@ -81,7 +81,7 @@ export const META_CONFIG: Record<string, PageMeta> = {
   },
   "/about": {
     title: t(`About ${BN}`),
-    description: d(`${BN} — ${AGE}+ years of ${S} work in ${CITY} and ${REGION}. One standard, fully insured, with a written guarantee on every project.`),
+    description: d(`${BN} — seventh-generation Cochrane builders. One ${S} standard, ${AGE}+ years in the making. Fully insured, written guarantee.`),
     canonical: url("/about"),
   },
   "/contact": {

@@ -272,7 +272,7 @@ export const MASTER_REMIX: RemixVariables = {
 
   // ── Heirloom defaults ───────────────────────────────────────────────────
   BRAND_SLOGAN: "Building Strong Foundations For Those Who Come After Us",
-  FOUNDATION_YEAR: 1958,
+  FOUNDATION_YEAR: 1881,
   MONOGRAM_LETTERS: ["C", "M", "B"],
 
   // ── Image library defaults ───────────────────────────────────────────────
