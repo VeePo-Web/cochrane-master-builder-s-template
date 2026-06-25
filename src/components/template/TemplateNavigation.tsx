@@ -51,7 +51,7 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
       {/* Slogan micro-eyebrow — visible only when NOT scrolled, fades on scroll */}
       <div
         className="overflow-hidden transition-all duration-500"
-        style={{ maxHeight: scrolled ? 0 : 24, opacity: scrolled ? 0 : 1 }}
+        style={{ maxHeight: scrolled ? 0 : 30, opacity: scrolled ? 0 : 1 }}
         aria-hidden
       >
         <div className="container mx-auto px-6 pt-1.5">
