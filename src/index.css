@@ -66,7 +66,7 @@ html.lenis body {
     --seam: 36 14% 88%;
     --charcoal: 25 8% 25%;
     --graphite: 25 6% 38%;
-    --mist: 25 6% 55%;
+    --mist: 25 6% 46%;
     --forest: 178 14% 28%;
     --forest-deep: 178 16% 22%;
     --clay: 24 38% 52%;
@@ -416,7 +416,8 @@ html.lenis body {
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.32em;
-  color: hsl(var(--copper) / 0.70);
+  /* deepened copper — ~4.3:1 on bone (was copper/70 ≈ 2.3:1), matches slogan */
+  color: hsl(30 58% 40%);
 }
 
 /* Copper hairline — 1px horizontal rule */
