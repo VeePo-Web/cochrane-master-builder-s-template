@@ -130,7 +130,7 @@ const ThankYou = ({ onBookClick }: Props) => {
               {/* Index eyebrow */}
               <span
                 className="text-mist uppercase tracking-[0.18em]"
-                style={{ fontFamily: "'Jost', system-ui", fontSize: 10 }}
+                style={{ fontFamily: "'Jost', system-ui", fontSize: 11 }}
               >
                 {String(i + 1).padStart(2, "0")}
               </span>

@@ -64,7 +64,7 @@ export const CapacitySignal = ({
         ].join(" ")}
       >
         <PulseDot />
-        <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#C9A87C]">
+        <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#C9A87C]">
           Booking {weeksText}
         </span>
       </div>
@@ -80,11 +80,11 @@ export const CapacitySignal = ({
           className,
         ].join(" ")}
       >
-        <span className="inline-flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.22em] text-[#C9A87C]/70">
+        <span className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[#C9A87C]/70">
           <PulseDot />
           Currently booking {weeksText}
         </span>
-        <span className="inline-flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.22em] text-[#C9A87C]/50">
+        <span className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[#C9A87C]/75">
           <CalendarIcon />
           {slotsText} in {CAPACITY.month}
         </span>
@@ -101,7 +101,7 @@ export const CapacitySignal = ({
       ].join(" ")}
     >
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-10">
-        <span className="inline-flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#8B6B4A]">
+        <span className="inline-flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.22em] text-[#8B6B4A]">
           <PulseDot />
           Currently booking {weeksText}
         </span>
@@ -109,7 +109,7 @@ export const CapacitySignal = ({
           className="hidden sm:block w-px h-4 bg-[#1F2F4D]/15"
           aria-hidden
         />
-        <span className="inline-flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#8B6B4A]/70">
+        <span className="inline-flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.22em] text-[#8B6B4A]/70">
           <CalendarIcon />
           {slotsText} in {CAPACITY.month}
         </span>
