@@ -113,7 +113,7 @@ const TemplateHome = ({ onBookClick }: Props) => {
           <TrustNumbers items={MASTER_REMIX.TRUST_NUMBERS} />
         </RemixSlot>
         <div className="mt-6 flex flex-col items-start justify-between gap-4 border-t border-seam/60 pt-6 md:flex-row md:items-center">
-          <p className="font-eyebrow text-[10px] tracking-[0.18em] text-mist md:text-[11px]">
+          <p className="font-eyebrow text-[11px] tracking-[0.18em] text-mist md:text-[11px]">
             Since 1958 · Cochrane, AB
           </p>
           <FoundationCounter />

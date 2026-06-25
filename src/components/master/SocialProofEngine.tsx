@@ -87,7 +87,7 @@ const ReviewCard = ({
       {/* Before / After strip */}
       <div className="flex gap-4 mb-6">
         <div className="flex-1 min-w-0">
-          <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-[#7A8BAA] mb-1">
+          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#7A8BAA] mb-1">
             Before
           </p>
           <p className="font-body text-[0.8125rem] leading-[1.5] text-[#7A8BAA] font-light truncate">
@@ -96,7 +96,7 @@ const ReviewCard = ({
         </div>
         <div className="w-px bg-[#EDE9E1] flex-shrink-0" aria-hidden />
         <div className="flex-1 min-w-0">
-          <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-[#8B6B4A] mb-1">
+          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#8B6B4A] mb-1">
             After
           </p>
           <p className="font-body text-[0.8125rem] leading-[1.5] text-[#1F2F4D] font-light truncate">
@@ -124,14 +124,14 @@ const ReviewCard = ({
           <p className="font-body text-[0.875rem] font-medium text-[#1F2F4D]">
             {review.name}
           </p>
-          <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#7A8BAA] mt-0.5">
+          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#7A8BAA] mt-0.5">
             {review.community} · {review.service}
             {review.timeframe && ` · ${review.timeframe}`}
           </p>
         </div>
         <div className="flex flex-col items-end gap-1">
           <Stars rating={review.rating} />
-          <p className="font-mono text-[8px] text-[#7A8BAA]">{review.date}</p>
+          <p className="font-mono text-[11px] text-[#7A8BAA]">{review.date}</p>
         </div>
       </div>
     </div>
@@ -167,7 +167,7 @@ export const SocialProofEngine = ({
           className="mb-12"
         >
           <div className="inline-block rounded-full border border-[#1F2F4D]/12 bg-[#1F2F4D]/06 px-4 py-1.5 mb-6">
-            <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#5C6B8A]">
+            <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-[#5C6B8A]">
               Real results
             </span>
           </div>
@@ -223,7 +223,7 @@ export const SocialProofEngine = ({
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="mt-8 font-mono text-[10px] uppercase tracking-[0.22em] text-[#7A8BAA] text-center"
+          className="mt-8 font-mono text-[11px] uppercase tracking-[0.22em] text-[#7A8BAA] text-center"
         >
           {(aggregate?.totalReviews ?? REVIEWS.length)} reviews · All real · All from Cochrane and area
         </motion.p>

@@ -53,7 +53,7 @@ export const BookingBrandStack = ({ prefill }: Props) => {
 
         <p
           className="mt-10 text-bone/40 uppercase tracking-[0.22em]"
-          style={{ fontFamily: "'Jost', system-ui", fontSize: 10 }}
+          style={{ fontFamily: "'Jost', system-ui", fontSize: 11 }}
         >
           {MASTER_REMIX.SERVICE_CATEGORY || "Trade Services"}
         </p>
@@ -103,7 +103,7 @@ export const BookingBrandStack = ({ prefill }: Props) => {
             </span>
             <span
               className="text-bone/50 uppercase tracking-[0.16em]"
-              style={{ fontFamily: "'Jost', system-ui", fontSize: 10 }}
+              style={{ fontFamily: "'Jost', system-ui", fontSize: 11 }}
             >
               {t.label}
             </span>

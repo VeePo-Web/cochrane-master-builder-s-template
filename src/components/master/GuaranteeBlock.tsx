@@ -69,7 +69,7 @@ const FullGuarantee = ({ className = "" }: { className?: string }) => (
         className="mb-12"
       >
         <div className="inline-block rounded-full border border-[#8B6B4A]/35 bg-[#8B6B4A]/10 px-4 py-1.5 mb-6">
-          <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#C9A87C]">
+          <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-[#C9A87C]">
             The Guarantee
           </span>
         </div>
@@ -106,7 +106,7 @@ const FullGuarantee = ({ className = "" }: { className?: string }) => (
                     {promise}
                   </p>
                 </div>
-                <p className="mt-6 font-mono text-[9px] uppercase tracking-[0.22em] text-white/28">
+                <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.22em] text-white/60">
                   {note}
                 </p>
               </div>
@@ -123,7 +123,7 @@ const FullGuarantee = ({ className = "" }: { className?: string }) => (
         transition={{ duration: 0.7, delay: 0.4 }}
         className="mt-6 rounded-xl bg-[#8B6B4A]/12 py-4 px-6"
       >
-        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/55 text-center">
+        <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/55 text-center">
           All three guarantees are in writing. On every invoice.
           Non-negotiable.
         </p>
@@ -167,7 +167,7 @@ const CompactGuarantee = ({ className = "" }: { className?: string }) => (
             strokeLinejoin="round"
           />
         </svg>
-        <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#C9A87C]">
+        <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#C9A87C]">
           {name}
         </span>
       </div>

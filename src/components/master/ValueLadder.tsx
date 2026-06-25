@@ -97,7 +97,7 @@ export const ValueLadder = ({
           className="mb-12"
         >
           <div className="inline-block rounded-full border border-[#1F2F4D]/12 bg-[#1F2F4D]/06 px-4 py-1.5 mb-6">
-            <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#5C6B8A]">
+            <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-[#5C6B8A]">
               The Path
             </span>
           </div>
@@ -130,19 +130,19 @@ export const ValueLadder = ({
                         <h3 className="font-display text-[1.25rem] leading-[1.2] tracking-[-0.01em] text-white font-light mt-[-0.5rem]">
                           {tier.label}
                         </h3>
-                        <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[#C9A87C]">
+                        <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-[#C9A87C]">
                           {tier.priceRange}
                         </p>
                         <p className="mt-4 font-body text-[0.875rem] leading-[1.65] text-white/60 font-light flex-1">
                           {tier.description}
                         </p>
-                        <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-white/35">
+                        <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white/60">
                           {tier.idealFor}
                         </p>
                         {tier.href && (
                           <a
                             href={tier.href}
-                            className="mt-5 inline-flex items-center gap-1 font-mono text-[9px]
+                            className="mt-5 inline-flex items-center gap-1 font-mono text-[11px]
                               uppercase tracking-[0.2em] text-[#C9A87C]/70 hover:text-[#C9A87C]
                               transition-colors"
                           >
@@ -161,19 +161,19 @@ export const ValueLadder = ({
                         <h3 className="font-display text-[1.25rem] leading-[1.2] tracking-[-0.01em] text-[#1F2F4D] font-light mt-[-0.5rem]">
                           {tier.label}
                         </h3>
-                        <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[#8B6B4A]">
+                        <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-[#8B6B4A]">
                           {tier.priceRange}
                         </p>
                         <p className="mt-4 font-body text-[0.875rem] leading-[1.65] text-[#5C6B8A] font-light flex-1">
                           {tier.description}
                         </p>
-                        <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-[#7A8BAA]">
+                        <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-[#7A8BAA]">
                           {tier.idealFor}
                         </p>
                         {tier.href && (
                           <a
                             href={tier.href}
-                            className="mt-5 inline-flex items-center gap-1 font-mono text-[9px]
+                            className="mt-5 inline-flex items-center gap-1 font-mono text-[11px]
                               uppercase tracking-[0.2em] text-[#8B6B4A]/60 hover:text-[#8B6B4A]
                               transition-colors"
                           >
@@ -241,7 +241,7 @@ export const ValueLadder = ({
                           {tier.label}
                         </h3>
                         <span className={[
-                          "font-mono text-[10px] uppercase tracking-[0.2em] flex-shrink-0",
+                          "font-mono text-[11px] uppercase tracking-[0.2em] flex-shrink-0",
                           isHighlighted ? "text-[#C9A87C]" : "text-[#8B6B4A]",
                         ].join(" ")}>
                           {tier.priceRange}
@@ -268,7 +268,7 @@ export const ValueLadder = ({
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="mt-8 font-mono text-[10px] uppercase tracking-[0.22em] text-[#7A8BAA] text-center"
+            className="mt-8 font-mono text-[11px] uppercase tracking-[0.22em] text-[#7A8BAA] text-center"
           >
             Most clients start with 01. Most come back for 02 and 03.
           </motion.p>

@@ -401,7 +401,7 @@ const Step0 = ({
     <div>
       <p
         className="uppercase tracking-[0.22em] text-mist"
-        style={{ fontFamily: "'Jost', system-ui", fontSize: 10 }}
+        style={{ fontFamily: "'Jost', system-ui", fontSize: 11 }}
       >
         Step 1
       </p>
@@ -453,7 +453,7 @@ const Step1 = ({
     <div>
       <p
         className="uppercase tracking-[0.22em] text-mist"
-        style={{ fontFamily: "'Jost', system-ui", fontSize: 10 }}
+        style={{ fontFamily: "'Jost', system-ui", fontSize: 11 }}
       >
         Step 2
       </p>
@@ -485,7 +485,7 @@ const Step2 = ({
     <div>
       <p
         className="uppercase tracking-[0.22em] text-mist"
-        style={{ fontFamily: "'Jost', system-ui", fontSize: 10 }}
+        style={{ fontFamily: "'Jost', system-ui", fontSize: 11 }}
       >
         Step 3
       </p>
@@ -561,7 +561,7 @@ const Step3 = ({
       <div>
         <p
           className="uppercase tracking-[0.22em] text-mist"
-          style={{ fontFamily: "'Jost', system-ui", fontSize: 10 }}
+          style={{ fontFamily: "'Jost', system-ui", fontSize: 11 }}
         >
           Step 4
         </p>
@@ -582,7 +582,7 @@ const Step3 = ({
           >
             <span
               className="text-mist uppercase tracking-[0.14em]"
-              style={{ fontFamily: "'Jost', system-ui", fontSize: 10 }}
+              style={{ fontFamily: "'Jost', system-ui", fontSize: 11 }}
             >
               {label}
             </span>
@@ -625,7 +625,7 @@ const Field = ({
   <div>
     <label
       className="block text-mist uppercase tracking-[0.14em]"
-      style={{ fontFamily: "'Jost', system-ui", fontSize: 10, marginBottom: 4 }}
+      style={{ fontFamily: "'Jost', system-ui", fontSize: 11, marginBottom: 4 }}
     >
       {label}
     </label>

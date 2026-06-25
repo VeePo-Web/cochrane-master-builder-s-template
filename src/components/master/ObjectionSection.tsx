@@ -73,7 +73,7 @@ export const ObjectionSection = ({
           className="mb-14"
         >
           <div className="inline-block rounded-full border border-[#8B6B4A]/35 bg-[#8B6B4A]/10 px-4 py-1.5 mb-6">
-            <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#C9A87C]">
+            <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-[#C9A87C]">
               The real questions
             </span>
           </div>
@@ -103,7 +103,7 @@ export const ObjectionSection = ({
                     >
                       {num}
                     </span>
-                    <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/25 mt-1">
+                    <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/60 mt-1">
                       The false belief: "{falseBelief}"
                     </p>
                   </div>

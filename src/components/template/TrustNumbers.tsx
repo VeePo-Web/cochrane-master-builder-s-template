@@ -35,7 +35,7 @@ const TrustNumbers = ({ items, variant = "row" }: TrustNumbersProps) => {
             {it.number}
           </p>
           <span aria-hidden className="my-3 block h-px w-6 bg-copper/60" />
-          <p className="font-eyebrow max-w-[16ch] text-[10px] uppercase leading-[1.35] tracking-[0.14em] text-mist md:text-[11px]">
+          <p className="font-eyebrow max-w-[16ch] text-[11px] uppercase leading-[1.35] tracking-[0.14em] text-mist md:text-[11px]">
             {it.label}
           </p>
         </li>
