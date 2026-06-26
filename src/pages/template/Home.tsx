@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import TemplateLayout from "@/components/template/TemplateLayout";
 import SectionFrame from "@/components/template/SectionFrame";
 import SectionTitle from "@/components/drywall/SectionTitle";
@@ -47,6 +48,15 @@ const TemplateHome = ({ onBookClick }: Props) => {
       <RemixSlot name="HERO_IMAGE" hint="Bind a service-specific AVIF (≤140KB)">
         <section className="relative isolate flex min-h-[82svh] items-center overflow-hidden border-b border-seam/60 bg-bone">
           <BlueprintGrain opacity={0.018} />
+          {/* Atmospheric depth — faint warm aura so the imageless hero reads layered, not flat */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 z-0"
+            style={{
+              background:
+                "radial-gradient(48% 55% at 16% 52%, hsl(var(--forest) / 0.05), transparent 70%), radial-gradient(42% 50% at 90% 26%, hsl(var(--copper) / 0.05), transparent 72%)",
+            }}
+          />
           {MASTER_REMIX.HERO_IMAGE && (
             <HeroImage src={MASTER_REMIX.HERO_IMAGE} alt="" gradientFrom="left" opacity={32} />
           )}
@@ -57,12 +67,12 @@ const TemplateHome = ({ onBookClick }: Props) => {
                 <ScrollReveal>
                   {/* Eyebrow: 24px copper hairline + Jost caps */}
                   <div className="mb-6 flex items-center gap-3">
-                    <span className="hairline-copper w-6 flex-shrink-0" />
+                    <span className="hairline-copper w-6 flex-shrink-0 animate-line-grow" />
                     <p className="eyebrow-copper">{c.hero.eyebrow}</p>
                   </div>
                 </ScrollReveal>
 
-                <ScrollReveal delay={0.06}>
+                <ScrollReveal delay={0.06} className="hero-rise">
                   <h1
                     className="text-balance text-charcoal leading-[1.04] tracking-[-0.02em] md:leading-[0.95] md:tracking-[-0.035em]"
                     style={{
@@ -93,9 +103,13 @@ const TemplateHome = ({ onBookClick }: Props) => {
                     <button
                       type="button"
                       onClick={() => onBookClick?.({ source: "Home hero" })}
-                      className="w-full rounded-none bg-forest px-7 py-4 text-sm font-medium uppercase tracking-[0.12em] text-primary-foreground shadow-[0_1px_0_hsl(var(--forest-deep))] transition-[transform,box-shadow,background-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:bg-forest-deep hover:shadow-[0_12px_30px_-10px_hsl(var(--forest)/0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bone active:translate-y-0 active:scale-[0.985] sm:w-auto"
+                      className="group inline-flex w-full items-center justify-center gap-2.5 rounded-none bg-forest px-7 py-4 text-sm font-medium uppercase tracking-[0.12em] text-primary-foreground shadow-[0_1px_0_hsl(var(--forest-deep))] transition-[transform,box-shadow,background-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:bg-forest-deep hover:shadow-[0_12px_30px_-10px_hsl(var(--forest)/0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bone active:translate-y-0 active:scale-[0.985] sm:w-auto"
                     >
                       {TEMPLATE_COPY.cta.primary}
+                      <ArrowRight
+                        aria-hidden
+                        className="h-4 w-4 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1"
+                      />
                     </button>
                     <Link
                       to="/pricing"

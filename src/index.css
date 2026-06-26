@@ -399,6 +399,22 @@ html.lenis body {
   [data-reveal] { opacity: 1; transform: none; transition: none; }
 }
 
+/* Hero headline — cinematic curtain-rise. Overrides the default fade for the
+   H1 only, driven by the same shared IntersectionObserver via [data-revealed]. */
+[data-reveal].hero-rise {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(108% 0 0 0);
+  transition: clip-path 950ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: clip-path;
+}
+[data-reveal].hero-rise[data-revealed="true"] {
+  clip-path: inset(0 0 0 0);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal].hero-rise { clip-path: none; transition: none; will-change: auto; }
+}
+
 /* ── Heirloom Bespoke Utilities ─────────────────────────────────────────── */
 /* Per brand brief: "The standard is the standard." — Home.tsx quote          */
 
