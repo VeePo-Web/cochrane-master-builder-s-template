@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import TemplateLayout from "@/components/template/TemplateLayout";
 import SectionFrame from "@/components/template/SectionFrame";
 import InnerHero from "@/components/drywall/InnerHero";
+import ScrollReveal from "@/components/drywall/ScrollReveal";
 import EditorialQuote from "@/components/drywall/EditorialQuote";
 import TrustNumbers from "@/components/template/TrustNumbers";
 import CTABand from "@/components/drywall/CTABand";
@@ -136,28 +137,36 @@ const Reviews = ({ onBookClick }: Props) => {
           }}
         />
         <div className="container relative z-10 mx-auto px-6">
-          <p className="eyebrow-copper mb-5">{c.hero.eyebrow}</p>
-          <h1
-            className="text-charcoal max-w-[18ch]"
-            style={{
-              fontFamily: "'Space Grotesk', system-ui",
-              fontSize: "clamp(2.25rem, 5vw, 4rem)",
-              fontWeight: 300,
-              letterSpacing: "-0.02em",
-              lineHeight: 1.05,
-            }}
-          >
-            {c.hero.title}
-          </h1>
-          <p className="mt-4 max-w-[52ch] text-graphite text-body leading-relaxed">{c.hero.lede}</p>
+          <ScrollReveal>
+            <p className="eyebrow-copper mb-5">{c.hero.eyebrow}</p>
+          </ScrollReveal>
+          <ScrollReveal delay={0.06} className="hero-rise">
+            <h1
+              className="text-balance text-charcoal max-w-[18ch]"
+              style={{
+                fontFamily: "'Space Grotesk', system-ui",
+                fontSize: "clamp(2.25rem, 5vw, 4rem)",
+                fontWeight: 300,
+                letterSpacing: "-0.02em",
+                lineHeight: 1.05,
+              }}
+            >
+              {c.hero.title}
+            </h1>
+          </ScrollReveal>
+          <ScrollReveal delay={0.14}>
+            <p className="mt-4 max-w-[52ch] text-pretty text-graphite text-body leading-relaxed">{c.hero.lede}</p>
+          </ScrollReveal>
 
-          {/* Live aggregate badge */}
-          <AggregateBadge />
+          <ScrollReveal delay={0.2}>
+            {/* Live aggregate badge */}
+            <AggregateBadge />
 
-          {/* Google review link — only shows when GOOGLE_REVIEW_URL is set */}
-          <div className="mt-6">
-            <GoogleReviewCTA />
-          </div>
+            {/* Google review link — only shows when GOOGLE_REVIEW_URL is set */}
+            <div className="mt-6">
+              <GoogleReviewCTA />
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 

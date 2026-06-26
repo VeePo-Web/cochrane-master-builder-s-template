@@ -23,6 +23,7 @@ import { ChevronDown } from "lucide-react";
 import TemplateLayout from "@/components/template/TemplateLayout";
 import SectionFrame from "@/components/template/SectionFrame";
 import CTABand from "@/components/drywall/CTABand";
+import ScrollReveal from "@/components/drywall/ScrollReveal";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 import type { BookingClickHandler } from "@/config/drywall-booking";
@@ -367,28 +368,34 @@ const FAQPage = ({ onBookClick }: Props) => {
           }}
         />
         <div className="container relative z-10 mx-auto px-6">
-          <nav aria-label="Breadcrumb" className="mb-6">
-            <ol className="flex items-center gap-2" style={{ fontFamily: "'Jost', system-ui", fontSize: 11, color: "hsl(var(--mist))", letterSpacing: "0.1em" }}>
-              <li><Link to="/" className="hover:text-graphite transition-colors">Home</Link></li>
-              <li aria-hidden>/</li>
-              <li>FAQ</li>
-            </ol>
-          </nav>
+          <ScrollReveal>
+            <nav aria-label="Breadcrumb" className="mb-6">
+              <ol className="flex items-center gap-2" style={{ fontFamily: "'Jost', system-ui", fontSize: 11, color: "hsl(var(--mist))", letterSpacing: "0.1em" }}>
+                <li><Link to="/" className="hover:text-graphite transition-colors">Home</Link></li>
+                <li aria-hidden>/</li>
+                <li>FAQ</li>
+              </ol>
+            </nav>
+          </ScrollReveal>
 
-          <h1 className="text-charcoal max-w-[24ch]" style={{ fontFamily: "'Space Grotesk', system-ui", fontSize: "clamp(2.25rem, 5vw, 3.75rem)", fontWeight: 300, letterSpacing: "-0.02em", lineHeight: 1.05 }}>
-            {sc} FAQ — Cochrane &amp; Area
-          </h1>
+          <ScrollReveal delay={0.06} className="hero-rise">
+            <h1 className="text-balance text-charcoal max-w-[24ch]" style={{ fontFamily: "'Space Grotesk', system-ui", fontSize: "clamp(2.25rem, 5vw, 3.75rem)", fontWeight: 300, letterSpacing: "-0.02em", lineHeight: 1.05 }}>
+              {sc} FAQ — Cochrane &amp; Area
+            </h1>
+          </ScrollReveal>
 
           {/* Primary keyword + brand in first 100 words */}
-          <p className="mt-5 max-w-[58ch] text-graphite leading-relaxed" style={{ fontFamily: "'Jost', system-ui", fontSize: 16, fontWeight: 300 }}>
-            Every question Cochrane homeowners ask about {s} work — cost, process,
-            quality standards, permits, and what {bn} puts in writing on every project.
-            {categories.length * 4}+ questions across {categories.length} topic areas.
-            One answer gets you a written quote.
-          </p>
+          <ScrollReveal delay={0.14}>
+            <p className="mt-5 max-w-[58ch] text-pretty text-graphite leading-relaxed" style={{ fontFamily: "'Jost', system-ui", fontSize: 16, fontWeight: 300 }}>
+              Every question Cochrane homeowners ask about {s} work — cost, process,
+              quality standards, permits, and what {bn} puts in writing on every project.
+              {categories.length * 4}+ questions across {categories.length} topic areas.
+              One answer gets you a written quote.
+            </p>
+          </ScrollReveal>
 
           {/* Jump links — UX + crawl signal for intent clustering */}
-          <div className="mt-8 flex flex-wrap gap-2">
+          <ScrollReveal delay={0.2} className="mt-8 flex flex-wrap gap-2">
             {categories.map((cat) => (
               <a key={cat.id} href={`#${cat.id}`}
                 className="inline-flex items-center rounded-full px-4 py-1.5 transition-all duration-200 hover:border-forest/40 hover:text-forest"
@@ -396,7 +403,7 @@ const FAQPage = ({ onBookClick }: Props) => {
                 {cat.label}
               </a>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
