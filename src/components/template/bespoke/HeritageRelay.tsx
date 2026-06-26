@@ -92,10 +92,12 @@ const HeritageRelay = () => {
         className="mt-4 grid grid-cols-3 gap-px border-y border-seam bg-seam"
       >
         {ledger.map((stat) => (
-          <div key={stat.l} className="bg-paper px-4 py-7 text-center sm:py-9">
+          <div key={stat.l} className="bg-paper px-2.5 py-7 text-center sm:px-4 sm:py-9">
             <dd
               className="font-display leading-none text-charcoal"
-              style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)" }}
+              /* clamp floor lowered so a 3-digit figure (e.g. 145) fits the
+                 narrow 3-col cell on small phones; >=466px uses 6vw/max → desktop unchanged */
+              style={{ fontSize: "clamp(1.6rem, 6vw, 4rem)" }}
             >
               {stat.n}
             </dd>
