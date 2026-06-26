@@ -84,22 +84,23 @@ const ReviewCard = ({
 }) => (
   <div className="ring-1 ring-[#1F2F4D]/06 rounded-[1.5rem] p-1.5 bg-white/80 h-full">
     <div className="rounded-[calc(1.5rem-0.375rem)] p-6 md:p-8 bg-[#FDFBF7] shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] h-full flex flex-col">
-      {/* Before / After strip */}
-      <div className="flex gap-4 mb-6">
+      {/* Before / After strip — mobile stacks + wraps (full proof legible);
+          desktop keeps the side-by-side truncated layout, unchanged. */}
+      <div className="flex flex-col gap-3 md:flex-row md:gap-4 mb-6">
         <div className="flex-1 min-w-0">
           <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#7A8BAA] mb-1">
             Before
           </p>
-          <p className="font-body text-[0.8125rem] leading-[1.5] text-[#7A8BAA] font-light truncate">
+          <p className="font-body text-[0.8125rem] leading-[1.5] text-[#7A8BAA] font-light md:truncate">
             {review.before}
           </p>
         </div>
-        <div className="w-px bg-[#EDE9E1] flex-shrink-0" aria-hidden />
+        <div className="hidden w-px bg-[#EDE9E1] flex-shrink-0 md:block" aria-hidden />
         <div className="flex-1 min-w-0">
           <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#8B6B4A] mb-1">
             After
           </p>
-          <p className="font-body text-[0.8125rem] leading-[1.5] text-[#1F2F4D] font-light truncate">
+          <p className="font-body text-[0.8125rem] leading-[1.5] text-[#1F2F4D] font-light md:truncate">
             {review.after}
           </p>
         </div>
