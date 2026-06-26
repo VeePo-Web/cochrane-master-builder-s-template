@@ -4,8 +4,10 @@
    All tokens derive from src/config/trade.config.ts → TRADE.palette.light.
    Bespoke heirloom tokens documented in src/config/template/bespoke-config.ts */
 
-/* Space Grotesk + Jost — loaded for bespoke heirloom moments only */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&family=Jost:wght@200;300;400;500&display=swap');
+/* Space Grotesk + Jost (bespoke heirloom moments) are loaded via the
+   preconnected <link> in index.html — NOT a render-blocking CSS @import.
+   Space Grotesk is the hero H1 (the LCP element); loading it early in
+   <head> instead of late via @import protects FCP/LCP. */
 
 @tailwind base;
 @tailwind components;
