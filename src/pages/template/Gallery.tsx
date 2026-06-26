@@ -31,7 +31,34 @@ const Gallery = ({ onBookClick }: Props) => {
       <SectionFrame tone="paper" size="lg">
         <RemixSlot name="GALLERY_IMAGES">
           {galleryItems.length > 0 ? (
-            <ImageMosaic items={galleryItems} layout="3-up" />
+            <>
+              {/* Mobile: full stacked proof feed — every image, not just the desktop 3-up.
+                  More proof converts; desktop is unchanged (mosaic below is hidden md:block). */}
+              <div className="grid grid-cols-1 gap-px bg-seam md:hidden">
+                {galleryItems.map((img, i) => (
+                  <figure key={i} className="relative bg-paper">
+                    <div className={`relative w-full overflow-hidden ${img.aspect ?? "aspect-[4/3]"}`}>
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        loading="lazy"
+                        decoding="async"
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                    </div>
+                    {img.caption && (
+                      <figcaption className="border-t border-seam px-4 py-3 text-caption text-mist">
+                        {img.caption}
+                      </figcaption>
+                    )}
+                  </figure>
+                ))}
+              </div>
+              {/* Desktop: untouched editorial 3-up mosaic */}
+              <div className="hidden md:block">
+                <ImageMosaic items={galleryItems} layout="3-up" />
+              </div>
+            </>
           ) : (
             <div className="flex aspect-[3/2] items-center justify-center border border-copper/20 bg-paper text-caption text-mist">
               Gallery images not yet generated — run scripts/regenerate-images.ts
