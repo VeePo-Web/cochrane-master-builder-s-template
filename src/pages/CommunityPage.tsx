@@ -22,7 +22,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, MapPin, ChevronDown } from "lucide-react";
+import { ArrowLeft, ArrowRight, MapPin, ChevronDown, Phone } from "lucide-react";
 import TemplateLayout from "@/components/template/TemplateLayout";
 import SectionFrame from "@/components/template/SectionFrame";
 import GoogleMapEmbed from "@/components/areas/GoogleMapEmbed";
@@ -31,6 +31,7 @@ import AreasSEOSchema from "@/components/areas/AreasSEOSchema";
 import { getCommunity, getRegion, getCommunity as gc, resolveCommunityHeroImage } from "@/data/communities";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
+import { PHONE_TEL, PHONE_DISPLAY } from "@/config/template/contact";
 import { setPageMeta } from "@/lib/seo";
 import type { BookingClickHandler, BookingPrefill } from "@/config/drywall-booking";
 import type { FAQ } from "@/config/template/remix-variables";
@@ -224,6 +225,17 @@ const CommunityPage = ({ onBookClick }: CommunityPageProps) => {
               {TEMPLATE_COPY.cta.primary}
               <ArrowRight size={16} />
             </button>
+            {/* Mobile-only click-to-call — high-intent local-search escape hatch; desktop unchanged (sm:hidden) */}
+            <a
+              href={PHONE_TEL}
+              aria-label={`Call ${PHONE_DISPLAY}`}
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full
+                         border border-primary-foreground/30 text-primary-foreground
+                         font-body text-label uppercase tracking-[0.15em]
+                         transition-colors duration-300 hover:border-primary-foreground/60 sm:hidden"
+            >
+              <Phone size={16} /> Call {PHONE_DISPLAY}
+            </a>
             <Link to={`/areas-we-serve/${regionSlug}`}
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full
                          border border-primary-foreground/30 text-primary-foreground/70

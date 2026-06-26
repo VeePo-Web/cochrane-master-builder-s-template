@@ -325,7 +325,7 @@ export const BookingForm = ({ prefill, onClose, formKey }: Props) => {
 
         {/* ── Sticky CTA ──────────────────────────────────────────── */}
         <div
-          className="px-8 pb-8 pt-4"
+          className="px-8 pt-4 pb-[max(2rem,env(safe-area-inset-bottom))]"
           style={{ borderTop: "1px solid hsl(var(--copper) / 0.10)" }}
         >
           {step < 3 && (

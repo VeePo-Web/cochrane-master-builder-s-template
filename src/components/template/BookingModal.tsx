@@ -154,7 +154,7 @@ export const BookingModal = ({ open, onClose, prefill }: Props) => {
             {/* Centering on desktop */}
             <div className="md:-translate-y-1/2 md:transform">
               <div
-                className="flex overflow-hidden shadow-2xl"
+                className="flex overflow-hidden rounded-t-2xl shadow-2xl md:rounded-none"
                 style={{
                   height: "92dvh",
                   maxHeight: "92dvh",
