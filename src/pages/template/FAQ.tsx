@@ -357,7 +357,16 @@ const FAQPage = ({ onBookClick }: Props) => {
         className="relative overflow-hidden bg-bone border-b"
         style={{ borderColor: "hsl(var(--copper) / 0.1)", paddingTop: "clamp(5rem, 12vw, 9rem)", paddingBottom: "clamp(3rem, 8vw, 5rem)" }}
       >
-        <div className="container mx-auto px-6">
+        {/* Atmospheric depth — faint warm aura so the hero reads layered, not flat */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 z-0"
+          style={{
+            background:
+              "radial-gradient(50% 60% at 12% 48%, hsl(var(--forest) / 0.045), transparent 72%), radial-gradient(40% 48% at 92% 22%, hsl(var(--copper) / 0.04), transparent 74%)",
+          }}
+        />
+        <div className="container relative z-10 mx-auto px-6">
           <nav aria-label="Breadcrumb" className="mb-6">
             <ol className="flex items-center gap-2" style={{ fontFamily: "'Jost', system-ui", fontSize: 11, color: "hsl(var(--mist))", letterSpacing: "0.1em" }}>
               <li><Link to="/" className="hover:text-graphite transition-colors">Home</Link></li>

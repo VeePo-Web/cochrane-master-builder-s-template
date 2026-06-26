@@ -32,14 +32,13 @@ const TemplateNotFound = ({ onBookClick }: Props) => {
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <Link
               to="/"
-              className="rounded-none bg-forest px-6 py-3.5 text-sm font-medium tracking-[0.1em] uppercase text-primary-foreground transition-colors hover:bg-forest-deep"
+              className="rounded-none bg-forest px-6 py-3.5 text-sm font-medium uppercase tracking-[0.1em] text-primary-foreground shadow-[0_1px_0_hsl(var(--forest-deep))] transition-[transform,box-shadow,background-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:bg-forest-deep hover:shadow-[0_12px_30px_-10px_hsl(var(--forest)/0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bone active:translate-y-0 active:scale-[0.985]"
             >
               Back to home
             </Link>
             <Link
               to="/services"
-              className="rounded-none px-6 py-3.5 text-sm font-medium tracking-[0.1em] uppercase text-charcoal transition-colors hover:text-forest"
-              style={{ border: "1px solid hsl(var(--copper) / 0.20)" }}
+              className="rounded-none border border-[hsl(var(--copper)/0.35)] px-6 py-3.5 text-sm font-medium uppercase tracking-[0.1em] text-charcoal transition-[transform,color,background-color,border-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:border-forest/30 hover:bg-forest/[0.04] hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest/30 focus-visible:ring-offset-2 focus-visible:ring-offset-bone active:translate-y-0 active:scale-[0.985]"
             >
               See services
             </Link>

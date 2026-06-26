@@ -126,7 +126,16 @@ const Reviews = ({ onBookClick }: Props) => {
         className="relative overflow-hidden bg-bone border-b"
         style={{ borderColor: "hsl(var(--copper) / 0.1)", paddingTop: "clamp(5rem, 12vw, 9rem)", paddingBottom: "clamp(3rem, 8vw, 6rem)" }}
       >
-        <div className="container mx-auto px-6">
+        {/* Atmospheric depth — faint warm aura so the hero reads layered, not flat */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 z-0"
+          style={{
+            background:
+              "radial-gradient(50% 60% at 12% 48%, hsl(var(--forest) / 0.045), transparent 72%), radial-gradient(40% 48% at 92% 22%, hsl(var(--copper) / 0.04), transparent 74%)",
+          }}
+        />
+        <div className="container relative z-10 mx-auto px-6">
           <p className="eyebrow-copper mb-5">{c.hero.eyebrow}</p>
           <h1
             className="text-charcoal max-w-[18ch]"
