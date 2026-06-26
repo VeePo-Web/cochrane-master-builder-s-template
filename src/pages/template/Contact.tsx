@@ -6,6 +6,7 @@ import CTABand from "@/components/drywall/CTABand";
 import RemixSlot from "@/components/template/RemixSlot";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
+import { PHONE_TEL, PHONE_DISPLAY } from "@/config/template/contact";
 import type { BookingClickHandler } from "@/config/drywall-booking";
 
 interface Props { onBookClick?: BookingClickHandler }
@@ -18,15 +19,25 @@ const Contact = ({ onBookClick }: Props) => {
 
       <SectionFrame tone="paper" size="lg">
         <div className="grid gap-px bg-seam md:grid-cols-2 lg:grid-cols-4">
-          {[
-            { label: "Phone", value: "{PHONE}" },
+          {([
+            { label: "Phone", value: PHONE_DISPLAY, href: PHONE_TEL },
             { label: "Email", value: "{EMAIL}" },
             { label: "Hours", value: "Mon–Sat · 7am–6pm" },
             { label: "Service area", value: MASTER_REMIX.COMMUNITIES.slice(0, 4).join(" · ") + " + 4 more" },
-          ].map((it) => (
+          ] as { label: string; value: string; href?: string }[]).map((it) => (
             <div key={it.label} className="bg-paper p-8">
               <p className="font-eyebrow text-mist">{it.label}</p>
-              <p className="mt-3 font-display text-display-sm text-charcoal break-words">{it.value}</p>
+              {it.href ? (
+                <a
+                  href={it.href}
+                  aria-label={`Call ${it.value}`}
+                  className="mt-3 block font-display text-display-sm text-charcoal break-words transition-colors hover:text-forest"
+                >
+                  {it.value}
+                </a>
+              ) : (
+                <p className="mt-3 font-display text-display-sm text-charcoal break-words">{it.value}</p>
+              )}
             </div>
           ))}
         </div>
