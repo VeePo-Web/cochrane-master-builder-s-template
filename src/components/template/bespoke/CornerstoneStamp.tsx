@@ -15,6 +15,7 @@
  * All strings from BESPOKE_CONFIG. Respects prefers-reduced-motion.
  */
 
+import { useReducedMotion } from "framer-motion";
 import { BESPOKE_CONFIG } from "@/config/template/bespoke-config";
 
 interface CornerstoneStampProps {
@@ -27,6 +28,9 @@ const CornerstoneStamp = ({
   className = "",
 }: CornerstoneStampProps) => {
   const { cornerstone } = BESPOKE_CONFIG;
+  // SMIL <animateTransform> is NOT governed by the CSS prefers-reduced-motion
+  // media query, so the rotation must be gated in JS to honour the setting.
+  const reduced = useReducedMotion();
   const r = 44; // radius for the text path
   const cx = 50;
   const cy = 50;
@@ -86,16 +90,18 @@ const CornerstoneStamp = ({
       {/* Subtle foundation line below CMB */}
       <line x1={cx - 14} y1={cy + 10} x2={cx + 14} y2={cy + 10} stroke="currentColor" strokeWidth="0.6" />
 
-      {/* Whole stamp rotates over 60s */}
-      <animateTransform
-        attributeName="transform"
-        attributeType="XML"
-        type="rotate"
-        from={`0 ${cx} ${cy}`}
-        to={`360 ${cx} ${cy}`}
-        dur={`${cornerstone.rotateDurationS}s`}
-        repeatCount="indefinite"
-      />
+      {/* Whole stamp rotates over 60s — paused entirely under reduced-motion */}
+      {!reduced && (
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          from={`0 ${cx} ${cy}`}
+          to={`360 ${cx} ${cy}`}
+          dur={`${cornerstone.rotateDurationS}s`}
+          repeatCount="indefinite"
+        />
+      )}
     </svg>
   );
 };
