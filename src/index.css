@@ -401,22 +401,14 @@ html.lenis body {
   [data-reveal] { opacity: 1; transform: none; transition: none; }
 }
 
-/* Hero headline — cinematic curtain-rise. Overrides the default fade for the
-   H1 only, driven by the same shared IntersectionObserver via [data-revealed]. */
+/* Hero headline — ALWAYS rendered, never gated behind a reveal. The H1 is the
+   LCP element and the page's core message; a JS-driven clip/opacity reveal can
+   leave it clipped-to-nothing if the observer is slow or skipped, so it is kept
+   fully visible at first paint. Supporting elements still cascade in around it. */
 [data-reveal].hero-rise {
   opacity: 1;
   transform: none;
-  clip-path: inset(108% 0 0 0);
-  /* 600ms keeps the masked reveal crisp without gating LCP — the H1 is the
-     largest-contentful paint on the imageless hero. */
-  transition: clip-path 600ms cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: clip-path;
-}
-[data-reveal].hero-rise[data-revealed="true"] {
-  clip-path: inset(0 0 0 0);
-}
-@media (prefers-reduced-motion: reduce) {
-  [data-reveal].hero-rise { clip-path: none; transition: none; will-change: auto; }
+  clip-path: none;
 }
 
 /* Hero scroll cue — a plumb line that drips down the seam, wordless wayfinding.
