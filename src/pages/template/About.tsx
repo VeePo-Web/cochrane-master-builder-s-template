@@ -13,6 +13,10 @@ const MasterBuilderSeal = lazy(() => import("@/components/master/MasterBuilderSe
 
 interface Props { onBookClick?: BookingClickHandler }
 
+// Team/crew section is hidden on the live site but kept in code.
+// Flip to true to restore it on the About page.
+const SHOW_TEAM: boolean = false;
+
 const About = ({ onBookClick }: Props) => {
   const c = TEMPLATE_COPY.about;
   return (
@@ -23,20 +27,22 @@ const About = ({ onBookClick }: Props) => {
         <HeritageRelay />
       </SectionFrame>
 
-      <SectionFrame tone="bone" size="lg">
-        <SectionTitle eyebrow="The crew" headline="Six people. Cochrane locals. Master-builder grade." />
-        <RemixSlot name="TEAM">
-          <div className="mt-12 grid gap-px bg-seam md:grid-cols-3">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="bg-paper p-8">
-                <span className="font-eyebrow text-mist">Crew · {String(i).padStart(2, "0")}</span>
-                <p className="mt-3 font-display text-display-sm text-charcoal">{`{TEAM_MEMBER_${i}_NAME}`}</p>
-                <p className="mt-2 text-graphite">{`{TEAM_MEMBER_${i}_ROLE}`} — short bio of how long they've been on the {`{SERVICE}`} crew.</p>
-              </div>
-            ))}
-          </div>
-        </RemixSlot>
-      </SectionFrame>
+      {SHOW_TEAM && (
+        <SectionFrame tone="bone" size="lg">
+          <SectionTitle eyebrow="The crew" headline="Six people. Cochrane locals. Master-builder grade." />
+          <RemixSlot name="TEAM">
+            <div className="mt-12 grid gap-px bg-seam md:grid-cols-3">
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <div key={i} className="bg-paper p-8">
+                  <span className="font-eyebrow text-mist">Crew · {String(i).padStart(2, "0")}</span>
+                  <p className="mt-3 font-display text-display-sm text-charcoal">{`{TEAM_MEMBER_${i}_NAME}`}</p>
+                  <p className="mt-2 text-graphite">{`{TEAM_MEMBER_${i}_ROLE}`} — short bio of how long they've been on the {`{SERVICE}`} crew.</p>
+                </div>
+              ))}
+            </div>
+          </RemixSlot>
+        </SectionFrame>
+      )}
 
       <SectionFrame tone="paper" size="lg">
         <SectionTitle eyebrow="What we will not change" headline="Four values. One standard." />
