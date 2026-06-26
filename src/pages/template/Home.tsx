@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import TemplateLayout from "@/components/template/TemplateLayout";
@@ -42,6 +42,43 @@ const HOME_PROCESS = [
 
 const TemplateHome = ({ onBookClick }: Props) => {
   const c = TEMPLATE_COPY.home;
+
+  // Magnetic seal — the cornerstone stamp drifts a few px toward the cursor,
+  // "a compass needle finding true north" (its own brief). Pointer-fine only,
+  // honours reduced-motion, GPU transform; touch/mobile keep the static seal.
+  const sealRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = sealRef.current;
+    if (!el) return;
+    const fine = window.matchMedia("(pointer: fine)").matches;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!fine || reduced) return;
+
+    const MAX = 6; // px of drift at the viewport edge
+    let raf = 0;
+    let tx = 0, ty = 0, gx = 0, gy = 0;
+    const tick = () => {
+      tx += (gx - tx) * 0.08;
+      ty += (gy - ty) * 0.08;
+      el.style.transform = `translate3d(${tx.toFixed(2)}px, ${ty.toFixed(2)}px, 0)`;
+      raf = Math.abs(gx - tx) > 0.1 || Math.abs(gy - ty) > 0.1 ? requestAnimationFrame(tick) : 0;
+    };
+    const onMove = (e: MouseEvent) => {
+      const r = el.getBoundingClientRect();
+      if (!r.width) return; // hidden (below md) — skip
+      const dx = (e.clientX - (r.left + r.width / 2)) / (window.innerWidth / 2);
+      const dy = (e.clientY - (r.top + r.height / 2)) / (window.innerHeight / 2);
+      gx = Math.max(-1, Math.min(1, dx)) * MAX;
+      gy = Math.max(-1, Math.min(1, dy)) * MAX;
+      if (!raf) raf = requestAnimationFrame(tick);
+    };
+    window.addEventListener("mousemove", onMove, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
     <TemplateLayout onBookClick={onBookClick}>
       {/* HERO */}
@@ -138,7 +175,9 @@ const TemplateHome = ({ onBookClick }: Props) => {
               {/* RIGHT — the seal: cornerstone registration mark, grid-anchored (desktop) */}
               <ScrollReveal delay={0.34} className="hidden md:col-span-5 md:block">
                 <div className="flex items-center justify-center border-l border-seam/70 pl-10 lg:pl-16">
-                  <CornerstoneStamp size={132} />
+                  <div ref={sealRef} className="will-change-transform">
+                    <CornerstoneStamp size={132} />
+                  </div>
                 </div>
               </ScrollReveal>
             </div>
