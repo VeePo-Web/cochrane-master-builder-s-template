@@ -119,6 +119,20 @@ const TemplateHome = ({ onBookClick }: Props) => {
                     </Link>
                   </div>
                 </ScrollReveal>
+
+                {/* Mobile-only above-fold trust strip — answers "is this legit + low-risk?"
+                    at the decision point, before any scroll. Desktop unchanged (md:hidden);
+                    the same proof renders in the Trust Bar section for >=md. */}
+                <ScrollReveal delay={0.34} className="md:hidden">
+                  <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2.5 border-t border-seam/60 pt-5">
+                    {MASTER_REMIX.TRUST_NUMBERS.slice(0, 3).map((t) => (
+                      <li key={t.label} className="flex items-baseline gap-1.5">
+                        <span className="text-base font-semibold leading-none text-forest">{t.number}</span>
+                        <span className="text-[11px] uppercase leading-tight tracking-[0.1em] text-mist">{t.label}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </ScrollReveal>
               </div>
 
               {/* RIGHT — the seal: cornerstone registration mark, grid-anchored (desktop) */}
