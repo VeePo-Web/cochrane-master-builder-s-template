@@ -57,11 +57,20 @@ const TemplateHome = ({ onBookClick }: Props) => {
     const MAX = 6; // px of drift at the viewport edge
     let raf = 0;
     let tx = 0, ty = 0, gx = 0, gy = 0;
+    let promoted = false;
+    const promote = () => { if (!promoted) { el.style.willChange = "transform"; promoted = true; } };
     const tick = () => {
       tx += (gx - tx) * 0.08;
       ty += (gy - ty) * 0.08;
       el.style.transform = `translate3d(${tx.toFixed(2)}px, ${ty.toFixed(2)}px, 0)`;
-      raf = Math.abs(gx - tx) > 0.1 || Math.abs(gy - ty) > 0.1 ? requestAnimationFrame(tick) : 0;
+      if (Math.abs(gx - tx) > 0.1 || Math.abs(gy - ty) > 0.1) {
+        raf = requestAnimationFrame(tick);
+      } else {
+        raf = 0;
+        // Settled — release the GPU layer hint until the next move.
+        el.style.willChange = "auto";
+        promoted = false;
+      }
     };
     const onMove = (e: MouseEvent) => {
       const r = el.getBoundingClientRect();
@@ -70,12 +79,14 @@ const TemplateHome = ({ onBookClick }: Props) => {
       const dy = (e.clientY - (r.top + r.height / 2)) / (window.innerHeight / 2);
       gx = Math.max(-1, Math.min(1, dx)) * MAX;
       gy = Math.max(-1, Math.min(1, dy)) * MAX;
-      if (!raf) raf = requestAnimationFrame(tick);
+      if (!raf) { promote(); raf = requestAnimationFrame(tick); }
     };
     window.addEventListener("mousemove", onMove, { passive: true });
     return () => {
       window.removeEventListener("mousemove", onMove);
       if (raf) cancelAnimationFrame(raf);
+      el.style.willChange = "";
+      el.style.transform = "";
     };
   }, []);
 
@@ -175,7 +186,7 @@ const TemplateHome = ({ onBookClick }: Props) => {
               {/* RIGHT — the seal: cornerstone registration mark, grid-anchored (desktop) */}
               <ScrollReveal delay={0.34} className="hidden md:col-span-5 md:block">
                 <div className="flex items-center justify-center border-l border-seam/70 pl-10 lg:pl-16">
-                  <div ref={sealRef} className="will-change-transform">
+                  <div ref={sealRef}>
                     <CornerstoneStamp size={132} />
                   </div>
                 </div>
