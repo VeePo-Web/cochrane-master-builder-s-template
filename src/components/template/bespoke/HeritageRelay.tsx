@@ -58,21 +58,20 @@ const HeritageRelay = () => {
             className="relative overflow-hidden pb-12 pl-10 last:pb-0 md:pl-16"
           >
             {/* node — this generation's mark on the line */}
-            <span aria-hidden className="absolute left-0 top-1 flex items-center justify-center">
+            <span aria-hidden className="absolute left-0 top-2 flex items-center justify-center md:top-3">
               <span className="block h-[17px] w-[17px] rounded-full border border-copper/60 bg-paper md:h-[21px] md:w-[21px]" />
               <span className="absolute h-1.5 w-1.5 rounded-full bg-copper md:h-2 md:w-2" />
             </span>
-            {/* ghost numeral — ascending chapter anchor */}
-            <span
-              aria-hidden
-              className="pointer-events-none absolute -top-6 right-0 select-none font-display leading-none"
-              style={{ fontSize: "clamp(5rem, 13vw, 12rem)", color: "hsl(var(--copper) / 0.06)" }}
-            >
-              {String(i + 1).padStart(2, "0")}
-            </span>
             <div className="relative max-w-2xl">
-              <p className="eyebrow-copper">{beat.year} — {beat.label}</p>
-              <p className="mt-3 text-body-lg text-charcoal">{beat.body}</p>
+              {/* the year is the hero — each generation a dated chapter */}
+              <p
+                className="font-display leading-[0.95] text-charcoal"
+                style={{ fontSize: "clamp(2rem, 5.5vw, 3.5rem)" }}
+              >
+                {beat.year}
+              </p>
+              <p className="eyebrow-copper mt-2.5">{beat.label}</p>
+              <p className="mt-4 text-body-lg text-charcoal">{beat.body}</p>
             </div>
           </motion.li>
         ))}
