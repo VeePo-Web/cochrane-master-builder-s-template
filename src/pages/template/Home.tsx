@@ -45,20 +45,24 @@ const TemplateHome = ({ onBookClick }: Props) => {
     <TemplateLayout onBookClick={onBookClick}>
       {/* HERO */}
       <RemixSlot name="HERO_IMAGE" hint="Bind a service-specific AVIF (≤140KB)">
-        <section className="relative overflow-hidden bg-bone">
+        <section className="relative isolate flex min-h-[82svh] items-center overflow-hidden border-b border-seam/60 bg-bone">
           <BlueprintGrain opacity={0.018} />
           {MASTER_REMIX.HERO_IMAGE && (
             <HeroImage src={MASTER_REMIX.HERO_IMAGE} alt="" gradientFrom="left" opacity={32} />
           )}
-          <div className="container relative z-10 mx-auto px-6 pt-24 pb-20 md:pt-36 md:pb-28">
-            <div className="grid items-end gap-12 md:grid-cols-12">
-              <div className="md:col-span-8">
+          <div className="container relative z-10 mx-auto w-full px-6 py-20 md:py-28">
+            <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
+              {/* LEFT — the argument (sequential reveal: eyebrow → headline → mark → sub → CTA) */}
+              <div className="md:col-span-7">
                 <ScrollReveal>
                   {/* Eyebrow: 24px copper hairline + Jost caps */}
-                  <div className="flex items-center gap-3 mb-5">
+                  <div className="mb-6 flex items-center gap-3">
                     <span className="hairline-copper w-6 flex-shrink-0" />
                     <p className="eyebrow-copper">{c.hero.eyebrow}</p>
                   </div>
+                </ScrollReveal>
+
+                <ScrollReveal delay={0.06}>
                   <h1
                     className="text-charcoal"
                     style={{
@@ -71,38 +75,53 @@ const TemplateHome = ({ onBookClick }: Props) => {
                   >
                     {c.hero.headline}
                   </h1>
+                </ScrollReveal>
 
-                  {/* Hand-etched copper underline — draws itself on mount */}
-                  <HeroEtchedUnderline className="mt-3 mb-4 block" />
-
+                <ScrollReveal delay={0.14}>
+                  {/* Hand-etched copper underline — a measured stroke, not a full-column rule */}
+                  <HeroEtchedUnderline className="mt-5 mb-5 block w-40 md:w-56" />
                   {/* Slogan whisper — beneath the H1 */}
-                  <SloganHeartbeat variant="whisper" className="mb-6 block" />
+                  <SloganHeartbeat variant="whisper" className="mb-7 block" />
+                </ScrollReveal>
 
-                  <p className="mt-2 max-w-[56ch] text-body-lg text-graphite">{c.hero.sub}</p>
-                  <div className="mt-10 flex flex-wrap gap-3">
+                <ScrollReveal delay={0.2}>
+                  <p className="max-w-[56ch] text-body-lg text-graphite">{c.hero.sub}</p>
+                </ScrollReveal>
+
+                <ScrollReveal delay={0.28}>
+                  <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
                     <button
                       type="button"
                       onClick={() => onBookClick?.({ source: "Home hero" })}
-                      className="rounded-none bg-forest px-6 py-3.5 text-sm font-medium tracking-[0.12em] uppercase text-primary-foreground transition-colors hover:bg-forest-deep"
+                      className="w-full rounded-none bg-forest px-7 py-4 text-sm font-medium uppercase tracking-[0.12em] text-primary-foreground shadow-[0_1px_0_hsl(var(--forest-deep))] transition-[transform,box-shadow,background-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:bg-forest-deep hover:shadow-[0_12px_30px_-10px_hsl(var(--forest)/0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bone active:translate-y-0 active:scale-[0.985] sm:w-auto"
                     >
                       {TEMPLATE_COPY.cta.primary}
                     </button>
                     <Link
                       to="/pricing"
-                      className="rounded-none px-6 py-3.5 text-sm font-medium tracking-[0.12em] uppercase text-charcoal transition-all duration-300 hover:text-forest"
-                      style={{ border: "1px solid hsl(var(--copper) / 0.20)" }}
+                      className="w-full rounded-none border border-[hsl(var(--copper)/0.35)] px-7 py-4 text-center text-sm font-medium uppercase tracking-[0.12em] text-charcoal transition-[transform,color,background-color,border-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:border-forest/30 hover:bg-forest/[0.04] hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest/30 focus-visible:ring-offset-2 focus-visible:ring-offset-bone active:translate-y-0 active:scale-[0.985] sm:w-auto"
                     >
                       {TEMPLATE_COPY.cta.secondary}
                     </Link>
                   </div>
                 </ScrollReveal>
               </div>
-            </div>
-          </div>
 
-          {/* Cornerstone stamp — bottom-right of hero */}
-          <div className="absolute bottom-6 right-6 md:bottom-10 md:right-10 z-10">
-            <CornerstoneStamp size={72} />
+              {/* RIGHT — the seal: cornerstone registration mark, grid-anchored (desktop) */}
+              <ScrollReveal delay={0.34} className="hidden md:col-span-5 md:block">
+                <div className="flex items-center justify-center border-l border-seam/70 pl-10 lg:pl-16">
+                  <CornerstoneStamp size={132} />
+                </div>
+              </ScrollReveal>
+            </div>
+
+            {/* Mobile seal — in-flow beneath the argument, never colliding */}
+            <ScrollReveal delay={0.34} className="md:hidden">
+              <div className="mt-12 flex items-center gap-4">
+                <span className="hairline-copper flex-1" />
+                <CornerstoneStamp size={56} />
+              </div>
+            </ScrollReveal>
           </div>
         </section>
       </RemixSlot>
