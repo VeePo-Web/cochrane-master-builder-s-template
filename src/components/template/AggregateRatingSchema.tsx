@@ -13,6 +13,7 @@
 
 import { Helmet } from "react-helmet-async";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
+import { EMAIL } from "@/config/template/contact";
 import type { ReviewAggregate, Review } from "@/config/reviews";
 
 interface AggregateRatingSchemaProps {
@@ -51,7 +52,7 @@ export const AggregateRatingSchema = ({
     "@type": "LocalBusiness",
     name: MASTER_REMIX.BRAND_NAME,
     url: MASTER_REMIX.BRAND_URL,
-    telephone: MASTER_REMIX.PHONE,
+    email: EMAIL,
     image: MASTER_REMIX.OG_IMAGE,
     aggregateRating: {
       "@type": "AggregateRating",

@@ -21,3 +21,12 @@ export const PHONE_DISPLAY = (() => {
   if (ten.length !== 10) return E164;
   return `(${ten.slice(0, 3)}) ${ten.slice(3, 6)}-${ten.slice(6)}`;
 })();
+
+/**
+ * Single source of truth for email contact. The site contacts by email only
+ * (phone surfaces are retired) — every Email link/label reads from here.
+ */
+export const EMAIL = "parker@veepo.ca";
+
+/** `mailto:` href for email links/buttons. */
+export const EMAIL_HREF = `mailto:${EMAIL}`;

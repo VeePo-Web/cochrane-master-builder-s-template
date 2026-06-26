@@ -26,6 +26,7 @@ import CTABand from "@/components/drywall/CTABand";
 import ScrollReveal from "@/components/drywall/ScrollReveal";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
+import { EMAIL } from "@/config/template/contact";
 import type { BookingClickHandler } from "@/config/drywall-booking";
 
 interface Props { onBookClick?: BookingClickHandler }
@@ -304,7 +305,7 @@ const FAQPage = ({ onBookClick }: Props) => {
         "@id": `${baseUrl}/#organization`,
         name: bn,
         url: baseUrl,
-        telephone: MASTER_REMIX.PHONE,
+        email: EMAIL,
         foundingDate: String(yr),
         sameAs: [parentUrl, MASTER_REMIX.GOOGLE_REVIEW_URL].filter(Boolean),
         description: `${bn} is a licensed and insured ${sc} contractor in Cochrane, AB, serving 120+ communities since ${yr}. Written quotes within 24 hours. 3-tier written guarantee on every project.`,

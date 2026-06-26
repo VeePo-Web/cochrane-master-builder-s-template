@@ -1,10 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
 import PrefetchLink from "./PrefetchLink";
 import { useEffect, useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Mail } from "lucide-react";
 import { MasterLogo } from "@/master";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
-import { PHONE_TEL, PHONE_DISPLAY } from "@/config/template/contact";
+import { EMAIL, EMAIL_HREF } from "@/config/template/contact";
 import { SloganHeartbeat } from "@/components/template/bespoke";
 import type { BookingClickHandler } from "@/config/drywall-booking";
 
@@ -123,12 +123,12 @@ const TemplateNavigation = ({ onBookClick }: Props) => {
             ))}
             <li className="space-y-3 bg-bone p-6">
               <a
-                href={PHONE_TEL}
-                aria-label={`Call ${PHONE_DISPLAY}`}
+                href={EMAIL_HREF}
+                aria-label={`Email ${EMAIL}`}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-sm border border-[hsl(var(--copper)/0.4)] px-5 py-3 text-sm font-medium text-charcoal transition-colors hover:border-forest/40 hover:text-forest"
               >
-                <Phone size={16} aria-hidden />
-                Call {PHONE_DISPLAY}
+                <Mail size={16} aria-hidden />
+                Email {EMAIL}
               </a>
               <button
                 type="button"

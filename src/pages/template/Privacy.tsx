@@ -2,6 +2,7 @@ import TemplateLayout from "@/components/template/TemplateLayout";
 import SectionFrame from "@/components/template/SectionFrame";
 import InnerHero from "@/components/drywall/InnerHero";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
+import { EMAIL } from "@/config/template/contact";
 import type { BookingClickHandler } from "@/config/drywall-booking";
 
 interface Props { onBookClick?: BookingClickHandler }
@@ -18,7 +19,7 @@ const Privacy = ({ onBookClick }: Props) => {
           <h2 className="mt-12 font-display text-display-md text-charcoal">Why</h2>
           <p>So we can produce a written {`{SERVICE}`} quote and contact you about it. No marketing automation. No third-party sale.</p>
           <h2 className="mt-12 font-display text-display-md text-charcoal">How to remove</h2>
-          <p>Email {`{EMAIL}`} with the subject line "delete." We confirm within 48 hours and purge the record.</p>
+          <p>Email {EMAIL} with the subject line "delete." We confirm within 48 hours and purge the record.</p>
         </article>
       </SectionFrame>
     </TemplateLayout>

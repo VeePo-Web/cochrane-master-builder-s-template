@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import type { Community } from "@/data/communities";
 import type { FAQ } from "@/config/template/remix-variables";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
+import { EMAIL } from "@/config/template/contact";
 
 const ADDRESS_LOCALITY = "Cochrane";
 const ADDRESS_REGION = "AB";
-// Resolved at runtime so every trade site gets its own domain + phone
+// Resolved at runtime so every trade site gets its own domain
 const BASE_URL = MASTER_REMIX.BRAND_URL;
-const PHONE    = MASTER_REMIX.PHONE;
 
 /**
  * Injects 4 JSON-LD schema types into document.head for a community page.
@@ -38,7 +38,7 @@ const AreasSEOSchema = ({
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         name: brandName,
-        telephone: PHONE,
+        email: EMAIL,
         address: {
           "@type": "PostalAddress",
           addressLocality: ADDRESS_LOCALITY,

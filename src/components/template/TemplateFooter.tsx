@@ -15,12 +15,12 @@
  */
 
 import { Link } from "react-router-dom";
-import { Phone } from "lucide-react";
+import { Mail } from "lucide-react";
 import PrefetchLink from "./PrefetchLink";
 import { MasterLogo } from "@/master";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
-import { PHONE_TEL, PHONE_DISPLAY } from "@/config/template/contact";
+import { EMAIL, EMAIL_HREF } from "@/config/template/contact";
 import {
   GenerationalMarquee,
   SloganHeartbeat,
@@ -72,14 +72,14 @@ const TemplateFooter = ({ onBookClick }: Props) => {
               {TEMPLATE_COPY.cta.primary}
             </button>
 
-            {/* Mobile-only click-to-call — footer escape hatch; desktop unchanged (md:hidden) */}
+            {/* Mobile-only email link — footer escape hatch; desktop unchanged (md:hidden) */}
             <a
-              href={PHONE_TEL}
-              aria-label={`Call ${PHONE_DISPLAY}`}
+              href={EMAIL_HREF}
+              aria-label={`Email ${EMAIL}`}
               className="mt-4 flex items-center gap-2 text-sm font-medium tracking-[0.04em] text-charcoal transition-colors hover:text-forest md:hidden"
             >
-              <Phone size={15} aria-hidden />
-              Call {PHONE_DISPLAY}
+              <Mail size={15} aria-hidden />
+              Email {EMAIL}
             </a>
           </div>
 

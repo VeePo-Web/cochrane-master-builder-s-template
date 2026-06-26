@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { Phone } from "lucide-react";
-import { PHONE_TEL, PHONE_DISPLAY } from "@/config/template/contact";
+import { Mail } from "lucide-react";
+import { EMAIL, EMAIL_HREF } from "@/config/template/contact";
 
 interface StickyCTAProps {
   onBookClick?: () => void;
@@ -78,13 +78,13 @@ const StickyCTA = ({ onBookClick }: StickyCTAProps) => {
     >
       <div className="safe-bottom flex items-stretch gap-2 border-t border-seam bg-bone/95 px-4 pt-3 shadow-[0_-8px_24px_-14px_rgba(0,0,0,0.22)] backdrop-blur-md">
         <a
-          href={PHONE_TEL}
+          href={EMAIL_HREF}
           tabIndex={visible ? 0 : -1}
-          aria-label={`Call ${PHONE_DISPLAY}`}
+          aria-label={`Email ${EMAIL}`}
           className="pointer-events-auto inline-flex shrink-0 items-center justify-center gap-2 rounded-sm border border-[hsl(var(--copper)/0.4)] px-4 py-3.5 text-sm font-medium text-charcoal transition-colors hover:border-forest/40 hover:text-forest active:scale-[0.98]"
         >
-          <Phone size={16} aria-hidden />
-          Call
+          <Mail size={16} aria-hidden />
+          Email
         </a>
         <button
           type="button"

@@ -23,6 +23,7 @@ import SectionFrame from "@/components/template/SectionFrame";
 import CTABand from "@/components/drywall/CTABand";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
+import { EMAIL } from "@/config/template/contact";
 import { REVIEWS } from "@/config/reviews";
 import { BlueprintGrain } from "@/components/template/bespoke";
 import type { BookingClickHandler } from "@/config/drywall-booking";
@@ -179,7 +180,7 @@ const GuaranteePage = ({ onBookClick }: Props) => {
         "@id": `${baseUrl}/#organization`,
         name: bn,
         url: baseUrl,
-        telephone: MASTER_REMIX.PHONE,
+        email: EMAIL,
         foundingDate: String(yr),
         sameAs: [parentUrl, MASTER_REMIX.GOOGLE_REVIEW_URL].filter(Boolean),
         description: `${bn} is a licensed ${sc} contractor in Cochrane, AB, operating since ${yr}. All projects include a 3-tier written guarantee: clean worksite, 14-day touch-up, and 15-year structural warranty.`,
