@@ -14,12 +14,21 @@
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
+import { MASTER_REMIX } from "@/config/template/remix-variables";
 
 const HeritageRelay = () => {
   const story = TEMPLATE_COPY.about.story;
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
+
+  // the math the founder quote names: years on the line, generations, one standard
+  const years = new Date().getFullYear() - MASTER_REMIX.FOUNDATION_YEAR;
+  const ledger = [
+    { n: `${years}`, l: "Years on the line" },
+    { n: "6", l: "Generations before us" },
+    { n: "1", l: "Standard, unbroken" },
+  ];
 
   const rise = (i: number) => ({
     initial: reduce ? { opacity: 0 } : { opacity: 0, y: 24 },
@@ -77,9 +86,27 @@ const HeritageRelay = () => {
         ))}
       </ol>
 
+      {/* The ledger — the math the line adds up to */}
+      <motion.dl
+        {...rise(story.beats.length + 1)}
+        className="mt-4 grid grid-cols-3 gap-px border-y border-seam bg-seam"
+      >
+        {ledger.map((stat) => (
+          <div key={stat.l} className="bg-paper px-4 py-7 text-center sm:py-9">
+            <dd
+              className="font-display leading-none text-charcoal"
+              style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)" }}
+            >
+              {stat.n}
+            </dd>
+            <dt className="eyebrow-copper mt-3">{stat.l}</dt>
+          </div>
+        ))}
+      </motion.dl>
+
       {/* The turn — the dark peak; the line is handed to the reader */}
       <motion.div
-        {...rise(story.beats.length + 1)}
+        {...rise(story.beats.length + 2)}
         className="relative mt-12 overflow-hidden bg-forest px-7 py-12 sm:px-12 md:py-16"
       >
         <span aria-hidden className="absolute inset-x-0 top-0 h-px bg-copper/70" />
