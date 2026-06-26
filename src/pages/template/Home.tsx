@@ -64,13 +64,13 @@ const TemplateHome = ({ onBookClick }: Props) => {
 
                 <ScrollReveal delay={0.06}>
                   <h1
-                    className="text-charcoal"
+                    className="text-balance text-charcoal leading-[1.04] tracking-[-0.02em] md:leading-[0.95] md:tracking-[-0.035em]"
                     style={{
                       fontFamily: "'Space Grotesk', system-ui, sans-serif",
                       fontSize: "clamp(2.75rem, 6.5vw, 5.5rem)",
                       fontWeight: 300,
-                      letterSpacing: "-0.025em",
-                      lineHeight: 0.98,
+                      fontKerning: "normal",
+                      fontFeatureSettings: '"kern" 1, "liga" 1',
                     }}
                   >
                     {c.hero.headline}
@@ -85,7 +85,7 @@ const TemplateHome = ({ onBookClick }: Props) => {
                 </ScrollReveal>
 
                 <ScrollReveal delay={0.2}>
-                  <p className="max-w-[56ch] text-body-lg text-graphite">{c.hero.sub}</p>
+                  <p className="max-w-[56ch] text-pretty text-body-lg text-graphite">{c.hero.sub}</p>
                 </ScrollReveal>
 
                 <ScrollReveal delay={0.28}>
