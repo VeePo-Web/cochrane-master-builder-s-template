@@ -456,10 +456,13 @@ html.lenis body {
   color: hsl(30 58% 40%);
 }
 
-/* Copper hairline — 1px horizontal rule */
+/* Copper hairline — 1px horizontal rule.
+   NOTE: no fixed width here. This rule sits OUTSIDE @layer utilities, so an
+   un-layered `width:100%` would beat Tailwind's `w-6`/`w-24`/`flex-1` and force
+   every hairline full-width (which shoved the hero eyebrow off to the side).
+   Block default already fills the parent when no width utility is applied. */
 .hairline-copper {
   display: block;
-  width: 100%;
   height: 1px;
   background: hsl(var(--copper) / 0.18);
 }
