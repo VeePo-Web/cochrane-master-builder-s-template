@@ -46,7 +46,7 @@ const TemplateHome = ({ onBookClick }: Props) => {
     <TemplateLayout onBookClick={onBookClick}>
       {/* HERO */}
       <RemixSlot name="HERO_IMAGE" hint="Bind a service-specific AVIF (≤140KB)">
-        <section className="relative isolate flex min-h-[82svh] items-center overflow-hidden border-b border-seam/60 bg-bone">
+        <section className="relative isolate flex min-h-[82svh] items-center overflow-hidden border-b border-seam/60 bg-bone lg:min-h-[88svh]">
           <BlueprintGrain opacity={0.018} />
           {/* Atmospheric depth — faint warm aura so the imageless hero reads layered, not flat */}
           <div
@@ -137,6 +137,13 @@ const TemplateHome = ({ onBookClick }: Props) => {
               </div>
             </ScrollReveal>
           </div>
+
+          {/* Scroll cue — a copper bead falls down the seam. Wordless wayfinding,
+              desktop-only so it never crowds the phone seal. Reduced-motion safe. */}
+          <div
+            aria-hidden
+            className="hero-scroll-cue pointer-events-none absolute bottom-0 left-1/2 z-10 hidden h-12 w-px -translate-x-1/2 bg-[hsl(var(--copper)/0.16)] lg:block"
+          />
         </section>
       </RemixSlot>
 
