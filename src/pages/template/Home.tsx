@@ -94,7 +94,7 @@ const TemplateHome = ({ onBookClick }: Props) => {
     <TemplateLayout onBookClick={onBookClick}>
       {/* HERO */}
       <RemixSlot name="HERO_IMAGE" hint="Bind a service-specific AVIF (≤140KB)">
-        <section className="relative isolate flex min-h-[82svh] items-center overflow-hidden border-b border-seam/60 bg-bone lg:min-h-[88svh]">
+        <section className="relative isolate flex items-start overflow-hidden border-b border-seam/60 bg-bone md:min-h-[82svh] md:items-center lg:min-h-[88svh]">
           <BlueprintGrain opacity={0.018} />
           {/* Atmospheric depth — faint warm aura so the imageless hero reads layered, not flat */}
           <div
