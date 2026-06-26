@@ -423,10 +423,9 @@ const Step0 = ({
         rows={5}
         maxLength={1000}
         placeholder={`${MASTER_REMIX.SERVICE !== "{SERVICE}" ? MASTER_REMIX.SERVICE.charAt(0).toUpperCase() + MASTER_REMIX.SERVICE.slice(1) : "Describe your"} project — scope, rough size, any quirks worth knowing.`}
-        className="w-full resize-none border-0 border-b bg-transparent px-0 py-2 text-charcoal placeholder:text-mist focus:border-copper focus:outline-none focus:ring-0"
+        className="w-full resize-none border-0 border-b bg-transparent px-0 py-2 text-[16px] md:text-[15px] text-charcoal placeholder:text-mist focus:border-copper focus:outline-none focus:ring-0"
         style={{
           fontFamily: "'Jost', system-ui",
-          fontSize: 15,
           lineHeight: 1.65,
           borderBottomColor: "hsl(var(--copper) / 0.25)",
           borderBottomWidth: 1,
@@ -602,11 +601,11 @@ const Step3 = ({
 // ── Shared field primitives ────────────────────────────────────────────────
 
 const fieldClass =
-  "w-full border-0 border-b bg-transparent px-0 py-2 text-charcoal placeholder:text-mist focus:outline-none focus:ring-0";
+  // text-[16px] on mobile prevents iOS Safari's focus auto-zoom; md keeps the original 15px (desktop unchanged)
+  "w-full border-0 border-b bg-transparent px-0 py-2 text-[16px] md:text-[15px] text-charcoal placeholder:text-mist focus:outline-none focus:ring-0";
 
 const fieldStyle: React.CSSProperties = {
   fontFamily: "'Jost', system-ui",
-  fontSize: 15,
   lineHeight: 1.65,
   borderBottomColor: "hsl(var(--copper) / 0.25)",
   borderBottomWidth: 1,

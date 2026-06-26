@@ -24,7 +24,7 @@ const StickyCTA = ({ onBookClick }: StickyCTAProps) => {
   // Scroll-past-hero gate
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > window.innerHeight * 0.6);
+      setScrolled(window.scrollY > window.innerHeight * 0.5);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -76,7 +76,7 @@ const StickyCTA = ({ onBookClick }: StickyCTAProps) => {
         visible ? "translate-y-0" : "translate-y-full"
       } motion-reduce:transition-none`}
     >
-      <div className="safe-bottom flex items-stretch gap-2 border-t border-seam bg-bone/95 px-4 pt-3 backdrop-blur-md">
+      <div className="safe-bottom flex items-stretch gap-2 border-t border-seam bg-bone/95 px-4 pt-3 shadow-[0_-8px_24px_-14px_rgba(0,0,0,0.22)] backdrop-blur-md">
         <a
           href={PHONE_TEL}
           tabIndex={visible ? 0 : -1}
