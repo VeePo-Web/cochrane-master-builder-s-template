@@ -487,32 +487,22 @@ export function emailFooter(reason: string): string {
   const year = new Date().getFullYear();
   return `
 <tr>
-  <td style="background-color:${C.asphalt};padding:46px 56px;">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-      <tr>
-        <td width="56" valign="middle" style="padding-right:18px;padding-bottom:22px;">
-          <div style="width:40px;height:40px;background-color:${C.graphite};color:${C.copper};font-family:${DISPLAY};font-size:13px;letter-spacing:1.5px;text-align:center;line-height:40px;font-weight:500;">${BRAND.monogram}</div>
-        </td>
-        <td valign="middle" style="padding-bottom:22px;">
-          <p style="margin:0;font-family:${DISPLAY};font-size:18px;line-height:1.1;color:${C.bone};font-weight:500;letter-spacing:-0.2px;">${escapeHtml(BRAND.wordmark)}</p>
-          <p style="margin:4px 0 0;font-family:${SANS};font-size:10px;letter-spacing:2.4px;text-transform:uppercase;color:${C.copper};font-weight:600;">${escapeHtml(BRAND.establishedLine)}</p>
-        </td>
-      </tr>
-      <tr><td colspan="2" style="padding-top:4px;border-top:1px solid ${C.hairlineDark};">
-        <p style="margin:20px 0 6px;font-family:${SANS};font-size:13px;line-height:1.75;color:${C.bodyOnDark};">
-          <a href="${BRAND.email.href}" style="color:${C.copper};text-decoration:none;">${escapeHtml(BRAND.email.display)}</a>
-        </p>
-        <p style="margin:0 0 22px;font-family:${SANS};font-size:13px;line-height:1.75;color:${C.mutedOnDark};">
-          ${escapeHtml(BRAND.address.formatted)} &nbsp;·&nbsp; ${escapeHtml(BRAND.hours.short)}
-        </p>
-        <div style="width:32px;height:1px;background-color:${C.copper};margin:0 0 18px;"></div>
-        <p style="margin:0 0 10px;font-family:${DISPLAY};font-size:12px;letter-spacing:1.8px;text-transform:uppercase;color:${C.copperSoft};">${escapeHtml(BRAND.slogan)}</p>
-        <p style="margin:0;font-family:${SANS};font-size:11px;line-height:1.75;color:${C.mutedOnDark};">
-          You received this because ${escapeHtml(reason)}.<br>
-          © ${year} ${escapeHtml(BRAND.name)}.
-        </p>
-      </td></tr>
-    </table>
+  <td align="center" style="background-color:${C.asphalt};padding:52px 40px 46px;text-align:center;">
+    <img src="${LOGO.onDark}" alt="${escapeHtml(BRAND.wordmark)}" width="240" style="display:block;margin:0 auto 26px;width:240px;max-width:70%;height:auto;border:0;outline:none;" />
+    <div style="width:32px;height:1px;background-color:${C.copper};margin:0 auto 22px;"></div>
+    <p style="margin:0 0 8px;font-family:${SANS};font-size:13px;line-height:1.75;color:${C.bodyOnDark};">
+      <a href="${BRAND.email.href}" style="color:${C.copper};text-decoration:none;">${escapeHtml(BRAND.email.display)}</a>
+      &nbsp;·&nbsp;
+      <a href="${BRAND.phone.href}" style="color:${C.bodyOnDark};text-decoration:none;">${escapeHtml(BRAND.phone.display)}</a>
+    </p>
+    <p style="margin:0 0 22px;font-family:${SANS};font-size:12px;line-height:1.75;color:${C.mutedOnDark};">
+      ${escapeHtml(BRAND.address.formatted)} &nbsp;·&nbsp; ${escapeHtml(BRAND.hours.short)}
+    </p>
+    <p style="margin:0 0 18px;font-family:${DISPLAY};font-size:11px;letter-spacing:2.4px;text-transform:uppercase;color:${C.copperSoft};">${escapeHtml(BRAND.slogan)}</p>
+    <p style="margin:0;font-family:${SANS};font-size:11px;line-height:1.75;color:${C.mutedOnDark};">
+      You received this because ${escapeHtml(reason)}.<br>
+      © ${year} ${escapeHtml(BRAND.name)}.
+    </p>
   </td>
 </tr>`;
 }
