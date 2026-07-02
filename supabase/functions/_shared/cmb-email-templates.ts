@@ -39,9 +39,24 @@ export const BRAND = {
   },
 } as const;
 
+// Absolute HTTPS URLs — required by Gmail, Outlook, Apple Mail.
+// Hosted in the public `booking-media` bucket for stable delivery
+// independent of any custom-domain state.
+export const LOGO = {
+  onLight:
+    "https://bbpgnqkwafmaaulzrqqv.supabase.co/storage/v1/object/public/booking-media/brand%2Fcmb-logo-onlight.png",
+  onDark:
+    "https://bbpgnqkwafmaaulzrqqv.supabase.co/storage/v1/object/public/booking-media/brand%2Fcmb-logo-ondark.png",
+} as const;
+
+export const VERSE = {
+  text: "Whatever your hand finds to do, do it with all your might.",
+  citation: "Ecclesiastes 9 : 10",
+} as const;
+
 export const OWNER = {
   name: "The Cochrane Master Builders team",
-  title: "Cochrane Master Builders",
+  title: "Cochrane Master Builders · Cochrane, Alberta",
   signoff: "The CMB team",
 } as const;
 
