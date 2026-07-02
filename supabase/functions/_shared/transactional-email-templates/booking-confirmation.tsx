@@ -23,10 +23,10 @@ import type { TemplateEntry } from './registry.ts'
 
 const EMAIL_BRAND = {
   // ── Identity ──────────────────────────────────────────────────────────
-  name: 'Cochrane Drywall & Insulation',
-  shortName: 'Cochrane Drywall',
+  name: 'Cochrane Master Builders',
+  shortName: 'Cochrane Master Builders',
   tier: 'Masters', // optional italic accent line, set to '' to hide
-  tagline: 'Finally get that wall handled.',
+  tagline: 'Building strong foundations for those who come after us.',
   serviceNoun: 'project', // "your project" / "appointment" / "job"
 
   // ── Location ──────────────────────────────────────────────────────────
@@ -37,9 +37,9 @@ const EMAIL_BRAND = {
   // ── Contact ───────────────────────────────────────────────────────────
   phone: '(403) 555-0100',
   phoneDigits: '4035550100',
-  email: 'hello@cochranedrywall.com',
-  websiteDisplay: 'cochranedrywall.com',
-  websiteUrl: 'https://cochranedrywall.com',
+  email: 'inquiry@cochranemasterbuilders.com',
+  websiteDisplay: 'cochranemasterbuilders.com',
+  websiteUrl: 'https://cochranemasterbuilders.com',
 
   // ── Palette (warm neutrals + restrained forest accent) ────────────────
   colors: {
