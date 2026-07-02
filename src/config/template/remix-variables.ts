@@ -240,7 +240,7 @@ export const MASTER_REMIX: RemixVariables = {
   PARENT_BRAND_URL: "https://cochranemasterbuilders.ca",
   GOOGLE_REVIEW_URL: "",
   BRAND_URL: "https://cochranemasterbuilders.ca",
-  PHONE: "+14030000000",
+  PHONE: "",
   OG_IMAGE: "/share/og-1200x630-navybg.jpg",
 
   // ── Heirloom defaults ───────────────────────────────────────────────────
