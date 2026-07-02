@@ -137,18 +137,25 @@ const BookingConfirmationEmail = ({
       </Preview>
       <Body style={main}>
         <Container style={outerContainer}>
-          {/* ─── 1. HEADER — bone band, brand wordmark ─────────────── */}
+          {/* ─── 1. HEADER — bone band, big brand logo lockup ─────── */}
           <Section
             className="header-mobile dm-surface"
             style={header}
           >
-            <Text style={brandWordmark} className="dm-text">
-              {EMAIL_BRAND.name}
-            </Text>
-            <div style={forestRule} />
-            {EMAIL_BRAND.tier && (
-              <Text style={tierLine}>— {EMAIL_BRAND.tier} —</Text>
-            )}
+            <img
+              src="https://bbpgnqkwafmaaulzrqqv.supabase.co/storage/v1/object/public/booking-media/brand%2Fcmb-logo-onlight.png"
+              alt={EMAIL_BRAND.name}
+              width={300}
+              style={{
+                display: 'block',
+                margin: '0 auto',
+                width: '300px',
+                maxWidth: '78%',
+                height: 'auto',
+                border: 0,
+                outline: 'none',
+              }}
+            />
             <Text style={headerKicker} className="dm-muted">
               {EMAIL_BRAND.city.toUpperCase()} ·{' '}
               {EMAIL_BRAND.region.toUpperCase()}
