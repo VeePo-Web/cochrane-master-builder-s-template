@@ -36,6 +36,7 @@ import {
   ctaBlock,
   ownerSignature,
   trustBar,
+  verseBlock,
   emailFooter,
   spacer,
   sortAttachments,
