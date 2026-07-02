@@ -106,7 +106,6 @@ export const BookingForm = ({ prefill, onClose, formKey }: Props) => {
       projectDetails: prefill?.description ?? draft.projectDetails ?? "",
       name: draft.name ?? "",
       email: draft.email ?? "",
-      phone: draft.phone ?? "",
       serviceSlug: prefill?.serviceSlug ?? draft.serviceSlug ?? "",
       website: "",
     },
@@ -115,8 +114,8 @@ export const BookingForm = ({ prefill, onClose, formKey }: Props) => {
   // Persist draft on every change
   const values = watch();
   useEffect(() => {
-    saveDraft({ projectDetails: values.projectDetails, name: values.name, email: values.email, phone: values.phone });
-  }, [values.projectDetails, values.name, values.email, values.phone]);
+    saveDraft({ projectDetails: values.projectDetails, name: values.name, email: values.email });
+  }, [values.projectDetails, values.name, values.email]);
 
   // Focus first input/textarea in the active step after transition
   useEffect(() => {
