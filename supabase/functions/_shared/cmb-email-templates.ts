@@ -181,24 +181,6 @@ export function emailWrapper(content: string, preheader: string): string {
 
 // ─── HEADER ─────────────────────────────────────────────────────────────────
 
-export function brandBar(): string {
-  return `
-<tr>
-  <td style="background-color:${C.white};padding:30px 56px 26px;border-bottom:1px solid ${C.hairline};">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-      <tr>
-        <td width="56" valign="middle" style="padding-right:18px;">
-          <div style="width:44px;height:44px;background-color:${C.asphalt};color:${C.copper};font-family:${DISPLAY};font-size:15px;letter-spacing:1.5px;text-align:center;line-height:44px;font-weight:500;">${BRAND.monogram}</div>
-        </td>
-        <td valign="middle">
-          <p style="margin:0;font-family:${DISPLAY};font-size:19px;line-height:1.15;color:${C.asphalt};font-weight:500;letter-spacing:-0.2px;">${escapeHtml(BRAND.wordmark)}</p>
-          <p style="margin:5px 0 0;font-family:${SANS};font-size:10px;letter-spacing:2.4px;text-transform:uppercase;color:${C.copper};font-weight:600;">${escapeHtml(BRAND.establishedLine)}</p>
-        </td>
-      </tr>
-    </table>
-  </td>
-</tr>`;
-}
 
 export function brandBar(): string {
   return `
