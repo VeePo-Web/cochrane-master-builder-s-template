@@ -36,6 +36,7 @@ import {
   ctaBlock,
   ownerSignature,
   trustBar,
+  verseBlock,
   emailFooter,
   spacer,
   sortAttachments,
@@ -190,25 +191,30 @@ serve(async (req: Request) => {
   const servicesList = serviceLabel === "General" ? [] : [serviceLabel];
 
   // ── INTERNAL EMAIL ──────────────────────────────────────────────────────
-  const internalSubject = `New Inquiry — ${serviceLabel} · ${data.name}`;
-  const internalPreheader = `${data.name} · ${serviceLabel} · received ${ts} MT`;
+  const internalSubject = data.serviceSlug
+    ? `New lead — ${serviceLabel} — ${data.name}`
+    : `New lead — ${data.name}`;
+  const internalPreheader = `${data.name} · ${serviceLabel} · received ${ts} MT. Reply to thread directly with the customer.`;
   const internalRows = [
     { label: "Name", value: data.name },
     { label: "Email", value: data.email, href: `mailto:${data.email}` },
     { label: "Phone", value: data.phone, href: `tel:${String(data.phone).replace(/[^\d+]/g, "")}` },
     data.serviceSlug ? { label: "Service", value: serviceLabel } : null,
     data.siteSlug ? { label: "Site", value: data.siteSlug } : null,
+    data.referrer ? { label: "Source", value: data.referrer } : null,
     { label: "Submission ID", value: submissionId },
     { label: "Received", value: `${ts} MT` },
   ];
 
   const internalBody =
     brandBar() +
-    emailHeader("New Inquiry", data.name) +
+    emailHeader("New Lead", data.name) +
     leadParagraph(
-      `${escapeHtml(data.name)} just sent a request about <strong>${escapeHtml(serviceLabel)}</strong>.`,
+      `${escapeHtml(data.name)} just sent a request about <strong>${escapeHtml(serviceLabel)}</strong>. Everything they told us is below.`,
     ) +
-    bodyParagraph(`Received ${escapeHtml(ts)} MT. Reply to this email to respond directly.`) +
+    bodyParagraph(
+      `Answer within one business day. Reply to this email and it threads back to them. If you send a written quote, put the submission ID in the subject line so the trail stays clean.`,
+    ) +
     (servicesList.length ? serviceBadges(servicesList) : "") +
     sectionTitle("Submission", "Contact details") +
     infoCard(internalRows) +
@@ -225,15 +231,17 @@ serve(async (req: Request) => {
       secondaryText: "Reply by email",
       secondaryUrl: `mailto:${data.email}?subject=${encodeURIComponent(`Re: Your ${serviceLabel} inquiry — Cochrane Master Builders`)}`,
     }) +
-    spacer(40) +
+    verseBlock() +
     emailFooter("an inquiry was submitted on cochranemasterbuilders.com");
 
   const internalHtml = emailWrapper(internalBody, internalPreheader);
 
   // ── CUSTOMER EMAIL ──────────────────────────────────────────────────────
   const fname = firstName(data.name);
-  const customerSubject = `We've got it, ${fname} — Cochrane Master Builders is on it`;
-  const customerPreheader = `A real person reads every message. We'll be in touch within one business day.`;
+  const customerSubject = data.name
+    ? `Your request is in, ${fname} — Cochrane Master Builders`
+    : `Your request is in — Cochrane Master Builders`;
+  const customerPreheader = `A real builder reads every message. We'll come back with a clear next step within one business day.`;
   const customerOnFile = [
     servicesList.length ? { label: "Service Requested", value: serviceLabel } : null,
     data.phone ? { label: "Phone on File", value: data.phone } : null,
@@ -244,31 +252,32 @@ serve(async (req: Request) => {
     brandBar() +
     emailHeader("Request Received", `Thank you, ${fname}`) +
     leadParagraph(
-      `Your request landed exactly where it should. Someone here is already looking at what you sent, and we'll come back with a clear next step within one business day.`,
+      `${escapeHtml(fname)}, your request is in front of us. We're reading it the way we read a set of plans: slowly, with a pencil, looking for the detail that changes everything. You'll hear back within one business day.`,
     ) +
     bodyParagraph(
-      `If something else comes to mind — a measurement, another photo, a deadline you forgot to mention — just hit reply. This inbox is read by a person, not a bot.`,
+      `If a measurement, another photo, or a deadline comes to mind between now and then, hit reply. This inbox is read by the person who will be on your site — not a queue, not a bot.`,
     ) +
     (servicesList.length ? serviceBadges(servicesList) : "") +
-    (customerOnFile.some(Boolean) ? sectionTitle("On File", "Here's what we have") : "") +
+    (customerOnFile.some(Boolean) ? sectionTitle("On File", "Here's what we have on record") : "") +
     infoCard(customerOnFile) +
-    sectionTitle("Before We Arrive", "Three small things that help") +
+    sectionTitle("Before we arrive", "Three quiet things that make the visit sharper") +
     bodyParagraph(
       `None of these are required — we'll work with whatever we find. But sites that do a few of them tend to move faster, with less guesswork on either side.`,
     ) +
     preparationSteps() +
     reassuranceCard(
-      `If anything changes between now and our visit — access, timing, a new question — just reply to this email. We're building strong foundations for those who come after us, and that starts with picking up the phone (or the inbox) when you need us.`,
+      `Nothing here is on a script. If anything changes — access, timing, a new question, a new room — reply to this note and it lands on the same desk.`,
     ) +
     ctaBlock({
-      primaryText: "Read our story",
+      primaryText: "Read how we build",
       primaryUrl: BRAND.storyUrl,
-      secondaryText: "Visit the site",
-      secondaryUrl: BRAND.websiteUrl,
+      secondaryText: "See the trades we take on",
+      secondaryUrl: `${BRAND.websiteUrl}/services`,
     }) +
     ownerSignature() +
+    verseBlock() +
     trustBar() +
-    spacer(40) +
+    spacer(32) +
     emailFooter("you sent a request through cochranemasterbuilders.com");
 
   const customerHtml = emailWrapper(customerBody, customerPreheader);

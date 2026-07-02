@@ -1,75 +1,138 @@
 
-# Email System Audit + RoyalMechanical-Grade Rebuild
-
 ## Goal
-Every email surface on the site — mailto links, booking confirmation to the customer, and internal lead notification — routes to `inquiry@cochranemasterbuilders.com`, sends via Resend from `send.cochranemasterbuilders.com`, and uses a single editorial template system modeled on RoyalMechanical (which is objectively the best-in-class reference in the workspace). Then send live tests to confirm delivery.
 
-## Phase 1 — Frontend `mailto:` audit
-Sweep and unify every hard-coded email in the app. Findings:
+Every email that leaves `send.cochranemasterbuilders.com` should feel like it came off a Master-Builder's desk: a large, visible **Cochrane Master Builders** logo at the top, **Ecclesiastes 9:10** anchoring the tone, sharpened editorial copy, and subject lines you can read in a glance from the phone lock screen.
 
-| File | Current value | Action |
-|---|---|---|
-| `src/master/brand/identity.ts` | `hello@cochranemasterbuilders.ca` | → `inquiry@cochranemasterbuilders.com` |
-| `src/components/detailing/Footer.tsx` (L93, L96) | `hello@cochranemasterbuilders.ca` | → `inquiry@…` |
-| `src/pages/Privacy.tsx` (L32) | `hello@cochranemasterbuilders.ca` | → `inquiry@…` |
-| `src/components/drywall/Footer.tsx` (L78) | `TRADE.contact.email` | switch source to shared `EMAIL` const |
-| `src/config/open-questions-checklist.md` | historical notes | update to reflect new canonical |
-| `src/config/template/contact.ts` | already `inquiry@…` ✅ | keep as single source of truth |
+---
 
-All email-bearing components will import from `src/config/template/contact.ts` so there is one source of truth going forward.
+## 1. Real hosted logo (big, unmissable)
 
-## Phase 2 — Backend template library (CMB port of RoyalMechanical)
-Create `supabase/functions/_shared/cmb-email-templates.ts` — a direct architectural port of RoyalMechanical's `rm-email-templates.ts`, restyled to CMB's brand:
+Right now the email header uses a tiny inline "CMB" text block (44×44). Emails need a real image because CSS/SVG monograms don't render reliably across Gmail/Outlook/Apple Mail.
 
-- **Palette:** Asphalt `#0E0E0E`, Graphite `#1A1A1A`, Copper `#C47D26`, Bone `#F5EFE6`, hairlines `rgba(255,255,255,0.08)` (email-safe fallbacks to solid hex).
-- **Typography:** Space Grotesk (display) + Jost/Inter (body), with `Georgia` MSO fallback.
-- **Voice:** Master-Builder editorial — slogan "Building strong foundations for those who come after us." threaded through header eyebrow, reassurance card, and footer sign-off.
-- **Exports (same shape as RM):** `emailWrapper`, `brandBar`, `emailHeader`, `leadParagraph`, `bodyParagraph`, `sectionTitle`, `serviceBadges`, `infoCard`, `messageBlock`, `preparationSteps`, `reassuranceCard`, `attachmentGallery`, `ctaBlock`, `ownerSignature`, `trustBar`, `emailFooter`, `spacer`, `sortAttachments`, `firstName`, `nowMT`, `escapeHtml`.
-- **`preparationSteps()` — trimmed to 3 as requested:**
-  1. **Clear a path to the work area.** Two feet of clearance around the site is all we need.
-  2. **Secure pets and note parking.** Let us know about pets, and where we should park the truck.
-  3. **Gather anything relevant.** Photos, past invoices, permits — a quick text or reply-attach is perfect.
+- Generate a **premium wordmark lockup** — stacked bespoke `C · M · B` monogram over the full "COCHRANE MASTER BUILDERS" wordmark with a copper hairline rule, rendered on a transparent background at 1200×600 (2× retina for a 600×300 display size).
+- Also generate a **light-on-dark version** for the asphalt hero header, and a **dark-on-light version** for the light body header and footer.
+- Upload both via `lovable-assets create` and reference the CDN URLs directly in the email HTML (Gmail/Outlook require absolute `https` image URLs).
+- New helper `logoImage(variant: "onDark" | "onLight", width = 260)` in `cmb-email-templates.ts`.
 
-## Phase 3 — `submit-booking` rewrite
-Rebuild `supabase/functions/submit-booking/index.ts` on the RoyalMechanical pattern:
+Layout changes:
+- `brandBar()` becomes a **centered 260px logo lockup** on white with generous 44px padding above/below and a copper hairline underneath.
+- `emailHeader()` becomes a **centered 220px onDark logo** at the top of the asphalt hero block, above the eyebrow and headline. On Apple Mail Dark Mode the transparent PNG still reads correctly.
+- `emailFooter()` swaps the tiny monogram tile for a **180px onDark wordmark**, still left-aligned but visually anchoring the sign-off.
 
-- **Sender (hard-coded, not env-overridable):** `Cochrane Master Builders <bookings@send.cochranemasterbuilders.com>`
-- **Reply-To on customer emails:** `inquiry@cochranemasterbuilders.com`
-- **Reply-To on internal notifications:** the customer's email (so a reply threads to them)
-- **`REQUIRED_INTERNAL_RECIPIENTS`** = `["inquiry@cochranemasterbuilders.com"]` — frozen array with `assertInternalRecipients()` guard, matching RM's contract pattern so it can't be silently rerouted.
-- **Delivery:** Resend via connector gateway (`https://connector-gateway.lovable.dev/resend/emails`) using `LOVABLE_API_KEY` + `RESEND_API_KEY` (already connected). No direct Resend SDK.
-- **Two sends per submission:**
-  - *Internal lead* → `inquiry@…` (uses `emailHeader("New Inquiry", name)` + `infoCard` + `messageBlock` + `attachmentGallery` + CTA to call/reply)
-  - *Customer confirmation* → their email (uses `emailHeader("Request Received", "Thank you, {first}")` + on-file recap + `preparationSteps()` + reassurance card + owner signature + trust bar + slogan)
-- **DB write** to `booking_submissions` stays; rate-limit stays.
-- **Attachments:** URL list rendered inline in HTML via `attachmentGallery()` (no MIME download — Resend gateway doesn't accept arbitrary binary attachments the same way; the gallery links + previews are the RM-equivalent UX).
+---
 
-## Phase 4 — Retire the parallel React-Email template
-`supabase/functions/_shared/transactional-email-templates/booking-confirmation.tsx` is superseded by the HTML template system above. It stays registered (so `send-transactional-email` keeps working for auth/other flows) but will be re-rendered against the same CMB palette + slogan so the two systems match visually. The registry itself is untouched.
+## 2. Ecclesiastes 9:10 verse block
 
-## Phase 5 — Verification (live sends)
-1. `supabase--curl_edge_functions` → POST `submit-booking` with a synthetic payload (`inquiry@cochranemasterbuilders.com` as the "customer" so both mails hit the same inbox for review).
-2. `supabase--edge_function_logs` → confirm `internal=ok customer=ok` and capture Resend message IDs.
-3. Report message IDs + confirm the recipient should check the inbox.
-4. If Resend returns a domain-not-verified error, surface it verbatim so you can fix DNS in the Resend dashboard.
+New helper `verseBlock()` — appears once per email, between `ownerSignature()` and `trustBar()` on the customer email, and just above `emailFooter()` on the internal email as a quiet closing note.
 
-## Files touched
+```
+─────────
+"Whatever your hand finds to do, do it with all your might."
+                                    — ECCLESIASTES 9:10
+```
 
-**New**
+Design spec:
+- 32px copper hairline above.
+- Serif italic verse in Space Grotesk, 20px, `line-height 1.55`, ink color, max-width ~440px, centered.
+- Attribution in tracked 10px caps copper (`ECCLESIASTES 9 : 10`), 22px below the verse.
+- Wrapped in a `<tr>` with 48px top / 44px bottom padding on the body region.
+
+The verse is quoted once, verbatim, never paraphrased. It replaces the previous "we're building strong foundations for those who come after us" line inside `reassuranceCard` (the slogan already appears in the header, footer and preheader — the verse is what carries the emotional weight now).
+
+---
+
+## 3. Copy rewrite — worldclass Master-Builder voice
+
+Rules that apply across every string:
+- **No exclamations. No "excited to". No emoji.** Quiet confidence.
+- Sentences shaped like a foreman speaking to a homeowner at the kitchen table: short, specific, warm.
+- Every paragraph ends on a verb the customer/team can act on.
+- Address the reader by first name once, in the lead paragraph, never again.
+
+### Customer confirmation — rewritten sections
+
+**Preheader** — `A real builder reads every message. We'll come back with a clear next step within one business day.`
+
+**Lead paragraph** — `{FirstName}, your request is in front of us. We're reading it the way we read a set of plans: slowly, with a pencil, looking for the detail that changes everything. You'll hear back within one business day.`
+
+**Body paragraph** — `If a measurement, another photo, or a deadline comes to mind between now and then, hit reply. This inbox is read by the person who will be on your site — not a queue, not a bot.`
+
+**Sections**
+- `On File / Here's what we have on record` (was `Here's what we have`)
+- `Before we arrive / Three quiet things that make the visit sharper` (was `Three small things that help`)
+- `Reassurance card` — replaced with: `Nothing here is on a script. If anything changes — access, timing, a new question, a new room — reply to this note and it lands on the same desk.`
+- `CTA` — Primary: `Read how we build` → `/brand-story`. Secondary: `See the trades we take on` → `/services`.
+- `Owner signature` — remains `— The CMB team`, subtitle changes to `Cochrane Master Builders · Cochrane, Alberta`.
+- `Verse block` — as spec above.
+- `Trust bar` — unchanged content, new spacing.
+
+### Internal notification — rewritten sections
+
+**Preheader** — `{Name} · {Service} · {Received time MT}. Reply to thread directly with the customer.`
+
+**Lead paragraph** — `{Name} just sent a request about {Service}. Everything they told us is below. Reply to this email and it threads back to them.`
+
+**Body paragraph** — `Answer within one business day. If you need to send them a written quote, put the submission ID in the subject line so the trail stays clean.`
+
+**Sections**
+- `Submission / Contact details` unchanged structure, adds a `Source` row (page slug + referrer if present).
+- `Message / What they told us` unchanged.
+- `Files / N attachment(s)` unchanged.
+- `CTA` — Primary: `Call {phone}`. Secondary: `Reply by email`.
+- `Verse block` — quiet closing note before the footer.
+
+---
+
+## 4. Subject lines — crystal clear
+
+Rules:
+- Front-load the recognizable brand word or the recipient's name.
+- One em-dash separator max.
+- Never a colon, never a bracket, never a hashtag.
+- Under 60 chars so nothing gets truncated on mobile.
+
+| Email | Subject |
+|---|---|
+| Internal lead notification | `New lead — {Service} — {Name}` |
+| Internal lead (no service) | `New lead — {Name}` |
+| Customer confirmation | `Your request is in, {FirstName} — Cochrane Master Builders` |
+| Customer confirmation (fallback if no name) | `Your request is in — Cochrane Master Builders` |
+
+The registry-based `booking-confirmation` React Email template (currently only wired for the Lovable pgmq path, unused by `submit-booking`) gets its `subject` updated to the same pattern so the two paths stay consistent if either is ever invoked.
+
+---
+
+## 5. Files touched
+
+- `src/assets/cmb-logo-lockup-onlight.png.asset.json` — new hosted asset pointer.
+- `src/assets/cmb-logo-lockup-ondark.png.asset.json` — new hosted asset pointer.
 - `supabase/functions/_shared/cmb-email-templates.ts`
-
-**Rewritten**
+  - Add `LOGO_URL` constants (imported from the two `.asset.json` pointers by inlining the CDN URL — Deno reads JSON with `import ... assert { type: "json" }`).
+  - Add `logoImage(variant, width)` helper.
+  - Rewrite `brandBar()`, `emailHeader()`, `emailFooter()` to use the big logo.
+  - Add `verseBlock()` helper.
+  - Reduce `reassuranceCard` usage (verse replaces the emotional beat).
 - `supabase/functions/submit-booking/index.ts`
-- `supabase/functions/_shared/transactional-email-templates/booking-confirmation.tsx` (visual re-skin to match)
+  - New copy for both emails (preheader, lead, body, section titles, reassurance, CTAs).
+  - New subject-line functions.
+  - Insert `verseBlock()` at the correct position in both bodies.
+- `supabase/functions/_shared/transactional-email-templates/booking-confirmation.tsx` — align subject line and add a small hosted `<Img>` logo at the top so the pgmq-path email also carries the mark.
+- Deploy `submit-booking` after changes.
 
-**Small edits**
-- `src/master/brand/identity.ts`
-- `src/components/detailing/Footer.tsx`
-- `src/components/drywall/Footer.tsx`
-- `src/pages/Privacy.tsx`
-- `src/config/open-questions-checklist.md`
+---
 
-## Out of scope
-- Twilio SMS (RM has it; you haven't asked for it here — happy to add in a follow-up).
-- Auth email templates (already scaffolded correctly; unchanged).
-- DNS verification of `send.cochranemasterbuilders.com` in Resend — that's a dashboard action only you can do; the plan will surface the exact status from the test send.
+## 6. Verification
+
+- `curl` `submit-booking` with a realistic payload.
+- Confirm HTTP 200 on both internal and customer sends, capture Resend message IDs.
+- Render the two HTML bodies to `/tmp/cmb-email-preview/*.html` and screenshot with Playwright at 620px wide so I can visually confirm: **logo is large**, verse renders cleanly, spacing is right, subject lines match.
+- Report Resend message IDs back so you can check the inbox at `inquiry@cochranemasterbuilders.com`.
+
+---
+
+## Technical detail
+
+- Deno `import ... assert { type: "json" }` works in edge functions for `.asset.json` files — the `url` field is the absolute CDN URL, so email clients get a proper `https` src.
+- Image is rendered as PNG with `transparent_background: true` so it composes cleanly on both the bone `#F5EFE6` white body and the asphalt `#0E0E0E` hero block. The onLight variant has an ink `#0E0E0E` monogram and asphalt wordmark; the onDark variant has a bone monogram and copper wordmark rule.
+- Verse block uses a `<blockquote>`-style `<td>` with `role="presentation"` to preserve semantics without triggering Outlook's spam heuristics on `<blockquote>` tags.
+- Nothing in `submit-booking`'s routing contract (`REQUIRED_INTERNAL_RECIPIENTS`, `SENDER_FROM`, `assertInternalRecipients`) changes — the immutable inquiry@ delivery rule stays intact.

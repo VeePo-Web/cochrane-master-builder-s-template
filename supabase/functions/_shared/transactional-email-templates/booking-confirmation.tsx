@@ -132,23 +132,30 @@ const BookingConfirmationEmail = ({
         <style dangerouslySetInnerHTML={{ __html: HEAD_CSS }} />
       </Head>
       <Preview>
-        We've got your {EMAIL_BRAND.serviceNoun} request — here's what
-        happens next.
+        A real builder reads every message. We'll come back with a clear
+        next step within one business day.
       </Preview>
       <Body style={main}>
         <Container style={outerContainer}>
-          {/* ─── 1. HEADER — bone band, brand wordmark ─────────────── */}
+          {/* ─── 1. HEADER — bone band, big brand logo lockup ─────── */}
           <Section
             className="header-mobile dm-surface"
             style={header}
           >
-            <Text style={brandWordmark} className="dm-text">
-              {EMAIL_BRAND.name}
-            </Text>
-            <div style={forestRule} />
-            {EMAIL_BRAND.tier && (
-              <Text style={tierLine}>— {EMAIL_BRAND.tier} —</Text>
-            )}
+            <img
+              src="https://bbpgnqkwafmaaulzrqqv.supabase.co/storage/v1/object/public/booking-media/brand%2Fcmb-logo-onlight.png"
+              alt={EMAIL_BRAND.name}
+              width={300}
+              style={{
+                display: 'block',
+                margin: '0 auto',
+                width: '300px',
+                maxWidth: '78%',
+                height: 'auto',
+                border: 0,
+                outline: 'none',
+              }}
+            />
             <Text style={headerKicker} className="dm-muted">
               {EMAIL_BRAND.city.toUpperCase()} ·{' '}
               {EMAIL_BRAND.region.toUpperCase()}
@@ -376,12 +383,12 @@ const BookingConfirmationEmail = ({
                     </table>
 
                     <Text style={scriptureQuote} className="dm-text">
-                      &ldquo;Lazy hands make for poverty,
+                      &ldquo;Whatever your hand finds to do,
                       <br />
-                      but diligent hands bring wealth.&rdquo;
+                      do it with all your might.&rdquo;
                     </Text>
                     <Text style={scriptureAttribution}>
-                      — PROVERBS 10:4 NIV
+                      — ECCLESIASTES 9 : 10
                     </Text>
                   </td>
                 </tr>
@@ -391,9 +398,20 @@ const BookingConfirmationEmail = ({
 
           {/* ─── 9. FOOTER ────────────────────────────────────────── */}
           <Section style={footer} className="dm-border">
-            <Text style={footerBrand} className="dm-text">
-              {EMAIL_BRAND.name}
-            </Text>
+            <img
+              src="https://bbpgnqkwafmaaulzrqqv.supabase.co/storage/v1/object/public/booking-media/brand%2Fcmb-logo-onlight.png"
+              alt={EMAIL_BRAND.name}
+              width={220}
+              style={{
+                display: 'block',
+                margin: '0 auto 22px',
+                width: '220px',
+                maxWidth: '65%',
+                height: 'auto',
+                border: 0,
+                outline: 'none',
+              }}
+            />
             <Text style={footerArea} className="dm-muted">
               {EMAIL_BRAND.serviceArea}
             </Text>
@@ -464,7 +482,10 @@ const NextStep = ({
 
 export const template = {
   component: BookingConfirmationEmail,
-  subject: "We got your request — here's what happens next",
+  subject: ({ name }: { name?: string }) =>
+    name
+      ? `Your request is in, ${String(name).trim().split(/\s+/)[0]} — Cochrane Master Builders`
+      : `Your request is in — Cochrane Master Builders`,
   displayName: 'Booking confirmation',
   previewData: {
     name: 'Sarah',

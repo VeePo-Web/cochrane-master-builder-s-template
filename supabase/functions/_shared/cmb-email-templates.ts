@@ -39,9 +39,24 @@ export const BRAND = {
   },
 } as const;
 
+// Absolute HTTPS URLs — required by Gmail, Outlook, Apple Mail.
+// Hosted in the public `booking-media` bucket for stable delivery
+// independent of any custom-domain state.
+export const LOGO = {
+  onLight:
+    "https://bbpgnqkwafmaaulzrqqv.supabase.co/storage/v1/object/public/booking-media/brand%2Fcmb-logo-onlight.png",
+  onDark:
+    "https://bbpgnqkwafmaaulzrqqv.supabase.co/storage/v1/object/public/booking-media/brand%2Fcmb-logo-ondark.png",
+} as const;
+
+export const VERSE = {
+  text: "Whatever your hand finds to do, do it with all your might.",
+  citation: "Ecclesiastes 9 : 10",
+} as const;
+
 export const OWNER = {
   name: "The Cochrane Master Builders team",
-  title: "Cochrane Master Builders",
+  title: "Cochrane Master Builders · Cochrane, Alberta",
   signoff: "The CMB team",
 } as const;
 
@@ -166,21 +181,13 @@ export function emailWrapper(content: string, preheader: string): string {
 
 // ─── HEADER ─────────────────────────────────────────────────────────────────
 
+
 export function brandBar(): string {
   return `
 <tr>
-  <td style="background-color:${C.white};padding:30px 56px 26px;border-bottom:1px solid ${C.hairline};">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-      <tr>
-        <td width="56" valign="middle" style="padding-right:18px;">
-          <div style="width:44px;height:44px;background-color:${C.asphalt};color:${C.copper};font-family:${DISPLAY};font-size:15px;letter-spacing:1.5px;text-align:center;line-height:44px;font-weight:500;">${BRAND.monogram}</div>
-        </td>
-        <td valign="middle">
-          <p style="margin:0;font-family:${DISPLAY};font-size:19px;line-height:1.15;color:${C.asphalt};font-weight:500;letter-spacing:-0.2px;">${escapeHtml(BRAND.wordmark)}</p>
-          <p style="margin:5px 0 0;font-family:${SANS};font-size:10px;letter-spacing:2.4px;text-transform:uppercase;color:${C.copper};font-weight:600;">${escapeHtml(BRAND.establishedLine)}</p>
-        </td>
-      </tr>
-    </table>
+  <td align="center" style="background-color:${C.white};padding:44px 40px 36px;border-bottom:1px solid ${C.hairline};">
+    <img src="${LOGO.onLight}" alt="${escapeHtml(BRAND.wordmark)}" width="300" style="display:block;width:300px;max-width:78%;height:auto;border:0;outline:none;" />
+    <p style="margin:22px 0 0;font-family:${SANS};font-size:10px;letter-spacing:2.6px;text-transform:uppercase;color:${C.copper};font-weight:600;">${escapeHtml(BRAND.establishedLine)}</p>
   </td>
 </tr>`;
 }
@@ -188,11 +195,23 @@ export function brandBar(): string {
 export function emailHeader(eyebrow: string, title: string): string {
   return `
 <tr>
-  <td style="background-color:${C.asphalt};padding:60px 56px 56px;text-align:left;">
-    <div style="width:32px;height:1px;background-color:${C.copper};margin-bottom:26px;"></div>
-    <p style="margin:0 0 20px;font-family:${SANS};font-size:10px;letter-spacing:3.2px;text-transform:uppercase;color:${C.copper};font-weight:600;">${escapeHtml(eyebrow)}</p>
-    <h1 style="margin:0;font-family:${DISPLAY};font-weight:400;color:${C.bone};font-size:36px;line-height:1.08;letter-spacing:-0.5px;">${escapeHtml(title)}</h1>
-    <p style="margin:22px 0 0;font-family:${DISPLAY};font-size:11px;letter-spacing:2.4px;text-transform:uppercase;color:rgba(245,239,230,0.5);">${escapeHtml(BRAND.slogan)}</p>
+  <td align="center" style="background-color:${C.asphalt};padding:56px 40px 48px;text-align:center;">
+    <img src="${LOGO.onDark}" alt="${escapeHtml(BRAND.wordmark)}" width="360" style="display:block;margin:0 auto 34px;width:360px;max-width:82%;height:auto;border:0;outline:none;" />
+    <div style="width:32px;height:1px;background-color:${C.copper};margin:0 auto 24px;"></div>
+    <p style="margin:0 0 18px;font-family:${SANS};font-size:10px;letter-spacing:3.4px;text-transform:uppercase;color:${C.copper};font-weight:600;">${escapeHtml(eyebrow)}</p>
+    <h1 style="margin:0;font-family:${DISPLAY};font-weight:400;color:${C.bone};font-size:34px;line-height:1.1;letter-spacing:-0.4px;">${escapeHtml(title)}</h1>
+    <p style="margin:22px 0 0;font-family:${DISPLAY};font-size:11px;letter-spacing:2.6px;text-transform:uppercase;color:rgba(245,239,230,0.5);">${escapeHtml(BRAND.slogan)}</p>
+  </td>
+</tr>`;
+}
+
+export function verseBlock(): string {
+  return `
+<tr>
+  <td align="center" style="padding:48px 56px 44px;">
+    <div style="width:48px;height:1px;background-color:${C.copper};margin:0 auto 26px;"></div>
+    <p style="margin:0 auto;max-width:440px;font-family:${DISPLAY};font-style:italic;font-weight:400;font-size:20px;line-height:1.55;color:${C.ink};text-align:center;">&ldquo;${escapeHtml(VERSE.text)}&rdquo;</p>
+    <p style="margin:22px 0 0;font-family:${SANS};font-size:10px;letter-spacing:2.8px;text-transform:uppercase;color:${C.copper};font-weight:600;text-align:center;">— ${escapeHtml(VERSE.citation)}</p>
   </td>
 </tr>`;
 }
@@ -468,32 +487,22 @@ export function emailFooter(reason: string): string {
   const year = new Date().getFullYear();
   return `
 <tr>
-  <td style="background-color:${C.asphalt};padding:46px 56px;">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-      <tr>
-        <td width="56" valign="middle" style="padding-right:18px;padding-bottom:22px;">
-          <div style="width:40px;height:40px;background-color:${C.graphite};color:${C.copper};font-family:${DISPLAY};font-size:13px;letter-spacing:1.5px;text-align:center;line-height:40px;font-weight:500;">${BRAND.monogram}</div>
-        </td>
-        <td valign="middle" style="padding-bottom:22px;">
-          <p style="margin:0;font-family:${DISPLAY};font-size:18px;line-height:1.1;color:${C.bone};font-weight:500;letter-spacing:-0.2px;">${escapeHtml(BRAND.wordmark)}</p>
-          <p style="margin:4px 0 0;font-family:${SANS};font-size:10px;letter-spacing:2.4px;text-transform:uppercase;color:${C.copper};font-weight:600;">${escapeHtml(BRAND.establishedLine)}</p>
-        </td>
-      </tr>
-      <tr><td colspan="2" style="padding-top:4px;border-top:1px solid ${C.hairlineDark};">
-        <p style="margin:20px 0 6px;font-family:${SANS};font-size:13px;line-height:1.75;color:${C.bodyOnDark};">
-          <a href="${BRAND.email.href}" style="color:${C.copper};text-decoration:none;">${escapeHtml(BRAND.email.display)}</a>
-        </p>
-        <p style="margin:0 0 22px;font-family:${SANS};font-size:13px;line-height:1.75;color:${C.mutedOnDark};">
-          ${escapeHtml(BRAND.address.formatted)} &nbsp;·&nbsp; ${escapeHtml(BRAND.hours.short)}
-        </p>
-        <div style="width:32px;height:1px;background-color:${C.copper};margin:0 0 18px;"></div>
-        <p style="margin:0 0 10px;font-family:${DISPLAY};font-size:12px;letter-spacing:1.8px;text-transform:uppercase;color:${C.copperSoft};">${escapeHtml(BRAND.slogan)}</p>
-        <p style="margin:0;font-family:${SANS};font-size:11px;line-height:1.75;color:${C.mutedOnDark};">
-          You received this because ${escapeHtml(reason)}.<br>
-          © ${year} ${escapeHtml(BRAND.name)}.
-        </p>
-      </td></tr>
-    </table>
+  <td align="center" style="background-color:${C.asphalt};padding:52px 40px 46px;text-align:center;">
+    <img src="${LOGO.onDark}" alt="${escapeHtml(BRAND.wordmark)}" width="240" style="display:block;margin:0 auto 26px;width:240px;max-width:70%;height:auto;border:0;outline:none;" />
+    <div style="width:32px;height:1px;background-color:${C.copper};margin:0 auto 22px;"></div>
+    <p style="margin:0 0 8px;font-family:${SANS};font-size:13px;line-height:1.75;color:${C.bodyOnDark};">
+      <a href="${BRAND.email.href}" style="color:${C.copper};text-decoration:none;">${escapeHtml(BRAND.email.display)}</a>
+      &nbsp;·&nbsp;
+      <a href="${BRAND.phone.href}" style="color:${C.bodyOnDark};text-decoration:none;">${escapeHtml(BRAND.phone.display)}</a>
+    </p>
+    <p style="margin:0 0 22px;font-family:${SANS};font-size:12px;line-height:1.75;color:${C.mutedOnDark};">
+      ${escapeHtml(BRAND.address.formatted)} &nbsp;·&nbsp; ${escapeHtml(BRAND.hours.short)}
+    </p>
+    <p style="margin:0 0 18px;font-family:${DISPLAY};font-size:11px;letter-spacing:2.4px;text-transform:uppercase;color:${C.copperSoft};">${escapeHtml(BRAND.slogan)}</p>
+    <p style="margin:0;font-family:${SANS};font-size:11px;line-height:1.75;color:${C.mutedOnDark};">
+      You received this because ${escapeHtml(reason)}.<br>
+      © ${year} ${escapeHtml(BRAND.name)}.
+    </p>
   </td>
 </tr>`;
 }
