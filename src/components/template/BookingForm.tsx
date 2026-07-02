@@ -201,7 +201,7 @@ export const BookingForm = ({ prefill, onClose, formKey }: Props) => {
           title: "Submission issue",
           description:
             (err as any).error ??
-            "Something went wrong — please email us directly or call.",
+            "Something went wrong — please email us directly at inquiry@cochranemasterbuilders.com.",
           duration: 8000,
         });
       }
@@ -209,7 +209,7 @@ export const BookingForm = ({ prefill, onClose, formKey }: Props) => {
       console.error("Network error:", e);
       toast({
         title: "Could not send",
-        description: "Please check your connection and try again, or call us directly.",
+        description: "Please check your connection and try again, or email us at inquiry@cochranemasterbuilders.com.",
         duration: 8000,
       });
     }
