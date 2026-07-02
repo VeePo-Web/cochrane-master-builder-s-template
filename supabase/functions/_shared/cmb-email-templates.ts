@@ -200,14 +200,36 @@ export function brandBar(): string {
 </tr>`;
 }
 
+export function brandBar(): string {
+  return `
+<tr>
+  <td align="center" style="background-color:${C.white};padding:44px 40px 36px;border-bottom:1px solid ${C.hairline};">
+    <img src="${LOGO.onLight}" alt="${escapeHtml(BRAND.wordmark)}" width="300" style="display:block;width:300px;max-width:78%;height:auto;border:0;outline:none;" />
+    <p style="margin:22px 0 0;font-family:${SANS};font-size:10px;letter-spacing:2.6px;text-transform:uppercase;color:${C.copper};font-weight:600;">${escapeHtml(BRAND.establishedLine)}</p>
+  </td>
+</tr>`;
+}
+
 export function emailHeader(eyebrow: string, title: string): string {
   return `
 <tr>
-  <td style="background-color:${C.asphalt};padding:60px 56px 56px;text-align:left;">
-    <div style="width:32px;height:1px;background-color:${C.copper};margin-bottom:26px;"></div>
-    <p style="margin:0 0 20px;font-family:${SANS};font-size:10px;letter-spacing:3.2px;text-transform:uppercase;color:${C.copper};font-weight:600;">${escapeHtml(eyebrow)}</p>
-    <h1 style="margin:0;font-family:${DISPLAY};font-weight:400;color:${C.bone};font-size:36px;line-height:1.08;letter-spacing:-0.5px;">${escapeHtml(title)}</h1>
-    <p style="margin:22px 0 0;font-family:${DISPLAY};font-size:11px;letter-spacing:2.4px;text-transform:uppercase;color:rgba(245,239,230,0.5);">${escapeHtml(BRAND.slogan)}</p>
+  <td align="center" style="background-color:${C.asphalt};padding:56px 40px 48px;text-align:center;">
+    <img src="${LOGO.onDark}" alt="${escapeHtml(BRAND.wordmark)}" width="360" style="display:block;margin:0 auto 34px;width:360px;max-width:82%;height:auto;border:0;outline:none;" />
+    <div style="width:32px;height:1px;background-color:${C.copper};margin:0 auto 24px;"></div>
+    <p style="margin:0 0 18px;font-family:${SANS};font-size:10px;letter-spacing:3.4px;text-transform:uppercase;color:${C.copper};font-weight:600;">${escapeHtml(eyebrow)}</p>
+    <h1 style="margin:0;font-family:${DISPLAY};font-weight:400;color:${C.bone};font-size:34px;line-height:1.1;letter-spacing:-0.4px;">${escapeHtml(title)}</h1>
+    <p style="margin:22px 0 0;font-family:${DISPLAY};font-size:11px;letter-spacing:2.6px;text-transform:uppercase;color:rgba(245,239,230,0.5);">${escapeHtml(BRAND.slogan)}</p>
+  </td>
+</tr>`;
+}
+
+export function verseBlock(): string {
+  return `
+<tr>
+  <td align="center" style="padding:48px 56px 44px;">
+    <div style="width:48px;height:1px;background-color:${C.copper};margin:0 auto 26px;"></div>
+    <p style="margin:0 auto;max-width:440px;font-family:${DISPLAY};font-style:italic;font-weight:400;font-size:20px;line-height:1.55;color:${C.ink};text-align:center;">&ldquo;${escapeHtml(VERSE.text)}&rdquo;</p>
+    <p style="margin:22px 0 0;font-family:${SANS};font-size:10px;letter-spacing:2.8px;text-transform:uppercase;color:${C.copper};font-weight:600;text-align:center;">— ${escapeHtml(VERSE.citation)}</p>
   </td>
 </tr>`;
 }
