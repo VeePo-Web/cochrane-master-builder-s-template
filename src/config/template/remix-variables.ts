@@ -125,8 +125,8 @@ export interface RemixVariables {
    */
   BRAND_URL: string;
   /**
-   * Contact phone in E.164 format. e.g. "+14031234567"
-   * Used by: JSON-LD LocalBusiness telephone field (required for rich results).
+   * (Retired) This site is email-only — no phone surfaces exist.
+   * Kept as an empty string so historical remix consumers still typecheck.
    */
   PHONE: string;
   /**
