@@ -508,32 +508,18 @@ const Step2 = ({
       />
     </Field>
 
-    {/* Email + Phone — 2-up on desktop */}
-    <div className="grid gap-5 sm:grid-cols-2">
-      <Field label="Email" error={errors.email?.message}>
-        <input
-          {...register("email")}
-          type="email"
-          autoComplete="email"
-          inputMode="email"
-          placeholder="your@email.com"
-          className={fieldClass}
-          style={fieldStyle}
-        />
-      </Field>
-
-      <Field label="Phone" error={errors.phone?.message}>
-        <input
-          {...register("phone")}
-          type="tel"
-          autoComplete="tel"
-          inputMode="tel"
-          placeholder="403-000-0000"
-          className={fieldClass}
-          style={fieldStyle}
-        />
-      </Field>
-    </div>
+    {/* Email */}
+    <Field label="Email" error={errors.email?.message}>
+      <input
+        {...register("email")}
+        type="email"
+        autoComplete="email"
+        inputMode="email"
+        placeholder="your@email.com"
+        className={fieldClass}
+        style={fieldStyle}
+      />
+    </Field>
   </div>
 );
 
@@ -551,7 +537,6 @@ const Step3 = ({
     { label: "Photos", value: mediaCount > 0 ? `${mediaCount} file${mediaCount !== 1 ? "s" : ""} attached` : "None" },
     { label: "Name", value: values.name || "—" },
     { label: "Email", value: values.email || "—" },
-    { label: "Phone", value: values.phone || "—" },
   ];
 
   return (
