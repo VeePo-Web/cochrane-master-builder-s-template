@@ -41,7 +41,7 @@ export type Database = {
           media_urls: string[]
           metadata: Json
           name: string
-          phone: string
+          phone: string | null
           service_slug: string | null
           site_slug: string
           submission_id: string
@@ -54,7 +54,7 @@ export type Database = {
           media_urls?: string[]
           metadata?: Json
           name: string
-          phone: string
+          phone?: string | null
           service_slug?: string | null
           site_slug?: string
           submission_id: string
@@ -67,7 +67,7 @@ export type Database = {
           media_urls?: string[]
           metadata?: Json
           name?: string
-          phone?: string
+          phone?: string | null
           service_slug?: string | null
           site_slug?: string
           submission_id?: string
