@@ -132,8 +132,8 @@ const BookingConfirmationEmail = ({
         <style dangerouslySetInnerHTML={{ __html: HEAD_CSS }} />
       </Head>
       <Preview>
-        We've got your {EMAIL_BRAND.serviceNoun} request — here's what
-        happens next.
+        A real builder reads every message. We'll come back with a clear
+        next step within one business day.
       </Preview>
       <Body style={main}>
         <Container style={outerContainer}>
