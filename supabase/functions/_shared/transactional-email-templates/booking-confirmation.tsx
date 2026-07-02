@@ -383,12 +383,12 @@ const BookingConfirmationEmail = ({
                     </table>
 
                     <Text style={scriptureQuote} className="dm-text">
-                      &ldquo;Lazy hands make for poverty,
+                      &ldquo;Whatever your hand finds to do,
                       <br />
-                      but diligent hands bring wealth.&rdquo;
+                      do it with all your might.&rdquo;
                     </Text>
                     <Text style={scriptureAttribution}>
-                      — PROVERBS 10:4 NIV
+                      — ECCLESIASTES 9 : 10
                     </Text>
                   </td>
                 </tr>
