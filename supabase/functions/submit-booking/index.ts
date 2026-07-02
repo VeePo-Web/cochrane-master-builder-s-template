@@ -160,7 +160,7 @@ serve(async (req: Request) => {
     service_slug: data.serviceSlug ?? null,
     name: data.name,
     email: data.email.toLowerCase(),
-    phone: data.phone,
+    phone: "",
     details: data.projectDetails ?? null,
     media_urls: data.mediaUrls ?? [],
     metadata: {
