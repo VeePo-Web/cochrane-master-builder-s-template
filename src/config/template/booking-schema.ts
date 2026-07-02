@@ -11,8 +11,6 @@
 
 import { z } from "zod";
 
-const PHONE_RE = /^[\d\s\-\(\)\+\.x]{7,24}$/;
-
 export const bookingSchema = z.object({
   // ── Required contact fields ──────────────────────────────────────────────
   name: z
@@ -28,13 +26,6 @@ export const bookingSchema = z.object({
     .min(1, "Email is required")
     .email("Enter a valid email address")
     .max(255, "Email is too long"),
-
-  phone: z
-    .string()
-    .trim()
-    .min(7, "Phone number is required")
-    .max(24, "Phone number is too long")
-    .regex(PHONE_RE, "Enter a valid phone number"),
 
   // ── Optional project context ─────────────────────────────────────────────
   projectDetails: z
@@ -64,7 +55,7 @@ export type BookingFormData = z.infer<typeof bookingSchema>;
 export const BOOKING_STEPS = [
   "project",   // 0 — projectDetails textarea
   "photos",    // 1 — media upload
-  "contact",   // 2 — name / email / phone
+  "contact",   // 2 — name / email
   "review",    // 3 — summary + send
 ] as const;
 

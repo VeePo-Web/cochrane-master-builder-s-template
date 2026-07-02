@@ -4,7 +4,7 @@
  * 4-step animated wizard:
  *   0 — Project details (optional textarea)
  *   1 — Photos / video (MediaDropzone, optional)
- *   2 — Contact info (name, email, phone — all required)
+ *   2 — Contact info (name, email — both required)
  *   3 — Review & send
  *
  * State persisted to sessionStorage ("cmb.booking.draft") on every change.
@@ -106,7 +106,6 @@ export const BookingForm = ({ prefill, onClose, formKey }: Props) => {
       projectDetails: prefill?.description ?? draft.projectDetails ?? "",
       name: draft.name ?? "",
       email: draft.email ?? "",
-      phone: draft.phone ?? "",
       serviceSlug: prefill?.serviceSlug ?? draft.serviceSlug ?? "",
       website: "",
     },
@@ -115,8 +114,8 @@ export const BookingForm = ({ prefill, onClose, formKey }: Props) => {
   // Persist draft on every change
   const values = watch();
   useEffect(() => {
-    saveDraft({ projectDetails: values.projectDetails, name: values.name, email: values.email, phone: values.phone });
-  }, [values.projectDetails, values.name, values.email, values.phone]);
+    saveDraft({ projectDetails: values.projectDetails, name: values.name, email: values.email });
+  }, [values.projectDetails, values.name, values.email]);
 
   // Focus first input/textarea in the active step after transition
   useEffect(() => {
@@ -140,7 +139,7 @@ export const BookingForm = ({ prefill, onClose, formKey }: Props) => {
 
   // Step 2 → 3: validate contact fields first
   const advanceStep2 = async () => {
-    const ok = await trigger(["name", "email", "phone"]);
+    const ok = await trigger(["name", "email"]);
     if (ok) goTo(3);
   };
 
@@ -202,7 +201,7 @@ export const BookingForm = ({ prefill, onClose, formKey }: Props) => {
           title: "Submission issue",
           description:
             (err as any).error ??
-            "Something went wrong — please email us directly or call.",
+            "Something went wrong — please email us directly at inquiry@cochranemasterbuilders.com.",
           duration: 8000,
         });
       }
@@ -210,7 +209,7 @@ export const BookingForm = ({ prefill, onClose, formKey }: Props) => {
       console.error("Network error:", e);
       toast({
         title: "Could not send",
-        description: "Please check your connection and try again, or call us directly.",
+        description: "Please check your connection and try again, or email us at inquiry@cochranemasterbuilders.com.",
         duration: 8000,
       });
     }
@@ -509,32 +508,18 @@ const Step2 = ({
       />
     </Field>
 
-    {/* Email + Phone — 2-up on desktop */}
-    <div className="grid gap-5 sm:grid-cols-2">
-      <Field label="Email" error={errors.email?.message}>
-        <input
-          {...register("email")}
-          type="email"
-          autoComplete="email"
-          inputMode="email"
-          placeholder="your@email.com"
-          className={fieldClass}
-          style={fieldStyle}
-        />
-      </Field>
-
-      <Field label="Phone" error={errors.phone?.message}>
-        <input
-          {...register("phone")}
-          type="tel"
-          autoComplete="tel"
-          inputMode="tel"
-          placeholder="403-000-0000"
-          className={fieldClass}
-          style={fieldStyle}
-        />
-      </Field>
-    </div>
+    {/* Email */}
+    <Field label="Email" error={errors.email?.message}>
+      <input
+        {...register("email")}
+        type="email"
+        autoComplete="email"
+        inputMode="email"
+        placeholder="your@email.com"
+        className={fieldClass}
+        style={fieldStyle}
+      />
+    </Field>
   </div>
 );
 
@@ -552,7 +537,6 @@ const Step3 = ({
     { label: "Photos", value: mediaCount > 0 ? `${mediaCount} file${mediaCount !== 1 ? "s" : ""} attached` : "None" },
     { label: "Name", value: values.name || "—" },
     { label: "Email", value: values.email || "—" },
-    { label: "Phone", value: values.phone || "—" },
   ];
 
   return (

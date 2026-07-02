@@ -125,8 +125,8 @@ export interface RemixVariables {
    */
   BRAND_URL: string;
   /**
-   * Contact phone in E.164 format. e.g. "+14031234567"
-   * Used by: JSON-LD LocalBusiness telephone field (required for rich results).
+   * (Retired) This site is email-only — no phone surfaces exist.
+   * Kept as an empty string so historical remix consumers still typecheck.
    */
   PHONE: string;
   /**
@@ -240,7 +240,7 @@ export const MASTER_REMIX: RemixVariables = {
   PARENT_BRAND_URL: "https://cochranemasterbuilders.ca",
   GOOGLE_REVIEW_URL: "",
   BRAND_URL: "https://cochranemasterbuilders.ca",
-  PHONE: "+14030000000",
+  PHONE: "",
   OG_IMAGE: "/share/og-1200x630-navybg.jpg",
 
   // ── Heirloom defaults ───────────────────────────────────────────────────

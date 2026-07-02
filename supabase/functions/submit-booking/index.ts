@@ -160,7 +160,7 @@ serve(async (req: Request) => {
     service_slug: data.serviceSlug ?? null,
     name: data.name,
     email: data.email.toLowerCase(),
-    phone: data.phone,
+    phone: "",
     details: data.projectDetails ?? null,
     media_urls: data.mediaUrls ?? [],
     metadata: {
@@ -198,7 +198,6 @@ serve(async (req: Request) => {
   const internalRows = [
     { label: "Name", value: data.name },
     { label: "Email", value: data.email, href: `mailto:${data.email}` },
-    { label: "Phone", value: data.phone, href: `tel:${String(data.phone).replace(/[^\d+]/g, "")}` },
     data.serviceSlug ? { label: "Service", value: serviceLabel } : null,
     data.siteSlug ? { label: "Site", value: data.siteSlug } : null,
     data.referrer ? { label: "Source", value: data.referrer } : null,
@@ -210,10 +209,10 @@ serve(async (req: Request) => {
     brandBar() +
     emailHeader("New Lead", data.name) +
     leadParagraph(
-      `${escapeHtml(data.name)} just sent a request about <strong>${escapeHtml(serviceLabel)}</strong>. Everything they told us is below.`,
+      `Good news — ${escapeHtml(data.name)} just reached out about <strong>${escapeHtml(serviceLabel)}</strong>. Everything they shared is right below.`,
     ) +
     bodyParagraph(
-      `Answer within one business day. Reply to this email and it threads back to them. If you send a written quote, put the submission ID in the subject line so the trail stays clean.`,
+      `Let's get back to them within one business day. Just hit reply and it threads straight to them. If you send a written quote, drop the submission ID into the subject line so the trail stays tidy.`,
     ) +
     (servicesList.length ? serviceBadges(servicesList) : "") +
     sectionTitle("Submission", "Contact details") +
@@ -226,10 +225,8 @@ serve(async (req: Request) => {
         attachmentGallery(att)
       : "") +
     ctaBlock({
-      primaryText: `Call ${data.phone}`,
-      primaryUrl: `tel:${String(data.phone).replace(/[^\d+]/g, "")}`,
-      secondaryText: "Reply by email",
-      secondaryUrl: `mailto:${data.email}?subject=${encodeURIComponent(`Re: Your ${serviceLabel} inquiry — Cochrane Master Builders`)}`,
+      primaryText: "Reply by email",
+      primaryUrl: `mailto:${data.email}?subject=${encodeURIComponent(`Re: Your ${serviceLabel} inquiry — Cochrane Master Builders`)}`,
     }) +
     verseBlock() +
     emailFooter("an inquiry was submitted on cochranemasterbuilders.com");
@@ -239,34 +236,33 @@ serve(async (req: Request) => {
   // ── CUSTOMER EMAIL ──────────────────────────────────────────────────────
   const fname = firstName(data.name);
   const customerSubject = data.name
-    ? `Your request is in, ${fname} — Cochrane Master Builders`
-    : `Your request is in — Cochrane Master Builders`;
-  const customerPreheader = `A real builder reads every message. We'll come back with a clear next step within one business day.`;
+    ? `Thanks for reaching out, ${fname} — Cochrane Master Builders`
+    : `Thanks for reaching out — Cochrane Master Builders`;
+  const customerPreheader = `A real builder reads every message. We'll be back in touch with a clear next step within one business day.`;
   const customerOnFile = [
     servicesList.length ? { label: "Service Requested", value: serviceLabel } : null,
-    data.phone ? { label: "Phone on File", value: data.phone } : null,
     data.email ? { label: "Email on File", value: data.email } : null,
   ];
 
   const customerBody =
     brandBar() +
-    emailHeader("Request Received", `Thank you, ${fname}`) +
+    emailHeader("Request Received", `Thanks, ${fname}`) +
     leadParagraph(
-      `${escapeHtml(fname)}, your request is in front of us. We're reading it the way we read a set of plans: slowly, with a pencil, looking for the detail that changes everything. You'll hear back within one business day.`,
+      `${escapeHtml(fname)}, thanks so much for reaching out — your note is in front of us and we're already looking it over. We read every message the way we'd read a set of plans: slowly, with a pencil, watching for the detail that changes everything. You'll hear back from a real person within one business day.`,
     ) +
     bodyParagraph(
-      `If a measurement, another photo, or a deadline comes to mind between now and then, hit reply. This inbox is read by the person who will be on your site — not a queue, not a bot.`,
+      `If a measurement, another photo, or a deadline pops into your head before then, just hit reply. This inbox is watched by the same person who'll be on your site — no queues, no bots, no phone tree.`,
     ) +
     (servicesList.length ? serviceBadges(servicesList) : "") +
     (customerOnFile.some(Boolean) ? sectionTitle("On File", "Here's what we have on record") : "") +
     infoCard(customerOnFile) +
     sectionTitle("Before we arrive", "Three quiet things that make the visit sharper") +
     bodyParagraph(
-      `None of these are required — we'll work with whatever we find. But sites that do a few of them tend to move faster, with less guesswork on either side.`,
+      `None of these are required — we'll happily work with whatever we find when we get there. But sites that do a few of them tend to move faster, with less guesswork on either side.`,
     ) +
     preparationSteps() +
     reassuranceCard(
-      `Nothing here is on a script. If anything changes — access, timing, a new question, a new room — reply to this note and it lands on the same desk.`,
+      `Nothing here is scripted. If anything changes — access, timing, a new question, a new room — just reply to this note and it lands on the same desk.`,
     ) +
     ctaBlock({
       primaryText: "Read how we build",

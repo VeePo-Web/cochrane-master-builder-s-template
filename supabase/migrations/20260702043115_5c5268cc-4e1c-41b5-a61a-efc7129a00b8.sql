@@ -1,0 +1,1 @@
+ALTER TABLE public.booking_submissions ALTER COLUMN phone DROP NOT NULL;
