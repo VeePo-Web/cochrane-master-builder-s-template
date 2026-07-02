@@ -139,7 +139,7 @@ export const BookingForm = ({ prefill, onClose, formKey }: Props) => {
 
   // Step 2 → 3: validate contact fields first
   const advanceStep2 = async () => {
-    const ok = await trigger(["name", "email", "phone"]);
+    const ok = await trigger(["name", "email"]);
     if (ok) goTo(3);
   };
 
