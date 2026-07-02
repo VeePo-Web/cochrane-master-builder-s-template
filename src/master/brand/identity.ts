@@ -14,7 +14,7 @@ export const MASTER = {
 
   // The master inbox. Every remixed site's booking form sends here by default.
   // Override per-trade in trade.config.ts only if a specific trade needs its own.
-  email: "hello@cochranemasterbuilders.ca", // TODO: confirm in Phase 2
+  email: "inquiry@cochranemasterbuilders.com",
 
   // Master phone — same logic as email
   phone: "", // TODO: fill from brand docs
