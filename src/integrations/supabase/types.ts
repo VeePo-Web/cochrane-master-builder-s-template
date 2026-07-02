@@ -14,6 +14,66 @@ export type Database = {
   }
   public: {
     Tables: {
+      booking_rate_limits: {
+        Row: {
+          created_at: string
+          id: number
+          ip_hash: string
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          ip_hash: string
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          ip_hash?: string
+        }
+        Relationships: []
+      }
+      booking_submissions: {
+        Row: {
+          created_at: string
+          details: string | null
+          email: string
+          id: string
+          media_urls: string[]
+          metadata: Json
+          name: string
+          phone: string
+          service_slug: string | null
+          site_slug: string
+          submission_id: string
+        }
+        Insert: {
+          created_at?: string
+          details?: string | null
+          email: string
+          id?: string
+          media_urls?: string[]
+          metadata?: Json
+          name: string
+          phone: string
+          service_slug?: string | null
+          site_slug?: string
+          submission_id: string
+        }
+        Update: {
+          created_at?: string
+          details?: string | null
+          email?: string
+          id?: string
+          media_urls?: string[]
+          metadata?: Json
+          name?: string
+          phone?: string
+          service_slug?: string | null
+          site_slug?: string
+          submission_id?: string
+        }
+        Relationships: []
+      }
       bookings: {
         Row: {
           address: Json | null
