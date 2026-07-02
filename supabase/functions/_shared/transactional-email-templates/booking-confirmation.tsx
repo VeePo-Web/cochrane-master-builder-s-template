@@ -398,9 +398,20 @@ const BookingConfirmationEmail = ({
 
           {/* ─── 9. FOOTER ────────────────────────────────────────── */}
           <Section style={footer} className="dm-border">
-            <Text style={footerBrand} className="dm-text">
-              {EMAIL_BRAND.name}
-            </Text>
+            <img
+              src="https://bbpgnqkwafmaaulzrqqv.supabase.co/storage/v1/object/public/booking-media/brand%2Fcmb-logo-onlight.png"
+              alt={EMAIL_BRAND.name}
+              width={220}
+              style={{
+                display: 'block',
+                margin: '0 auto 22px',
+                width: '220px',
+                maxWidth: '65%',
+                height: 'auto',
+                border: 0,
+                outline: 'none',
+              }}
+            />
             <Text style={footerArea} className="dm-muted">
               {EMAIL_BRAND.serviceArea}
             </Text>
