@@ -26,7 +26,7 @@ export const PHONE_DISPLAY = (() => {
  * Single source of truth for email contact. The site contacts by email only
  * (phone surfaces are retired) — every Email link/label reads from here.
  */
-export const EMAIL = "parker@veepo.ca";
+export const EMAIL = "inquiry@cochranemasterbuilders.com";
 
 /** `mailto:` href for email links/buttons. */
 export const EMAIL_HREF = `mailto:${EMAIL}`;

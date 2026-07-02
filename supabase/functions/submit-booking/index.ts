@@ -217,17 +217,21 @@ serve(async (req: Request) => {
     return json({ error: "Submission could not be saved. Please try again." }, 500);
   }
 
-  // Send email via Resend
+  // Send notification via Resend connector gateway.
+  // Single inbound inbox and single verified sender subdomain — hard-defaulted
+  // so every remix behaves identically without per-project env wiring.
   // @ts-ignore Deno
   const resendKey = Deno.env.get("RESEND_API_KEY");
   // @ts-ignore Deno
-  const toEmail = Deno.env.get("BOOKING_TO_EMAIL");
+  const lovableKey = Deno.env.get("LOVABLE_API_KEY");
   // @ts-ignore Deno
-  const fromEmail = Deno.env.get("BOOKING_FROM_EMAIL") ?? "noreply@cochrane-master-builders.com";
+  const toEmail = Deno.env.get("BOOKING_TO_EMAIL") ?? "inquiry@cochranemasterbuilders.com";
+  // @ts-ignore Deno
+  const fromEmail = Deno.env.get("BOOKING_FROM_EMAIL") ?? "bookings@send.cochranemasterbuilders.com";
   // @ts-ignore Deno
   const fromName = Deno.env.get("BOOKING_FROM_NAME") ?? "Cochrane Master Builders";
 
-  if (resendKey && toEmail) {
+  if (resendKey && lovableKey && toEmail) {
     const serviceLabel = data.serviceSlug
       ? data.serviceSlug.replace(/-/g, " ")
       : "General";
@@ -260,10 +264,11 @@ serve(async (req: Request) => {
       headers: { "X-Entity-Ref-ID": submissionId },
     };
 
-    const emailRes = await fetch("https://api.resend.com/emails", {
+    const emailRes = await fetch("https://connector-gateway.lovable.dev/resend/emails", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${resendKey}`,
+        Authorization: `Bearer ${lovableKey}`,
+        "X-Connection-Api-Key": resendKey,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(emailPayload),
@@ -271,8 +276,13 @@ serve(async (req: Request) => {
 
     if (!emailRes.ok) {
       // Log but don't fail the submission — DB insert succeeded
-      console.error("Resend error:", await emailRes.text());
+      console.error("Resend gateway error:", emailRes.status, await emailRes.text());
+    } else {
+      const emailJson = await emailRes.json().catch(() => ({}));
+      console.log("Resend accepted:", emailJson);
     }
+  } else {
+    console.warn("Skipping email — missing RESEND_API_KEY or LOVABLE_API_KEY");
   }
 
   return json({ ok: true, id: submissionId });
