@@ -8,8 +8,6 @@
 // @ts-ignore — Deno import
 import { z } from "https://esm.sh/zod@3.25.76";
 
-const PHONE_RE = /^[\d\s\-\(\)\+\.x]{7,24}$/;
-
 export const bookingSubmissionSchema = z.object({
   name: z
     .string()
@@ -23,13 +21,6 @@ export const bookingSubmissionSchema = z.object({
     .email("Invalid email")
     .max(255)
     .transform((v: string) => v.toLowerCase()),
-
-  phone: z
-    .string()
-    .trim()
-    .min(7, "Phone required")
-    .max(24)
-    .regex(PHONE_RE, "Invalid phone"),
 
   projectDetails: z.string().trim().max(1000).optional(),
 
