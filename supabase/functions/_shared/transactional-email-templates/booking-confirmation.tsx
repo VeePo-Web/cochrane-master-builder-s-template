@@ -464,7 +464,10 @@ const NextStep = ({
 
 export const template = {
   component: BookingConfirmationEmail,
-  subject: "We got your request — here's what happens next",
+  subject: ({ name }: { name?: string }) =>
+    name
+      ? `Your request is in, ${String(name).trim().split(/\s+/)[0]} — Cochrane Master Builders`
+      : `Your request is in — Cochrane Master Builders`,
   displayName: 'Booking confirmation',
   previewData: {
     name: 'Sarah',
