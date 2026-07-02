@@ -4,7 +4,7 @@
  * 4-step animated wizard:
  *   0 — Project details (optional textarea)
  *   1 — Photos / video (MediaDropzone, optional)
- *   2 — Contact info (name, email, phone — all required)
+ *   2 — Contact info (name, email — both required)
  *   3 — Review & send
  *
  * State persisted to sessionStorage ("cmb.booking.draft") on every change.
