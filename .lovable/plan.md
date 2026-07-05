@@ -1,80 +1,54 @@
-# Agent 8 — "Why We Love {{SERVICE}}" Agent Prompt
+## Situation
 
-Append a copy-pasteable Fable 5 (Claude Sonnet 4.5, Anthropic-XML) prompt for the **Why We Love Agent** to `.lovable/plan.md`, matching the structure of agents 9–17.
+Right now `.lovable/plan.md` only holds the meta-plan for Agent 8 — the actual 17 Fable 5 prompts we've iterated on across this thread were never written out as standalone files. So there is nothing to link to yet.
 
-## What makes this agent different
+## Plan
 
-This is the ONE-OF-ONE editorial page. Unlike other agents that fill a templated skeleton, this one writes ~1500 words of long-form founder-voice prose from scratch every time. The prompt must aggressively discourage template thinking and forbid stock phrases.
+Create one standalone `.md` file per agent under `prompts/agents/` so each is copy-pasteable and linkable on its own.
 
-## What the prompt will enforce
+### Files to create
 
-**Route**
-- `/why-we-love-{{SLUG}}` — single prerendered indexable route.
+```
+prompts/agents/agent-01-service-folder-loader.md
+prompts/agents/agent-02-brand-token-forger.md
+prompts/agents/agent-03-route-scaffolder.md
+prompts/agents/agent-04-hero-and-arrival.md
+prompts/agents/agent-05-service-pillar-page.md
+prompts/agents/agent-06-sub-services-generator.md
+prompts/agents/agent-07-comparison-and-cost-pages.md
+prompts/agents/agent-08-why-we-love-service.md
+prompts/agents/agent-09-areas-we-serve.md
+prompts/agents/agent-10-faq-and-ai-answers.md
+prompts/agents/agent-11-stories-and-social-proof.md
+prompts/agents/agent-12-pricing-and-process.md
+prompts/agents/agent-13-contact-and-booking.md
+prompts/agents/agent-14-structured-data-and-schema.md
+prompts/agents/agent-15-performance-and-core-web-vitals.md
+prompts/agents/agent-16-parent-site-integration.md
+prompts/agents/agent-17-seo-and-ai-seo-audit.md
+prompts/agents/README.md   ← index with all 17 links
+```
 
-**Scope lock**
-- One `{{SERVICE}}` sub-brand only. Read only from `{{SERVICE_FOLDER}}/`.
-- Zero fabrication. Every "real Cochrane story" detail must trace to a source doc (`stories.md`, `why-we-love.md`, `service.md`); if the source is thin, write in the abstract ("one family in Cochrane's west end") rather than invent names, addresses, or specifics.
+### Contents
 
-**Six required sections (in order, no reordering)**
-1. **Opening scene** — one specific moment from a real `{{SERVICE}}` job in Cochrane. ~180–220 words. Present tense. Sensory (sound, texture, light, temperature). Zero brand mention until end.
-2. **The craft** — what mastery looks like in this trade. ~250–300 words. Concrete, measurable, technical.
-3. **What most people get wrong** — the shortcut every non-master takes. ~200–250 words. Names the shortcut, names the cost, does not name competitors.
-4. **Our specific standard** — the measurable thing we do differently. ~250–300 words. Numbers, tolerances, time budgets from `service.md`/`process.md`.
-5. **A real Cochrane story** — one family, one project, no names. ~250–300 words. Anonymized. Written from `stories.md` only; if missing, emit `{{TODO: stories.md missing}}` and write a composite labeled as such.
-6. **The invitation** — send 3 photos. ~120–160 words. Warm, direct, one primary CTA to sub-brand `/contact`, one ghost CTA to `/pricing-process`.
+- Each file = the full Fable 5 (Claude Sonnet 4.5, Anthropic-XML) prompt for that single agent, exactly as we've been designing them — `<role>`, `<scope_boundary>`, `<context>`, `<inputs>`, `<success_criteria>`, `<hard_constraints>`, `<forbidden_phrases>`, `<workflow>`, `<deliverables>`, `<output_format>`, `<self_audit>`, `<final_directive>`, plus per-agent spec blocks.
+- Agent 8 uses the finalized long-form-editorial spec already agreed on.
+- Agents 1–7 and 9–17 use the specs we've iterated on for parent-site integration, SEO/AI-SEO audit, etc.
+- README.md = flat markdown list of clickable links to all 17 files.
 
-Total: ~1500 words (1400–1650 acceptable). Word count enforced in self-audit.
+### Chat reply after build
 
-**Voice rules (encoded as hard constraints)**
-- Anchor: Ecclesiastes 9:10 — "Whatever your hand finds to do, do it with all your might." Quote it once, naturally, in section 2 or 4 — not as an epigraph, not as a slogan.
-- Slow, intentional, editorial. Long sentences allowed. Reads like a set of architectural plans: precise, spatial, unhurried.
-- First-person plural ("we") sparingly; first-person singular ("I", from the founder) allowed in sections 1, 4, and 5.
-- Zero exclamation marks. Zero emoji. Zero rhetorical questions ending sections.
-- Zero "here at [brand]", "at {{SERVICE}}, we", "welcome to", "our team", "our mission", "our passion".
-- Zero listicle formatting inside prose sections (bullets banned except in the invitation CTA area).
+The chat message will be **only** the 17 clickable markdown links (plus the README link), nothing else — matching the request.
 
-**Forbidden phrases (case-insensitive grep must return zero matches)**
-Standard list from prior agents PLUS editorial-specific: `passionate`, `dedicated`, `world-class`, `game-changer`, `unlock`, `dive in`, `look no further`, `nestled`, `elevate your`, `revolutionize`, `synergy`, `leverage`, `best-in-class`, `robust`, `seamless`, `cutting-edge`, `journey`, `here at`, `welcome to`, `our team of`, `our mission is`, `our passion is`, `craftsmanship you can trust`, `attention to detail`, `unparalleled`, `unmatched`, `state-of-the-art`, `tailored to your needs`, `at the end of the day`, `heart and soul`.
+### Not touched
 
-**Macro photography prompts (3–5)**
-- Zero human imagery (per project constraint memory).
-- Extreme macro: paint pore, leather grain, tool edge, water bead, dust mote in raked light.
-- Each prompt written as a complete generation-ready sentence with lighting, lens, mood, subject material.
-- Included as an HTML comment block at the top of the route file for downstream image agents; DO NOT render placeholder images inline.
+- No app source files (`src/**`), no routes, no config, no Supabase, no design tokens. Docs-only.
 
-**Structured data**
-- `Article` JSON-LD: `headline`, `author = { "@type": "Organization", "name": "Cochrane Master Builders" }`, `publisher` same, `datePublished`, `dateModified`, `mainEntityOfPage`, `wordCount`, `articleSection = "Craft"`, `timeRequired = "PT6M"`.
-- `BreadcrumbList`: Home → Why We Love {{SERVICE}}.
-- No `HowTo`, no `FAQPage`, no `Review`.
+## One confirmation before I build
 
-**Design & UX**
-- Reuse sub-brand design tokens exactly (per memory: dark editorial, Space Grotesk display, Jost body, generous line-height 1.7, min 15px body).
-- Reading-optimized layout: single column, max-width ~65ch, `font-size: clamp(16px, 1.1vw, 19px)`, drop cap on section 1's first letter allowed if sub-brand uses it elsewhere.
-- One `.section-lede` (40–60 words) directly under the H1 for AI-answer extraction, distinct from section 1's opening scene.
-- Estimated reading time badge visible near H1: "6 min read" (calculated from word count / 250 wpm).
-- Zero human imagery. Zero third-party scripts.
+Do you want me to:
 
-**SEO / AI SEO**
-- Helmet: title ≤ 60 (`Why We Love {{SERVICE}} — {{SUB_BRAND}}`), description ≤ 160 (first-person plural, factual), canonical self-referencing, og:url, og:title, og:description, og:type=`article`, twitter:card=`summary_large_image` if sub-brand convention.
-- Indexable. Added to `sitemap.xml` at priority 0.6, changefreq `yearly`, lastmod today.
-- Added to `llms.txt` under `## Editorial` section with one-line summary.
-- H1 = natural-language keyword variant containing `{{SERVICE}}` + `Cochrane` (e.g. `Why We Love Interior Detailing in Cochrane`).
+- **(A)** generate all 17 prompt files fully fleshed out now (long — each prompt is ~200–400 lines), **or**
+- **(B)** generate the file scaffolding + Agent 8 fully written (already designed) and stub the other 16 with their `<role>` / `<scope>` / spec outline so you can approve tone before I expand each?
 
-**Hard constraints (carried from prior agents)**
-- Zero phone numbers, `tel:` links, `type="tel"` inputs.
-- Zero human imagery. Zero third-party scripts. Zero popups.
-- Zero `localStorage`, zero `console.log` of user data, zero `dangerouslySetInnerHTML`, zero runtime markdown fetch.
-- Prerendered HTML. LCP < 1.0s, CLS < 0.05, Lighthouse ≥ 95.
-
-**Fable 5 prompt engineering**
-- XML-tagged sections: `<role>`, `<scope_boundary>`, `<context>`, `<success_criteria>`, `<inputs>`, `<voice_rules>`, `<hard_constraints>`, `<forbidden_phrases>`, `<six_section_spec>` (with per-section word budgets and content rules), `<photography_prompts_spec>`, `<seo_and_ai_seo>`, `<jsonld_spec>`, `<design_and_ux>`, `<thinking>`, `<multishot_example>` (showing correct vs incorrect opening scene), `<workflow>`, `<deliverables>`, `<output_format>`, `<self_audit>`, `<final_directive>`.
-- `<thinking>` block: read all inputs, extract 3 concrete craft details, extract 1 usable story, draft anchoring quote placement, plan photography prompts.
-- Positive framing + explicit forbidden list.
-- Multishot: one PARAGRAPH-LEVEL good example (a 4-sentence opening in the target voice) and one BAD example (the same idea in stock marketing voice) so the model has an unmistakable contrast.
-- 24-point self-audit including per-section word counts, quote placement, forbidden-phrase grep, structured-data validity, photography-prompt count and human-free check.
-- Success criteria at top: "produce one 1500-word editorial page in the Master Builders founder voice that reads like plans, quotes Ecclesiastes 9:10 once naturally, contains one anonymized Cochrane story, and passes every forbidden-phrase and structural check."
-
-## File change
-- **Append** the full prompt block (headed `## Agent 8 — Why We Love {{SERVICE}} Agent`) to `.lovable/plan.md`. No other files touched.
-
-Ready to write it on approval.
+Reply "A" or "B" and I'll switch to build mode and ship the files + the link list.
