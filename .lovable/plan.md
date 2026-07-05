@@ -1,58 +1,69 @@
-# Agent 14 — Thank You Agent Prompt
+# Agent 15 — Privacy + Terms Agent Prompt
 
-Append a complete, copy-pasteable Fable 5 (Claude Sonnet 4.5, Anthropic-XML) prompt for the **Thank You Agent** to `.lovable/plan.md`, matching agents 9–13.
+Append a complete, copy-pasteable Fable 5 (Claude Sonnet 4.5, Anthropic-XML) prompt for the **Privacy + Terms Agent** to `.lovable/plan.md`, matching agents 9–14.
 
 ## What the prompt will enforce
 
-**Route & purpose**
-- Single route: `/thank-you`. Post-submit reassurance page reached only after `{{SUBMIT_FN}}` succeeds on `/contact`.
-- Zero form fields, zero re-submission surface, zero conversion asks. This page's job is reassurance, not a second CTA.
+**Routes**
+- `/privacy` and `/terms` — two prerendered static routes, both indexable (they are legitimate public trust surface).
 
 **Scope lock**
-- Single `{{SERVICE}}` only. Read from `{{SERVICE_FOLDER}}/` (`service.md`, `voice.md`, `guarantee.md`, `process.md`, `contact.md`).
-- Zero fabrication. Every timeline ("24 hours"), reply channel ("email from `{{REPLY_FROM_EMAIL}}`"), and guarantee statement must trace to a source file or become `{{TODO}}`.
+- Single `{{SERVICE}}` sub-brand of Cochrane Master Builders. Read only from `{{SERVICE_FOLDER}}/` plus the two shared template files: `{{TEMPLATES}}/privacy.md` and `{{TEMPLATES}}/terms.md`.
+- Zero fabrication of legal claims. The templates are the source of truth. The agent's job is targeted substitution and one required addition — not rewriting law.
 
-**Required sections (in order)**
-1. Confirmation headline — warm, calm, singular ("Your request is in.").
-2. What happens next — exactly 3 steps, numbered, each ≤ 25 words, sourced from `contact.md` / `process.md`.
-3. Guarantee reminder — one sentence pulled from `guarantee.md`.
-4. Warm sign-off + one link back to `/` (home). Copy: `Talk soon, — The {{SERVICE}} team`.
+**Required substitutions (across both pages)**
+- Brand name → resolved sub-brand from `service.md` (e.g. "Cochrane Interior Detailing", not "Cochrane Master Builders" and not the raw service string).
+- Legal entity line → "operated by Cochrane Master Builders" (kept in both docs so contractual privity is clear).
+- Contact email → `inquiry@cochranemasterbuilders.com` (every occurrence in both templates).
+- Effective date → build date in ISO `YYYY-MM-DD`.
+- Jurisdiction → Alberta, Canada (unless the template already specifies; do not change).
 
-**Hard constraints**
-- `<meta name="robots" content="noindex, nofollow">` in the page's Helmet (route-scoped, NOT in `index.html`).
-- Zero phone numbers, zero `tel:`, zero human imagery, zero third-party scripts, zero analytics pixels added by this agent, zero popups, zero exit-intent, zero newsletter forms, zero "share this" widgets.
-- Zero `localStorage` reads/writes of submission payload.
-- Zero `console.log` of user data.
-- Zero `dangerouslySetInnerHTML`.
-- Zero direct-access protection theater (do NOT gate the page behind a query param or referrer check — that breaks Gmail/Outlook link previews and email-client rendering; `noindex` handles crawl exclusion).
-- Zero JSON-LD structured data (this is a transactional confirmation page — no `WebPage`, no `FAQPage`, no `Article`. Structured data on a noindex page is wasted crawl and can confuse AI engines).
-- Zero `.section-lede` — noindexed pages should not compete for AI-answer extraction.
+**Required additions**
+- Privacy page must contain a standalone bolded sentence in the "Information we collect" section: **"We do not collect phone numbers."** Add a parallel note in the "How we use your information" section that intake is email-only. Add to the "Data minimization" or equivalent section if present.
+- Both pages must include the app-owned qualifier per trust-page-generation guidance: "This page is maintained by Cochrane Master Builders to describe how the `{{SERVICE}}` sub-brand handles [privacy | terms of use]."
+- Both pages must include the shared-responsibility line separating the app owner's practices from platform (hosting, form submission, email delivery) providers, without naming Lovable or backend vendors as certified.
 
-**Voice**
-- Mirrors `voice.md` and the sign-off tone in `why-we-love.md`. Editorial, calm, Ecclesiastes 9:10-anchored where natural. No exclamation marks. No emoji. No "Woohoo!" / "You're awesome!" / "Check your inbox!!!". No forbidden phrases (same grep list as prior agents).
+**Forbidden claims (per trust-page-generation guardrails)**
+- Zero "certified", "verified by", "SOC 2", "ISO 27001", "GDPR compliant", "HIPAA compliant", "PCI compliant", "end-to-end encrypted" claims unless the template already contains them and the user has approved them.
+- Zero "no vulnerabilities", "no personal data", "breach-proof", "bank-grade security" absolute claims.
+- Zero third-party badges or logos on either page.
+- Zero mention of scanner results, connector sensitivity, or private project metadata.
 
-**Performance**
-- Prerendered HTML. LCP <1.0s (this page has almost no content — anything slower is a config bug). CLS <0.05. Lighthouse ≥95 all categories.
-- Zero images unless a small human-free brand mark; if included, `<img width height loading="eager" fetchpriority="high">`.
+**Design & UX**
+- Match the sub-brand's existing design system (tokens, typography, spacing). No detached "legal page" theme.
+- Long-form reading layout: single column, max-width ~68ch, generous line-height, semantic `<h2>`/`<h3>` sectioning, one anchored table of contents at top with in-page jumps.
+- Prerendered HTML. No client-fetched markdown. No `dangerouslySetInnerHTML`.
+- Zero human imagery. Zero third-party scripts.
 
 **SEO / AI SEO**
-- `noindex, nofollow` — page must not appear in Google index or AI answer surfaces.
-- Removed from `sitemap.xml` (verify not present; if present, remove).
-- Removed from `llms.txt` (verify not present; if present, remove).
-- Canonical still self-references `/thank-you` (canonical + noindex is valid; prevents parameterized-URL duplicates from getting indexed via the canonical hint).
+- Both pages indexable (no `noindex`).
+- Per-route Helmet with title ≤60, description ≤160, canonical + og:url self-reference.
+- Meta title pattern: `Privacy Policy — {{SERVICE}}` / `Terms of Use — {{SERVICE}}`.
+- One JSON-LD `WebPage` + `BreadcrumbList` per route. No `Article`, no `FAQPage`.
+- Add both routes to `sitemap.xml` at priority 0.3, `changefreq: yearly`.
+- Add both routes to `llms.txt` under a `## Legal` section with one-line summaries.
+- No `.section-lede` (legal pages should not compete for AI-answer extraction of the sub-brand's product topics).
 
-**Return-path CTA**
-- Exactly one link back to `/` styled as a ghost/quiet link, not a filled button. This is not a conversion moment.
+**Hard constraints (carried from prior agents)**
+- Zero phone numbers, zero `tel:` links, zero `type="tel"` inputs.
+- Zero human imagery. Zero third-party scripts. Zero popups.
+- Zero `localStorage`, zero `console.log` of user data, zero `dangerouslySetInnerHTML`.
+- Zero fabrication — missing template section → `{{TODO: source needed for X}}`.
+- Same forbidden-phrase grep as prior agents (`passionate`, `world-class`, `unlock`, etc.).
+
+**Cross-linking**
+- Footer of both pages: quiet ghost links to `/`, `/contact`, and the other legal page (Privacy ↔ Terms).
+- The sitewide footer (built by another agent) must also link to `/privacy` and `/terms` — this agent's audit verifies those links exist; if missing, emit `{{TODO: footer agent must add /privacy and /terms links}}`.
 
 **Fable 5 prompt engineering (per Anthropic guidance for Claude Sonnet 4.5)**
-- XML-tagged sections: `<role>`, `<context>`, `<inputs>`, `<hard_constraints>`, `<workflow>`, `<deliverables>`, `<output_format>`, `<self_audit>`, `<final_directive>`.
-- `<thinking>` block before drafting the 3 "what happens next" steps to align them with `process.md`.
+- XML-tagged sections: `<role>`, `<context>`, `<inputs>`, `<hard_constraints>`, `<forbidden_legal_claims>`, `<required_substitutions>`, `<required_additions>`, `<workflow>`, `<deliverables>`, `<output_format>`, `<self_audit>`, `<final_directive>`.
+- `<thinking>` block for scanning the two templates and enumerating every occurrence of the brand string and email string before substituting (so nothing is missed).
 - Positive framing on constraints + explicit forbidden lists for negations.
-- One multishot example showing warm-but-quiet tone (paraphrased, not verbatim-copyable).
-- 18-point self-audit; must return ALL PASS before shipping.
-- Success criteria stated up front: "reassure the sender in under 5 seconds of reading, set expectations for reply timing and channel, remove all conversion pressure."
+- One multishot example showing the exact "We do not collect phone numbers." bolded insertion in its section context.
+- 22-point self-audit; must return ALL PASS before shipping.
+- Success criteria stated up front: "produce two clean, indexable, on-brand legal pages that accurately reflect the sub-brand's email-only intake policy and cite Cochrane Master Builders as the operating legal entity."
 
 ## File change
-- **Append** the full prompt block (headed `## Agent 14 — Thank You Agent`) to `.lovable/plan.md`. No other files touched.
+- **Append** the full prompt block (headed `## Agent 15 — Privacy + Terms Agent`) to `.lovable/plan.md`. No other files touched.
 
 Ready to write it on approval.
