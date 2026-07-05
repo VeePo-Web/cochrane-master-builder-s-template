@@ -1,82 +1,90 @@
-# Agent 16 — Parent-Site Integration Agent Prompt
+# Agent 17 — SEO + AI-SEO Audit Agent Prompt
 
-Append a complete, copy-pasteable Fable 5 (Claude Sonnet 4.5, Anthropic-XML) prompt for the **Parent-Site Integration Agent** to `.lovable/plan.md`, matching agents 9–15.
+Append the final agent's Fable 5 prompt to `.lovable/plan.md`, matching agents 9–16.
 
-## Critical difference from agents 9–15
-This is the ONLY agent that edits a DIFFERENT project — the parent site `cochranemasterbuilders.com` — not the sub-brand site. The prompt must make that scope crystal clear and forbid editing the sub-brand project files.
+## Critical difference from all prior agents
+Agent 17 is **read-only**. It ships a markdown report, NOT code. Any edit is a scope violation. This must be repeated in `<role>`, `<scope_boundary>`, `<hard_constraints>`, and `<final_directive>`.
 
 ## What the prompt will enforce
 
 **Scope lock**
-- Operates on the parent project (`cochranemasterbuilders.com` codebase).
-- Reads FROM the sub-brand's `{{SERVICE_FOLDER}}/` (service.md, sub-services.md, voice.md, communities/, keywords.md, faq.md) as source of truth for what to say about the new sub-brand.
-- Reads FROM the parent project's existing files (routes, components, sitemap, robots, footer) to preserve conventions.
-- Zero edits to the sub-brand project. Zero invention of parent-site copy that isn't grounded in either the sub-brand docs or existing parent-site patterns.
+- Runs LAST, after agents 1–16 have completed for the target `{{SERVICE}}` sub-brand.
+- Audits ONE sub-brand site at `{{DOMAIN}}`. Ignores other sub-brands.
+- Reads sub-brand `{{SERVICE_FOLDER}}/` and the built site's rendered HTML/routes.
+- Zero file writes. Zero code changes. Zero migrations. Zero triggers of build steps.
+- Deliverable: a single markdown report the human copies into a ticket.
 
-**Six required parent-site changes**
-1. **Parent `/` home** — add a `{{SERVICE}}` card in the "Core services overview" grid and a proof strip mention. Match existing card component exactly.
-2. **Parent `/services`** — add a `{{SERVICE}}` tile using the existing service-tile component.
-3. **Parent `/services/{{SLUG}}`** — build a full pillar page (long-form, canonical for generic query `"{{SERVICE}} Cochrane"`).
-4. **Every parent `/areas-we-serve/[community]`** — enumerate all community pages, add `{{SERVICE}}` to the services-offered block on each.
-5. **Parent footer** — add sub-brand link under "Our Trades".
-6. **Parent `sitemap.xml` + `robots.txt`** — add the new pillar route; add a `Sitemap:` cross-reference pointing to the sub-brand's sitemap (well-known URL).
+**Tools it uses**
+1. `seo_chat--trigger_scan` on `{{DOMAIN}}` — kicks off Lovable's built-in scanner.
+2. `seo_chat--list_findings` (states: failing + passing + ignored) — reads results.
+3. `semrush--domain_analysis` on `{{DOMAIN}}` — organic snapshot.
+4. `semrush--keyword_research` on the top primary keyword from `keywords.md` — related/questions.
+5. `semrush--keyword_compare` on the top 20 `{{SERVICE}}` keywords from `keywords.md` — volume/CPC/KDI matrix.
+6. `semrush--competitive_analysis` on `{{DOMAIN}}` — auto-discover competitors + keyword gaps.
+7. `semrush--page_analysis` on 5 key pages: `/`, `/services`, `/pricing-process`, `/faq`, `/blog`.
+8. Manual audit of the checklist below by reading route files and rendered HTML.
 
-**Canonical strategy (must be encoded exactly)**
-- Parent `/services/{{SLUG}}` pillar → `<link rel="canonical" href="https://cochranemasterbuilders.com/services/{{SLUG}}">` (self-canonical). This page is canonical for generic queries.
-- Parent pillar contains a prominent link to the sub-brand site with `rel="me"` (brand relationship) and a "Visit the {{SERVICE}} site" CTA.
-- Sub-brand homepage's canonical stays self-referential (sub-brand is canonical for sub-service queries) — agent verifies but does not modify.
-- Cross-link both directions: parent pillar → sub-brand home; parent pillar mentions sub-brand as "official operating brand for {{SERVICE}}".
+**Technical SEO checklist** (pass/fail each)
+1. Unique `<title>` + `<meta description>` on every route (no template defaults, no duplicates).
+2. Canonical + `og:url` self-reference on every route.
+3. JSON-LD stacked appropriately by page type: `LocalBusiness` sitewide, `Service` on service pages, `FAQPage` on FAQ + pages with rendered Q&A, `BreadcrumbList` on nested pages, `AggregateRating` + `Review` ONLY where honest testimonials exist, `Article` on blog posts.
+4. `sitemap.xml` includes every indexable route; no `/thank-you`; no admin/internal.
+5. `robots.txt` correct — no accidental `Disallow: /`; sitemap directive present; sub-brand sitemap referenced from parent (verify via HEAD to parent robots.txt).
+6. Image `alt` text populated on every non-decorative image; decorative images have empty `alt=""`.
+7. Core Web Vitals per Performance Playbook: LCP < 1.0s, CLS < 0.05, INP < 200ms, TBT < 200ms, Lighthouse Perf/SEO/BestPractices/A11y ≥ 95.
+8. Zero orphan pages; every page reachable in ≤ 3 clicks from `/`. Verify by breadth-first from home.
+9. HTTPS everywhere; zero mixed content.
+10. Zero `noindex` on indexable routes; `noindex` present on `/thank-you`.
+11. `lang="en-CA"` on `<html>`.
+12. `hreflang` handled correctly (or omitted if single-locale).
+13. 404 route returns a helpful page (not a redirect to `/`).
+14. Zero broken internal links (crawl all `<a href>` originating from indexable routes).
+15. `<h1>` present exactly once per page.
 
-**JSON-LD on parent pillar**
-- `Service` schema with `provider` pointing to the sub-brand's `Organization` (name, url, sameAs including parent).
-- `areaServed` array from parent's existing community list.
-- `BreadcrumbList`: Home → Services → {{SERVICE}}.
-- No `FAQPage` unless the parent pillar actually renders FAQs (mirrored from sub-brand `faq.md`, top 6 only).
+**AI-SEO checklist** (pass/fail each)
+1. FAQ block or `.section-lede` on every page (Q&A form or 40–60 word factual lede for LLM extraction).
+2. What/how/why/how-much question variants covered across the site (grep for `What is`, `How does`, `Why`, `How much`).
+3. Entity signals: brand name + "Cochrane" + `{{SERVICE}}` co-occur in H1 or H2 of the home, pillar, and pricing pages.
+4. `HowTo` schema only where honest (real numbered process). Do NOT recommend adding it where dishonest.
+5. Author bio on articles (name, role, one-sentence bio, `Person` JSON-LD).
+6. `llms.txt` exists and lists every important route with one-line summaries.
+7. `speakable` selector on FAQ answers where present.
+8. Zero forbidden phrases from prior agents (`passionate`, `world-class`, etc.) — grep across rendered HTML.
+9. Every H1 is a natural-language keyword variant, not a slogan.
+10. Zero phone numbers, `tel:` links, or `type="tel"` inputs anywhere on the site.
 
-**Pillar page structure** (matches existing parent pillar convention — agent must read one existing pillar first and mirror it)
-- H1 = `{{SERVICE}} in Cochrane` (or exact pattern used by other pillars).
-- Intro `.section-lede` (40–60 words) for AI answer engines.
-- What we do / sub-services grid (from `sub-services.md`).
-- Why choose us (from `voice.md` + `why-we-love.md`).
-- Areas we serve (link out to each `/areas-we-serve/[community]`).
-- Process (from `process.md`, summarized).
-- Pricing note (from `pricing.md`, ranges only if parent convention allows; otherwise "quotes on request").
-- FAQ (top 6 from sub-brand `faq.md`).
-- Dual CTA: primary "Get a quote on the {{SERVICE}} site" (→ sub-brand `/contact`), ghost "Contact Cochrane Master Builders" (→ parent `/contact`).
+**Missing-page gap report**
+- Sub-service pages listed in `sub-services.md` but not built as routes.
+- Comparison pages (`X vs Y`) — check `keywords.md` for `vs` intent; propose ones with search volume.
+- Cost pages (`How much does {{SERVICE}} cost in Cochrane`) — check if `/pricing-process` covers, else propose dedicated `/cost` or `/pricing/[sub-service]`.
+- Problem-led pages (`Fix [problem]`) — cross-reference `faq.md` pain points.
+- Seasonal pages (`Winter {{SERVICE}}`, `Spring {{SERVICE}}`) — propose based on service seasonality signal in `service.md`.
+- Top 5 neighbourhood × service pages — from `communities/`, propose the 5 highest-population Cochrane neighbourhoods that lack dedicated pages.
 
-**Community pages update**
-- Enumerate every file under parent `/areas-we-serve/`.
-- In each community page's "services offered" block, insert `{{SERVICE}}` as a new list item linking to the parent pillar `/services/{{SLUG}}` (NOT directly to sub-brand — keeps canonical clean).
-- Preserve existing sort order (alphabetical, priority, or as-is).
-- Zero other edits to community pages.
+Each missing-page proposal includes: proposed URL slug, H1, target keyword (from Semrush), estimated volume (Semrush), and priority (high/medium/low).
 
-**Footer update**
-- Locate the "Our Trades" section in the parent footer component.
-- Add one link: `{{SERVICE}}` → parent `/services/{{SLUG}}` (canonical path). Sort into existing order.
-- Do NOT link footer directly to the sub-brand domain; parent → pillar → sub-brand keeps the funnel and canonical clean.
-
-**Sitemap / robots**
-- Parent `sitemap.xml`: add `<url>` for `/services/{{SLUG}}` at priority 0.8, changefreq monthly, lastmod today.
-- Parent `robots.txt`: add a second `Sitemap:` line pointing to `https://{{SUB_BRAND_DOMAIN}}/sitemap.xml`. Do not disallow anything new.
-- Parent `llms.txt` (if it exists): add sub-brand under a `## Sub-brands` section with one-line summary and both URLs.
-
-**Hard constraints (carried from prior agents + new)**
-- Zero phone numbers, zero `tel:` links, zero human imagery added by this agent (parent may already have them; do not remove).
-- Zero third-party scripts, zero popups, zero `dangerouslySetInnerHTML`, zero `localStorage`, zero `console.log` of user data.
-- Zero fabrication — every fact about the sub-brand must trace to `{{SERVICE_FOLDER}}/`.
-- Zero destructive edits: never delete existing parent copy, existing services, existing community entries, or existing sitemap entries. Only additions.
-- Zero design drift: reuse parent's existing components, tokens, spacing, typography. If a matching component doesn't exist, emit `{{TODO: parent needs <component>}}` and stop that section.
-- Same forbidden-phrase grep as prior agents.
+**Report structure** (single markdown file, deterministic sections in this order)
+1. Executive summary (5 bullets: what's strong, what's broken, top 3 quick wins, biggest risk, next 30 days).
+2. Semrush snapshot table (traffic, keyword count, top 10 organic terms with position/volume).
+3. Top 20 `{{SERVICE}}` keyword matrix (keyword, volume, KDI, CPC, current position, opportunity band).
+4. Competitor landscape (top 5 auto-discovered competitors + keyword-gap top 20).
+5. Page-analysis section (5 key pages, top keywords each).
+6. Technical SEO checklist (PASS/FAIL per item with one-line evidence + file/URL reference).
+7. AI-SEO checklist (same format).
+8. Priority fix list (P0/P1/P2, each with: what, why it matters for AI/human ranking, exact file or route, estimated effort, which agent (1–16) owns the fix).
+9. Missing-page gap report (table + proposals).
+10. Scanner findings (from `seo_chat--list_findings`, grouped by severity).
+11. Appendix: raw tool outputs (Semrush JSON, scanner findings dump).
 
 **Fable 5 prompt engineering**
-- XML-tagged sections: `<role>`, `<scope_boundary>`, `<context>`, `<success_criteria>`, `<inputs_subbrand>`, `<inputs_parent>`, `<hard_constraints>`, `<canonical_strategy>`, `<six_required_changes>`, `<pillar_page_spec>`, `<jsonld_spec>`, `<forbidden_phrases>`, `<workflow>`, `<deliverables>`, `<output_format>`, `<self_audit>`, `<final_directive>`.
-- `<thinking>` block for: enumerate community pages, read one existing pillar to mirror pattern, verify footer structure, check existing sitemap format.
+- XML-tagged sections: `<role>`, `<scope_boundary>`, `<context>`, `<success_criteria>`, `<read_only_directive>`, `<inputs>`, `<tools_and_calls>`, `<technical_seo_checklist>`, `<ai_seo_checklist>`, `<gap_report_spec>`, `<report_structure>`, `<report_style>`, `<workflow>`, `<deliverables>`, `<output_format>`, `<self_audit>`, `<final_directive>`.
+- `<thinking>` block for: enumerate routes, identify 5 key pages, resolve top 20 keywords from `keywords.md`, plan tool call order (batch Semrush + scanner + reads).
 - Positive framing + explicit forbidden list.
-- Multishot example showing the exact "services offered" list insertion in a community page.
-- 26-point self-audit; must return ALL PASS before shipping.
-- Success criteria at top: "integrate one sub-brand into the parent site with correct canonicals, bidirectional cross-links, complete community coverage, and zero regressions to existing parent content."
+- Multishot example showing one PASS/FAIL checklist row and one priority-fix-list row.
+- 18-point self-audit for the REPORT itself (completeness, evidence, no fabricated numbers, priority-ordered, ownership named).
+- Success criteria at top: "produce one markdown report the human can paste into a ticket, with every checklist item scored on evidence, every fix mapped to a specific route/file and owning agent, and every missing-page proposal backed by Semrush data."
 
 ## File change
-- **Append** the full prompt block (headed `## Agent 16 — Parent-Site Integration Agent`) to `.lovable/plan.md`. No other files touched.
+- **Append** the full prompt block (headed `## Agent 17 — SEO + AI-SEO Audit Agent`) to `.lovable/plan.md`. No other files touched.
 
 Ready to write it on approval.
