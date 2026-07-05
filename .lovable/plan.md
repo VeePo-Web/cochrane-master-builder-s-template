@@ -1,90 +1,80 @@
-# Agent 17 — SEO + AI-SEO Audit Agent Prompt
+# Agent 8 — "Why We Love {{SERVICE}}" Agent Prompt
 
-Append the final agent's Fable 5 prompt to `.lovable/plan.md`, matching agents 9–16.
+Append a copy-pasteable Fable 5 (Claude Sonnet 4.5, Anthropic-XML) prompt for the **Why We Love Agent** to `.lovable/plan.md`, matching the structure of agents 9–17.
 
-## Critical difference from all prior agents
-Agent 17 is **read-only**. It ships a markdown report, NOT code. Any edit is a scope violation. This must be repeated in `<role>`, `<scope_boundary>`, `<hard_constraints>`, and `<final_directive>`.
+## What makes this agent different
+
+This is the ONE-OF-ONE editorial page. Unlike other agents that fill a templated skeleton, this one writes ~1500 words of long-form founder-voice prose from scratch every time. The prompt must aggressively discourage template thinking and forbid stock phrases.
 
 ## What the prompt will enforce
 
+**Route**
+- `/why-we-love-{{SLUG}}` — single prerendered indexable route.
+
 **Scope lock**
-- Runs LAST, after agents 1–16 have completed for the target `{{SERVICE}}` sub-brand.
-- Audits ONE sub-brand site at `{{DOMAIN}}`. Ignores other sub-brands.
-- Reads sub-brand `{{SERVICE_FOLDER}}/` and the built site's rendered HTML/routes.
-- Zero file writes. Zero code changes. Zero migrations. Zero triggers of build steps.
-- Deliverable: a single markdown report the human copies into a ticket.
+- One `{{SERVICE}}` sub-brand only. Read only from `{{SERVICE_FOLDER}}/`.
+- Zero fabrication. Every "real Cochrane story" detail must trace to a source doc (`stories.md`, `why-we-love.md`, `service.md`); if the source is thin, write in the abstract ("one family in Cochrane's west end") rather than invent names, addresses, or specifics.
 
-**Tools it uses**
-1. `seo_chat--trigger_scan` on `{{DOMAIN}}` — kicks off Lovable's built-in scanner.
-2. `seo_chat--list_findings` (states: failing + passing + ignored) — reads results.
-3. `semrush--domain_analysis` on `{{DOMAIN}}` — organic snapshot.
-4. `semrush--keyword_research` on the top primary keyword from `keywords.md` — related/questions.
-5. `semrush--keyword_compare` on the top 20 `{{SERVICE}}` keywords from `keywords.md` — volume/CPC/KDI matrix.
-6. `semrush--competitive_analysis` on `{{DOMAIN}}` — auto-discover competitors + keyword gaps.
-7. `semrush--page_analysis` on 5 key pages: `/`, `/services`, `/pricing-process`, `/faq`, `/blog`.
-8. Manual audit of the checklist below by reading route files and rendered HTML.
+**Six required sections (in order, no reordering)**
+1. **Opening scene** — one specific moment from a real `{{SERVICE}}` job in Cochrane. ~180–220 words. Present tense. Sensory (sound, texture, light, temperature). Zero brand mention until end.
+2. **The craft** — what mastery looks like in this trade. ~250–300 words. Concrete, measurable, technical.
+3. **What most people get wrong** — the shortcut every non-master takes. ~200–250 words. Names the shortcut, names the cost, does not name competitors.
+4. **Our specific standard** — the measurable thing we do differently. ~250–300 words. Numbers, tolerances, time budgets from `service.md`/`process.md`.
+5. **A real Cochrane story** — one family, one project, no names. ~250–300 words. Anonymized. Written from `stories.md` only; if missing, emit `{{TODO: stories.md missing}}` and write a composite labeled as such.
+6. **The invitation** — send 3 photos. ~120–160 words. Warm, direct, one primary CTA to sub-brand `/contact`, one ghost CTA to `/pricing-process`.
 
-**Technical SEO checklist** (pass/fail each)
-1. Unique `<title>` + `<meta description>` on every route (no template defaults, no duplicates).
-2. Canonical + `og:url` self-reference on every route.
-3. JSON-LD stacked appropriately by page type: `LocalBusiness` sitewide, `Service` on service pages, `FAQPage` on FAQ + pages with rendered Q&A, `BreadcrumbList` on nested pages, `AggregateRating` + `Review` ONLY where honest testimonials exist, `Article` on blog posts.
-4. `sitemap.xml` includes every indexable route; no `/thank-you`; no admin/internal.
-5. `robots.txt` correct — no accidental `Disallow: /`; sitemap directive present; sub-brand sitemap referenced from parent (verify via HEAD to parent robots.txt).
-6. Image `alt` text populated on every non-decorative image; decorative images have empty `alt=""`.
-7. Core Web Vitals per Performance Playbook: LCP < 1.0s, CLS < 0.05, INP < 200ms, TBT < 200ms, Lighthouse Perf/SEO/BestPractices/A11y ≥ 95.
-8. Zero orphan pages; every page reachable in ≤ 3 clicks from `/`. Verify by breadth-first from home.
-9. HTTPS everywhere; zero mixed content.
-10. Zero `noindex` on indexable routes; `noindex` present on `/thank-you`.
-11. `lang="en-CA"` on `<html>`.
-12. `hreflang` handled correctly (or omitted if single-locale).
-13. 404 route returns a helpful page (not a redirect to `/`).
-14. Zero broken internal links (crawl all `<a href>` originating from indexable routes).
-15. `<h1>` present exactly once per page.
+Total: ~1500 words (1400–1650 acceptable). Word count enforced in self-audit.
 
-**AI-SEO checklist** (pass/fail each)
-1. FAQ block or `.section-lede` on every page (Q&A form or 40–60 word factual lede for LLM extraction).
-2. What/how/why/how-much question variants covered across the site (grep for `What is`, `How does`, `Why`, `How much`).
-3. Entity signals: brand name + "Cochrane" + `{{SERVICE}}` co-occur in H1 or H2 of the home, pillar, and pricing pages.
-4. `HowTo` schema only where honest (real numbered process). Do NOT recommend adding it where dishonest.
-5. Author bio on articles (name, role, one-sentence bio, `Person` JSON-LD).
-6. `llms.txt` exists and lists every important route with one-line summaries.
-7. `speakable` selector on FAQ answers where present.
-8. Zero forbidden phrases from prior agents (`passionate`, `world-class`, etc.) — grep across rendered HTML.
-9. Every H1 is a natural-language keyword variant, not a slogan.
-10. Zero phone numbers, `tel:` links, or `type="tel"` inputs anywhere on the site.
+**Voice rules (encoded as hard constraints)**
+- Anchor: Ecclesiastes 9:10 — "Whatever your hand finds to do, do it with all your might." Quote it once, naturally, in section 2 or 4 — not as an epigraph, not as a slogan.
+- Slow, intentional, editorial. Long sentences allowed. Reads like a set of architectural plans: precise, spatial, unhurried.
+- First-person plural ("we") sparingly; first-person singular ("I", from the founder) allowed in sections 1, 4, and 5.
+- Zero exclamation marks. Zero emoji. Zero rhetorical questions ending sections.
+- Zero "here at [brand]", "at {{SERVICE}}, we", "welcome to", "our team", "our mission", "our passion".
+- Zero listicle formatting inside prose sections (bullets banned except in the invitation CTA area).
 
-**Missing-page gap report**
-- Sub-service pages listed in `sub-services.md` but not built as routes.
-- Comparison pages (`X vs Y`) — check `keywords.md` for `vs` intent; propose ones with search volume.
-- Cost pages (`How much does {{SERVICE}} cost in Cochrane`) — check if `/pricing-process` covers, else propose dedicated `/cost` or `/pricing/[sub-service]`.
-- Problem-led pages (`Fix [problem]`) — cross-reference `faq.md` pain points.
-- Seasonal pages (`Winter {{SERVICE}}`, `Spring {{SERVICE}}`) — propose based on service seasonality signal in `service.md`.
-- Top 5 neighbourhood × service pages — from `communities/`, propose the 5 highest-population Cochrane neighbourhoods that lack dedicated pages.
+**Forbidden phrases (case-insensitive grep must return zero matches)**
+Standard list from prior agents PLUS editorial-specific: `passionate`, `dedicated`, `world-class`, `game-changer`, `unlock`, `dive in`, `look no further`, `nestled`, `elevate your`, `revolutionize`, `synergy`, `leverage`, `best-in-class`, `robust`, `seamless`, `cutting-edge`, `journey`, `here at`, `welcome to`, `our team of`, `our mission is`, `our passion is`, `craftsmanship you can trust`, `attention to detail`, `unparalleled`, `unmatched`, `state-of-the-art`, `tailored to your needs`, `at the end of the day`, `heart and soul`.
 
-Each missing-page proposal includes: proposed URL slug, H1, target keyword (from Semrush), estimated volume (Semrush), and priority (high/medium/low).
+**Macro photography prompts (3–5)**
+- Zero human imagery (per project constraint memory).
+- Extreme macro: paint pore, leather grain, tool edge, water bead, dust mote in raked light.
+- Each prompt written as a complete generation-ready sentence with lighting, lens, mood, subject material.
+- Included as an HTML comment block at the top of the route file for downstream image agents; DO NOT render placeholder images inline.
 
-**Report structure** (single markdown file, deterministic sections in this order)
-1. Executive summary (5 bullets: what's strong, what's broken, top 3 quick wins, biggest risk, next 30 days).
-2. Semrush snapshot table (traffic, keyword count, top 10 organic terms with position/volume).
-3. Top 20 `{{SERVICE}}` keyword matrix (keyword, volume, KDI, CPC, current position, opportunity band).
-4. Competitor landscape (top 5 auto-discovered competitors + keyword-gap top 20).
-5. Page-analysis section (5 key pages, top keywords each).
-6. Technical SEO checklist (PASS/FAIL per item with one-line evidence + file/URL reference).
-7. AI-SEO checklist (same format).
-8. Priority fix list (P0/P1/P2, each with: what, why it matters for AI/human ranking, exact file or route, estimated effort, which agent (1–16) owns the fix).
-9. Missing-page gap report (table + proposals).
-10. Scanner findings (from `seo_chat--list_findings`, grouped by severity).
-11. Appendix: raw tool outputs (Semrush JSON, scanner findings dump).
+**Structured data**
+- `Article` JSON-LD: `headline`, `author = { "@type": "Organization", "name": "Cochrane Master Builders" }`, `publisher` same, `datePublished`, `dateModified`, `mainEntityOfPage`, `wordCount`, `articleSection = "Craft"`, `timeRequired = "PT6M"`.
+- `BreadcrumbList`: Home → Why We Love {{SERVICE}}.
+- No `HowTo`, no `FAQPage`, no `Review`.
+
+**Design & UX**
+- Reuse sub-brand design tokens exactly (per memory: dark editorial, Space Grotesk display, Jost body, generous line-height 1.7, min 15px body).
+- Reading-optimized layout: single column, max-width ~65ch, `font-size: clamp(16px, 1.1vw, 19px)`, drop cap on section 1's first letter allowed if sub-brand uses it elsewhere.
+- One `.section-lede` (40–60 words) directly under the H1 for AI-answer extraction, distinct from section 1's opening scene.
+- Estimated reading time badge visible near H1: "6 min read" (calculated from word count / 250 wpm).
+- Zero human imagery. Zero third-party scripts.
+
+**SEO / AI SEO**
+- Helmet: title ≤ 60 (`Why We Love {{SERVICE}} — {{SUB_BRAND}}`), description ≤ 160 (first-person plural, factual), canonical self-referencing, og:url, og:title, og:description, og:type=`article`, twitter:card=`summary_large_image` if sub-brand convention.
+- Indexable. Added to `sitemap.xml` at priority 0.6, changefreq `yearly`, lastmod today.
+- Added to `llms.txt` under `## Editorial` section with one-line summary.
+- H1 = natural-language keyword variant containing `{{SERVICE}}` + `Cochrane` (e.g. `Why We Love Interior Detailing in Cochrane`).
+
+**Hard constraints (carried from prior agents)**
+- Zero phone numbers, `tel:` links, `type="tel"` inputs.
+- Zero human imagery. Zero third-party scripts. Zero popups.
+- Zero `localStorage`, zero `console.log` of user data, zero `dangerouslySetInnerHTML`, zero runtime markdown fetch.
+- Prerendered HTML. LCP < 1.0s, CLS < 0.05, Lighthouse ≥ 95.
 
 **Fable 5 prompt engineering**
-- XML-tagged sections: `<role>`, `<scope_boundary>`, `<context>`, `<success_criteria>`, `<read_only_directive>`, `<inputs>`, `<tools_and_calls>`, `<technical_seo_checklist>`, `<ai_seo_checklist>`, `<gap_report_spec>`, `<report_structure>`, `<report_style>`, `<workflow>`, `<deliverables>`, `<output_format>`, `<self_audit>`, `<final_directive>`.
-- `<thinking>` block for: enumerate routes, identify 5 key pages, resolve top 20 keywords from `keywords.md`, plan tool call order (batch Semrush + scanner + reads).
+- XML-tagged sections: `<role>`, `<scope_boundary>`, `<context>`, `<success_criteria>`, `<inputs>`, `<voice_rules>`, `<hard_constraints>`, `<forbidden_phrases>`, `<six_section_spec>` (with per-section word budgets and content rules), `<photography_prompts_spec>`, `<seo_and_ai_seo>`, `<jsonld_spec>`, `<design_and_ux>`, `<thinking>`, `<multishot_example>` (showing correct vs incorrect opening scene), `<workflow>`, `<deliverables>`, `<output_format>`, `<self_audit>`, `<final_directive>`.
+- `<thinking>` block: read all inputs, extract 3 concrete craft details, extract 1 usable story, draft anchoring quote placement, plan photography prompts.
 - Positive framing + explicit forbidden list.
-- Multishot example showing one PASS/FAIL checklist row and one priority-fix-list row.
-- 18-point self-audit for the REPORT itself (completeness, evidence, no fabricated numbers, priority-ordered, ownership named).
-- Success criteria at top: "produce one markdown report the human can paste into a ticket, with every checklist item scored on evidence, every fix mapped to a specific route/file and owning agent, and every missing-page proposal backed by Semrush data."
+- Multishot: one PARAGRAPH-LEVEL good example (a 4-sentence opening in the target voice) and one BAD example (the same idea in stock marketing voice) so the model has an unmistakable contrast.
+- 24-point self-audit including per-section word counts, quote placement, forbidden-phrase grep, structured-data validity, photography-prompt count and human-free check.
+- Success criteria at top: "produce one 1500-word editorial page in the Master Builders founder voice that reads like plans, quotes Ecclesiastes 9:10 once naturally, contains one anonymized Cochrane story, and passes every forbidden-phrase and structural check."
 
 ## File change
-- **Append** the full prompt block (headed `## Agent 17 — SEO + AI-SEO Audit Agent`) to `.lovable/plan.md`. No other files touched.
+- **Append** the full prompt block (headed `## Agent 8 — Why We Love {{SERVICE}} Agent`) to `.lovable/plan.md`. No other files touched.
 
 Ready to write it on approval.
