@@ -3,7 +3,7 @@
  * ELEVATION TOKENS — radii, borders, shadows
  * ═══════════════════════════════════════════════════════════════════════════
  *
- * Drywall = matte. We use shadow with extreme restraint.
+ * {SERVICE} = matte. We use shadow with extreme restraint.
  * Borders carry most of our hierarchy work.
  *
  * USAGE:

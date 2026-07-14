@@ -1,7 +1,7 @@
 /**
- * COCHRANE DRYWALL & INSULATION — Site Structure (canonical)
+ * COCHRANE MASTER BUILDERS — Site Structure (canonical)
  *
- * SOURCE OF TRUTH — verbatim from `2.1_Cochrane_Drywall_Insulation_--_wireframe.docx`.
+ * SOURCE OF TRUTH — verbatim from `2.1_Cochrane_{SERVICE}_Insulation_--_wireframe.docx`.
  * The locked 9-page IA + section list per page.
  *
  * Customer journey: problem → service → proof → reassurance → quote.
@@ -11,8 +11,8 @@ export const SITE_STRUCTURE = {
   // ── Navigation order (locked) ──────────────────────────────────────────
   nav: [
     { label: "Home", path: "/" },
-    { label: "Drywall Repair", path: "/drywall-repair" },
-    { label: "Drywall Installation", path: "/drywall-installation" },
+    { label: "{SERVICE} Repair", path: "/service-repair" },
+    { label: "{SERVICE} Installation", path: "/service-installation" },
     { label: "Painting", path: "/painting" },
     { label: "Garage Packages", path: "/garage-packages" },
     { label: "Basement Packages", path: "/basement-packages" },
@@ -28,7 +28,7 @@ export const SITE_STRUCTURE = {
   pages: {
     home: {
       purpose:
-        "Quickly show this is for Cochrane homeowners with drywall damage, unfinished basements/garages, or paint/insulation needs.",
+        "Quickly show this is for Cochrane homeowners with {SERVICE} damage, unfinished basements/garages, or paint/insulation needs.",
       sections: [
         "Hero",
         "Trust bar",
@@ -44,7 +44,7 @@ export const SITE_STRUCTURE = {
         "Footer",
       ],
     },
-    drywallRepair: {
+    serviceRepair: {
       purpose:
         "Convert people with holes, cracks, dents, cutouts, and visible wall damage.",
       sections: [
@@ -60,9 +60,9 @@ export const SITE_STRUCTURE = {
         "Footer",
       ],
     },
-    drywallInstallation: {
+    serviceInstallation: {
       purpose:
-        "Convert visitors who need new drywall installed in basements, garages, ceilings, utility spaces, or partial rooms.",
+        "Convert visitors who need new {SERVICE} installed in basements, garages, ceilings, utility spaces, or partial rooms.",
       sections: [
         "Hero",
         "What installation jobs we handle",
@@ -86,7 +86,7 @@ export const SITE_STRUCTURE = {
         "Room refresh section",
         "Before / after painting results",
         "Pricing starter ranges",
-        "Why this works well with drywall repair",
+        "Why this works well with {SERVICE} repair",
         "FAQ",
         "CTA",
         "Footer",
@@ -98,7 +98,7 @@ export const SITE_STRUCTURE = {
         "Hero",
         "Problems with unfinished garages",
         "Garage package options",
-        "Insulation + drywall benefits",
+        "Insulation + {SERVICE} benefits",
         "Before / after garage examples",
         "What's included",
         "Process",

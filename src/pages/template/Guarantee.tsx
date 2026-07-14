@@ -490,7 +490,7 @@ const GuaranteePage = ({ onBookClick }: Props) => {
               </p>
               <p>
                 We offer 15 years because the structural work is built to last 30.
-                We offer zero-cost touch-ups because Level-5 finish done correctly does
+                We offer zero-cost touch-ups because a finish done correctly to standard does
                 not develop issues — and when it does, the correct response is to return, not invoice.
               </p>
               <p>A guarantee that is easy to offer means nothing. Ours is strong because the work backs it.</p>

@@ -42,7 +42,7 @@ export const SEO_PERSONA = {
       "best mobile interior finishing Calgary",
       "affordable interior finishing Calgary",
       "interior extraction home cleaning Calgary",
-      "drywall + paint finishing Calgary",
+      "{SERVICE} + paint finishing Calgary",
       "residential finishing NW Calgary",
       "residential finishing NE Calgary",
       "residential finishing SW Calgary",
@@ -121,7 +121,7 @@ export const SEO_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   eeat: {
     experience: "Documented before/after results from real Calgary jobs. Volume of transformations shown. Variety of home and project types and conditions handled.",
-    expertise: "Service descriptions that demonstrate knowledge of extraction, drywall + paint finishing, and restoration techniques — translated into outcomes, not jargon.",
+    expertise: "Service descriptions that demonstrate knowledge of extraction, {SERVICE} + paint finishing, and restoration techniques — translated into outcomes, not jargon.",
     authoritativeness: "Google reviews, consistent NAP across directories, Calgary community group presence, local business directory listings.",
     trustworthiness: "Real founder name and photo, transparent pricing, 'travel included' stated prominently, no-judgment messaging, consistent branding across all touchpoints.",
     soloFounderSignals: [
@@ -201,7 +201,7 @@ export const SEO_PERSONA = {
     localSEO: {
       label: "Local SEO (Calgary Focus)",
       rules: [
-        "Optimize Google Business Profile: consistent NAP, categories (General Contractor, Drywall Contractor, Painter, Insulation Contractor), photos, posts, Q&A",
+        "Optimize Google Business Profile: consistent NAP, categories (General Contractor, {SERVICE} Contractor, Painter, Insulation Contractor), photos, posts, Q&A",
         "Weekly before/after photo posts to Google Business Profile",
         "Seed Q&A with core objections: 'How much?', 'Do you come to me?', 'Is my home too dirty?'",
         "Footer includes Calgary service area for local ranking signals",

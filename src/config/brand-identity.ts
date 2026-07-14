@@ -1,7 +1,7 @@
 /**
- * COCHRANE DRYWALL & INSULATION — Brand Identity (canonical)
+ * COCHRANE MASTER BUILDERS — Brand Identity (canonical)
  *
- * SOURCE OF TRUTH — distilled from `1.5_Cochrane_Drywall_Insulation_--_brand_identiy.docx`.
+ * SOURCE OF TRUTH — distilled from `1.5_Cochrane_{SERVICE}_Insulation_--_brand_identiy.docx`.
  * Brand truth table, non-negotiables/flex/dealbreakers, brand spine,
  * messaging pillars with proof points and CTAs, voice/tone/lexicon,
  * words to avoid, replacement phrases.
@@ -23,7 +23,7 @@ export const BRAND_IDENTITY = {
     },
     {
       truth:
-        "The customer's real problem is not drywall itself — it is living with visible incompletion, irritation, and low-grade home stress.",
+        "The customer's real problem is not {SERVICE} itself — it is living with visible incompletion, irritation, and low-grade home stress.",
       implication: "Messaging must sell relief, closure, and a more settled home.",
     },
     {
@@ -37,7 +37,7 @@ export const BRAND_IDENTITY = {
     },
     {
       truth:
-        "Painting is more competitive standalone than drywall repair and bundled finishing.",
+        "Painting is more competitive standalone than {SERVICE} repair and bundled finishing.",
       implication:
         "Painting positioned as a finish enhancer, not the master brand headline.",
     },
@@ -51,7 +51,7 @@ export const BRAND_IDENTITY = {
   // ── Non-Negotiables ────────────────────────────────────────────────────
   nonNegotiables: [
     "Position as a focused residential interior finishing specialist for Cochrane homeowners.",
-    "Lead with drywall repair, drywall installation, garage packages, basement starter packages, and paint-ready completion.",
+    "Lead with {SERVICE} repair, {SERVICE} installation, garage packages, basement starter packages, and paint-ready completion.",
     "Make small jobs feel welcome and respected.",
     "Present quotes, pricing ranges, and process in grounded, plain language.",
     "Sell staged progress instead of forcing full renovation decisions.",
@@ -102,7 +102,7 @@ export const BRAND_IDENTITY = {
   taglineCandidates: [
     "Finally Get That Wall Handled",
     "Clean Progress for Basements and Garages",
-    "Straightforward Drywall, Paint, and Insulation",
+    "Straightforward {SERVICE}, Paint, and Insulation",
     "The Focused Fix for Interior Spaces",
     "Spaces That Feel More Settled",
     "Start Small. Finish Strong.",
@@ -115,11 +115,11 @@ export const BRAND_IDENTITY = {
     cleanRepairs: {
       label: "Clean Repairs That Stop Catching Your Eye",
       meaning:
-        "Quick, contained drywall patches and small repairs that disappear into the wall.",
+        "Quick, contained {SERVICE} patches and small repairs that disappear into the wall.",
       ctas: [
         "Request Repair Pricing",
         "Send Photos for a Patch Quote",
-        "Get a Drywall Repair Quote",
+        "Get a {SERVICE} Repair Quote",
         "Ask About a Small Job",
         "Show Us the Damage",
         "Get a Ballpark for Your Repair",
@@ -206,7 +206,7 @@ export const BRAND_IDENTITY = {
   antiPatterns: [
     "Do not present a giant undifferentiated service list.",
     "Do not let insulation dominate the narrative.",
-    "Do not bury the drywall repair wedge under generic contractor language.",
+    "Do not bury the {SERVICE} repair wedge under generic contractor language.",
     "Do not use flashy contractor aesthetics or fake luxury cues.",
     "Do not claim superiority without visible proof.",
     "Do not talk like a franchise template.",

@@ -6,7 +6,7 @@
  * This is NOT an automated test runner. It is a **typed, phased, tiered plan**
  * that Lovable (or Claude Code) reads to generate deep, in-depth implementation
  * plans for each step of remixing the master template into a fully bespoke
- * trade site (Drywall, Roofing, Plumbing, Electrical, …).
+ * trade site ({SERVICE}, Roofing, Plumbing, Electrical, …).
  *
  * HOW TO USE IT
  *   1. The operator uploads the trade brief, service catalogue, areas
@@ -115,7 +115,7 @@ export type CheckId =
   | "og-image-generated"
   | "favicon-generated"
   | "schema-localbusiness-present"
-  | "leftover-drywall-references-zero"
+  | "leftover-{SERVICE}-references-zero"
 
   // ── Phase 1: Intake & Trade Foundation ───────────────────────────────
   | "intake-trade-master-brief"
@@ -758,7 +758,7 @@ export const REMIX_CHECKLIST: CheckItem[] = [
     playbook: "COPY_GUIDE",
     label: "Process / method (3–6 stages, this trade's workflow)",
     description:
-      "Each stage: name, 1-sentence what-happens, 1-sentence what-the-customer-does. Specific to this trade — drywall stages ≠ roofing stages ≠ plumbing stages.",
+      "Each stage: name, 1-sentence what-happens, 1-sentence what-the-customer-does. Specific to this trade — {SERVICE} stages ≠ roofing stages ≠ plumbing stages.",
   },
   {
     id: "copy-per-service-pages",
@@ -834,7 +834,7 @@ export const REMIX_CHECKLIST: CheckItem[] = [
     playbook: "AI_IMAGE_RULES",
     label: "Hero image set generated (3–5 candidates → 1)",
     description:
-      "Generate 3–5 hero candidates per the master AI rules: ultra-realistic, no faces, no people, trade-specific subject (drywall = smooth wall + light, roofing = shingles + sky, plumbing = chrome + water bead). Pick one.",
+      "Generate 3–5 hero candidates per the master AI rules: ultra-realistic, no faces, no people, trade-specific subject ({SERVICE} = smooth wall + light, roofing = shingles + sky, plumbing = chrome + water bead). Pick one.",
   },
   {
     id: "visual-per-service-hero",
@@ -1357,8 +1357,8 @@ export const REMIX_CHECKLIST: CheckItem[] = [
   { id: "master-source-artwork-archived", phase: "2-brand", tier: "P0", owner: "ai-plan", group: "setup", automated: true, label: "Master source artwork archived", description: "Both canonical compositions archived to src/master/assets/logo/source/. Archive-only; never <img>'d." },
   { id: "master-logo-slot-map-followed", phase: "2-brand", tier: "P0", owner: "human", group: "setup", label: "New logo surfaces follow the slot map", description: "Any new component using a logo is added to LOGO_SLOT_MAP.md and rendered via <MasterLogo slot='...'/> — never <img src='.../cmb-...png'> direct." },
   { id: "wireframe-matches", phase: "3-ia", tier: "P1", owner: "human", group: "brand", playbook: "REMIX_PLAYBOOK", label: "Wireframe matches the master pattern", description: "Hero → trust → services → process → before/after → FAQ → CTA. (Superseded by ia-page-wireframes-approved.)" },
-  { id: "palette-swapped", phase: "2-brand", tier: "P0", owner: "ai-plan", group: "brand", automated: true, playbook: "BRAND_AUDIT", label: "Palette accent swapped", description: "One accent only. No leftover drywall accent values." },
-  { id: "leftover-drywall-references-zero", phase: "2-brand", tier: "P0", owner: "ai-plan", group: "brand", automated: true, playbook: "BRAND_AUDIT", label: "Zero leftover 'drywall' references", description: "Codebase scan finds no stale references from the source template. (Superseded by brand-zero-leftover-references-scan.)" },
+  { id: "palette-swapped", phase: "2-brand", tier: "P0", owner: "ai-plan", group: "brand", automated: true, playbook: "BRAND_AUDIT", label: "Palette accent swapped", description: "One accent only. No leftover {SERVICE} accent values." },
+  { id: "leftover-{SERVICE}-references-zero", phase: "2-brand", tier: "P0", owner: "ai-plan", group: "brand", automated: true, playbook: "BRAND_AUDIT", label: "Zero leftover '{SERVICE}' references", description: "Codebase scan finds no stale references from the source template. (Superseded by brand-zero-leftover-references-scan.)" },
   { id: "brand-audit-passed", phase: "2-brand", tier: "P0", owner: "human", group: "brand", playbook: "BRAND_AUDIT", label: "Manual brand audit passed", description: "Walk the BRAND_AUDIT checklist; site feels like CMB." },
   { id: "copy-unique", phase: "4-copy", tier: "P0", owner: "ai-plan", group: "content", playbook: "COPY_GUIDE", label: "Copy is unique to this trade", description: "No duplicated paragraphs from sister sites. (Superseded by copy-anti-paraphrase-audit.)" },
   { id: "story-rewritten", phase: "4-copy", tier: "P0", owner: "ai-plan", group: "content", playbook: "COPY_GUIDE", label: "Story is bespoke", description: "Founding story / process / pain points are this trade's. (Superseded by copy-founder-origin-story.)" },

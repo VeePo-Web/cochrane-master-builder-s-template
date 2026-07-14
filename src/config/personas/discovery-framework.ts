@@ -117,7 +117,7 @@ export const DISCOVERY_FRAMEWORK = {
         "Gas and travel — always included in the price",
       ],
       doesNotInclude: [
-        "Drywall finishing or long-life topcoat",
+        "{SERVICE} finishing or long-life topcoat",
         "Engine bay custom home building (available on request)",
         "Permanent scratch repair or bodywork",
         "Competition-grade show preparation",

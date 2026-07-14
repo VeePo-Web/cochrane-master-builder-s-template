@@ -33,7 +33,7 @@ export const GRAND_SLAM_OFFER: GrandSlamOfferConfig = {
     {
       label: "Level 5 Finish Standard",
       description:
-        "The highest drywall finish grade available. The surface that looks perfect under raking light, under your chosen paint, and under scrutiny years from now.",
+        "The highest {SERVICE} finish grade available. The surface that looks perfect under raking light, under your chosen paint, and under scrutiny years from now.",
       valueNote: "Most contractors offer Level 3 or 4 by default. Level 5 is a premium upcharge elsewhere.",
     },
     {

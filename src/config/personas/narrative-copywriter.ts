@@ -43,12 +43,12 @@ export const NARRATIVE_COPYWRITER_PERSONA = {
       {
         name: "Voice, tone and emotional resonance",
         description: "Define a distinctive voice and maintain it consistently across all pages. Use emotionally rich language that sparks inspiration, empathy or empowerment.",
-        forCochraneMasterBuilders: "Voice: confident, refined, knowledgeable, approachable. Tone: the quiet authority of a master craftsman — never boastful, always assured. Like a luxury concierge who happens to be an expert in drywall + paint finishing.",
+        forCochraneMasterBuilders: "Voice: confident, refined, knowledgeable, approachable. Tone: the quiet authority of a master craftsman — never boastful, always assured. Like a luxury concierge who happens to be an expert in {SERVICE} + paint finishing.",
       },
       {
         name: "Specificity and detail",
         description: "Replace vagueness with concrete details: names, statistics, quotes and vivid imagery. Make personas tangible with real goals and challenges.",
-        forCochraneMasterBuilders: "Don't say 'we make your homes look great.' Say 'we restore showroom-grade finish depth using multi-stage drywall + paint finishing and architectural-grade finish protection that lasts years, not weeks.'",
+        forCochraneMasterBuilders: "Don't say 'we make your homes look great.' Say 'we restore showroom-grade finish depth using multi-stage {SERVICE} + paint finishing and architectural-grade finish protection that lasts years, not weeks.'",
       },
       {
         name: "Inclusive and ethical storytelling",
@@ -92,7 +92,7 @@ export const NARRATIVE_COPYWRITER_PERSONA = {
       {
         stage: "Problem",
         description: "A tangible tension or frustration your audience experiences. Identify this early on each page to create relevance.",
-        forCochraneMasterBuilders: "Your home endures relentless punishment — UV damage, road salt, stone chips, drywall imperfection from automated washes. Most builders treat symptoms. The underlying damage compounds.",
+        forCochraneMasterBuilders: "Your home endures relentless punishment — UV damage, road salt, stone chips, {SERVICE} imperfection from automated washes. Most builders treat symptoms. The underlying damage compounds.",
       },
       {
         stage: "Empathy",
@@ -187,7 +187,7 @@ export const NARRATIVE_COPYWRITER_PERSONA = {
       {
         name: "Metaphors and analogies",
         description: "Simplify complex concepts by comparing to everyday experiences.",
-        forCochraneMasterBuilders: "Custom Building is to a quick handyman fix what a master tailor is to off-the-rack. Drywall finishing is armour for your paint.",
+        forCochraneMasterBuilders: "Custom Building is to a quick handyman fix what a master tailor is to off-the-rack. {SERVICE} finishing is armour for your paint.",
       },
       {
         name: "Story archetypes",
@@ -202,7 +202,7 @@ export const NARRATIVE_COPYWRITER_PERSONA = {
       {
         name: "Contrasts and tension",
         description: "Juxtapose the pain of the status quo against the joy of transformation.",
-        forCochraneMasterBuilders: "'From drywall imperfection to showroom. From faded to flawless. From neglected to protected.'",
+        forCochraneMasterBuilders: "'From {SERVICE} imperfection to showroom. From faded to flawless. From neglected to protected.'",
       },
       {
         name: "Sound and rhythm",

@@ -133,7 +133,7 @@ export const TEMPLATE_COPY = {
     hero: {
       eyebrow: "Services",
       title: "Five {SERVICE} engagements. One standard across all five.",
-      lede: "Every package below carries the same 15-year structural guarantee, the same Level-5 finish, the same crew. The only thing that changes is scope.",
+      lede: "Every package below carries the same 15-year structural guarantee, the same top-standard finish, the same crew. The only thing that changes is scope.",
     },
     crossTradeGuarantee: {
       headline: "If we touch it, we warranty it. In writing. For fifteen years.",

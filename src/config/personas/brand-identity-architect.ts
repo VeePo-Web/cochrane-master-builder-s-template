@@ -151,7 +151,7 @@ export const BRAND_IDENTITY_ARCHITECT = {
       deliverables: [
         "Visual principles (5-10) tied to Brand Spine",
         "Trust & premium cues specific to residential finishing",
-        "Photography/art direction rules (before/after, studio-lit, drywall + paint finishing reveals)",
+        "Photography/art direction rules (before/after, studio-lit, {SERVICE} + paint finishing reveals)",
         "Layout philosophy",
         "Typography direction (descriptive usage rules)",
         "Color logic (what it signals + how it's used)",

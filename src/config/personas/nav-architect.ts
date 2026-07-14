@@ -63,7 +63,7 @@ export const NAV_ARCHITECT_PERSONA = {
     depth: "Navigation should have subtle depth through shadow, layering, or transparency — creating a sense of the nav floating above content with purpose. Like the depth you see looking into multiple layers of wall finish.",
     typography: "Navigation typography must be distinctive — not generic. Letter-spacing, font weight, and case should be deliberately chosen to feel editorial and refined. The typography should feel like precision instrument markings — clean, authoritative, exacting.",
     spacing: "Spacing is a luxury signal. Generous padding, consistent rhythm, and mathematical precision in gaps between elements. The same meticulous spacing a quoteer maintains between polishing passes.",
-    transitions: "All state changes (hover, active, scroll-triggered) must feel smooth, earned, and substantial. No cheap CSS defaults. Custom easing curves that feel calm and confident — like the slow, satisfying reveal of a drywall + paint finishing before and after.",
+    transitions: "All state changes (hover, active, scroll-triggered) must feel smooth, earned, and substantial. No cheap CSS defaults. Custom easing curves that feel calm and confident — like the slow, satisfying reveal of a {SERVICE} + paint finishing before and after.",
     colorStates: {
       default: "Calm, understated — the nav recedes to let content speak. Like a showroom-quality finished wall that doesn't scream but commands attention through perfection.",
       hover: "Subtle sheen emerges — like light catching a freshly finished surface at the perfect angle",
@@ -78,7 +78,7 @@ export const NAV_ARCHITECT_PERSONA = {
       "Logo animation or transformation on scroll — brand mark that responds to user journey",
       "CTA button with bespoke hover state that feels substantial — wall finish sheen effect",
       "Iridescent highlight line shared between nav and footer — the signature finish connection",
-      "Scroll progress indicator that mirrors drywall + paint finishing progress — subtle, satisfying, purposeful",
+      "Scroll progress indicator that mirrors {SERVICE} + paint finishing progress — subtle, satisfying, purposeful",
     ],
   },
 
@@ -174,7 +174,7 @@ export const NAV_ARCHITECT_PERSONA = {
       timing: "400-600ms sweep duration. Satisfying and unhurried.",
     },
     scrollProgress: {
-      effect: "A thin iridescent line at the bottom of the nav grows as user scrolls — representing drywall + paint finishing progress. Same visual language as the footer's decorative line.",
+      effect: "A thin iridescent line at the bottom of the nav grows as user scrolls — representing {SERVICE} + paint finishing progress. Same visual language as the footer's decorative line.",
       timing: "Continuous, physics-based. Tied directly to scroll position.",
     },
   },
@@ -241,7 +241,7 @@ export const NAV_ARCHITECT_PERSONA = {
       "Mobile Overlay — background, typography, spacing, stagger, close mechanism, layer-by-layer reveal",
       "Scroll Transition — trigger point, animation, timing, clear-coat curing easing curve",
       "Scroll Progress Line — iridescent gradient, shared visual DNA with footer",
-      "Nav/Footer Relationship — wall build-up layers (primer → drywall → mud → paint), coating sheen motif, structural echoes, hidden connections",
+      "Nav/Footer Relationship — wall build-up layers (primer → {SERVICE} → mud → paint), coating sheen motif, structural echoes, hidden connections",
       "Skip Link — styled for accessibility, on-brand when visible",
     ],
     standard: "Each element should be designed to Fantasy.co level craft — where every pixel has been considered, every transition feels weighted and substantial, and every state change tells a story of automotive precision.",
@@ -253,7 +253,7 @@ export const NAV_ARCHITECT_PERSONA = {
   whatIfConcepts: [
     {
       name: "Dynamic Service-Driven Mega Menu",
-      concept: "Transform the mega menu into a showcase experience. Each service category opens to reveal a before/after preview with a micro-story about the transformation. 'Drywall Finishing' shows a split image of protected vs. unprotected paint in rain.",
+      concept: "Transform the mega menu into a showcase experience. Each service category opens to reveal a before/after preview with a micro-story about the transformation. '{SERVICE} Finishing' shows a split image of protected vs. unprotected paint in rain.",
     },
     {
       name: "Seasonal Home Care Quick Access",
@@ -261,7 +261,7 @@ export const NAV_ARCHITECT_PERSONA = {
     },
     {
       name: "Before/After Scroll Reveal",
-      concept: "As users scroll, the nav's background subtly shifts from a 'before' texture (slightly matte, imperfect) to an 'after' state (glossy, flawless) — mirroring the drywall + paint finishing journey. Almost imperceptible but subconsciously satisfying.",
+      concept: "As users scroll, the nav's background subtly shifts from a 'before' texture (slightly matte, imperfect) to an 'after' state (glossy, flawless) — mirroring the {SERVICE} + paint finishing journey. Almost imperceptible but subconsciously satisfying.",
     },
     {
       name: "Contextual Voice Navigator",

@@ -61,7 +61,7 @@ const buildToken = (
 export const BRAND: Record<PaletteKey, ColorToken> = {
   bone: buildToken("bone", "Warm fresh-paint background", "Page bg, large surfaces"),
   paper: buildToken("paper", "Pure white card surface", "Elevated cards, modals"),
-  seam: buildToken("seam", "Hairline divider — the drywall seam motif", "Borders, separators"),
+  seam: buildToken("seam", "Hairline divider — the {SERVICE} seam motif", "Borders, separators"),
   charcoal: buildToken("charcoal", "Headline + primary ink", "H1–H3, primary text"),
   graphite: buildToken("graphite", "Body ink", "Paragraph text"),
   mist: buildToken("mist", "Muted ink", "Captions, metadata"),
@@ -135,7 +135,7 @@ export const BUTTON = {
 } as const;
 
 export const SHADOW = {
-  /** None — most elements get no shadow (drywall = matte) */
+  /** None — most elements get no shadow ({SERVICE} = matte) */
   none: "shadow-none",
   /** Barely-there lift on cards */
   subtle: "shadow-[0_1px_3px_rgba(67,61,57,0.04),0_1px_2px_rgba(67,61,57,0.06)]",

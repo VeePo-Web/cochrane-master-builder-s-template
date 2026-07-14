@@ -31,30 +31,30 @@ const DEFAULT_TIERS: LadderTier[] = [
   {
     label: "The Repair Visit",
     priceRange: "$150–$450",
-    description: "Patches, cracks, holes, water-damaged sections. In and out in a day.",
+    description: "Small repairs, patches, and single-surface fixes. In and out in a day.",
     idealFor: "First project. Fast fix. See the standard first-hand.",
-    href: "/drywall-repair",
+    href: "/services",
   },
   {
     label: "The Installation Job",
     priceRange: "$900–$3,500",
-    description: "New walls, ceilings, boarding over framing. The step up from repair.",
+    description: "New installs over prepared surfaces. The step up from repair.",
     idealFor: "Unfinished spaces, renovation sections, full rooms.",
-    href: "/drywall-installation",
+    href: "/services",
   },
   {
     label: "The Starter Package",
     priceRange: "$1,800–$4,500",
-    description: "Insulation + boarding + finishing. A complete functional space.",
+    description: "Preparation + install + finishing. A complete functional space.",
     idealFor: "Basement or garage transformation from scratch.",
-    href: "/garage-packages",
+    href: "/services",
   },
   {
     label: "The Full Project",
     priceRange: "$3,500–$8,000+",
-    description: "Full scope: framing, insulation, drywall, tape, finish, paint.",
+    description: "Full scope: preparation, install, and finish — every stage, one crew.",
     idealFor: "Complete basement or multi-room renovation.",
-    href: "/basement-packages",
+    href: "/services",
   },
 ];
 

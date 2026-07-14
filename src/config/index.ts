@@ -1,5 +1,5 @@
 /**
- * COCHRANE DRYWALL & INSULATION — Source of Truth Index
+ * COCHRANE MASTER BUILDERS — Source of Truth Index
  *
  * Single barrel export for all canonical brand/business/design configs.
  * Every page and component imports from here.

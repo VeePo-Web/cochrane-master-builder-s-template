@@ -1,7 +1,7 @@
 /**
- * COCHRANE DRYWALL & INSULATION — Design Preferences (canonical)
+ * COCHRANE MASTER BUILDERS — Design Preferences (canonical)
  *
- * SOURCE OF TRUTH — distilled from `1.3_Cochrane_Drywall_Insulation_--_customer_design_pref.docx`.
+ * SOURCE OF TRUTH — distilled from `1.3_Cochrane_{SERVICE}_Insulation_--_customer_design_pref.docx`.
  * This is the design FILTER. Every visual decision must answer "yes" to:
  *  - Does it feel clean, precise, local, honest, calm, and quietly premium?
  *  - Does it serve the transformation story (damaged → clean / unfinished → complete)?
@@ -67,7 +67,7 @@ export const DESIGN_PREFERENCES = {
       "the space becomes bright, complete, and calm",
     ],
     copyExamples: [
-      "Clean Drywall Repairs, Painting & Insulation in Cochrane",
+      "Clean {SERVICE} Repairs, Painting & Insulation in Cochrane",
       "From Damaged or Unfinished to Clean and Complete",
       "Smooth Patches. Straightforward Installs. Practical Finishing Work.",
     ],
@@ -111,7 +111,7 @@ export const DESIGN_PREFERENCES = {
       "real residential interiors",
       "clean basement walls",
       "garages in progress or recently finished",
-      "drywall patching close-ups",
+      "{SERVICE} patching close-ups",
       "smooth painted surfaces",
       "insulation installation details",
       "tidy tools rather than messy worksites",

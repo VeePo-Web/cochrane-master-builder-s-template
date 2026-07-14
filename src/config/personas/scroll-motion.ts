@@ -189,7 +189,7 @@ export const SCROLL_MOTION_PERSONA = {
       "WebGL UI — implement heavy visual effects (glitches, text scrambles) in WebGL shaders instead of HTML/CSS to avoid layout recalculations",
     ],
     technologyStack: "Three.js, GSAP, framework of choice, vanilla JS for interactive portions. Houdini and Blender for 3D assets. Custom geometry exporters and texture loading strategies to minimize initial load.",
-    forCochraneMasterBuilders: "While Cochrane Master Builders doesn't need 3D ice blocks, the principles apply: browser-based iteration for rapid experimentation, performance measurement on low-end devices, efficient asset loading, and using GPU-accelerated effects for any heavy visual work like before/after reveals or drywall + paint finishing showcases.",
+    forCochraneMasterBuilders: "While Cochrane Master Builders doesn't need 3D ice blocks, the principles apply: browser-based iteration for rapid experimentation, performance measurement on low-end devices, efficient asset loading, and using GPU-accelerated effects for any heavy visual work like before/after reveals or {SERVICE} + paint finishing showcases.",
   },
 
   // ═══════════════════════════════════════════════════════════════════

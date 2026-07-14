@@ -58,10 +58,10 @@ export const IMAGE_SEO_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   altText: {
     rules: [
-      "Descriptive and specific: 'Black estate home 5 Series after full drywall + paint finishing and wall finish at Cochrane Master Builders Calgary' not 'homes detail'",
+      "Descriptive and specific: 'Black estate home 5 Series after full {SERVICE} + paint finishing and wall finish at Cochrane Master Builders Calgary' not 'homes detail'",
       "Concise: ~125 characters max, screen readers truncate beyond this",
       "Front-load important words — most informative terms first",
-      "Include relevant keywords naturally — Calgary, residential interior finishing, wall finish, drywall + paint finishing when genuinely describing the image",
+      "Include relevant keywords naturally — Calgary, residential interior finishing, wall finish, {SERVICE} + paint finishing when genuinely describing the image",
       "No redundant phrases: never 'image of' or 'photo of' — screen readers announce images",
       "Describe text in images: if image contains essential text, include in alt",
       "Empty alt (alt='') for purely decorative images — spacers, background textures",
@@ -176,11 +176,11 @@ export const IMAGE_SEO_PERSONA = {
   // ═══════════════════════════════════════════════════════════════════
   serviceImageOptimization: {
     consistentPresentation: "Present finished home results with consistent angles and lighting — homeowner side 3/4, front, interior dash, wheel close-ups on neutral backgrounds",
-    zoomableHighRes: "Allow users to zoom into drywall + paint finishing results, coating reflections. Use responsive techniques and progressive loading.",
+    zoomableHighRes: "Allow users to zoom into {SERVICE} + paint finishing results, coating reflections. Use responsive techniques and progressive loading.",
     scaleCues: "Show homes in context — garage bay, natural light — to convey premium environment and craftsmanship",
     beforeAfterPairs: "Each service tier should have compelling before/after pairs with unique, descriptive alt text for each state",
     thumbnails: "Create separate smaller images for service grid cards. Do not rely on browser to resize large images.",
-    variantAltText: "Different home and project types get unique alt text: 'Tesla Model 3 wall finish result' vs 'Ford F-150 drywall + paint finishing detail'",
+    variantAltText: "Different home and project types get unique alt text: 'Tesla Model 3 wall finish result' vs 'Ford F-150 {SERVICE} + paint finishing detail'",
     richSchema: "Use Service and Offer schema to include images, price ranges, availability. Enhances search snippets.",
     conversionTracking: "Track click-through rates from image search, inquiry form submissions, and phone calls attributed to image-rich pages",
   },

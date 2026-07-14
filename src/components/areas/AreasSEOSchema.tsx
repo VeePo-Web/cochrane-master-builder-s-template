@@ -17,7 +17,7 @@ const BASE_URL = MASTER_REMIX.BRAND_URL;
 interface AreasSEOSchemaProps {
   community: Community;
   regionName: string;
-  brandName: string;       // e.g. "Cochrane Tile Masters"
+  brandName: string;       // e.g. "Cochrane {TRADE} Masters"
   service: string;         // e.g. "tile" — from MASTER_REMIX.SERVICE
   serviceCategory: string; // e.g. "Interior Finishing"
   faqs: FAQ[];             // generated dynamically by the page

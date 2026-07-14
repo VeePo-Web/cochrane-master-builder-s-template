@@ -41,14 +41,15 @@ See `AI_IMAGE_RULES.md` for prompt patterns.
 
 ## Step 5 — Rewrite copy
 
-The master ships with drywall-flavored copy. Rewrite for this trade. **Don't paraphrase between sister sites — Google detects it.**
+The master ships **trade-neutral** with visible `{SERVICE}`-family tokens. Replace every token with this trade's real copy. **Don't paraphrase between sister sites — Google detects it.**
 
-Affected files (search the repo for `Cochrane Drywall` to find them all):
-- `src/pages/Index.tsx` — hero, problems-we-solve, why-us, FAQ
-- `src/pages/<service-pages>.tsx` — one per service
-- `src/components/drywall/Hero.tsx` and friends — copy props
+Affected files (search the repo for `{SERVICE}` to find them all):
+- `src/config/template/remix-variables.ts` — MASTER_REMIX bindings (the primary edit)
+- `src/config/template/template-copy.ts` — page copy blocks
+- `src/config/template/meta-config.ts` — per-route `<head>` metadata
+- `src/config/trade.config.ts` — identity, palette, seo
 
-The checklist on `/remix` flags any leftover "drywall" references automatically.
+The checklist on `/remix` flags any leftover unresolved `{TOKEN}` references automatically.
 
 ## Step 6 — Walk the checklist on `/remix`
 

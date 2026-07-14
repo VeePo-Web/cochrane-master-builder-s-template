@@ -31,7 +31,7 @@ export const STRATEGIC_NARRATIVE = {
     },
     deepRestoration: {
       label: "Deep restoration, not surface cleaning",
-      description: "Interior extraction that removes embedded grime, stains, debris, and odor. Drywall + paint finishing that restores the finish. This isn't a quick handyman fix — it's a custom build.",
+      description: "Interior extraction that removes embedded grime, stains, debris, and odor. {SERVICE} + paint finishing that restores the finish. This isn't a quick handyman fix — it's a custom build.",
     },
     noJudgment: {
       label: "No-judgment service for every condition",
@@ -71,7 +71,7 @@ export const STRATEGIC_NARRATIVE = {
   // ═══════════════════════════════════════════════════════════════════
   vision: "To be the name Calgary homeowners trust when their home needs a real reset — delivering mobile restoration so satisfying, so convenient, and so honest that every customer wonders why they waited.",
 
-  mission: "Cochrane Master Builders exists to restore neglected homes to factory-feel condition through deep mobile restoration — delivering interior extraction, drywall + paint finishing, and a complete sensory reset to customers' doors across Calgary — so every homeowner can experience the satisfaction, pride, and relief of getting their home back.",
+  mission: "Cochrane Master Builders exists to restore neglected homes to factory-feel condition through deep mobile restoration — delivering interior extraction, {SERVICE} + paint finishing, and a complete sensory reset to customers' doors across Calgary — so every homeowner can experience the satisfaction, pride, and relief of getting their home back.",
 
   // ═══════════════════════════════════════════════════════════════════
   // KEY PHRASES FOR COPY DECISIONS

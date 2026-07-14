@@ -19,7 +19,7 @@ export const FOOTER_ARCHITECT_PERSONA = {
     core: "The footer is a high-leverage product surface, not an afterthought. It is the final impression — a brand signature moment.",
     forCochraneMasterBuilders: "The footer must feel like the final layer of a flawless detail — the foundation coat beneath the ceramic, invisible but essential. Every element placed with the same precision as the services Cochrane Master Builders delivers.",
     constraint: "Do NOT damage the site's premium feel. No template vibes. No performance traps. No SEO spam.",
-    unifiedWithNav: "The footer and navigation bar form two halves of one cohesive system — like wall build-up layers (primer → drywall → mud → paint). The nav is the topcoat (transparent, protective, first thing seen); the footer is the foundation/primer (the base of trust). Together they create a complete visual frame for the Cochrane Master Builders experience.",
+    unifiedWithNav: "The footer and navigation bar form two halves of one cohesive system — like wall build-up layers (primer → {SERVICE} → mud → paint). The nav is the topcoat (transparent, protective, first thing seen); the footer is the foundation/primer (the base of trust). Together they create a complete visual frame for the Cochrane Master Builders experience.",
     paintDepthMetaphor: "In wall finishing, what's beneath matters as much as what's visible. The footer is the primer coat — structurally critical, silently supporting everything above it. Users may not consciously notice a great footer, but they feel the trust it provides.",
   },
 
@@ -68,7 +68,7 @@ export const FOOTER_ARCHITECT_PERSONA = {
     hierarchy: "Clear visual hierarchy with group headings. Most important groups positioned first (left on desktop, top on mobile).",
     mobileAdaptation: "Stacked layout or accordion on mobile. Progressive disclosure for secondary content.",
     intentGroups: {
-      example: "Services (Drywall Repair, Drywall Installation, Painting, Insulation, Garage & Basement Packages) | Company (About, Process, FAQ) | Connect (Get a Quote, Contact, Instagram)",
+      example: "Services ({SERVICE} Repair, {SERVICE} Installation, Painting, Insulation, Garage & Basement Packages) | Company (About, Process, FAQ) | Connect (Get a Quote, Contact, Instagram)",
       rationale: "Groups mirror how homeowners think: What do you offer? → Who are you? → How do I start?",
     },
   },
@@ -146,7 +146,7 @@ export const FOOTER_ARCHITECT_PERSONA = {
   // BESPOKE BRAND LAYER
   // ═══════════════════════════════════════════════════════════════════
   brandLayer: {
-    signatureElement: "A subtle motif or typographic detail that echoes the nav bar — like wall build-up layers (primer → drywall → mud → paint). The nav's topcoat line finds its counterpart in the footer's foundation gradient, creating a 'bookend' experience when users see both.",
+    signatureElement: "A subtle motif or typographic detail that echoes the nav bar — like wall build-up layers (primer → {SERVICE} → mud → paint). The nav's topcoat line finds its counterpart in the footer's foundation gradient, creating a 'bookend' experience when users see both.",
     paintDepthConnection: "The footer uses a darker, richer tone progression (foundation → primer) while the nav uses lighter, transparent tones (topcoat). Together they tell the story of wall finishing from top to bottom.",
     microcopyGuidelines: "Short, confident, precise. Matches Cochrane Master Builders voice — 'premium yet approachable.' No corporate jargon. No forced cleverness.",
     examples: [
@@ -163,8 +163,8 @@ export const FOOTER_ARCHITECT_PERSONA = {
   // SEO LAYER
   // ═══════════════════════════════════════════════════════════════════
   seoLayer: {
-    internalLinking: "Curated links to key service pages (Drywall Repair, Drywall Installation, Painting, Insulation, Garage & Basement Packages) and deep content (Process, FAQ, About). Intent-based, not volume-based.",
-    anchorText: "Descriptive, natural language. No keyword stuffing. No repetitive exact-match anchors. Example: 'Drywall and finishing services' not 'best Calgary drywall and finishing near me'.",
+    internalLinking: "Curated links to key service pages ({SERVICE} Repair, {SERVICE} Installation, Painting, Insulation, Garage & Basement Packages) and deep content (Process, FAQ, About). Intent-based, not volume-based.",
+    anchorText: "Descriptive, natural language. No keyword stuffing. No repetitive exact-match anchors. Example: '{SERVICE} and finishing services' not 'best Calgary {SERVICE} and finishing near me'.",
     localSEO: {
       napConsistency: "Include business name, address (Calgary/Cochrane), and phone consistently across all pages.",
       serviceArea: "Mention 'Calgary, Cochrane and surrounding areas, Alberta' naturally — not as a keyword-stuffed list of every nearby city.",

@@ -51,10 +51,10 @@ export const FAQ_SEO_PERSONA = {
       "Community posts, social media comments, residential interior finishing forums, home enthusiast groups",
     ],
     intentBuckets: {
-      informational: "Early-stage: 'What is drywall + paint finishing?', 'How does wall finish work?', 'What's the difference between a wash and a quote?'",
+      informational: "Early-stage: 'What is {SERVICE} + paint finishing?', 'How does wall finish work?', 'What's the difference between a wash and a quote?'",
       transactional: "Objection-handling: 'How much does custom home building cost?', 'What's the timeline?', 'What's included in a full detail?'",
       navigational: "Next steps: 'How do I book a quote?', 'How do I get a quote?'",
-      local: "Location: 'Do you serve Cochrane?', 'What areas do you cover in Alberta?', 'Drywall contractor near me in Calgary'",
+      local: "Location: 'Do you serve Cochrane?', 'What areas do you cover in Alberta?', '{SERVICE} contractor near me in Calgary'",
       edgeCases: "Exceptions: 'Do you travel outside Calgary?', 'What homes don't you detail?', 'Do you work in winter?'",
     },
     selectionRules: [
@@ -241,7 +241,7 @@ export const FAQ_SEO_PERSONA = {
       "residential interior finishing Cochrane",
       "interior finishing Cochrane Alberta",
       "wall finish Cochrane",
-      "drywall + paint finishing Cochrane",
+      "{SERVICE} + paint finishing Cochrane",
       "residential finishing Cochrane",
       "best auto builder Cochrane",
       "interior custom home building Cochrane",

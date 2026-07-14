@@ -130,7 +130,7 @@ export const REVIEWS: Review[] = [
     rating: 5,
     date: "December 2025",
     quote:
-      "We needed drywall on a partial basement section the previous owner never finished. They scoped it honestly — told me what didn't need doing — and the boarding and tape job is dead flat. Hard to find that level of care for a smaller job.",
+      "We needed a partial basement section finished that the previous owner never completed. They scoped it honestly — told me what didn’t need doing — and the finished surface is dead flat. Hard to find that level of care for a smaller job.",
     approved: true,
     source: "manual",
   },

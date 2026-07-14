@@ -1,7 +1,7 @@
 /**
- * COCHRANE DRYWALL & INSULATION — Brand Style Sheet (canonical)
+ * COCHRANE MASTER BUILDERS — Brand Style Sheet (canonical)
  *
- * SOURCE OF TRUTH — verbatim from `1.0_cochrane_drywall_insulation_--_style_sheet.docx`.
+ * SOURCE OF TRUTH — verbatim from `1.0_cochrane_{SERVICE}_insulation_--_style_sheet.docx`.
  * DO NOT modify these primitives without updating the source document first.
  *
  * Headline color and button green are exact hex values from the supplied style sheet.
@@ -12,8 +12,8 @@
  */
 
 export const BRAND = {
-  name: "Cochrane Drywall & Insulation",
-  shortName: "Cochrane Drywall",
+  name: "Cochrane Master Builders",
+  shortName: "Cochrane Master Builders",
   location: "Cochrane, Alberta",
 
   // ── Typography (verbatim from style sheet) ──────────────────────────
@@ -34,7 +34,7 @@ export const BRAND = {
     charcoal: "#433D39", // alias for headline color
     graphite: "#5B544F", // body text
     mist: "#8C857F", // secondary text / captions
-    seam: "#E5E0D8", // hairline dividers — the "drywall seam" motif
+    seam: "#E5E0D8", // hairline dividers — the "{SERVICE} seam" motif
     forest: "#3E5352", // alias for buttonGreen
     forestDeep: "#2F4140", // CTA hover
     clay: "#B07A5B", // restrained warm accent — handcrafted moments only

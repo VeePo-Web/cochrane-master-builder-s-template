@@ -55,17 +55,17 @@ export const NAV_PERSONA = {
     spacing: {
       rule: "Generous horizontal spacing between nav items; comfortable click/tap targets (44px minimum)",
       rationale:
-        "Prevents misclicks; communicates quality through breathing room — the same care Cochrane Master Builders brings to a clean drywall seam or trim line.",
+        "Prevents misclicks; communicates quality through breathing room — the same care Cochrane Master Builders brings to a clean {SERVICE} seam or trim line.",
     },
     dropdowns: {
-      rule: "Use sparingly — only if Services genuinely needs sub-navigation (Drywall Repair, Drywall Installation, Painting, Insulation, Garage Packages, Basement Packages, Custom Homes)",
+      rule: "Use sparingly — only if Services genuinely needs sub-navigation ({SERVICE} Repair, {SERVICE} Installation, Painting, Insulation, Garage Packages, Basement Packages, Custom Homes)",
       rationale:
         "Flat navigation is faster and clearer; busy homeowners have limited patience — don't add decision fatigue",
     },
     scrollProgress: {
       rule: "Thin warm-accent gradient line at bottom of nav showing scroll progress",
       rationale:
-        "Mirrors a clean drywall seam or paint edge metaphor. Same visual language as footer's hairline — the nav/footer unified system easter egg.",
+        "Mirrors a clean {SERVICE} seam or paint edge metaphor. Same visual language as footer's hairline — the nav/footer unified system easter egg.",
     },
     logoTransition: {
       rule: "Logo/wordmark transitions on scroll — full 'Cochrane Master Builders' wordmark on hero, condensed monogram when scrolled",
@@ -78,7 +78,7 @@ export const NAV_PERSONA = {
     concept:
       "The nav (top trim) and footer (foundation) are two halves of one system — the wall section from finished trim down to footing",
     sharedMotif:
-      "A fine warm-accent hairline appears in both nav (scroll progress) and footer (decorative element) — the clean drywall-seam signature",
+      "A fine warm-accent hairline appears in both nav (scroll progress) and footer (decorative element) — the clean {SERVICE}-seam signature",
     designDNA:
       "Same spacing rhythm, typographic hierarchy, and color relationships in both components",
     discovery:

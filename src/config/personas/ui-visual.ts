@@ -33,7 +33,7 @@ export const VISUAL_PERSONA = {
     },
     livingBrandAnchored: {
       rule: "The brand system must feel alive — scalable across services, homes types, seasonal campaigns — without losing coherence. Every element connects back to the core identity.",
-      rationale: "Centre Church's 'fibre' motif visually tied the brand story together. Cochrane Master Builders needs a similar connective tissue — perhaps wall finish layers (primer, drywall, tape & mud, paint), wall build-up depth, or precision geometry.",
+      rationale: "Centre Church's 'fibre' motif visually tied the brand story together. Cochrane Master Builders needs a similar connective tissue — perhaps wall finish layers (primer, {SERVICE}, tape & mud, paint), wall build-up depth, or precision geometry.",
     },
     manifestoGuidedDesign: {
       rule: "All tone, voice and visual feel must flow from Cochrane Master Builders's brand manifesto: generational home-building craftsmanship where calm execution meets family legacy.",
@@ -52,8 +52,8 @@ export const VISUAL_PERSONA = {
     consistency: "Every page should feel like it belongs to the same editorial family — cohesive palette, typography, spacing, motion.",
     accessibility: "Beautiful design that excludes users is failed design. WCAG compliance is non-negotiable.",
     narrativeFlow: "The website is a journey: orientation → exploration → resolution. Smooth transitions maintain continuity — no abrupt cuts between sections or pages.",
-    authenticPhotography: "Use real finished-work photography — before/after reveals, studio-lit close-ups of drywall + paint finishing, wall finish application, interior restoration. No generic stock.",
-    symbolicMotifs: "Use recurring visual devices (wall build-up layers (primer → drywall → mud → paint), soft warm-light gradients, precision geometry, reflective highlights) to embody brand values throughout the experience.",
+    authenticPhotography: "Use real finished-work photography — before/after reveals, studio-lit close-ups of {SERVICE} + paint finishing, wall finish application, interior restoration. No generic stock.",
+    symbolicMotifs: "Use recurring visual devices (wall build-up layers (primer → {SERVICE} → mud → paint), soft warm-light gradients, precision geometry, reflective highlights) to embody brand values throughout the experience.",
     empathyFirst: "Consider that visitors may arrive skeptical, price-comparing, or with past negative experiences. Design must build trust immediately through craft and proof.",
     craftExcellence: "Inspect each pixel, micro-transition and piece of copy. Excellence arises from personal involvement and meticulous attention — like inspecting a flawless wall finish up close.",
     warmthInPrecision: "Premium doesn't mean cold. Cochrane Master Builders's precision is passionate — the warmth of human craftsmanship should come through in photography, copy tone, and interaction design.",
@@ -87,7 +87,7 @@ export const VISUAL_PERSONA = {
     },
     shadows: {
       rule: "Subtle, consistent shadow system — light source from top-left. Shadows create depth suggesting the multi-layer nature of long-life finish.",
-      rationale: "Shadows create depth and hierarchy; inconsistent shadows feel broken. The layered shadow approach mirrors wall finish layers (primer, drywall, tape & mud, paint).",
+      rationale: "Shadows create depth and hierarchy; inconsistent shadows feel broken. The layered shadow approach mirrors wall finish layers (primer, {SERVICE}, tape & mud, paint).",
     },
     borders: {
       rule: "Minimal borders — prefer spacing and background color to create separation. When used, borders should be precise and thin.",
@@ -218,7 +218,7 @@ export const VISUAL_PERSONA = {
       "Process visualization — shows competence, reduces skepticism, educates on value",
       "Team/founder photos — humanizes Cochrane Master Builders, shows the craftspeople behind the work",
       "Manufacturer certifications and product partnerships (Gtechniq, XPEL, etc.)",
-      "Behind-the-scenes craft photography — clean drywall seams, controlled site lighting, tape lines",
+      "Behind-the-scenes craft photography — clean {SERVICE} seams, controlled site lighting, tape lines",
       "Dealership and fleet partnerships — trust by association with quality brands",
     ],
   },
@@ -256,7 +256,7 @@ export const VISUAL_PERSONA = {
       identityDesign: "Logo and identity must show distinctives, be simple and memorable, incorporate meaningful symbolism, use a premium palette. Create versatile variations.",
       selectPalette: "Choose 2–3 core colors based on homeowner psychology and brand personality. Deep blacks for authority, metallics for precision, accent for energy/trust.",
       chooseTypography: "Select primary typeface for headings and secondary for body. Ensure readability across devices. Balance precision with warmth.",
-      developMotifs: "Identify symbols or patterns that reflect the brand narrative — soft warm sheen, wall build-up layers (primer → drywall → mud → paint), precision geometry. Create a consistent icon library for services.",
+      developMotifs: "Identify symbols or patterns that reflect the brand narrative — soft warm sheen, wall build-up layers (primer → {SERVICE} → mud → paint), precision geometry. Create a consistent icon library for services.",
     },
     step2_informationArchitecture: {
       wireframe: "Sketch wireframes focusing on layout and user flow before adding color. Structure mirrors user priorities, not internal org.",

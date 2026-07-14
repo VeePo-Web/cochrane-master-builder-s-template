@@ -146,7 +146,7 @@ export const GUARD_RAILS: GuardRail[] = [
     ],
     enforcedBy: [
       "brand-zero-leftover-references-scan",
-      "leftover-drywall-references-zero",
+      "leftover-{SERVICE}-references-zero",
       "copy-anti-paraphrase-audit",
       "copy-unique",
     ],

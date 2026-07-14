@@ -28,7 +28,7 @@ export const FOOTER_PERSONA = {
 
   decisions: {
     structure: {
-      rule: "3-4 column layout: About/Logo + tagline | Services (Drywall, Painting, Insulation, Custom Homes) | Service Area & Contact | Get a Quote CTA",
+      rule: "3-4 column layout: About/Logo + tagline | Services ({SERVICE}, Painting, Insulation, Custom Homes) | Service Area & Contact | Get a Quote CTA",
       rationale: "Standard pattern Cochrane homeowners expect; deviating creates confusion",
     },
     cta: {
@@ -53,7 +53,7 @@ export const FOOTER_PERSONA = {
     },
     serviceArea: {
       rule: "Include 'Cochrane, Calgary & Rocky View County, Alberta' for local SEO",
-      rationale: "Google uses footer location signals for local ranking — critical for 'custom home builder Cochrane' / 'drywall Cochrane' keywords",
+      rationale: "Google uses footer location signals for local ranking — critical for 'custom home builder Cochrane' / '{SERVICE} Cochrane' keywords",
     },
     licensingAndTrust: {
       rule: "Mention licensing, WCB coverage, warranty, or builder-association membership where applicable — powerful trust signals for residential construction",

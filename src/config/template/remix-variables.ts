@@ -46,7 +46,7 @@ export interface TrustNumber {
 }
 
 export interface RemixVariables {
-  /** Sub-brand short name, e.g. "Cochrane Tile Masters". */
+  /** Sub-brand short name, e.g. "Cochrane {TRADE} Masters". */
   BRAND_NAME: string;
   /** Singular service noun, lower-case. e.g. "tile". */
   SERVICE: string;
@@ -82,7 +82,7 @@ export interface RemixVariables {
   // ── Per-trade image library (populated by scripts/regenerate-images.ts) ──
   /**
    * URL-safe slug for the trade — used as the output path prefix.
-   * e.g. "cochrane-drywall", "cochrane-tile", "cochrane-flooring"
+   * e.g. "cochrane-{trade}" — one slug per remixed trade site
    * Default: "master" (template preview mode).
    */
   TRADE_SLUG: string;
@@ -201,7 +201,7 @@ export const MASTER_REMIX: RemixVariables = {
     {
       question: "Do you handle small {SERVICE_PLURAL} jobs?",
       answer:
-        "Yes. The smallest job we take is the same as the largest in standard. A 30-minute repair gets the same Level-5 finish a whole-home install gets, because the standard is the standard.",
+        "Yes. The smallest job we take is the same as the largest in standard. A 30-minute repair gets the same top-standard finish a whole-home install gets, because the standard is the standard.",
     },
     {
       question: "What is your timeline for {SERVICE} work?",
@@ -233,7 +233,7 @@ export const MASTER_REMIX: RemixVariables = {
     { number: "15", label: "Year structural guarantee" },
     { number: "24h", label: "Written quote turnaround" },
     { number: "$5M", label: "Liability coverage" },
-    { number: "Level 5", label: "Finish standard" },
+    { number: "Top-tier", label: "Finish standard" },
   ],
 
   // ── Contact + Canonical defaults ────────────────────────────────────────
@@ -273,6 +273,6 @@ export const MASTER_REMIX: RemixVariables = {
 
   // Image generation metadata
   PALETTE_ACCENT_HEX: "#C47D26",
-  MATERIAL_PRIMARY: "joint compound, drywall board, skim coat, Level-5 finish",
+  MATERIAL_PRIMARY: "{MATERIAL_1}, {MATERIAL_2}, {MATERIAL_3}, {FINISH_STANDARD}",
   MATERIAL_SUBSURFACE: "mesh tape, corner bead, fiberglass compound",
 };

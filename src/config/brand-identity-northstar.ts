@@ -136,7 +136,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
     proof: [
       "Before/after transformations — real homes, real Calgary jobs, real results",
       "Extraction close-ups showing what came out of the interior",
-      "Drywall + paint finishing reveals — the moment the finish comes back",
+      "{SERVICE} + paint finishing reveals — the moment the finish comes back",
       "Customer reactions and reviews describing the feeling, not just the service",
       "Transparent pricing with travel included — no surprises",
     ],
@@ -168,7 +168,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
     proofArchitecture: {
       mustShow: [
         "Before/after gallery — real Calgary homes, real transformations, multiple angles",
-        "Process documentation — extraction results, interior close-ups, drywall + paint finishing stages",
+        "Process documentation — extraction results, interior close-ups, {SERVICE} + paint finishing stages",
         "Customer reviews quoting specific outcomes ('the smell is gone,' 'it looks brand new,' 'I can't believe the difference')",
         "Pricing transparency — clear pricing with 'travel included' prominently stated",
         "Service area map — visual confirmation of Calgary-wide coverage",
@@ -265,7 +265,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
     },
     repeatableThemes: [
       { theme: "The Reset", description: "The core transformation promise. Before → after. Neglected → restored. A complete sensory and visual reset." },
-      { theme: "The Reveal", description: "The dramatic moment of seeing the result. The extraction bucket. The drywall + paint finishing. The first look inside." },
+      { theme: "The Reveal", description: "The dramatic moment of seeing the result. The extraction bucket. The {SERVICE} + paint finishing. The first look inside." },
       { theme: "The Relief", description: "The emotional exhale of having it handled. Not just clean — off your plate. Someone else took care of it." },
       { theme: "The Return", description: "Getting your home back. Not a different home — YOUR home, the way it used to feel. Factory-fresh, familiar, yours again." },
       { theme: "The Standard", description: "Cochrane Master Builders's personal commitment to a level of finish. Not good enough ≠ done. The standard is factory-feel or it's not finished." },
@@ -275,12 +275,12 @@ export const BRAND_IDENTITY_NORTHSTAR = {
       "The first time sitting in the restored home — the sensory reset",
       "The customer's visible reaction — relief, surprise, satisfaction",
       "The extraction bucket reveal — proof of what was hiding in the interior",
-      "The drywall + paint finishing wipe — the moment the original finish comes back",
+      "The {SERVICE} + paint finishing wipe — the moment the original finish comes back",
       "The follow-up — how the home still feels days later",
     ],
     proofMoments: [
       "Extraction close-ups showing embedded dirt, grime, and buildup removed",
-      "Side-by-side drywall + paint finishing: before haze vs restored clarity",
+      "Side-by-side {SERVICE} + paint finishing: before haze vs restored clarity",
       "Customer reviews with specific language: 'smells new,' 'can't believe the difference,' 'finally feels like my home again'",
       "Real-time process documentation: Cochrane Master Builders working on a real Calgary home",
       "Repeat customer bookings — people who come back because the first reset was that good",
@@ -321,7 +321,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
           "Before/after photo pairs from real Calgary jobs",
           "Extraction results showing embedded grime removal",
           "Customer testimonials describing the feeling of 'getting their home back'",
-          "Drywall + paint finishing documentation showing restored finish",
+          "{SERVICE} + paint finishing documentation showing restored finish",
         ],
         headlines: [
           "Get your home back.",
@@ -692,7 +692,7 @@ export const BRAND_IDENTITY_NORTHSTAR = {
       required: [
         "Before/after pairs: same angle, same lighting, dramatic contrast",
         "Extraction close-ups: dirty water, debris removed, seat transformation",
-        "Drywall + paint finishing reveals: the wipe that shows restored finish",
+        "{SERVICE} + paint finishing reveals: the wipe that shows restored finish",
         "Real Calgary locations: driveways, parking lots, residential streets",
         "Cochrane Master Builders at work: authentic action shots, not posed",
         "Interior panoramas: the full cabin transformation",

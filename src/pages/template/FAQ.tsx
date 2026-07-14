@@ -53,7 +53,7 @@ const COST_FAQS = [
   },
   {
     q: "Is there a minimum job size for {SERVICE} in Cochrane?",
-    a: "No. {BRAND} handles single-patch repairs, crack fills, and small tile replacements — there is no minimum project size. The smallest job receives the same finish standard and written guarantee as the largest.",
+    a: "No. {BRAND} handles single-patch repairs, small fixes, and minor replacements — there is no minimum project size. The smallest job receives the same finish standard and written guarantee as the largest.",
   },
   {
     q: "Do you require a deposit for {SERVICE} work?",
@@ -94,20 +94,20 @@ const PROCESS_FAQS = [
 
 const QUALITY_FAQS = [
   {
-    q: "What is Level 5 finish and why does it matter for {SERVICE}?",
-    a: "Level 5 is the highest drywall grade under ASTM C840. It requires a full skim coat over the entire surface — not just at joints — eliminating texture variation visible under raking or oblique light. {BRAND} applies Level 5 on every project. Most contractors offer Level 4 and charge extra for 5.",
+    q: "What finish standard does {BRAND} work to for {SERVICE}?",
+    a: "Every {SERVICE} project is finished to the trade's highest published standard — full coverage across the entire surface, not just the visible joints — so the result reads as one unbroken plane under raking or oblique light. {BRAND} applies that standard on every project. Most contractors treat it as a paid upgrade.",
   },
   {
-    q: "What is the TCNA standard for tile installation?",
-    a: "TCNA is the Tile Council of North America handbook — the industry authority for installation methods, substrate requirements, grout joint widths, and mortar coverage. {BRAND} follows TCNA standards on every tile project. It is not a premium option — it is the baseline.",
+    q: "What industry standards does {BRAND} follow for {SERVICE} installation?",
+    a: "{BRAND} installs to the trade's published handbook standards — the industry authority for methods, substrate requirements, tolerances, and material coverage. Standards compliance is not a premium option on any quote. It is the baseline every project is built to, and the written guarantee is anchored against it.",
   },
   {
     q: "What is the difference between {SERVICE} contractors in Cochrane?",
-    a: "Primarily finish standard, worksite discipline, and what they put in writing. Level 3 work with a verbal assurance is a different product from Level 5 work with a written 15-year structural warranty. The first is cheaper today. The second is cheaper over time.",
+    a: "Primarily finish standard, worksite discipline, and what they put in writing. Builder-grade work with a verbal assurance is a different product from top-standard work with a written 15-year structural warranty. The first is cheaper today. The second is cheaper over time.",
   },
   {
     q: "How do I know if my {SERVICE} was done correctly?",
-    a: "Three indicators: no visible texture variation under raking light, no hollow spots when tapped (for tile or drywall), and no seam lines visible after paint. We walk through these with you at sign-off. If you notice anything within 14 days, we return at zero cost.",
+    a: "Three indicators: no visible variation under raking light, no hollow or loose spots, and no seam or joint lines visible once finished. We walk through these with you at sign-off. If you notice anything within 14 days, we return at zero cost.",
   },
   {
     q: "What materials does {BRAND} use for {SERVICE} in Cochrane?",
@@ -160,7 +160,7 @@ const PERMIT_FAQS = [
   },
   {
     q: "What inspections are required for {SERVICE} work in Cochrane?",
-    a: "Inspection requirements depend on scope and location. Projects requiring a permit will have associated inspections — these are scheduled and managed by {BRAND}. Projects not requiring permits have no mandatory inspections. All work is held to ASTM/TCNA standard regardless.",
+    a: "Inspection requirements depend on scope and location. Projects requiring a permit will have associated inspections — these are scheduled and managed by {BRAND}. Projects not requiring permits have no mandatory inspections. All work is held to the trade's published standard regardless.",
   },
   {
     q: "Does {SERVICE} work in Rocky View County require a permit?",
@@ -171,11 +171,11 @@ const PERMIT_FAQS = [
 const COMPARISON_FAQS = [
   {
     q: "Should I DIY {SERVICE} or hire a contractor in Cochrane?",
-    a: "DIY {SERVICE} is possible for small, non-structural repairs where finish quality is not critical. For anything visible after paint, structural, or warranted work, the quality gap between DIY and professional Level-5 work is significant — and DIY carries no guarantee.",
+    a: "DIY {SERVICE} is possible for small, non-structural repairs where finish quality is not critical. For anything visible after paint, structural, or warranted work, the quality gap between DIY and professional top-standard work is significant — and DIY carries no guarantee.",
   },
   {
     q: "How do I compare {SERVICE} quotes from different Cochrane contractors?",
-    a: "Compare three things: whether the quote is written (verbal quotes are unenforceable), what finish level is specified (Level 3 vs Level 5 is a visible, lasting difference), and what guarantee is in writing. A lower quote with no written terms is rarely cheaper over time.",
+    a: "Compare three things: whether the quote is written (verbal quotes are unenforceable), what finish standard is specified (builder-grade versus the trade's top standard is a visible, lasting difference), and what guarantee is in writing. A lower quote with no written terms is rarely cheaper over time.",
   },
   {
     q: "What questions should I ask a {SERVICE} contractor before hiring?",
@@ -183,7 +183,7 @@ const COMPARISON_FAQS = [
   },
   {
     q: "Why is {BRAND} more expensive than other {SERVICE} contractors in Cochrane?",
-    a: "The written 15-year structural guarantee, Level-5 finish standard, same-crew consistency, $5M insurance coverage, and WCB on every crew member are not free to provide. The question is not the upfront cost — it is whether you pay once for work done right, or twice for work redone.",
+    a: "The written 15-year structural guarantee, top-tier finish standard, same-crew consistency, $5M insurance coverage, and WCB on every crew member are not free to provide. The question is not the upfront cost — it is whether you pay once for work done right, or twice for work redone.",
   },
 ];
 
@@ -194,7 +194,7 @@ const POSTPROJECT_FAQS = [
   },
   {
     q: "When can I paint after {SERVICE} work in Cochrane?",
-    a: "Drywall and plaster: primer after 24 hours, paint after 48–72 hours once completely dry. The specific cure window depends on ambient humidity and temperature — noted in your sign-off documentation. Painting too early traps moisture and affects adhesion.",
+    a: "{SERVICE} and plaster: primer after 24 hours, paint after 48–72 hours once completely dry. The specific cure window depends on ambient humidity and temperature — noted in your sign-off documentation. Painting too early traps moisture and affects adhesion.",
   },
   {
     q: "How do I know if {SERVICE} work has failed after the project is complete?",
@@ -202,7 +202,7 @@ const POSTPROJECT_FAQS = [
   },
   {
     q: "What maintenance does {SERVICE} work require after completion?",
-    a: "Interior {SERVICE} finishing requires no routine maintenance. The 15-year structural guarantee covers failures from workmanship — not from homeowner modification of the work. Normal household use, painting over drywall, and cleaning tiled surfaces do not affect the guarantee.",
+    a: "Interior {SERVICE} finishing requires no routine maintenance. The 15-year structural guarantee covers failures from workmanship — not from homeowner modification of the work. Normal household use, redecorating, and routine cleaning do not affect the guarantee.",
   },
 ];
 
@@ -218,7 +218,7 @@ const QUOTE_STEPS = [
 
 // ─── Key definitions — AI extraction: [Term]: [definition] ───────────────────
 const DEFINITIONS = [
-  { term: "Level 5 finish", definition: "The highest drywall grade (ASTM C840) — a full skim coat applied over the entire board surface, not only at joints. Eliminates texture variation under raking or oblique light. Required by {BRAND} on every project." },
+  { term: "Finish standard", definition: "The published industry grade a finished surface is held to. {BRAND} works to the trade's highest grade on every project — full coverage across the entire surface, not only at the joints — eliminating variation visible under raking or oblique light." },
   { term: "Written scope", definition: "A pre-work document listing exactly what will be done, to what standard, and within what price band. Signed before any work begins. No changes made without written homeowner approval." },
   { term: "15-year structural warranty", definition: "A written guarantee covering structural {SERVICE} work for 15 years from project completion. Named on the signed invoice and enforceable under Alberta's Fair Trading Act." },
 ];

@@ -32,7 +32,7 @@ export const RESPONSIVE_MOBILE_PERSONA = {
     contentPrioritization:
       "Identify the primary user goals (see services, see finished-work proof, send photos for a quote, request pricing) and ensure they appear immediately. Tuck secondary details into collapsible/accordion patterns to reduce cognitive load.",
     minimalism:
-      "Favor clarity over decorative embellishment. Remove unnecessary sidebars, carousels and heavy media on mobile to keep pages fast and focused. Every element must earn its space — the same discipline a clean drywall seam asks for.",
+      "Favor clarity over decorative embellishment. Remove unnecessary sidebars, carousels and heavy media on mobile to keep pages fast and focused. Every element must earn its space — the same discipline a clean {SERVICE} seam asks for.",
   },
 
   breakpoints: {
@@ -67,7 +67,7 @@ export const RESPONSIVE_MOBILE_PERSONA = {
     backNavigation:
       "Users can always find their way back using clear 'back' or 'up' controls. Never trap the homeowner in a dead-end state.",
     forCochraneMasterBuilders:
-      "Navigation should feel as measured and intentional as a clean drywall seam — every tap leads somewhere purposeful. The Get-a-Quote CTA is always within reach, like the calm certainty of knowing the scope is contained.",
+      "Navigation should feel as measured and intentional as a clean {SERVICE} seam — every tap leads somewhere purposeful. The Get-a-Quote CTA is always within reach, like the calm certainty of knowing the scope is contained.",
   },
 
   mobileTypography: {
@@ -106,7 +106,7 @@ export const RESPONSIVE_MOBILE_PERSONA = {
     microInteractions:
       "Weave in purposeful micro-interactions: button feedback on tap, card reveals for service details, subtle parallax on scroll. These provide feedback and delight without distracting from content.",
     forms:
-      "Appropriate input types (tel for phone, email for email). Auto-complete enabled. Minimal fields — Cochrane Master Builders's quote request form should capture only essentials: name, phone, address/postal code, scope (drywall / paint / insulation / package / custom home), and the option to attach photos. Inline validation with friendly error messages.",
+      "Appropriate input types (tel for phone, email for email). Auto-complete enabled. Minimal fields — Cochrane Master Builders's quote request form should capture only essentials: name, phone, address/postal code, scope ({SERVICE} / paint / insulation / package / custom home), and the option to attach photos. Inline validation with friendly error messages.",
     forCochraneMasterBuilders:
       "Touch feedback should feel measured and confident — matching the clean execution of a Cochrane Master Builders job site. A gentle press response, a smooth slide for before/after reveals, a clear confirmation on quote submission.",
     frictionReduction:
@@ -121,7 +121,7 @@ export const RESPONSIVE_MOBILE_PERSONA = {
     optimizationTechniques:
       "Audit every asset. Minify and compress CSS/JS. Defer non-essential scripts. Eliminate render-blocking resources. Leverage HTTP/2 and caching. Preload critical resources (hero image, primary font).",
     codeSplitting:
-      "Route-based code splitting via React.lazy() and Suspense. Each page (Services, Drywall Repair/Install, Painting, Insulation, Garage Packages, Basement Packages, Custom Homes, About, FAQ, Quote) loads only its own code. Heavy gallery components load on demand.",
+      "Route-based code splitting via React.lazy() and Suspense. Each page (Services, {SERVICE} Repair/Install, Painting, Insulation, Garage Packages, Basement Packages, Custom Homes, About, FAQ, Quote) loads only its own code. Heavy gallery components load on demand.",
     serviceWorkers:
       "Consider PWA capabilities for repeat visitors — cache service pages and project gallery images so they load instantly on return visits. Critical pricing-range information accessible offline.",
     lazyLoading:

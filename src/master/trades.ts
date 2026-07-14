@@ -33,12 +33,12 @@ export interface TradeEntry {
 
 export const TRADES: TradeEntry[] = [
   {
-    slug: "drywall-insulation",
-    name: "Cochrane Drywall & Insulation",
+    slug: "master-template",
+    name: "Cochrane Master Builders",
     category: "interior-finishing",
     adjacent: ["painting", "basement-finishing", "garage-finishing"],
     url: null, // fill once deployed
-    blurb: "Clean drywall repairs, smooth installs, painting, and insulation for Cochrane homes.",
+    blurb: "Clean {SERVICE} repairs, smooth installs, painting, and insulation for Cochrane homes.",
   },
   // Add a row per remix. Examples to scaffold:
   // { slug: "roofing", name: "Cochrane Roofing", category: "exterior", adjacent: ["siding", "eavestroughs"], url: null, blurb: "..." },

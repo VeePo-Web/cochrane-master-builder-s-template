@@ -39,7 +39,7 @@ const DEFAULT_OBJECTIONS: Objection[] = [
     num: "02",
     falseBelief: "All contractors say they're different. None of them are.",
     headline: "We know. That's why everything is in writing.",
-    body: "We've heard this from almost every client who called us after a bad experience. Jordan M. in Sunset Ridge had a crack other contractors kept calling 'just settling.' We patched it properly. You cannot find it. The difference is not a slogan — it's a Level 5 finish standard and a 15-year structural guarantee on the invoice.",
+    body: "We've heard this from almost every client who called us after a bad experience. Jordan M. in Sunset Ridge had a defect other contractors kept calling 'just settling.' We repaired it properly. You cannot find it. The difference is not a slogan — it's a top-tier finish standard and a 15-year structural guarantee on the invoice.",
     resolution:
       "We work on that assumption every single time we quote a job. The quote is written. The guarantee is written. The timeline is agreed before any work starts. Which is why the guarantee goes on the invoice.",
   },
@@ -47,7 +47,7 @@ const DEFAULT_OBJECTIONS: Objection[] = [
     num: "03",
     falseBelief: "I can deal with this later. It's not that urgent.",
     headline: "The wall will not fix itself.",
-    body: "Small drywall damage becomes structural compromise when moisture gets in. The job that costs $350 today costs $900 next year. The crack that you've been meaning to address for two winters is now a conversation about insulation and vapour barrier. The right time to fix it was six months ago. The second-best time is now.",
+    body: "Small damage becomes structural compromise when moisture gets in. The job that costs $350 today costs $900 next year. The defect you've been meaning to address for two winters is now a conversation about what sits behind the surface. The right time to fix it was six months ago. The second-best time is now.",
     resolution:
       "The job is cheaper now than it will be in two years. The house is quieter now than it will feel after another winter of noticing it. The right time is always slightly in the past.",
   },

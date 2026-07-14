@@ -1,7 +1,7 @@
 /**
- * COCHRANE DRYWALL & INSULATION — Business Description (canonical)
+ * COCHRANE MASTER BUILDERS — Business Description (canonical)
  *
- * SOURCE OF TRUTH — distilled from `1.2_Cochrane_Drywall_Insulation_--_bus_desc.docx`.
+ * SOURCE OF TRUTH — distilled from `1.2_Cochrane_{SERVICE}_Insulation_--_bus_desc.docx`.
  * Strategic narrative, differentiators, services with planning ranges,
  * vision, mission, service area. This file governs every service price,
  * package description, and positional claim on the site.
@@ -11,9 +11,9 @@ export const BUSINESS = {
   // ── The Strategic Narrative (3 paragraphs, near-verbatim) ──────────────
   narrative: {
     paragraph1:
-      "Cochrane Drywall & Insulation is a residential interior finishing company built to serve homeowners who want reliable, well-scoped work without the confusion, delays, or inflated complexity that often come with larger renovation firms or broad handyman services. The business is intentionally focused on four practical service categories that naturally work together: drywall patching, drywall sheet installation, interior painting, and insulation for basements, garages, and small residential improvement projects. That focus is the strength of the brand.",
+      "Cochrane Master Builders is a residential interior finishing company built to serve homeowners who want reliable, well-scoped work without the confusion, delays, or inflated complexity that often come with larger renovation firms or broad handyman services. The business is intentionally focused on four practical service categories that naturally work together: {SERVICE} patching, {SERVICE} sheet installation, interior painting, and insulation for basements, garages, and small residential improvement projects. That focus is the strength of the brand.",
     paragraph2:
-      "At its core, the business solves a very specific homeowner problem: many interior projects are too important to leave unfinished, but too small or too straightforward for a large general contractor to prioritize. Cochrane Drywall & Insulation fills that gap with a practical, service-driven model — handling everything from damaged walls and repair cuts to garage boarding, basement wall installation, repaint work, and insulation packages.",
+      "At its core, the business solves a very specific homeowner problem: many interior projects are too important to leave unfinished, but too small or too straightforward for a large general contractor to prioritize. Cochrane Master Builders fills that gap with a practical, service-driven model — handling everything from damaged walls and repair cuts to garage boarding, basement wall installation, repaint work, and insulation packages.",
     paragraph3:
       "The professional identity is clear, local, and disciplined: a company that helps homeowners move interior spaces from damaged, exposed, or unfinished to clean, prepared, and functional. Not a full-scale renovation company. Not a catch-all handyman brand. A focused residential finishing business with clarity of scope and straightforward quoting.",
   },
@@ -23,7 +23,7 @@ export const BUSINESS = {
     {
       label: "Focused residential finishing model",
       description:
-        "Built around drywall, painting, and insulation — not trying to compete as a general renovation company or broad handyman service.",
+        "Built around {SERVICE}, painting, and insulation — not trying to compete as a general renovation company or broad handyman service.",
     },
     {
       label: "A clear service ladder",
@@ -33,12 +33,12 @@ export const BUSINESS = {
     {
       label: "Practical, high-demand services",
       description:
-        "Solves common homeowner needs: patching damaged walls, boarding unfinished spaces, repainting refreshed interiors, and insulating basements or garages before drywall.",
+        "Solves common homeowner needs: patching damaged walls, boarding unfinished spaces, repainting refreshed interiors, and insulating basements or garages before {SERVICE}.",
     },
     {
       label: "Built-in upsell logic",
       description:
-        "Patching leads to painting, drywall installation leads to insulation packages, small jobs create pathways into larger projects.",
+        "Patching leads to painting, {SERVICE} installation leads to insulation packages, small jobs create pathways into larger projects.",
     },
     {
       label: "Owner-operator structure",
@@ -49,12 +49,12 @@ export const BUSINESS = {
 
   // ── Services (4 core + packages) with planning ranges ──────────────────
   services: {
-    drywallPatching: {
-      slug: "drywall-repair",
-      label: "Drywall Patching",
-      shortLabel: "Drywall Repair",
+    servicePatching: {
+      slug: "service-repair",
+      label: "{SERVICE} Patching",
+      shortLabel: "{SERVICE} Repair",
       summary:
-        "Professional wall and ceiling repairs for the damage homeowners deal with most often — door knob holes, medium wall damage, cut-open drywall from plumbing or electrical repairs, crack repair, and similar repair areas.",
+        "Professional wall and ceiling repairs for the damage homeowners deal with most often — door knob holes, medium wall damage, cut-open {SERVICE} from plumbing or electrical repairs, crack repair, and similar repair areas.",
       positioning:
         "Clean patches, smooth finishing, paint-ready results, quick-turn residential repair work. The most accessible entry-point service.",
       planningRanges: [
@@ -63,10 +63,10 @@ export const BUSINESS = {
         { scope: "Larger repair or multi-visit patch", range: "$450–$900+" },
       ],
     },
-    drywallInstallation: {
-      slug: "drywall-installation",
-      label: "Drywall Sheet Installation",
-      shortLabel: "Drywall Installation",
+    serviceInstallation: {
+      slug: "service-installation",
+      label: "{SERVICE} Sheet Installation",
+      shortLabel: "{SERVICE} Installation",
       summary:
         "Installation services for basement walls, garage boarding, ceilings, utility rooms, repair sections too large for patching, and smaller room or partition projects.",
       positioning:
@@ -87,7 +87,7 @@ export const BUSINESS = {
       label: "Interior Painting",
       shortLabel: "Painting",
       summary:
-        "Interior repainting that pairs naturally with drywall work — single-room repaints, ceilings, touch-ups after patching, trim and wall refreshes, basement repaints, move-out or turnover refresh jobs.",
+        "Interior repainting that pairs naturally with {SERVICE} work — single-room repaints, ceilings, touch-ups after patching, trim and wall refreshes, basement repaints, move-out or turnover refresh jobs.",
       positioning:
         "Adds professional finish value to repair and installation work while standing on its own as a practical service for homeowners wanting a cleaner, updated space.",
       planningRanges: [
@@ -117,9 +117,9 @@ export const BUSINESS = {
   packages: {
     garage: {
       slug: "garage-packages",
-      label: "Garage Drywall & Insulation Packages",
+      label: "Garage {SERVICE} Packages",
       summary:
-        "Insulation, drywall sheet installation, patching, and painting bundled for garages — fewer gaps between trades, clearer project flow, a more efficient path from unfinished to usable space.",
+        "Insulation, {SERVICE} sheet installation, patching, and painting bundled for garages — fewer gaps between trades, clearer project flow, a more efficient path from unfinished to usable space.",
     },
     basement: {
       slug: "basement-packages",
@@ -138,9 +138,9 @@ export const BUSINESS = {
 
   // ── Vision & Mission ───────────────────────────────────────────────────
   vision:
-    "To become the trusted local name in Cochrane for practical residential interior finishing work — helping homeowners transform damaged, unfinished, or underused spaces into clean, completed, and functional parts of the home through focused drywall, painting, and insulation services.",
+    "To become the trusted local name in Cochrane for practical residential interior finishing work — helping homeowners transform damaged, unfinished, or underused spaces into clean, completed, and functional parts of the home through focused {SERVICE}, painting, and insulation services.",
   mission:
-    "Cochrane Drywall & Insulation exists to provide homeowners in Cochrane with clear, dependable drywall patching, drywall sheet installation, interior painting, and insulation services for basements, garages, and small residential projects — delivering straightforward workmanship that improves the condition, usability, and finish of interior spaces without unnecessary complexity.",
+    "Cochrane Master Builders exists to provide homeowners in Cochrane with clear, dependable {SERVICE} patching, {SERVICE} sheet installation, interior painting, and insulation services for basements, garages, and small residential projects — delivering straightforward workmanship that improves the condition, usability, and finish of interior spaces without unnecessary complexity.",
 
   // ── Contact (placeholders — pending real values) ───────────────────────
   contact: {

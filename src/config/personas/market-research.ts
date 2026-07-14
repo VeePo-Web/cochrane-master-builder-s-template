@@ -19,7 +19,7 @@ export const MARKET_RESEARCH = {
       "Mobile residential interior finishing",
       "Interior homes deep cleaning",
       "Exterior home renovation",
-      "Drywall + paint finishing / refinishing",
+      "{SERVICE} + paint finishing / refinishing",
       "Convenience-based local service businesses",
     ],
     marketLayers: {
@@ -33,7 +33,7 @@ export const MARKET_RESEARCH = {
       },
       layer3: {
         name: "Restoration / premium reconditioning",
-        description: "Drywall + paint finishing, wall finishes, showroom-grade finishing, pre-listing renovation, premium home stewardship.",
+        description: "{SERVICE} + paint finishing, wall finishes, showroom-grade finishing, pre-listing renovation, premium home stewardship.",
       },
     },
     cochranePosition: "Sits most naturally between Layer 2 and entry-level Layer 3 — more differentiated than 'discount contractors.'",

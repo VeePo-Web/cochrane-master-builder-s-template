@@ -1230,7 +1230,7 @@ export const ANTI_PATTERNS = {
   ],
   copy: [
     "NEVER use 'luxury', 'premium', 'elite', 'VIP' — let the craft speak.",
-    "NEVER use construction jargon: 'wall finish', 'drywall + paint finishing', 'millwork detail' without explanation.",
+    "NEVER use construction jargon: 'wall finish', '{SERVICE} + paint finishing', 'millwork detail' without explanation.",
     "NEVER use pushy sales language: 'Act now!', 'Limited spots!', 'Don't miss out!'",
     "NEVER use gendered language: 'man cave', 'dad home', 'mom's starter home'.",
     "NEVER reference competitors or other finishing services.",

@@ -56,12 +56,11 @@ export interface HSL {
 export const TRADE = {
   // ── Identity ───────────────────────────────────────────────────────────
   identity: {
-    name: BUSINESS.narrative.paragraph1.includes("Cochrane Drywall")
-      ? "Cochrane Drywall & Insulation"
-      : "Cochrane Drywall & Insulation",
-    shortName: "Cochrane Drywall",
-    trade: "drywall-insulation" as const,
-    tagline: BRAND_IDENTITY.taglineCandidates[0], // "Finally Get That Wall Handled"
+    // MASTER DEFAULTS — plain literals a remix author edits directly.
+    name: "Cochrane Master Builders",
+    shortName: "Cochrane Master Builders",
+    trade: "master-template" as const,
+    tagline: BRAND_IDENTITY.taglineCandidates[0],
     location: {
       city: "Cochrane",
       region: "Alberta",
@@ -94,7 +93,7 @@ export const TRADE = {
       // Surfaces
       bone: { h: 36, s: 22, l: 95 } as HSL, // page background ("warm fresh paint")
       paper: { h: 0, s: 0, l: 100 } as HSL, // cards / elevated surfaces
-      seam: { h: 36, s: 14, l: 88 } as HSL, // borders / hairlines (the "drywall seam")
+      seam: { h: 36, s: 14, l: 88 } as HSL, // borders / hairlines (the "seam" token)
       // Ink
       charcoal: { h: 25, s: 8, l: 25 } as HSL, // primary text + headlines
       graphite: { h: 25, s: 6, l: 38 } as HSL, // body text
@@ -186,9 +185,9 @@ export const TRADE = {
 
   // ── SEO ────────────────────────────────────────────────────────────────
   seo: {
-    title: "Cochrane Drywall & Insulation — Practical Interior Finishing",
+    title: "Cochrane Master Builders — {SERVICE} in Cochrane, AB",
     description:
-      "Clean drywall repairs, smooth installs, interior painting, and basement & garage insulation in Cochrane, Alberta. Small jobs welcome.",
+      "{SERVICE} in Cochrane, Alberta — written scope, published-standard work, and a 15-year structural guarantee. Small jobs welcome.",
     ogImage: "/og-image.jpg",
     twitterHandle: null as string | null,
   },

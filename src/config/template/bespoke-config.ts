@@ -19,7 +19,7 @@ export interface BespokeConfig {
   /** The generational promise — rendered in ≥7 surfaces. Sacred. Never animated with bounce. */
   slogan: string;
   monogram: {
-    /** Three letters of the brand monogram. CMB for parent; e.g. CTM for Tile Masters. */
+    /** Three letters of the brand monogram. CMB for parent; remixes use their own three-letter monogram. */
     letters: [string, string, string];
     /** The personification props — always parent-brand; they are the "by CMB" signature. */
     personifications: {

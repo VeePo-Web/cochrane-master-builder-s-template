@@ -18,7 +18,7 @@ export const MASTER_DESIGN_PLAN = {
   // 0. CURRENT STATE AUDIT
   // ═══════════════════════════════════════════════════════════════════
   currentStateAudit: {
-    problem: "The current site is built as a luxury wedding planning brand ('Hickory & Rose'). Cochrane Master Builders is a residential interior finishing service in Calgary. The entire design system, content, architecture, and emotional tone must be rebuilt to serve a grounded, proof-driven, industrial-premium brand that converts Calgary homeowners with overdue homes into bookings.",
+    problem: "LEGACY NOTE — this design plan documents the original rebuild of this template from an unrelated predecessor site into the Cochrane Master Builders system. It is kept as doc-layer history only; nothing here renders.",
     stackConfirmation: {
       framework: "React 18 ✓",
       buildTool: "Vite ✓",
@@ -32,13 +32,13 @@ export const MASTER_DESIGN_PLAN = {
       smoothScroll: "Lenis ✓",
     },
     whatMustChange: [
-      "All 'Hickory & Rose' wedding content → Cochrane Master Builders mobile restoration content",
-      "Sage/cream wedding palette → Asphalt Black, Stone Gray, Warm Porcelain, Burnished Copper",
+      "All predecessor-brand content → Cochrane Master Builders template content",
+      "Predecessor palette → Asphalt Black, Stone Gray, Warm Porcelain, Burnished Copper",
       "Cormorant Garamond + Great Vibes → Industrial premium sans-serif type system",
-      "Editorial wedding photography → Before/after restoration photography, close-up textures, founder-at-work",
+      "Predecessor photography → Before/after proof photography, close-up textures, founder-at-work",
       "Service tiers (Day-Of, Partial, Full) → Single flagship 'Custom Build' offer",
       "Inquiry/consultation form → Minimal booking form + text/call alternative",
-      "Wedding narrative arc → Transformation proof narrative arc",
+      "Predecessor narrative arc → Transformation proof narrative arc",
       "Polished Paige persona → Calgary homeowner with overdue home persona",
       "Calm luxury emotional tone → Grounded confidence, deeply satisfying, no-judgment",
     ],
@@ -323,7 +323,7 @@ export const MASTER_DESIGN_PLAN = {
             steps: [
               { number: "01", title: "Book", description: "Pick a time. Tell us your home and condition." },
               { number: "02", title: "We Come to You", description: "Cochrane Master Builders arrives at your location with everything needed." },
-              { number: "03", title: "Custom Build", description: "Deep extraction. Drywall + paint finishing. You get your home back." },
+              { number: "03", title: "Custom Build", description: "Deep extraction. {SERVICE} + paint finishing. You get your home back." },
             ],
             design: "Warm Porcelain background. Numbered steps with editorial typography. Horizontal on desktop, vertical stack on mobile. Subtle connector lines between steps.",
           },
@@ -381,7 +381,7 @@ export const MASTER_DESIGN_PLAN = {
         sections: [
           "Hero with 'The Custom Build' positioning",
           "Problem-state framing: 'Daily homeowner that needs a refresh' vs 'Home that hasn't been touched in a year' vs 'Work truck with heavy-use buildup'",
-          "Detailed inclusions: interior extraction, drywall + paint finishing, trim restoration",
+          "Detailed inclusions: interior extraction, {SERVICE} + paint finishing, trim restoration",
           "What affects pricing: home size, condition level, add-ons",
           "Realistic expectations: restoration vs repair, condition-dependent results",
           "FAQ section (service-specific)",
@@ -792,7 +792,7 @@ export const MASTER_DESIGN_PLAN = {
       order: 8,
       description: "Generate brand-aligned imagery",
       tasks: [
-        "Before/after pairs: interior extraction, drywall + paint finishing",
+        "Before/after pairs: interior extraction, {SERVICE} + paint finishing",
         "Close-up texture macro shots",
         "Founder at-work photography style",
         "Calgary residential context imagery",
