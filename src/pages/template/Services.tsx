@@ -1,14 +1,14 @@
 import { lazy, Suspense } from "react";
 import TemplateLayout from "@/components/template/TemplateLayout";
 import SectionFrame from "@/components/template/SectionFrame";
-import SectionTitle from "@/components/drywall/SectionTitle";
-import InnerHero from "@/components/drywall/InnerHero";
+import SectionTitle from "@/components/shared/SectionTitle";
+import InnerHero from "@/components/shared/InnerHero";
 import ServicesGrid from "@/components/template/ServicesGrid";
-import CTABand from "@/components/drywall/CTABand";
+import CTABand from "@/components/shared/CTABand";
 import RemixSlot from "@/components/template/RemixSlot";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
-import type { BookingClickHandler } from "@/config/drywall-booking";
+import type { BookingClickHandler } from "@/config/booking";
 
 const CapacitySignal = lazy(() => import("@/components/master/CapacitySignal").then(m => ({ default: m.CapacitySignal })));
 

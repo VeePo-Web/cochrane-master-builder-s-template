@@ -18,7 +18,7 @@ import { getRegion, getRegionCommunities, REGIONS } from "@/data/communities";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { setPageMeta } from "@/lib/seo";
-import type { BookingClickHandler } from "@/config/drywall-booking";
+import type { BookingClickHandler } from "@/config/booking";
 
 interface RegionPageProps {
   onBookClick?: BookingClickHandler;

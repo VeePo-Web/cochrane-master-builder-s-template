@@ -20,13 +20,13 @@ import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import TemplateLayout from "@/components/template/TemplateLayout";
 import SectionFrame from "@/components/template/SectionFrame";
-import CTABand from "@/components/drywall/CTABand";
+import CTABand from "@/components/shared/CTABand";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 import { EMAIL } from "@/config/template/contact";
 import { REVIEWS } from "@/config/reviews";
 import { BlueprintGrain } from "@/components/template/bespoke";
-import type { BookingClickHandler } from "@/config/drywall-booking";
+import type { BookingClickHandler } from "@/config/booking";
 
 const GuaranteeBlock = lazy(() =>
   import("@/components/master/GuaranteeBlock").then((m) => ({ default: m.GuaranteeBlock }))

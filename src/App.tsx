@@ -6,12 +6,12 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { prefetchIdle } from "./components/template/PrefetchLink";
-import SmoothScrollProvider from "./components/drywall/SmoothScrollProvider";
-import PageTransition from "./components/drywall/PageTransition";
+import SmoothScrollProvider from "./components/shared/SmoothScrollProvider";
+import PageTransition from "./components/shared/PageTransition";
 // Universal template booking modal — imported statically (NOT lazy) for < 1 frame mount
 import { BookingModal } from "./components/template/BookingModal";
-import BackToTop from "./components/drywall/BackToTop";
-import StickyCTA from "./components/drywall/StickyCTA";
+import BackToTop from "./components/shared/BackToTop";
+import StickyCTA from "./components/shared/StickyCTA";
 import ScrollToTop from "./components/ScrollToTop";
 import { MetaTags } from "./components/template/MetaTags";
 import type { BookingClickHandler, BookingPrefill } from "./config/template/booking-schema";

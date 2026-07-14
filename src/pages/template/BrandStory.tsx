@@ -1,15 +1,15 @@
 import TemplateLayout from "@/components/template/TemplateLayout";
 import SectionFrame from "@/components/template/SectionFrame";
-import SectionTitle from "@/components/drywall/SectionTitle";
-import InnerHero from "@/components/drywall/InnerHero";
-import EditorialQuote from "@/components/drywall/EditorialQuote";
-import EditorialImage from "@/components/drywall/EditorialImage";
-import CTABand from "@/components/drywall/CTABand";
+import SectionTitle from "@/components/shared/SectionTitle";
+import InnerHero from "@/components/shared/InnerHero";
+import EditorialQuote from "@/components/shared/EditorialQuote";
+import EditorialImage from "@/components/shared/EditorialImage";
+import CTABand from "@/components/shared/CTABand";
 import RemixSlot from "@/components/template/RemixSlot";
 import { lazy, Suspense } from "react";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
-import type { BookingClickHandler } from "@/config/drywall-booking";
+import type { BookingClickHandler } from "@/config/booking";
 
 const MasterBuilderSeal = lazy(() => import("@/components/master/MasterBuilderSeal").then(m => ({ default: m.MasterBuilderSeal })));
 

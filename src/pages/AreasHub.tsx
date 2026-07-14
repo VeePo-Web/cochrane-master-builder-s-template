@@ -22,7 +22,7 @@ import { REGIONS, COMMUNITIES, getRegionCommunities, getCommunity } from "@/data
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { setPageMeta } from "@/lib/seo";
-import type { BookingClickHandler } from "@/config/drywall-booking";
+import type { BookingClickHandler } from "@/config/booking";
 
 interface AreasHubProps {
   onBookClick?: BookingClickHandler;

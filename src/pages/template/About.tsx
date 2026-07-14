@@ -1,13 +1,13 @@
 import { lazy, Suspense } from "react";
 import TemplateLayout from "@/components/template/TemplateLayout";
 import SectionFrame from "@/components/template/SectionFrame";
-import SectionTitle from "@/components/drywall/SectionTitle";
-import InnerHero from "@/components/drywall/InnerHero";
-import CTABand from "@/components/drywall/CTABand";
+import SectionTitle from "@/components/shared/SectionTitle";
+import InnerHero from "@/components/shared/InnerHero";
+import CTABand from "@/components/shared/CTABand";
 import RemixSlot from "@/components/template/RemixSlot";
 import HeritageRelay from "@/components/template/bespoke/HeritageRelay";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
-import type { BookingClickHandler } from "@/config/drywall-booking";
+import type { BookingClickHandler } from "@/config/booking";
 
 const MasterBuilderSeal = lazy(() => import("@/components/master/MasterBuilderSeal").then(m => ({ default: m.MasterBuilderSeal })));
 

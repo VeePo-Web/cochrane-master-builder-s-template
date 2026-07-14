@@ -33,7 +33,7 @@ import { MASTER_REMIX } from "@/config/template/remix-variables";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { EMAIL, EMAIL_HREF } from "@/config/template/contact";
 import { setPageMeta } from "@/lib/seo";
-import type { BookingClickHandler, BookingPrefill } from "@/config/drywall-booking";
+import type { BookingClickHandler, BookingPrefill } from "@/config/booking";
 import type { FAQ } from "@/config/template/remix-variables";
 
 interface CommunityPageProps {

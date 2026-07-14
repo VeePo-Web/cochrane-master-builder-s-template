@@ -2,16 +2,16 @@ import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import TemplateLayout from "@/components/template/TemplateLayout";
 import SectionFrame from "@/components/template/SectionFrame";
-import InnerHero from "@/components/drywall/InnerHero";
-import ScrollReveal from "@/components/drywall/ScrollReveal";
-import EditorialQuote from "@/components/drywall/EditorialQuote";
+import InnerHero from "@/components/shared/InnerHero";
+import ScrollReveal from "@/components/shared/ScrollReveal";
+import EditorialQuote from "@/components/shared/EditorialQuote";
 import TrustNumbers from "@/components/template/TrustNumbers";
-import CTABand from "@/components/drywall/CTABand";
+import CTABand from "@/components/shared/CTABand";
 import RemixSlot from "@/components/template/RemixSlot";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 import { useReviews } from "@/hooks/use-reviews";
-import type { BookingClickHandler } from "@/config/drywall-booking";
+import type { BookingClickHandler } from "@/config/booking";
 
 const SocialProofEngine = lazy(() =>
   import("@/components/master/SocialProofEngine").then((m) => ({

@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import TemplateNavigation from "./TemplateNavigation";
 import TemplateFooter from "./TemplateFooter";
-import type { BookingClickHandler } from "@/config/drywall-booking";
+import type { BookingClickHandler } from "@/config/booking";
 
 interface TemplateLayoutProps {
   onBookClick?: BookingClickHandler;

@@ -6,7 +6,7 @@ import { MasterLogo } from "@/master";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { EMAIL, EMAIL_HREF } from "@/config/template/contact";
 import { SloganHeartbeat } from "@/components/template/bespoke";
-import type { BookingClickHandler } from "@/config/drywall-booking";
+import type { BookingClickHandler } from "@/config/booking";
 
 interface Props {
   onBookClick?: BookingClickHandler;

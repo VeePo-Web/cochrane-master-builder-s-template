@@ -433,7 +433,7 @@ const RAIL_CHECKERS: Record<GuardRailId, Checker> = {
     const evidence: string[] = [];
     const candidatePaths = [
       "src/components/Footer.tsx",
-      "src/components/drywall/Footer.tsx",
+      "src/components/shared/Footer.tsx",
       "src/pages/Contact.tsx",
     ];
     let footerText = "";

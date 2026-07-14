@@ -3,7 +3,7 @@ import TemplateLayout from "@/components/template/TemplateLayout";
 import SectionFrame from "@/components/template/SectionFrame";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { SloganHeartbeat, BlueprintGrain, CornerstoneStamp } from "@/components/template/bespoke";
-import type { BookingClickHandler } from "@/config/drywall-booking";
+import type { BookingClickHandler } from "@/config/booking";
 
 interface Props { onBookClick?: BookingClickHandler }
 

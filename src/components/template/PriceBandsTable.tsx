@@ -1,4 +1,4 @@
-import PricingTable from "@/components/drywall/PricingTable";
+import PricingTable from "@/components/shared/PricingTable";
 import type { PriceBand } from "@/config/template/remix-variables";
 
 interface PriceBandsTableProps {

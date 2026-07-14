@@ -1,4 +1,4 @@
-import type { BookingPrefill } from "@/config/drywall-booking";
+import type { BookingPrefill } from "@/config/booking";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 
 interface CTABandProps {

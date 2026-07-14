@@ -1,8 +1,8 @@
 import TemplateLayout from "@/components/template/TemplateLayout";
 import SectionFrame from "@/components/template/SectionFrame";
-import InnerHero from "@/components/drywall/InnerHero";
+import InnerHero from "@/components/shared/InnerHero";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
-import type { BookingClickHandler } from "@/config/drywall-booking";
+import type { BookingClickHandler } from "@/config/booking";
 
 interface Props { onBookClick?: BookingClickHandler }
 

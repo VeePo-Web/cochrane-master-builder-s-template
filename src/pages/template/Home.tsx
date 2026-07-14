@@ -3,19 +3,19 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import TemplateLayout from "@/components/template/TemplateLayout";
 import SectionFrame from "@/components/template/SectionFrame";
-import SectionTitle from "@/components/drywall/SectionTitle";
+import SectionTitle from "@/components/shared/SectionTitle";
 import TrustNumbers from "@/components/template/TrustNumbers";
 import ServicesGrid from "@/components/template/ServicesGrid";
 import PriceBandsTable from "@/components/template/PriceBandsTable";
 import RemixSlot from "@/components/template/RemixSlot";
-import EditorialImage from "@/components/drywall/EditorialImage";
-import EditorialQuote from "@/components/drywall/EditorialQuote";
-import BeforeAfterPair from "@/components/drywall/BeforeAfterPair";
-import ProcessSteps from "@/components/drywall/ProcessSteps";
-import FAQAccordion from "@/components/drywall/FAQAccordion";
-import CTABand from "@/components/drywall/CTABand";
-import HeroImage from "@/components/drywall/HeroImage";
-import ScrollReveal from "@/components/drywall/ScrollReveal";
+import EditorialImage from "@/components/shared/EditorialImage";
+import EditorialQuote from "@/components/shared/EditorialQuote";
+import BeforeAfterPair from "@/components/shared/BeforeAfterPair";
+import ProcessSteps from "@/components/shared/ProcessSteps";
+import FAQAccordion from "@/components/shared/FAQAccordion";
+import CTABand from "@/components/shared/CTABand";
+import HeroImage from "@/components/shared/HeroImage";
+import ScrollReveal from "@/components/shared/ScrollReveal";
 import { TEMPLATE_COPY } from "@/config/template/template-copy";
 import { MASTER_REMIX } from "@/config/template/remix-variables";
 import {
@@ -26,7 +26,7 @@ import {
   PlumbLineDivider,
   BlueprintGrain,
 } from "@/components/template/bespoke";
-import type { BookingClickHandler } from "@/config/drywall-booking";
+import type { BookingClickHandler } from "@/config/booking";
 
 const SocialProofEngine = lazy(() => import("@/components/master/SocialProofEngine").then(m => ({ default: m.SocialProofEngine })));
 const GuaranteeBlock = lazy(() => import("@/components/master/GuaranteeBlock").then(m => ({ default: m.GuaranteeBlock })));

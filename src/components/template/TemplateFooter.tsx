@@ -26,7 +26,7 @@ import {
   SloganHeartbeat,
   PlumbLineDivider,
 } from "@/components/template/bespoke";
-import type { BookingClickHandler } from "@/config/drywall-booking";
+import type { BookingClickHandler } from "@/config/booking";
 
 interface Props {
   onBookClick?: BookingClickHandler;

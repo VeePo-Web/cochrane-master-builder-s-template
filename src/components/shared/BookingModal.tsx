@@ -28,7 +28,7 @@ import {
   type DrywallBookingDraft,
   type TimeWindowId,
   type BookingPrefill,
-} from "@/config/drywall-booking";
+} from "@/config/booking";
 import { uploadBookingMedia } from "@/lib/booking-uploads";
 import { TRADE } from "@/config";
 
