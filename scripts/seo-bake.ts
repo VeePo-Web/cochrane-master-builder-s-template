@@ -154,13 +154,20 @@ function noscriptBlock(route: string, h1: string, lede: string) {
 
 // ─── Head rewriting ──────────────────────────────────────────────────────────
 
-function rewriteHead(shell: string, route: string): string {
-  const meta = META_CONFIG[route];
-  const title = meta.title;
-  const description = meta.description;
-  const canonical = meta.canonical ?? `${ORIGIN}${route === "/" ? "/" : route}`;
-  const ogTitle = meta.ogTitle ?? title;
-  const ogDescription = meta.ogDescription ?? description;
+interface BakeOpts {
+  route: string;
+  title: string;
+  description: string;
+  ogTitle?: string;
+  ldBlocks: string[];
+  noscriptHtml: string;
+}
+
+/** Generic per-route head/body rewrite used by template AND area routes. */
+function bakePage(shell: string, opts: BakeOpts): string {
+  const { route, title, description, ldBlocks, noscriptHtml } = opts;
+  const canonical = `${ORIGIN}${route === "/" ? "/" : route}`;
+  const ogTitle = opts.ogTitle ?? title;
 
   let html = shell
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(title)}</title>`)
@@ -172,24 +179,214 @@ function rewriteHead(shell: string, route: string): string {
     .replace(/<meta property="og:title" content="[^"]*"/, `<meta property="og:title" content="${esc(ogTitle)}"`)
     .replace(
       /<meta property="og:description" content="[^"]*"/,
-      `<meta property="og:description" content="${esc(ogDescription)}"`,
+      `<meta property="og:description" content="${esc(description)}"`,
     )
     .replace(/<meta property="og:url" content="[^"]*"/, `<meta property="og:url" content="${canonical}"`)
     .replace(/<meta name="twitter:title" content="[^"]*"/, `<meta name="twitter:title" content="${esc(ogTitle)}"`)
     .replace(
       /<meta name="twitter:description" content="[^"]*"/,
-      `<meta name="twitter:description" content="${esc(ogDescription)}"`,
+      `<meta name="twitter:description" content="${esc(description)}"`,
     );
 
-  // Assemble JSON-LD for this route
+  html = html.replace("</head>", `${ldBlocks.join("")}</head>`);
+  html = html.replace("</body>", `${noscriptHtml}</body>`);
+  return html;
+}
+
+function rewriteHead(shell: string, route: string): string {
+  const meta = META_CONFIG[route];
   const blocks: string[] = [];
   if (route === "/") blocks.push(ld(orgSchema()), ld(webSiteSchema()));
-  blocks.push(ld(webPageSchema(route, title, description)));
+  blocks.push(ld(webPageSchema(route, meta.title, meta.description)));
   if (route === "/faq") blocks.push(ld(faqSchema()));
 
-  html = html.replace("</head>", `${blocks.join("")}</head>`);
-  html = html.replace("</body>", `${noscriptBlock(route, ogTitle, description)}</body>`);
-  return html;
+  return bakePage(shell, {
+    route,
+    title: meta.title,
+    description: meta.ogDescription ? meta.description : meta.description,
+    ogTitle: meta.ogTitle,
+    ldBlocks: blocks,
+    noscriptHtml: noscriptBlock(route, meta.ogTitle ?? meta.title, meta.description),
+  });
+}
+
+// ─── Areas-We-Serve baking (READ-ONLY consumption of communities.ts) ─────────
+// Titles/descriptions replicate the runtime formulas in AreasHub.tsx,
+// RegionPage.tsx, and CommunityPage.tsx exactly, so the baked head matches
+// what the SPA sets after hydration. The frozen pages are never modified.
+
+const SC = MASTER_REMIX.SERVICE_CATEGORY;
+const S = MASTER_REMIX.SERVICE;
+
+function areaCrumbs(items: { name: string; path: string }[]) {
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${ORIGIN}/` },
+      ...items.map((it, i) => ({
+        "@type": "ListItem",
+        position: i + 2,
+        name: it.name,
+        item: `${ORIGIN}${it.path}`,
+      })),
+    ],
+  };
+}
+
+function areaWebPage(route: string, title: string, description: string, crumbs: object) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: title,
+    description,
+    url: `${ORIGIN}${route}`,
+    isPartOf: { "@id": `${ORIGIN}/#website` },
+    breadcrumb: crumbs,
+  };
+}
+
+function areaLocalBusiness(placeName: string, geo?: { lat: number; lng: number }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: BRAND,
+    email: EMAIL,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Cochrane",
+      addressRegion: "AB",
+      addressCountry: "CA",
+    },
+    areaServed: {
+      "@type": "Place",
+      name: placeName,
+      ...(geo
+        ? { geo: { "@type": "GeoCoordinates", latitude: geo.lat, longitude: geo.lng } }
+        : {}),
+    },
+    hasOfferCatalog: { "@type": "OfferCatalog", name: `${SC} in ${placeName}` },
+  };
+}
+
+function areaNoscript(crumbHtml: string, h1: string, lede: string, links: { href: string; label: string }[]) {
+  const nav = links.map((l) => `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join("");
+  return (
+    `<noscript><div class="seo-static-content">` +
+    `<nav aria-label="Breadcrumb"><ol>${crumbHtml}</ol></nav>` +
+    `<h1>${esc(h1)}</h1><p>${esc(lede)}</p>` +
+    `<nav aria-label="Nearby areas"><ul>${nav}</ul></nav>` +
+    `</div></noscript>`
+  );
+}
+
+function bakeAreaRoutes(shell: string, distDir: string): number {
+  const bySlug = new Map(COMMUNITIES.map((c) => [c.slug, c]));
+  const write = (route: string, html: string) => {
+    const dir = path.join(distDir, route.replace(/^\//, ""));
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, "index.html"), html);
+  };
+  let n = 0;
+
+  // Hub — /areas-we-serve  (formula from AreasHub.tsx)
+  {
+    const route = "/areas-we-serve";
+    const title = `${SC} Contractor — Areas We Serve | ${BRAND}`;
+    const description = `${BRAND} provides professional ${S} services to 120+ communities across Cochrane, Calgary SW, Springbank, Elbow Valley, Rocky View County, the Bow Valley, and Canmore. Family-owned and Cochrane-based.`;
+    const crumbs = areaCrumbs([{ name: "Areas We Serve", path: route }]);
+    write(
+      route,
+      bakePage(shell, {
+        route,
+        title,
+        description,
+        ldBlocks: [ld(areaLocalBusiness("Cochrane and area")), ld(areaWebPage(route, title, description, crumbs))],
+        noscriptHtml: areaNoscript(
+          `<li><a href="/">Home</a></li><li>Areas We Serve</li>`,
+          title,
+          description,
+          REGIONS.map((r) => ({ href: `/areas-we-serve/${r.slug}`, label: r.name })),
+        ),
+      }),
+    );
+    n++;
+  }
+
+  // Regions — /areas-we-serve/:region  (formula from RegionPage.tsx)
+  for (const r of REGIONS) {
+    const route = `/areas-we-serve/${r.slug}`;
+    const communities = COMMUNITIES.filter((c) => c.region === r.slug);
+    const title = `${SC} — ${r.name} Alberta | ${BRAND}`;
+    const description =
+      `${BRAND} serves ${communities.length} communities in ${r.name}, Alberta. ` +
+      `Master-craft ${S} — Cochrane-based. ` +
+      communities.slice(0, 4).map((c) => c.name).join(", ") +
+      " and more.";
+    const crumbs = areaCrumbs([
+      { name: "Areas We Serve", path: "/areas-we-serve" },
+      { name: r.name, path: route },
+    ]);
+    write(
+      route,
+      bakePage(shell, {
+        route,
+        title,
+        description,
+        ldBlocks: [ld(areaLocalBusiness(`${r.name}, Alberta`)), ld(areaWebPage(route, title, description, crumbs))],
+        noscriptHtml: areaNoscript(
+          `<li><a href="/">Home</a></li><li><a href="/areas-we-serve">Areas We Serve</a></li><li>${esc(r.name)}</li>`,
+          title,
+          description,
+          communities.map((c) => ({ href: `/areas-we-serve/${r.slug}/${c.slug}`, label: c.name })),
+        ),
+      }),
+    );
+    n++;
+  }
+
+  // Communities — /areas-we-serve/:region/:community  (formula from CommunityPage.tsx)
+  for (const c of COMMUNITIES) {
+    const route = `/areas-we-serve/${c.region}/${c.slug}`;
+    const nearest = c.nearestCommunities
+      .slice(0, 2)
+      .map((sl) => bySlug.get(sl)?.name)
+      .filter(Boolean) as string[];
+    const title = `${SC} Contractor ${c.name} ${c.city} | ${BRAND} | Alberta`;
+    const description =
+      `Looking for ${S} in ${c.name}? ${BRAND} serves ${c.name}` +
+      (nearest.length ? ` and nearby ${nearest.join(", ")}` : "") +
+      `. Family-owned, Cochrane-based. Licensed & insured. Written estimate within 24 hours.`;
+    const regionName = REGIONS.find((r) => r.slug === c.region)?.name ?? c.region;
+    const crumbs = areaCrumbs([
+      { name: "Areas We Serve", path: "/areas-we-serve" },
+      { name: regionName, path: `/areas-we-serve/${c.region}` },
+      { name: c.name, path: route },
+    ]);
+    write(
+      route,
+      bakePage(shell, {
+        route,
+        title,
+        description,
+        ldBlocks: [
+          ld(areaLocalBusiness(c.name, c.coordinates)),
+          ld(areaWebPage(route, title, description, crumbs)),
+        ],
+        noscriptHtml: areaNoscript(
+          `<li><a href="/">Home</a></li><li><a href="/areas-we-serve">Areas We Serve</a></li><li><a href="/areas-we-serve/${c.region}">${esc(regionName)}</a></li><li>${esc(c.name)}</li>`,
+          title,
+          c.shortDescription,
+          c.nearestCommunities
+            .map((sl) => bySlug.get(sl))
+            .filter((x): x is NonNullable<typeof x> => Boolean(x))
+            .map((nc) => ({ href: `/areas-we-serve/${nc.region}/${nc.slug}`, label: nc.name })),
+        ),
+      }),
+    );
+    n++;
+  }
+
+  return n;
 }
 
 // ─── Sitemap + llms.txt ──────────────────────────────────────────────────────
@@ -287,14 +484,15 @@ export function seoBake(): Plugin {
         baked++;
       }
 
+      const areaBaked = bakeAreaRoutes(shell, distDir);
+
       fs.writeFileSync(path.join(distDir, "sitemap.xml"), buildSitemap());
       fs.writeFileSync(path.join(distDir, "llms.txt"), buildLlmsTxt());
 
-      const areaUrls = 1 + REGIONS.length + COMMUNITIES.length;
       // eslint-disable-next-line no-console
       console.log(
-        `\x1b[32m✓\x1b[0m seo-bake: ${baked} routes baked · sitemap.xml (${
-          baked + areaUrls
+        `\x1b[32m✓\x1b[0m seo-bake: ${baked} template + ${areaBaked} area routes baked · sitemap.xml (${
+          baked + areaBaked
         } urls) · llms.txt`,
       );
     },
